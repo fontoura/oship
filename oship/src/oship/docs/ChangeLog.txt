@@ -1,0 +1,7 @@
+OSHIP Change Log:
+
+
+1.0.1a2:
+Corrected if statement in at_bldr checking for CLINICAL folder.
+
+

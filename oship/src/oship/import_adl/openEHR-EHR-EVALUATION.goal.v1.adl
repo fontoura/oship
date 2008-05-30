@@ -1,0 +1,149 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.goal.v1
+
+concept
+	[at0000]	-- Goal
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["date"] = <"23/04/2006">
+		["email"] = <"sam.heard@oceaninformatics.biz">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording general goals and specific measurable 9and perhaps incremental) targets towards that goal">
+			use = <"">
+			keywords = <"target", ...>
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+
+definition
+	EVALUATION[at0000] matches {	-- Goal
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; ordered} matches {
+					ELEMENT[at0002] matches {	-- Outcome
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Proposed date of achievement
+						value matches {
+							DV_DATE matches {
+								value matches {yyyy-??-??}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Actual date of achievement
+						value matches {
+							DV_DATE matches {
+								value matches {yyyy-??-??}
+							}
+						}
+					}
+					CLUSTER[at0005] occurrences matches {0..*} matches {	-- Target
+						items cardinality matches {0..4; ordered} matches {
+							ELEMENT[at0006] matches {	-- Archetype + path
+								value matches {
+									DV_URI matches {*}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Target measurement
+								value matches {
+									DV_INTERVAL<COUNT> matches {
+										upper matches {
+											DV_COUNT matches {*}
+										}
+										lower matches {
+											DV_COUNT matches {*}
+										}
+									}
+									DV_INTERVAL<QUANTITY> matches {
+										upper matches {
+											C_DV_QUANTITY <
+												property = <[openehr::0]>
+											>
+										}
+										lower matches {
+											C_DV_QUANTITY <
+												property = <[openehr::0]>
+											>
+										}
+									}
+								}
+							}
+							ELEMENT[at0008] occurrences matches {0..1} matches {	-- Proposed target date
+								value matches {
+									DV_DATE matches {
+										value matches {yyyy-??-??}
+									}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Actual target date
+								value matches {
+									DV_DATE matches {
+										value matches {yyyy-??-??}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					description = <"A future health state that is agreed to by the person">
+					text = <"Goal">
+				>
+				["at0001"] = <
+					description = <"@ internal @">
+					text = <"Tree">
+				>
+				["at0002"] = <
+					description = <"The health state that is to be achieved">
+					text = <"Outcome">
+				>
+				["at0003"] = <
+					description = <"The proposed date of achievement">
+					text = <"Proposed date of achievement">
+				>
+				["at0004"] = <
+					description = <"The date the outcome was achieved">
+					text = <"Actual date of achievement">
+				>
+				["at0005"] = <
+					description = <"The target outcome">
+					text = <"Target">
+				>
+				["at0006"] = <
+					description = <"The archetype and path to the node that is to be measured">
+					text = <"Archetype + path">
+				>
+				["at0007"] = <
+					description = <"The range of values within the target">
+					text = <"Target measurement">
+				>
+				["at0008"] = <
+					description = <"The proposed date for achieving the target">
+					text = <"Proposed target date">
+				>
+				["at0009"] = <
+					description = <"The actual date the target was achieved">
+					text = <"Actual target date">
+				>
+			>
+		>
+	>

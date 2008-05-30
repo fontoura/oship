@@ -1,0 +1,173 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.risk-maternity.v1
+specialize
+	openEHR-EHR-EVALUATION.risk.v1
+
+concept
+	[at0000.1]	-- Evaluation of risk of poor fetal or maternal outcome
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["date"] = <"23/04/2006">
+		["email"] = <"sam.heard@oceaninformatics.biz">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording the risk of an adverse outcome during pregnancy or the post-natal period.">
+			use = <"">
+			keywords = <"assessment", ...>
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+
+definition
+	EVALUATION[at0000.1] matches {	-- Evaluation of risk of poor fetal or maternal outcome
+		data matches {
+			ITEM_TREE[at0001] matches {	-- structure
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0002] matches {	-- Index condition
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.12, 	-- General
+									at0.13, 	-- Pregnancy and labour
+									at0.14, 	-- Labour and delivery
+									at0.15, 	-- Post-natal
+									at0.16]	-- Delivery
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Significance of risk
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Not significant
+									at0007, 	-- Minimal significance
+									at0008, 	-- Significant
+									at0009]	-- Highly significant
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Rationale
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0.17] occurrences matches {0..1} matches {	-- Specific indicators of risk
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0.18] occurrences matches {0..*} matches {	-- Indicator
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_LIST[at0010] matches {	-- List
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Risk calculation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.12"] = <
+					description = <"Risk added in pregnancy, labour and post-natal">
+					text = <"General">
+				>
+				["at0.13"] = <
+					description = <"Added risk during pregnancy and during labour">
+					text = <"Pregnancy and labour">
+				>
+				["at0.14"] = <
+					description = <"Added risk during labour">
+					text = <"Labour and delivery">
+				>
+				["at0.15"] = <
+					description = <"Added risk during the post-natal period">
+					text = <"Post-natal">
+				>
+				["at0.16"] = <
+					description = <"Added risk during delivery">
+					text = <"Delivery">
+				>
+				["at0.17"] = <
+					description = <"Indicators of risk">
+					text = <"Specific indicators of risk">
+				>
+				["at0.18"] = <
+					description = <"The indicator">
+					text = <"Indicator">
+				>
+				["at0000"] = <
+					description = <"Evaluation to indicate that there is, or is not, a significant risk of this subject of care having, now or in the future, a condition.">
+					text = <"Evaluation of risk of condition">
+				>
+				["at0000.1"] = <
+					description = <"Evaluation to indicate that there is, or is not, a significant risk of this subject of care having, now or in the future, a condition.">
+					text = <"Evaluation of risk of poor fetal or maternal outcome">
+				>
+				["at0001"] = <
+					description = <"@ internal @">
+					text = <"structure">
+				>
+				["at0002"] = <
+					description = <"The condition on which the risk assessment is focussed">
+					text = <"Index condition">
+				>
+				["at0003"] = <
+					description = <"The likelihood that this person will develop this condition or suffer in this way in the future">
+					text = <"Significance of risk">
+				>
+				["at0004"] = <
+					description = <"Justification for this risk assessment">
+					text = <"Rationale">
+				>
+				["at0006"] = <
+					description = <"The person is not assessed at being at higher risk than the general population">
+					text = <"Not significant">
+				>
+				["at0007"] = <
+					description = <"The person may be of somewhat greater risk of developing the condition ">
+					text = <"Minimal significance">
+				>
+				["at0008"] = <
+					description = <"The person is considered to be more likely to develop the condition than the general population">
+					text = <"Significant">
+				>
+				["at0009"] = <
+					description = <"The person is considered to be likely to develop the condition">
+					text = <"Highly significant">
+				>
+				["at0010"] = <
+					description = <"@ internal @">
+					text = <"List">
+				>
+				["at0011"] = <
+					description = <"*">
+					text = <"Risk calculation">
+				>
+			>
+		>
+	>

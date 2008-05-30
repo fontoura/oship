@@ -1,0 +1,61 @@
+﻿Create Future Proof Healthcare Applications!
+
+** A note to healthcare application developers:
+If you have heard bad things about Zope2.x (and prior versions)  and how difficult it is to use then you need to give yourself some time to get familiar with the Zope Component Architecture (ZCA) (aka. Zope3).  About the only thing that Zope3 shares with Zope2 is the first four letters of the name.  The ZCA is a complete re-write and comes in the form of a library (set of Python eggs). Instead of plugging in your application to the Zope framework (Zope2) you will be building applications re-using all the great libraries from the Zope Community. The ZCA and the implementation based concepts of openEHR http://www.openehr.org/about/origins.html provide a real opportunity to finally make a marked difference in healthcare application interoperability.
+
+OSHIP is a Python implementation of the inter-operable, future-proof openEHR specifications: http://www.openehr.org/releases/1.0.1/roadmap.html  
+
+OSHIP relies heavily on other open source Python components.  Especially prominent is the Zope Component Architecture:  http://wiki.zope.org/zope3/Zope3Wiki  if you prefer hardcopy books, Phillipp von Weitershausen's popular “Web Component Development with Zope3” is in its 3rd printing ISBN-13: 978-3540764472 I highly recommend it.
+
+You should also join the OSHIP mailing list and possibly the OSHIP development list at Sourceforge: http://sourceforge.net/mail/?group_id=152993   
+
+These installation instructions only apply to Linux.  If you can then please contribute a section on Microsoft Windows versions installation.
+
+If you do not have Python2.4 on your system then install Python 2.4.x http://www.python.org/download/releases/2.4.5/  
+
+You will need setuptools for Python2.4 as well.  Get the ez_setup.py script from PEAK http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-install  
+
+In order to isolate your OSHIP development environment from your system Python, you should use virtualenv http://pypi.python.org/pypi/virtualenv/1.1  to create your Python24 development environment. 
+
+In the following instructions the $ represents the tail of your system prompt.
+
+Once you have installed easy_install from PEAK;
+
+$easy_install virtualenv
+
+Create your sandbox directory.
+$mkdir sandbox
+
+Setup the virtualenv
+$virtualenv sandbox
+$cd sandbox
+$source bin/activate
+
+Now your system prompt should be preceded with (sandbox)  e.g.  (sandbox) [tim@oship sandbox]$
+
+Create a directory in your home directory called  .buildout (note the leading dot).  Inside that directory create a file called default.cfg.  In this file you will enter the location where you want to store all of the Python eggs that will be downloaded.  For example mine is:
+
+[buildout] 
+eggs-directory=/home/tim/buildout-eggs
+
+Checkout the source from svn or extract the oship-1.0.1a1.zip archive into this sandbox directory. 
+
+$cd oship
+
+$bin/buildout
+
+This is coffee break time.  All of the required Python eggs will be downloaded and installed.  You might consider reading the OSHIPUsage.pdf document now as well as the references included there.
+
+NOTE: I've seen some errors during these downloads such as unknown protocols for svn and https but everything seems to work okay and I haven't investigated the cause yet.
+
+... 
+
+Now you have a working OSHIP installation.  
+
+You can start the server with 
+$bin/oship-ctl fg
+
+Verify it is up by visiting http://localhost:8080 in your browser.
+
+Now read OSHIPUsage.pdf
+

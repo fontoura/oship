@@ -17,6 +17,9 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
+import logging
+logging.basicConfig()
+
 import ZODB
 from ZODB import FileStorage,DB
 
@@ -43,9 +46,9 @@ import adl_1_4
 
 from atdemo import ATDemo
 
-dbDir='/home/tim/projects/oship/var/Data.fs'
+dbDir='/home/Test/sandbox/oship/var/Data.fs'
 # edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 format
-adlDir='/home/tim/projects/oship/src/oship/import_adl'
+adlDir='/home/Test/sandbox/oship/src/oship/import_adl'
 #adlDir='/home/tim/Documents/openEHR/knowledge/archetypes'
 #adlDir='/home/tim/Documents/openEHR/knowledge/archetypes/dev/adl/openehr/ehr/composition'
 

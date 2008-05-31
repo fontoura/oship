@@ -35,6 +35,7 @@ import codecs
 import pprint
 import time
 import sys
+import os
 import traceback
 import mglob     
 from sets import Set
@@ -46,21 +47,24 @@ import adl_1_4
 
 from atdemo import ATDemo
 
-dbDir='/home/Test/sandbox/oship/var/Data.fs'
-# edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 format
-adlDir='/home/Test/sandbox/oship/src/oship/import_adl'
+"""
+edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 format 
+if you choose not use use the standard import directory
+"""
+adlDir=os.getcwd()+'/import_adl'
 #adlDir='/home/tim/Documents/openEHR/knowledge/archetypes'
-#adlDir='/home/tim/Documents/openEHR/knowledge/archetypes/dev/adl/openehr/ehr/composition'
 
 definClassMap={'SECTION':'Section','COMPOSITION':'Composition','OBSERVATION':'Observation',\
                'ITEM_TREE':'ItemTree','ADMIN_ENTRY':'AdminEntry','ACTION':'Action',\
                 'EVALUATION':'Evaluation','INSTRUCTION':'Instruction','ELEMENT':'Element',\
                 'CLUSTER':'Cluster','EVENT':'Event'}
 
+dbDir=os.getcwd().rstrip('src/oship')+'/oship/var/Data.fs'
 fs=FileStorage.FileStorage(dbDir)
 db=DB(fs)
 conn=db.open()
 root=conn.root()
+
 if 'AR' not in root['Application']:
     root['Application']['AR']=folder.Folder()
     sm = LocalSiteManager(root['Application']['AR'])
@@ -80,7 +84,8 @@ if 'DEMOGRAPHICS' not in root['Application']:
     transaction.commit()
     
 
-errlog=open('ADL14parse_errors.log', 'w')
+logDir=os.getcwd().rstrip('src/oship')+'/oship/log/'
+errlog=open(logDir+'ADL14parse_errors.log', 'w')
 
 def CreateAT():
     """
@@ -96,7 +101,7 @@ def CreateAT():
     startTime=time.clock()
         
     fnames.sort()
-    print "File count: ",count
+    print "ADL File count: ",count
 
     for fname in fnames:
         n+=1               
@@ -123,7 +128,12 @@ def CreateAT():
     errlog.close()
     conn.close()
     db.close()
-
+    os.remove(dbDir+'.lock')
+    
+    print "\n\nNow you should change back to "+(os.getcwd().rstrip('src/oship')+'/oship')
+    print "and execute '$bin/paster serve debug.ini' to restart your server."
+    print "The point your browser to http://localhost:8080/AR to see your repository.\n\n"
+    
     return
         
         
@@ -150,7 +160,7 @@ def bldArchetype(adlParsed):
     
     # now we need to persist the archetype in the ZODB
     try:
-        root['Application']['AR'][atObj.archetype_id]=atObj
+        root['Application']['AR'].__setitem__(archetype_id,atObj)
         transaction.commit()
     except NameError:
         errlog.write("WARNING: Error Occured Storing Archetype:\n")

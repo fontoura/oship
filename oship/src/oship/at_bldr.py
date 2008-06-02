@@ -30,7 +30,7 @@ from persistent import Persistent
 from zope.exceptions import DuplicationError
 from zope.app.folder import folder 
 from zope.app.component.site import *
-
+import pprint
 import codecs
 import pprint
 import time
@@ -45,7 +45,7 @@ from openehr.rm.datatypes.text import CodePhrase,DvText
 
 import adl_1_4
 
-from atdemo import ATDemo
+from oship.atdemo.atdemo import ATDemo
 
 """
 edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 format 
@@ -122,8 +122,9 @@ def CreateAT():
             bldArchetype(adlParsed)  
                 
                 
-    print "Parsed ",count," files in",time.clock()-startTime," seconds."
-    print "There were ",errCount," parse errors. See the ADL14parse_errors.log file for details."
+    print "\n\nParsed ",count," files in",time.clock()-startTime," seconds."
+    print "There were ",errCount," parse errors. " 
+    print logDir+"ADL14parse_errors.log file for errors & warnings."
     errlog.write("***END of Error Log***\n\n")       
     errlog.close()
     conn.close()
@@ -157,7 +158,19 @@ def bldArchetype(adlParsed):
        
     atObj=ATDemo(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
     #atObj=Archetype(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
+    print atObj.adl_version
+    print atObj.archetype_id
+    print atObj.concept
+    print atObj.parent_archetype_id
+    print atObj.definition
+    print atObj.ontology
+    print atObj.invariants
+    print atObj.rev
     
+    
+    
+    
+    """    
     # now we need to persist the archetype in the ZODB
     try:
         root['Application']['AR'].__setitem__(archetype_id,atObj)
@@ -170,7 +183,7 @@ def bldArchetype(adlParsed):
         errlog.write("WARNING: Error Occured Storing Archetype:\n")
         traceback.print_exc(2,file=errlog)
         errlog.write("\n\n")
-    
+    """    
         
         
 

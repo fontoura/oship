@@ -1,6 +1,10 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            i18n_domain="oship">
     
+  <include package="zope.viewlet" file="meta.zcml" />
+  <include package="z3c.form" file="meta.zcml" />
+  <include package="z3c.macro" file="meta.zcml" />
+  <include package="z3c.template" file="meta.zcml" />
   <include package="zope.security" file="meta.zcml" />
   <include package="zope.app.zcmlfiles" file="meta.zcml" />
 
@@ -8,9 +12,6 @@
   <include package="zope.traversing" />
   <include package="zope.traversing.browser" />
   <include package="zope.app.zcmlfiles" />
-
-  <!-- The following packages aren't needed from the beginning, but
-       end up being used in most applications -->
   <include package="zope.i18n" file="meta.zcml" />
   <include package="zope.annotation" />
   <include package="zope.copypastemove" />
@@ -21,7 +22,13 @@
   <include package="zope.app.intid" />
   <include package="zope.app.keyreference" />
   <include package="zope.app.catalog" />
+  <include package="z3c.form" />
+  <include package="z3c.formui" />
 
+  
   <!-- Add your own component registrations here -->      
+  <include package="oship.atdemo" />
+  <include package="oship.atdemo" file="skin.zcml" />
+  
 
 </configure>

@@ -41,4 +41,8 @@
   <grant role="zope.Manager"
          principal="zope.manager" />
 
+  <!-- ABSOLUTELY REMOVE THIS BEFORE DEPLOYMENT.  IT GIVES ALL ACCESS TO EVERYONE! -->
+  <role id="zope.Anonymous" title="Everybody" />
+  <grantAll role="zope.Anonymous" />
+
 </configure>

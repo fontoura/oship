@@ -9,7 +9,7 @@
 
 """
 
-Defines the interfaces for the integration package in integration_im.pdf Rev. 0.6
+From the integration package in integration_im.pdf Rev. 0.6
 
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
@@ -38,8 +38,7 @@ class GenericEntry(object):
     otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.
     """
 
-    data = Field(
-        title=u"Data",
-        description=u"an ITEM_TREE - The ‘data’ from the source message or record.",
-        required =True,
-        )
+    def __init__(self, data,**kw):
+        self.data=data
+        for n,v in kw.items():
+            setattr(self,n,v)

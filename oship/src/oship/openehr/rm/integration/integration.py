@@ -12,8 +12,9 @@
 Defines the interfaces for the integration package in integration_im.pdf Rev. 0.6
 
 """
-__author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
-__docformat__ = 'plaintext'
+__author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
+__docformat__ = u'plaintext'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
 from zope.interface import Interface
@@ -25,11 +26,20 @@ class IGenericEntry(Interface):
     otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.
     """
 
-     data = Field(
-         title=u"Data",
-         description=u"an ITEM_TREE - The ‘data’ from the source message or record.",
-         required =True,
-         )
-     
-         
+    data = Field(
+       title=u"Data",
+       description=u"an ITEM_TREE - The ‘data’ from the source message or record.",
+       required =True,
+       )
 
+class GenericEntry(object):
+    """
+    This class is used to create intermediate representations of data from sources not
+    otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.
+    """
+
+    data = Field(
+        title=u"Data",
+        description=u"an ITEM_TREE - The ‘data’ from the source message or record.",
+        required =True,
+        )

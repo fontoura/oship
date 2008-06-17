@@ -24,25 +24,3 @@ from openehr.rm.datatypes.interfaces.idatavalue import IDataValue
 
 _ = MessageFactory('oship')
 
-class ICodePhrase(IField):
-    """
-    A fully coordinated (i.e. all “coordination” has been performed) term from a ter-
-    minology service (as distinct from a particular terminology).
-    """
-    
-    terminologyId = TextLine(
-        title = _(u"TerminologyId"),
-        description = _(u"""Identifier of the distinct terminology from
-                      which the code_string (or its elements) was extracted."""),
-        required = True
-        )
-    
-    codeString = TextLine(
-        title = _(u"CodeString"),
-        description = _(u"""The key used by the terminology service to
-                      identify a concept or coordination of concepts.
-                      This string is most likely parsable inside the ter-
-                      minology service, but nothing can be assumed
-                      about its syntax outside that context."""),
-        required = True
-        )

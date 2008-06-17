@@ -13,14 +13,12 @@ The basic openEHR data types. From the data types specification Rev 2.1.0
 
 """
 
-__author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
-__docformat__ = 'plaintext'
+__author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
+__docformat__ = u'plaintext'
 
 from zope.interface import implements 
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
-
-from openehr.rm.datatypes.interfaces.idatavalue import IDataValue
 
 _ = MessageFactory('oship')
 

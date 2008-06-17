@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
 # Redistribution and use are governed by the license in OSHIP-LICENSE.txt
@@ -7,36 +7,33 @@
 # terms of the license.
 ##############################################################################
 
+
+u"""
+
+These are the interface specifications for the demographic package from openEHR 
+Demographic Information Model package Rev. 2.0.1
+
 """
 
-The basic openEHR data types. From the data types specification Rev 2.1.0
-
-"""
 
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-from zope.interface import implements 
-from zope.schema import Field
-from zope.i18nmessageid.message import MessageFactory 
 
-from openehr.rm.datatypes.interfaces.idatavalue import IDataValue
+from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('oship')
 
-class IDataValue(IField):
+    
+  
+class IPerson(IActor):
     """
-    Serves as a common ancestor of all data value types in openEHR models.
+    Generic description of of persons.  Provides a dedicated type to whicih Person archetypes can be targeted."),
     """
-
-    pass
-
-class DataValue(Field):
-    """ 
-    Abstract class. 
-    Serves as a common ancestor of all data value types in openEHR models.
+            
+class Person(Actor):
+    """
+    Generic description of of persons.  Provides a dedicated type to whicih Person archetypes can be targeted."),
     """
     
-    implements(IDataValue)
-
-    pass
+  

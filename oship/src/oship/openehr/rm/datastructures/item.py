@@ -7,22 +7,31 @@
 # terms of the license.
 ##############################################################################
 
+
+u"""
+
+From the Data Structures Information Model
+ Representation Package Rev. 2.1.0.
+
 """
 
-These are the time specification data types from Data Types Information Model
-Time Specification Package Rev. 2.1.0.
 
-"""
-
-
-__author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
-__docformat__ = 'plaintext'
+__author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
+__docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
+from zope.interface import implements 
 
-from openehr.rm.datatypes.interfaces.idatavalue import IDataValue
-from openehr.rm.datatypes.dvparsable import DvParsable
-
+from openehr.rm.common.locatable import ILocatable,Locatable
 
 _ = MessageFactory('oship')
 
+class IItem(ILocatable):
+    u"""
+    The abstract parent of CLUSTER and ELEMENT representation classes.
+    """
+
+class Item(Locatable):
+    u"""
+    The abstract parent of CLUSTER and ELEMENT representation classes.
+    """

@@ -7,34 +7,39 @@
 # terms of the license.
 ##############################################################################
 
-
-u"""
-
-From the Data Structures Information Model
- Item Structure Package Rev. 2.1.0.
-
 """
 
+From Data Types Information Model
+Quantity Package Rev. 2.1.0.
+
+"""
 
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.i18nmessageid import MessageFactory
 from zope.interface import implements 
-from openehr.rm.datastructures.datastructure import DataStructure,IDataStructure
+from zope.i18nmessageid.message import MessageFactory
+
+from openehr.rm.datatypes.dvabsolutequantity import IDvAbsoluteQuantity,DvAbsoluteQuantity
+
 
 _ = MessageFactory('oship')
 
-class IItemStructure(IDataStructure):
-    u"""
-    Abstract parent class of all spatial data types.
+
+class IDvTemporal(IDvAbsoluteQuantity):
+    """
+    Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is DvDuration.
     """
 
-class ItemStructure(DataStructure):
-    u"""
-    Abstract parent class of all spatial data types.
+    pass
+
+class DvTemporal(DvAbsoluteQuantity):
+    """
+    Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is
+    DV_DURATION.
     """
     
-    implements(IItemStructure)
+    implements(IDvTemporal)
     
-    
+    def diff(other):
+        return DvDuration(other,self.value)

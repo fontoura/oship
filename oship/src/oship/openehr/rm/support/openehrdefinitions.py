@@ -7,34 +7,25 @@
 # terms of the license.
 ##############################################################################
 
+"""
 
-u"""
-
-From the Data Structures Information Model
- Item Structure Package Rev. 2.1.0.
+From the definition package in support_im.pdf Rev. 1.6.0
 
 """
 
-
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-
-from zope.i18nmessageid import MessageFactory
-from zope.interface import implements 
-from openehr.rm.datastructures.datastructure import DataStructure,IDataStructure
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
 
-class IItemStructure(IDataStructure):
-    u"""
-    Abstract parent class of all spatial data types.
-    """
+import basicdefinitions
 
-class ItemStructure(DataStructure):
-    u"""
-    Abstract parent class of all spatial data types.
-    """
+class IOpenehrDefinitions(IBasicDefinitions):
+    """ Inheritance class to provide access to constants defined in other packages."""
     
-    implements(IItemStructure)
+class OpenehrDefinitions(BasicDefinitions):
+    """ Inheritance class to provide access to constants defined in other packages."""
     
-    
+    implements(IOpenehrDefinitions)

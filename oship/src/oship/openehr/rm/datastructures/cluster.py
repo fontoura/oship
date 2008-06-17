@@ -11,7 +11,7 @@
 u"""
 
 From the Data Structures Information Model
- Item Structure Package Rev. 2.1.0.
+ Representation Package Rev. 2.1.0.
 
 """
 
@@ -21,20 +21,32 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements 
-from openehr.rm.datastructures.datastructure import DataStructure,IDataStructure
+from zope.schema import List
+
+from openehr.rm.datastructures.item import Item,IItem
 
 _ = MessageFactory('oship')
 
-class IItemStructure(IDataStructure):
+class ICluster(IItem):
     u"""
-    Abstract parent class of all spatial data types.
+    The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.
+    """
+    
+    items = List(
+        title=_(u"items"),
+        description=_(u"""Ordered list of items - CLUSTER or ELEMENT objects - under this CLUSTER."""),
+        required=True
+    )
+
+class Cluster(Item):
+    u"""
+    The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.
     """
 
-class ItemStructure(DataStructure):
-    u"""
-    Abstract parent class of all spatial data types.
-    """
+    implements(ICluster)
     
-    implements(IItemStructure)
-    
-    
+    def __init__(self,items,**kw):
+        self.items=items
+        for n,v in kw.items():
+            setattr(self,n,v)
+          

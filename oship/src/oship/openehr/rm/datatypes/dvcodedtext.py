@@ -67,5 +67,7 @@ class DvCodedText(DvText):
 
     implements(IDvCodedText)
     
-    def __init__(self, definingCode):
+    def __init__(self, definingCode,**kw):
         self.definingCode=definingCode
+        for n,v in kw.items():
+            setattr(self,n,v)

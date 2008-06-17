@@ -53,7 +53,7 @@ class CodePhrase(Field):
     implements(ICodePhrase)
     
     def __init__(self, terminologyId, codeString,**kw):
-    #def __init__(self, terminologyId, codeString):
         self.terminologyId=terminologyId
         self.codeString=codeString
-        super(CodePhrase, self).__init__(**kw)
+        for n,v in kw.items():
+            setattr(self,n,v)

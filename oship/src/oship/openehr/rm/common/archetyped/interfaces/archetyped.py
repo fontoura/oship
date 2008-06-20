@@ -22,9 +22,9 @@ from zope.interface import Interface
 from zope.schema import TextLine
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.support.archetypeid import ArchetypeId
-from openehr.rm.support.templateid import TemplateId
-from openehr.rm.common.locatable import Locatable
+from openehr.rm.support.identification.archetypeid import ArchetypeId
+from openehr.rm.support.identification.templateid import TemplateId
+from openehr.rm.common.archetyped.locatable import Locatable
 
 _ = MessageFactory('oship')
         

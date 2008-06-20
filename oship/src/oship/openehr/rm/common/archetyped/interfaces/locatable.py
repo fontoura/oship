@@ -18,14 +18,14 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements,Interface
+from zope.interface import Interface
 from zope.schema import TextLine,List
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.support.uidbasedid import UidBasedId
-from openehr.rm.datatypes.dvtext import DvText
-from openehr.rm.common.archetyped import Archetyped
-from openehr.rm.common.feederaudit import FeederAudit
+from openehr.rm.support.identification.uidbasedid import UidBasedId
+from openehr.rm.datatypes.text.dvtext import DvText
+from openehr.rm.common.archetyped.archetyped import Archetyped
+from openehr.rm.common.archetyped.feederaudit import FeederAudit
 
 _ = MessageFactory('oship')
 
@@ -88,44 +88,6 @@ class ILocatable(IPathable):
         )
     
     
-    def isArchetypeRoot():
-        """True if this node is the root of an archetyped structure."""
-        
-    def concept():
-        """
-        Clinical concept of the archetype as a whole (= derived from the
-       ‘archetype_node_id’ of the root node) isArchetypeRoot must be True.
-       """
-        
-    def nameValid():
-        """ name != None"""
-          
-    def linksValid():
-        """ links != None and links != []"""
- 
-    def archetypedValid():
-        """ isArchetypeRoot xor archetypeDetails = None """
-        
-    def archetypeNodeIdValid():
-        """ archetypeNodeId != None and archetypeNodeId != '' """
-       
-class Locatable(Pathable):
-    """
-    Root class of all information model classes that can be archetyped.
-    """
-
-    implements(ILocatable)
-    
-    def __init__(self,uid,atnodeid,name,atdetails,fdraudit,links,**kw):
-        self.uid-uid
-        self.archetypeNodeId=atnodeid
-        self.name=name
-        self.archetypeDetails=atdetails
-        self.feederAudit=fdraudit
-        self.links=links
-        for n,v in kw.items():
-            setattr(self,n,v)
-           
     def isArchetypeRoot():
         """True if this node is the root of an archetyped structure."""
         

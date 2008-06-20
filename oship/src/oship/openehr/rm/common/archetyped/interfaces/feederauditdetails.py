@@ -18,14 +18,14 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements,Interface
+from zope.interface import Interface
 from zope.schema import TextLine
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.demographic.partyidentified import PartyIdentified
 from openehr.rm.demographic.partyproxy import PartyProxy
 
-from openehr.rm.datatypes.dvdatetime import DvDateTime
+from openehr.rm.datatypes.quantity.datetm.dvdatetime import DvDateTime
 
 _ = MessageFactory('oship')
 
@@ -81,31 +81,6 @@ class IFeederAuditDetails(Interface):
                       or numeric versions if available."""),
         required=False,
         )
-    
-    def systemIdValid():
-        u"""systemId != None and  systemId != '' """
-        
-        
-class FeederAuditDetails(Field):
-    u"""
-    Audit details for any system in a feeder system chain. Audit details here means
-    the general notion of who/where/when the information item to which the audit is
-    attached was created. None of the attributes is defined as mandatory, however, in
-    different scenarios, various combinations of attributes will usually be mandatory.
-    This can be controlled by specifying feeder audit details in legacy archetypes.
-    """
-
-    implements(IFeederAuditDetails)
-    
-    def __init__(self,sysid,provider,location,time,subject,verid,**kw):
-        self.systemId=sysid
-        self.provider=provider
-        self.location=location
-        self.time=time
-        self.subject=subject
-        self.versionId=verid
-        for n,v in kw.items():
-            setattr(self,n,v)
     
     def systemIdValid():
         u"""systemId != None and  systemId != '' """

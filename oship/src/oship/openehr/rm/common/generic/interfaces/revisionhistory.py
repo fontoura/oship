@@ -18,8 +18,8 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements,Interface
-from zope.schema import List,Field
+from zope.interface import Interface
+from zope.schema import List
 from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('oship')
@@ -49,29 +49,4 @@ class IRevisionHistory(Interface):
     def itemsValid():
         u"""items != None """
         
-        
-class RevisionHistory(Field):
-    u"""
-    Defines the notion of a revision history of audit items, each associated 
-    with the version for which that audit was committed. The list is in 
-    most-recent-first order.
-    """
-
-    implements(IRevisionHistory)
-    
-    def __init__(self,items,**kw):
-        self.items=items
-        for n,v in kw.items():
-            setattr(self,n,v)
-
-    def mostRecentVersion():
-        u"""The version id of the most recent item, as a String. 
-        Ensure Result.is_equal(items.last.version_id.value)"""
-        
-    def mostRecentVersionTimeCommitted():
-        u"""The commit date/time of the most recent item, as a string.
-        Ensure Result.is_equal(items.last.audits.first.time_committed.value)"""
-        
-    def itemsValid():
-        u"""items != None """
-        
+ 

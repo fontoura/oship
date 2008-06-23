@@ -18,14 +18,14 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements,Interface
+from zope.interface import Interface
 from zope.schema import TextLine
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.datatypes.dvtext import DvText
-from openehr.rm.datatypes.dvdatetime import DvDateTime
-from openehr.rm.datatypes.dvcodedtext import DvCodedText
-from openehr.rm.common.partyproxy import PartyProxy
+from openehr.rm.datatypes.text.dvtext import DvText
+from openehr.rm.datatypes.quantity.datetm.dvdatetime import DvDateTime
+from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from openehr.rm.common.generic.partyproxy import PartyProxy
 
 _ = MessageFactory('oship')
 
@@ -82,37 +82,4 @@ class IAuditDetails(Interface):
     def changeTypeValid():
         u"""changeType != None and then terminology(Terminology_id_openehr).
         has_code_for_group_id(Group_id_audit_change_type, change_type.defining_code)"""
-
-
-        
-class AuditDetails(Field):
-    u"""
-    The set of attributes required to document the committal of an information 
-    item to a repository.
-    """
-    
-    implements(IAuditDetails)
-    
-    def __init__(self,systemId,committer,tcommitted,chgtype,descr,**kw):
-        self.systemId=systemId
-        self.committer=committer
-        self.timeCommitted=tcommitted
-        self.changeType=chgtype
-        self.description=descr
-        for n,v in kw.items():
-            setattr(self,n,v)
-      
-    def systemIdValid():
-        u"""systemId != None and systemId != '' """
-        
-    def committerValid():
-        u"""committer!= None"""
-        
-    def timeCommittedValid():
-        u"""timeCommitted != None"""
-    
-    def changeTypeValid():
-        u"""changeType != None and then terminology(Terminology_id_openehr).
-        has_code_for_group_id(Group_id_audit_change_type, change_type.defining_code)"""
-
 

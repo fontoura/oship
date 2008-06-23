@@ -21,8 +21,8 @@ __docformat__ = u'plaintext'
 from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.partyidentified import IPartyIdentified,PartyIdentified
-from openehr.rm.datatypes.dvcodedtext import DvCodedText
+from openehr.rm.common.generic.partyidentified import IPartyIdentified
+from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
 
 _ = MessageFactory('oship')
 
@@ -44,27 +44,6 @@ class IPartyRelated(IPartyIdentified):
         required=True,
         constraint = isinstance(DvCodedText),
         )
-    
-    def relationshipValid():
-        u"""relationship != None and relationship in the relationship 
-        vocabulary."""
-        
-class PartyRelated(PartyIdentified):
-    u"""
-    Proxy type for identifying a party and its relationship to the subject of 
-    the record.
-    
-    Use where the relationship between the party and the subject of the record 
-    must be known.
-    """
-    
-    implements(IPartyRelated)
-    
-    def __init__(self,relationship,**kw):
-        self.relationship=relationship
-        for n,v in kw.items():
-            setattr(self,n,v)
-        
     
     def relationshipValid():
         u"""relationship != None and relationship in the relationship 

@@ -20,19 +20,15 @@ __docformat__ = u'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
 
-from versionedobject import VersionedObject
-from interfaces.versionedobject import IVersionedObject
+from versionedobject import IVersionedObject
 
 _ = MessageFactory('oship')
 
-class VersionedFolder(VersionedObject):
+class IVersionedFolder(IVersionedObject):
     u"""
     A version-controlled hierarchy of FOLDERs giving the effect of a directory.
     """
-    
-    implements(IVersionedObject)
-    
     pass
+
     

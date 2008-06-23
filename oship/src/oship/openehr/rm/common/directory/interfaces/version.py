@@ -19,13 +19,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
 from zope.schema import Field,TextLine
 
-from openehr.rm.datatypes.text import DvCodedText
-from openehr.rm.support.objectversionid import ObjectVersionId
-from openehr.rm.support.objectref import ObjectRef
-from openehr.rm.common.auditdetails import AuditDetails
+from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from openehr.rm.support.identification.objectversionid import ObjectVersionId
+from openehr.rm.support.identification.objectref import ObjectRef
+from openehr.rm.common.generic.auditdetails import AuditDetails
 
 _ = MessageFactory('oship')
 
@@ -88,56 +87,6 @@ class IVersion(Interface):
         required=False,
         )
     
-                        
-    def ownerId():
-        u"""Unique identifier of the owning VERSIONED_OBJECT.
-        Type == HIER_OBJECT_ID"""
-        
-    def isBranch():
-        u"""True if this Version represents a branch. 
-        Derived from uid attribute."""
-        
-    def canonicalForm():
-        u"""Canonical form of Version object, created by serialising all 
-        attributes except signature."""
-    
-    def uidValid():
-        u"""uid != None"""
-        
-    def ownerIdValid():
-        u"""ownerId != None and owner_id.value.is_equal(uid.object_id.value)"""
-        
-    def CommitAuditValid():
-        u"""commitAudit != None"""
-        
-"""       Contribution_valid: contribution /= Void and contribution.type.is_equal(“CON-
-          TRIBUTION”)
-          Preceding_version_uid_validity: uid.version_tree_id.is_first xor
-          preceding_version_uid /= Void
-          Lifecycle_state_valid: lifecycle_state /= Void and then
-          terminology(Term_id_openehr).
-          has_code_for_group_id(Group_id_version_lifecycle_state,
-          lifecycle_state.defining_code)
-
-"""
-        
-class Version(Field):
-    u"""
-    Abstract model of one Version within a Version container, containing 
-    data, commit audit trail, and the identifier of its Contribution.
-    """
-
-    implements(IVersion)
-    
-    def __init__(self,uid,preVid,data,lcstate,caudit,contr,sig,**kw):
-        self.uid=uid
-        self.precedingVersionId=preVid
-        self.data=data
-        self.lifecycleState=lcstate
-        self.commitAudit=caudit
-        self.signature=sig
-        for n,v in kw.items():
-            setattr(self,n,v)
                         
     def ownerId():
         u"""Unique identifier of the owning VERSIONED_OBJECT.

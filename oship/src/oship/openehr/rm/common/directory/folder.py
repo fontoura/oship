@@ -19,35 +19,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import implements
-from zope.schema import List
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.locatable import Locatable,ILocatable
+from openehr.rm.common.archetyped.locatable import Locatable
+from interfaces.folder import IFolder
 
 _ = MessageFactory('oship')
-
-class IFolder(ILocatable):
-    u"""
-    The concept of a named folder.
-    """
-
-    folders = List(
-        title=_(u"Folders"),
-        description=_(u"""Subfolders of this folder."""),
-        required=False,
-        )
-    
-    items = List(
-        title=_(u"Items"),
-        description=_(u"""The list of references to other (usually) versioned 
-                    objects logically in this folder."""),
-        required=False,
-        )
-    
-    def foldersValid():
-        u"""folders != None and folders != '' """
-
-        
 
 class Folder(Locatable):
     u"""

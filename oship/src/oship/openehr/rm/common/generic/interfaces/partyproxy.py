@@ -18,11 +18,10 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.locatable import ILocatable,Locatable
-from openehr.rm.common.partyref import PartyRef
+from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
+from openehr.rm.support.identification.partyref import PartyRef
 
 _ = MessageFactory('oship')
 
@@ -43,17 +42,4 @@ class IPartyProxy(ILocatable):
         required=False,
         )
 
-class PartyProxy(Locatable):
-    u"""
-    Abstract concept of a proxy description of a party, including an optional 
-    link to data for this party in a demographic or other identity management 
-    system. Subtyped into PARTY_IDENTIFIED and PARTY_SELF.
-    """
     
-    implements(IPartyProxy)
-    
-    def __init__(self,extref,**kw):
-        self.externalRef=extref
-        for n,v in kw.items():
-            setattr(self,n,v)
-        

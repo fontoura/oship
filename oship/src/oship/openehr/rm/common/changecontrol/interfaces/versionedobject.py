@@ -19,25 +19,44 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
-from zope.schema import Container
+from zope.schema import Field,TextLine,Container
+from zope.schema.interfaces import IContainer
+
+from openehr.rm.support.objectref import ObjectRef
+from openehr.rm.support.hierobjectid import HierObjectId
+from openehr.rm.datatypes.dvdatetime import DvDateTime
+
 
 _ = MessageFactory('oship')
 
-class VersionedObject(Container):
+class IVersionedObject(IContainer):
     u"""
     Version control abstraction, defining semantics for versioning one 
     complex object.
     """
     
-    implements(IVersionedObject)
+    uid = HierObjectId(
+        title=_(u'UID'),
+        description=_(u"""Unique identifier of this version container. This id 
+                    will be the same in all instances of the same container 
+                    in a distributed environment, meaning that it can be 
+                    understood as the uid of the “virtual version tree”."""),
+        required=True,
+        )
     
-    def __init__(self,uid,ownerId,timeCreated,**kw):
-        self.uid=uid
-        self.ownerId=ownerId
-        self.timeCreated=timeCreated
-        for n,v in kw.items():
-            setattr(self,n,v)
+    ownerId = ObjectRef(
+        title=_(u'Owner Id'),
+        description=_(u"""Reference to object to which this version container 
+                    belongs, e.g. the id of the containing EHR or other 
+                    relevant owning entity."""),
+        required=True,
+        )
+    
+    timeCreated = DvDateTime(
+        title=_(u'Time Created'),
+        description=_(u"""Time of initial creation of this versioned object."""),
+        required=True,
+        )
     
     def allVersions():
         u"""Return a list of all versionsin this object. List <VERSION<T>>"""

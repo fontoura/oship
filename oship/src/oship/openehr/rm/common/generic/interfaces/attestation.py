@@ -14,16 +14,14 @@ Common Information Model Rev. 2.1.0
 
 """
 
-
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
 from zope.schema import TextLine,Set,Bool
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.datatypes.dvmultimedia import DvMultimedia
-from openehr.rm.datatypes.dvtext import DvText
+from openehr.rm.datatypes.encapsulated.dvmultimedia import DvMultimedia
+from openehr.rm.datatypes.text.dvtext import DvText
 
 _ = MessageFactory('oship')
 
@@ -73,32 +71,6 @@ class IAttestation(IAuditDetails):
                     False means it has been completed."""),
         required=True,
         )
-    
-    def itemsValid():
-        u"""items != None items != '' """
-        
-    def reasonValid():
-        u"""reason != None and then(reason.generating_type.is_equal(“DV_CODED_TEXT”) 
-        implies terminology(Terminology_id_openehr).has_code_for_group_id
-        (Group_id_attestation_reason, reason.defining_code))"""
-        
-
-class Attestation(AuditDetails):
-    u"""
-    Record an attestation of a party (the committer) to item(s) of record content. 
-    The type of attestation is
-    """
-    
-    implements(IAttestation)
-    
-    def __init__(self,aview,proof,items,reason,ispend,**kw):
-        self.attestedView=aview
-        self.proof=proof
-        self.items=items
-        self.reason=reason
-        self.isPending=ispend
-        for n,v in kw.items():
-            setattr(self,n,v)
     
     def itemsValid():
         u"""items != None items != '' """

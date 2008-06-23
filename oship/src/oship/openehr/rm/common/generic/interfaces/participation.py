@@ -18,14 +18,14 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements,Interface
+from zope.interface import Interface
 from zope.schema import Field
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.partyproxy import PartyProxy
-from openehr.rm.datatypes.dvtext import DvText
-from openehr.rm.datatypes.dvcodedtext import DvCodedText
-from openehr.rm.datatypes.dvinterval import DvInterval
+from openehr.rm.common.generic.partyproxy import PartyProxy
+from openehr.rm.datatypes.text.dvtext import DvText
+from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from openehr.rm.datatypes.quantity.dvinterval import DvInterval
 
 _ = MessageFactory('oship')
 
@@ -77,41 +77,6 @@ class IParticipation(Interface):
         )
     
     
-    def performerValid():
-        u"""performer != None"""
-        
-    def functionValid():
-        u"""function != None and then function.generating_type.is_equal(“DV_CODED_TEXT”) 
-        implies terminology(Terminology_id_openehr).has_code_for_group_id(Group_id_participation_function, 
-        function.defining_code)"""
-        
-    def modeValid(): 
-        u"""mode != None and terminology(Terminology_id_openehr).has_code_for_group_id
-        (Group_id_participation_mode, mode.defining_code)"""
-        
-        
-class Participation(Field):
-    u"""
-    Model of a participation of a Party (any Actor or Role) in an activity.
-    
-    Used to represent any participation of a Party in some activity, which is 
-    not explicitly in the model, e.g. assisting nurse. Can be used to record 
-    past or future participations.
-        
-    Should not be used in place of more permanent relationships between demographic entities.
-    """
-    
-    implements(IParticipation)
-    
-    def __init_(self,performer,function,mode,time,**kw):
-        self.performer=performer
-        self.function=function
-        self.mode=mode
-        self.time=time
-        for n,v in kw.items():
-            setattr(self,n,v)
-     
-   
     def performerValid():
         u"""performer != None"""
         

@@ -27,8 +27,9 @@
 
   
   <!-- Add your own component registrations here -->      
+  <!--
   <include package="oship.atdemo" />
   <include package="oship.atdemo" file="skin.zcml" />
-  
+  -->
 
 </configure>

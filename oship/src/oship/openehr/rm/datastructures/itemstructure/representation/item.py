@@ -22,14 +22,9 @@ __docformat__ = u'plaintext'
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements 
 
-from openehr.rm.common.locatable import ILocatable,Locatable
+from openehr.rm.common.archetyped.locatable import Locatable
 
 _ = MessageFactory('oship')
-
-class IItem(ILocatable):
-    u"""
-    The abstract parent of CLUSTER and ELEMENT representation classes.
-    """
 
 class Item(Locatable):
     u"""

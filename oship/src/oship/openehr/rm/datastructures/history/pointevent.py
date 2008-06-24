@@ -21,18 +21,11 @@ __docformat__ = u'plaintext'
 from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.datastructures.event import IEvent,Event 
+from event import Event
+from interfaces.pointevent import IPointEvent 
 
 
 _ = MessageFactory('oship')
-
-
-
-class IPointEvent(IEvent):
-    u"""
-    Defines a single point event in a series.
-    """    
-    
 
 class PointEvent(Event):
     u"""

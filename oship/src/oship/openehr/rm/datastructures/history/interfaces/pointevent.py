@@ -17,29 +17,14 @@ History Package Rev. 2.1.0.
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-
-from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.datastructures.event import IEvent,Event 
-
+from openehr.rm.datastructures.history.interfaces.event import IEvent
 
 _ = MessageFactory('oship')
-
-
 
 class IPointEvent(IEvent):
     u"""
     Defines a single point event in a series.
     """    
-    
-
-class PointEvent(Event):
-    u"""
-    Defines a single point event in a series.
-    """    
-    
-    implements(IPointEvent)
-    
-    pass
     

@@ -22,27 +22,10 @@ __docformat__ = u'plaintext'
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements 
 
-from openehr.rm.datastructures.itemstructure import ItemStructure,IItemStructure
-from openehr.rm.datastructures.element import Element
+from itemstructure import ItemStructure
+from interfaces.itemsingle import IItemSingle
 
 _ = MessageFactory('oship')
-
-class IItemSingle(IItemStructure):
-    u"""
-    Logical single value data structure.
-    Used to represent any data which is logically a single value, such as a person’s height or weight.   
-    """
-    
-    item = Element(
-        title=_(u"item"),
-        description=_(u"""Single item."""),
-        required=True
-    )
-    
-    def asHierarchy():
-        u"""
-        Generate a CEN EN13606-compatible hierarchy consisting of a single ELEMENT.
-        """
 
 class ItemSingle(ItemStructure):
     u"""

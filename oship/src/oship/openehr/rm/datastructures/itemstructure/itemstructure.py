@@ -21,14 +21,10 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements 
-from openehr.rm.datastructures.datastructure import DataStructure,IDataStructure
+from openehr.rm.datastructures.datastructure import DataStructure
+from interfaces.itemstructure import IItemStructure
 
 _ = MessageFactory('oship')
-
-class IItemStructure(IDataStructure):
-    u"""
-    Abstract parent class of all spatial data types.
-    """
 
 class ItemStructure(DataStructure):
     u"""

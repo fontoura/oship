@@ -20,18 +20,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements 
 
-from openehr.rm.common.locatable import ILocatable,Locatable
+from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 
 _ = MessageFactory('oship')
 
 class IItem(ILocatable):
-    u"""
-    The abstract parent of CLUSTER and ELEMENT representation classes.
-    """
-
-class Item(Locatable):
     u"""
     The abstract parent of CLUSTER and ELEMENT representation classes.
     """

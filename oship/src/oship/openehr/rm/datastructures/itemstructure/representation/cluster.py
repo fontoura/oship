@@ -21,22 +21,12 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements 
-from zope.schema import List
 
-from openehr.rm.datastructures.item import Item,IItem
+from item import Item
+from interfaces.cluster import ICluster
 
 _ = MessageFactory('oship')
 
-class ICluster(IItem):
-    u"""
-    The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.
-    """
-    
-    items = List(
-        title=_(u"items"),
-        description=_(u"""Ordered list of items - CLUSTER or ELEMENT objects - under this CLUSTER."""),
-        required=True
-    )
 
 class Cluster(Item):
     u"""

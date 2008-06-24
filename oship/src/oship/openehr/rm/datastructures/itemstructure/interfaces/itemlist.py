@@ -20,10 +20,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements 
 from zope.schema import List
 
-from openehr.rm.datastructures.itemstructure import ItemStructure,IItemStructure
+from itemstructure import IItemStructure
+
 _ = MessageFactory('oship')
     
 class IItemList(IItemStructure):
@@ -38,34 +38,6 @@ class IItemList(IItemStructure):
         required=False
     )
     
-    
-    def itemCount():
-        u"""Count of all items."""
-        
-    def names():
-        u"""Return the names of all items."""
-        
-    def namedItem(str):
-        u"""Return the named 'str'"""
-        
-    def ithItem(n):
-        u"""Return the 'n' ith item."""
-        
-    def asHierarchy():
-        u"""Generate a CEN EN13606-compatible hierarchy consisting of a single CLUSTER containing the ELEMENTs of this list."""
-    
-class ItemList(ItemStructure):
-    u"""
-    Logical list data structure, where each item has a value and can be referred to by a name 
-    and a positional index in the list. The list may be empty.
-    """
-    implements(IItemList)
-    
-    def __init__(self,items,**kw):
-        self.item=items
-        for n,v in kw.items():
-            setattr(self,n,v)
-       
     
     def itemCount():
         u"""Count of all items."""

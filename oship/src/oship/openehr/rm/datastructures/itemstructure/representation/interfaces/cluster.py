@@ -23,7 +23,7 @@ from zope.i18nmessageid import MessageFactory
 from zope.interface import implements 
 from zope.schema import List
 
-from openehr.rm.datastructures.item import Item,IItem
+from openehr.rm.datastructures.itemstructure.interfaces.item import IItem
 
 _ = MessageFactory('oship')
 
@@ -37,16 +37,3 @@ class ICluster(IItem):
         description=_(u"""Ordered list of items - CLUSTER or ELEMENT objects - under this CLUSTER."""),
         required=True
     )
-
-class Cluster(Item):
-    u"""
-    The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.
-    """
-
-    implements(ICluster)
-    
-    def __init__(self,items,**kw):
-        self.items=items
-        for n,v in kw.items():
-            setattr(self,n,v)
-          

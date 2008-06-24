@@ -21,27 +21,11 @@ __docformat__ = u'plaintext'
 from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.locatable import ILocatable,Locatable
-from openehr.rm.common.partyref import PartyRef
+from openehr.rm.common.generic.locatable import Locatable
+from interfaces.partyproxy import IPartyProxy
 
 _ = MessageFactory('oship')
 
-
-class IPartyProxy(ILocatable):
-    u"""
-    Abstract concept of a proxy description of a party, including an optional 
-    link to data for this party in a demographic or other identity management 
-    system. Subtyped into PARTY_IDENTIFIED and PARTY_SELF.
-    """
-    
-    externalRef = PartyRef(
-        title=_(u"External Reference"),
-        description=_(u"""Optional reference to more detailed demographic or 
-                    identification information for this party, in an external 
-                    system. Type == PartyRef."""),
-        #constraint = isinstance(PartyRef),
-        required=False,
-        )
 
 class PartyProxy(Locatable):
     u"""

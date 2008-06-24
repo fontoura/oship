@@ -21,17 +21,10 @@ __docformat__ = u'plaintext'
 from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.partyproxy import IPartyProxy,PartyProxy
+from openehr.rm.common.generic.partyproxy import PartyProxy
+from interfaces.partyself import IPartySelf
 
 _ = MessageFactory('oship')
-
-    
-class IPartySelf(IPartyProxy):
-    u"""
-    Party proxy representing the subject of the record.
-    Used to indicate that the party is the owner of the record. May or may 
-    not have external_ref set.
-    """
     
     
 class PartySelf(PartyProxy):

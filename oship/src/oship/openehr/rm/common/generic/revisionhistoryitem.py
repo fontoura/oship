@@ -19,42 +19,13 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import implements
-from zope.schema import List
+from zope.schema import Field
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.support.objectversionid import ObjectVersionId
+from interfaces.revisionhistoryitem import IRevisionHistoryItem
 
 _ = MessageFactory('oship')
-
-
-class IRevisionHistoryItem(Interface):
-    u"""
-    An entry in a revision history, corresponding to a version from a versioned 
-    container. Consists of AUDIT_DETAILS instances with revision identifier of 
-    the revision to which the AUDIT_DETAILS intance belongs.
-    """
-
-    audits = List(
-        title=_(u'Audits'),
-        description=_(u"""The audits for this revision; there will always be at 
-                    least one commit audit (which may itself be an ATTESTATION), 
-                    there may also be further attestations."""),
-        required=True,
-        )
-    
-    versionId = ObjectVersionId(
-        title=_(u'Version Id'),
-        description=_(u"""Version identifier for this revision."""),
-        required=True,
-        )
-    
-    def auditValid():
-        u"""audits != None and audits != ' """
-
-    def versionIdValid():
-        u"""versionId != None"""
-        
-        
+      
 
 class RevisionHistoryItem(Field):
     u"""

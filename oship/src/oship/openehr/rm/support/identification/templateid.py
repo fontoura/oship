@@ -18,28 +18,13 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
 from zope.interface import implements
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import objectid
+from objectid import ObjectId
+from interfaces.templateid import ITemplateId
 
 _ = MessageFactory('oship')
-
-
-class ITemplateId(IObjectId):
-    u""" Identifier for templates. Lexical form to be determined. """
-    
-    value = TextLine(
-        title=_(u"Value"),
-        description=_(u"A single unicode string containing a valid ID"),
-        default=_(u""),
-        required=True)
-    
-    def valueExists():
-        u"""        
-        value != None and then not value != ''
-        """
-    
+ 
 class TemplateId(ObjectId):
     u""" Identifier for templates. Lexical form to be determined. """
     

@@ -19,6 +19,9 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
 from zope.schema import Field
+from zope.i18nmessageid import MessageFactory
+
+_ = MessageFactory('oship')
 
 class IGenericEntry(Interface):
     """
@@ -27,18 +30,7 @@ class IGenericEntry(Interface):
     """
 
     data = Field(
-       title=u"Data",
-       description=u"an ITEM_TREE - The ‘data’ from the source message or record.",
+       title=_(u"Data"),
+       description=_(u"an ITEM_TREE - The ‘data’ from the source message or record."),
        required =True,
        )
-
-class GenericEntry(object):
-    """
-    This class is used to create intermediate representations of data from sources not
-    otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.
-    """
-
-    def __init__(self, data,**kw):
-        self.data=data
-        for n,v in kw.items():
-            setattr(self,n,v)

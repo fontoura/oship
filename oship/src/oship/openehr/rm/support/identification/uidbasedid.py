@@ -17,60 +17,13 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import implements 
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import objectid
+from objectid import ObjectId
+from interfaces.uidbasedid import IUidBasedId
 
 _ = MessageFactory('oship')
-
-
-class IUidBasedId(IObjectId):
-    u"""
-    Abstract model of UID-based identifiers consisting of a root part and an optional
-    extension; lexical form: root '::' extension
-    """
-
-    value = TextLine(
-        title=_(u"Value"),
-        description=_(u"A single unicode string containing a valid ID"),
-        default=_(u""),
-        required=True)
-    
-    def valueExists():
-        u"""        
-        value != None and then not value != ''
-        """
-
-    def root():
-        u"""
-        The identifier of the conceptual namespace in which the object exists, within 
-        the identification scheme.
-        Returns the part to the left of the first '::' separator, if any, or else the whole string.
-        """
-
-    def extension():
-        u"""
-        Optional local identifier of the object within the context of the root identifier.
-        Returns the part to the right of the first '::' separator if any, or else any empty String.
-        """
-
-
-    def hasExtension():
-        u""" True if extension != None """
-
-        
-    def rootValid():
-        u""" True if root != None """
-        
-    def extensionValidity():
-        u""" True if extension != None """
-        
-        
-    def hasExtensionValidity():
-        """ extension == '' xor hasExtension() """
-
-        
+     
 class UidBasedId(ObjectId):
     u"""
     Abstract model of UID-based identifiers consisting of a root part and an optional

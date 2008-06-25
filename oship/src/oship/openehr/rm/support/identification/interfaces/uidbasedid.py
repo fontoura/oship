@@ -16,11 +16,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements 
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import objectid
+from objectid import IObjectId
 
 _ = MessageFactory('oship')
 
@@ -69,55 +68,3 @@ class IUidBasedId(IObjectId):
         
     def hasExtensionValidity():
         """ extension == '' xor hasExtension() """
-
-        
-class UidBasedId(ObjectId):
-    u"""
-    Abstract model of UID-based identifiers consisting of a root part and an optional
-    extension; lexical form: root '::' extension
-    """
-
-    implements(IUidBasedId)
-
-    def __init__(self, value,**kw):
-        self.value = value
-        for n,v in kw.items():
-            setattr(self,n,v)
-
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """
-        return self.value!=None and self.value!=''
-
-
-    def root():
-        u"""
-        The identifier of the conceptual namespace in which the object exists, within 
-        the identification scheme.
-        Returns the part to the left of the first '::' separator, if any, or else the whole string.
-        """
-
-
-    def extension():
-        u"""
-        Optional local identifier of the object within the context of the root identifier.
-        Returns the part to the right of the first '::' separator if any, or else any empty String.
-        """
-
-
-    def hasExtension():
-        u""" True if extension != None """
-
-        
-    def rootValid():
-        u""" True if root != None """
-        
-    def extensionValidity():
-        u""" True if extension != None """
-        
-        
-    def hasExtensionValidity():
-        """ extension == '' xor hasExtension() """
-

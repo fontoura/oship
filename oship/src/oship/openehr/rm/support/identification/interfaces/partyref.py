@@ -16,12 +16,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import objectref
-
+from objectref import IObjectRef
 
 _ = MessageFactory('oship')
 
@@ -82,40 +80,4 @@ class IPartyRef(IObjectRef):
         u"""
         type is in ["PERSON","ORGANISATION","GROUP","AGENT","ROLE","PARTY","ACTOR"]
         """
-        
-class PartyRef(ObjectRef):
-    u"""
-    Identifier for parties in a demographic or identity service. There are typically a
-    number of subtypes of the PARTY class, including PERSON, ORGANISATION, etc.
-        
-    Abstract supertypes are allowed if the referenced object is of a type not known by
-    the current implementation of this class (in other words, if the demographic model
-    is changed by the addition of a new PARTY or ACTOR subtypes, valid
-    PartyRefs can still be constructed to them).
-    """
-
-    implements(IPartyRef)
-    
-    def __init__(self,id,nameSpace,type,**kw):
-        self.id=id
-        self.nameSpace=nameSpace
-        self.type=type     
-        for n,v in kw.items():
-            setattr(self,n,v)
-        
-        
-    def idExists():
-        u""" id != None """
-        
-    def nameSpaceExists():
-        u""" nameSpace != None and nameSpace != '' """
-        
-    def typeExists():
-        u""" type != None and type != '' """
-
-    
-    def typeValidity():
-        u"""
-        type is in ["PERSON","ORGANISATION","GROUP","AGENT","ROLE","PARTY","ACTOR"]
-        """
-        
+ 

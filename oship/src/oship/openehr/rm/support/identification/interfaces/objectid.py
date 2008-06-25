@@ -16,10 +16,8 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-import re
-
-from zope.interface import Interface,implements
-from zope.schema import TextLine, Field
+from zope.interface import Interface
+from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
 
@@ -46,29 +44,4 @@ class IObjectId(Interface):
         u"""        
         value != None and then not value != ''
         """
-
-class ObjectId(Field):
-    u"""
-    Ancestor (abstract) class of identifiers of informational objects. Ids may be completely
-    meaningless, in which case their only job is to refer to something, or may carry
-    some information to do with the identified object.
-    Object ids are used inside an object to identify that object. To identify another
-    object in another service, use an OBJECT_REF, or else use a UID for local objects
-    identified by UID. If none of the subtypes is suitable, direct instances of this class
-    may be used.
-    """
-
-    implements(IObjectId)
-
-    def __init__(self, value,**kw):
-        self.value = value
-        for n,v in kw.items():
-            setattr(self,n,v)
-
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """
-        return self.value!=None and self.value!=''
 

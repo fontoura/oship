@@ -17,31 +17,12 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import implements
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import uid
+from uid import Uid
+from interfaces.isooid import IIsoOid
 
 _ = MessageFactory('oship')
-
-
-class IIsoOid(IUid):
-    u"""
-    Model of ISO's Object Identifier (oid) as defined by the standard ISO/IEC 8824 .
-    Oids are formed from integers separated by dots. Each non-leaf node in an Oid
-    starting from the left corresponds to an assigning authority, and identifies that
-    authority's namespace, inside which the remaining part of the identifier is locally unique.
-    """
-
-    value = TextLine(
-        title=_(u"Value"),
-        description=_(u"A single unicode string containing a valid UID"),
-        required=True)
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """
 
 class IsoOid(Uid):
     u"""

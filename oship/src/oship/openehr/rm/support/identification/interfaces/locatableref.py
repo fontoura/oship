@@ -18,10 +18,11 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.location.interfaces import ILocation
 from zope.location import Location
-from zope.interface import implements
-from zope.schema import Text, TextLine, Field
+from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
+from openehr.rm.support.identification.objectversionid import ObjectVersionId
+from objectref import IObjectRef
 
 _ = MessageFactory('oship')
 
@@ -54,46 +55,3 @@ class ILocatableRef(IObjectRef,ILocation):
     def nameSpaceExists():
         u""" nameSpace != None and nameSpace != '' """
         
-class LocatableRef(ObjectRef,Location):
-    u"""
-    Reference to a LOCATABLE instance inside the top-level content structure inside a
-    VERSION<T>; the path attribute is applied to the object that VERSION.data points to.
-    """
-
-    implements(ILocatableRef)
-    
-    def __init__(self,id,path,**kw):
-        self.id=id
-        self.path=path
-        for n,v in kw.items():
-            setattr(self,n,v)
-        
-    def idExists():
-        u""" id != None """
-        
-    def nameSpaceExists():
-        u""" nameSpace != None and nameSpace != '' """
-        
-    def typeExists():
-        u""" type != None and type != '' """
-    
-    def asUri():
-        u"""
-        A URI form of the reference, created by concatenating the following:
-        "ehr://" + id.value + "/" + path
-        """
-        
-    def pathValid():
-        u""" path != None and path != '' """
-    def typeExists():
-        u""" type != None and type != '' """
-    
-    def asUri():
-        u"""
-        A URI form of the reference, created by concatenating the following:
-        "ehr://" + id.value + "/" + path
-        """
-        
-    def pathValid():
-        u""" path != None and path != '' """
-

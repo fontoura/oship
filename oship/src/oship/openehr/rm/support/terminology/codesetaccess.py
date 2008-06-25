@@ -16,31 +16,13 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema.interfaces import IField
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
+
+from interfaces.codesetaccess import ICodeSetAccess
+
 _ = MessageFactory('oship')
 
-class ICodeSetAccess(IField):
-    u"""
-    Defines an object providing proxy access to a code_set.
-    """
-
-    def id():
-        u"""External identifier of this Code Set"""
-    
-    def allCodes():
-        u""" Return all codes known in this code set """
-        
-    def hasLang(a_lang):
-        u""" True if code set knows about ‘a_lang’ """
-        
-    def hasCode(a_code):
-        u""" True if code set knows about ‘a_code’ """
-        
-    def idValid():
-        u""" True if id != None and id != ''  """
-        
 class CodeSetAccess(Field):
     """
     Defines an object providing proxy access to a code_set.

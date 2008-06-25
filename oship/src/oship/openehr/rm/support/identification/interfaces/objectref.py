@@ -16,17 +16,13 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-import re
-
-from zope.interface import Interface
-from zope.schema.interfaces import IField,IId,IObject,IURI
 from zope.schema import Text, TextLine, Field
 from zope.i18nmessageid.message import MessageFactory 
 
-import objectid
+from.openehr.rm.support.identification.objectid import ObjectId
+from objectid import IObjectId
 
 _ = MessageFactory('oship')
-
 
 class IObjectRef(IObjectId):
     u"""
@@ -67,34 +63,6 @@ class IObjectRef(IObjectId):
         required = True,
         )
         
-        
-    def idExists():
-        u""" id != None """
-        
-    def nameSpaceExists():
-        u""" nameSpace != None and nameSpace != '' """
-        
-    def typeExists():
-        u""" type != None and type != '' """
-
-class ObjectRef(ObjectId):
-    u"""
-    Class describing a reference to another object, which may exist locally or be
-    maintained outside the current namespace, e.g. in another service. Services are
-    usually external, e.g. available in a LAN (including on the same host) or the inter-
-    net via Corba, SOAP, or some other distributed protocol. However, in small sys-
-    tems they may be part of the same executable as the data containing the Id.
-    """
-
-    implements(IObjectRef)
-    
-    def __init__(self,id,nameSpace,type,**kw):
-        self.id=id
-        self.nameSpace=nameSpace
-        self.type=type
-        for n,v in kw.items():
-            setattr(self,n,v)
-
         
     def idExists():
         u""" id != None """

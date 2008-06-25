@@ -16,16 +16,13 @@ From the definition package in support_im.pdf Rev. 1.6.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+
 from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
 
-import basicdefinitions
+from basicdefinitions import IBasicDefinitions
 
 class IOpenehrDefinitions(IBasicDefinitions):
     """ Inheritance class to provide access to constants defined in other packages."""
     
-class OpenehrDefinitions(BasicDefinitions):
-    """ Inheritance class to provide access to constants defined in other packages."""
-    
-    implements(IOpenehrDefinitions)

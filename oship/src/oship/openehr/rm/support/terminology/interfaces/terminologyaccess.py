@@ -16,8 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements 
-from zope.schema import TextLine, Field
+from zope.schema import TextLine
 from zope.schema.interfaces import IField
 from zope.i18nmessageid.message import MessageFactory 
 
@@ -60,41 +59,3 @@ class ITerminologyAccess(IField):
 
     def idExists():
         u""" True if id != None and id != '' """
-        
-class TerminologyAccess(Field):
-    """
-    Defines an object providing proxy access to a terminology.
-    """
-    implements(ITerminologyAccess)
-
-    def __init__(self,id,**kw):
-        self.id=id
-        for n,v in kw.items():
-            setattr(self,n,v)
-        
-    def allCodes():
-        u""" Return all codes known in this terminology """
-        
-    def codesForGroupId(group_id):
-        u"""
-        Return all codes under grouper ‘group_id’ from this terminology
-        """
-
-    def hasCodeForGroupId(group_id, a_code):
-        u"""
-        True if ‘a_code’ is known in group ‘group_id’ in the openEHR terminology.
-        """
-
-    def codesForGroupName(name, lang):
-        u"""
-        Return all codes under grouper whose name in ‘lang’ is ‘name’ from this terminology
-        """
-
-    def rubricForCode(code, lang):
-        u"""
-        Return all rubric of code ‘code’ in language ‘lang’.
-        """
-
-    def idExists():
-        u""" True if id != None and id != '' """
-        

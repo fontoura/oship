@@ -17,11 +17,10 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
-from zope.interface import implements
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import objectid
+from objectid import IObjectId
 
 _ = MessageFactory('oship')
 
@@ -39,21 +38,4 @@ class ITemplateId(IObjectId):
         u"""        
         value != None and then not value != ''
         """
-    
-class TemplateId(ObjectId):
-    u""" Identifier for templates. Lexical form to be determined. """
-    
-    implements(ITemplateId)
-
-    def __init__(self, value,**kw):
-        self.value = value
-        for n,v in kw.items():
-            setattr(self,n,v)
-
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """
-        return self.value!=None and self.value!=''
     

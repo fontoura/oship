@@ -17,18 +17,12 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import implements
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import uidbasedid
+from uidbasedid import UidBasedId
+from interfaces.hierobjectid import IHierObjectId
 
 _ = MessageFactory('oship')
-
-
-class IHierObjectId(IUidBasedId):
-    u"""
-    Concrete type corresponding to hierarchical identifiers of the form defined by UID_BASED_ID.
-    """
 
 
 class HierObjectId(UidBasedId):

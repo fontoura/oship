@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface,implements
+from zope.interface import Interface
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
@@ -127,15 +127,4 @@ class IOpenehrTerminologyGroupIndentifiers(Interface):
         Validity function to test if an identifier anId==<String> is in the set defined by this class.
         """
         
-class OpenehrTerminologyGroupIndentifiers(object):
-    """
-    List of identifiers for groups in the openEHR terminology.
-    """
-    
-    implements(IOpenehrTerminologyGroupIndentifiers)
-    
-    def validTerminologyGroupId(anId):
-        u"""
-        Validity function to test if an identifier is in the set defined by this class.
-        """
         

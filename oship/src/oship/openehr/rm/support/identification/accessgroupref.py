@@ -17,60 +17,13 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import implements
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import objectref
+from objectref import ObjectRef
+from interfaces.accessgroupref import IAccessGroupRef
 
 _ = MessageFactory('oship')
-
-
-class IAccessGroupRef(IObjectRef):
-    u""" Reference to access group in an access control service. """
-
-    id = TextLine(
-        title = _(u"Id"),
-        description = _(u"Globally unique id of an object, regardless of where it is stored."),
-        required = True,
-        )
-    
-    nameSpace = TextLine(
-        title = _(u"Namespace"),
-        description = _(u"""Namespace to which this identifier belongs in
-                       the local system context (and possibly in any
-                       other openEHR compliant environment) e.g.
-                       "terminology", "demographic". These names
-                       are not yet standardised. Legal values for the
-                       namespace are
-                       "local" | "unknown" | "[a-zA-
-                       Z][a-zA-Z0-9_-:/&+?]*" """),
-        required = True,
-        )
-    
-    
-    type = TextLine(
-        title = _(u"Type"),
-        description = _(u"""Name of the class (concrete or abstract) of object to which this 
-                          identifier type refers, e.g."PARTY", "PERSON", "GUIDELINE" etc.
-                          These class names are from the relevant reference model. 
-                          The type name "ANY" can be used to indicate that any type is accepted 
-                          (e.g. if the type is unknown). """),
-        required = True,
-        )
-        
-        
-    def idExists():
-        u""" id != None """
-        
-    def nameSpaceExists():
-        u""" nameSpace != None and nameSpace != '' """
-        
-    def typeExists():
-        u""" type != None and type != '' """    
-    
-    def typeValidity():
-        u""" True if type == 'ACCESS_GROUP' """
-        
+       
 class AccessGroupRef(ObjectRef):
     u""" Reference to access group in an access control service. """
 

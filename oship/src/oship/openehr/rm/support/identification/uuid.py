@@ -17,32 +17,12 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import implements 
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import uid
+from uid import Uid
+from interfaces.uuid import IUuid
 
 _ = MessageFactory('oship')
-
-
-class IUuid(IUid):
-    u"""
-    Model of the DCE Universal Unique Identifier or UUID which takes the form of
-    hexadecimal integers separated by hyphens, following the pattern 8-4-4-4-12 as
-    defined by the Open Group, CDE 1.1 Remote Procedure Call specification,
-    Appendix A. Also known as a GUID.
-    """
-
-    value = TextLine(
-        title=_(u"Value"),
-        description=_(u"A single unicode string containing a valid UID"),
-        default=_(u""),
-        required=True)
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """
 
 class Uuid(Uid):
     u"""

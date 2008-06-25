@@ -17,54 +17,13 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import implements 
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import objectid
+from objectid import ObjectId
+from interfaces.terminologyid import ITerminologyId
 
 _ = MessageFactory('oship')
-
-
-class ITerminologyId(IObjectId):
-    u"""
-    Identifier for terminologies such accessed via a terminology query service. In this
-    class, the value attribute identifies the Terminology in the terminology service,
-    e.g. "SNOMED-CT". A terminology is assumed to be in a particular language,
-    which must be explicitly specified.
-    
-    The value if the id attribute is the precise terminology id identifier, including
-    actual release (i.e. actual "version"), local modifications etc; e.g. "ICPC2".
-    Lexical form: name [ '(' version ')' ]
-    """
-
-    value = TextLine(
-        title=_(u"Value"),
-        description=_(u"A single unicode string containing a valid ID"),
-        default=_(u""),
-        required=True)
-    
-    def valueExists():
-        u"""        
-        value != None and then not value != ''
-        """
-
-    def name():
-        u"""
-        Return the terminology id (which includes the "version" in some cases). 
-        Distinct names correspond to distinct (i.e. non-compatible) terminologies.
-        Thus the names "ICD10AM" and "ICD10" refer to distinct terminologies.
-        """
-        
-    def versionId():
-        u""" Version of this terminology, if versioning supported, else the empty string."""
-        
-    
-    def nameValid():
-        u""" name != None and name != '' """
-
-    def versionIdValid():
-        u""" versionId != None """
-        
+      
 class TerminologyId(ObjectId):
     u"""
     Identifier for terminologies such accessed via a terminology query service. In this

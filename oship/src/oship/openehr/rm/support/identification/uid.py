@@ -17,32 +17,13 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import implements 
-from zope.schema.interfaces import IField
-from zope.schema import TextLine, Field
+from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
 
+from interfaces.uid import IUid
 
 _ = MessageFactory('oship')
-
-
-class IUid(IField):
-    u"""
-    Abstract parent of classes representing unique identifiers which identify informa-
-    tion entities in a durable way. UIDs only ever identify one IE in time or space and
-    are never re-used.
-    """
-    
-    value = TextLine(
-        title=_(u"Value"),
-        description=_(u"A single unicode string containing a valid UID"),
-        default=_(u""),
-        required=True)
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """
-            
+        
 class Uid(Field):
     u"""
     Abstract parent of classes representing unique identifiers which identify informa-

@@ -18,29 +18,12 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
 from zope.interface import implements
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-import objectid
+from objectid import ObjectId
 
 _ = MessageFactory('oship')
-
-
-class IGenericId(IObjectId):
-    u"""
-    Generic identifier type for identifiers whose format is othterwise unknown to openEHR. 
-    Includes an attribute for naming the identification scheme (which may well be local).
-    """
-
-    scheme = TextLine(
-        title = _(u"Scheme"),
-        description = _(u"Name of the scheme to which this identifier conforms."),
-        required = True
-        )
-            
-    def schemeValid():
-        u""" scheme != None and scheme != ''  """
-        
+      
 class GenericId(ObjectId):
     u"""
     Generic identifier type for identifiers whose format is othterwise unknown to openEHR. 

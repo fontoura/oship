@@ -19,15 +19,10 @@ EHR Information Model package Rev. 5.1.0
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-
-from oship.openehr.rm.data_structures.interfaces import DataStructure
-
-from oship.openehr.rm.support.indentification import HeirObjectId
-
-from oship.openeh.rm.data_strutures.representation import *
-
-
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Container
+
+from interfaces.contentitem import IContentItem
 
 _ = MessageFactory('oship')
 

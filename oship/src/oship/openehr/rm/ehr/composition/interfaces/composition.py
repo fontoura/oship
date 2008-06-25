@@ -15,12 +15,17 @@ EHR Information Model package Rev. 5.1.0
 
 """
 
-
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Bool,List
+
+from openehr.rm.common.generic.partyproxy import PartyProxy
+from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from openehr.rm.datatypes.text.codephrase import CodePhrase
+from composition.eventcontext import EventContext
+from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 
 _ = MessageFactory('oship')
 
@@ -71,53 +76,3 @@ class IComposition(ILocatable):
         required=True,
         default=True,
     )
-    
-class IEventContext(IPathable):
-    """
-    The context information of a healthcare event.
-    These include patient contacts or other investigations.
-    """
-    
-    healthCareFacility=PartyIdentified(
-        title=_("Healthcare Facility"),
-        description=_("Where this event took place."),
-        required=False,
-    )
-    
-    startTime=DvDateTime(
-        title=_("Start Time"),
-        description=_(" "),
-        required=True,
-    )
-    
-    endTime=DvDateTime(
-        title=_("End Time"),
-        description=_(" "),
-        required=False,
-    )
-    
-    participations=List(
-        title=_("Participations"),
-        description=_("List of all parties involved in the event."),
-        required=False,
-    )
-    
-    location=TextLine(
-        title=_("Location"),
-        description=_("Physical location of this event; ABCLab, home,etc."),
-        required=False,
-    )
-    
-    setting=DvCodedText(
-        title=_("Setting"),
-        description=_("The setting of the clinical event."),
-        required=True,
-    )
-    
-    otherContext=ItemStructure(
-        title=_("Other Context"),
-        description=_("Other optional archetyped context."),
-        required=False,
-    )
-    
-    

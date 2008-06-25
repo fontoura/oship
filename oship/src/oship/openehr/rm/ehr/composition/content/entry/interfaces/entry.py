@@ -26,7 +26,7 @@ _ = MessageFactory('oship')
 
 
 class IEntry(IContentItem):
-u"""
+    u"""
         The abstract parent of all ENTRY subtypes. An ENTRY is the root of a logical item
         of “hard” clinical information created in the “clinical statement” context, within a
         clinical session. There can be numerous such contexts in a clinical session. Obser-
@@ -37,7 +37,7 @@ u"""
         and contextual information, as well as the subject and generator of the informa-
         tion.
 
-"""
+    """
 
     language = CodePhrase(
         title = u"""language""",

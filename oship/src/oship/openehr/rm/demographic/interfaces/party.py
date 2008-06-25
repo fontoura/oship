@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
 # Redistribution and use are governed by the license in OSHIP-LICENSE.txt
@@ -21,6 +21,13 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Set
+
+from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
+from openehr.rm.support.identification.hierobjectid import HierObjectId
+from openehr.rm.datatypes.text.codephrase import CodePhrase
+from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
 
 _ = MessageFactory('oship')
 
@@ -75,56 +82,3 @@ class IParty(ILocatable):
         """
         Return the type of party from the inherited 'name' attribute.
         """
-
-class Party(Locatable):
-    """
-    Ancestor of all party types.
-    """
-    
-    uid=HierObjectId(
-        title=_("UID"),
-        description=_("Identifier of this party."),
-        required=True,
-    )
-    
-    identities=Set(
-        title=_("Indentities"),
-        description=_("Identities used by the party to identify itself."),
-        required=True,
-    )
-    
-    contacts=Set(
-        title=_("Contacts"),
-        description=_("Contacts for this party."),
-        required=True,
-    )
-    
-    category=DvCodedText(
-        title=_("Category"),
-        description=_("Defines the broad category of this composition."),
-        required=False,
-    )
-    
-    language=CodePhrase(
-        title=_("Language"),
-        description=_("Indicator of the localised language where this composition was created."),
-        required=True,
-    )
-    
-    relationships=Set(
-        title=_("Relationships"),
-        description=_("Relationships in which this role takes part as target."),
-        required=False,
-    )
-    
-    details=ItemStructure(
-        title=_("Details"),
-        description=_("All other party details."),
-        required=False,
-    )
-    
-    def type():
-        """
-        Return the type of party from the inherited 'name' attribute.
-        """
-        

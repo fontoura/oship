@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
 # Redistribution and use are governed by the license in OSHIP-LICENSE.txt
@@ -21,32 +21,13 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
+from zope.interface import implements
+
+from openehr.rm.common.archetyped.locatable import Locatable
 
 _ = MessageFactory('oship')
 
-
-class IPartyIdentity(ILocatable):
-    """
-    An identity owned by a party.
-    """
-    
-    details=ItemStructure(
-        title=_("Details"),
-        description=_("The value of the identitiy"),
-        required=False,
-    )
-    
-    purpose=Dvtext(
-        title=_("Purpose"),
-        description=_("Purpose fo this identitiy."),
-        required=True,
-    )
-    
-    def asString():
-        """
-        Indentity in the form of a string.
-        """
-        class PartyIdentity(Locatable):
+class PartyIdentity(Locatable):
     """
     An identity owned by a party.
     """

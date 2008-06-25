@@ -20,37 +20,13 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import implements
-from zope.schema import Set,List
 from zope.i18nmessageid import MessageFactory
 
-import party
+from interfaces.actor import IActor
+from party import Party
 
 _ = MessageFactory('oship')
 
-    
-  
-class IActor(IParty):
-    """
-    Ancestor of all real world types.
-    """
-    
-    roles=Set(
-        title=_(u"Roles"),
-        description=_(u"Identifiers of the Version container for each Role played by this party."),
-        required=False,
-    )
-    
-    languages=List(
-        title=_(u"Languages"),
-        description=_(u"A list of languages to be used to communicate with this actor."),
-        required=False,
-    )
-    def hasLegalIdentity():
-        """
-        Return True/False regarding a legal identiry of this Actor.
-        """
-
-   
 class Actor(Party):
     """
     Ancestor of al real world types.

@@ -15,20 +15,16 @@ Demographic Information Model package Rev. 2.0.1
 
 """
 
-
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
 from zope.schema import Set,List
 from zope.i18nmessageid import MessageFactory
 
-import party
+from party import IParty
 
 _ = MessageFactory('oship')
 
-    
-  
 class IActor(IParty):
     """
     Ancestor of all real world types.
@@ -50,21 +46,4 @@ class IActor(IParty):
         Return True/False regarding a legal identiry of this Actor.
         """
 
-   
-class Actor(Party):
-    """
-    Ancestor of al real world types.
-    """
-    
-    implements(IActor)
-    
-    def __init__(self, roles,languages,**kw):
-        self.roles=roles
-        self.languages=languages
-        for n,v in kw.items():
-            setattr(self,n,v)
-    
-    def hasLegalIdentity():
-        """
-        Return True/False regarding a legal identiry of this Actor.
-        """
+  

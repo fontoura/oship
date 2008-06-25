@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
 # Redistribution and use are governed by the license in OSHIP-LICENSE.txt
@@ -22,6 +22,8 @@ __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 
+from actor import IActor
+
 _ = MessageFactory('oship')
 
     
@@ -30,8 +32,4 @@ class IOrganisation(IActor):
     Generic descriptions of organizations.
     """
 
-class Organisation(Actor):
-    """
-    Generic descriptions of organizations.
-    """
     

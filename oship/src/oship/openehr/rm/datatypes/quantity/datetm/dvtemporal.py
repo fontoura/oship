@@ -20,18 +20,10 @@ __docformat__ = u'plaintext'
 from zope.interface import implements 
 from zope.i18nmessageid.message import MessageFactory
 
-from openehr.rm.datatypes.dvabsolutequantity import IDvAbsoluteQuantity,DvAbsoluteQuantity
-
+from openehr.rm.datatypes.quantity.dvabsolutequantity import DvAbsoluteQuantity
+from interfaces.dvtemporal import IDvTemporal
 
 _ = MessageFactory('oship')
-
-
-class IDvTemporal(IDvAbsoluteQuantity):
-    """
-    Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is DvDuration.
-    """
-
-    pass
 
 class DvTemporal(DvAbsoluteQuantity):
     """

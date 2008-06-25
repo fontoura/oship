@@ -20,22 +20,10 @@ from zope.interface import implements
 from zope.schema import Bool 
 from zope.i18nmessageid.message import MessageFactory 
 
+from interfaces.dvboolean import IDvBoolean
+
 _ = MessageFactory('oship')
 
-
-class IDvBoolean(IBool):
-    """
-    Items which are truly boolean data, such as true/false or yes/no answers.
-    The invariant defined in the spec for this class is that it is not void.  
-    In Python a 'None' is defined as False.
-    """
-    
-    value = Bool(
-        title = _("value"),
-        description = _("The boolean value of this item."),
-        required = True,
-        default = False
-    )
 
 class DvBoolean(Bool):
     """ 

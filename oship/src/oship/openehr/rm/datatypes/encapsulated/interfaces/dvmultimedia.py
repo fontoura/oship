@@ -23,9 +23,9 @@ from zope.schema import TextLine,BytesLine
 from zope.i18nmessageid.message import MessageFactory 
 
 
-from openehr.rm.datatypes.dvencapsulated import DvEncapsulated,IDvEncapsulated
-from openehr.rm.datatypes.codephrase import CodePhrase
-from openehr.rm.datatypes.dvuri import DvUri
+from openehr.rm.datatypes.encapsulated.interfaces.dvencapsulated import IDvEncapsulated
+from openehr.rm.datatypes.text.codephrase import CodePhrase
+from openehr.rm.datatypes.uri.dvuri import DvUri
 
 _=MessageFactory('oship')
         

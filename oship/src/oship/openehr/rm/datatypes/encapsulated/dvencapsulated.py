@@ -20,51 +20,13 @@ __docformat__ = u'plaintext'
 
 
 from zope.interface import implements 
-from zope.schema import Int
 from zope.i18nmessageid.message import MessageFactory 
 
-from openehr.rm.datatypes.datavalue import DataValue,IDataValue
-from openehr.rm.datatypes.codephrase import CodePhrase
+from openehr.rm.datatypes.basic.datavalue import DataValue
+from openehr.rm.datatypes.text.codephrase import CodePhrase
+from interfaces.dvencapsulated import IDvEncapsulated
 
 _=MessageFactory('oship')
-
-class IDvEncapsulated(IDataValue):
-    """Abstract class defining the common meta-data of all types of encapsulated data."""
-    
-    size = Int(
-        title=_(u"Size"),
-        description=_(u"""Original size in bytes of unencoded encapsulated data. I.e. encodings 
-                    such as base64, hexadecimal etc do not change the value of this attribute."""),
-        required=True,
-        )
-    
-    charset = CodePhrase(
-        title=_(u"charset"),
-        description=_(u"""Name of character encoding scheme in which this value is encoded. 
-        Coded from openEHR Code Set “character sets”. Unicode is the default assumption 
-        in openEHR, with UTF-8 being the assumed encoding. This attribute allows for 
-        variations from these assumptions. Type==CodePhrase"""),
-        required=False,
-        )
-    
-    language = CodePhrase(
-        title=_(u"Language"),
-        description=_(u"""Optional indicator of the localised language in which the data 
-                    is written, if relevant. Coded from openEHR Code Set “languages”. Type==CodePhrase"""),
-        required=False,
-        )
-    
-    def asString():
-        """Result = alternate_text [(uri)]"""
-        
-    def sizePositive():
-        """size >= 0"""
-        
-    def languageValid():
-        """language /= Void implies code_set(Code_set_id_languages).has_code(language)"""
-        
-    def charsetValid():
-        """charset /= Void implies code_set(Code_set_id_character_sets).has_code(charset)"""
 
 class DvEncapsulated(DataValue):
     """Abstract class defining the common meta-data of all types of encapsulated data."""

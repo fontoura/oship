@@ -20,14 +20,9 @@ from zope.interface import implements
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
 
+from interfaces.datavalue import IDataValue
+
 _ = MessageFactory('oship')
-
-class IDataValue(IField):
-    """
-    Serves as a common ancestor of all data value types in openEHR models.
-    """
-
-    pass
 
 class DataValue(Field):
     """ 

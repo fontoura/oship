@@ -18,9 +18,8 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements 
 from zope.schema import Int,Bool
-from openehr.rm.datatypes.dvquantified import DvQuantified,IDvQuantified
+from dvquantified import IDvQuantified
 
 _ = MessageFactory('oship')
  
@@ -55,28 +54,3 @@ class IDvAmount(IDvQuantified):
         ensure
         Result implies val >= 0.0 and val <= 100.0
         """
-
-class DvAmount(DvQuantified):
-    """   
-    Abstract class defining the concept of relative quantified ‘amounts’. For relative
-    quantities, the ‘+’ and ‘-’ operators are defined (unlike descendants of
-    DV_ABSOLUTE_QUANTITY, such as the date/time types).
-    """
-    
-    implements(IDvAmount)
-    
-    def __init__(self,accuracy,accuracyIsPercent):
-        self.accuracy=accuracy
-        self.accuracyIsPercent=accuracyIsPercent
-
-    
-    def validPercentage(val):
-        """
-        Test whether a number is a valid percentage,i.e. between 0 and 100.
-        ensure
-        Result implies val >= 0.0 and val <= 100.0
-        """
-        
-        return val>=0 and val<=100
-    
-    

@@ -19,60 +19,11 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
 from zope.interface import implements 
-from zope.schema import Int
 
-from openehr.rm.datatypes.dvordered import DvOrdered,IDvOrdered
-from openehr.rm.datatypes.dvcodedtext import DvCodedText
+from dvordered import DvOrdered
+from interfaces.dvordinal import IDvOrdinal
 
 _ = MessageFactory('oship')
-
-        
-class IDvOrdinal(IDvOrdered):
-    """
-    Models rankings and scores, e.g. pain, Apgar values, etc, where there is a)
-    implied ordering, b) no implication that the distance between each value is con-
-    stant, and c) the total number of values is finite.
-
-    Used for recording any clinical datum which is customarily recorded using sym-
-    bolic values. Example: the results on a urinalysis strip, e.g. {neg, trace, +,
-    ++, +++} are used for leucocytes, protein, nitrites etc; for non-haemolysed
-    blood {neg, trace, moderate}; for haemolysed blood {neg, trace,
-    small, moderate, large}.
-    """
-    
-    value = Int(
-        title=_(u"value"),
-        description=_(u""" Ordinal position in enumeration of values. """),
-        required=True
-    )
-    
-    symbol = DvCodedText(
-        title=_(u"symbol"),
-        description=_(u"""Coded textual representation of this 
-                       value in the enumeration, which may be strings made from “+” symbols, 
-                       or other enumerations of terms such as “mild”, “moderate”, “severe”,
-                       or even the same number series as the values,
-                       e.g. “1”, “2”, “3”. Codes come from archetype."""),
-        required=True
-    )
-
-
-    def referenceRange():
-        """
-        limits of the ordinal enumeration, to allow
-        comparison of an ordinal value to its limits.
-        Returns DvOrdinal.
-        """
-
-    def isStrictlyComparableTo(self, other):
-        """        
-        True if symbols come from same vocabulary,assuming the vocabulary is a 
-        subset or value range, e.g. urine:protein.
-        
-        (other: like Current): Boolean 
-        ensure
-        symbol.is_comparable (other.symbol) implies Result
-        """
         
 class DvOrdinal(DvOrdered):
     """

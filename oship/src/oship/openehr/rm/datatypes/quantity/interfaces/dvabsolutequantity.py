@@ -18,15 +18,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements 
 from zope.schema import Float
 
-from openehr.rm.datatypes.dvquantified import DvQuantified,IDvQuantified
-
+from dvquantified import IDvQuantified
 
 _ = MessageFactory('oship')
   
-        
 class IDvAbsoluteQuantity(IDvQuantified):
     """
     Abstract class defining the concept of quantified entities whose values are abso-
@@ -42,16 +39,3 @@ class IDvAbsoluteQuantity(IDvQuantified):
         )
     
 
-
-class DvAbsoluteQuantity(DvQuantified):
-    """
-    Abstract class defining the concept of quantified entities whose values are abso-
-    lute with respect to an origin. Dates and Times are the main example.
-    """
-    
-    implements(IDvAbsoluteQuantity)
-    
-    def __init__(self,accuracy):
-        self.accuracy=accuracy
-           
- 

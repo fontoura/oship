@@ -18,81 +18,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements,Interface
-from zope.schema import Float,Int
+from zope.interface import implements
 
-from openehr.rm.datatypes.dvamount import DvAmount,IDvAmount
+from dvamount import DvAmount
+from interfaces.dvproportion import IDvProportion,IProportionKind
 
-_ = MessageFactory('oship')
-
-    
-class IProportionKind(Interface):
-    """
-    Class of enumeration constants defining types of proportion for the
-    DV_PROPORTION class.
-    """
-
-
-    def validProportionKind(n):
-        """
-        True if n is one of the defined types.
-        """
-        
-    
-class IDvProportion(IDvAmount):
-    """
-              Models a ratio of values, i.e. where the numerator and denominator are both pure
-    Purpose:  numbers.
-    
-              Used for recording titers (e.g. 1:128), concentration ratios, e.g. Na:K (unitary
-      Use:    denominator), albumin:creatinine ratio, and percentages, e.g. red cell distirbution
-              width (RDW).
-        
-              Should not be used to represent things like blood pressure which are often written
-              using a / character, giving the misleading impression that the item is a ratio,
-    MisUse:   when in fact it is a structured value. E.g. visual acuity 6/24 is not a ratio.
-              Should not be used for formulations.
-    """
-    
-    
-    numerator = Float(
-        title=_(u"numerator"),
-        description=_(u"""numerator of ratio"""),
-        required=True
-    )
-    
-    denominator = Float(
-        title=_(u"denominator"),
-        description=_(u"""denominator of ratio"""),
-        required=True
-    )
-    
-    type = Int(
-        title=_(u"type"),
-        description=_(u"""Indicates semantic type of proportion, including percent, unitary etc."""),
-        required=True
-    )
-    
-    precision = Int(
-        title=_(u"precision"),
-        description=_(u"""Precision to which the numerator and denominator values of the proportion 
-                    are expressed, in terms of number of decimal places. The value 0 implies an 
-                    integral quantity. The value -1 implies no limit, i.e.any number of decimal places."""),
-        required=False
-    )
-    
-    
-    def isIntegral():
-        """
-        True if the numerator and denominator values are integers, i.e. if the precision is 0.
-        """
-
-    def magnitude():
-        """
-        Effective magnitude represented by ratio.
-        Result = numerator / denominator
-        """  
-    
+_ = MessageFactory('oship')   
  
 class DvProportion(DvAmount,ProportionKind):
     """

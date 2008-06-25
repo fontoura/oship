@@ -19,28 +19,12 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
 from zope.interface import implements 
-from zope.schema import Int
 
-from openehr.rm.datatypes.dvamount import DvAmount,IDvAmount
+from dvamount import DvAmount
+from interfaces.dvcount import IDvCount
 
 _ = MessageFactory('oship')
 
-
-class IDvCount(IDvAmount):
-    """        
-    Purpose: Countable quantities
-         
-             Used for countable types such as pregnancies and steps (taken by a physiotherapy
-    Use:     patient), number of cigarettes smoked in a day.
-
-    Misuse:  Not used for amounts of physical entities (which all have units)
-    """
-    
-    magnitude = Int(
-        title=_(u"Magnitude"),
-        description=_(u"""numeric magnitude of the quantity"""),
-        required=True
-        )
 
 class DvCount(DvAmount):
     """        

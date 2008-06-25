@@ -17,10 +17,9 @@ Quantity Package Rev. 2.1.0.
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements 
 from zope.i18nmessageid.message import MessageFactory
 
-from openehr.rm.datatypes.dvabsolutequantity import IDvAbsoluteQuantity,DvAbsoluteQuantity
+from openehr.rm.datatypes.quantity.dvabsolutequantity import IDvAbsoluteQuantity
 
 
 _ = MessageFactory('oship')
@@ -32,14 +31,3 @@ class IDvTemporal(IDvAbsoluteQuantity):
     """
 
     pass
-
-class DvTemporal(DvAbsoluteQuantity):
-    """
-    Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is
-    DV_DURATION.
-    """
-    
-    implements(IDvTemporal)
-    
-    def diff(other):
-        return DvDuration(other,self.value)

@@ -18,10 +18,9 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements 
 from zope.schema import Float,List
 
-from openehr.rm.datatypes.dvordered import DvOrdered,IDvOrdered
+from dvordered import IDvOrdered
 
 _ = MessageFactory('oship')
 
@@ -67,22 +66,4 @@ class IDvQuantified(IDvOrdered):
                                      valid_magnitude_status(magnitude_status)"""))
 
 
-                
-class DvQuantified(DvOrdered):
-    """
-    Abstract class defining the concept of true quantified values, i.e. values which are
-    not only ordered, but which have a precise magnitude.
-    """
-
-    def __init__(self,magnitude,magnitudeStatus):
-        self.magnitude=magnitude
-        self.magnitudeStatus=magnitudeStatus
-           
-    def validMagnitudeStatus(val):
-        """
-        Test whether a string 'val' is one of the valid values for the magnitude_status attribute.
-        """
-
-    magnitudeExists=magnitude!=None
-    
-    magnitudeStatusValid=val in magnitudeStatus
+ 

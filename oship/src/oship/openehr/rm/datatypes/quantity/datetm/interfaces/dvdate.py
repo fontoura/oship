@@ -19,12 +19,10 @@ in this implementation to datatypes.datetm
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements 
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory
 
-from openehr.rm.datatypes.dvtemporal import DvTemporal,IDvTemporal
-
+from dvtemporal import IDvTemporal
 
 _ = MessageFactory('oship')
 
@@ -53,29 +51,3 @@ class IDvDate(IDvTemporal):
 
     def valueValid(): 
         """validIso8601Date(value)"""
-        
-class DvDate(DvTemporal):
-    """
-    Represents an absolute point in time, as measured on the Gregorian calendar, and
-    specified only to the day. Semantics defined by ISO 8601.
-    Used for recording dates in real world time. The partial form is used for 
-    approximate birth dates, dates of death, etc.   
-    """
-
-    implements(IDvDate)
-
-    def __init__(self,value):
-        self.value=date(value)
-    
-
-    def diff(other):
-        """Difference of two dates. Returns a Dv_Duration"""
-        return DvDuration(other,self.value)
-        
-    def magnitude():
-        """ Returns the numeric value of the date as days since the calendar origin point 1/1/0000"""
-        return self.value.toordinal()
-
-    def valueValid(): 
-        u"""validIso8601Date(value) Always returns True because the system will not allow an invalid date."""
-        return True

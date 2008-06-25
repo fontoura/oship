@@ -16,46 +16,16 @@ Quantity Package Rev. 2.1.0.
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
+from time import time
+
 from zope.interface import implements 
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory
 
-from openehr.rm.datatypes.dvtemporal import DvTemporal,IDvTemporal
-
+from dvtemporal import DvTemporal
+from interfaces.dvtime import IDvTime
 
 _ = MessageFactory('oship')
 
-
-class IDvTime(IDvTemporal):
-    """
-    Represents an absolute point in time from an origin usually interpreted as meaning the start 
-    of the current day, specified to the second. Semantics defined by ISO8601.
-    
-    Used for recording real world times, rather than scientifically measured fine
-    amounts of time. The partial form is used for approximate times of events and
-    substance administrations. 
-    """
-
-    value = TextLine(
-        title=_(u"Value"),
-        description=_(u"""ISO8601 time string"""),
-        required=True,
-        )
-
-    def diff(other):
-        """Difference of two times. Returns a DvDuration"""
-        
-        
-    def magnitude():
-        """
-        Returns the numeric value of the seconds since midnight.
-        Result >= 0.0        
-        """
-
-
-    def valueValid(): 
-        """validIso8601Time(value)"""
-        
 class DvTime(DvTemporal):
     u"""
     Represents an absolute point in time from an origin usually interpreted as meaning the start 

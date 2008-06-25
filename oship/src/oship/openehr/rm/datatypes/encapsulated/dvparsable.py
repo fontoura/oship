@@ -19,46 +19,13 @@ __docformat__ = u'plaintext'
 
 
 from zope.interface import implements 
-from zope.schema import Int,TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-from openehr.rm.datatypes.dvencapsulated import DvEncapsulated,IDvEncapsulated
+from openehr.rm.datatypes.encapsulated.dvencapsulated import DvEncapsulated
+from interfaces.dvparsable import IDvParasable
 
 _=MessageFactory('oship')
-            
-class IDvParasable(IDvEncapsulated):
-    """
-    Encapsulated data expressed as a parsable String. The internal model of the data item is not 
-    described in the openEHR model in common with other encapsulated types, but in this case, the 
-    form of the data is assumed to be plaintext, rather than compressed or other types of large binary data.
-    Used for representing values which are formal textual representations, e.g. guidelines.
-    """
-
-    size=Int(
-        title=_(u"Size"),
-        description=_(""" """),
-        required=True,
-        )
-
-    value = TextLine(
-        title=_(u"Value"),
-        description=_(u"""The string, which may validly be empty in some syntaxes"""),
-        required=True,
-        )
-    
-    formalism = TextLine(
-        title=_(u"Formalism"),
-        description=_(u"""The name of the formalism, e.g. “GLIF 1.0”, “proforma” etc."""),
-        required=True,
-        )
-    
-    def valueValid():
-        """value != None."""
-
-    def formalismValidity():
-        """formalism != None and formalism != '' """
-        
-      
+ 
 class DvParasable(DvEncapsulated):
     u"""
     Encapsulated data expressed as a parsable String. The internal model of the data item is not 

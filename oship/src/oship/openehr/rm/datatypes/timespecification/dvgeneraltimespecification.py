@@ -14,32 +14,18 @@ Time Specification Package Rev. 2.1.0.
 
 """
 
-
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
+from zope.interface import implements
 
-
+from dvtimespecification import DvTimeSpecification
+from interfaces.dvgeneraltimespecification import IDvGeneralTimeSpecification
 
 _ = MessageFactory('oship')
         
-class IDvGeneralTimeSpecification(IDvTimeSpecification):
-    """Specifies points in time in a general syntax. Based on the HL7v3 GTS data type."""
-    
-    def calendarAlignment():
-        """Calendar alignment extracted from value. """
-        
-    def eventAlignment():
-        """Event alignment extracted from value."""
-        
-    def institutionSpecified():
-        """Extracted from value."""
-        
-    def valueValid():
-        """value.formalism.is_equal(“HL7:GTS”)"""
-
-        
+   
 class DvGeneralTimeSpecification(DvTimeSpecification):
     u"""Specifies points in time in a general syntax. Based on the HL7v3 GTS data type."""
     

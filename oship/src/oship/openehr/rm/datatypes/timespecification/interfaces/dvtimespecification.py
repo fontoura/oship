@@ -20,8 +20,8 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.datatypes.datavalue import IDataValue,DataValue
-from openehr.rm.datatypes.dvparsable import DvParasable
+from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
+from openehr.rm.datatypes.encapsulated.dvparsable import DvParasable
 
 _ = MessageFactory('oship')
 
@@ -57,35 +57,3 @@ class IDvTimeSpecification(IDataValue):
         the ‘value’ attribute.
         """
         
-
-class DvTimeSpecification(DataValue):
-    u"""
-    This is an abstract class of which all timing specifications are specialisations.
-    Specifies points in time, possibly linked to the calendar, or a real world repeating
-    event, such as “breakfast”.
-    """
-    
-    implements(IDvTimeSpecification)
-    
-    def __init__(self,value):
-        self.value=value
-            
-    def calendarAlignment():
-        u"""Indicates what prototypical point in the calendar the specification is
-        aligned to, e.g. “5th of the month”. Empty if not aligned. Extracted from 
-        the ‘value’ attribute.
-        """
-        
-    def eventAlignment():
-        u"""Indicates what real-world event the specification is aligned to if any.
-        Extracted from the ‘value’ attribute.
-        """
-        
-    def institutionSpecified():
-        u"""Indicates if the specification is aligned with institution schedules, 
-        e.g. a hospital nursing changeover or meal serving times. Extracted from 
-        the ‘value’ attribute.
-        """
-        
-    def valueValid():
-        u"""value != None"""

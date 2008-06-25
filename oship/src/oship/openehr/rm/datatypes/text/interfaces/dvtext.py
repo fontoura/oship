@@ -15,11 +15,10 @@ From the data types specification Rev 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
 from zope.schema import TextLine,Text,List,Dict,URI
 from zope.i18nmessageid.message import MessageFactory
 
-from openehr.rm.datatypes.datavalue import DataValue,IDataValue
+from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
 
 class IDvText(IDataValue):
     """
@@ -88,24 +87,3 @@ class IDvText(IDataValue):
         required = False
         )         
         
-
-class DvText(DataValue):
-    """
-    A text item, which may contain any amount of legal characters arranged as e.g.
-    words, sentences etc (i.e. one DV_TEXT may be more than one word). Visual for-
-    matting and hyperlinks may be included.
-    A DV_TEXT can be “coded” by adding mappings to it.
-    Fragments of text, whether coded or not are used on their own as values, or to
-    make up larger tracts of text which may be marked up in some way, eventually
-    going to make up paragraphs.
-    """
-
-    implements(IDvText)
-    
-    def __init__(self, value, mappings, formatting, hyperlink, language, encoding):
-        self.value = value
-        self.mappings = mappings
-        self.formatting = formatting
-        self.hyperlink = hyperlink
-        self.language = language
-        self.encoding = encoding

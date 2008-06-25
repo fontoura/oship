@@ -22,31 +22,11 @@ __docformat__ = u'plaintext'
 from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.datatypes.dvuri import DvUri,IDvUri
+from dvuri import DvUri
+from interfaces.dvehruri import IDvEhrUri
 
 _ = MessageFactory('oship')
 
-
-        
-class IDvEhrUri(IDvUri):
-    """
-    A DvEhrUri is a DvUri which has the scheme name “ehr”, and which can only reference 
-    elements in EHRs. The syntax is described below.
-    
-    Used to reference elements in an EHR, which may be the current one, or another.
-    
-    The syntax of a DV_EHR_URI is an openEHR path, inside the “ehr” URI scheme-space, and is 
-    of the form: “ehr://” ehr_path
-    The syntax of ehr_path is described in the section on Paths in The openEHR Architecture Overview 
-    document. DV_EHR_URIs are used as a mechanism for referencing in the EHR, ensuring readability by 
-    humans, as well as validity when extracts are transmitted elsewhere: even if the target of a path 
-    is not present, the path can be used to locate the missing item on demand.
-    """
-    
-    def schemeIsEhr():
-        """ Ensure scheme == 'ehr' """
-        
-        
 class DvEhrUri(DvUri):
     u"""
     A DvEhrUri is a DvUri which has the scheme name ehr, and which can only reference 

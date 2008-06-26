@@ -18,7 +18,12 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.schema import Set,Bool
+from zope.i18nmessageid.message import MessageFactory 
+
+from cdefinedobject import ICDefinedObject
+_ = MessageFactory('oship')
+
 
 class ICComplexObject(ICDefinedObject):
     """
@@ -36,10 +41,3 @@ class ICComplexObject(ICDefinedObject):
         description=_("True if any value of the reference model is allowed."),
         required=True,
     )
-
-class CComplexObject(CDefinedObject):
-    """
-    Constraint on complex objects.
-    """
-    
-    implements(ICComplexObject)

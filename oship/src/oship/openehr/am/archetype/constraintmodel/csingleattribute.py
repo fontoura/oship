@@ -17,19 +17,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements
+from zope.schema import Field
 
-class ICSingleAttribute(Interface):
-    """
-    Concrete model of constraint on a single valued attribute.
-    """
-    
-    alternatives=List(
-        title=_("Alternatives"),
-        description=_("A list of alternative constraints for the single child of this attribute."),
-        required=False,
-    )
+from interfaces.csingleattribute import ICSingleAttribute
+
+_ = MessageFactory('oship')
 
 class CSingleAttribute(Field):
     """

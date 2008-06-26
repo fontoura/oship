@@ -18,7 +18,12 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.schema import List, TextLine
+from zope.i18nmessageid.message import MessageFactory 
+
+from openehr.rm.support.interval import Interval
+_ = MessageFactory('oship')
+
 
 class ICAttribute(Interface):
     """
@@ -42,10 +47,3 @@ class ICAttribute(Interface):
         description=_("Child constraint nodes."),
         required=False,
     )
-
-class CAttribute(Field):
-    """
-    Abstract model of constraint on any kind of attribute code.
-    """
-    
-    implements(ICAttribute)

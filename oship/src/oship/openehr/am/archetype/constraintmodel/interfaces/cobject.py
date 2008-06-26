@@ -18,7 +18,13 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.schema import TextLine
+from zope.i18nmessageid.message import MessageFactory 
+
+from openehr.rm.support.interval import Interval
+from openehr.am.archetype.constraintmodel.cattribute import CAttribute
+_ = MessageFactory('oship')
+
 
 class ICObject(Interface):
     """
@@ -49,9 +55,3 @@ class ICObject(Interface):
         required=False,
     )
 
-class CObject(Field):
-    """
-    Abstract model of constraint on any kind of object node.
-    """
-    
-    implements(ICObject)

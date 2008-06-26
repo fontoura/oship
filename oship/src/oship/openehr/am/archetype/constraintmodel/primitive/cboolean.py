@@ -15,32 +15,14 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.interface import implements
+from zope.i18nmessageid.message import MessageFactory
 
-class ICBoolean(ICPrimitive):
-    """
-    Boolean constraint.
-    """
-    
-    trueValid=Bool(
-        title_("True Valid"),
-        description=_("True if value True is allowed."),
-        required=True,
-    )
-    
-    falseValid=Bool(
-        title_("False Valid"),
-        description=_("True if the value False is allowed."),
-        required=True,
-    )
-    
-    assumedValue=Bool(
-        title_("Assumed Value"),
-        description=_("The value to assume of this item is not included in the data."),
-        required=True,
-    )
-    
+from cprimitive import CPrimitive
+from interfaces.cboolean import ICBoolean
+
+_ = MessageFactory('oship')
+   
 class CBoolean(CPrimitive):
     """
     Boolean constraint.

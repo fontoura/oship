@@ -17,25 +17,12 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements
+from zope.schema import Field
 
-class ICMultipleAttribute(Interface):
-    """
-    Abstract model of constraint on any kind of attribute node.
-    """
-    
-    cardinality=Cardinality(
-        title=_("Cardinality"),
-        description=_("Cardinality of this attribute constraint."),
-        required=True,
-    )
+_ = MessageFactory('oship')
 
-    def members(cobj):
-        """
-        List of constraints representing members of the container value of this attribute.
-        """
-        
 class CMultipleAttribute(Field):
     """
     Abstract model of constraint on any kind of attribute node.

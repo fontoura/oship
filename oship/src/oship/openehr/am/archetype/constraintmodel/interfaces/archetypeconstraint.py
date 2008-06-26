@@ -17,8 +17,6 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
-from zope.schema import Container
 from zope.schema.interfaces import IContainer
 
 _ = MessageFactory('oship')
@@ -28,29 +26,6 @@ class IArchetypeConstraint(IContainer):
     """
     Archetype equivalent to Locatable class in the Common package of the reference model.
     """
-    
-    def isSubsetOf(other):
-        u"""True if constraints are narrower than this node."""
-
-    def isValid():
-        u"""True if this node and sub-nodes are valid for its type."""
-
-    def path():
-        """
-        Return a string containt the path of this node relative to the archetype root.
-        """
-        
-    def hasPath(aPath):
-        """
-        Return True if the relative path (aPath) exists at this node.
-        """
-
-class ArchetypeConstraint(Container):
-    """
-    Archetype equivalent to Locatable class in the Common package of the reference model.
-    """
-    
-    implements(IArchetypeConstraint)
     
     def isSubsetOf(other):
         u"""True if constraints are narrower than this node."""

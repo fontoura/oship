@@ -16,11 +16,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
 from zope.schema import Set
 from zope.i18nmessageid.message import MessageFactory
 
-from openehr.am.archetype.creferenceobject import ICReferenceObject,CReferenceObject
+from creferenceobject import ICReferenceObject
 
 _ = MessageFactory('oship')
 
@@ -41,15 +40,3 @@ class IArchetypeSlot(ICReferenceObject):
         required=False,
     )
 
-class ArchetypeSlot(CReferenceObject):
-    """
-    Constraint describing a slot where other archetypes can occur.
-    """
-    
-    implements(IArchetypeSlot)
-
-    def __init__(self,incl,excl,**kw):
-        self.includes=incl
-        self.excludes=excl
-        for n,v in kw.items():
-            setattr(self,n,v)

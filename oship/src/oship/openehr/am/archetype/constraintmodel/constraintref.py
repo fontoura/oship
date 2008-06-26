@@ -17,19 +17,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements
 
-class IConstraintRef(ICReferenceObject):
-    """
-    Reference to a constraint described in the same archetype.
-    """
-    
-    reference=TextLine(
-        title=_("Reference"),
-        description=_("Reference to a constraint in the archetype ontology."),
-        required=True,
-    )
+from creferenceobject import CReferenceObject
+from interfaces.constraintref import ICReferenceObject
+
+_ = MessageFactory('oship')
     
 class ConstraintRef(CReferenceObject):
     """

@@ -17,48 +17,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+from zope.schema import Field
+   
+from interfaces.cardinality import ICardinality
 
-class ICardinality(Interface):
-    """
-    Expresses constraints on the cardinality of container classes.
-    """
-    
-    isOrdered=Bool(
-        title=_("Ordered"),
-        description=_("True if members are ordered."),
-        required=True,
-    )
+_ = MessageFactory('oship')
 
-    isUnique=Bool(
-        title=_("Unique"),
-        description=_("True if members are unique."),
-        required=True,
-    )
-
-    interval=Interval(
-        title=_("Interval"),
-        description=_("Interval of this cardinality."),
-        required=True,
-    )
-
-    
-    def isBag():
-        """
-        Return True if this cardinality represents an unordered set.
-        """
-        
-    def isList():
-        """
-        Return True if this cardinality represents an ordered, non-unique membership.
-        """
-        
-    def isSet():
-        """
-        Return True if this cardinality represents an unordered, non-unique membership.
-        """
-        
 class Cardinality(Field):
     """
     Expresses constraints on the cardinality of container classes.

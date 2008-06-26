@@ -17,8 +17,12 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+
+from cdefinedobject import ICDefinedObject
+from openehr.am.archetype.constraintmodel.ccomplexobject import CComplexObject
+_ = MessageFactory('oship')
+
 
 class ICDomainType(ICDefinedObject):
     """
@@ -31,9 +35,3 @@ class ICDomainType(ICDefinedObject):
         required=True,
     )
     
-class CDomainType(CDefinedObject):
-    """
-    Abstract parent of domain specific constrainer types.
-    """
-    
-    implements(ICDomainType)

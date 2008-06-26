@@ -18,10 +18,9 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
-from zope.schema import Text, TextLine, Field
+from zope.schema import TextLine
 
-from openehr.am.archetype.creferenceobject import ICReferenceObject,CReferenceObject
+from creferenceobject import ICReferenceObject
 
 _ = MessageFactory('oship')
 
@@ -37,14 +36,3 @@ class IArchetypeInternalRef(ICReferenceObject):
         required=True,
     )
 
-class ArchetypeInternalRef(CReferenceObject):
-    """
-    See the AOM reference document.
-    """
-    
-    implements(IArchetypeInternalRef)
-    
-    def __init__(self,tgtpath,**kw):
-        self.tgtpath=tgtpath
-        for n,v in kw.items():
-            setattr(self,n,v)

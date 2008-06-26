@@ -20,7 +20,9 @@ from zope.schema import List
 from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
-        
+
+_ = MessageFactory('oship')
+
 class IDvParagraph(IDataValue):
     """
     A logical composite text value consisting of a series of DV_TEXTs, i.e. plain text

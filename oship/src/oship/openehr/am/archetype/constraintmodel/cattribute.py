@@ -17,31 +17,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements
+from zope.schema import Field
 
-class ICAttribute(Interface):
-    """
-    Abstract model of constraint on any kind of attribute code.
-    """
-    
-    rmAttributeName=TextLine(
-        title=_("RM Attribute Name"),
-        description=_("Reference model attribute within the enclosed type representedby a CObject."),
-        required=True,
-    )
-    
-    existence=Interval(
-        title=_("Existence"),
-        description=_("Indicates whether the target object exists or not."),
-        required=True,
-    )
+from interfaces.cattribute import ICAttribute
 
-    children=List(
-        title=_("Children"),
-        description=_("Child constraint nodes."),
-        required=False,
-    )
+_ = MessageFactory('oship')
 
 class CAttribute(Field):
     """

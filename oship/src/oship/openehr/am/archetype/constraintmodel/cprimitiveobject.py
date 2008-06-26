@@ -17,26 +17,14 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements
 
-class ICPrimitiveObject(ICDefinedObject):
-    """
-    Constraint on a primitive object.
-    """
-    
-    anyAllowed=Bool(
-        title=_("Any Allowed"),
-        description=_("True if any value of the type being constrained is allowed."),
-        required=True,
-    )
-    
-    item=CPrimitive(
-        title=_("Item"),
-        description=_("Object actually defining the constraint."),
-        required=False,
-    )
-   
+from cdefinedobject import CDefinedObject
+from interfaces.cprimitiveobject import ICPrimitiveObject
+
+_ = MessageFactory('oship')
+
 class CPrimitiveObject(CDefinedObject):
     """
     Constraint on a primitive object.

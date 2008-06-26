@@ -17,20 +17,14 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements
 
-class ICDomainType(ICDefinedObject):
-    """
-    Abstract parent of domain specific constrainer types.
-    """
-    
-    standardEquivalent=CComplexObject(
-        title=_("Standard Equivalent"),
-        description=_("Standard form of constraint."),
-        required=True,
-    )
-    
+from cdefinedobject import CDefinedObject
+from interfaces.cdomaintype import ICDomainType
+
+_ = MessageFactory('oship')
+
 class CDomainType(CDefinedObject):
     """
     Abstract parent of domain specific constrainer types.

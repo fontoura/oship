@@ -17,8 +17,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.schema import Bool
+from zope.i18nmessageid.message import MessageFactory 
+
+from cdefinedobject import ICDefinedObject
+from openehr.am.archetype.constraintmodel.primitive.cprimitive import CPrimitive
+_ = MessageFactory('oship')
+
 
 class ICPrimitiveObject(ICDefinedObject):
     """
@@ -37,9 +42,3 @@ class ICPrimitiveObject(ICDefinedObject):
         required=False,
     )
    
-class CPrimitiveObject(CDefinedObject):
-    """
-    Constraint on a primitive object.
-    """
-    
-    implements(ICPrimitiveObject)

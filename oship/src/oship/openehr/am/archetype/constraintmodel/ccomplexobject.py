@@ -17,25 +17,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements
 
-class ICComplexObject(ICDefinedObject):
-    """
-    Constraint on complex objects.
-    """
-    
-    attributes=Set(
-        title=_("Attributes"),
-        description=_("List of constraints on attributes of the reference model."),
-        required=False,
-    )
+from interfaces.ccomplexobject import ICComplexObject
+from cdefinedobject import CDefinedObject
 
-    anyAllowed=Bool(
-        title=_("Any Allowed"),
-        description=_("True if any value of the reference model is allowed."),
-        required=True,
-    )
+_ = MessageFactory('oship')
 
 class CComplexObject(CDefinedObject):
     """

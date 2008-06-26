@@ -18,7 +18,12 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.schema import Bool
+from zope.i18nmessageid.message import MessageFactory 
+
+from openehr.rm.support.interval import Interval
+
+_ = MessageFactory('oship')
 
 class ICardinality(Interface):
     """
@@ -59,24 +64,3 @@ class ICardinality(Interface):
         Return True if this cardinality represents an unordered, non-unique membership.
         """
         
-class Cardinality(Field):
-    """
-    Expresses constraints on the cardinality of container classes.
-    """
-    
-    implements(ICardinality)
-    
-    def isBag():
-        """
-        Return True if this cardinality represents an unordered set.
-        """
-        
-    def isList():
-        """
-        Return True if this cardinality represents an ordered, non-unique membership.
-        """
-        
-    def isSet():
-        """
-        Return True if this cardinality represents an unordered, non-unique membership.
-        """

@@ -19,23 +19,11 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
 from zope.interface import implements
-from zope.schema import Text, TextLine, Field
 
-from openehr.am.archetype.creferenceobject import ICReferenceObject,CReferenceObject
+from creferenceobject import CReferenceObject
+from interfaces.archetypeinternalref import IArchetypeInternalRef
 
 _ = MessageFactory('oship')
-
-
-class IArchetypeInternalRef(ICReferenceObject):
-    """
-    See the AOM reference document.
-    """
-    
-    targetPath=TextLine(
-        title=_(u"Target Path"),
-        description=_(u"Reference to an object node using archetype path notation."),
-        required=True,
-    )
 
 class ArchetypeInternalRef(CReferenceObject):
     """

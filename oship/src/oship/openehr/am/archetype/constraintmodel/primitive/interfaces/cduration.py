@@ -15,8 +15,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.schema import Bool
+from zope.i18nmessageid.message import MessageFactory
+
+from cprimitive import ICPrimitive
+from openehr.rm.support.interval import Interval
+
+_ = MessageFactory('oship')
 
 class ICDuration(ICPrimitive):
     """
@@ -90,11 +95,4 @@ class ICDuration(ICPrimitive):
         description=_(" "),
         required=True,
     )
-    
-class CDuration(CPrimitive):
-    """
-    Constraints on durations.  openEHR allows the 'W' indicator to be mixed in.
-    """
-    
-    implements(ICDuration)
     

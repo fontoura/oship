@@ -16,8 +16,11 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.schema import Bool
+from zope.i18nmessageid.message import MessageFactory
 
 from cprimitive import ICPrimitive
+
+_ = MessageFactory('oship')
 
 class ICBoolean(ICPrimitive):
     """

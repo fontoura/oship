@@ -15,8 +15,14 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.schema import Time
+from zope.i18nmessageid.message import MessageFactory
+
+from openehr.am.archetype.validitykind import ValidityKind
+from openehr.rm.support.interval import Interval
+from cprimitive import ICPrimitive
+
+_ = MessageFactory('oship')
 
 class ICTime(ICPrimitive):
     """
@@ -59,19 +65,6 @@ class ICTime(ICPrimitive):
         description=_(" "),
         required=True,
     )
-
-    def validityIsRange():
-        """
-        Returns True if the validity is in the form of a range.
-        """
-
-class CTime(CPrimitive):
-    """
-    ISO 8601 compatible constraint on instances of Time.
-    """
-    
-    implements(ICTime)
-    
 
     def validityIsRange():
         """

@@ -17,25 +17,14 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements
 
-class ICDefinedObject(ICObject):
-    """
-    Abstract parent of CObject subtypes that are defined by this value.
-    """
-    
-    assumedValue=Field(
-        title=_("Assumed Value"),
-        description=_("Value to be assumed if none sent in data."),
-        required=False,
-    )
+from cobject import CObject
+from interfaces.cdefinedobject import ICDefinedObject
 
-    def hasAssumedValue():
-        """
-        Return True if assumedValue is not equal to None.
-        """
-        
+_ = MessageFactory('oship')
+
 class CDefinedObject(CObject):
     """
     Abstract parent of CObject subtypes that are defined by this value.

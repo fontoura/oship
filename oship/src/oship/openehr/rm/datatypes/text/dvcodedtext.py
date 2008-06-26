@@ -22,6 +22,8 @@ from zope.i18nmessageid.message import MessageFactory
 from dvtext import DvText
 from interfaces.dvcodedtext import IDvCodedText
 
+_ = MessageFactory('oship')
+
 class DvCodedText(DvText):
     """
     A text item whose value must be the rubric from a controlled terminology, the

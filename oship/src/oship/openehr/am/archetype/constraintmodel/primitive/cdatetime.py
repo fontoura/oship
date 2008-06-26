@@ -15,81 +15,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.interface import implements
+from zope.i18nmessageid.message import MessageFactory
 
-class ICDateTime(ICPrimitive):
-    """
-    ISO 8601 compatible constraint on instances of DateTime.
-    """
-    
-    monthValidity=ValidityKind(
-        title_("Month Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
+from cprimitive import CPrimitive
+from interfaces.cdatetime import ICDateTime
 
-    dayValidity=ValidityKind(
-        title_("Day Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
-    timezoneValidity=ValidityKind(
-        title_("Timezone Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
-    hourValidity=ValidityKind(
-        title_("Hour Validity"),
-        description=_(" "),
-        required=False,
-    )
-
-   
-    minuteValidity=ValidityKind(
-        title_("Minute Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
-
-    secondValidity=ValidityKind(
-        title_("Second Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
-    millisecondValidity=ValidityKind(
-        title_("Millisecond Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
-    timezoneValidity=ValidityKind(
-        title_("Timezone Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
-    range=Interval(
-        title_("Range"),
-        description=_("Interval of times."),
-        required=False,
-    )
-
-    assumedValue=Datetime(
-        title_("Assumed Value"),
-        description=_(" "),
-        required=True,
-    )
-
-    def validityIsRange():
-        """
-        Returns True if the validity is in the form of a range.
-        """
+_ = MessageFactory('oship')
 
 class CDateTime(CPrimitive):
     """

@@ -15,10 +15,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.schema.interfaces import IField
+from zope.schema import Field,Bool
+from zope.i18nmessageid.message import MessageFactory
 
-class ICPrimitive(Interface):
+_ = MessageFactory('oship')
+
+class ICPrimitive(IField):
     """
     Abstract super type of all primitive types.
     """
@@ -34,19 +37,6 @@ class ICPrimitive(Interface):
         description=_("True if thiere is an assumed value."),
         required=True,
     )
-
-    def validValue(aVal):
-        """
-        True if aValue is valid with respect to the expressed constraint.
-        """
-        
-class CPrimitive(Interface):
-    """
-    Abstract super type of all primitive types.
-    """
-    
-    implements(ICPrimitive)
-    
 
     def validValue(aVal):
         """

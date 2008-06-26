@@ -15,49 +15,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.interface import implements
+from zope.i18nmessageid.message import MessageFactory
 
-class ICDate(ICPrimitive):
-    """
-    ISO 8601 compatible constraint on instances of Date.
-    """
-    
-    monthValidity=ValidityKind(
-        title_("Month Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
+from cprimitive import CPrimitive
+from interfaces.cdate import ICDate
 
-    dayValidity=ValidityKind(
-        title_("Day Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
-    timezoneValidity=ValidityKind(
-        title_("Timezone Validity"),
-        description=_(" "),
-        required=False,
-    )
-    
-    range=Interval(
-        title_("Range"),
-        description=_("Interval of dates."),
-        required=False,
-    )
-
-    assumedValue=Date(
-        title_("Assumed Value"),
-        description=_(" "),
-        required=True,
-    )
-
-    def validityIsRange:
-        """
-        Returns True if the validity is in the form of a range.
-        """
+_ = MessageFactory('oship')
 
 class CDate(CPrimitive):
     """

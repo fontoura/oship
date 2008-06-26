@@ -18,7 +18,11 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory 
+
+from openehr.am.archetype.constraintmodel.cardinality import Cardinality
+_ = MessageFactory('oship')
+
 
 class ICMultipleAttribute(Interface):
     """
@@ -36,14 +40,3 @@ class ICMultipleAttribute(Interface):
         List of constraints representing members of the container value of this attribute.
         """
         
-class CMultipleAttribute(Field):
-    """
-    Abstract model of constraint on any kind of attribute node.
-    """
-    
-    implements(ICMultipleAttribute)
-    
-    def members(cobj):
-        """
-        List of constraints representing members of the container value of this attribute.
-        """

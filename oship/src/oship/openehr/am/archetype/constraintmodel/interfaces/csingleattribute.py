@@ -18,7 +18,10 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.schema import List
+from zope.i18nmessageid.message import MessageFactory 
+_ = MessageFactory('oship')
+
 
 class ICSingleAttribute(Interface):
     """
@@ -30,10 +33,3 @@ class ICSingleAttribute(Interface):
         description=_("A list of alternative constraints for the single child of this attribute."),
         required=False,
     )
-
-class CSingleAttribute(Field):
-    """
-    Concrete model of constraint on a single valued attribute.
-    """
-    
-    implements(ICSingleAttribute)

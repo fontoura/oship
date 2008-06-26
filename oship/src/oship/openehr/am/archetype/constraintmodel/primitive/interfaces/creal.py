@@ -15,8 +15,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.schema import Set,Float
+from zope.i18nmessageid.message import MessageFactory
+
+from openehr.rm.support.interval import Interval
+from cprimitive import ICPrimitive
+
+_ = MessageFactory('oship')
 
 class ICReal(ICPrimitive):
     """
@@ -42,10 +47,3 @@ class ICReal(ICPrimitive):
         required=True,
     )
 
-class CReal(CPrimitive):
-    """
-    Constraints on instances of Real
-    """
-    
-    implements(ICReal)
-    

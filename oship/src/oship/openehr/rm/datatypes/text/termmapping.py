@@ -22,6 +22,8 @@ from zope.i18nmessageid.message import MessageFactory
 from openehr.rm.datatypes.basic.datavalue import DataValue
 from interfaces.termmapping import ITermMapping
 
+_ = MessageFactory('oship')
+
 class TermMapping(DataValue):
     """
     Represents a coded term mapped to a DV_TEXT, and the relative match of the tar-

@@ -16,11 +16,15 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory
+
+from exproperator import IExprOperator
+from openehr.am.archetype.assertion.expritem import ExprItem
+
+_ = MessageFactory('oship')
 
 
-class IExprUnaryOperator=IExprOperator):
+class IExprUnaryOperator(IExprOperator):
     """
     Unary expression node operator.
     """
@@ -31,10 +35,3 @@ class IExprUnaryOperator=IExprOperator):
         required=True,
     )
 
-class ExprUnaryOperator(ExprOperator):
-    """
-    Unary expression node operator.
-    """
-    
-    implements(IExprUnaryOperator)
-    

@@ -16,26 +16,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.interface import implements
+from zope.i18nmessageid.message import MessageFactory
 
+from expritem import ExprItem
+from interfaces.exproperator import IExprOperator
 
-class IExprOperator(IExprItem):
-    """
-    Abstract parent of operator types.
-    """
-    
-    operator=OperatorKind(
-        title_("Operator"),
-        description=_("Code of the operator"),
-        required=True,
-    )
-
-    precedenceOverridden=Bool(
-        title_("Precedence Overridden"),
-        description=_("True if natural precedence of operators is overrriden in teh expression."),
-        required=True,
-    )
+_ = MessageFactory('oship')
 
 class ExprOperator(ExprItem):
     """

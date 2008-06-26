@@ -17,7 +17,12 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.schema import TextLine, Field
+from zope.i18nmessageid.message import MessageFactory
+
+from expritem import IExprItem
+
+_ = MessageFactory('oship')
 
 
 class IExprLeaf(IExprItem):
@@ -37,9 +42,3 @@ class IExprLeaf(IExprItem):
         required=True,
     )
 
-class ExprLeaf(ExprItem):
-    """
-    Expression tree, leaf form.
-    """
-    
-    implements(IExprLeaf)

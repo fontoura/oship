@@ -16,20 +16,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.interface import implements
+from zope.schema import Field
+from zope.i18nmessageid.message import MessageFactory
 
+from interfaces.expritem import IExprItem
 
-class IExprItem(Interface):
-    """
-    Abstract parent of allexpression tree items.
-    """
-    
-    type=TextLine(
-        title_("Type"),
-        description=_("Mathematical type name of this expression."),
-        required=True,
-    )
+_ = MessageFactory('oship')
 
 class ExprItem(Field):
     """

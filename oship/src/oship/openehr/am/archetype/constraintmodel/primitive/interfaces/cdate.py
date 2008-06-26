@@ -15,8 +15,11 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.schema import Date
+
+from openehr.rm.support.interval import Interval
+from openehr.am.archetype.validitykind import ValidityKind
+from cprimitive import ICPrimitive
 
 class ICDate(ICPrimitive):
     """
@@ -51,25 +54,12 @@ class ICDate(ICPrimitive):
     assumedValue=Date(
         title_("Assumed Value"),
         description=_(" "),
+        default=Date(),
         required=True,
     )
-
-    def validityIsRange:
-        """
-        Returns True if the validity is in the form of a range.
-        """
-
-class CDate(CPrimitive):
-    """
-    ISO 8601 compatible constraint on instances of Date.
-    """
-    
-    implements(ICDate)
-    
-
-
 
     def validityIsRange():
         """
         Returns True if the validity is in the form of a range.
         """
+

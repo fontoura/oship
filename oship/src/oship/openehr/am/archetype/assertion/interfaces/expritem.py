@@ -16,8 +16,11 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
+from zope.i18nmessageid.message import MessageFactory
 from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.schema import TextLine
+
+_ = MessageFactory('oship')
 
 
 class IExprItem(Interface):
@@ -31,10 +34,4 @@ class IExprItem(Interface):
         required=True,
     )
 
-class ExprItem(Field):
-    """
-    Abstract parent of allexpression tree items.
-    """
-    
-    implements(IExprItem)
-    
+   

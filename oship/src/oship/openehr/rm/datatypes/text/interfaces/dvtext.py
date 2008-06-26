@@ -20,6 +20,8 @@ from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
 
+_ = MessageFactory('oship')
+
 class IDvText(IDataValue):
     """
     A text item, which may contain any amount of legal characters arranged as e.g.

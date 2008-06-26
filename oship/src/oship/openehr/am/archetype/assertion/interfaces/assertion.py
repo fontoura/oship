@@ -16,10 +16,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
 from zope.schema import List, TextLine, Field
 from zope.schema.interfaces import IField
 from zope.i18nmessageid.message import MessageFactory
+
+from openehr.am.archetype.assertion.expritem import ExprItem
 
 _ = MessageFactory('oship')
 
@@ -54,18 +55,3 @@ class IAssertion(IField):
         required=False,
     )
 
-class Assertion(Field):
-    """
-    Structural model of a typed first order predicate logic assertion
-    in the forma of an expression tree including optional variable definitions.
-    """
-    
-    implements(IAssertion)
-    
-    def __init__(self,tag,expr,sexpr,var,**kw):
-        self.tag=tag
-        self.expression=expr
-        self.stringExpression=sexpr
-        self.variables=var
-        for n,v in kw.items():
-            setattr(self,n,v)

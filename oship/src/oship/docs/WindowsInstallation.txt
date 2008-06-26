@@ -1,0 +1,126 @@
+This install guide was contributed by Alessandro Torrisi.  Please contact  Alessandro on the mailing list with any questions or corrections.
+OShip Installation on Windows
+
+1) If you do not have Python2.4 on your system then install Python 2.4.x
+
+http://www.python.org/ftp/python/2.4.4/python-2.4.4.msi
+
+2) You will need setuptools for Python2.4 as well.  Get the ez_setup.py
+{{script from PEAK }}
+
+http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-inst
+all
+
+save it to you c:\Python24\ folder
+
+3) Execute ez_setup.py
+
+{{C:\Python24>ez_setup.py }}
+
+4) Install the virual environment
+
+C:\Python24>Scripts\easy_install.exe virtualenv
+
+5) Create a sandbox directory
+
+c:\Python24>mkdir c:\sandbox
+
+6) Create the virtual environment
+
+C:\Python24>Scripts\virtualenv.exe c:\sandbox
+New python executable in c:\sandbox\Scripts\python.exe
+Installing setuptools...............done.
+
+7) Activate the virtual environment
+
+C:\Python24>cd c:\sandbox
+
+c:\sandbox>Scripts\activate.bat
+{{(sandbox) c:\sandbox> }}
+As you can see, the prompt is a bit diffrent
+
+8) Install zc.buildout
+
+(sandbox) c:\sandbox>Scripts\easy_install.exe zc.buildout
+
+9) Verify the files
+
+(sandbox) c:\sandbox>dir Scripts
+ Het volume in station C heeft geen naam.
+ Het volumenummer is 1C09-E2E2
+
+ Map van c:\sandbox\Scripts
+
+24-06-2008  20:46    <DIR>          .
+24-06-2008  20:46    <DIR>          ..
+24-06-2008  20:42               385 activate.bat
+24-06-2008  20:46               295 buildout-script.py
+24-06-2008  20:46             6.656 buildout.exe
+24-06-2008  20:42               204 deactivate.bat
+24-06-2008  20:42               308 easy_install-2.4-script.py
+24-06-2008  20:42             6.656 easy_install-2.4.exe
+24-06-2008  20:42               300 easy_install-script.py
+24-06-2008  20:42             6.656 easy_install.exe
+24-06-2008  20:42             4.608 python.exe
+               9 bestand(en)           26.068 bytes
+               2 map(pen)  84.157.104.128 bytes beschikbaar
+
+(sandbox) c:\sandbox>
+
+10) If you do not have SVN on your system then install TortoiseSVN
+
+http://tortoisesvn.net/downloads
+
+11) Create oship folder
+
+(sandbox) c:\sandbox>mkdir oship
+
+12) Checkout the source from svn:
+
+http://www.openehr.org/svn/ref_impl_python/TRUNK/oship/
+
+into the folder c:\sanbox\oship
+
+13) Now some stuff to make it work in my situation
+
+13a) Download last release from http://prdownloads.sourceforge.net/mingw
+(MinGW-5.1.3.exe)
+
+Run the file to start the installation process
+Keep all values at their defaults and select at least next components:
+        o MinGW base tools
+        o g++ compiler
+{{        o MinGW Make }}
+Add the C:\mingw\bin directory to the system PATH
+
+(sandbox) c:\sandbox\oship>set path=%path%; c:\mingw\bin
+
+13b) create a folder called libs in c:\sandbox
+
+(sandbox) c:\sandbox> mkdir libs
+
+(sandbox) c:\sandbox>cd libs
+
+(sandbox) c:\sandbox\libs>c:\sandbox\libs>copy
+c:\Python24\libs\libpython24.a
+        1 bestand(en) gekopieerd.
+
+(sandbox) c:\sandbox\libs>copy c:\Python24\libs\python24.lib
+        1 bestand(en) gekopieerd.
+
+(sandbox) c:\sandbox\libs>
+
+14) Do the buildout.
+
+(sandbox) c:\sandbox\libs>cd c:\sandbox\oship
+
+(sandbox) c:\sandbox\oship>..\Scripts\buildout.exe.
+
+now it is coffe time... this can take serveral minuts
+
+15) Start the oship project
+
+(test) c:\sandbox\oship>bin\paster.exe serve deploy.ini
+
+16) you should be able to start a browser and go to
+http://localhost:8080/

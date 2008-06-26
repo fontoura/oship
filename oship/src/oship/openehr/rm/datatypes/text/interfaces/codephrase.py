@@ -20,6 +20,8 @@ from zope.schema import Field, TextLine
 from zope.schema.interfaces import IField
 from zope.i18nmessageid.message import MessageFactory
 
+_ = MessageFactory('oship')
+
 class ICodePhrase(IField):
     """
     A fully coordinated (i.e. all “coordination” has been performed) term from a ter-

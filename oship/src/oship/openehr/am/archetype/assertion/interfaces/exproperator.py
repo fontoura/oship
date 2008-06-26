@@ -16,8 +16,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.schema import Bool
+from zope.i18nmessageid.message import MessageFactory
+
+from expritem import IExprItem
+from openehr.am.archetype.assertion.operatorkind import OperatorKind
+
+_ = MessageFactory('oship')
 
 
 class IExprOperator(IExprItem):
@@ -37,10 +42,3 @@ class IExprOperator(IExprItem):
         required=True,
     )
 
-class ExprOperator(ExprItem):
-    """
-    Abstract parent of operator types.
-    """
-    
-    implements(IExprOperator)
-    

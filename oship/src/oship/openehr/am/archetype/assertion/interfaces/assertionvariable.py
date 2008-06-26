@@ -16,9 +16,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
 from zope.schema import TextLine, Field
 from zope.schema.interfaces import IField
+from zope.i18nmessageid.message import MessageFactory
+
+_ = MessageFactory('oship')
 
 
 class IAssertionVariable(IField):
@@ -38,15 +40,3 @@ class IAssertionVariable(IField):
         required=True,
     )
 
-class AssertionVariable(Field):
-    """
-    Definition of named variable.
-    """
-    
-    implements(IAssertionVariable)
-    
-    def __init__(self,name,defin,**kw):
-        self.name=name
-        self.definition=defin
-        for n,v in kw.items():
-            setattr(self,n,v)

@@ -15,8 +15,9 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.schema import Bool
+
+from cprimitive import ICPrimitive
 
 class ICBoolean(ICPrimitive):
     """
@@ -41,9 +42,3 @@ class ICBoolean(ICPrimitive):
         required=True,
     )
     
-class CBoolean(CPrimitive):
-    """
-    Boolean constraint.
-    """
-    
-    implements(ICBoolean)

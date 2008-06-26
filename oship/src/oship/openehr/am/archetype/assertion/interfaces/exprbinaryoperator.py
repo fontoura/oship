@@ -16,9 +16,12 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.i18nmessageid.message import MessageFactory
 
+from openehr.am.archetype.assertion.expritem import ExprItem
+from exproperator import IExprOperator
+
+_ = MessageFactory('oship')
 
 class IExprBinaryOperator(IExprOperator):
     """
@@ -37,10 +40,4 @@ class IExprBinaryOperator(IExprOperator):
         required=True,
     )
 
-class ExprBinaryOperator(ExprOperator):
-    """
-    Binary expression node.
-    """
-    
-    implements(ExprBinaryOperator)
-               
+              

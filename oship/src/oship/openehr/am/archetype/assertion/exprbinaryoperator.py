@@ -16,26 +16,14 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.interface import implements
+from zope.i18nmessageid.message import MessageFactory
 
+from exproperator import ExprOperator
+from interfaces.exprbinaryoperator import IExprBinaryOperator
 
-class IExprBinaryOperator(IExprOperator):
-    """
-    Binary expression node.
-    """
-    
-    leftOperand=ExprItem(
-        title_("Left"),
-        description=_("Left operand node."),
-        required=True,
-    )
+_ = MessageFactory('oship')
 
-    rightOperand=ExprItem(
-        title_("Right"),
-        description=_("Right operand node."),
-        required=True,
-    )
 
 class ExprBinaryOperator(ExprOperator):
     """

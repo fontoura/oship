@@ -16,26 +16,13 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import Text, TextLine, Field
+from zope.interface import implements
+from zope.i18nmessageid.message import MessageFactory
 
+from expritem import ExprItem
+from interfaces.exprleaf import IExprLeaf
 
-class IExprLeaf(IExprItem):
-    """
-    Expression tree, leaf form.
-    """
-    
-    item=Field(
-        title_("Item"),
-        description=_("The value refered to."),
-        required=True,
-    )
-
-    referenceType=TextLine(
-        title_("Reference Type"),
-        description=_("Type of reference: constant, attribute, etc."),
-        required=True,
-    )
+_ = MessageFactory('oship')
 
 class ExprLeaf(ExprItem):
     """

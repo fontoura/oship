@@ -15,8 +15,7 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import *
+from zope.schema import Datetime
 
 class ICDateTime(ICPrimitive):
     """
@@ -83,21 +82,9 @@ class ICDateTime(ICPrimitive):
     assumedValue=Datetime(
         title_("Assumed Value"),
         description=_(" "),
+        default=Datetime(), 
         required=True,
     )
-
-    def validityIsRange():
-        """
-        Returns True if the validity is in the form of a range.
-        """
-
-class CDateTime(CPrimitive):
-    """
-    ISO 8601 compatible constraint on instances of DateTime.
-    """
-    
-    implements(ICDateTime)
-    
 
     def validityIsRange():
         """

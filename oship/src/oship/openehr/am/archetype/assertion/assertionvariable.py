@@ -17,26 +17,12 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import implements
-from zope.schema import TextLine, Field
-from zope.schema.interfaces import IField
+from zope.schema import Field
+from zope.i18nmessageid.message import MessageFactory
 
+from interfaces.assertionvariable import IAssertionVariable
 
-class IAssertionVariable(IField):
-    """
-    Definition of named variable.
-    """
-    
-    name=TextLine(
-        title_(u"Name"),
-        description=_(u"Name of variable."),
-        required=True,
-    )
-
-    definition=TextLine(
-        title_(u"Definition"),
-        description=_(u"Formal definition of variable."),
-        required=True,
-    )
+_ = MessageFactory('oship')
 
 class AssertionVariable(Field):
     """

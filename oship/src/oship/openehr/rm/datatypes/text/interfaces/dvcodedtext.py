@@ -21,6 +21,7 @@ from zope.schema import Dict
 
 from dvtext import IDvText
 
+_ = MessageFactory('oship')
 
 class IDvCodedText(IDvText):
     """

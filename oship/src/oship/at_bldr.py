@@ -41,7 +41,8 @@ import mglob
 from sets import Set
 from pyparsing import *
 
-from openehr.rm.datatypes.text import CodePhrase,DvText
+from openehr.rm.datatypes.text.codephrase import CodePhrase
+from openehr.rm.datatypes.text.dvtext import DvText
 
 import adl_1_4
 

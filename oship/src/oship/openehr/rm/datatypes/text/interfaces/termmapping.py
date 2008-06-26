@@ -23,6 +23,8 @@ from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
 from openehr.rm.datatypes.text.codephrase import CodePhrase
 from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
 
+_ = MessageFactory('oship')
+
 class ITermMapping(IDataValue):
     """
     Represents a coded term mapped to a DV_TEXT, and the relative match of the tar-

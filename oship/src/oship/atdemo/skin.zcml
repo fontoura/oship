@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <interface
+      interface="oship.atdemo.skin.IATDemoBrowserSkin"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="ATDemo"
+      />
+
+</configure>

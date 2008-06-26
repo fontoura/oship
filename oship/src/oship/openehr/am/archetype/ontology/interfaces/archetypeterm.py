@@ -17,9 +17,8 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
 from zope.schema.interfaces import IField
-from zope.schema import Dict,TextLine,Field
+from zope.schema import Dict,TextLine
 
 class IArchetypeTerm(IField):
     """
@@ -42,21 +41,4 @@ class IArchetypeTerm(IField):
         """
         List of all keys used in this term.
         """
-        
-class ArchetypeTerm(Field):
-    """
-    Representation of any coded entity in the archetype ontology.
-    """
-    
-    implements(IArchetypeTerm)
-    
-    def __init__(self,code,items,**kw):
-        self.code=code
-        self.items=items
-        for n,v in kw.items():
-            setattr(self,n,v)
-    
-    def keys(set):
-        """
-        List of all keys used in this term.
-        """
+ 

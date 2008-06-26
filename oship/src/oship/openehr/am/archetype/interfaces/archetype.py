@@ -15,15 +15,13 @@ From the archetype object model specification Rev 2.0.1
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-
-from zope.interface import Interface 
-from zope.schema import TextLine
-from zope.schema import List
-from zope.schema import Text
+from zope.schema import TextLine,Set
 from zope.i18nmessageid.message import MessageFactory
 
-
-from oship.openehr.rm.common.interfaces import archetyped 
+from openehr.rm.support.identification.archetypeid import ArchetypeId
+from openehr.rm.support.identification.hierobjectid import HierObjectId
+from openehr.am.archetype.constraintmodel.ccomplexobject import CComplexObject
+from openehr.am.archetype.ontology.archetypeontology import ArchetypeOntology
 
 
 _ = MessageFactory('oship')
@@ -152,31 +150,3 @@ class IArchetype(IAuthoredResource):
         """
         Return True if the archetype is overall valid.
         """
-        
-class IValidityKind(Interface):
-    """
-    An enumeration of three values which may commonly occur in constrint models.
-    Use to indicate the validity of date/Time fields etc.
-    
-    
-    #constants
-    mandatory=1001
-    optional=1002
-    disallowed=1003
-    """
-    value=Int(
-        title=_("Value"),
-        description=_("Actual value."),
-        required=True,
-    )
-
-    def validValidity():
-        """
-        Test if value is == to one of the constants.
-        """
-        
-
-        
-    
-
-    

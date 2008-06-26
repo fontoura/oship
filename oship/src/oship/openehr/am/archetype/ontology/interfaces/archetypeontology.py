@@ -18,8 +18,8 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import Interface,implements
-from zope.schema import Int,Set,List,Field
+from zope.schema import Int,Set,List
+from zope.interface import Interface
 
 from openehr.am.archetype.archetype import Archetype
 
@@ -101,55 +101,3 @@ class IArchetypeOntology(Interface):
         Return a string that describes the constraint aCode in aTermId usually in the form of a query expression.
         """
         
-class ArchetypeOntology(Field):
-    """
-    Local ontology of an archetype.
-    """
-    
-    implements(IArchetypeOntology)
-    
-    def __init__(self,tavail,sdepth,tcodes,ccodes,tanames,parent,**kw):
-        self.terminolgiesAvailable=tavail
-        self.specialisationDepth=sdepth
-        self.termCodes=tcodes
-        self.constraintCodes=ccodes
-        self.termAttributeNames=tanames
-        self.parentArchetype=parent        
-        for n,v in kw.items():
-            setattr(self,n,v)
-    
-
-    def hasLanguage(aLang):
-        """
-        True if aLang is present in ontology.
-        """
-        
-    def hasTerminology(aTermId):
-        """
-        True if ontology has aTermId, terminology Id.
-        """
-        
-    def hasTermCode(tcode):
-        """
-        True if tcode is in termCodes.
-        """
-        
-    def hasConstraintCode(ccode):
-        """
-        True if ccode is in constraintCodes.
-        """
-        
-    def constraintDefinition(aLang,aCode):
-        """
-        Constraint definition for aCode expressed in aLang.
-        """
-        
-    def termBinding(aTermId,aCode):
-        """
-        Return a CodePhrase for aCode in aTermId.
-        """
-        
-    def constraintBinding(aTermId,aCode):
-        """
-        Return a string that describes the constraint aCode in aTermId usually in the form of a query expression.
-        """

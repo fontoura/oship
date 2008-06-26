@@ -14,29 +14,39 @@ From the archetype object model specification Rev 2.0.1
 
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
-__contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 
-from zope.interface import implements
-from zope.schema import Field
+from zope.interface import Interface 
+from zope.schema import Int
 from zope.i18nmessageid.message import MessageFactory
-
-from interfaces.validitykind import IValidityKind
 
 _ = MessageFactory('oship')
 
-
-class ValidityKind(Field):
+        
+class IValidityKind(Interface):
     """
     An enumeration of three values which may commonly occur in constrint models.
     Use to indicate the validity of date/Time fields etc.
     
-    """
-    implements(IValidityKind)
     
-    constants={'mandatory':1001,'optional':1002,'disallowed':1003}
+    #constants
+    mandatory=1001
+    optional=1002
+    disallowed=1003
+    """
+    value=Int(
+        title=_("Value"),
+        description=_("Actual value."),
+        required=True,
+    )
 
     def validValidity():
         """
         Test if value is == to one of the constants.
         """
+        
+
+        
+    
+
+    

@@ -22,7 +22,7 @@ from zope.i18nmessageid import MessageFactory
 from zope.schema import List,TextLine
 
 from openehr.rm.common.generic.partyidentified import PartyIdentified
-from openehr.rm.datatypes.quantity.datetm.dvdatetime import DvDateTime
+from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
 from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
 from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
 from openehr.rm.common.archetyped.interfaces.pathable import IPathable

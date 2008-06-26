@@ -25,7 +25,7 @@ from zope.i18nmessageid import MessageFactory
 from openehr.rm.demographic.partyidentified import PartyIdentified
 from openehr.rm.demographic.partyproxy import PartyProxy
 
-from openehr.rm.datatypes.quantity.datetm.dvdatetime import DvDateTime
+from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
 
 _ = MessageFactory('oship')
 

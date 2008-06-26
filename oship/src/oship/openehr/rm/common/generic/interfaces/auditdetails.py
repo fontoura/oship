@@ -23,7 +23,7 @@ from zope.schema import TextLine
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.datatypes.text.dvtext import DvText
-from openehr.rm.datatypes.quantity.datetm.dvdatetime import DvDateTime
+from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
 from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
 from openehr.rm.common.generic.partyproxy import PartyProxy
 

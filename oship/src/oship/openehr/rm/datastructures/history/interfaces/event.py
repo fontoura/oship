@@ -21,8 +21,8 @@ from zope.schema import Field
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.datatypes.quantity.datetm.dvdatetime import DvDateTime
-from openehr.rm.datatypes.quantity.datetm.dvduration import DvDuration
+from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
+from openehr.rm.datatypes.quantity.datetime.dvduration import DvDuration
 from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure 
 from openehr.rm.datastructures.history.history import History 
 

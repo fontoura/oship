@@ -12,7 +12,7 @@ From Data Types Information Model
 Quantity Package Rev. 2.1.0.
 
 In the specs the package is shown as data_types.quantity.date_time We have changed it 
-in this implementation to datatypes.datetm
+in this implementation to datatypes.datetime
 
 """
 

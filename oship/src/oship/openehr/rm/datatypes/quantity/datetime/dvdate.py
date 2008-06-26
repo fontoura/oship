@@ -12,7 +12,7 @@ From Data Types Information Model
 Quantity Package Rev. 2.1.0.
 
 In the specs the package is shown as data_types.quantity.date_time We have changed it 
-in this implementation to datatypes.datetm
+in this implementation to datatypes.datetime
 
 """
 
@@ -22,7 +22,7 @@ __docformat__ = u'plaintext'
 from zope.interface import implements 
 from zope.i18nmessageid.message import MessageFactory
 
-from openehr.rm.datatypes.quantity.datetm.dvtemporal import DvTemporal
+from openehr.rm.datatypes.quantity.datetime.dvtemporal import DvTemporal
 from interfaces.dvdate import IDvDate
 
 _ = MessageFactory('oship')

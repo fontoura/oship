@@ -24,7 +24,7 @@ from zope.i18nmessageid import MessageFactory
 from zope.schema import List
 
 from openehr.rm.datatypes.text.dvtext import DvText
-from openehr.rm.datatypes.quantity.datetm.dvdatetime import DvDateTime
+from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
 from openehr.rm.datatypes.encapsulated.dvparsable import DvParasable
 from careentry import ICareEntry
 

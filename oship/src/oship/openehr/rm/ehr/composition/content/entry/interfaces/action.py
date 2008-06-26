@@ -22,7 +22,7 @@ __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.datatypes.quantity.datetm.dvdatetime import DvDateTime
+from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
 from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
 from entry.ismtransition import IsmTransition
 from entry.instructiondetails import InstructionDetails

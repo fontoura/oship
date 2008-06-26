@@ -21,7 +21,7 @@ from zope.schema import Int
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.datastructures.history.interfaces.event import IEvent
-from openehr.rm.datatypes.quantity.datetm.dvduration import DvDuration
+from openehr.rm.datatypes.quantity.datetime.dvduration import DvDuration
 from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
 
 

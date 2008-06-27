@@ -66,6 +66,7 @@ db=DB(fs)
 conn=db.open()
 root=conn.root()
 
+# Setup the database for OSHIP
 if 'AR' not in root['Application']:
     root['Application']['AR']=folder.Folder()
     sm = LocalSiteManager(root['Application']['AR'])

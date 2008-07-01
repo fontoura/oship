@@ -25,7 +25,7 @@ if sys.platform == 'win32':
     syspaths=syspaths.split('import sys')[1]
 
     # "\n\nfrom oship.at_bldr import CreateAT\nif __name__ == '__main__':\n   oship.at_bldr.CreateAT()\n"
-    syspaths='import sys \n\n'+syspaths+"\nfrom at_bldr import CreateAT\nCreateAT()\n"
+    syspaths='import sys \n\n'+syspaths+"\nfrom atbldr.atbldr import CreateAT\nCreateAT()\n"
     fh.write(syspaths)
     fh.close()
 
@@ -46,7 +46,7 @@ else:
     syspaths=syspaths.split('import sys')[1]
 
     # "\n\nfrom oship.at_bldr import CreateAT\nif __name__ == '__main__':\n   oship.at_bldr.CreateAT()\n"
-    syspaths='import sys \n\n'+syspaths+"\nfrom at_bldr import CreateAT\nCreateAT()\n"
+    syspaths='import sys \n\n'+syspaths+"\nfrom atbldr.atbldr import CreateAT\nCreateAT()\n"
     fh.write(syspaths)
     fh.close()
 

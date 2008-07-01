@@ -30,7 +30,7 @@ class IResourceDescriptionItem(IField):
         needs to be copied and translated into the new language.
     """
     
-    language=CodePhrase(
+    language=CodePhrase('','',
         title=_(u'Language'),
         description=_(u""""""),
         required=True

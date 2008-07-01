@@ -37,6 +37,7 @@ class RevisionHistory(Field):
     
     def __init__(self,items,**kw):
         self.items=items
+        self.__name__=''
         for n,v in kw.items():
             setattr(self,n,v)
 

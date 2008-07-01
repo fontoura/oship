@@ -19,6 +19,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
+from zope.schema.interfaces import IField
 from zope.schema import TextLine, Dict
 
 from openehr.rm.datatypes.text.codephrase import CodePhrase
@@ -26,18 +27,18 @@ from openehr.rm.datatypes.text.codephrase import CodePhrase
 
 _ = MessageFactory('oship')
 
-class ITranslationDetails():
+class ITranslationDetails(IField):
     u""""""
-    
-    language=CodePhrase(
+
+    language=CodePhrase('','',
         title=_(u'Language'),
-        description=_(u""""""),
+        description=_(u""" """),
         required=True
     )
 
     author=Dict(
         title=_(u'Author'),
-        description=_(u""""""),
+        description=_(u""" """),
         required=True
     )
     
@@ -52,3 +53,4 @@ class ITranslationDetails():
         description=_(u""""""),
         required=False
     )
+    

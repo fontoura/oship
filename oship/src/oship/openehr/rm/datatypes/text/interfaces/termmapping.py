@@ -38,7 +38,7 @@ class ITermMapping(IDataValue):
     across nursing vocabularies).
     """
     
-    target = CodePhrase(
+    target = CodePhrase('','',
         title = _(u"Target"),
         description = _(u"""The target term of the mapping as a CodePhrase."""),
         required = True,

@@ -36,7 +36,7 @@ class IDvEncapsulated(IDataValue):
         required=True,
         )
     
-    charset = CodePhrase(
+    charset = CodePhrase('','',
         title=_(u"charset"),
         description=_(u"""Name of character encoding scheme in which this value is encoded. 
         Coded from openEHR Code Set “character sets”. Unicode is the default assumption 
@@ -45,7 +45,7 @@ class IDvEncapsulated(IDataValue):
         required=False,
         )
     
-    language = CodePhrase(
+    language = CodePhrase('','',
         title=_(u"Language"),
         description=_(u"""Optional indicator of the localised language in which the data 
                     is written, if relevant. Coded from openEHR Code Set “languages”. Type==CodePhrase"""),

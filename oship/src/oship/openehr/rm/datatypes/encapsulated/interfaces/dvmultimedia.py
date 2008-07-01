@@ -41,14 +41,14 @@ class IDvMultimedia(IDvEncapsulated):
         required=False,
         )
     
-    mediaType = CodePhrase(
+    mediaType = CodePhrase('','',
         title=_(u"Media Type"),
         description=_(u"""     Data media type coded from openEHR code set “media types” 
         (interface for the IANA MIME types code set)."""),
         required=True,
         )
     
-    compressionAlgorithm = CodePhrase(
+    compressionAlgorithm = CodePhrase('','',
         title=_(u"Compression Algorithm"),
         description=_(u"""Compression type, a coded value from the openEHR “Integrity check” 
         code set. Void means no compression."""),
@@ -61,7 +61,7 @@ class IDvMultimedia(IDvEncapsulated):
         required=False,
         )
     
-    integrityCheckAlgorithm = CodePhrase(
+    integrityCheckAlgorithm = CodePhrase('','',
         title=_(u"Integrity Check Algorithm"),
         description=_(u"""Type of integrity check, a coded value from the openEHR “Integrity check” code set."""),
         required=False,

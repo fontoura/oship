@@ -43,14 +43,16 @@ from pyparsing import *
 
 from openehr.rm.datatypes.text.codephrase import CodePhrase
 from openehr.rm.datatypes.text.dvtext import DvText
-
-import adl_1_4
+from openehr.am.archetype.archetype import Archetype
 
 from oship.atdemo.atdemo import ATDemo
 from blddefinition import bldDefinition
 from bldinvariants import bldInvariants
 from bldontolgy import bldOntology
 from bldrevisionhistory import bldRevisionHistory
+
+import adl_1_4
+
 
 """
 edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 format 
@@ -156,14 +158,6 @@ def bldArchetype(adlParsed):
        
     atObj=ATDemo(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
     #atObj=Archetype(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
-    print atObj.adl_version
-    print atObj.archetype_id
-    print atObj.concept
-    print atObj.parent_archetype_id
-    print atObj.definition
-    print atObj.ontology
-    print atObj.invariants
-    print atObj.rev
     
     # now we need to persist the archetype in the ZODB
     try:

@@ -25,8 +25,11 @@ class ResourceDescriptionItem(Field):
         for use in another language environment, each RESOURCE_DESCRIPTION_ITEM
         needs to be copied and translated into the new language.
     """
-    
-    language=CodePhrase(
+
+    pass
+
+    """
+    language=CodePhrase('','',
         title=_(u'Language'),
         description=_(u""""""),
         required=True
@@ -74,5 +77,5 @@ class ResourceDescriptionItem(Field):
         required=False
     )
     
-    
+    """
     

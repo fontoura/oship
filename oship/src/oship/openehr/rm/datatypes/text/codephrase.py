@@ -34,5 +34,6 @@ class CodePhrase(Field):
     def __init__(self, terminologyId, codeString,**kw):
         self.terminologyId=terminologyId
         self.codeString=codeString
+        self.__name__=''
         for n,v in kw.items():
             setattr(self,n,v)

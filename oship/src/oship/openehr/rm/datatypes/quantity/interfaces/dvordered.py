@@ -55,7 +55,7 @@ class IDvOrdered(IDataValue):
         required = False
         )
     
-    normalStatus = CodePhrase(
+    normalStatus = CodePhrase('','',
         title = _(u"normalStatus"),
         description = _(u"""Optional normal status indicator of value with respect to normal 
                      range for this value. Often included by lab, even if the normal range 

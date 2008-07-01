@@ -60,7 +60,7 @@ class IParty(ILocatable):
         required=False,
     )
     
-    language=CodePhrase(
+    language=CodePhrase('','',
         title=_("Language"),
         description=_("Indicator of the localised language where this composition was created."),
         required=True,

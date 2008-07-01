@@ -20,34 +20,38 @@ __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
 from zope.schema.interfaces import IField
+from zope.schema import Bool
 
 from openehr.rm.datatypes.text.codephrase import CodePhrase
-
+from openehr.rm.common.resource.translationdetails import TranslationDetails
+from openehr.rm.common.resource.resourcedescription import ResourceDescription
+from openehr.rm.common.generic.revisionhistory import RevisionHistory
 
 _ = MessageFactory('oship')
 
 class IAuthoredResource(IField):
     u"""Abstract idea of an online resource created by a human author. """
     
-    orignialLanguage=CodePhrase(
+    orignialLanguage=CodePhrase('','',
         title=_(u"Original Language"),
         description=_(u""""""),
         required=True
     )
-    
-    translations=TranslationDetails(
+       
+    translations=TranslationDetails('','','','',
         title=_(u"Translations"),
-        description=_(u""""""),
+        description=_(u"Translations"),
         required=False
     )
+    
     
     description=ResourceDescription(
         title=_(u"Description"),
         description=_(u""""""),
         required=False
     )
-    
-    revisionHistory=RevisionHistory(
+       
+    revisionHistory=RevisionHistory('',
         title=_(u"Revision History"),
         description=_(u""""""),
         required=False

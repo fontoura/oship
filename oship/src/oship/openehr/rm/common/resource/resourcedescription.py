@@ -24,6 +24,9 @@ _ = MessageFactory('oship')
 class ResourceDescription(Field):
     u"""Defines the descriptive meta-data of a resource."""
     
+    pass
+
+    """
     originalAuthor=Dict(
         title=_(u'Original Author'),
         description=_(u""""""),
@@ -65,6 +68,8 @@ class ResourceDescription(Field):
         description=_(u""""""),
         required=False
     )
+    
+    """
     
     
     

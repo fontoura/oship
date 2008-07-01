@@ -58,13 +58,13 @@ class IComposition(ILocatable):
         required=True,
     )
     
-    language=CodePhrase(
+    language=CodePhrase('','',
         title=_("Language"),
         description=_("Indicator of the localised language where this composition was created."),
         required=True,
     )
     
-    territory=CodePhrase(
+    territory=CodePhrase('','',
         title=_("Territory"),
         description=_("Territory where this composition was written. ISO 3166."),
         required=True,

@@ -44,14 +44,14 @@ class IEntry(IContentItem):
 
     """
 
-    language = CodePhrase(
+    language = CodePhrase('','',
         title = u"""language""",
         description = u"""Mandatory indicator of the localised language in which this Entry 
                       is written. Coded from openEHR Code Set “languages”.""",
         required = True
         )
     
-    encoding = CodePhrase(
+    encoding = CodePhrase('','',
         title = u"""encoding""",
         description = u"""Name of character set in which text values in this Entry are encoded. 
                       Coded from openEHR Code Set “character sets”.""",

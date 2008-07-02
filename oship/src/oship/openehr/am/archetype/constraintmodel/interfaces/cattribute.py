@@ -17,7 +17,7 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
+from zope.schema.interfaces import IField
 from zope.schema import List, TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
@@ -25,7 +25,7 @@ from openehr.rm.support.interval import Interval
 _ = MessageFactory('oship')
 
 
-class ICAttribute(Interface):
+class ICAttribute(IField):
     """
     Abstract model of constraint on any kind of attribute code.
     """

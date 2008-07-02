@@ -31,3 +31,5 @@ class CObject(Field):
     """
     
     implements(ICObject)
+    
+    pass

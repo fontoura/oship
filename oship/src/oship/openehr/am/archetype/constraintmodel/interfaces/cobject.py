@@ -17,23 +17,24 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
+from zope.schema.interfaces import IField
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.rm.support.interval import Interval
 from openehr.am.archetype.constraintmodel.cattribute import CAttribute
+
 _ = MessageFactory('oship')
 
 
-class ICObject(Interface):
+class ICObject(IField):
     """
     Abstract model of constraint on any kind of object node.
     """
     
     rmTypeName=TextLine(
         title=_("RM Type Name"),
-        description=_("Reference model type that this node rcorresponds to."),
+        description=_("Reference model type that this node corresponds to."),
         required=True,
     )
 

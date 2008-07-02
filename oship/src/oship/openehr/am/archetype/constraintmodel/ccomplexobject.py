@@ -31,3 +31,6 @@ class CComplexObject(CDefinedObject):
     """
     
     implements(ICComplexObject)
+    
+    pass
+

@@ -30,7 +30,7 @@ class IArchetypeSlot(ICReferenceObject):
     
     includes=Set(
         title=_(u"Includes"),
-        description=_(u"List of constraints defining other archetypes that can occur here."),
+        description=_(u"List of constraints defining other archetypes that can be included here."),
         required=False,
     )
 

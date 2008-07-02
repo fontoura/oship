@@ -1,15 +1,21 @@
 ##############################################################################
-# Copyright (c) 2008 Timothy W. Cook and Contributors. All rights reserved.
-# Redistribution and use are governed by the license in OSHIP-LICENSE.txt
 #
-# Use and/or redistribution of this file assumes you have read and accepted the
-# terms of the license.
+# Copyright (c) 2003-2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
 ##############################################################################
 msgid ""
 msgstr ""
 "Project-Id-Version: Development/Unknown\n"
 "POT-Creation-Date: Thu Jun 26 17:09:58 2008\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: Wed Jul  2 09:05:36 2008\n"
 "Last-Translator: Timothy Cook <timothywayne.cook@gmail.com>\n"
 "Language-Team: OSHIP Developers <ref_impl_python@openehr.org>\n"
 "MIME-Version: 1.0\n"
@@ -74,11 +80,11 @@ msgid "Type of reference: constant, attribute, etc."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exproperator.py:35
-msgid "Code of the operator"
+msgid "Code of the operator."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exproperator.py:41
-msgid "True if natural precedence of operators is overrriden in teh expression."
+msgid "True if natural precedence of operators is overridden in the expression."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exprunaryoperator.py:34
@@ -102,7 +108,7 @@ msgid "Includes"
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:33
-msgid "List of constraints defining other archetypes that can occur here."
+msgid "List of constraints defining other archetypes that can be included here."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:38
@@ -178,11 +184,11 @@ msgstr ""
 msgid "True if any value of the reference model is allowed."
 msgstr ""
 
-#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cdefinedobject.py:33
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cdefinedobject.py:34
 msgid "Assumed Value"
 msgstr ""
 
-#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cdefinedobject.py:34
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cdefinedobject.py:35
 msgid "Value to be assumed if none sent in data."
 msgstr ""
 
@@ -202,35 +208,35 @@ msgstr ""
 msgid "Cardinality of this attribute constraint."
 msgstr ""
 
-#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:35
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:36
 msgid "RM Type Name"
 msgstr ""
 
-#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:36
-msgid "Reference model type that this node rcorresponds to."
-msgstr ""
-
-#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:41
-msgid "Occurences"
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:37
+msgid "Reference model type that this node corresponds to."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:42
+msgid "Occurences"
+msgstr ""
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:43
 msgid "Occurences of this object node in the data."
 msgstr ""
 
-#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:47
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:48
 msgid "Node Id"
 msgstr ""
 
-#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:48
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:49
 msgid "Semantic id of this node."
 msgstr ""
 
-#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:53
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:54
 msgid "Parent"
 msgstr ""
 
-#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:54
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:55
 msgid "CAttribute that owns the CObject."
 msgstr ""
 
@@ -247,6 +253,8 @@ msgid "True if any value of the type being constrained is allowed."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/cprimitiveobject.py:40
+#: src/oship/openehr/rm/common/changecontrol/importedversion.py:34
+#: src/oship/openehr/rm/common/changecontrol/interfaces/importedversion.py:34
 msgid "Item"
 msgstr ""
 
@@ -295,6 +303,8 @@ msgstr ""
 #: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:53
 #: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:65
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:69
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:35
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:41
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvparsable.py:39
 #: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:46
 #: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:52
@@ -390,8 +400,11 @@ msgstr ""
 
 #: src/oship/openehr/am/archetype/interfaces/archetype.py:52
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:40
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:36
+#: src/oship/openehr/rm/common/changecontrol/interfaces/originalversion.py:34
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:40
 #: src/oship/openehr/rm/common/changecontrol/interfaces/versionedobject.py:39
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:40
+#: src/oship/openehr/rm/common/changecontrol/originalversion.py:33
 #: src/oship/openehr/rm/demographic/interfaces/party.py:40
 #: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:40
 #: src/oship/openehr/rm/demographic/party.py:36
@@ -739,6 +752,116 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
+#: src/oship/openehr/rm/common/changecontrol/importedversion.py:35
+#: src/oship/openehr/rm/common/changecontrol/interfaces/importedversion.py:35
+msgid "Original Version object that was imported."
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:37
+msgid "Unique identifier for this contribution."
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:42
+msgid "Versions"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:43
+msgid ""
+"Set of references to versions causing changes to\n"
+"                      this EHR. Each contribution contains a list of versions\n"
+"                      which may include paths pointing to any number of \n"
+"                      VERSIONABLE items, i.e. items of type COMPOSITION and FOLDER."
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:51
+msgid "Audit"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:52
+msgid "Audit trail corresponding to the committal of this Contribution."
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/originalversion.py:35
+#: src/oship/openehr/rm/common/changecontrol/interfaces/originalversion.py:41
+#: src/oship/openehr/rm/common/changecontrol/originalversion.py:34
+#: src/oship/openehr/rm/common/changecontrol/originalversion.py:40
+msgid "Stored version of inheritence precurosr."
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/originalversion.py:40
+#: src/oship/openehr/rm/common/changecontrol/originalversion.py:39
+msgid "Preceding Version UID"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:41
+msgid ""
+"Unique identifier of this version, containing\n"
+"                    owner_id, version_tree_id and creating_system_id.\n"
+"                    Type == OBJECT_VERSION_ID"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:48
+msgid "Preceding Version Id"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:49
+msgid ""
+"Unique identifier of the version of which this version \n"
+"                    is a modification; Void if this is the first version.\n"
+"                    Type == OBJECT_VERSION_ID"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:56
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:85
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/evaluation.py:36
+#: src/oship/openehr/rm/integration/interfaces/genericentry.py:33
+msgid "Data"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:57
+msgid "Original content of this Version."
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:62
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:42
+msgid "Lifecycle State"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:63
+msgid ""
+"Lifecycle state of this version; coded by openEHR \n"
+"                    vocabulary \342\200\234version lifecycle state\342\200\235. \n"
+"                    Type == DV_CODED_TEXT"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:71
+msgid "Commit Audit"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:72
+msgid ""
+"Audit trail corresponding to the committal of this\n"
+"                    version to the VERSIONED_OBJECT. Type == AUDIT_DETAILS"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:78
+msgid "Contribution"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:79
+msgid "Contribution in which this version was added."
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:84
+msgid "Signature"
+msgstr ""
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:85
+msgid ""
+"OpenPGP digital signature or digest of content \n"
+"                    committed in this Version."
+msgstr ""
+
 #: src/oship/openehr/rm/common/changecontrol/interfaces/versionedobject.py:40
 msgid ""
 "Unique identifier of this version container. This id \n"
@@ -786,74 +909,6 @@ msgstr ""
 msgid ""
 "The list of references to other (usually) versioned \n"
 "                    objects logically in this folder."
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:41
-msgid ""
-"Unique identifier of this version, containing\n"
-"                    owner_id, version_tree_id and creating_system_id.\n"
-"                    Type == OBJECT_VERSION_ID"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:48
-msgid "Preceding Version Id"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:49
-msgid ""
-"Unique identifier of the version of which this version \n"
-"                    is a modification; Void if this is the first version.\n"
-"                    Type == OBJECT_VERSION_ID"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:56
-#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:85
-#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/evaluation.py:36
-#: src/oship/openehr/rm/integration/interfaces/genericentry.py:33
-msgid "Data"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:57
-msgid "Original content of this Version."
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:62
-msgid "Lifecycle State"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:63
-msgid ""
-"Lifecycle state of this version; coded by openEHR \n"
-"                    vocabulary \342\200\234version lifecycle state\342\200\235. \n"
-"                    Type == DV_CODED_TEXT"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:71
-msgid "Commit Audit"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:72
-msgid ""
-"Audit trail corresponding to the committal of this\n"
-"                    version to the VERSIONED_OBJECT. Type == AUDIT_DETAILS"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:78
-msgid "Contribution"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:79
-msgid "Contribution in which this version was added."
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:84
-msgid "Signature"
-msgstr ""
-
-#: src/oship/openehr/rm/common/directory/interfaces/version.py:85
-msgid ""
-"OpenPGP digital signature or digest of content \n"
-"                    committed in this Version."
 msgstr ""
 
 #: src/oship/openehr/rm/common/generic/interfaces/attestation.py:36
@@ -941,6 +996,7 @@ msgid ""
 msgstr ""
 
 #: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:68
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:49
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:45
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/activity.py:39
 msgid "Description"
@@ -1051,6 +1107,106 @@ msgstr ""
 
 #: src/oship/openehr/rm/common/generic/interfaces/revisionhistoryitem.py:47
 msgid "Version identifier for this revision."
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:36
+msgid "Original Language"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:42
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:43
+msgid "Translations"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:55
+msgid "Revision History"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:61
+msgid "Is Controlled"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:30
+msgid "Original Author"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:36
+msgid "Other Contributors"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:48
+#: src/oship/openehr/rm/demographic/address.py:35
+#: src/oship/openehr/rm/demographic/interfaces/address.py:37
+#: src/oship/openehr/rm/demographic/interfaces/party.py:76
+#: src/oship/openehr/rm/demographic/interfaces/partyidentified.py:38
+#: src/oship/openehr/rm/demographic/interfaces/partyidentity.py:38
+#: src/oship/openehr/rm/demographic/party.py:72
+#: src/oship/openehr/rm/demographic/partyidentified.py:36
+#: src/oship/openehr/rm/demographic/partyidentity.py:36
+msgid "Details"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:54
+msgid "Resource Package URI"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:60
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:76
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:52
+#: src/oship/openehr/rm/ehr/ehrstatus.py:54
+#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:56
+msgid "Other Details"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:66
+msgid "Parent Resource"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:34
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:34
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:49
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:72
+#: src/oship/openehr/rm/demographic/interfaces/party.py:64
+#: src/oship/openehr/rm/demographic/party.py:60
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:62
+msgid "Language"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:40
+#: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:73
+#: src/oship/openehr/rm/demographic/interfaces/partyidentified.py:44
+#: src/oship/openehr/rm/demographic/interfaces/partyidentity.py:44
+#: src/oship/openehr/rm/demographic/partyidentified.py:42
+#: src/oship/openehr/rm/demographic/partyidentity.py:42
+msgid "Purpose"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:46
+msgid "Keywords"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:52
+msgid "Use"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:58
+msgid "Misuse"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:64
+msgid "Copyright"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:70
+msgid "Original Resource URI"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:40
+msgid "Author"
+msgstr ""
+
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:46
+msgid "Accreditation"
 msgstr ""
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/event.py:39
@@ -1315,14 +1471,6 @@ msgid ""
 "        Coded from openEHR Code Set \342\200\234character sets\342\200\235. Unicode is the default assumption \n"
 "        in openEHR, with UTF-8 being the assumed encoding. This attribute allows for \n"
 "        variations from these assumptions. Type==CodePhrase"
-msgstr ""
-
-#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:49
-#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:72
-#: src/oship/openehr/rm/demographic/interfaces/party.py:64
-#: src/oship/openehr/rm/demographic/party.py:60
-#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:62
-msgid "Language"
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:50
@@ -1768,14 +1916,6 @@ msgid ""
 "                      and development of multilingual thesauri\342\200\235)."
 msgstr ""
 
-#: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:73
-#: src/oship/openehr/rm/demographic/interfaces/partyidentified.py:44
-#: src/oship/openehr/rm/demographic/interfaces/partyidentity.py:44
-#: src/oship/openehr/rm/demographic/partyidentified.py:42
-#: src/oship/openehr/rm/demographic/partyidentity.py:42
-msgid "Purpose"
-msgstr ""
-
 #: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:74
 msgid ""
 "Purpose of the mapping e.g. \342\200\234automated\n"
@@ -1820,17 +1960,6 @@ msgstr ""
 
 #: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:65
 msgid "Query"
-msgstr ""
-
-#: src/oship/openehr/rm/demographic/address.py:35
-#: src/oship/openehr/rm/demographic/interfaces/address.py:37
-#: src/oship/openehr/rm/demographic/interfaces/party.py:76
-#: src/oship/openehr/rm/demographic/interfaces/partyidentified.py:38
-#: src/oship/openehr/rm/demographic/interfaces/partyidentity.py:38
-#: src/oship/openehr/rm/demographic/party.py:72
-#: src/oship/openehr/rm/demographic/partyidentified.py:36
-#: src/oship/openehr/rm/demographic/partyidentity.py:36
-msgid "Details"
 msgstr ""
 
 #: src/oship/openehr/rm/demographic/address.py:36
@@ -2337,11 +2466,6 @@ msgstr ""
 #: src/oship/openehr/rm/ehr/ehrstatus.py:48
 #: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:50
 msgid "True if this EHR can be written to."
-msgstr ""
-
-#: src/oship/openehr/rm/ehr/ehrstatus.py:54
-#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:56
-msgid "Other Details"
 msgstr ""
 
 #: src/oship/openehr/rm/ehr/ehrstatus.py:55

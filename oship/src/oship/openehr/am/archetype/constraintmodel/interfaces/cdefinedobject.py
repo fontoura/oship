@@ -21,6 +21,7 @@ from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
 
 from cobject import ICObject
+
 _ = MessageFactory('oship')
 
 

@@ -22,7 +22,7 @@ from openehr.rm.support.identification.archetypeid import ArchetypeId
 from openehr.rm.support.identification.hierobjectid import HierObjectId
 from openehr.am.archetype.constraintmodel.ccomplexobject import CComplexObject
 from openehr.am.archetype.ontology.archetypeontology import ArchetypeOntology
-
+from openehr.rm.common.resource.interfaces.authoredresource import IAuthoredResource
 
 _ = MessageFactory('oship')
 

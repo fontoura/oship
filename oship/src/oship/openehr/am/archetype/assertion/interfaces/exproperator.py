@@ -32,13 +32,13 @@ class IExprOperator(IExprItem):
     
     operator=OperatorKind(
         title_("Operator"),
-        description=_("Code of the operator"),
+        description=_("Code of the operator."),
         required=True,
     )
 
     precedenceOverridden=Bool(
         title_("Precedence Overridden"),
-        description=_("True if natural precedence of operators is overrriden in teh expression."),
+        description=_("True if natural precedence of operators is overridden in the expression."),
         required=True,
     )
 

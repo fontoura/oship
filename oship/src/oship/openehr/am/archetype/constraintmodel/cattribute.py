@@ -31,3 +31,5 @@ class CAttribute(Field):
     """
     
     implements(ICAttribute)
+    
+    pass

@@ -158,9 +158,11 @@ def bldArchetype(adlParsed):
     ontology=bldOntology(adlParsed)
     invariants=bldInvariants(adlParsed)
     rev=bldRevisionHistory(adlParsed) 
-       
+    uid=None
+    unknown=''
+    
     if demoMode:    
-        atObj=ATDemo(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
+        atObj=ATDemo(adl_version,archetype_id,uid,concept,parent_archetype_id,descr,definition,ontology,invariants,rev)            
     else:        
         atObj=Archetype(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
     
@@ -173,6 +175,7 @@ def bldArchetype(adlParsed):
         traceback.print_exc(2,file=errlog)
         errlog.write("\n\n")
     except DuplicationError:
+        print "WARNING:  ****Duplicate ADL file.***"
         errlog.write("WARNING: Error Occured Storing Archetype:\n")
         traceback.print_exc(2,file=errlog)
         errlog.write("\n\n")       

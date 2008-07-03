@@ -33,6 +33,7 @@ class HierObjectId(UidBasedId):
     implements(IHierObjectId)
 
     def __init__(self,**kw):
+        self.__name__=''
         for n,v in kw.items():
             setattr(self,n,v)
 

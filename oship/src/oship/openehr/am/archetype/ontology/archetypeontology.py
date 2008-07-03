@@ -39,6 +39,7 @@ class ArchetypeOntology(Field):
         self.constraintCodes=ccodes
         self.termAttributeNames=tanames
         self.parentArchetype=parent        
+        self.__name__=''
         for n,v in kw.items():
             setattr(self,n,v)
     

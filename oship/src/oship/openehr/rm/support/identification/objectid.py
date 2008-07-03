@@ -41,6 +41,7 @@ class ObjectId(Field):
 
     def __init__(self, value,**kw):
         self.value = value
+        self.__name__=''
         for n,v in kw.items():
             setattr(self,n,v)
 

@@ -21,7 +21,8 @@ from zope.i18nmessageid.message import MessageFactory
 from zope.schema import Int,Set,List
 from zope.interface import Interface
 
-from openehr.am.archetype.archetype import Archetype
+#from openehr.am.archetype.archetype import Archetype
+from openehr.rm.support.identification.objectref import ObjectRef
 
 _ = MessageFactory('oship')
 
@@ -31,37 +32,37 @@ class IArchetypeOntology(Interface):
     """
     
     terminologiesAvailable=Set(
-        title_("Terminologies"),
+        title=_("Terminologies"),
         description=_("List of terminologies in this ontology."),
         required=True,
     )
 
     specialisationDepth=Int(
-        title_("Specialisation Depth"),
+        title=_("Specialisation Depth"),
         description=_("Specialisation depth of this archetype."),
         required=True,
     )
     
     termCodes=List(
-        title_("Term Codes"),
+        title=_("Term Codes"),
         description=_("List of all term codes in this archetype."),
         required=True,
     )
 
     constraintCodes=List(
-        title_("Constraint Codes"),
+        title=_("Constraint Codes"),
         description=_("List of all constraint codes in this archetype."),
         required=True,
     )
     
     termAttributeNames=List(
-        title_("Term Attribute Names"),
+        title=_("Term Attribute Names"),
         description=_("List of attribute names in this archetype ontolgy."),
         required=True,
     )
-    
-    parentArchetype=Archetype(
-        title_("Parent"),
+
+    parentArchetype=ObjectRef('','','',
+        title=_("Parent"),
         description=_("Archetype which owns this ontology."),
         required=True,
     )

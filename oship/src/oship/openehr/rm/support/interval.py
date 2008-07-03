@@ -58,6 +58,8 @@ True
 
 import copy
 
+from zope.schema import Field
+
 class Smallest:
   """Represents the smallest value
   
@@ -216,7 +218,7 @@ class Largest:
 Inf = Largest()
 # Use -Inf for the smallest value      
 
-class Interval:
+class Interval(Field):
     """Represents a continuous range of values
     
     An Interval is composed of the lower bound, a closed lower bound 
@@ -227,96 +229,98 @@ class Interval:
     """
 
     def __init__(self, lower_bound=-Inf, upper_bound=Inf, **kwargs):
-        """Initializes an interval
-        
-        Parameters
-        ==========
-        - lower_bound: The lower bound of an interval (default -Inf)
-        - upper_bound: The upper bound of an interval (default Inf)
-        - closed: Boolean telling whether both ends of the interval are closed
-          (default True).  Setting this sets both lower_closed and upper_closed
-        - lower_closed: Boolean telling whether the lower end of the interval
-          is closed (default True)
-        - upper_closed: Boolean telling whether the upper end of the interval
-          is closed (default True)
-        
-        An Interval can represent an infinite set.
+      self.__name__=''
+      
+      """Initializes an interval
+      
+      Parameters
+      ==========
+      - lower_bound: The lower bound of an interval (default -Inf)
+      - upper_bound: The upper bound of an interval (default Inf)
+      - closed: Boolean telling whether both ends of the interval are closed
+        (default True).  Setting this sets both lower_closed and upper_closed
+      - lower_closed: Boolean telling whether the lower end of the interval
+        is closed (default True)
+      - upper_closed: Boolean telling whether the upper end of the interval
+        is closed (default True)
+      
+      An Interval can represent an infinite set.
 
-        >>> r = Interval(-Inf, Inf) # All values
+      >>> r = Interval(-Inf, Inf) # All values
 
-        An Interval can represent sets unbounded on an end.
+      An Interval can represent sets unbounded on an end.
 
-        >>> r = Interval(upper_bound=62, closed=False)
-        >>> r = Interval(upper_bound=37)
-        >>> r = Interval(lower_bound=246)
-        >>> r = Interval(lower_bound=2468, closed=False)
+      >>> r = Interval(upper_bound=62, closed=False)
+      >>> r = Interval(upper_bound=37)
+      >>> r = Interval(lower_bound=246)
+      >>> r = Interval(lower_bound=2468, closed=False)
 
-        An Interval can represent a set of values up to, but not including a
-        value.
+      An Interval can represent a set of values up to, but not including a
+      value.
 
-        >>> r = Interval(25, 28, closed=False)
+      >>> r = Interval(25, 28, closed=False)
 
-        An Interval can represent a set of values that have an inclusive
-        boundary.
+      An Interval can represent a set of values that have an inclusive
+      boundary.
 
-        >>> r = Interval(29, 216)
+      >>> r = Interval(29, 216)
 
-        An Interval can represent a single value
+      An Interval can represent a single value
 
-        >>> r = Interval(82, 82)
+      >>> r = Interval(82, 82)
 
-        Intervals that are not normalized, i.e. that have a lower bound
-        exceeding an upper bound, are silently normalized.
+      Intervals that are not normalized, i.e. that have a lower bound
+      exceeding an upper bound, are silently normalized.
 
-        >>> print Interval(5, 2, lower_closed=False)
-        [2..5)
+      >>> print Interval(5, 2, lower_closed=False)
+      [2..5)
 
-        Intervals can represent an empty set.
+      Intervals can represent an empty set.
 
-        >>> r = Interval(5, 5, closed=False)
-        
-        Intervals can only contain hashable (immutable) objects.
+      >>> r = Interval(5, 5, closed=False)
+      
+      Intervals can only contain hashable (immutable) objects.
 
-        >>> r = Interval([], 12)
-        Traceback (most recent call last):
-        ...
-        TypeError: lower_bound is not hashable.
-        >>> r = Interval(12, [])
-        Traceback (most recent call last):
-        ...
-        TypeError: upper_bound is not hashable.
-        """
-        try:
-            h = hash(lower_bound)
-        except TypeError:
-            raise TypeError("lower_bound is not hashable.")
-            
-        try:
-            h = hash(upper_bound)
-        except TypeError:
-            raise TypeError("upper_bound is not hashable.")
-        
-        lower_closed = not (
-            isinstance(lower_bound, Smallest) 
-            or isinstance(lower_bound, Largest)) \
-          and kwargs.get("lower_closed", kwargs.get("closed", True))
-        upper_closed = not (
-            isinstance(upper_bound, Smallest)
-            or isinstance(upper_bound, Largest)) \
-          and kwargs.get("upper_closed", kwargs.get("closed", True))
-        
-        if upper_bound < lower_bound:
-            lower_bound, lower_closed, upper_bound, upper_closed = \
-            upper_bound, upper_closed, lower_bound, lower_closed 
-        if ((lower_bound == -Inf) and lower_closed) \
-          or ((upper_bound == Inf) and upper_closed):
-            raise ValueError(
-                "Unbound ends cannot be included in an interval.")
+      >>> r = Interval([], 12)
+      Traceback (most recent call last):
+      ...
+      TypeError: lower_bound is not hashable.
+      >>> r = Interval(12, [])
+      Traceback (most recent call last):
+      ...
+      TypeError: upper_bound is not hashable.
+      """
+      try:
+          h = hash(lower_bound)
+      except TypeError:
+          raise TypeError("lower_bound is not hashable.")
+          
+      try:
+          h = hash(upper_bound)
+      except TypeError:
+          raise TypeError("upper_bound is not hashable.")
+      
+      lower_closed = not (
+          isinstance(lower_bound, Smallest) 
+          or isinstance(lower_bound, Largest)) \
+        and kwargs.get("lower_closed", kwargs.get("closed", True))
+      upper_closed = not (
+          isinstance(upper_bound, Smallest)
+          or isinstance(upper_bound, Largest)) \
+        and kwargs.get("upper_closed", kwargs.get("closed", True))
+      
+      if upper_bound < lower_bound:
+          lower_bound, lower_closed, upper_bound, upper_closed = \
+          upper_bound, upper_closed, lower_bound, lower_closed 
+      if ((lower_bound == -Inf) and lower_closed) \
+        or ((upper_bound == Inf) and upper_closed):
+          raise ValueError(
+              "Unbound ends cannot be included in an interval.")
 
-        self.lower_bound  = lower_bound 
-        self.lower_closed = lower_closed
-        self.upper_bound  = upper_bound
-        self.upper_closed = upper_closed
+      self.lower_bound  = lower_bound 
+      self.lower_closed = lower_closed
+      self.upper_bound  = upper_bound
+      self.upper_closed = upper_closed
 
     def __hash__(self):
         """Returns a hashed value of the object

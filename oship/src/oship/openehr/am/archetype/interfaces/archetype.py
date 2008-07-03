@@ -42,7 +42,7 @@ class IArchetype(IAuthoredResource):
         default = None
     )
     
-    archetypeId=ArchetypeId(
+    archetypeId=ArchetypeId('',
         title=_("Archetype Id"),
         description=_("Multi-axial identifier of this archetype."),
         required=True,
@@ -60,7 +60,7 @@ class IArchetype(IAuthoredResource):
         required=True,
     )
     
-    parentArchetypeId=ArchetypeId(
+    parentArchetypeId=ArchetypeId('',
         title=_("Parent Archetype Id"),
         description=_("Identifier of the specialsation parent of this archetype."),
         required=False,
@@ -72,7 +72,7 @@ class IArchetype(IAuthoredResource):
         required=True,
     )
 
-    ontology=ArchetypeOntology(
+    ontology=ArchetypeOntology('','','','','','',
         title=_("Ontology"),
         description=_("The ontology of the archetype"),
         required=True,

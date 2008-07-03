@@ -41,9 +41,12 @@ import mglob
 from sets import Set
 from pyparsing import *
 
-from openehr.rm.datatypes.text.codephrase import CodePhrase
-from openehr.rm.datatypes.text.dvtext import DvText
-from openehr.am.archetype.archetype import Archetype
+demoMode = True
+
+if not demoMode:
+    from openehr.rm.datatypes.text.codephrase import CodePhrase
+    from openehr.rm.datatypes.text.dvtext import DvText
+    from openehr.am.archetype.archetype import Archetype
 
 from oship.atdemo.atdemo import ATDemo
 from blddefinition import bldDefinition
@@ -156,8 +159,10 @@ def bldArchetype(adlParsed):
     invariants=bldInvariants(adlParsed)
     rev=bldRevisionHistory(adlParsed) 
        
-    atObj=ATDemo(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
-    #atObj=Archetype(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
+    if demoMode:    
+        atObj=ATDemo(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
+    else:        
+        atObj=Archetype(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
     
     # now we need to persist the archetype in the ZODB
     try:

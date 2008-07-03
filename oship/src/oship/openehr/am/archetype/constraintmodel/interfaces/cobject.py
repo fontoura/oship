@@ -22,7 +22,7 @@ from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.rm.support.interval import Interval
-from openehr.am.archetype.constraintmodel.cattribute import CAttribute
+#from openehr.am.archetype.constraintmodel.cattribute import CAttribute
 
 _ = MessageFactory('oship')
 
@@ -50,9 +50,10 @@ class ICObject(IField):
         required=True,
     )
 
+    """
     parent=CAttribute(
         title=_("Parent"),
         description=_("CAttribute that owns the CObject."),
         required=False,
     )
-
+    """

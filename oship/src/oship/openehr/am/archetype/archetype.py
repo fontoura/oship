@@ -33,7 +33,7 @@ class Archetype(AuthoredResource):
     
     implements(IArchetype)
     
-    def __init__(self,adlver,atid,uid,concept,paid,defin,ont,inv,**kw):
+    def __init__(self,adlver,atid,uid,concept,paid,defin,ont,inv,rev,**kw):
         self.adlVersion=adlver
         self.archetypeId=atid
         self.uid=uid
@@ -42,6 +42,8 @@ class Archetype(AuthoredResource):
         self.definition=defin
         self.ontology=ont
         self.invariants=inv
+        self.revisionHistory=rev
+        self.__name__ = atid
         for n,v in kw.items():
             setattr(self,n,v)
     

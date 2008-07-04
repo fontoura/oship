@@ -159,13 +159,30 @@ def bldArchetype(adlParsed):
     invariants=bldInvariants(adlParsed)
     rev=bldRevisionHistory(adlParsed) 
     uid=None
-    unknown=''
     
     if demoMode:    
-        atObj=ATDemo(adl_version,archetype_id,uid,concept,parent_archetype_id,descr,definition,ontology,invariants,rev)            
+        atObj=ATDemo(adl_version,archetype_id,uid,concept,parent_archetype_id,definition,ontology,invariants,rev)            
     else:        
-        atObj=Archetype(adl_version,archetype_id,concept,parent_archetype_id,definition,ontology,invariants,rev)            
-    
+        atObj=Archetype(adl_version,archetype_id,uid,concept,parent_archetype_id,definition,ontology,invariants,rev)            
+        print 'ADL Version: ',atObj.adlVersion        
+        print '__name__ = ', atObj.__name__
+        print 'UID: ', atObj.uid
+        print 'Concept: ',atObj.concept
+        print 'Parent: ', atObj.parentArchetypeId
+        print 'Definition: ',atObj.definition
+        
+        """
+        print 'Ontology: '
+        print '   terminologies_available = ',atObj.ontology[0]
+        print '   specialisation_depth = ',atObj.ontology[1]
+        print '   term_codes = ',atObj.ontology[2]
+        print '   constraint_codes = ',atObj.ontology[3]
+        print '   term_attribute_names = ',atObj.ontology[4]
+        print '   parent_archetype = ',atObj.ontology[5]
+        print 'Invariants: ', atObj.invariants
+        print 'Revision History: ',atObj.revisionHistory
+        """
+        
     # now we need to persist the archetype in the ZODB
     try:
         root['Application']['AR'].__setitem__(archetype_id,atObj)
@@ -175,7 +192,7 @@ def bldArchetype(adlParsed):
         traceback.print_exc(2,file=errlog)
         errlog.write("\n\n")
     except DuplicationError:
-        print "WARNING:  ****Duplicate ADL file.***"
+        print "WARNING:  ****Duplicate Archetype ID.***"
         errlog.write("WARNING: Error Occured Storing Archetype:\n")
         traceback.print_exc(2,file=errlog)
         errlog.write("\n\n")       

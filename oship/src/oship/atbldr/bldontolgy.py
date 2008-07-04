@@ -17,26 +17,28 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
+
 def bldOntology(adlParsed):
     u"""
-    Create the Ontolgy section of an archetype.
+    Create the Ontolgy section of an archetype expressed in ADL.
     """
 
     sections = adlParsed.ontology.keys()    
     tANList = []
     termCodes = []
     constraintCodes = []
+    parent_archetype = adlParsed.archetype[1]
     
     if len(adlParsed.specialize) == 0 or adlParsed.specialize == '':
         specialsationDepth = 0
     else:
-        specialsationDepth = 1 
+        specialsationDepth = adlParsed.specialize 
             
             
     if 'terminologies_available' in sections:
-        terminologies_available=repr(adlParsed.ontology['terminologies_available'])
+        terminologies_available=adlParsed.ontology['terminologies_available'][0]
     else:
-        terminologies_available=''
+        terminologies_available=['None']
             
     if 'term_definitions' in sections:
         avail_lang = []
@@ -66,4 +68,4 @@ def bldOntology(adlParsed):
             
     termAttributeNames=tANList
     
-    return [terminologies_available,termCodes,constraintCodes,termAttributeNames]                    
+    return terminologies_available,specialsationDepth,termCodes,constraintCodes,termAttributeNames,parent_archetype

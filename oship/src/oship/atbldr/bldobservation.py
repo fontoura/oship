@@ -18,4 +18,6 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 def bldObservation(adlParsed):
-        return "Observation"
+        return adlParsed.definition[0]['body'],adlParsed.definition[0]['id'],adlParsed.definition[0]['occurrences']
+        
+        

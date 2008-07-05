@@ -26,6 +26,7 @@ from zope.schema import List
 from openehr.rm.common.generic.partyproxy import PartyProxy
 from openehr.rm.datatypes.text.codephrase import CodePhrase
 from openehr.rm.support.identification.objectref import ObjectRef
+from openehr.rm.ehr.composition.content.interfaces.contentitem import IContentItem
 
 _ = MessageFactory('oship')
 
@@ -59,7 +60,7 @@ class IEntry(IContentItem):
         )
 
         
-    subject = PartyProxy(
+    subject = PartyProxy('',
         title = u"""subject""",
         description = u"""Id of human subject of this ENTRY, e.g.
                           • organ donor
@@ -69,7 +70,7 @@ class IEntry(IContentItem):
         required = True
         )
     
-    provider = PartyProxy(
+    provider = PartyProxy('',
         title = u"""provider""",
         description = u"""Optional identification of provider of the informatoin in this ENTRY, which might be:
                        • the patient
@@ -87,7 +88,7 @@ class IEntry(IContentItem):
         required = False
         )
     
-    workflowId = ObjectRef(
+    workflowId = ObjectRef('','','',
         title = u"""workflowId""",
         description = u"""Identifier of externally held workflow engine data for this 
                       workflow execution, for this subject of care.""",

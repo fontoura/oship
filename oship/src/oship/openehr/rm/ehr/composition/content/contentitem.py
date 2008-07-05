@@ -21,6 +21,7 @@ __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.schema import Container
+from zope.interface import implements
 
 from interfaces.contentitem import IContentItem
 

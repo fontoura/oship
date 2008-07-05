@@ -37,10 +37,13 @@ class DvText(DataValue):
 
     implements(IDvText)
     
-    def __init__(self, value, mappings, formatting, hyperlink, language, encoding):
+    def __init__(self, value, mappings, formatting, hyperlink, language, encoding,**kw):
         self.value = value
         self.mappings = mappings
         self.formatting = formatting
         self.hyperlink = hyperlink
         self.language = language
         self.encoding = encoding
+        self.__name__=''
+        for n,v in kw.items():
+            setattr(self,n,v)

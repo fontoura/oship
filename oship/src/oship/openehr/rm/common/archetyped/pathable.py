@@ -20,12 +20,14 @@ __docformat__ = u'plaintext'
 
 from zope.interface import implements
 from zope.location import Location
+from zope.schema import Field
 from zope.i18nmessageid import MessageFactory
 
+from interfaces.pathable import IPathable
 
 _ = MessageFactory('oship')
 
-class Pathable(Location):
+class Pathable(Location,Field):
     """
     Abstract parent of all classes whose instances are reachable by paths, and which
     know how to locate child object by paths. The parent feature may be implemented 
@@ -38,7 +40,11 @@ class Pathable(Location):
     """
     
     implements(IPathable)
-        
+    
+    def __init__(self):
+        self.parent=self.__parent__
+    
+    
     def pathOfItem(an_item):
         """
         The path to an item relative to the root of this archetyped structure.

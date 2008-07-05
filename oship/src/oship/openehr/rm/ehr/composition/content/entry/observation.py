@@ -41,6 +41,12 @@ class Observation(CareEntry):
 
     implements(IObservation)
     
-    def __init__(self,data,state,**kwargs):
+    def __init__(self,data,state,**kw):
         self.data=data
         self.state=state
+        for n,v in kw.items():
+            setattr(self,n,v)
+
+            
+            
+            

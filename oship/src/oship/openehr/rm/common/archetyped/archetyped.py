@@ -21,7 +21,7 @@ __docformat__ = u'plaintext'
 from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.locatable import Locatable
+from openehr.rm.common.archetyped.locatable import Locatable
 from interfaces.archetyped import IArchetyped
 
 _ = MessageFactory('oship')

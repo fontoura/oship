@@ -35,11 +35,12 @@ class DvQuantified(DvOrdered):
         self.magnitude=magnitude
         self.magnitudeStatus=magnitudeStatus
            
+        magnitudeExists = self.magnitude!=None
+        
+        magnitudeStatusValid = val in self.magnitudeStatus
+        
     def validMagnitudeStatus(val):
         """
         Test whether a string 'val' is one of the valid values for the magnitude_status attribute.
         """
 
-    magnitudeExists=magnitude!=None
-    
-    magnitudeStatusValid=val in magnitudeStatus

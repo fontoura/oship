@@ -17,7 +17,14 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
+from bldhistory import bldHistory
+from openehr.rm.ehr.composition.content.entry.observation import Observation
+
 def bldObservation(adlParsed):
-        #return adlParsed.definition[0]['body'],adlParsed.definition[0]['id'],adlParsed.definition[0]['occurrences']
-        return adlParsed.definition[0]['body'][0][0]
+        dataObj=bldHistory(adlParsed.definition[0]['body'][0][0][1][0][0],'')
+        stateObj=''
+        obsObj=Observation(dataObj,stateObj)
+        
+        return obsObj
+
         

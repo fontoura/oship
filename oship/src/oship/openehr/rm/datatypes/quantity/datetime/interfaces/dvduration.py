@@ -41,7 +41,7 @@ class IDvDuration(IDvAmount):
 
     value = TextLine(
         title=_(u"Value"),
-        descripion=_(u"""ISO8601 duration"""),
+        description=_(u"""ISO8601 duration"""),
         required=True,
         )     
         

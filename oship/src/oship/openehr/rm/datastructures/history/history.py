@@ -22,7 +22,7 @@ from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.datastructures.datastructure import DataStructure 
-
+from interfaces.history import IHistory
 
 _ = MessageFactory('oship')
 

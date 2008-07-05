@@ -15,6 +15,7 @@ Quantity Package Rev. 2.1.0.
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
+from datetime import datetime
 from zope.interface import implements 
 from zope.i18nmessageid.message import MessageFactory
 
@@ -32,8 +33,14 @@ class DvDateTime(DvTemporal):
 
     implements(IDvDateTime)
 
-    def __init__(self,value):
-        self.value=datetime(value)
+    def __init__(self,value,**kw):
+        # need to separate value into a Python tuple to submit to the datetime module.
+        #self.value=datetime(value)
+        self.value=datetime.now()
+        self.__name__=''
+        for n,v in kw.items():
+            setattr(self,n,v)
+        
 
     def diff(other):
         u"""Difference of two date/times. Returns a DvDuration"""

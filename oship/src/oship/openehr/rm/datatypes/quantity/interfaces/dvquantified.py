@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.schema import Float,List
+from zope.schema import Float,List,Field
 
 from dvordered import IDvOrdered
 
@@ -52,18 +52,17 @@ class IDvQuantified(IDvOrdered):
         required=True
     )
     
-           
-           
+                      
     def validMagnitudeStatus(val):
         """
         Test whether a string 'val' is one of the valid values for the magnitude_status attribute.
         """
 
-
-    magnitudeExists = Attribute(_(u" magnitude /= Void"))
-    
-    magnitudeStatusValid = Attribute(_(u"""magnitude_status /= Void implies
-                                     valid_magnitude_status(magnitude_status)"""))
+    def magnitudeExists():
+        """
+        Does the magnitude exist?
+        """
+        
 
 
  

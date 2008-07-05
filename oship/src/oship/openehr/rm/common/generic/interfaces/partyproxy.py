@@ -33,7 +33,7 @@ class IPartyProxy(ILocatable):
     system. Subtyped into PARTY_IDENTIFIED and PARTY_SELF.
     """
     
-    externalRef = PartyRef(
+    externalRef = PartyRef('','','',
         title=_(u"External Reference"),
         description=_(u"""Optional reference to more detailed demographic or 
                     identification information for this party, in an external 

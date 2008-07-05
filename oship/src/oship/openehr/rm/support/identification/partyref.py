@@ -41,6 +41,7 @@ class PartyRef(ObjectRef):
         self.id=id
         self.nameSpace=nameSpace
         self.type=type     
+        self.__name__=''
         for n,v in kw.items():
             setattr(self,n,v)
         

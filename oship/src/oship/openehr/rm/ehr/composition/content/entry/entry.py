@@ -24,7 +24,7 @@ from zope.i18nmessageid import MessageFactory
 from zope.interface import implements
 
 from interfaces.entry import IEntry
-
+from openehr.rm.ehr.composition.content.contentitem import ContentItem
 
 _ = MessageFactory('oship')
 

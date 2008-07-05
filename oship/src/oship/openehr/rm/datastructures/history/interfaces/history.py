@@ -38,7 +38,7 @@ class IHistory(IDataStructure):
     NOTE: The invariants have NOT been written yet for this interface.
     """
     
-    origin = DvDateTime(
+    origin = DvDateTime('',
         title=_(u"origin"),
         description=_(u"Time origin of this event history. The first event is not necessarily at the origin point."),
         required=True
@@ -51,20 +51,20 @@ class IHistory(IDataStructure):
     )
     
     
-    period=DvDuration(
+    period=DvDuration('',
         title=_(u"period"),
         description=_(u"Period between samples in this segment if periodic."),
         required=False
     )
     
-    duration=DvDuration(
+    duration=DvDuration('',
         title=_(u"duration"),
         description=_(u"""Duration of the entire History; either corresponds to the duration of all 
                     the events, and/or the duration represented by the summary, if it exists."""),
         required=False
     )
     
-    summary=ItemStructure(
+    summary=ItemStructure('','','','','','',
         title=_(u"summary"),
         description=_(u"""Optional summary data expressing e.g. text or image which summarises 
                          entire History."""),

@@ -18,14 +18,14 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
 from zope.schema import TextLine,List
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.support.identification.uidbasedid import UidBasedId
 from openehr.rm.datatypes.text.dvtext import DvText
-from openehr.rm.common.archetyped.archetyped import Archetyped
-from openehr.rm.common.archetyped.feederaudit import FeederAudit
+#from openehr.rm.common.archetyped.archetyped import Archetyped
+#from openehr.rm.common.archetyped.feederaudit import FeederAudit
+from pathable import IPathable
 
 _ = MessageFactory('oship')
 
@@ -36,7 +36,7 @@ class ILocatable(IPathable):
     """
     
 
-    uid = UidBasedId(
+    uid = UidBasedId('',
         title=_(u"UID"),
         description=_(u"Optional globally unique object identifier for root points of archetyped structures. A UidBasedId "),
         required=False,
@@ -54,7 +54,7 @@ class ILocatable(IPathable):
         required=True,
         )
     
-    name = DvText(
+    name = DvText('','','','','','',
         title=_(u"Name"),
         description=_(u"""DvText type - Runtime name of this fragment, used to build runtime paths. 
                      This is the term provided via a clinical application or batch
@@ -64,13 +64,20 @@ class ILocatable(IPathable):
         required=True,
         )
 
+    """
     archetypeDetails = Archetyped(
         title=_(u"Archetype Details"),
         description=_(u"Details of archetyping used on this node."),
         required=False,
         )
+    """
+    archetypeDetails = TextLine(
+        title=_(u"Archetype Details"),
+        description=_(u"Details of archetyping used on this node."),
+        required=False,
+        )
     
-    feederAudit = FeederAudit(
+    feederAudit = List(
         title=_(u"Feeder Audit"),
         description=_(u"""Audit trail from non-openEHR system of original commit of information 
                     forming the content of this node, or from a conversion gateway which has 

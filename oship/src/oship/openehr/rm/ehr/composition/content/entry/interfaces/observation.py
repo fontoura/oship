@@ -36,14 +36,14 @@ class IObservation(ICareEntry):
     Not used for recording opinion or future statements of any kind, including instructions, 
     intentions, plans etc."""
     
-    data = History(
+    data = History('','','','','',
         title=u"""data""",
         description=u"""The data of this observation, in the form of a history of 
                     values which may be of any complexity.""",
         required=True
     )
     
-    state = History(
+    state = History('','','','','',
         title=u"""state""",
         description=u"""Optional recording of the state of subject of this
                     observation during the observation process, in the form of 

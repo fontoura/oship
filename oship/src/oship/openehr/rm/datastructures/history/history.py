@@ -40,7 +40,7 @@ class History(DataStructure):
     def __init__(self,origin,events,period,duration,summary,**kw):
         self.origin=origin
         self.events=events
-        self.period
+        self.period=period
         self.duration=duration
         self.summary=summary
         for n,v in kw.items():

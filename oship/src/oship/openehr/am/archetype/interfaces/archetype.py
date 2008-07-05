@@ -35,52 +35,52 @@ class IArchetype(IAuthoredResource):
     """
     
     adlVersion = TextLine(
-        title = _("adlVersion"),
-        description = _("""ADL version if archteype was read in from 
+        title = _(u"adlVersion"),
+        description = _(u"""ADL version if archteype was read in from 
                         an ADL sharable archetype."""),
         required = False,
         default = None
     )
     
     archetypeId=ArchetypeId('',
-        title=_("Archetype Id"),
-        description=_("Multi-axial identifier of this archetype."),
+        title=_(u"Archetype Id"),
+        description=_(u"Multi-axial identifier of this archetype."),
         required=True,
     )
     
     uid=HierObjectId(
-        title=_("UID"),
-        description=_("OID of this archetype."),
+        title=_(u"UID"),
+        description=_(u"OID of this archetype."),
         required=False,
     )
     
     concept=TextLine(
-        title=_("Concept"),
-        description=_("The normative meaning of archetype as a whole."),
+        title=_(u"Concept"),
+        description=_(u"The normative meaning of archetype as a whole."),
         required=True,
     )
     
     parentArchetypeId=ArchetypeId('',
-        title=_("Parent Archetype Id"),
-        description=_("Identifier of the specialsation parent of this archetype."),
+        title=_(u"Parent Archetype Id"),
+        description=_(u"Identifier of the specialsation parent of this archetype."),
         required=False,
     )
     
     definition=CComplexObject(
-        title=_("Definition"),
-        description=_("Root node of this archetype."),
+        title=_(u"Definition"),
+        description=_(u"Root node of this archetype."),
         required=True,
     )
 
     ontology=ArchetypeOntology('','','','','','',
-        title=_("Ontology"),
-        description=_("The ontology of the archetype"),
+        title=_(u"Ontology"),
+        description=_(u"The ontology of the archetype"),
         required=True,
     )
 
     invariants=Set(
-        title=_("Invariants"),
-        description=_("FOPL invariant statements"),
+        title=_(u"Invariants"),
+        description=_(u"FOPL invariant statements"),
         required=False,
     )
 

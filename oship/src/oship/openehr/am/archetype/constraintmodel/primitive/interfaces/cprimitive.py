@@ -28,13 +28,13 @@ class ICPrimitive(IField):
     
     defaultValue=Field(
         title_("Default Value"),
-        description=_("A default value for this constriant object."),
+        description=_("A default value for this constraint object."),
         required=True,
     )
     
     hasAssumedValue=Bool(
         title_("Has Assumed Value"),
-        description=_("True if thiere is an assumed value."),
+        description=_("True if there is an assumed value."),
         required=True,
     )
 

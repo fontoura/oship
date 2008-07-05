@@ -35,22 +35,22 @@ class ICareEntry(IEntry):
 
     """
 
-    protocol = ItemStructure(
-        title=u"""protocol""",
-        description=u"""Description of the method (i.e. how) the information in this 
+    protocol = ItemStructure('','','','','','',
+        title=_(u"Protocol"),
+        description=_(u"""Description of the method (i.e. how) the information in this 
                     entry was arrived at. For OBSERVATIONs, this is a description of the
                     method or instrument used. For EVALUATIONs, how the evaluation was 
                     arrived at. For INSTRUCTIONs, how to execute the Instruction. 
                     This may take the form of references to guidelines, including 
                     manually followed and executable; knowledge references such as a
-                    paper in Medline; clinical reasons within a largercare process.""",
+                    paper in Medline; clinical reasons within a largercare process."""),
         required=False
     )
     
-    guidelineId = ObjectRef(
-        title=u"""guidelineId""",
-        description=u"""Optional external identifier of guideline creating this 
-                    action if relevant.""",
+    guidelineId = ObjectRef('','','',
+        title=_(u"guidelineId"),
+        description=_(u"""Optional external identifier of guideline creating this 
+                    action if relevant."""),
         required=False
     )
     

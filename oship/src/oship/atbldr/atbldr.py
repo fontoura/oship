@@ -41,7 +41,7 @@ import mglob
 from sets import Set
 from pyparsing import *
 
-demoMode = False
+demoMode = True
 
 if not demoMode:
     from openehr.rm.datatypes.text.codephrase import CodePhrase

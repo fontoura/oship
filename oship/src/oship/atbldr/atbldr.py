@@ -64,6 +64,7 @@ adlDir points to my SVN import tree of all archetypes on openEHR.org
 """
 adlDir=os.getcwd().rstrip('atbldr')+'/import_adl'
 #adlDir='/home/tim/Documents/openEHR/knowledge/archetypes'
+#adlDir='/home/tim/Documents/openEHR/knowledge/archetypes/dev-uk-nhs/adl/openehr/ehr/entry/observation'
 
 
 dbDir=os.getcwd().rstrip('src/oship/atbldr')+'/oship/var/Data.fs'
@@ -116,8 +117,8 @@ def CreateAT():
         adlSource = file(fname).read()
         
         try:
-            # adlParsed is the returned ParseResults object
-            adlParsed = adl_1_4.archetypeDefinition.parseString(adlSource)
+            # parsed_adl is the returned ParseResults object
+            parsed_adl = adl_1_4.archetypeDefinition.parseString(adlSource)
         except ParseException: 
             e+=1
             errlog.write("Error # "+str(e)+" Occured Parsing "+fname+':\n')
@@ -126,7 +127,7 @@ def CreateAT():
             print "Parsing Failed -- Error Logged!\n"
             errCount+=1
         else:   
-            bldArchetype(adlParsed)  
+            bldArchetype(parsed_adl)  
                 
                 
     print "\n\nParsed ",count," files in",time.clock()-startTime," seconds."
@@ -145,19 +146,19 @@ def CreateAT():
     return
         
         
-def bldArchetype(adlParsed):
+def bldArchetype(parsed_adl):
     """
     Build the archetype object ready for persistence in the Archetype Repository site (AR).
     """
         
-    adl_version=adlParsed.archetype.adl_version
-    archetype_id=adlParsed.archetype[1]
-    concept=adlParsed.concept
-    parent_archetype_id=adlParsed.specialize
-    definition=bldDefinition(adlParsed)
-    ontology=bldOntology(adlParsed)
-    invariants=bldInvariants(adlParsed)
-    rev=bldRevisionHistory(adlParsed) 
+    adl_version=parsed_adl.archetype.adl_version
+    archetype_id=parsed_adl.archetype[1]
+    concept=parsed_adl.concept
+    parent_archetype_id=parsed_adl.specialize
+    ontology=bldOntology(parsed_adl,errlog)
+    definition=bldDefinition(parsed_adl,errlog,ontology)
+    invariants=bldInvariants(parsed_adl,errlog)
+    rev=bldRevisionHistory(parsed_adl,errlog) 
     uid=None
     
     if demoMode:    

@@ -13,7 +13,7 @@
         Parsing is performed in adl_1_4.py using Pyparsing. 
         
 """
-def bldSection(adlParsed):
-        return "Section"
+def bldSection(parsed_adl):
+        return parsed_adl.definition[0]['body']
     
  

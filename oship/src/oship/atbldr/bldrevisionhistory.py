@@ -17,10 +17,10 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-def bldRevisionHistory(adlParsed):
+def bldRevisionHistory(parsed_adl,errlog):
     u"""
     Create the Revision History section of an archetype.
     """
-    return adlParsed.revision_history
+    return parsed_adl.revision_history
     
     

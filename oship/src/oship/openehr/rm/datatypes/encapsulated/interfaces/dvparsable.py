@@ -26,7 +26,7 @@ from dvencapsulated import IDvEncapsulated
 
 _=MessageFactory('oship')
             
-class IDvParasable(IDvEncapsulated):
+class IDvParsable(IDvEncapsulated):
     """
     Encapsulated data expressed as a parsable String. The internal model of the data item is not 
     described in the openEHR model in common with other encapsulated types, but in this case, the 

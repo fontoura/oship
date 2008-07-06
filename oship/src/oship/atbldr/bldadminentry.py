@@ -13,6 +13,6 @@
         Parsing is performed in adl_1_4.py using Pyparsing. 
         
 """
-def bldAdminEntry(adlParsed):
+def bldAdminEntry(parsed_adl):
         return "AdminEntry"
 

@@ -21,11 +21,11 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import TextLine
+from zope.schema import TextLine,Object,Field
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
-from openehr.rm.datatypes.encapsulated.dvparsable import DvParasable
+from openehr.rm.datatypes.encapsulated.dvparsable import DvParsable
 
 
 _ = MessageFactory('oship')
@@ -35,22 +35,22 @@ class IActivity(ILocatable):
     A single activity within an instruction.
     """
     
-    description=ItemStructure(
-        title=_("Description"),
-        description=_("Description of the activity."),
+    description=Object(
+        title=_(u"Description"),
+        description=_(u"Description of the activity."),
         required=True,
     )
     
-    timing=DvParsable(
-        title=_("Timing"),
-        description=_("Timing of the activity in a format such as ISO8601."),
+    timing=DvParsable(0,'','',
+        title=_(u"Timing"),
+        description=_(u"Timing of the activity in a format such as ISO8601."),
         required=True,
     )
     
     actionArchetypeId=TextLine(
-        title=_("Action ArchetypeId"),
-        description=_("re pattern enclosed in '//' delimiters."),
+        title=_(u"Action ArchetypeId"),
+        description=_(u"re pattern enclosed in '//' delimiters."),
         required=True,
-        default="/.*/",
+        default=u"/.*/",
     )
    

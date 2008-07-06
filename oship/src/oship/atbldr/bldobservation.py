@@ -20,8 +20,8 @@ __docformat__ = 'plaintext'
 from bldhistory import bldHistory
 from openehr.rm.ehr.composition.content.entry.observation import Observation
 
-def bldObservation(adlParsed):
-        dataObj=bldHistory(adlParsed.definition[0]['body'][0][0][1][0][0],'')
+def bldObservation(parsed_adl):
+        dataObj=bldHistory(parsed_adl.definition[0]['body'][0][0][1][0][0],'')
         stateObj=''
         obsObj=Observation(dataObj,stateObj)
         

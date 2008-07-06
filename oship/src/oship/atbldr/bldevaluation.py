@@ -17,6 +17,6 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-def bldEvaluation(adlParsed):
+def bldEvaluation(parsed_adl):
         return "Evaluation"
  

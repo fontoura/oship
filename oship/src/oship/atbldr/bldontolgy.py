@@ -18,35 +18,35 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 
-def bldOntology(adlParsed):
+def bldOntology(parsed_adl,errlog):
     u"""
     Create the Ontolgy section of an archetype expressed in ADL.
     """
 
-    sections = adlParsed.ontology.keys()    
+    sections = parsed_adl.ontology.keys()    
     tANList = []
     termCodes = []
     constraintCodes = []
-    parent_archetype = adlParsed.archetype[1]
+    parent_archetype = parsed_adl.archetype[1]
     
-    if len(adlParsed.specialize) == 0 or adlParsed.specialize == '':
+    if len(parsed_adl.specialize) == 0 or parsed_adl.specialize == '':
         specialsationDepth = 0
     else:
-        specialsationDepth = adlParsed.specialize 
+        specialsationDepth = parsed_adl.specialize 
             
             
     if 'terminologies_available' in sections:
-        terminologies_available=adlParsed.ontology['terminologies_available'][0]
+        terminologies_available=parsed_adl.ontology['terminologies_available'][0]
     else:
         terminologies_available=['None']
             
     if 'term_definitions' in sections:
         avail_lang = []
-        for language in adlParsed.ontology['term_definitions']:
+        for language in parsed_adl.ontology['term_definitions']:
             avail_lang.append(language[0])
         
         for l in avail_lang:
-            at_codes = adlParsed.ontology['term_definitions'][l]['items']
+            at_codes = parsed_adl.ontology['term_definitions'][l]['items']
             for code in at_codes:
                     for x in range(1,len(code)):
                             tANList.append(code[x][0])
@@ -54,10 +54,10 @@ def bldOntology(adlParsed):
             
     if 'constraint_definitions' in sections:
         avail_lang = []
-        for language in adlParsed.ontology['constraint_definitions']:
+        for language in parsed_adl.ontology['constraint_definitions']:
             avail_lang.append(language[0])       
         for l in avail_lang:
-            ac_codes = adlParsed.ontology['constraint_definitions'][l]['items']
+            ac_codes = parsed_adl.ontology['constraint_definitions'][l]['items']
             for code in ac_codes:
                 for x in range(1,len(code)):
                         tANList.append(code[x][0])

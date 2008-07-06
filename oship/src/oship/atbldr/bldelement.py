@@ -13,5 +13,5 @@
         Parsing is performed in adl_1_4.py using Pyparsing. 
         
 """
-def bldElement(adlParsed):
+def bldElement(parsed_adl):
         return "Element"

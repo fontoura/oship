@@ -20,10 +20,10 @@ __docformat__ = 'plaintext'
 from openehr.rm.datatypes.text.codephrase import CodePhrase
 from openehr.rm.datatypes.text.dvtext import DvText
 
-def bldComposition(adlParsed):
-    definClassDict=adlParsed.definition[0].asDict()
-    langTermId=adlParsed.language['original_language'].split('::')[0].strip('[')
-    langStr=adlParsed.language['original_language'].split('::')[1].strip(']')   
+def bldComposition(parsed_adl):
+    definClassDict=parsed_adl.definition[0].asDict()
+    langTermId=parsed_adl.language['original_language'].split('::')[0].strip('[')
+    langStr=parsed_adl.language['original_language'].split('::')[1].strip(']')   
     node_id = definClassDict['id'][definClassDict['id'].find('[at'):]
     category=definClassDict['body']['attributes']['category']
     
@@ -41,8 +41,8 @@ def bldComposition(adlParsed):
     language = CodePhrase(langTermId,langStr)
     territory = CodePhrase('ISO_3166-1','AU') #see implementation notes.
     uid = "UidBasedId()"       
-    name = DvText(adlParsed.archetype[1],{},'','','','') # should be concatenated with path to instance at runtime
-    archetypeDetails = adlParsed.archetype[1],'','1.0.1'
+    name = DvText(parsed_adl.archetype[1],{},'','','','') # should be concatenated with path to instance at runtime
+    archetypeDetails = parsed_adl.archetype[1],'','1.0.1'
     feederAudit = "FeederAudit()"
     links = []
     

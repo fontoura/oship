@@ -14,5 +14,5 @@
         
 """
 
-def bldEvent(adlParsed):
+def bldEvent(parsed_adl):
         return "Event"

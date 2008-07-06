@@ -35,9 +35,12 @@ class Action(CareEntry):
     
     implements(IAction)
     
-    def __init__(self,time,desc,ism,inst,**kwargs):
+    def __init__(self,time,desc,ism,inst,**kw):
         self.time=time
         self.description=desc
         self.ismTransition=ism
         self.instructionDetails=inst
+        self.__name__=''
+        for n,v in kw.items():
+            setattr(self,n,v)
             

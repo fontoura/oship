@@ -13,5 +13,5 @@
         Parsing is performed in adl_1_4.py using Pyparsing. 
         
 """
-def bldCluster(adlParsed):
+def bldCluster(parsed_adl):
         return "Cluster"

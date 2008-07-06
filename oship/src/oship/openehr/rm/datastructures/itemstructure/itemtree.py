@@ -23,6 +23,7 @@ from zope.i18nmessageid import MessageFactory
 from zope.interface import implements 
 
 from itemstructure import ItemStructure
+from interfaces.itemtree import IItemTree
 
 _ = MessageFactory('oship')
 

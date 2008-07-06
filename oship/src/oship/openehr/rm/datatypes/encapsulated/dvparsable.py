@@ -22,11 +22,11 @@ from zope.interface import implements
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.rm.datatypes.encapsulated.dvencapsulated import DvEncapsulated
-from interfaces.dvparsable import IDvParasable
+from interfaces.dvparsable import IDvParsable
 
 _=MessageFactory('oship')
  
-class DvParasable(DvEncapsulated):
+class DvParsable(DvEncapsulated):
     u"""
     Encapsulated data expressed as a parsable String. The internal model of the data item is not 
     described in the openEHR model in common with other encapsulated types, but in this case, the 
@@ -36,10 +36,13 @@ class DvParasable(DvEncapsulated):
     
     implements(IDvParsable)
 
-    def __init__(self,value,formalism):
+    def __init__(self,size,value,formalism,**kw):
         self.size=len(value)
         self.value=value
         self.formalism=formalism
+        self.__name__=''
+        for n,v in kw.items():
+            setattr(self,n,v)
 
     def valueValid():
         u"""value != None."""

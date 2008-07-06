@@ -13,6 +13,7 @@
         Parsing is performed in adl_1_4.py using Pyparsing. 
         
 """
+from openehr.rm.datastructures.itemstructure.itemtree import ItemTree
 
-def bldItemTree(adlParsed):
-        return "ItemTree"
+def bldItemTree(itlist,errlog):
+        return ItemTree(itlist)

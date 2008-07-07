@@ -15,10 +15,10 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import Time
+from zope.schema import Time,Object
 from zope.i18nmessageid.message import MessageFactory
 
-from openehr.am.archetype.validitykind import ValidityKind
+from openehr.am.archetype.interfaces.validitykind import IValidityKind
 from openehr.rm.support.interval import Interval
 from cprimitive import ICPrimitive
 
@@ -29,40 +29,44 @@ class ICTime(ICPrimitive):
     ISO 8601 compatible constraint on instances of Time.
     """
     
-    minuteValidity=ValidityKind(
-        title_("Minute Validity"),
-        description=_(" "),
+    minuteValidity=Object(
+        schema=IValidityKind,
+        title=_(u"Minute Validity"),
+        description=_(u" "),
         required=False,
     )
     
 
-    secondValidity=ValidityKind(
-        title_("Second Validity"),
-        description=_(" "),
+    secondValidity=Object(
+        schema=IValidityKind,
+        title=_(u"Second Validity"),
+        description=_(u" "),
         required=False,
     )
     
-    millisecondValidity=ValidityKind(
-        title_("Millisecond Validity"),
-        description=_(" "),
+    millisecondValidity=Object(
+        schema=IValidityKind,
+        title=_(u"Millisecond Validity"),
+        description=_(u" "),
         required=False,
     )
     
-    timezoneValidity=ValidityKind(
-        title_("Timezone Validity"),
-        description=_(" "),
+    timezoneValidity=Object(
+        schema=IValidityKind,
+        title=_(u"Timezone Validity"),
+        description=_(u" "),
         required=False,
     )
     
     range=Interval(
-        title_("Range"),
-        description=_("Interval of times."),
+        title=_(u"Range"),
+        description=_(u"Interval of times."),
         required=False,
     )
 
     assumedValue=Time(
-        title_("Assumed Value"),
-        description=_(" "),
+        title=_(u"Assumed Value"),
+        description=_(u" "),
         required=True,
     )
 

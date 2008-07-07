@@ -21,12 +21,13 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.support.identification.hierobjectid import HierObjectId
-from openehr.rm.support.identification.partyref import PartyRef
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
-from openehr.rm.datatypes.quantity.dvinterval import DvInterval
+from openehr.rm.support.identification.interfaces.hierobjectid import IHierObjectId
+from openehr.rm.support.identification.interfaces.partyref import IPartyRef
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
+from openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
 
 _ = MessageFactory('oship')
 
@@ -36,33 +37,38 @@ class IPartyRelationship(ILocatable):
     Generic description of a relationship between parties.
     """
     
-    uid=HierObjectId(
-        title=_("UID"),
-        description=_("Identifier of this party."),
+    uid=Object(
+        schema=IHierObjectId,
+        title=_(u"UID"),
+        description=_(u"Identifier of this party."),
         required=True,
     )
         
-    details=ItemStructure(
-        title_("Details"),
-        description=_("Description of the relationship."),
+    details=Object(
+        schema=IItemStructure,
+        title=_(u"Details"),
+        description=(u"Description of the relationship."),
         required=False,
     )
         
-    timeValidity=DvInterval(
-        title=_("Time Validity"),
-        description=_("Valid time interval for this relationship."),
+    timeValidity=Object(
+        schema=IDvInterval,
+        title=_(u"Time Validity"),
+        description=_(u"Valid time interval for this relationship."),
         required=False,
     )
     
-    source=PartyRef(
-        title=_("Source"),
-        description=_("Source of relationship."),
+    source=Object(
+        schema=IPartyRef,
+        title=_(u"Source"),
+        description=_(u"Source of relationship."),
         required=True,
     )
     
-    target=PartyRef(
-        title=_("Target"),
-        description=_("Target of relationship."),
+    target=Object(
+        schema=IPartyRef,
+        title=_(u"Target"),
+        description=_(u"Target of relationship."),
         required=True,
     )
     

@@ -21,11 +21,12 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 
-from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
-from entry.ismtransition import IsmTransition
-from entry.instructiondetails import InstructionDetails
+from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
+from openehr.rm.ehr.composition.content.entry.ismtransition import IIsmTransition
+from openehr.rm.ehr.composition.content.entry.instructiondetails import IInstructionDetails
 
 
 _ = MessageFactory('oship')
@@ -35,30 +36,31 @@ class IAction(ICareEntry):
     Used to record a clinical action that has been performed.
     """
     
-    time=DvDateTime('',
-        title=_("Timing"),
-        description=_("Point in time of completion of this action."),
+    time=Object(
+        schema=IDvDateTime,
+        title=_(u"Timing"),
+        description=_(u"Point in time of completion of this action."),
         required=True,
     )
     
-    description=ItemStructure(
-        title=_("Description"),
-        description=_("Description of the activity in ItemStructure form."),
+    description=Object(
+        schema=IItemStructure,
+        title=_(u"Description"),
+        description=_(u"Description of the activity in ItemStructure form."),
         required=True,
     )
     
-    ismTransition=IsmTransition(
-        title=_("ISM Transition"),
-        description=_("Details of the transition of the Instruction state."),
+    ismTransition=Object(
+        schema=IIsmTransition,
+        title=_(u"ISM Transition"),
+        description=_(u"Details of the transition of the Instruction state."),
         required=True,
     )
     
-    instructionDetails=InstructionDetails(
-        title=_("Instruction Details"),
-        description=_("Details of the Instruction causing this Action."),
+    instructionDetails=Object(
+        schema=IInstructionDetails(
+        title=_(u"Instruction Details"),
+        description=_(u"Details of the Instruction causing this Action."),
         required=False,
     )
     
-   
-  
- 

@@ -17,11 +17,11 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import Bool
+from zope.schema import Bool,Object
 from zope.i18nmessageid.message import MessageFactory 
 
 from cdefinedobject import ICDefinedObject
-from openehr.am.archetype.constraintmodel.primitive.cprimitive import CPrimitive
+from openehr.am.archetype.constraintmodel.primitive.interfaces.cprimitive import ICPrimitive
 _ = MessageFactory('oship')
 
 
@@ -31,14 +31,15 @@ class ICPrimitiveObject(ICDefinedObject):
     """
     
     anyAllowed=Bool(
-        title=_("Any Allowed"),
-        description=_("True if any value of the type being constrained is allowed."),
+        title=_(u"Any Allowed"),
+        description=_(u"True if any value of the type being constrained is allowed."),
         required=True,
     )
     
-    item=CPrimitive(
-        title=_("Item"),
-        description=_("Object actually defining the constraint."),
+    item=Object(
+        schema=ICPrimitive,
+        title=_(u"Item"),
+        description=_(u"Object actually defining the constraint."),
         required=False,
     )
    

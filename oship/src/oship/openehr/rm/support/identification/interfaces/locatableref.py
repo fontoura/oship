@@ -16,24 +16,23 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.location.interfaces import ILocation
-from zope.location import Location
-from zope.schema import TextLine
+from zope.schema import TextLine,Object
 from zope.i18nmessageid.message import MessageFactory 
 
-from openehr.rm.support.identification.objectversionid import ObjectVersionId
+from openehr.rm.support.identification.interfaces.objectversionid import IObjectVersionId
 from objectref import IObjectRef
 
 _ = MessageFactory('oship')
 
 
-class ILocatableRef(IObjectRef,ILocation):
+class ILocatableRef(IObjectRef):
     u"""
     Reference to a LOCATABLE instance inside the top-level content structure inside a
     VERSION<T>; the path attribute is applied to the object that VERSION.data points to.
     """
     
-    id = ObjectVersionId(
+    id = Object(
+        schema=IObjectVersionId,
         title = _(u'Id'),
         description = _(u'id is redefined here to contain an ObjectVersionId. The identifier of the Version.'),
         required = True,

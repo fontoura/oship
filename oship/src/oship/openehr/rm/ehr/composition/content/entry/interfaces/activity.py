@@ -43,7 +43,8 @@ class IActivity(ILocatable):
         required=True,
     )
     
-    timing=DvParsable(0,'','',
+    timing=Object(
+        schema=IDvParsable,
         title=_(u"Timing"),
         description=_(u"Timing of the activity in a format such as ISO8601."),
         required=True,

@@ -20,9 +20,9 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import Field
+from zope.schema import Field,Object
 
-from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
 from interfaces.item import IItem
 
 _ = MessageFactory('oship')
@@ -36,7 +36,8 @@ class IElement(IItem):
         required=False
     )
     
-    nullFlavor = DvCodedText('',
+    nullFlavor = Object(
+        schema=IDvCodedText,
         title=_(u"""nullFlavor"""),
         description=_(u"""Flavor of null value, e.g. 'indeterminate', 'not asked', etc."""),
         required=False

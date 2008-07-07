@@ -24,7 +24,6 @@ from zope.i18nmessageid import MessageFactory
 from zope.schema import List,Object
 
 from openehr.rm.common.generic.interfaces.partyproxy import IPartyProxy
-from openehr.rm.common.generic.partyproxy import PartyProxy
 from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
 from openehr.rm.support.identification.interfaces.objectref import IObjectRef
 from openehr.rm.ehr.composition.content.interfaces.contentitem import IContentItem
@@ -48,56 +47,54 @@ class IEntry(IContentItem):
 
     language = Object(
         schema=ICodePhrase,
-        title = u"""language""",
-        description = u"""Mandatory indicator of the localised language in which this Entry 
-                      is written. Coded from openEHR Code Set "languages".""",
+        title = _(u"language"),
+        description = _(u"""Mandatory indicator of the localised language in which this Entry 
+                      is written. Coded from openEHR Code Set "languages"."""),
         required = True
         )
     
     encoding = Object(
         schema=ICodePhrase,
-        title = u"""encoding""",
-        description = u"""Name of character set in which text values in this Entry are encoded. 
-                      Coded from openEHR Code Set "character sets".""",
+        title = _(u"encoding"),
+        description = _(u"""Name of character set in which text values in this Entry are encoded. 
+                      Coded from openEHR Code Set "character sets"."""),
         required = True
         )
 
         
     subject = Object(
         schema=IPartyProxy,
-        title = u"""subject""",
-        description = u"""Id of human subject of this ENTRY, e.g.
-                           organ donor
-                           foetus
-                           a family member
-                           another clinically relevant person.""",
+        title = _(u"subject"),
+        description = _(u"""Id of human subject of this ENTRY, e.g.
+                           organ donor, foetus, a family member
+                           another clinically relevant person."""),
         required = True
         )
     
     provider = Object(
         schema=IPartyProxy,
-        title = u"""provider""",
-        description = u"""Optional identification of provider of the informatoin in this ENTRY, which might be:
+        title = _(u"provider"),
+        description = _(u"""Optional identification of provider of the informatoin in this ENTRY, which might be:
                         the patient
                         a patient agent, e.g. parent, guardian
                         the clinician
                         a device or software
                        Generally only used when the recorder needs to make it explicit. Otherwise, Composition
-                       composer and other participants are assumed. """,
+                       composer and other participants are assumed. """),
         required = False
         )
     
     otherParticipations = List(
-        title = u"""otherParticipations""",
-        description = u"""Other participations at ENTRY level.""",
+        title = _(u"otherParticipations"),
+        description = _(u"""Other participations at ENTRY level."""),
         required = False
         )
     
     workflowId = Object(
         schema=IObjectRef,
-        title = u"""workflowId""",
-        description = u"""Identifier of externally held workflow engine data for this 
-                      workflow execution, for this subject of care.""",
+        title = _(u"workflowId"),
+        description = _(u"""Identifier of externally held workflow engine data for this 
+                      workflow execution, for this subject of care."""),
         required = False
         )
     

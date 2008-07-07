@@ -17,8 +17,9 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory
+from zope.schema import Object
 
-from openehr.am.archetype.assertion.expritem import ExprItem
+from openehr.am.archetype.assertion.interfaces.expritem import IExprItem
 from exproperator import IExprOperator
 
 _ = MessageFactory('oship')
@@ -28,15 +29,17 @@ class IExprBinaryOperator(IExprOperator):
     Binary expression node.
     """
     
-    leftOperand=ExprItem(
-        title_("Left"),
-        description=_("Left operand node."),
+    leftOperand=Object(
+        schema=IExprItem,
+        title=_(u"Left"),
+        description=_(u"Left operand node."),
         required=True,
     )
 
-    rightOperand=ExprItem(
-        title_("Right"),
-        description=_("Right operand node."),
+    rightOperand=Object(
+        schema=IExprItem,
+        title=_(u"Right"),
+        description=_(u"Right operand node."),
         required=True,
     )
 

@@ -16,13 +16,13 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema.interfaces import IField
+from zope.interface import Interface
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
 
-class IVersionTreeId(IField):
+class IVersionTreeId(Interface):
     u"""
     Version tree identifier for one version. Lexical form:
     trunkVersion [ '.' branchNumber '.' branchVersion ]

@@ -29,70 +29,70 @@ class ICDuration(ICPrimitive):
     """
     
     yearsAllowed=Bool(
-        title_("Years Allowed"),
-        description=_("True if years are allowed in the constrained duration."),
+        title=_(u"Years Allowed"),
+        description=_(u"True if years are allowed in the constrained duration."),
         required=False,
         default=True,
     )
 
     monthsAllowed=Bool(
-        title_("Months Allowed"),
-        description=_("True if months are allowed in the constrained duration."),
+        title=_(u"Months Allowed"),
+        description=_(u"True if months are allowed in the constrained duration."),
         required=False,
         default=True,
     )
 
     weeksAllowed=Bool(
-        title_("Weeks Allowed"),
-        description=_("True if weeks are allowed in the constrained duration."),
+        title=_(u"Weeks Allowed"),
+        description=_(u"True if weeks are allowed in the constrained duration."),
         required=False,
         default=True,
     )
 
     daysAllowed=Bool(
-        title_("Days Allowed"),
-        description=_("True if days are allowed in the constrained duration."),
+        title=_(u"Days Allowed"),
+        description=_(u"True if days are allowed in the constrained duration."),
         required=False,
         default=True,
     )
 
     hoursAllowed=Bool(
-        title_("Hours Allowed"),
-        description=_("True if hours are allowed in the constrained duration."),
+        title=_(u"Hours Allowed"),
+        description=_(u"True if hours are allowed in the constrained duration."),
         required=False,
         default=True,
     )
 
     minutesAllowed=Bool(
-        title_("Minutes Allowed"),
-        description=_("True if minutes are allowed in the constrained duration."),
+        title=_(u"Minutes Allowed"),
+        description=_(u"True if minutes are allowed in the constrained duration."),
         required=False,
         default=True,
     )
 
     secondsAllowed=Bool(
-        title_("Seconds Allowed"),
-        description=_("True if seconds are allowed in the constrained duration."),
+        title=_(u"Seconds Allowed"),
+        description=_(u"True if seconds are allowed in the constrained duration."),
         required=False,
         default=True,
     )
     
     fractionalSecondsAllowed=Bool(
-        title_("Fractional Seconds Allowed"),
-        description=_("True if fractional seconds are allowed in the constrained duration."),
+        title=_(u"Fractional Seconds Allowed"),
+        description=_(u"True if fractional seconds are allowed in the constrained duration."),
         required=False,
         default=True,
     )
 
     range=Interval(
-        title_("Range"),
-        description=_("Interval of duration."),
+        title=_(u"Range"),
+        description=_(u"Interval of duration."),
         required=False,
     )
 
     assumedValue=Duration(
-        title_("Assumed Value"),
-        description=_(" "),
+        title=_(u"Assumed Value"),
+        description=_(u" "),
         required=True,
     )
     

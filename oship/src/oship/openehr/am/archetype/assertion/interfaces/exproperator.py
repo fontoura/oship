@@ -16,11 +16,11 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import Bool
+from zope.schema import Bool,Object
 from zope.i18nmessageid.message import MessageFactory
 
 from expritem import IExprItem
-from openehr.am.archetype.assertion.operatorkind import OperatorKind
+from openehr.am.archetype.assertion.interfaces.operatorkind import IOperatorKind
 
 _ = MessageFactory('oship')
 
@@ -30,15 +30,16 @@ class IExprOperator(IExprItem):
     Abstract parent of operator types.
     """
     
-    operator=OperatorKind(
-        title_("Operator"),
-        description=_("Code of the operator."),
+    operator=Object(
+        schema=IOperatorKind,
+        title=_(u"Operator"),
+        description=_(u"Code of the operator."),
         required=True,
     )
 
     precedenceOverridden=Bool(
-        title_("Precedence Overridden"),
-        description=_("True if natural precedence of operators is overridden in the expression."),
+        title=_(u"Precedence Overridden"),
+        description=_(u"True if natural precedence of operators is overridden in the expression."),
         required=True,
     )
 

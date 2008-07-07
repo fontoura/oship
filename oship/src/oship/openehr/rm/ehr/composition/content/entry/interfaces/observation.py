@@ -39,7 +39,7 @@ class IObservation(ICareEntry):
     
     data = Object(
         schema=IHistory,
-        title=_(u"""data"""),
+        title=_(u"data"),
         description=_(u"""The data of this observation, in the form of a history of 
                     values which may be of any complexity."""),
         required=True
@@ -47,7 +47,7 @@ class IObservation(ICareEntry):
     
     state = Object(
         schema=IHistory,
-        title=_(u"""state"""),
+        title=_(u"state"),
         description=_(u"""Optional recording of the state of subject of this
                     observation during the observation process, in the form of 
                     a separate history of values which may be of any complexity. 

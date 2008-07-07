@@ -19,12 +19,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import Interface
-from zope.schema import TextLine
+from zope.schema import TextLine,Object
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.datatypes.text.dvtext import DvText
-from openehr.rm.datatypes.uri.dvehruri import DvEhrUri
+from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
+from openehr.rm.datatypes.uri.interfaces.dvehruri import IDvEhrUri
 
 _ = MessageFactory('oship')
         
@@ -44,7 +44,8 @@ class ILink(ILocatable):
     links only exist between whole ENTRYs, SECTIONs, COMPOSITIONs and so on.
     """
     
-    meaning = DvText(
+    meaning = Object(
+        schema=IDvText,
         title=_(u"Meaning"),
         description=_(u"""Used to describe the relationship, usually in clinical terms, such as 
                     "in response to" (the relationship between test results and an order),
@@ -56,7 +57,8 @@ class ILink(ILocatable):
         required=True,
         )
     
-    type = DvText(
+    type = Object(
+        schema=IDvText,
         title=_(u"Type"),
         description=_(u"""The type attribute is used to indicate a clinical or domain-level meaning 
                     for the kind of link, for example "problem" or "issue". If type values are 
@@ -66,7 +68,8 @@ class ILink(ILocatable):
         required=True,
         )
     
-    target = DvEhrUri(
+    target = Object(
+        schema=IDvEhrUri,
         title=_(u"Target"),
         description=_(u"""The logical "to" object in the link relation, as target: 
                     per the linguistic sense of the meaning attribute."""),

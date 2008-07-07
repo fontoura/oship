@@ -16,10 +16,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import Text, TextLine, Field
+from zope.schema import TextLine,Object
 from zope.i18nmessageid.message import MessageFactory 
 
-from openehr.rm.support.identification.objectid import ObjectId
+from openehr.rm.support.identification.interfaces.objectid import IObjectId
 from objectid import IObjectId
 
 _ = MessageFactory('oship')
@@ -33,7 +33,8 @@ class IObjectRef(IObjectId):
     tems they may be part of the same executable as the data containing the Id.
     """
 
-    id = ObjectId('',
+    id = Object(
+        schema=IObjectId,
         title = _(u'Id'),
         description = _(u'Globally unique id of an object (of type ObjectId), regardless of where it is stored.'),
         required = True,

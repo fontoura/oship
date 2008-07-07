@@ -21,10 +21,10 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import List
+from zope.schema import List,Object
 
-from openehr.rm.datatypes.quantity.dvinterval import DvInterval
-from openehr.rm.support.identification.partyref import PartyRef
+from openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
+from openehr.rm.support.identification.interfaces.partyref import IPartyRef
 from party import IParty
 
 _ = MessageFactory('oship')
@@ -36,20 +36,22 @@ class IRole(IParty):
     """
     
     capabilities=List(
-        title=_("Capabilities"),
-        description=_("Capabilities of this role."),
+        title=_(u"Capabilities"),
+        description=_(u"Capabilities of this role."),
         required=False,
     )
     
-    timeValidity=DvInterval(
-        title=_("Time Validity"),
-        description=_("Valid time interval for this role."),
+    timeValidity=Object(
+        schema=IDvInterval,
+        title=_(u"Time Validity"),
+        description=_(u"Valid time interval for this role."),
         required=False,
     )
     
     
-    performer=PartyRef(
-        title=_("Performer"),
-        description=_("Reference to Version container of Actor playing this role."),
+    performer=Object(
+        schema=IPartyRef,
+        title=_(u"Performer"),
+        description=_(u"Reference to Version container of Actor playing this role."),
         required=True,
     )

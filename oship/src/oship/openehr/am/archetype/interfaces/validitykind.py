@@ -35,8 +35,8 @@ class IValidityKind(Interface):
     disallowed=1003
     """
     value=Int(
-        title=_("Value"),
-        description=_("Actual value."),
+        title=_(u"Value"),
+        description=_(u"Actual value."),
         required=True,
     )
 

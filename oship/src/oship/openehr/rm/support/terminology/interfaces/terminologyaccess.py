@@ -17,13 +17,13 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.schema import TextLine
-from zope.schema.interfaces import IField
+from zope.interface import Interface
 from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
 
 
-class ITerminologyAccess(IField):
+class ITerminologyAccess(Interface):
     u"""
     Defines an object providing proxy access to a terminology.
     """

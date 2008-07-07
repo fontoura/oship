@@ -16,14 +16,14 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema.interfaces import IField
+from zope.interface import Interface
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
 
 
-class IUid(IField):
+class IUid(Interface):
     u"""
     Abstract parent of classes representing unique identifiers which identify informa-
     tion entities in a durable way. UIDs only ever identify one IE in time or space and

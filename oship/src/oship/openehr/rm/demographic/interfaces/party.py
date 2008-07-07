@@ -38,47 +38,47 @@ class IParty(ILocatable):
     
     uid=Object(
         schema=IHeirObjectId,
-        title=_("UID"),
-        description=_("Identifier of this party."),
+        title=_(u"UID"),
+        description=_(u"Identifier of this party."),
         required=True,
     )
     
     identities=Set(
-        title=_("Indentities"),
-        description=_("Identities used by the party to identify itself."),
+        title=_(u"Indentities"),
+        description=_(u"Identities used by the party to identify itself."),
         required=True,
     )
     
     contacts=Set(
-        title=_("Contacts"),
-        description=_("Contacts for this party."),
+        title=_(u"Contacts"),
+        description=_(u"Contacts for this party."),
         required=True,
     )
     
     category=Object(
         schema=IDvCodedText,
-        title=_("Category"),
-        description=_("Defines the broad category of this composition."),
+        title=_(u"Category"),
+        description=_(u"Defines the broad category of this composition."),
         required=False,
     )
     
     language=Object(
         schema=ICodePhrase,
-        title=_("Language"),
-        description=_("Indicator of the localised language where this composition was created."),
+        title=_(u"Language"),
+        description=_(u"Indicator of the localised language where this composition was created."),
         required=True,
     )
     
     relationships=Set(
-        title=_("Relationships"),
-        description=_("Relationships in which this role takes part as target."),
+        title=_(u"Relationships"),
+        description=_(u"Relationships in which this role takes part as target."),
         required=False,
     )
     
     details=Object(
         schema=IItemStructure,
-        title=_("Details"),
-        description=_("All other party details."),
+        title=_(u"Details"),
+        description=_(u"All other party details."),
         required=False,
     )
     

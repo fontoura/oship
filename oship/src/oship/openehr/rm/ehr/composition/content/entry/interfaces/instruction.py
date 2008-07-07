@@ -21,11 +21,11 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import List
+from zope.schema import List,Object
 
-from openehr.rm.datatypes.text.dvtext import DvText
-from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
-from openehr.rm.datatypes.encapsulated.dvparsable import DvParasable
+from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
+from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
+from openehr.rm.datatypes.encapsulated.interfaces.dvparsable import IDvParasable
 from careentry import ICareEntry
 
 _ = MessageFactory('oship')
@@ -35,27 +35,30 @@ class IInstruction(ICareEntry):
     Used to specify future actions and includes a workflow form.
     """
     
-    narrative=DvText('',
-        title_("Narrative"),
-        description=_("Human readable version of the Instructions."),
+    narrative=Object(
+        schema=IDvText,
+        title=_(u"Narrative"),
+        description=_(u"Human readable version of the Instructions."),
         required=True,
     )
     
     activities=List(
-        title=_("Activities"),
-        description=_("List of all activities in the Instruction."),
+        title=_(u"Activities"),
+        description=_(u"List of all activities in the Instruction."),
         required=False,
     )
     
-    expiryTime=DvDateTime('',
-        title=_("Expiry Time"),
-        description=_("Data/time when this Instruction can be assumed to have expired."),
+    expiryTime=Object(
+        schema=IDvDateTime,
+        title=_(u"Expiry Time"),
+        description=_(u"Data/time when this Instruction can be assumed to have expired."),
         required=False,
     )
     
-    wfDefinition=DvParsable(
-        title=_("Workflow Definition"),
-        description=_("Workflow engine executable expression of the Instruction."),
+    wfDefinition=Object(
+        schema=IDvParsable,
+        title=_(u"Workflow Definition"),
+        description=_(u"Workflow engine executable expression of the Instruction."),
         required=False,
     )
     

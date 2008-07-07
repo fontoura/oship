@@ -21,10 +21,10 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import List
+from zope.schema import List,Object
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.datatypes.quantity.dvinterval import DvInterval
+from openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
 
 _ = MessageFactory('oship')
 
@@ -34,15 +34,16 @@ class IContact(ILocatable):
     Description of a means of contacting a party.
     """
     
-    timeValidity=DvInterval(
-        title=_("Time Validity"),
-        description=_("Valid time interval for this contact descriptor."),
+    timeValidity=Object(
+        schema=IDvInterval,
+        title=_(u"Time Validity"),
+        description=_(u"Valid time interval for this contact descriptor."),
         requires=False,
     )
     
     addresses=List(
-        title=_("Addresses"),
-        description=_("A set of addresses for this purpose and time frame."),
+        title=_(u"Addresses"),
+        description=_(u"A set of addresses for this purpose and time frame."),
         required=True,
     )
     

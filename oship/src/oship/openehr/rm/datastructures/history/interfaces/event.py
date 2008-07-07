@@ -21,10 +21,10 @@ from zope.schema import Field
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
-from openehr.rm.datatypes.quantity.datetime.dvduration import DvDuration
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure 
-from openehr.rm.datastructures.history.history import History 
+from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
+from openehr.rm.datatypes.quantity.datetime.interfaces.dvduration import IDvDuration
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure 
+from openehr.rm.datastructures.history.interfaces.history import IHistory 
 
 _ = MessageFactory('oship')
 
@@ -35,7 +35,8 @@ class IEvent(ILocatable):
     express point or interval data.
     """
     
-    time=DvDateTime(
+    time=Object(
+        schema=IDvDateTime,
         title=_(u'time'),
         description=_(u"""Time of this event. If the width is non-zero, it is the time point of the 
                          trailing edge of the event."""),
@@ -49,19 +50,22 @@ class IEvent(ILocatable):
         required=True
     )
     
-    state=ItemStructure(
+    state=Object(
+        schema=IItemStructure,
         title=_(u'state'),
         description=_(u'Optional state information.for this event.'),
         required=False
     )
     
-    parent=History(
+    parent=Object(
+        schema=IHistory,
         title=_(u'parent'),
         description=_(u'redefinition of LOCATABLE.parent to type of History'),
         required=True
     )
     
-    offset=DvDuration(
+    offset=Object(
+        schema=DvDuration,
         title=_(u'offset'),
         description=_(u'Offset of this event from origin, computed as time.diff(parent.origin)'),
         required=True

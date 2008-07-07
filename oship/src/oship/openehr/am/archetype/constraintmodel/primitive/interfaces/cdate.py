@@ -15,11 +15,11 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import Date
+from zope.schema import Date,Object
 from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.support.interval import Interval
-from openehr.am.archetype.validitykind import ValidityKind
+from openehr.am.archetype.interfaces.validitykind import IValidityKind
 from cprimitive import ICPrimitive
 
 _ = MessageFactory('oship')
@@ -29,34 +29,37 @@ class ICDate(ICPrimitive):
     ISO 8601 compatible constraint on instances of Date.
     """
     
-    monthValidity=ValidityKind(
-        title_("Month Validity"),
-        description=_(" "),
+    monthValidity=Object(
+        schema=IValidityKind,
+        title=_(u"Month Validity"),
+        description=_(u" "),
         required=False,
     )
     
 
-    dayValidity=ValidityKind(
-        title_("Day Validity"),
-        description=_(" "),
+    dayValidity=Object(
+        schema=IValidityKind,
+        title=_(u"Day Validity"),
+        description=_(u" "),
         required=False,
     )
     
-    timezoneValidity=ValidityKind(
-        title_("Timezone Validity"),
-        description=_(" "),
+    timezoneValidity=Object(
+        schema=IValidityKind,
+        title=_(u"Timezone Validity"),
+        description=_(u" "),
         required=False,
     )
     
     range=Interval(
-        title_("Range"),
-        description=_("Interval of dates."),
+        title=_(u"Range"),
+        description=_(u"Interval of dates."),
         required=False,
     )
 
     assumedValue=Date(
-        title_("Assumed Value"),
-        description=_(" "),
+        title=_(u"Assumed Value"),
+        description=_(u" "),
         default=Date(),
         required=True,
     )

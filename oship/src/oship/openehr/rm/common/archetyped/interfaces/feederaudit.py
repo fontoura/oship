@@ -19,11 +19,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import Interface
-from zope.schema import List
+from zope.schema import List,Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.archetyped.feederauditdetails import FeederAuditDetails
-from openehr.rm.datatypes.encapsulated.dvencapsulated import DvEncapsulated
+from openehr.rm.common.archetyped.interfaces.feederauditdetails import IFeederAuditDetails
+from openehr.rm.datatypes.encapsulated.interfaces.dvencapsulated import IDvEncapsulated
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 
 
@@ -35,7 +35,8 @@ class IFeederAudit(ILocatable):
     Audit and other meta-data for systems in the feeder chain.
     """
     
-    originatingSystemAudit = FeederAuditDetails(
+    originatingSystemAudit = Object(
+        schema=IFeederAuditDetails,
         title=_(u"Originating System Audit"),
         description=_(u"""Any audit information for the information item from the originating system."""),
         required =True,
@@ -49,7 +50,8 @@ class IFeederAudit(ILocatable):
     
     
     
-    feederSystemAudit = FeederAuditDetails(
+    feederSystemAudit = Object(
+        schema=IFeederAuditDetails,
         title=_(u"Feeder System Audit"),
         description=_(u"""Any audit information for the information item from the feeder system, 
                     if different from the originating system."""),
@@ -64,7 +66,8 @@ class IFeederAudit(ILocatable):
         required=False,
         )
     
-    originalContent=DvEncapsulated(
+    originalContent=Object(
+        schema=IDvEncapsulated,
         title=_("Original Content"),
         description=_(""" """),
         required=False,

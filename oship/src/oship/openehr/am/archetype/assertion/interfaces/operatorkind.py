@@ -52,8 +52,8 @@ class IOperatorKind(Interface):
     """
     
     value=Int(
-        title_("Value"),
-        description=_("Actual value of this instance."),
+        title=_(u"Value"),
+        description=_(u"Actual value of this instance."),
         required=True,
     )
 

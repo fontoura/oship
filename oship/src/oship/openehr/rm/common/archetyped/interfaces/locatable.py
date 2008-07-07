@@ -18,13 +18,13 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.schema import TextLine,List
+from zope.schema import TextLine,List,Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.support.identification.uidbasedid import UidBasedId
-from openehr.rm.datatypes.text.dvtext import DvText
-#from openehr.rm.common.archetyped.archetyped import Archetyped
-#from openehr.rm.common.archetyped.feederaudit import FeederAudit
+from openehr.rm.support.identification.interfaces.uidbasedid import IUidBasedId
+from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
+from openehr.rm.common.archetyped.interfaces.archetyped import IArchetyped
+from openehr.rm.common.archetyped.interfaces.feederaudit import IFeederAudit
 from pathable import IPathable
 
 _ = MessageFactory('oship')
@@ -36,7 +36,8 @@ class ILocatable(IPathable):
     """
     
 
-    uid = UidBasedId('',
+    uid = Object(
+        schema=IUidBasedId,
         title=_(u"UID"),
         description=_(u"Optional globally unique object identifier for root points of archetyped structures. A UidBasedId "),
         required=False,
@@ -54,7 +55,8 @@ class ILocatable(IPathable):
         required=True,
         )
     
-    name = DvText('','','','','','',
+    name = Object(
+        schema=IDvText,
         title=_(u"Name"),
         description=_(u"""DvText type - Runtime name of this fragment, used to build runtime paths. 
                      This is the term provided via a clinical application or batch
@@ -64,19 +66,14 @@ class ILocatable(IPathable):
         required=True,
         )
 
-    """
-    archetypeDetails = Archetyped(
-        title=_(u"Archetype Details"),
-        description=_(u"Details of archetyping used on this node."),
-        required=False,
-        )
-    """
-    archetypeDetails = TextLine(
-        title=_(u"Archetype Details"),
-        description=_(u"Details of archetyping used on this node."),
-        required=False,
-        )
     
+    archetypeDetails = Object(
+        schema=IArchetyped,
+        title=_(u"Archetype Details"),
+        description=_(u"Details of archetyping used on this node."),
+        required=False,
+        )
+   
     feederAudit = List(
         title=_(u"Feeder Audit"),
         description=_(u"""Audit trail from non-openEHR system of original commit of information 

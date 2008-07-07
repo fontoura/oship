@@ -22,7 +22,7 @@ __docformat__ = u'plaintext'
 from zope.i18nmessageid import MessageFactory
 
 from itemstructure import IItemStructure
-from openehr.rm.datastructures.history.event import Event
+from openehr.rm.datastructures.itemstructure.representation.interfaces.element import IElement
 
 _ = MessageFactory('oship')
 
@@ -32,7 +32,8 @@ class IItemSingle(IItemStructure):
     Used to represent any data which is logically a single value, such as a person's height or weight.   
     """
     
-    item = Element(
+    item = Object(
+        schema=IElement,
         title=_(u"item"),
         description=_(u"""Single item."""),
         required=True

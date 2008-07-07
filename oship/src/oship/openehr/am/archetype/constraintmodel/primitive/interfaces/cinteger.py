@@ -30,20 +30,20 @@ class ICInteger(ICPrimitive):
     """
     
     list=Set(
-        title_("List"),
-        description=_("Set of integers specifying constraints."),
+        title=_(u"List"),
+        description=_(u"Set of integers specifying constraints."),
         required=False,
     )
     
     range=Interval(
-        title_("Range"),
-        description=_("Range of integers specifying constraint."),
+        title=_(u"Range"),
+        description=_(u"Range of integers specifying constraint."),
         required=False,
     )
     
     assumedValue=Int(
-        title_("Assumed Value"),
-        description=_("The value to assume if this item is not in the data."),
+        title=_(u"Assumed Value"),
+        description=_(u"The value to assume if this item is not in the data."),
         required=True,
     )
     

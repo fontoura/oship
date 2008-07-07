@@ -18,10 +18,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.schema import Int
+from zope.schema import Int,Object
 
 from openehr.rm.datatypes.quantity.interfaces.dvordered import IDvOrdered
-from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
 
 _ = MessageFactory('oship')
 
@@ -44,7 +44,8 @@ class IDvOrdinal(IDvOrdered):
         required=True
     )
     
-    symbol = DvCodedText(
+    symbol = Object(
+        schema=IDvCodedText,
         title=_(u"symbol"),
         description=_(u"""Coded textual representation of this 
                        value in the enumeration, which may be strings made from "+" symbols, 

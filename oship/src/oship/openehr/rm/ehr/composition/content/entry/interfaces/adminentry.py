@@ -21,8 +21,9 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 from entry import IEntry
 
 _ = MessageFactory('oship')
@@ -39,7 +40,8 @@ class IAdminEntry(IEntry):
         Not used for any clinically significant information.
     """
     
-    data = ItemStructure(
+    data = Object(
+        schema=IItemStructure,
         title=u"""data""",
         description=u"""The data of the Entry; modelled in archetypes.""",
         required=True

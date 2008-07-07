@@ -31,13 +31,13 @@ class ICComplexObject(ICDefinedObject):
     """
     
     attributes=Set(
-        title=_("Attributes"),
-        description=_("List of constraints on attributes of the reference model."),
+        title=_(u"Attributes"),
+        description=_(u"List of constraints on attributes of the reference model."),
         required=False,
     )
 
     anyAllowed=Bool(
-        title=_("Any Allowed"),
-        description=_("True if any value of the reference model is allowed."),
+        title=_(u"Any Allowed"),
+        description=_(u"True if any value of the reference model is allowed."),
         required=True,
     )

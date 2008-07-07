@@ -18,9 +18,10 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
+from zope.schema import Object
 
 from cdefinedobject import ICDefinedObject
-from openehr.am.archetype.constraintmodel.ccomplexobject import CComplexObject
+from openehr.am.archetype.constraintmodel.interfaces.ccomplexobject import ICComplexObject
 _ = MessageFactory('oship')
 
 
@@ -29,9 +30,10 @@ class ICDomainType(ICDefinedObject):
     Abstract parent of domain specific constrainer types.
     """
     
-    standardEquivalent=CComplexObject(
-        title=_("Standard Equivalent"),
-        description=_("Standard form of constraint."),
+    standardEquivalent=Object(
+        schema=ICComplexObject,
+        title=_(u"Standard Equivalent"),
+        description=_(u"Standard form of constraint."),
         required=True,
     )
     

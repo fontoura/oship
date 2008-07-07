@@ -21,8 +21,9 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 from careentry import ICareEntry
 
 _ = MessageFactory('oship')
@@ -32,7 +33,8 @@ class IEvaluation(ICareEntry):
     Entry type for evaluation statements.
     """
     
-    data=ItemStructure(
+    data=Object(
+        schema=IItemStructure,
         title=_("Data"),
         description=_("The data of this evaluation."),
         required=True,

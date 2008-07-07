@@ -18,7 +18,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.schema import Int,Set,List
+from zope.schema import Int,Set,List,Object
 from zope.interface import Interface
 
 #from openehr.am.archetype.archetype import Archetype
@@ -32,38 +32,39 @@ class IArchetypeOntology(Interface):
     """
     
     terminologiesAvailable=Set(
-        title=_("Terminologies"),
-        description=_("List of terminologies in this ontology."),
+        title=_(u"Terminologies"),
+        description=_(u"List of terminologies in this ontology."),
         required=True,
     )
 
     specialisationDepth=Int(
-        title=_("Specialisation Depth"),
-        description=_("Specialisation depth of this archetype."),
+        title=_(u"Specialisation Depth"),
+        description=_(u"Specialisation depth of this archetype."),
         required=True,
     )
     
     termCodes=List(
-        title=_("Term Codes"),
-        description=_("List of all term codes in this archetype."),
+        title=_(u"Term Codes"),
+        description=_(u"List of all term codes in this archetype."),
         required=True,
     )
 
     constraintCodes=List(
-        title=_("Constraint Codes"),
-        description=_("List of all constraint codes in this archetype."),
+        title=_(u"Constraint Codes"),
+        description=_(u"List of all constraint codes in this archetype."),
         required=True,
     )
     
     termAttributeNames=List(
-        title=_("Term Attribute Names"),
-        description=_("List of attribute names in this archetype ontolgy."),
+        title=_(u"Term Attribute Names"),
+        description=_(u"List of attribute names in this archetype ontolgy."),
         required=True,
     )
 
-    parentArchetype=ObjectRef('','','',
-        title=_("Parent"),
-        description=_("Archetype which owns this ontology."),
+    parentArchetype=Object(
+        schema=IObjectRef,
+        title=_(u"Parent"),
+        description=_(u"Archetype which owns this ontology."),
         required=True,
     )
 

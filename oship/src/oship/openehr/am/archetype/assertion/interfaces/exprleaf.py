@@ -31,14 +31,14 @@ class IExprLeaf(IExprItem):
     """
     
     item=Field(
-        title_("Item"),
-        description=_("The value refered to."),
+        title=_(u"Item"),
+        description=_(u"The value refered to."),
         required=True,
     )
 
     referenceType=TextLine(
-        title_("Reference Type"),
-        description=_("Type of reference: constant, attribute, etc."),
+        title=_(u"Reference Type"),
+        description=_(u"Type of reference: constant, attribute, etc."),
         required=True,
     )
 

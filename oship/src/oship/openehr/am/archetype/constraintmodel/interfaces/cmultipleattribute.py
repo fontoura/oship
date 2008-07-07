@@ -19,8 +19,9 @@ __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
 from zope.i18nmessageid.message import MessageFactory 
+from zope.schema import Object 
 
-from openehr.am.archetype.constraintmodel.cardinality import Cardinality
+from openehr.am.archetype.constraintmodel.interfaces.cardinality import ICardinality
 _ = MessageFactory('oship')
 
 
@@ -29,9 +30,10 @@ class ICMultipleAttribute(Interface):
     Abstract model of constraint on any kind of attribute node.
     """
     
-    cardinality=Cardinality(
-        title=_("Cardinality"),
-        description=_("Cardinality of this attribute constraint."),
+    cardinality=Object(
+        schema=ICardinality,
+        title=_(u"Cardinality"),
+        description=_(u"Cardinality of this attribute constraint."),
         required=True,
     )
 

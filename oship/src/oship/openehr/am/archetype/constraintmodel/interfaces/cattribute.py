@@ -31,20 +31,20 @@ class ICAttribute(IField):
     """
     
     rmAttributeName=TextLine(
-        title=_("RM Attribute Name"),
-        description=_("Reference model attribute within the enclosed type representedby a CObject."),
+        title=_(u"RM Attribute Name"),
+        description=_(u"Reference model attribute within the enclosed type representedby a CObject."),
         required=True,
     )
     
     existence=Interval(
-        title=_("Existence"),
-        description=_("Indicates whether the target object exists or not."),
+        title=_(u"Existence"),
+        description=_(u"Indicates whether the target object exists or not."),
         required=True,
     )
 
     children=List(
-        title=_("Children"),
-        description=_("Child constraint nodes."),
+        title=_(u"Children"),
+        description=_(u"Child constraint nodes."),
         required=False,
     )
     

@@ -21,7 +21,7 @@ __docformat__ = u'plaintext'
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
-from openehr.rm.datatypes.encapsulated.dvparsable import DvParasable
+from openehr.rm.datatypes.encapsulated.interfaces.dvparsable import IDvParasable
 
 _ = MessageFactory('oship')
 
@@ -33,7 +33,8 @@ class IDvTimeSpecification(IDataValue):
     event, such as "breakfast".
     """
     
-    value = DvParsable(
+    value = Object(
+        schema=IDvParsable,
         title=_(u"value"),
         description=_(u"""the specification, in the HL7v3 syntax for PIVL or EIVL types. 
                     See section 8.2.2.1 Phase-linked Time Specification Syntax"""),

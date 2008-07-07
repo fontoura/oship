@@ -21,8 +21,9 @@ __docformat__ = u'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
+from zope.schema import Object
+u
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 
 _ = MessageFactory('oship')
@@ -33,9 +34,10 @@ class IAddress(ILocatable):
     Address of contact.
     """
     
-    details=ItemStructure(
-        title=_("Details"),
-        description=_("The details of the address."),
+    details=Object(
+        schema=IItemStructure,
+        title=_(u"Details"),
+        description=_(u"The details of the address."),
         required=False,
     )
     

@@ -29,7 +29,7 @@ class ICSingleAttribute(Interface):
     """
     
     alternatives=List(
-        title=_("Alternatives"),
-        description=_("A list of alternative constraints for the single child of this attribute."),
+        title=_(u"Alternatives"),
+        description=_(u"A list of alternative constraints for the single child of this attribute."),
         required=False,
     )

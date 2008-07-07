@@ -30,8 +30,8 @@ class IConstraintRef(ICReferenceObject):
     """
     
     reference=TextLine(
-        title=_("Reference"),
-        description=_("Reference to a constraint in the archetype ontology."),
+        title=_(u"Reference"),
+        description=_(u"Reference to a constraint in the archetype ontology."),
         required=True,
     )
     

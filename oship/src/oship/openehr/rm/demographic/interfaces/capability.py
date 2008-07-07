@@ -19,9 +19,10 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
-from openehr.rm.datatypes.quantity.dvinterval import DvInterval
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
+from openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 
 _ = MessageFactory('oship')
@@ -31,15 +32,17 @@ class ICapability(ILocatable):
     Capability of a role such as ehr modifier, healthcare provider, etc.
     """
     
-    credentials=ItemStructure(
-        title=_("Credentials"),
-        description=_("Qualifications of the performer of the role."),
+    credentials=Object(
+        schema=IItemStructure,
+        title=_(u"Credentials"),
+        description=_(u"Qualifications of the performer of the role."),
         require=True,
     )
     
-    timeValidity=DvInterval(
-        title=_("Time Validity"),
-        description=_("Valid time interval for the credentials of this capability."),
+    timeValidity=Object(
+        schema=IDvInterval,
+        title=_(u"Time Validity"),
+        description=_(u"Valid time interval for the credentials of this capability."),
         required=False,
     )
     

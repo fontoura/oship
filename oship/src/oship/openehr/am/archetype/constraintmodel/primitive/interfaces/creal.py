@@ -29,21 +29,21 @@ class ICReal(ICPrimitive):
     """
     
     list=Set(
-        title_("List"),
-        description=_("Set of Reals specifying constraint"),
+        title=_(u"List"),
+        description=_(u"Set of Reals specifying constraint"),
         required=False,
     )
 
 
     range=Interval(
-        title_("Range"),
-        description=_(" "),
+        title=_(u"Range"),
+        description=_(u" "),
         required=False,
     )
 
     assumedValue=Float(
-        title_("Assumed Value"),
-        description=_(""),
+        title=_(u"Assumed Value"),
+        description=_(u""),
         required=True,
     )
 

@@ -19,12 +19,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import Interface
-from zope.schema import TextLine
+from zope.schema import TextLine,Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.support.identification.archetypeid import ArchetypeId
-from openehr.rm.support.identification.templateid import TemplateId
-from openehr.rm.common.archetyped.locatable import Locatable
+from openehr.rm.support.identification.interfaces.archetypeid import IArchetypeId
+from openehr.rm.support.identification.interfaces.templateid import ITemplateId
 
 _ = MessageFactory('oship')
         
@@ -38,13 +37,15 @@ class IArchetyped(Interface):
     allowing generating archetypes to be matched up with data instances
     """
 
-    archetypeId = ArchetypeId(
+    archetypeId = Object(
+        schema=IArchetypeId,
         title=_(u"Archetype ID"),
         description=_(u"Globally unique archetype identifier."),
         required=True,
         )
     
-    templateId = TemplatedId(
+    templateId = Object(
+        schema=ITemplateId,
         title=_(u"Template ID"),
         description=_(u"""Globally unique template identifier, if a template was active at 
                     this point in the structure. Normally, a template would only be used 

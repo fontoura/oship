@@ -15,13 +15,13 @@ From the archetype object model specification Rev 2.0.1
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-from zope.schema import TextLine,Set
+from zope.schema import TextLine,Set,Object
 from zope.i18nmessageid.message import MessageFactory
 
-from openehr.rm.support.identification.archetypeid import ArchetypeId
-from openehr.rm.support.identification.hierobjectid import HierObjectId
-from openehr.am.archetype.constraintmodel.ccomplexobject import CComplexObject
-from openehr.am.archetype.ontology.archetypeontology import ArchetypeOntology
+from openehr.rm.support.identification.interfaces.archetypeid import IArchetypeId
+from openehr.rm.support.identification.interfaces.hierobjectid import IHierObjectId
+from openehr.am.archetype.constraintmodel.interfaces.ccomplexobject import ICComplexObject
+from openehr.am.archetype.ontology.interfaces.archetypeontology import IArchetypeOntology
 from openehr.rm.common.resource.interfaces.authoredresource import IAuthoredResource
 
 _ = MessageFactory('oship')
@@ -42,13 +42,15 @@ class IArchetype(IAuthoredResource):
         default = None
     )
     
-    archetypeId=ArchetypeId('',
+    archetypeId=Object(
+        schema=IArchetypeId,
         title=_(u"Archetype Id"),
         description=_(u"Multi-axial identifier of this archetype."),
         required=True,
     )
     
-    uid=HierObjectId(
+    uid=Object(
+        schema=IHierObjectId,
         title=_(u"UID"),
         description=_(u"OID of this archetype."),
         required=False,
@@ -60,19 +62,22 @@ class IArchetype(IAuthoredResource):
         required=True,
     )
     
-    parentArchetypeId=ArchetypeId('',
+    parentArchetypeId=Object(
+        schema=IArchetypeId,
         title=_(u"Parent Archetype Id"),
         description=_(u"Identifier of the specialsation parent of this archetype."),
         required=False,
     )
     
-    definition=CComplexObject(
+    definition=Object(
+        schema=ICComplexObject,
         title=_(u"Definition"),
         description=_(u"Root node of this archetype."),
         required=True,
     )
 
-    ontology=ArchetypeOntology('','','','','','',
+    ontology=Object(
+        schema=IArchetypeOntology,
         title=_(u"Ontology"),
         description=_(u"The ontology of the archetype"),
         required=True,

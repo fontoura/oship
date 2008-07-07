@@ -21,7 +21,7 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements 
-from zope.schema import List
+from zope.schema import List,Object
 
 from openehr.rm.datastructures.itemstructure.interfaces.item import IItem
 

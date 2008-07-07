@@ -19,13 +19,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import Interface
-from zope.schema import TextLine
+from zope.schema import TextLine,Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.demographic.partyidentified import PartyIdentified
-from openehr.rm.demographic.partyproxy import PartyProxy
-
-from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
+from openehr.rm.demographic.interfaces.partyidentified import IPartyIdentified
+from openehr.rm.demographic.interfaces.partyproxy import IPartyProxy
+from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
 
 _ = MessageFactory('oship')
 
@@ -45,14 +44,16 @@ class IFeederAuditDetails(Interface):
         required=True,
         )
     
-    provider = PartyIdentified(
+    provider = Object(
+        schema=IPartyIdentified,
         title=_(u'Provider'),
         description=_(u"""Optional provider(s) who created, committed, forwarded or otherwise 
         handled the item. Type == PARTY_IDENTIFIED"""),
         required=False,
         )
     
-    location = PartyIdentified(
+    location = Object(
+        schema=IPartyIdentified,
         title=_(u'Location'),
         description=_(u"""Identifier of the particular site/facility within an organisation 
                     which handled the item. For computability, this identifier needs to be 
@@ -61,7 +62,8 @@ class IFeederAuditDetails(Interface):
         required=False,
         )
     
-    time = DvDateTime(
+    time = Object(
+        schema=IDvDateTime,
         title=_(u'Time'),
         description=_(u"""Time of handling the item. For an originating time: DV_DATE_TIME system, 
                     this will be time of creation, for an intermediate feeder system, this will 
@@ -69,7 +71,8 @@ class IFeederAuditDetails(Interface):
         required=False,
         )
     
-    subject = PartyProxy(
+    subject = Object(
+        schema=IPartyProxy,
         title=_(u'Subject'),
         description=_(u"""Identifiers for subject of the received information item."""),
         required=False,

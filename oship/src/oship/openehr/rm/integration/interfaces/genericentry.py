@@ -18,8 +18,10 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
 from zope.interface import Interface
-from zope.schema import Field
+from zope.schema import Object
 from zope.i18nmessageid import MessageFactory
+
+from openehr.rm.datastructures.itemstructure.interfaces.itemtree import IItemTree
 
 _ = MessageFactory('oship')
 
@@ -29,7 +31,8 @@ class IGenericEntry(Interface):
     otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.
     """
 
-    data = Field(
+    data = Object(
+        schema=IItemTree(
        title=_(u"Data"),
        description=_(u"an ITEM_TREE - The 'data' from the source message or record."),
        required =True,

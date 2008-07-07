@@ -31,8 +31,8 @@ class ICDefinedObject(ICObject):
     """
     
     assumedValue=Field(
-        title=_("Assumed Value"),
-        description=_("Value to be assumed if none sent in data."),
+        title=_(u"Assumed Value"),
+        description=_(u"Value to be assumed if none sent in data."),
         required=False,
     )
 

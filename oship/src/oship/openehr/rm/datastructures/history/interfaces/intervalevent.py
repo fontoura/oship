@@ -17,12 +17,12 @@ History Package Rev. 2.1.0.
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.schema import Int
+from zope.schema import Int,Object
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.datastructures.history.interfaces.event import IEvent
-from openehr.rm.datatypes.quantity.datetime.dvduration import DvDuration
-from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from openehr.rm.datatypes.quantity.datetime.interfaces.dvduration import IDvDuration
+from openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
 
 
 _ = MessageFactory('oship')
@@ -33,7 +33,8 @@ class IIntervalEvent(IEvent):
     Defines a single interval event in a series.
     """
     
-    width=DvDuration(
+    width=Object(
+        schema=IDvDuration,
         title=_(u"width"),
         description=_(u"""Length of the interval during which the state was true. 
                       Void if an instantaneous event. OSHIP NOTE: The specs indicate 
@@ -42,7 +43,8 @@ class IIntervalEvent(IEvent):
         required=True
     )
     
-    mathFunction=DvCodedText(
+    mathFunction=Object(
+        schema=IDvCodedText,
         title=_(u"mathFunction"),
         description=_(u"""Mathematical function of the data of this event, e.g. "maximum", "mean" etc. 
                       Coded using openEHR Terminology group "event math function"."""),

@@ -17,9 +17,10 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory
+from zope.schema import Object 
 
 from exproperator import IExprOperator
-from openehr.am.archetype.assertion.expritem import ExprItem
+from openehr.am.archetype.assertion.interfaces.expritem import IExprItem
 
 _ = MessageFactory('oship')
 
@@ -29,9 +30,10 @@ class IExprUnaryOperator(IExprOperator):
     Unary expression node operator.
     """
     
-    operand=ExprItem(
-        title_("Operand"),
-        description=_("Operand node."),
+    operand=Object(
+        schema=IExprItem,
+        title=_(u"Operand"),
+        description=_(u"Operand node."),
         required=True,
     )
 

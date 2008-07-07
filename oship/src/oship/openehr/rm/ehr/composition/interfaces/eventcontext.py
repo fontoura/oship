@@ -19,12 +19,12 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import List,TextLine
+from zope.schema import List,TextLine,Object
 
-from openehr.rm.common.generic.partyidentified import PartyIdentified
-from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
-from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
+from openehr.rm.common.generic.interfaces.partyidentified import IPartyIdentified
+from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
+from openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 from openehr.rm.common.archetyped.interfaces.pathable import IPathable
 
 _ = MessageFactory('oship')
@@ -35,45 +35,50 @@ class IEventContext(IPathable):
     These include patient contacts or other investigations.
     """
     
-    healthCareFacility=PartyIdentified(
-        title=_("Healthcare Facility"),
-        description=_("Where this event took place."),
+    healthCareFacility=Object(
+        schema=IPartyIdentified,
+        title=_(u"Healthcare Facility"),
+        description=_(u"Where this event took place."),
         required=False,
     )
     
-    startTime=DvDateTime(
-        title=_("Start Time"),
-        description=_(" "),
+    startTime=Object(
+        schema=IDvDateTime,
+        title=_(u"Start Time"),
+        description=_(u"Start Time"),
         required=True,
     )
     
-    endTime=DvDateTime(
-        title=_("End Time"),
-        description=_(" "),
+    endTime=Object(
+        schema=IDvDateTime,
+        title=_(u"End Time"),
+        description=_(u"End Time"),
         required=False,
     )
     
     participations=List(
-        title=_("Participations"),
-        description=_("List of all parties involved in the event."),
+        title=_(u"Participations"),
+        description=_(u"List of all parties involved in the event."),
         required=False,
     )
     
     location=TextLine(
-        title=_("Location"),
-        description=_("Physical location of this event; ABCLab, home,etc."),
+        title=_(u"Location"),
+        description=_(u"Physical location of this event; ABCLab, home,etc."),
         required=False,
     )
     
-    setting=DvCodedText(
-        title=_("Setting"),
-        description=_("The setting of the clinical event."),
+    setting=Object(
+        schema=IDvCodedText,
+        title=_(u"Setting"),
+        description=_(u"The setting of the clinical event."),
         required=True,
     )
     
-    otherContext=ItemStructure(
-        title=_("Other Context"),
-        description=_("Other optional archetyped context."),
+    otherContext=Object(
+        schema=IItemStructure,
+        title=_(u"Other Context"),
+        description=_(u"Other optional archetyped context."),
         required=False,
     )
     

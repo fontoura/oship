@@ -16,12 +16,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import Bool
+from zope.schema import Bool,Object
 from zope.i18nmessageid.message import MessageFactory 
 
 from uidbasedid import IUidBasedId
-from openehr.rm.support.identification.uid import Uid
-from openehr.rm.support.identification.versiontreeid import VersionTreeId
+from openehr.rm.support.identification.interfaces.uuid import IUid
+from openehr.rm.support.identification.interfaces.versiontreeid import IVersionTreeId
 
 _ = MessageFactory('oship')
 
@@ -35,17 +35,20 @@ class IObjectVersionId(IUidBasedId):
     F7C5C7B7-75DB-4b39-9A1E-C0BA9BFDBDEC::87284370-2D4B-4e3d-A3F3-F303D2F4F34B::2  
     """
 
-    objectId = Uid(
+    objectId = Object(
+        schema=IUid,
         title=_(u"Id"),
         description=_(u"Unique identifier for a single version of a logical object."),
         required=True)
     
-    versionTreeId=VersionTreeId(
+    versionTreeId=Object(
+        schema=IVersionTreeId,
         title=_(u'Version Tree Id'),
         description=_(u'Tree identifier of this version.'),
         required=True)
     
-    creatingSystemId=Uid(
+    creatingSystemId=Object(
+        schema=IUid,
         title=_(u'Creating System Id'),
         description=_(u'Identifier of the system that created this version.'),
         required=True)

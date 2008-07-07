@@ -15,26 +15,26 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema.interfaces import IField
+from zope.interface import Interface
 from zope.schema import Field,Bool
 from zope.i18nmessageid.message import MessageFactory
 
 _ = MessageFactory('oship')
 
-class ICPrimitive(IField):
+class ICPrimitive(Interface):
     """
     Abstract super type of all primitive types.
     """
     
     defaultValue=Field(
-        title_("Default Value"),
-        description=_("A default value for this constraint object."),
+        title=_(u"Default Value"),
+        description=_(u"A default value for this constraint object."),
         required=True,
     )
     
     hasAssumedValue=Bool(
-        title_("Has Assumed Value"),
-        description=_("True if there is an assumed value."),
+        title=_(u"Has Assumed Value"),
+        description=_(u"True if there is an assumed value."),
         required=True,
     )
 

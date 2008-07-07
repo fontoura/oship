@@ -18,10 +18,11 @@ EHR Information Model package Rev. 5.1.0
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-
 from zope.i18nmessageid import MessageFactory
+from zope.interface import implements
 
-from openehr.rm.ehr.interfaces.navigation import ISection
+from interfaces.section import ISection
+from openehr.rm.ehr.composition.content.contentitem import ContentItem
 
 _ = MessageFactory('oship')
 

@@ -28,20 +28,20 @@ class ICBoolean(ICPrimitive):
     """
     
     trueValid=Bool(
-        title_("True Valid"),
-        description=_("True if value True is allowed."),
+        title=_(u"True Valid"),
+        description=_(u"True if value True is allowed."),
         required=True,
     )
     
     falseValid=Bool(
-        title_("False Valid"),
-        description=_("True if the value False is allowed."),
+        title=_(u"False Valid"),
+        description=_(u"True if the value False is allowed."),
         required=True,
     )
     
     assumedValue=Bool(
-        title_("Assumed Value"),
-        description=_("The value to assume of this item is not included in the data."),
+        title=_(u"Assumed Value"),
+        description=_(u"The value to assume of this item is not included in the data."),
         required=True,
     )
     

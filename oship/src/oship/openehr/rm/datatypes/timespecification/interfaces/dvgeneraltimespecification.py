@@ -37,5 +37,5 @@ class IDvGeneralTimeSpecification(IDvTimeSpecification):
         """Extracted from value."""
         
     def valueValid():
-        """value.formalism.is_equal(“HL7:GTS”)"""
+        """value.formalism.is_equal("HL7:GTS")"""
 

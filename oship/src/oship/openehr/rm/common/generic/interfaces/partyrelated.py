@@ -40,7 +40,7 @@ class IPartyRelated(IPartyIdentified):
         title=_(u'Relationship'),
         description=_(u"""Relationship of subject of this ENTRY to the subject
                     of the record. May be coded. If it is the patient, coded 
-                    as “self”."""),
+                    as "self"."""),
         required=True,
         constraint = isinstance(DvCodedText),
         )

@@ -22,9 +22,10 @@ __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.schema import TextLine,Object,Field
+from zope.interface import Attribute
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 from openehr.rm.datatypes.encapsulated.dvparsable import DvParsable
 
 
@@ -35,11 +36,14 @@ class IActivity(ILocatable):
     A single activity within an instruction.
     """
     
+    
     description=Object(
+        schema=IItemStructure,
         title=_(u"Description"),
         description=_(u"Description of the activity."),
         required=True,
     )
+    
     
     timing=DvParsable(0,'','',
         title=_(u"Timing"),

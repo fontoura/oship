@@ -54,7 +54,7 @@ class DvOrdinal(DvOrdered):
     def isStrictlyComparableTo(self, other):
         """        
         True if symbols come from same vocabulary,assuming the vocabulary is a 
-        subset or value range, e.g. “urine:protein”.
+        subset or value range, e.g. "urine:protein".
         
         (other: like Current): Boolean 
         ensure

@@ -33,10 +33,10 @@ class ICodeSetAccess(IField):
         u""" Return all codes known in this code set """
         
     def hasLang(a_lang):
-        u""" True if code set knows about ‘a_lang’ """
+        u""" True if code set knows about 'a_lang' """
         
     def hasCode(a_code):
-        u""" True if code set knows about ‘a_code’ """
+        u""" True if code set knows about 'a_code' """
         
     def idValid():
         u""" True if id != None and id != ''  """

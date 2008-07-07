@@ -44,7 +44,7 @@ class DvGeneralTimeSpecification(DvTimeSpecification):
         u"""Extracted from value."""
         
     def valueValid():
-        u"""value.formalism.is_equal(“HL7:GTS”)"""
+        u"""value.formalism.is_equal("HL7:GTS")"""
 
 
 

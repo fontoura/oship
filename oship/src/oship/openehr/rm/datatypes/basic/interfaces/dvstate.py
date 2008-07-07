@@ -51,7 +51,7 @@ class IDvState(IDataValue):
     isTerminal = Bool(
         title = _(u"isTerminal"),
         description= _(u"""Indicates whether this state is a terminal
-                      state, such as “aborted”, “completed” etc
+                      state, such as "aborted", "completed" etc
                       from which no further transitions are possible.
                       It is required and the default is False.
                       """),

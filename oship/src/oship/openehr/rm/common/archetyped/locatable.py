@@ -50,7 +50,7 @@ class Locatable(Pathable,Field):
     def concept():
         """
         Clinical concept of the archetype as a whole (= derived from the
-       ‘archetype_node_id’ of the root node) isArchetypeRoot must be True.
+       'archetype_node_id' of the root node) isArchetypeRoot must be True.
        """
         
     def nameValid():

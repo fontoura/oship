@@ -77,7 +77,7 @@ class IFeederAuditDetails(Interface):
     
     versionId = TextLine(
         title=_(u'Version Id'),
-        description=_(u"""Any identifier used in the system such as “interim”, “final”, 
+        description=_(u"""Any identifier used in the system such as "interim", "final", 
                       or numeric versions if available."""),
         required=False,
         )

@@ -30,7 +30,7 @@ class IMeasurementService(IField):
     
     def isValidUnitsString(units):
         u"""
-        True if the units string ‘units’ is a valid string according to the HL7 UCUM specification.
+        True if the units string 'units' is a valid string according to the HL7 UCUM specification.
         units != None                   
         """
 

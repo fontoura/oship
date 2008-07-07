@@ -44,8 +44,8 @@ class IIntervalEvent(IEvent):
     
     mathFunction=DvCodedText(
         title=_(u"mathFunction"),
-        description=_(u"""Mathematical function of the data of this event, e.g. “maximum”, “mean” etc. 
-                      Coded using openEHR Terminology group “event math function”."""),
+        description=_(u"""Mathematical function of the data of this event, e.g. "maximum", "mean" etc. 
+                      Coded using openEHR Terminology group "event math function"."""),
         required=True
     )
     

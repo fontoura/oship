@@ -27,7 +27,7 @@ class IDvText(IDataValue):
     A text item, which may contain any amount of legal characters arranged as e.g.
     words, sentences etc (i.e. one DV_TEXT may be more than one word). Visual for-
     matting and hyperlinks may be included.
-    A DV_TEXT can be “coded” by adding mappings to it.
+    A DV_TEXT can be "coded" by adding mappings to it.
     Fragments of text, whether coded or not are used on their own as values, or to
     make up larger tracts of text which may be marked up in some way, eventually
     going to make up paragraphs.
@@ -55,9 +55,9 @@ class IDvText(IDataValue):
     
     formatting = Text(
         title = _(u"Formatting"),
-        description = _(u"""A format string of the form “name:value; name:value...”, 
+        description = _(u"""A format string of the form "name:value; name:value...", 
                       e.g. "font-weight : bold; font-family : Arial; font-size : 12pt;". 
-                      Values taken from W3C CSS2 properties lists “background” and “font”."""),
+                      Values taken from W3C CSS2 properties lists "background" and "font"."""),
         required = False
         )
     
@@ -72,7 +72,7 @@ class IDvText(IDataValue):
         title = _(u"Language"),
         description = _(u"""Optional indicator of the localised language in which 
                       the value is written. Coded from openEHR Code Set 
-                      “languages”. Only used when either the text object is 
+                      "languages". Only used when either the text object is 
                       in a different language from the enclosing ENTRY, or  
                       else the text object is being used outside of an ENTRY 
                       or other enclosing structure which indicates the language."""),
@@ -83,7 +83,7 @@ class IDvText(IDataValue):
         title = _(u"Encoding"),
         description = _(u"""Name of character encoding scheme in which this 
                       value is encoded. Coded from openEHR Code Set 
-                      “character sets”. Unicode is the default assumption in 
+                      "character sets". Unicode is the default assumption in 
                       openEHR, with UTF-8 being the assumed encoding. 
                       This attribute allows for variations from these assumptions."""),
         required = False

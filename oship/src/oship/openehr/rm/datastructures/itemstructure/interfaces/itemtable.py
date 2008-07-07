@@ -33,7 +33,7 @@ class IItemTable(IItemStructure):
         Implemented using Cluster-per-row encoding. Each row Cluster must have an
         identical number of Elements, each of which in turn must have identical names
         and value types in the corresponding postions in each row.
-        Some columns may be designated ‘key’ columns, containing key data for each
+        Some columns may be designated 'key' columns, containing key data for each
         row, in the manner of relational tables. This allows row-naming, where each row
         represents a body site, a blood antigen etc. All values in a column have the same
         data type.

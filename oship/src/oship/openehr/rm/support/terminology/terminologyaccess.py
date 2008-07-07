@@ -40,22 +40,22 @@ class TerminologyAccess(Field):
         
     def codesForGroupId(group_id):
         u"""
-        Return all codes under grouper ‘group_id’ from this terminology
+        Return all codes under grouper 'group_id' from this terminology
         """
 
     def hasCodeForGroupId(group_id, a_code):
         u"""
-        True if ‘a_code’ is known in group ‘group_id’ in the openEHR terminology.
+        True if 'a_code' is known in group 'group_id' in the openEHR terminology.
         """
 
     def codesForGroupName(name, lang):
         u"""
-        Return all codes under grouper whose name in ‘lang’ is ‘name’ from this terminology
+        Return all codes under grouper whose name in 'lang' is 'name' from this terminology
         """
 
     def rubricForCode(code, lang):
         u"""
-        Return all rubric of code ‘code’ in language ‘lang’.
+        Return all rubric of code 'code' in language 'lang'.
         """
 
     def idExists():

@@ -37,18 +37,18 @@ class IReferenceRange(IDvOrdered):
     meaning=DvText(
         title=_(u"meaning"),
         description=_(u"""Term whose value indicates the meaning of this range, 
-                     e.g. “normal”, “critical”, “therapeutic” etc."""),
+                     e.g. "normal", "critical", "therapeutic" etc."""),
         required=True
         )
     
     range=DvInterval(
         title=_(u"range"),
-        description=_(u"""The data range for this meaning, e.g.“critical” etc."""),
+        description=_(u"""The data range for this meaning, e.g."critical" etc."""),
         required=True
         )
 
     def isInRange(val):
         """
-        Indicates if the value ‘val’ is inside the range
+        Indicates if the value 'val' is inside the range
         """
         

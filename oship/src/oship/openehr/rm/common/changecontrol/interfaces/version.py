@@ -61,7 +61,7 @@ class IVersion(Interface):
     lifecycleState = DvCodedText(
         title=_(u'Lifecycle State'),
         description=_(u"""Lifecycle state of this version; coded by openEHR 
-                    vocabulary “version lifecycle state”. 
+                    vocabulary "version lifecycle state". 
                     Type == DV_CODED_TEXT"""),
         required=True,
         )
@@ -109,8 +109,8 @@ class IVersion(Interface):
     def CommitAuditValid():
         u"""commitAudit != None"""
         
-"""       Contribution_valid: contribution /= Void and contribution.type.is_equal(“CON-
-          TRIBUTION”)
+"""       Contribution_valid: contribution /= Void and contribution.type.is_equal("CON-
+          TRIBUTION")
           Preceding_version_uid_validity: uid.version_tree_id.is_first xor
           preceding_version_uid /= Void
           Lifecycle_state_valid: lifecycle_state /= Void and then

@@ -29,9 +29,9 @@ class DvOrdered(DataValue):
     """
     Purpose:           
     Abstract class defining the concept of ordered values, which includes ordinals as
-    well as true quantities. It defines the functions ‘<’ and is_strictly_comparable_to,
+    well as true quantities. It defines the functions '<' and is_strictly_comparable_to,
     the latter of which must evaluate to True for instances being compared with the
-    ‘<’ function, or used as limits in the DV_INTERVAL<T> class.
+    '<' function, or used as limits in the DV_INTERVAL<T> class.
 
     Use:    
     Data value types which are to be used as limits in the DV_INTERVAL<T> class
@@ -75,7 +75,7 @@ class DvOrdered(DataValue):
         normalRange /= Void or normalStatus /= Void
         ensure
         normalRange /= Void implies Result = normalRange.has(Current)
-        normalStatus /= Void implies normal_status.code_string.is_equal(“N”)
+        normalStatus /= Void implies normal_status.code_string.is_equal("N")
         """
         
         if self.normalStatus.codeString == "N":

@@ -40,7 +40,7 @@ class IVersionedObject(IContainer):
         description=_(u"""Unique identifier of this version container. This id 
                     will be the same in all instances of the same container 
                     in a distributed environment, meaning that it can be 
-                    understood as the uid of the “virtual version tree”."""),
+                    understood as the uid of the "virtual version tree"."""),
         required=True,
         )
     

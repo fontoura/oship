@@ -29,3 +29,5 @@ class IItemStructure(IDataStructure):
     u"""
     Abstract parent class of all spatial data types.
     """
+    
+    

@@ -35,7 +35,7 @@ class Link(Locatable):
     Multiple LINKs can be attached to the root object of any archetyped structure to
     give the effect of a 1->N link 1:1 and 1:N relationships between archetyped content 
     elements (e.g. ENTRYs) can be expressed by using one, or more than one, respectively, DV_LINKs.
-    Chains of links can be used to see “problem threads” or other logical groupings of items.
+    Chains of links can be used to see "problem threads" or other logical groupings of items.
     Links should be between archetyped structures only, i.e. between objects representing 
     complete domain concepts because relationships between sub-elements
     of whole concepts are not necessarily meaningful, and may be downright confusing. Sensible 

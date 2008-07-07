@@ -34,7 +34,7 @@ _ = MessageFactory('oship')
 class IEntry(IContentItem):
     u"""
         The abstract parent of all ENTRY subtypes. An ENTRY is the root of a logical item
-        of “hard” clinical information created in the “clinical statement” context, within a
+        of "hard" clinical information created in the "clinical statement" context, within a
         clinical session. There can be numerous such contexts in a clinical session. Obser-
         vations and other Entry types only ever document information captured/created in
         the event documented by the enclosing Composition.
@@ -48,14 +48,14 @@ class IEntry(IContentItem):
     language = CodePhrase('','',
         title = u"""language""",
         description = u"""Mandatory indicator of the localised language in which this Entry 
-                      is written. Coded from openEHR Code Set “languages”.""",
+                      is written. Coded from openEHR Code Set "languages".""",
         required = True
         )
     
     encoding = CodePhrase('','',
         title = u"""encoding""",
         description = u"""Name of character set in which text values in this Entry are encoded. 
-                      Coded from openEHR Code Set “character sets”.""",
+                      Coded from openEHR Code Set "character sets".""",
         required = True
         )
 
@@ -63,20 +63,20 @@ class IEntry(IContentItem):
     subject = PartyProxy('',
         title = u"""subject""",
         description = u"""Id of human subject of this ENTRY, e.g.
-                          • organ donor
-                          • foetus
-                          • a family member
-                          • another clinically relevant person.""",
+                           organ donor
+                           foetus
+                           a family member
+                           another clinically relevant person.""",
         required = True
         )
     
     provider = PartyProxy('',
         title = u"""provider""",
         description = u"""Optional identification of provider of the informatoin in this ENTRY, which might be:
-                       • the patient
-                       • a patient agent, e.g. parent, guardian
-                       • the clinician
-                       • a device or software
+                        the patient
+                        a patient agent, e.g. parent, guardian
+                        the clinician
+                        a device or software
                        Generally only used when the recorder needs to make it explicit. Otherwise, Composition
                        composer and other participants are assumed. """,
         required = False

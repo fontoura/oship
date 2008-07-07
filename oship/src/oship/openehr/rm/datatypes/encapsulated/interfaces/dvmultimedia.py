@@ -43,14 +43,14 @@ class IDvMultimedia(IDvEncapsulated):
     
     mediaType = CodePhrase('','',
         title=_(u"Media Type"),
-        description=_(u"""     Data media type coded from openEHR code set “media types” 
+        description=_(u"""Data media type coded from openEHR code set "media types" 
         (interface for the IANA MIME types code set)."""),
         required=True,
         )
     
     compressionAlgorithm = CodePhrase('','',
         title=_(u"Compression Algorithm"),
-        description=_(u"""Compression type, a coded value from the openEHR “Integrity check” 
+        description=_(u"""Compression type, a coded value from the openEHR "Integrity check" 
         code set. Void means no compression."""),
         required=False,
         )
@@ -63,7 +63,7 @@ class IDvMultimedia(IDvEncapsulated):
     
     integrityCheckAlgorithm = CodePhrase('','',
         title=_(u"Integrity Check Algorithm"),
-        description=_(u"""Type of integrity check, a coded value from the openEHR “Integrity check” code set."""),
+        description=_(u"""Type of integrity check, a coded value from the openEHR "Integrity check" code set."""),
         required=False,
         )
     
@@ -89,8 +89,8 @@ class IDvMultimedia(IDvEncapsulated):
     
     def isExternal():
         """Computed from the value of the uri attribute: True if the data is stored externally 
-        to the record, as indicated by `uri'. A copy may also be stored internally, in which case 
-        `isExpanded' is also true.  Ensure uri !=None and uri != '' """
+        to the record, as indicated by 'uri'. A copy may also be stored internally, in which case 
+        'isExpanded' is also true.  Ensure uri !=None and uri != '' """
         
     def isInline():
         """Computed from the value of the data attribute: True if the data is stored in expanded 
@@ -123,8 +123,8 @@ class DvMultimedia(DvEncapsulated):
    
     def isExternal():
         u"""Computed from the value of the uri attribute: True if the data is stored externally 
-        to the record, as indicated by `uri'. A copy may also be stored internally, in which case 
-        `isExpanded' is also true.  Ensure uri !=None and uri != '' """
+        to the record, as indicated by 'uri'. A copy may also be stored internally, in which case 
+        'isExpanded' is also true.  Ensure uri !=None and uri != '' """
         
     def isInline():
         u"""Computed from the value of the data attribute: True if the data is stored in expanded 

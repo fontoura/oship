@@ -26,7 +26,7 @@ _ = MessageFactory('oship')
 
 class DvQuantity(DvAmount):
     """
-    Quantitified type representing “scientific” quantities, i.e. quantities expressed as a
+    Quantitified type representing "scientific" quantities, i.e. quantities expressed as a
     magnitude and units.
     Units were inspired by the Unified Code for Units of Measure (UCUM), devel-
     oped by Gunther Schadow and Clement J. McDonald of The Regenstrief Institute.

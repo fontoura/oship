@@ -47,10 +47,10 @@ class IDvOrdinal(IDvOrdered):
     symbol = DvCodedText(
         title=_(u"symbol"),
         description=_(u"""Coded textual representation of this 
-                       value in the enumeration, which may be strings made from “+” symbols, 
-                       or other enumerations of terms such as “mild”, “moderate”, “severe”,
+                       value in the enumeration, which may be strings made from "+" symbols, 
+                       or other enumerations of terms such as "mild", "moderate", "severe",
                        or even the same number series as the values,
-                       e.g. “1”, “2”, “3”. Codes come from archetype."""),
+                       e.g. "1", "2", "3". Codes come from archetype."""),
         required=True
     )
 

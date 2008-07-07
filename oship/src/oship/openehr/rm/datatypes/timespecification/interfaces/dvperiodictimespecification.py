@@ -29,14 +29,14 @@ _ = MessageFactory('oship')
 class IDvPeriodicTimeSpecification(IDvTimeSpecification):
     """
     Specifies periodic points in time, linked to the calendar (phase-linked), 
-    or a real world repeating event, such as “breakfast” (event-linked). 
+    or a real world repeating event, such as "breakfast" (event-linked). 
     Based on the HL7v3 data types PIVL<T> and EIVL<T>.
     Used in therapeutic prescriptions, expressed as INSTRUCTIONs in the openEHR model.
     """
     
     def period():
         """The period of the repetition, computationally derived from the syntax 
-        representation. Extracted from the ‘value’ attribute. Returns a DvDuration.
+        representation. Extracted from the 'value' attribute. Returns a DvDuration.
         """
 
     def calendarAlignment():
@@ -50,6 +50,6 @@ class IDvPeriodicTimeSpecification(IDvTimeSpecification):
         """Extracted from value. """
         
     def valueValid():
-        """value.formalism.is_equal(“HL7:PIVL”) or value.formalism.is_equal(“HL7:EIVL”)"""
+        """value.formalism.is_equal("HL7:PIVL") or value.formalism.is_equal("HL7:EIVL")"""
 
     

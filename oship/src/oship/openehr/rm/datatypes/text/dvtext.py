@@ -29,7 +29,7 @@ class DvText(DataValue):
     A text item, which may contain any amount of legal characters arranged as e.g.
     words, sentences etc (i.e. one DV_TEXT may be more than one word). Visual for-
     matting and hyperlinks may be included.
-    A DV_TEXT can be “coded” by adding mappings to it.
+    A DV_TEXT can be "coded" by adding mappings to it.
     Fragments of text, whether coded or not are used on their own as values, or to
     make up larger tracts of text which may be marked up in some way, eventually
     going to make up paragraphs.

@@ -40,6 +40,6 @@ class ReferenceRange(DvOrdered):
 
     def isInRange(val):
         """
-        Indicates if the value ‘val’ is inside the range
+        Indicates if the value 'val' is inside the range
         """
         

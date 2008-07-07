@@ -30,7 +30,7 @@ _ = MessageFactory('oship')
 class ItemSingle(ItemStructure):
     u"""
     Logical single value data structure.
-    Used to represent any data which is logically a single value, such as a person’s height or weight.   
+    Used to represent any data which is logically a single value, such as a person's height or weight.   
     """
     
     implements(IItemStructure)

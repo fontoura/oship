@@ -35,8 +35,8 @@ class DvProportion(DvAmount,ProportionKind):
               width (RDW).
         
               Should not be used to represent things like blood pressure which are often written
-              using a ‘/’ character, giving the misleading impression that the item is a ratio,
-    MisUse:   when in fact it is a structured value. E.g. visual acuity “6/24” is not a ratio.
+              using a '/' character, giving the misleading impression that the item is a ratio,
+    MisUse:   when in fact it is a structured value. E.g. visual acuity "6/24" is not a ratio.
               Should not be used for formulations.
     """
 

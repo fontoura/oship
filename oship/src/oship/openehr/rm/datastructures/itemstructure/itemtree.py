@@ -20,10 +20,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements 
+from zope.interface import implements,classProvides
 
 from itemstructure import ItemStructure
 from interfaces.itemtree import IItemTree
+from interfaces.itemstructure import IItemStructure
 
 _ = MessageFactory('oship')
 
@@ -34,6 +35,7 @@ class ItemTree(ItemStructure):
     """
     
     implements(IItemTree)
+    classProvides(IItemStructure)
     
     def __init__(self,items,**kw):
         self.items=items
@@ -44,7 +46,7 @@ class ItemTree(ItemStructure):
         u"""Return True if a_path is a valid leaf element path."""
         
     def elementAtPath(a_path):
-        u"""Return the leaf element at the path; a_path."""
+        u"""Return the leaf element at the path, a_path."""
            
     def asHierarchy():
         u"""Generate a CEN EN13606-compatible hierarchy consisting of a single CLUSTER containing the ELEMENTs of this list."""

@@ -48,7 +48,7 @@ class IDvParsable(IDvEncapsulated):
     
     formalism = TextLine(
         title=_(u"Formalism"),
-        description=_(u"""The name of the formalism, e.g. “GLIF 1.0”, “proforma” etc."""),
+        description=_(u"""The name of the formalism, e.g. "GLIF 1.0", "proforma" etc."""),
         required=True,
         )
     

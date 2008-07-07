@@ -31,6 +31,6 @@ class IGenericEntry(Interface):
 
     data = Field(
        title=_(u"Data"),
-       description=_(u"an ITEM_TREE - The ‘data’ from the source message or record."),
+       description=_(u"an ITEM_TREE - The 'data' from the source message or record."),
        required =True,
        )

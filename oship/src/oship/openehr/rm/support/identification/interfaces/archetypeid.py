@@ -33,9 +33,9 @@ class IArchetypeId(IObjectId):
     archetype within a multi-dimensional space. In this case, the space is essentially a 
     versioned 3-dimensional space, with the dimensions being:
            
-      •  reference model entity, i.e. target of archetype
-      •  domain concept
-      •  version
+        reference model entity, i.e. target of archetype
+        domain concept
+        version
        
     As with any multi-axial identifier, the underlying principle of an archetype id is that all parts of the id
     must be able to be considered immutable. This means that no variable characteristic of an archetype
@@ -62,10 +62,10 @@ class IArchetypeId(IObjectId):
        version_id: numeric version identifier;
        
     Examples of archetype identifiers include:
-       • openehr-composition-SECTION.physical_examination.v2
-       • openehr-composition-SECTION.physical_examination-prenatal.v1
-       • hl7-rim-act.progress_note.v1
-       • openehr-composition-OBSERVATION.progress_note-naturopathy.v2
+        openehr-composition-SECTION.physical_examination.v2
+        openehr-composition-SECTION.physical_examination-prenatal.v1
+        hl7-rim-act.progress_note.v1
+        openehr-composition-OBSERVATION.progress_note-naturopathy.v2
        
     Archetypes can also be identified by other means, such as ISO oids.
     """

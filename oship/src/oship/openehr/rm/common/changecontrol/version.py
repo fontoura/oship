@@ -66,8 +66,8 @@ class Version(Field):
     def CommitAuditValid():
         u"""commitAudit != None"""
         
-"""       Contribution_valid: contribution /= Void and contribution.type.is_equal(“CON-
-          TRIBUTION”)
+"""       Contribution_valid: contribution /= Void and contribution.type.is_equal("CON-
+          TRIBUTION")
           Preceding_version_uid_validity: uid.version_tree_id.is_first xor
           preceding_version_uid /= Void
           Lifecycle_state_valid: lifecycle_state /= Void and then

@@ -30,9 +30,9 @@ class IDvOrdered(IDataValue):
     """
     Purpose:           
     Abstract class defining the concept of ordered values, which includes ordinals as
-    well as true quantities. It defines the functions ‘<’ and is_strictly_comparable_to,
+    well as true quantities. It defines the functions '<' and is_strictly_comparable_to,
     the latter of which must evaluate to True for instances being compared with the
-    ‘<’ function, or used as limits in the DV_INTERVAL<T> class.
+    '<' function, or used as limits in the DV_INTERVAL<T> class.
 
     Use:    
     Data value types which are to be used as limits in the DV_INTERVAL<T> class
@@ -60,7 +60,7 @@ class IDvOrdered(IDataValue):
         description = _(u"""Optional normal status indicator of value with respect to normal 
                      range for this value. Often included by lab, even if the normal range 
                      itself is not included. Coded by ordinals in series HHH, HH, H, 
-                     (nothing), L, LL, LLL; see openEHR terminology group “normal status”."""),
+                     (nothing), L, LL, LLL; see openEHR terminology group "normal status"."""),
         required = False
     )
                 
@@ -79,7 +79,7 @@ class IDvOrdered(IDataValue):
         normalRange /= Void or normalStatus /= Void
         ensure
         normalRange /= Void implies Result = normalRange.has(Current)
-        normalStatus /= Void implies normal_status.code_string.is_equal(“N”)
+        normalStatus /= Void implies normal_status.code_string.is_equal("N")
         """
         
         

@@ -37,7 +37,7 @@ class TerminologyService(OpenehrCodeSetIdentifiers,OpenehrTerminologyGroupIndent
     def terminology(name):
         u"""
         Return an interface to the terminology named name. Allowable names include
-        “openehr”,“centc251”,any name from are taken from the US NLM UMLS meta-data 
+        "openehr","centc251",any name from are taken from the US NLM UMLS meta-data 
         list at http://www.nlm.nih.gov/research/umls/metaa1.html
         
         name != None and name is a valid TerminologyAccess.        
@@ -45,7 +45,7 @@ class TerminologyService(OpenehrCodeSetIdentifiers,OpenehrTerminologyGroupIndent
         
     def codeSet(name):
         u"""
-        Return an interface to the code_set identified by the external identifier name (e.g. “ISO_639-1”).
+        Return an interface to the code_set identified by the external identifier name (e.g. "ISO_639-1").
         
         name != None and hasCodeSet == True.
         """
@@ -60,7 +60,7 @@ class TerminologyService(OpenehrCodeSetIdentifiers,OpenehrTerminologyGroupIndent
     def hasTerminology(name):
         u"""
         True if terminology named name known by this service. Allowable names include:
-        “openehr”,“centc251”,any name from are taken from the US NLM UMLS meta-data list
+        "openehr","centc251",any name from are taken from the US NLM UMLS meta-data list
         at http://www.nlm.nih.gov/research/umls/metaa1.html
         
         name != None and name != ''
@@ -68,7 +68,7 @@ class TerminologyService(OpenehrCodeSetIdentifiers,OpenehrTerminologyGroupIndent
         
     def hasCodeSet(name): 
         u"""
-        True if codeSet linked to internal name (e.g. “languages”) is available.
+        True if codeSet linked to internal name (e.g. "languages") is available.
 
         name != None and name != ''
         """

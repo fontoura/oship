@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
 # Redistribution and use are governed by the license in OSHIP-LICENSE.txt
@@ -36,11 +35,11 @@ class Activity(Locatable):
     
     implements(IActivity)
     
-    def __init__(self,desc,tim,atid,nodeid,**kw):
-        self.description=desc
+    def __init__(self,descr,tim,atid,nodeid,**kw):
         self.timing=tim
         self.actionArchetypeId=atid
         self.__name__=nodeid
+        self.description=descr
         for n,v in kw.items():
             setattr(self,n,v)
         

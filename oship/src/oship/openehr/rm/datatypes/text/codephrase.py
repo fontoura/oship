@@ -25,7 +25,7 @@ _ = MessageFactory('oship')
 
 class CodePhrase(Field):
     """
-    A fully coordinated (i.e. all “coordination” has been performed) term from a ter-
+    A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
     minology service (as distinct from a particular terminology).
     """
     

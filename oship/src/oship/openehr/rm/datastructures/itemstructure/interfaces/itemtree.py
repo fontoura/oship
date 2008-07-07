@@ -25,8 +25,7 @@ _ = MessageFactory('oship')
 
 class IItemTree(IItemStructure):
     u"""
-    Logical tree data structure. The tree may be empty. Used to represent data which are 
-    logically a tree such as audiology results, microbiology results, biochemistry results.
+    Logical tree data structure. 
     """
     
     items = List(

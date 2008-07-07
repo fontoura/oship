@@ -54,13 +54,13 @@ class IDvIdentifier(IDataValue):
     id = Text(
         title = _(u"Id"),
         description = _(u""" The identifier value. Often structured, according to the 
-                      definition of the issuing authority’s rules."""),
+                      definition of the issuing authority's rules."""),
         required = True
         )
     
     type = Text(
         title = _(u"Type"),
-        description = _(u"""The identifier type, such as “prescription”,or “SSN”. 
+        description = _(u"""The identifier type, such as "prescription",or "SSN". 
                       One day a controlled vocabulary might be possible for this."""),
         required = True
         )

@@ -27,8 +27,8 @@ _ = MessageFactory('oship')
  
 class DvAmount(DvQuantified):
     """   
-    Abstract class defining the concept of relative quantified ‘amounts’. For relative
-    quantities, the ‘+’ and ‘-’ operators are defined (unlike descendants of
+    Abstract class defining the concept of relative quantified 'amounts'. For relative
+    quantities, the '+' and '-' operators are defined (unlike descendants of
     DV_ABSOLUTE_QUANTITY, such as the date/time types).
     """
     

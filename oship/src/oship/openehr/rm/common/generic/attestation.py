@@ -47,7 +47,7 @@ class Attestation(AuditDetails):
         u"""items != None items != '' """
         
     def reasonValid():
-        u"""reason != None and then(reason.generating_type.is_equal(“DV_CODED_TEXT”) 
+        u"""reason != None and then(reason.generating_type.is_equal("DV_CODED_TEXT") 
         implies terminology(Terminology_id_openehr).has_code_for_group_id
         (Group_id_attestation_reason, reason.defining_code))"""
         

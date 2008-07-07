@@ -60,7 +60,7 @@ class IAuditDetails(Interface):
     changeType = DvCodedText(
         title=_(u"""Change Type"""),
         description=_(u"""Type of change. Coded using the openEHR Terminology 
-                    “audit change type” group. Type==DvCodedText"""),
+                    "audit change type" group. Type==DvCodedText"""),
         required=True,
         )
     

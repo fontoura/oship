@@ -81,7 +81,7 @@ class IParticipation(Interface):
         u"""performer != None"""
         
     def functionValid():
-        u"""function != None and then function.generating_type.is_equal(“DV_CODED_TEXT”) 
+        u"""function != None and then function.generating_type.is_equal("DV_CODED_TEXT") 
         implies terminology(Terminology_id_openehr).has_code_for_group_id(Group_id_participation_function, 
         function.defining_code)"""
         

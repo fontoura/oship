@@ -32,7 +32,7 @@ class IArchetyped(Interface):
     """
     Archetypes act as the configuration basis for the particular structures of instances
     defined by the reference model. To enable archetypes to be used to create valid
-    data, key classes in the reference model act as “root” points for archetyping;
+    data, key classes in the reference model act as "root" points for archetyping;
     accordingly, these classes have the archetype_details attribute set. An instance of
     the class ARCHETYPED contains the relevant archetype identification information,
     allowing generating archetypes to be matched up with data instances
@@ -56,7 +56,7 @@ class IArchetyped(Interface):
     rmVersion = TextLine(
         title=_(u"RM Version"),
         description=_(u"""Version of the openEHR reference model used to create this object.
-                    Expressed in terms of the release version string, e.g. “1.0”, “1.2.4”. """),
+                    Expressed in terms of the release version string, e.g. "1.0", "1.2.4". """),
         required=True,
         default=u"1.0.1",
         )

@@ -27,10 +27,10 @@ _ = MessageFactory('oship')
 class IDvDuration(IDvAmount):
     """
     Represents a period of time with respect to a notional point in time, which is not
-    specified. A sign may be used to indicate the duration is “backwards” in time
+    specified. A sign may be used to indicate the duration is "backwards" in time
     rather than forwards.
     
-    Note that a deviation from ISO8601 is supported, allowing the ‘W’ designator to
+    Note that a deviation from ISO8601 is supported, allowing the 'W' designator to
     be mixed with other designators. See assumed types section in the Support IM.
 
     Used for recording the duration of something in the real world, particularly when

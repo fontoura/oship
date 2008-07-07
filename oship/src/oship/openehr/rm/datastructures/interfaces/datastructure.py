@@ -29,7 +29,7 @@ class IDataStructure(ILocatable):
     u"""
      Abstract parent class of all data structure types. Includes the as_hierarchy func-
     tion which can generate the equivalent CEN EN13606 single hierarchy for each
-    subtype’s physical representation. For example, the physical representation of an
+    subtype's physical representation. For example, the physical representation of an
     ITEM_LIST is List<ELEMENT>; its implementation of as_hierarchy will gener-
     ate a CLUSTER containing the set of ELEMENT nodes from the list.
     """

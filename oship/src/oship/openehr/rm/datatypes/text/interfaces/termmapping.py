@@ -49,30 +49,30 @@ class ITermMapping(IDataValue):
         description = _(u"""The relative match of the target term with respect to the 
                       mapped text item. 
                       Result meanings:
-                          ‘>’: the mapping is to a broader term
-                          e.g. orginal text = “arbovirus infection”, 
-                          target = “viral infection”
+                          '>': the mapping is to a broader term
+                          e.g. orginal text = "arbovirus infection", 
+                          target = "viral infection"
                           
-                          ‘=’: the mapping is to a (supposedly)
+                          '=': the mapping is to a (supposedly)
                           equivalent to the original item
 
-                          ‘<’: the mapping is to a narrower term.
-                          e.g. original text = “diabetes”, mapping
-                          = “diabetes mellitus”.
-                          ‘?’: the kind of mapping is unknown.
+                          '<': the mapping is to a narrower term.
+                          e.g. original text = "diabetes", mapping
+                          = "diabetes mellitus".
+                          '?': the kind of mapping is unknown.
 
                       The first three values are taken from the
-                      ISO standards 2788 (“Guide to Establish-
+                      ISO standards 2788 ("Guide to Establish-
                       ment and development of monolingual the-
-                      sauri”) and 5964 (“Guide to Establishment
-                      and development of multilingual thesauri”)."""),
+                      sauri") and 5964 ("Guide to Establishment
+                      and development of multilingual thesauri")."""),
         required = True
         )
     
     purpose = DvCodedText(
         title = _(u"Purpose"),
-        description = _(u"""Purpose of the mapping e.g. “automated
-                      data mining”, “billing”, “interoperability"""),
+        description = _(u"""Purpose of the mapping e.g. "automated
+                      data mining", "billing", "interoperability"""),
         required = True
         )
     

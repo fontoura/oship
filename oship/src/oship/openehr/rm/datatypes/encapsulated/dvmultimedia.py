@@ -45,8 +45,8 @@ class DvMultimedia(DvEncapsulated):
    
     def isExternal():
         u"""Computed from the value of the uri attribute: True if the data is stored externally 
-        to the record, as indicated by `uri'. A copy may also be stored internally, in which case 
-        `isExpanded' is also true.  Ensure uri !=None and uri != '' """
+        to the record, as indicated by 'uri'. A copy may also be stored internally, in which case 
+        'isExpanded' is also true.  Ensure uri !=None and uri != '' """
         
     def isInline():
         u"""Computed from the value of the data attribute: True if the data is stored in expanded 

@@ -30,7 +30,7 @@ class IOpenehrTerminologyGroupIndentifiers(Interface):
     
     terminologyId = TextLine(
         title=_(u"Terminology ID"),
-        description=_(u"Name of openEHR’s own terminology"),
+        description=_(u"Name of openEHR's own terminology"),
         default=u"openehr",
         readonly=True,
         )

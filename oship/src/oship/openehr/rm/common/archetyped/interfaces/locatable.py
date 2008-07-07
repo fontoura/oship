@@ -45,7 +45,7 @@ class ILocatable(IPathable):
     archetypeNodeId = TextLine(
         title=_("Node ID"),
         description=_(u"""Design-time archetype id of this node taken from its generating archetype;
-                     used to build archetype paths. Always in the form of an “at” code, e.g. “at0005”.
+                     used to build archetype paths. Always in the form of an "at" code, e.g. "at0005".
                      This value enables a "standardised" name for this node to be generated, by
                      referring to the generating archetype local ontology.
                      
@@ -101,7 +101,7 @@ class ILocatable(IPathable):
     def concept():
         """
         Clinical concept of the archetype as a whole (= derived from the
-       ‘archetype_node_id’ of the root node) isArchetypeRoot must be True.
+       'archetype_node_id' of the root node) isArchetypeRoot must be True.
        """
         
     def nameValid():

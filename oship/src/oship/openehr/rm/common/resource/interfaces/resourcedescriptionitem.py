@@ -17,9 +17,9 @@ __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
 from zope.schema.interfaces import IField
-from zope.schema import TextLine, List, Dict
+from zope.schema import TextLine, List, Dict,Object
 
-from openehr.rm.datatypes.text.codephrase import CodePhrase
+from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
 
 
 _ = MessageFactory('oship')
@@ -30,7 +30,8 @@ class IResourceDescriptionItem(IField):
         needs to be copied and translated into the new language.
     """
     
-    language=CodePhrase('','',
+    language=Object(
+        schema=ICodePhrase,
         title=_(u'Language'),
         description=_(u""""""),
         required=True

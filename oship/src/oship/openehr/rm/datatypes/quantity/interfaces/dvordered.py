@@ -18,11 +18,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.schema import List
+from zope.schema import List,Object
 
 from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
-from openehr.rm.datatypes.quantity.dvinterval import DvInterval
-from openehr.rm.datatypes.text.codephrase import CodePhrase
+from openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
+from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
 
 _= MessageFactory('oship')
 
@@ -42,7 +42,8 @@ class IDvOrdered(IDataValue):
     same kind of physical quantity.
     """
     
-    normalRange = DvInterval(
+    normalRange = Object(
+        schema=IDvInterval,
         title = _(u"normalRange"),
         description = _(u"""Optional normal range."""),
         required = False
@@ -55,7 +56,8 @@ class IDvOrdered(IDataValue):
         required = False
         )
     
-    normalStatus = CodePhrase('','',
+    normalStatus = Object(
+        schema=ICodePhrase,
         title = _(u"normalStatus"),
         description = _(u"""Optional normal status indicator of value with respect to normal 
                      range for this value. Often included by lab, even if the normal range 

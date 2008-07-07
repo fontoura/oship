@@ -21,9 +21,10 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 
 from careentry import ICareEntry
-from openehr.rm.datastructures.history.history import History
+from openehr.rm.datastructures.history.interfaces.history import IHistory
 
 _ = MessageFactory('oship')
 
@@ -36,19 +37,21 @@ class IObservation(ICareEntry):
     Not used for recording opinion or future statements of any kind, including instructions, 
     intentions, plans etc."""
     
-    data = History('','','','','',
-        title=u"""data""",
-        description=u"""The data of this observation, in the form of a history of 
-                    values which may be of any complexity.""",
+    data = Object(
+        schema=IHistory,
+        title=_(u"""data"""),
+        description=_(u"""The data of this observation, in the form of a history of 
+                    values which may be of any complexity."""),
         required=True
     )
     
-    state = History('','','','','',
-        title=u"""state""",
-        description=u"""Optional recording of the state of subject of this
+    state = Object(
+        schema=IHistory,
+        title=_(u"""state"""),
+        description=_(u"""Optional recording of the state of subject of this
                     observation during the observation process, in the form of 
                     a separate history of values which may be of any complexity. 
-                    State may also be recorded within the History of the data attribute.""",
+                    State may also be recorded within the History of the data attribute."""),
         required=False
     )
     

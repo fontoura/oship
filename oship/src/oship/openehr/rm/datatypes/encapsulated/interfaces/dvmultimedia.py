@@ -19,13 +19,13 @@ __docformat__ = u'plaintext'
 
 
 from zope.interface import implements 
-from zope.schema import TextLine,BytesLine
+from zope.schema import TextLine,BytesLine,Object
 from zope.i18nmessageid.message import MessageFactory 
 
 
 from openehr.rm.datatypes.encapsulated.interfaces.dvencapsulated import IDvEncapsulated
-from openehr.rm.datatypes.text.codephrase import CodePhrase
-from openehr.rm.datatypes.uri.dvuri import DvUri
+from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
+from openehr.rm.datatypes.uri.interfaces.dvuri import IDvUri
 
 _=MessageFactory('oship')
         
@@ -41,14 +41,16 @@ class IDvMultimedia(IDvEncapsulated):
         required=False,
         )
     
-    mediaType = CodePhrase('','',
+    mediaType = Object(
+        schema=ICodePhrase,
         title=_(u"Media Type"),
         description=_(u"""Data media type coded from openEHR code set "media types" 
         (interface for the IANA MIME types code set)."""),
         required=True,
         )
     
-    compressionAlgorithm = CodePhrase('','',
+    compressionAlgorithm = Object(
+        schema=ICodePhrase,
         title=_(u"Compression Algorithm"),
         description=_(u"""Compression type, a coded value from the openEHR "Integrity check" 
         code set. Void means no compression."""),
@@ -61,20 +63,23 @@ class IDvMultimedia(IDvEncapsulated):
         required=False,
         )
     
-    integrityCheckAlgorithm = CodePhrase('','',
+    integrityCheckAlgorithm = Object(
+        schema=ICodePhrase,
         title=_(u"Integrity Check Algorithm"),
         description=_(u"""Type of integrity check, a coded value from the openEHR "Integrity check" code set."""),
         required=False,
         )
     
-    thumbnail = DvMultimedia(
+    thumbnail = Object(
+        schema=IDvMultimedia,
         title=_(u"Thumbnail"),
         description=_(u"""The thumbnail for this item, if one exists; 
                     mainly for graphics formats. Type == DvMultimedia"""),
         required=False,
         )
     
-    uri = DvUri(
+    uri = Object(
+        schema=IDvUri,
         title=_(u"URI"),
         description=_(u"""URI reference to electronic information stored outside the record as a file, 
         database entry etc, if supplied as a reference. Type == DvUri."""),
@@ -104,48 +109,3 @@ class IDvMultimedia(IDvEncapsulated):
         """Computed from the value of the integrityCheckAlgorithm attribute: True if an 
         integrity check has been computed. Ensure integrityCheckAlgorithm != None."""
         
-class DvMultimedia(DvEncapsulated):
-    """
-    A specialisation of DvEncapsulated for audiovisual and biosignal types. Includes further 
-    metadata relating to multimedia types which are not applicable to other subtypes of DvEncapsulated.
-    """
-    
-    implements(IDvMultimedia)
-
-    def __init__(self,altTxt,mType,compAlg,intChk,intChkAlg,tnail,uri,data):
-        self.alternateText=altTxt
-        self.mediaType=mType
-        self.integrityCheck=intChk
-        self.integrityCheckAlgorithm=intChkAlg
-        self.thumbnail=tnail
-        self.uri=uri
-        self.data=data
-   
-    def isExternal():
-        u"""Computed from the value of the uri attribute: True if the data is stored externally 
-        to the record, as indicated by 'uri'. A copy may also be stored internally, in which case 
-        'isExpanded' is also true.  Ensure uri !=None and uri != '' """
-        
-    def isInline():
-        u"""Computed from the value of the data attribute: True if the data is stored in expanded 
-        form, ie within the EHR itself. Ensure data != None. """
-        
-    def isCompressed():
-        u"""Computed from the value of the compression_algorithm attribute: True if the data is 
-        stored in compressed form. Ensure compressionAlgorithm != None. """
-        
-    def hasIntegrityCheck():
-        u"""Computed from the value of the integrityCheckAlgorithm attribute: True if an 
-        integrity check has been computed. Ensure integrityCheckAlgorithm != None."""
-                 
-    def mediaTypeValidity(): 
-        u"""mediaType != None and mediaType in codeSetIdMediaTypes"""
-        
-    def compressionAlgorithmValidity():
-        u"""compressionAlgorithm != None and compressionAlgorithm in codeSetIdCompressionAlgorithms."""
-        
-    def integrityCheckValidity():
-        u"""integrityCheck != None and integrityCheckAlgorithm != None"""
-        
-    def integrityCheckAlgorithmValidity():
-    u"""integrityCheckAlgorithm  != None and integrityCheckAlgorithm in codeSetIdIntegrityCheckAlgorithms"""

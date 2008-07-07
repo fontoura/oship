@@ -36,14 +36,12 @@ class IActivity(ILocatable):
     A single activity within an instruction.
     """
     
-    
     description=Object(
         schema=IItemStructure,
         title=_(u"Description"),
         description=_(u"Description of the activity."),
         required=True,
     )
-    
     
     timing=DvParsable(0,'','',
         title=_(u"Timing"),

@@ -16,12 +16,12 @@ From the data types specification Rev 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.schema import TextLine
+from zope.schema import TextLine,Object
 from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
-from openehr.rm.datatypes.text.codephrase import CodePhrase
-from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
+from openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
 
 _ = MessageFactory('oship')
 
@@ -38,7 +38,8 @@ class ITermMapping(IDataValue):
     across nursing vocabularies).
     """
     
-    target = CodePhrase('','',
+    target = Object(
+        schema=ICodePhrase,
         title = _(u"Target"),
         description = _(u"""The target term of the mapping as a CodePhrase."""),
         required = True,
@@ -69,7 +70,8 @@ class ITermMapping(IDataValue):
         required = True
         )
     
-    purpose = DvCodedText(
+    purpose = Object(
+        schema=IDvCodedText,
         title = _(u"Purpose"),
         description = _(u"""Purpose of the mapping e.g. "automated
                       data mining", "billing", "interoperability"""),

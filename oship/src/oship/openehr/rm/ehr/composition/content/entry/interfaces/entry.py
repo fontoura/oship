@@ -21,11 +21,12 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import List
+from zope.schema import List,Object
 
+from openehr.rm.common.generic.interfaces.partyproxy import IPartyProxy
 from openehr.rm.common.generic.partyproxy import PartyProxy
-from openehr.rm.datatypes.text.codephrase import CodePhrase
-from openehr.rm.support.identification.objectref import ObjectRef
+from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
+from openehr.rm.support.identification.interfaces.objectref import IObjectRef
 from openehr.rm.ehr.composition.content.interfaces.contentitem import IContentItem
 
 _ = MessageFactory('oship')
@@ -45,14 +46,16 @@ class IEntry(IContentItem):
 
     """
 
-    language = CodePhrase('','',
+    language = Object(
+        schema=ICodePhrase,
         title = u"""language""",
         description = u"""Mandatory indicator of the localised language in which this Entry 
                       is written. Coded from openEHR Code Set "languages".""",
         required = True
         )
     
-    encoding = CodePhrase('','',
+    encoding = Object(
+        schema=ICodePhrase,
         title = u"""encoding""",
         description = u"""Name of character set in which text values in this Entry are encoded. 
                       Coded from openEHR Code Set "character sets".""",
@@ -60,7 +63,8 @@ class IEntry(IContentItem):
         )
 
         
-    subject = PartyProxy('',
+    subject = Object(
+        schema=IPartyProxy,
         title = u"""subject""",
         description = u"""Id of human subject of this ENTRY, e.g.
                            organ donor
@@ -70,7 +74,8 @@ class IEntry(IContentItem):
         required = True
         )
     
-    provider = PartyProxy('',
+    provider = Object(
+        schema=IPartyProxy,
         title = u"""provider""",
         description = u"""Optional identification of provider of the informatoin in this ENTRY, which might be:
                         the patient
@@ -88,7 +93,8 @@ class IEntry(IContentItem):
         required = False
         )
     
-    workflowId = ObjectRef('','','',
+    workflowId = Object(
+        schema=IObjectRef,
         title = u"""workflowId""",
         description = u"""Identifier of externally held workflow engine data for this 
                       workflow execution, for this subject of care.""",

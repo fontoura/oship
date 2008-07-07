@@ -18,11 +18,11 @@ Quantity Package Rev. 2.1.0.
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.schema import Int
+from zope.schema import Int,Object
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
-from openehr.rm.datatypes.text.codephrase import CodePhrase
+from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
 
 _=MessageFactory('oship')
 
@@ -36,7 +36,8 @@ class IDvEncapsulated(IDataValue):
         required=True,
         )
     
-    charset = CodePhrase('','',
+    charset = Object(
+        schema=ICodePhrase,
         title=_(u"charset"),
         description=_(u"""Name of character encoding scheme in which this value is encoded. 
         Coded from openEHR Code Set "character sets". Unicode is the default assumption 
@@ -45,7 +46,8 @@ class IDvEncapsulated(IDataValue):
         required=False,
         )
     
-    language = CodePhrase('','',
+    language = Object(
+        schema=ICodePhrase,
         title=_(u"Language"),
         description=_(u"""Optional indicator of the localised language in which the data 
                     is written, if relevant. Coded from openEHR Code Set "languages". Type==CodePhrase"""),

@@ -27,7 +27,7 @@ from interfaces.pathable import IPathable
 
 _ = MessageFactory('oship')
 
-class Pathable(Location,Field):
+class Pathable(Location):
     """
     Abstract parent of all classes whose instances are reachable by paths, and which
     know how to locate child object by paths. The parent feature may be implemented 

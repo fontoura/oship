@@ -18,12 +18,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 
-from zope.schema import List
+from zope.schema import List,Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
-from openehr.rm.datatypes.quantity.datetime.dvduration import DvDuration
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure 
+from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
+from openehr.rm.datatypes.quantity.datetime.interfaces.dvduration import IDvDuration
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure 
 from openehr.rm.datastructures.interfaces.datastructure import IDataStructure 
 
 
@@ -38,7 +38,8 @@ class IHistory(IDataStructure):
     NOTE: The invariants have NOT been written yet for this interface.
     """
     
-    origin = DvDateTime('',
+    origin = Object(
+        schema=IDvDateTime,
         title=_(u"origin"),
         description=_(u"Time origin of this event history. The first event is not necessarily at the origin point."),
         required=True
@@ -51,20 +52,23 @@ class IHistory(IDataStructure):
     )
     
     
-    period=DvDuration('',
+    period=Object(
+        schema=IDvDuration,
         title=_(u"period"),
         description=_(u"Period between samples in this segment if periodic."),
         required=False
     )
     
-    duration=DvDuration('',
+    duration=Object(
+        schema=IDvDuration,
         title=_(u"duration"),
         description=_(u"""Duration of the entire History; either corresponds to the duration of all 
                     the events, and/or the duration represented by the summary, if it exists."""),
         required=False
     )
     
-    summary=ItemStructure('','','','','','',
+    summary=Object(
+        schema=IItemStructure,
         title=_(u"summary"),
         description=_(u"""Optional summary data expressing e.g. text or image which summarises 
                          entire History."""),

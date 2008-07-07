@@ -27,7 +27,7 @@ from interfaces.locatable import ILocatable
 
 _ = MessageFactory('oship')
        
-class Locatable(Pathable,Field):
+class Locatable(Pathable):
     """
     Root class of all information model classes that can be archetyped.
     """

@@ -21,13 +21,13 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import Set
+from zope.schema import Set,Object
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.support.identification.hierobjectid import HierObjectId
-from openehr.rm.datatypes.text.codephrase import CodePhrase
-from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
-from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
+from openehr.rm.support.identification.interfaces.hierobjectid import IHierObjectId
+from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
+from openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 
 _ = MessageFactory('oship')
 
@@ -36,7 +36,8 @@ class IParty(ILocatable):
     Ancestor of all party types.
     """
     
-    uid=HierObjectId(
+    uid=Object(
+        schema=IHeirObjectId,
         title=_("UID"),
         description=_("Identifier of this party."),
         required=True,
@@ -54,13 +55,15 @@ class IParty(ILocatable):
         required=True,
     )
     
-    category=DvCodedText(
+    category=Object(
+        schema=IDvCodedText,
         title=_("Category"),
         description=_("Defines the broad category of this composition."),
         required=False,
     )
     
-    language=CodePhrase('','',
+    language=Object(
+        schema=ICodePhrase,
         title=_("Language"),
         description=_("Indicator of the localised language where this composition was created."),
         required=True,
@@ -72,7 +75,8 @@ class IParty(ILocatable):
         required=False,
     )
     
-    details=ItemStructure(
+    details=Object(
+        schema=IItemStructure,
         title=_("Details"),
         description=_("All other party details."),
         required=False,

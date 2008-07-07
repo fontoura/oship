@@ -33,8 +33,7 @@ class IDvAbsoluteQuantity(IDvQuantified):
         
     accuracy = Float(
         title=_(u"Accuracy"),
-        description=_(u"""Accuracy of measurement, expressed as a half-range value of the diff type 
-                    for this quantity (i.e. an accuracy of x means +/−x)."""),
+        description=_(u"""Accuracy of measurement, expressed as a half-range value of the diff type for this quantity (i.e. an accuracy of x means +/- x)."""),
         required=False,
         )
     

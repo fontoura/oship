@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
 # Redistribution and use are governed by the license in OSHIP-LICENSE.txt

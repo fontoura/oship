@@ -17,7 +17,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import List
+from zope.schema import List,Field
 
 from itemstructure import IItemStructure
 
@@ -30,10 +30,9 @@ class IItemTree(IItemStructure):
     
     items = List(
         title=_(u"items"),
-        description=_(u"""Physical representation of the tree."""),
+        description=_(u"Physical representation of the tree."),
         required=False
     )
-    
     
     def hasElementPath(a_path):
         u"""Return True if a_path is a valid leaf element path."""

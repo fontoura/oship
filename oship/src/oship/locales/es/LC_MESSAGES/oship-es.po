@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: oship\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-06-26 17:09+0000\n"
-"PO-Revision-Date: 2008-07-05 06:09+0000\n"
+"PO-Revision-Date: 2008-07-07 18:42+0000\n"
 "Last-Translator: Paco Molinero <paco@byasl.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-07-05 10:40+0000\n"
+"X-Launchpad-Export-Date: 2008-07-08 17:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: site.zcml:38
@@ -55,11 +55,11 @@ msgstr "Definición formal de la variable"
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exprbinaryoperator.py:33
 msgid "Left operand node."
-msgstr ""
+msgstr "Nodo de operando izquierdo."
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exprbinaryoperator.py:39
 msgid "Right operand node."
-msgstr ""
+msgstr "Nodo de operanado derecho."
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/expritem.py:33
 msgid "Mathematical type name of this expression."
@@ -168,7 +168,7 @@ msgstr "Hijos"
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/cattribute.py:47
 msgid "Child constraint nodes."
-msgstr ""
+msgstr "Nodos de restricción hijo."
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/ccomplexobject.py:34
 msgid "Attributes"
@@ -176,7 +176,7 @@ msgstr "Atributos"
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/ccomplexobject.py:35
 msgid "List of constraints on attributes of the reference model."
-msgstr ""
+msgstr "Lista de limitaciones en los atributos del modelo de referencia."
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/ccomplexobject.py:40
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/cprimitiveobject.py:34
@@ -510,7 +510,7 @@ msgstr "Profundidad de especialización en este arquetipo."
 
 #: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:47
 msgid "List of all term codes in this archetype."
-msgstr ""
+msgstr "Lista de todos lo códigos de término en este arquetipo"
 
 #: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:53
 msgid "List of all constraint codes in this archetype."
@@ -526,7 +526,7 @@ msgstr "Arquetipo que pertenece a esta ontología."
 
 #: src/oship/openehr/am/archetype/ontology/interfaces/archetypeterm.py:30
 msgid "Code of this term."
-msgstr ""
+msgstr "Código de este término"
 
 #: src/oship/openehr/am/archetype/ontology/interfaces/archetypeterm.py:36
 msgid "Hash of keys (text,description) and corresponding values."
@@ -570,12 +570,14 @@ msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:39
 msgid "Originating System Audit"
-msgstr ""
+msgstr "Sistema de auditoría originado"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:40
 msgid ""
 "Any audit information for the information item from the originating system."
 msgstr ""
+"Cualquier información de auditoría para el elemento de información del "
+"sistema originario."
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:45
 msgid "Originating System Item IDs"
@@ -790,7 +792,7 @@ msgstr "Detalles de arquetipo usados en este nodo-"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:74
 msgid "Feeder Audit"
-msgstr ""
+msgstr "Auditoría de alimentador"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:75
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:84
@@ -830,7 +832,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:51
 msgid "Audit"
-msgstr ""
+msgstr "Auditoría"
 
 #: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:52
 msgid "Audit trail corresponding to the committal of this Contribution."
@@ -1043,7 +1045,7 @@ msgstr "Hora de ejecución"
 
 #: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:56
 msgid "Time of committal of the item."
-msgstr ""
+msgstr "Hora de apertura del elemento."
 
 #: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:61
 msgid "Change Type"
@@ -1064,7 +1066,7 @@ msgstr "Descripción"
 
 #: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:69
 msgid "Reason for committal. Type==DvText"
-msgstr ""
+msgstr "Razón para la apertural. Tiypo==DvText"
 
 #: src/oship/openehr/rm/common/generic/interfaces/participation.py:45
 #: src/oship/openehr/rm/demographic/interfaces/role.py:52
@@ -1132,6 +1134,8 @@ msgid ""
 "One or more formal identifiers (possiblycomputable).\n"
 "                    List<DvIdentifier>"
 msgstr ""
+"Uno o más identificadores formales (computables).\n"
+"                    Lista<DvIdentifier>"
 
 #: src/oship/openehr/rm/common/generic/interfaces/partyproxy.py:37
 msgid "External Reference"
@@ -1163,7 +1167,7 @@ msgstr "Elementos en la historia ordenados de más recientes a menos."
 
 #: src/oship/openehr/rm/common/generic/interfaces/revisionhistoryitem.py:38
 msgid "Audits"
-msgstr ""
+msgstr "Auditorías"
 
 #: src/oship/openehr/rm/common/generic/interfaces/revisionhistoryitem.py:39
 msgid ""
@@ -1259,7 +1263,7 @@ msgstr "Uso"
 
 #: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:58
 msgid "Misuse"
-msgstr ""
+msgstr "Mal uso"
 
 #: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:64
 msgid "Copyright"
@@ -1331,6 +1335,8 @@ msgid ""
 "Time origin of this event history. The first event is not necessarily at the "
 "origin point."
 msgstr ""
+"Hora de origen de esta historia de evento. El primer evento no tiene porqué "
+"estar en el punto de origen."
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/history.py:48
 msgid "events"
@@ -1358,6 +1364,9 @@ msgid ""
 "                    the events, and/or the duration represented by the "
 "summary, if it exists."
 msgstr ""
+"Duración de la historia entera; corresponde al duración de todos los \n"
+"                    eventos o la duración representada por el resumen, si "
+"existe."
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/history.py:68
 msgid "summary"
@@ -1456,7 +1465,7 @@ msgstr "valor"
 
 #: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/element.py:35
 msgid "Data value of this leaf."
-msgstr ""
+msgstr "Valores de los datos de esta hoja."
 
 #: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/element.py:40
 msgid "nullFlavor"
@@ -1545,6 +1554,11 @@ msgid ""
 "                      It is required and the default is False.\n"
 "                      "
 msgstr ""
+"Indica si el estado es terminal\n"
+"                      estado como “abortado”, “completado” etc\n"
+"                      desde los cuales no es posible la transición.\n"
+"                      Se requiere y el predeterminado es Falso.\n"
+"                      "
 
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:33
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvparsable.py:38
@@ -1864,7 +1878,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantified.py:63
 msgid " magnitude /= Void"
-msgstr ""
+msgstr " magnitud /= Vacío"
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantified.py:65
 msgid ""
@@ -2040,7 +2054,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:43
 msgid "The target term of the mapping as a CodePhrase."
-msgstr ""
+msgstr "El término objetivo de la asignación como CodePhrase."
 
 #: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:48
 msgid "Match"
@@ -2096,7 +2110,7 @@ msgstr "Esquema"
 
 #: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:48
 msgid "Distributed information space."
-msgstr ""
+msgstr "Espacio de información distribuida."
 
 #: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:53
 #: src/oship/openehr/rm/support/identification/interfaces/locatableref.py:44
@@ -2219,7 +2233,7 @@ msgstr "Categoría"
 #: src/oship/openehr/rm/demographic/party.py:55
 #: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:57
 msgid "Defines the broad category of this composition."
-msgstr ""
+msgstr "Define la categoría amplia de esta composición"
 
 #: src/oship/openehr/rm/demographic/interfaces/party.py:65
 #: src/oship/openehr/rm/demographic/party.py:61
@@ -2309,7 +2323,7 @@ msgstr "Control del tiempo"
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:40
 msgid "Point in time of completion of this action."
-msgstr ""
+msgstr "Puesta en hora de la finalización de esta acción"
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:46
 msgid "Description of the activity in ItemStructure form."
@@ -2321,7 +2335,7 @@ msgstr "TransiciónISM"
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:52
 msgid "Details of the transition of the Instruction state."
-msgstr ""
+msgstr "Detalles de la transición del estado de la instrucción."
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:57
 msgid "Instruction Details"
@@ -2385,7 +2399,7 @@ msgstr "Id. de la instrucción"
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instructiondetails.py:38
 msgid "Reference to causing Instruction."
-msgstr ""
+msgstr "Referencia  que causa la instrucción."
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instructiondetails.py:43
 msgid "Activity Id"
@@ -2567,7 +2581,7 @@ msgstr "Acceso EHR"
 #: src/oship/openehr/rm/ehr/ehr.py:57
 #: src/oship/openehr/rm/ehr/interfaces/ehr.py:61
 msgid "A reference to the EHR Access object."
-msgstr ""
+msgstr "Referencia al objeto de acceso EHR."
 
 #: src/oship/openehr/rm/ehr/ehr.py:62
 #: src/oship/openehr/rm/ehr/interfaces/ehr.py:66
@@ -2577,7 +2591,7 @@ msgstr "Estatus EHR"
 #: src/oship/openehr/rm/ehr/ehr.py:63
 #: src/oship/openehr/rm/ehr/interfaces/ehr.py:67
 msgid "A reference to the EHR Status object."
-msgstr ""
+msgstr "Referencia al objeto de estado EHR."
 
 #: src/oship/openehr/rm/ehr/ehr.py:69
 #: src/oship/openehr/rm/ehr/interfaces/ehr.py:73
@@ -2730,6 +2744,8 @@ msgid ""
 "id is redefined here to contain an ObjectVersionId. The identifier of the "
 "Version."
 msgstr ""
+"id se redefine aquñi para contener un ObjectVersionId. Identificador de la "
+"versión."
 
 #: src/oship/openehr/rm/support/identification/interfaces/locatableref.py:45
 msgid ""
@@ -2847,7 +2863,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:106
 msgid "Group ID Setting"
-msgstr ""
+msgstr "Configuración de la ID de grupo"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:107
 msgid "setting"
@@ -2883,7 +2899,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:40
 msgid "audit change type"
-msgstr ""
+msgstr "tipo de auditoría de cambio"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:45
 msgid "Group ID Atesstation Reason"
@@ -2891,7 +2907,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:46
 msgid "attestation reason"
-msgstr ""
+msgstr "razón de atestado"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:51
 msgid "Group ID Composition Category"
@@ -2899,7 +2915,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:52
 msgid "composition category"
-msgstr ""
+msgstr "categoría de composición"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:57
 msgid "Group Id Event Math Function"
@@ -2907,7 +2923,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:58
 msgid "event math function"
-msgstr ""
+msgstr "función matemática de evento"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:63
 msgid "Group ID ISM States"
@@ -2935,7 +2951,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:81
 msgid "Group ID Measurable Properties"
-msgstr ""
+msgstr "Id de grupo Propiedades de medida"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:82
 msgid "measurable properties"
@@ -2943,7 +2959,7 @@ msgstr "propiedades medibles"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:88
 msgid "Group ID Participation Function"
-msgstr ""
+msgstr "ID de grupo Función de participación"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:89
 msgid "participation function"
@@ -2951,7 +2967,7 @@ msgstr "función de participación"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:94
 msgid "Group ID Participation Mode"
-msgstr ""
+msgstr "ID de grupo Modo de participación"
 
 #: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:95
 msgid "participation mode"

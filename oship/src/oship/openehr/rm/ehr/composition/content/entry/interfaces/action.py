@@ -58,7 +58,7 @@ class IAction(ICareEntry):
     )
     
     instructionDetails=Object(
-        schema=IInstructionDetails(
+        schema=IInstructionDetails,
         title=_(u"Instruction Details"),
         description=_(u"Details of the Instruction causing this Action."),
         required=False,

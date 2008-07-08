@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: oship\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-06-26 17:09+0000\n"
-"PO-Revision-Date: 2008-07-03 16:09+0000\n"
+"PO-Revision-Date: 2008-07-07 10:09+0000\n"
 "Last-Translator: KOBAYASHI, Shinji <skoba@moss.gr.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-07-05 10:40+0000\n"
+"X-Launchpad-Export-Date: 2008-07-08 17:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: site.zcml:38
@@ -82,13 +82,15 @@ msgid "Type of reference: constant, attribute, etc."
 msgstr "参照の型：定数，属性など"
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exproperator.py:35
+#, fuzzy
 msgid "Code of the operator."
-msgstr ""
+msgstr "演算子のコード"
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exproperator.py:41
+#, fuzzy
 msgid ""
 "True if natural precedence of operators is overridden in the expression."
-msgstr ""
+msgstr "この表現で一般的な演算子の優先順位が上書きされるようであれば真"
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exprunaryoperator.py:34
 #, fuzzy
@@ -115,9 +117,10 @@ msgid "Includes"
 msgstr "含む"
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:33
+#, fuzzy
 msgid ""
 "List of constraints defining other archetypes that can be included here."
-msgstr ""
+msgstr "ここに含まれる可能性のある他のアーキタイプを定義する制約のリスト"
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:38
 msgid "Excludes"
@@ -236,8 +239,9 @@ msgid "RM Type Name"
 msgstr "RM型名"
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:37
+#, fuzzy
 msgid "Reference model type that this node corresponds to."
-msgstr ""
+msgstr "このノードに該当する参照モデルの型"
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:42
 msgid "Occurences"
@@ -664,42 +668,52 @@ msgid "Feeder System Item IDs"
 msgstr "フィーダシステムのアイテムID"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:61
+#, fuzzy
 msgid ""
 "Identifiers used for the item in the feeder system, where the feeder \n"
 "                    system is distinct from the originating system. The List "
 "contents are restricted to\n"
 "                    type == DvIdentifiers"
 msgstr ""
+"フィーダーシステムで使われるための識別子\n"
+"フィーダーシステムは発信するシステムとは区別されるものであり，\n"
+"内容のリストはtype == DvIdentifiersに制約されている。"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:68
+#, fuzzy
 msgid "Original Content"
-msgstr ""
+msgstr "大元の内容"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:43
 #: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:40
 #: src/oship/openehr/rm/ehr/ehr.py:32
 #: src/oship/openehr/rm/ehr/interfaces/ehr.py:36
+#, fuzzy
 msgid "System Id"
-msgstr ""
+msgstr "システムID"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:44
+#, fuzzy
 msgid "Identifier of the system which handled the information item."
-msgstr ""
+msgstr "情報アイテムを扱うシステムの識別子"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:49
 msgid "Provider"
-msgstr ""
+msgstr "プロバイダ"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:50
+#, fuzzy
 msgid ""
 "Optional provider(s) who created, committed, forwarded or otherwise \n"
 "        handled the item. Type == PARTY_IDENTIFIED"
 msgstr ""
+"アイテムを作成あるいは，コミットもしくは転送するかその他の処理を\n"
+"行ったその他のプロバイダ。Type == PARTY_IDENTIFIED"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:56
 #: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:63
 msgid "Location"
-msgstr ""
+msgstr "ロケーション"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:57
 msgid ""
@@ -713,7 +727,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:65
 msgid "Time"
-msgstr ""
+msgstr "時間"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:66
 msgid ""
@@ -728,7 +742,7 @@ msgstr ""
 #: src/oship/openehr/rm/ehr/ehrstatus.py:34
 #: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:36
 msgid "Subject"
-msgstr ""
+msgstr "件名"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:74
 msgid "Identifiers for subject of the received information item."
@@ -747,7 +761,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/link.py:48
 msgid "Meaning"
-msgstr ""
+msgstr "意味"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/link.py:49
 msgid ""
@@ -770,8 +784,9 @@ msgstr ""
 #: src/oship/openehr/rm/support/identification/interfaces/accessgroupref.py:51
 #: src/oship/openehr/rm/support/identification/interfaces/objectref.py:57
 #: src/oship/openehr/rm/support/identification/interfaces/partyref.py:59
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "型"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/link.py:61
 msgid ""
@@ -790,7 +805,7 @@ msgstr ""
 #: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:64
 #: src/oship/openehr/rm/demographic/partyrelationship.py:60
 msgid "Target"
-msgstr ""
+msgstr "ターゲット"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/link.py:71
 msgid ""
@@ -806,7 +821,7 @@ msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:46
 msgid "Node ID"
-msgstr ""
+msgstr "ノードID"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:47
 msgid ""
@@ -826,7 +841,7 @@ msgstr ""
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:58
 #: src/oship/openehr/rm/common/generic/interfaces/partyidentified.py:46
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:59
 msgid ""

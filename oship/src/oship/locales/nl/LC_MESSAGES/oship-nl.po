@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: oship\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-06-26 17:09+0000\n"
-"PO-Revision-Date: 2008-07-02 23:07+0000\n"
+"PO-Revision-Date: 2008-07-08 12:13+0000\n"
 "Last-Translator: Roger Erens <roger.erens@e-s-c.biz>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-07-05 10:40+0000\n"
+"X-Launchpad-Export-Date: 2008-07-08 17:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: site.zcml:38
@@ -402,6 +402,8 @@ msgid ""
 "ADL version if archteype was read in from \n"
 "                        an ADL sharable archetype."
 msgstr ""
+"ADL-versie indien het archetype was ingelezen vanuit een ADL-deelbaar "
+"archetype."
 
 #: src/oship/openehr/am/archetype/interfaces/archetype.py:46
 msgid "Archetype Id"
@@ -467,7 +469,7 @@ msgstr "Invarianten"
 
 #: src/oship/openehr/am/archetype/interfaces/archetype.py:83
 msgid "FOPL invariant statements"
-msgstr ""
+msgstr "Instructies die invariant zijn volgens Eerste Orde Predicaten Logica"
 
 #: src/oship/openehr/am/archetype/interfaces/validitykind.py:38
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvparsable.py:44
@@ -547,6 +549,10 @@ msgid ""
 "exists for \n"
 "                    templates at lower levels."
 msgstr ""
+"Mondiaal unieke sjabloonidentificator, indien een sjabloon al actief was op "
+"dit punt in de structuur. Normaliter wordt een sjabloon alleen gebruikt op "
+"het hoogste nivo van een top-level structuur, maar de mogelijkheid bestaat "
+"om sjablonen op lagere nivo's te gebruiken."
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/archetyped.py:57
 msgid "RM Version"

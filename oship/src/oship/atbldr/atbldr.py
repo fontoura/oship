@@ -159,12 +159,12 @@ def bldArchetype(parsed_adl):
     
     
     atObj=Archetype(adl_version,archetype_id,uid,concept,parent_archetype_id,definition,ontology,invariants,rev)            
-    print 'ADL Version: ',atObj.adlVersion        
-    print '__name__ = ', atObj.__name__
-    print 'UID: ', atObj.uid
-    print 'Concept: ',atObj.concept
-    print 'Parent: ', atObj.parentArchetypeId
-    print 'Definition: ',atObj.definition
+    #print 'ADL Version: ',atObj.adlVersion        
+    #print '__name__ = ', atObj.__name__
+    #print 'UID: ', atObj.uid
+    #print 'Concept: ',atObj.concept
+    #print 'Parent: ', atObj.parentArchetypeId
+    #print 'Definition: ',atObj.definition
     
     """
     print 'Ontology: '

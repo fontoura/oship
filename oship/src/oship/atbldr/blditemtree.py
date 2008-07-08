@@ -25,8 +25,8 @@ def bldItemTree(parsed_adl,errlog):
             
         itlist.append(x)
                
-    print itlist,type(itlist)
+    #print itlist,type(itlist)
     itObj= ItemTree(itlist)
-    print type(itObj)
+    #print type(itObj)
     
     return itObj

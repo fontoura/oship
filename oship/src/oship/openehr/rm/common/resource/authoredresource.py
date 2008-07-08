@@ -20,10 +20,8 @@ __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements,classProvides
-from zope.schema import Field
 
-from interfaces.authoredresource import IAuthoredResource
-
+from openehr.rm.common.resource.interfaces.authoredresource import IAuthoredResource
 
 _ = MessageFactory('oship')
 

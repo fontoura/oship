@@ -20,7 +20,7 @@ from zope.schema import TextLine,Dict,List,Object
 from zope.interface import Interface
 
 from openehr.rm.datatypes.text.codephrase import CodePhrase
-from openehr.rm.common.resource.interfaces.authoredresource import IAuthoredResource
+from openehr.rm.support.identification.interfaces.objectref import IObjectRef
 
 _ = MessageFactory('oship')
 
@@ -64,7 +64,7 @@ class IResourceDescription(Interface):
     )
     
     parentResource=Object(
-        schema=IAuthoredResource,
+        schema=IObjectRef,
         title=_(u'Parent Resource'),
         description=_(u""""""),
         required=False

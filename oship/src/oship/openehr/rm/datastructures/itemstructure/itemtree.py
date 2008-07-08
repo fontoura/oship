@@ -23,8 +23,8 @@ from zope.i18nmessageid import MessageFactory
 from zope.interface import implements,classProvides
 
 from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
-from interfaces.itemtree import IItemTree
-from interfaces.itemstructure import IItemStructure
+from openehr.rm.datastructures.itemstructure.interfaces.itemtree import IItemTree
+from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 
 _ = MessageFactory('oship')
 
@@ -39,9 +39,7 @@ class ItemTree(ItemStructure):
     
     def __init__(self,items):
         self.items=items
-        for n,v in kw.items():
-            setattr(self,n,v)
-    
+   
     def hasElementPath(a_path):
         u"""Return True if a_path is a valid leaf element path."""
         

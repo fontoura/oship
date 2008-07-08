@@ -26,12 +26,12 @@ from zope.interface import Interface
 
 from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
-#from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
+from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 
 _ = MessageFactory('oship')
 
 
-class IPartyIdentified(Interface):
+class IPartyIdentified(ILocatable):
     """
     An identity owned by a party.
     """

@@ -19,7 +19,7 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-from objectref import IObjectRef
+from openehr.rm.support.identification.interfaces.objectref import IObjectRef
 
 _ = MessageFactory('oship')
 

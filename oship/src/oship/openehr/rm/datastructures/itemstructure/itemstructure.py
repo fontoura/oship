@@ -34,4 +34,6 @@ class ItemStructure(DataStructure):
     implements(IItemStructure)
     classProvides(IItemStructure)
     
+    pass
+    
     

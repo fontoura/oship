@@ -26,7 +26,7 @@ from zope.interface import Attribute
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
-from openehr.rm.datatypes.encapsulated.dvparsable import DvParsable
+from openehr.rm.datatypes.encapsulated.interfaces.dvparsable import IDvParsable
 
 
 _ = MessageFactory('oship')

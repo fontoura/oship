@@ -20,7 +20,7 @@ from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.common.resource.authoredresource import AuthoredResource
-from interfaces.archetype import IArchetype
+from openehr.am.archetype.interfaces.archetype import IArchetype
 
 _ = MessageFactory('oship')
 

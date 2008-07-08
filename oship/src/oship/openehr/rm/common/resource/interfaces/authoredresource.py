@@ -23,9 +23,9 @@ from zope.interface import Interface
 from zope.schema import Bool,Object
 
 from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
-from openehr.rm.common.resource.translationdetails import TranslationDetails
-from openehr.rm.common.resource.resourcedescription import ResourceDescription
-from openehr.rm.common.generic.revisionhistory import RevisionHistory
+from openehr.rm.common.resource.interfaces.translationdetails import ITranslationDetails
+from openehr.rm.common.resource.interfaces.resourcedescription import IResourceDescription
+from openehr.rm.common.generic.interfaces.revisionhistory import IRevisionHistory
 
 _ = MessageFactory('oship')
 
@@ -39,20 +39,23 @@ class IAuthoredResource(Interface):
         required=True
     )
        
-    translations=TranslationDetails('','','','',
+    translations=Object(
+        schema=ITranslationDetails,
         title=_(u"Translations"),
         description=_(u"Translations"),
         required=False
     )
     
     
-    description=ResourceDescription(
+    description=Object(
+        schema=IResourceDescription,
         title=_(u"Description"),
         description=_(u""""""),
         required=False
     )
        
-    revisionHistory=RevisionHistory('',
+    revisionHistory=Object(
+        schema=IRevisionHistory,
         title=_(u"Revision History"),
         description=_(u""""""),
         required=False

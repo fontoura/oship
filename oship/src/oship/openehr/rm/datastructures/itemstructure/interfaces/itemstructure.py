@@ -30,4 +30,4 @@ class IItemStructure(IDataStructure):
     Abstract parent class of all spatial data types.
     """
     
-    pass
+    

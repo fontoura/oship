@@ -16,10 +16,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import Text, TextLine, Field
+from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-from objectid import IObjectId
+from openehr.rm.support.identification.interfaces.objectid import IObjectId
 
 _ = MessageFactory('oship')
 

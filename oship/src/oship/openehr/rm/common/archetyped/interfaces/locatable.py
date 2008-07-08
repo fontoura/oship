@@ -24,8 +24,7 @@ from zope.i18nmessageid import MessageFactory
 from openehr.rm.support.identification.interfaces.uidbasedid import IUidBasedId
 from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
 from openehr.rm.common.archetyped.interfaces.archetyped import IArchetyped
-from openehr.rm.common.archetyped.interfaces.feederaudit import IFeederAudit
-from pathable import IPathable
+from openehr.rm.common.archetyped.interfaces.pathable import IPathable
 
 _ = MessageFactory('oship')
 

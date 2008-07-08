@@ -45,7 +45,6 @@ from openehr.rm.datatypes.text.codephrase import CodePhrase
 from openehr.rm.datatypes.text.dvtext import DvText
 from openehr.am.archetype.archetype import Archetype
 
-from oship.atdemo.atdemo import ATDemo
 from blddefinition import bldDefinition
 from bldinvariants import bldInvariants
 from bldontolgy import bldOntology
@@ -71,6 +70,7 @@ conn=db.open()
 root=conn.root()
 
 # Setup the database for OSHIP - Each section gets a sitemanager.
+
 if 'AR' not in root['Application']:
     root['Application']['AR']=folder.Folder()
     sm = LocalSiteManager(root['Application']['AR'])
@@ -87,8 +87,7 @@ if 'DEMOGRAPHICS' not in root['Application']:
     root['Application']['DEMOGRAPHICS']=folder.Folder()
     sm = LocalSiteManager(root['Application']['DEMOGRAPHICS'])
     root['Application']['DEMOGRAPHICS'].setSiteManager(sm)
-    transaction.commit()
-    
+    transaction.commit()    
 
 logDir=os.getcwd().rstrip('src/oship/atbldr')+'/oship/log/'
 errlog=open(logDir+'ADL14parse_errors.log', 'w')

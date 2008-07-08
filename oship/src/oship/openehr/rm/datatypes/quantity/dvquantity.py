@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 
 from dvamount import DvAmount
 
@@ -36,6 +36,7 @@ class DvQuantity(DvAmount):
     """
     
     implements(IDvQuantity)
+    classProvides(IDvQuantity)
     
     def __init__(self,magnitude,units,precision):
         self.magnitude=magnitude

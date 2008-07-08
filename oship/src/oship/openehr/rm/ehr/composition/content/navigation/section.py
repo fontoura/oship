@@ -19,7 +19,7 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from interfaces.section import ISection
 from openehr.rm.ehr.composition.content.contentitem import ContentItem
@@ -32,6 +32,7 @@ class Section(ContentItem):
     """
 
     implements(ISection)
+    classProvides(ISection)
     
     def __init__(self,items,**kwargs):
         self.items=items

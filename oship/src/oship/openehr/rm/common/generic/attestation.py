@@ -18,7 +18,7 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 from interfaces.attestation import IAttestation
@@ -33,16 +33,15 @@ class Attestation(AuditDetails):
     """
     
     implements(IAttestation)
+    classProvides(IAttestation)
     
-    def __init__(self,aview,proof,items,reason,ispend,**kw):
+    def __init__(self,aview,proof,items,reason,ispend):
         self.attestedView=aview
         self.proof=proof
         self.items=items
         self.reason=reason
         self.isPending=ispend
-        for n,v in kw.items():
-            setattr(self,n,v)
-    
+   
     def itemsValid():
         u"""items != None items != '' """
         

@@ -20,7 +20,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from item import Item
 from interfaces.element import IElement
@@ -31,6 +31,7 @@ class Element(Item):
     u"""The leaf variant of ITEM, to which a DATA_VALUE instance is attached."""
  
     implements(IElement)
+    classProvides(IElement)
     
     def __init__(self,value,nullFlavor,**kw):
         self.value=value

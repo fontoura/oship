@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from interfaces.ismtransition import IIsmTransition
 from openehr.rm.common.archetyped.pathable import Pathable
@@ -35,8 +35,9 @@ class IsmTransition(Pathable):
     """
     
     implements(IIsmTransition)
+    classProvides(IIsmTransition)
     
-    def __init__(self,cstate,trans,cfs,**kwargs):
+    def __init__(self,cstate,trans,cfs):
         self.currentState=cstate
         self.transition=trans
         self.careflowStep=cfs

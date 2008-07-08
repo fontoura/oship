@@ -17,7 +17,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
 
@@ -26,8 +26,9 @@ from interfaces.basicdefinitions import IBasicDefinitions
 _ = MessageFactory('oship')
 
 
-class BasicDefinitions(Field):
+class BasicDefinitions(object):
     """ Defines globally used constant values. """
     
     implements(IBasicDefinitions)
+    classProvides(IBasicDefinitions)
 

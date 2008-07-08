@@ -31,8 +31,8 @@ class ImportedVersion(Version):
     """
     
     item=OriginalVersion(
-        title=_("Item"),
-        description=_("""Original Version object that was imported."""),
+        title=_(u"Item"),
+        description=_(u"""Original Version object that was imported."""),
         required=True
     )
     

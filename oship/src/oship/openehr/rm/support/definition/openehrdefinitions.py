@@ -18,7 +18,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-
+from zope.interface import implements,classProvides
 from basicdefinitions import BasicDefinitions
 
 _ = MessageFactory('oship')
@@ -27,3 +27,4 @@ class OpenehrDefinitions(BasicDefinitions):
     """ Inheritance class to provide access to constants defined in other packages."""
     
     implements(IOpenehrDefinitions)
+    classProvides(IOpenehrDefinitions)

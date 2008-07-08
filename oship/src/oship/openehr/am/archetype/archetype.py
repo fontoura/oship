@@ -16,7 +16,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.common.resource.authoredresource import AuthoredResource
@@ -32,8 +32,9 @@ class Archetype(AuthoredResource):
     """
     
     implements(IArchetype)
+    classProvides(IArchetype)
     
-    def __init__(self,adlver,atid,uid,concept,paid,defin,ont,inv,rev,**kw):
+    def __init__(self,adlver,atid,uid,concept,paid,defin,ont,inv,rev):
         self.adlVersion=adlver
         self.archetypeId=atid
         self.uid=uid
@@ -44,8 +45,6 @@ class Archetype(AuthoredResource):
         self.invariants=inv
         self.revisionHistory=rev
         self.__name__ = atid
-        for n,v in kw.items():
-            setattr(self,n,v)
     
     def version():
         """

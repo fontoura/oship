@@ -18,31 +18,29 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 
 from interfaces.archetypeontology import IArchetypeOntology
 
 _ = MessageFactory('oship')
    
-class ArchetypeOntology(Field):
+class ArchetypeOntology(object):
     """
     Local ontology of an archetype.
     """
     
     implements(IArchetypeOntology)
+    classProvides(IArchetypeOntology)
     
-    def __init__(self,tavail,sdepth,tcodes,ccodes,tanames,parent,**kw):
+    def __init__(self,tavail,sdepth,tcodes,ccodes,tanames,parent):
         self.terminolgiesAvailable=tavail
         self.specialisationDepth=sdepth
         self.termCodes=tcodes
         self.constraintCodes=ccodes
         self.termAttributeNames=tanames
         self.parentArchetype=parent        
-        self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)
-    
+     
 
     def hasLanguage(aLang):
         """

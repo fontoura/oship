@@ -16,24 +16,22 @@
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory
 from interfaces.codephrase import ICodePhrase
 
 _ = MessageFactory('oship')
 
-class CodePhrase(Field):
+class CodePhrase(object):
     """
     A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
     minology service (as distinct from a particular terminology).
     """
     
     implements(ICodePhrase)
+    classProvides(ICodePhrase)
     
-    def __init__(self, terminologyId, codeString,**kw):
+    def __init__(self, terminologyId, codeString):
         self.terminologyId=terminologyId
         self.codeString=codeString
-        self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)

@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory
 
@@ -24,18 +24,17 @@ from interfaces.assertion import IAssertion
 
 _ = MessageFactory('oship')
 
-class Assertion(Field):
+class Assertion(object):
     """
     Structural model of a typed first order predicate logic assertion
     in the forma of an expression tree including optional variable definitions.
     """
     
     implements(IAssertion)
-    
-    def __init__(self,tag,expr,sexpr,var,**kw):
+    classProvides(IAssertion)
+
+    def __init__(self,tag,expr,sexpr,var):
         self.tag=tag
         self.expression=expr
         self.stringExpression=sexpr
         self.variables=var
-        for n,v in kw.items():
-            setattr(self,n,v)

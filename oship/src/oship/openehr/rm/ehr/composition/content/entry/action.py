@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from careentry import CareEntry
 from interfaces.action import IAction
@@ -34,13 +34,11 @@ class Action(CareEntry):
     """
     
     implements(IAction)
+    classProvides(IAction)
     
-    def __init__(self,time,desc,ism,inst,**kw):
+    def __init__(self,time,desc,ism,inst):
         self.time=time
         self.description=desc
         self.ismTransition=ism
         self.instructionDetails=inst
-        self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)
             

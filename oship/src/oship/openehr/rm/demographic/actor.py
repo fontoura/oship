@@ -19,7 +19,7 @@ Demographic Information Model package Rev. 2.0.1
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 from interfaces.actor import IActor
@@ -33,6 +33,7 @@ class Actor(Party):
     """
     
     implements(IActor)
+    classProvides(IActor)
     
     def __init__(self, roles,languages,**kw):
         self.roles=roles

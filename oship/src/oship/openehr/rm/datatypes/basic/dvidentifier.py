@@ -16,8 +16,8 @@ From the data types specification Rev 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements 
-rom zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements,classProvides 
+from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.rm.datatypes.basic.datavalue import DataValue
 from interfaces.dvidentifier import IDvIdentifier
@@ -37,6 +37,7 @@ class DvIdentifier(DataValue):
     """
 
     implements(IDvIdentifier)
+    classProvides(IDvIdentifier)
     
     def __init__(self, issuer, assignor, id, type):
         if issuer != None and issuer != '':

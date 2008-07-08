@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory 
 
 from uid import Uid
@@ -33,6 +33,7 @@ class Uuid(Uid):
     """
 
     implements(IUuid)
+    classProvides(IUuid)
     
     def __init__(self, value,**kw):
         self.value = value

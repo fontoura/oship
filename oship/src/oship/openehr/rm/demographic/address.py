@@ -20,7 +20,7 @@ __docformat__ = u'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from openehr.rm.common.archetyped.locatable import Locatable
 
@@ -32,8 +32,8 @@ class Address(Locatable):
     """
     
     details=ItemStructure(
-        title=_("Details"),
-        description=_("The details of the address."),
+        title=_(u"Details"),
+        description=_(u"The details of the address."),
         required=False,
     )
     

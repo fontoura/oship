@@ -22,13 +22,11 @@ from zope.i18nmessageid import MessageFactory
 _ = MessageFactory('oship')
 
 
-class GenericEntry(Field):
+class GenericEntry(object):
     """
     This class is used to create intermediate representations of data from sources not
     otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.
     """
 
-    def __init__(self, data,**kw):
+    def __init__(self, data):
         self.data=data
-        for n,v in kw.items():
-            setattr(self,n,v)

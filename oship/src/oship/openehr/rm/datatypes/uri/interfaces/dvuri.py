@@ -44,26 +44,26 @@ class IDvUri(IURI):
         )
     
     scheme=TextLine(
-        title = _("Scheme"),
-        description = _("""Distributed information space."""),
+        title = _(u"Scheme"),
+        description = _(u"""Distributed information space."""),
         required = True,
         )
     
     path=TextLine(
-        title = _("Path"),
-        description = _("""_"""),
+        title = _(u"Path"),
+        description = _(u"""_"""),
         required = True,
         )
     
     fragmentId=TextLine(
-        title = _("FragmentId"),
-        description = _("""_"""),
+        title = _(u"FragmentId"),
+        description = _(u"""_"""),
         required = True,
         )
     
     query=TextLine(
-        title = _("Query"),
-        description = _("""_"""),
+        title = _(u"Query"),
+        description = _(u"""_"""),
         required = True,
         )
     

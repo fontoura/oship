@@ -35,8 +35,8 @@ class IEvaluation(ICareEntry):
     
     data=Object(
         schema=IItemStructure,
-        title=_("Data"),
-        description=_("The data of this evaluation."),
+        title=_(u"Data"),
+        description=_(u"The data of this evaluation."),
         required=True,
     )
     

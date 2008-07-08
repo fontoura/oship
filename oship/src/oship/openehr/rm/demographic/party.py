@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from openehr.rm.common.archetyped.locatable import Locatable
 
@@ -32,48 +32,8 @@ class Party(Locatable):
     Ancestor of all party types.
     """
     
-    uid=HierObjectId(
-        title=_("UID"),
-        description=_("Identifier of this party."),
-        required=True,
-    )
-    
-    identities=Set(
-        title=_("Indentities"),
-        description=_("Identities used by the party to identify itself."),
-        required=True,
-    )
-    
-    contacts=Set(
-        title=_("Contacts"),
-        description=_("Contacts for this party."),
-        required=True,
-    )
-    
-    category=DvCodedText(
-        title=_("Category"),
-        description=_("Defines the broad category of this composition."),
-        required=False,
-    )
-    
-    language=CodePhrase('','',
-        title=_("Language"),
-        description=_("Indicator of the localised language where this composition was created."),
-        required=True,
-    )
-    
-    relationships=Set(
-        title=_("Relationships"),
-        description=_("Relationships in which this role takes part as target."),
-        required=False,
-    )
-    
-    details=ItemStructure(
-        title=_("Details"),
-        description=_("All other party details."),
-        required=False,
-    )
-    
+    pass
+
     def type():
         """
         Return the type of party from the inherited 'name' attribute.

@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from entry import Entry
 from interfaces.adminentry import IAdminEntry
@@ -41,6 +41,7 @@ class AdminEntry(Entry):
     """
     
     implements(IAdminEntry)
+    classProvides(IAdminEntry)
     
-    def __init__(self,data,**kwargs):
+    def __init__(self,data):
         self.data=data

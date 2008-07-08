@@ -17,12 +17,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.schema import Field, TextLine
-from zope.schema.interfaces import IField
+from zope.interface import Interface
 from zope.i18nmessageid.message import MessageFactory
 
 _ = MessageFactory('oship')
 
-class ICodePhrase(IField):
+class ICodePhrase(Interface):
     """
     A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
     minology service (as distinct from a particular terminology).

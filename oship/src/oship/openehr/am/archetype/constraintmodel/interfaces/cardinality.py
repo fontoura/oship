@@ -31,20 +31,20 @@ class ICardinality(Interface):
     """
     
     isOrdered=Bool(
-        title=_("Ordered"),
-        description=_("True if members are ordered."),
+        title=_(u"Ordered"),
+        description=_(u"True if members are ordered."),
         required=True,
     )
 
     isUnique=Bool(
-        title=_("Unique"),
-        description=_("True if members are unique."),
+        title=_(u"Unique"),
+        description=_(u"True if members are unique."),
         required=True,
     )
 
     interval=Interval(
-        title=_("Interval"),
-        description=_("Interval of this cardinality."),
+        title=_(u"Interval"),
+        description=_(u"Interval of this cardinality."),
         required=True,
     )
 

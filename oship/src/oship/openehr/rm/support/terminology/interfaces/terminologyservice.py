@@ -17,7 +17,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehrcodesetidentifiers import IOpenehrCodeSetIdentifiers

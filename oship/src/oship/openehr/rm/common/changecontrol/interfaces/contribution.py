@@ -40,7 +40,7 @@ class IContribution(IContainer):
     
     versions=Set(
         title=_(u'Versions'),
-        description=_("""Set of references to versions causing changes to
+        description=_(u"""Set of references to versions causing changes to
                       this EHR. Each contribution contains a list of versions
                       which may include paths pointing to any number of 
                       VERSIONABLE items, i.e. items of type COMPOSITION and FOLDER."""),
@@ -48,8 +48,8 @@ class IContribution(IContainer):
     )
    
     audit=AuditDetails(
-        title=_('Audit'),
-        description=_("""Audit trail corresponding to the committal of this Contribution."""),
+        title=_(u'Audit'),
+        description=_(u"""Audit trail corresponding to the committal of this Contribution."""),
         required=True
     )
     

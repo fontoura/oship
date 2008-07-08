@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory
 
@@ -24,16 +24,15 @@ from interfaces.terminologyaccess import ITerminologyAccess
 
 _ = MessageFactory('oship')
 
-class TerminologyAccess(Field):
+class TerminologyAccess(object):
     """
     Defines an object providing proxy access to a terminology.
     """
     implements(ITerminologyAccess)
+    classProvides(ITerminologyAccess)
 
-    def __init__(self,id,**kw):
+    def __init__(self,id):
         self.id=id
-        for n,v in kw.items():
-            setattr(self,n,v)
         
     def allCodes():
         u""" Return all codes known in this terminology """

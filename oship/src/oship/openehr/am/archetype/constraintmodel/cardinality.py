@@ -18,18 +18,19 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.schema import Field
+from zope.interface import implements,classProvides
    
 from interfaces.cardinality import ICardinality
 
 _ = MessageFactory('oship')
 
-class Cardinality(Field):
+class Cardinality(object):
     """
     Expresses constraints on the cardinality of container classes.
     """
     
     implements(ICardinality)
+    classProvides(ICardinality)
     
     def isBag():
         """

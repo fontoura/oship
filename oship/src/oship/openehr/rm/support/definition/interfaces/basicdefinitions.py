@@ -18,13 +18,13 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.schema import TextLine, Field
-from zope.schema.interfaces import IField
+from zope.interface import Interface
 from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
 
 
-class IBasicDefinitions(IField):
+class IBasicDefinitions(Interface):
     """ Defines globally used constant values. """
     
     cr = TextLine(

@@ -18,7 +18,7 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 from zope.i18nmessageid import MessageFactory
 
@@ -27,7 +27,7 @@ from interfaces.feederauditdetails import IFeederAuditDetails
 _ = MessageFactory('oship')
         
         
-class FeederAuditDetails(Field):
+class FeederAuditDetails(object):
     u"""
     Audit details for any system in a feeder system chain. Audit details here means
     the general notion of who/where/when the information item to which the audit is
@@ -37,16 +37,15 @@ class FeederAuditDetails(Field):
     """
 
     implements(IFeederAuditDetails)
+    classProvides(IFeederAuditDetails)
     
-    def __init__(self,sysid,provider,location,time,subject,verid,**kw):
+    def __init__(self,sysid,provider,location,time,subject,verid):
         self.systemId=sysid
         self.provider=provider
         self.location=location
         self.time=time
         self.subject=subject
         self.versionId=verid
-        for n,v in kw.items():
-            setattr(self,n,v)
     
     def systemIdValid():
         u"""systemId != None and  systemId != '' """

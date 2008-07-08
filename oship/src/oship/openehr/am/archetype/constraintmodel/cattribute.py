@@ -18,18 +18,19 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 
 from interfaces.cattribute import ICAttribute
 
 _ = MessageFactory('oship')
 
-class CAttribute(Field):
+class CAttribute(object):
     """
     Abstract model of constraint on any kind of attribute code.
     """
     
     implements(ICAttribute)
+    classProvides(ICAttribute)
     
     pass

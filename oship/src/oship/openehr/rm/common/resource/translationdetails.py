@@ -19,7 +19,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import TextLine,Dict,Field
 
 from openehr.rm.datatypes.text.codephrase import CodePhrase
@@ -27,44 +27,15 @@ from interfaces.translationdetails import ITranslationDetails
 
 _ = MessageFactory('oship')
 
-class TranslationDetails(Field):
+class TranslationDetails(object):
     u""" """
     
     implements(ITranslationDetails)
+    classProvides(ITranslationDetails)
     
-    def __init__(self,lang,author,accred,other,**kw):
+    def __init__(self,lang,author,accred,other):
         self.language=lang
         self.author=author
         self.accreditation=accred
         self.otherDetails=other
-        self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)
-    
-    """
-    language=CodePhrase('','',
-        title=_(u'Language'),
-        description=_(u""""""),
-        required=True
-    )
-
-    author=Dict(
-        title=_(u'Author'),
-        description=_(u""""""),
-        required=True
-    )
-    
-    accreditation=TextLine(
-        title=_(u'Accreditation'),
-        description=_(u""""""),
-        required=False
-    )    
-    
-    otherDetails=Dict(
-        title=_(u'Other Details'),
-        description=_(u""""""),
-        required=False
-    )
-    """
-    
-    
+   

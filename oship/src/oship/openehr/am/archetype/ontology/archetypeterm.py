@@ -17,23 +17,22 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 
 from interfaces.archetypeterm import IArchetypeTerm
 
-class ArchetypeTerm(Field):
+class ArchetypeTerm(object):
     """
     Representation of any coded entity in the archetype ontology.
     """
     
     implements(IArchetypeTerm)
+    classProvides(IArchetypeTerm)
     
-    def __init__(self,code,items,**kw):
+    def __init__(self,code,items):
         self.code=code
         self.items=items
-        for n,v in kw.items():
-            setattr(self,n,v)
     
     def keys(set):
         """

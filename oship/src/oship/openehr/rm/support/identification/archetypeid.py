@@ -17,7 +17,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
 
 from objectid import ObjectId
@@ -72,12 +72,10 @@ class ArchetypeId(ObjectId):
     """
 
     implements(IArchetypeId)
+    classProvides(IArchetypeId)
 
-    def __init__(self, value,**kw):
+    def __init__(self, value):
         self.value = value
-        self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)
 
 
     def valueExists(): 

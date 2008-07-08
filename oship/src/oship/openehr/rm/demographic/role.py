@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from party import Party
 
@@ -32,22 +32,4 @@ class Role(Party):
     Generic role played by a party.
     """
     
-    capabilities=List(
-        title=_("Capabilities"),
-        description=_("Capabilities of this role."),
-        required=False,
-    )
-    
-    timeValidity=DvInterval(
-        title=_("Time Validity"),
-        description=_("Valid time interval for this role."),
-        required=False,
-    )
-    
-    
-    performer=PartyRef(
-        title=_("Performer"),
-        description=_("Reference to Version container of Actor playing this role."),
-        required=True,
-    )
-
+    pass 

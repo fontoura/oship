@@ -20,7 +20,7 @@ from zope.schema import Field
 
 _ = MessageFactory('oship')
 
-class ResourceDescriptionItem(Field):
+class ResourceDescriptionItem(object):
     u"""Language-specific detail of resource description. When a resource is translated
         for use in another language environment, each RESOURCE_DESCRIPTION_ITEM
         needs to be copied and translated into the new language.

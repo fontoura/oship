@@ -19,7 +19,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 
 from interfaces.version import IVersion
@@ -27,23 +27,22 @@ from interfaces.version import IVersion
 _ = MessageFactory('oship')
 
         
-class Version(Field):
+class Version(object):
     u"""
     Abstract model of one Version within a Version container, containing 
     data, commit audit trail, and the identifier of its Contribution.
     """
 
     implements(IVersion)
+    classProvides(IVersion)
     
-    def __init__(self,uid,preVid,data,lcstate,caudit,contr,sig,**kw):
+    def __init__(self,uid,preVid,data,lcstate,caudit,contr,sig):
         self.uid=uid
         self.precedingVersionId=preVid
         self.data=data
         self.lifecycleState=lcstate
         self.commitAudit=caudit
         self.signature=sig
-        for n,v in kw.items():
-            setattr(self,n,v)
                         
     def ownerId():
         u"""Unique identifier of the owning VERSIONED_OBJECT.

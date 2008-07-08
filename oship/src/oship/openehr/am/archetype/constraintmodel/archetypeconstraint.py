@@ -17,7 +17,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Container
 
 from interfaces.archetypeconstraint import IArchetypeConstraint
@@ -30,6 +30,7 @@ class ArchetypeConstraint(Container):
     """
     
     implements(IArchetypeConstraint)
+    classProvides(IArchetypeConstraint)
     
     def isSubsetOf(other):
         u"""True if constraints are narrower than this node."""

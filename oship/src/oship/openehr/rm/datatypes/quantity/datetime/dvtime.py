@@ -18,7 +18,7 @@ __docformat__ = u'plaintext'
 
 from time import time
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory
 
 from dvtemporal import DvTemporal
@@ -37,6 +37,7 @@ class DvTime(DvTemporal):
     """
 
     implements(IDvTime)
+    classProvides(IDvTime)
 
     def __init__(self,value):
         self.value=time(value)

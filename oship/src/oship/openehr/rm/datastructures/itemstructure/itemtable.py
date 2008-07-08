@@ -20,7 +20,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 
 from itemstructure import ItemStructure
 from interfaces.itemtable import IItemTable
@@ -45,11 +45,10 @@ class ItemTable(ItemStructure):
     """
       
     implements(IItemTable)
+    classProvides(IItemTable)
     
-    def __init__(self,rows,**kw):
+    def __init__(self,rows):
         self.rows=rows
-        for n,v in kw.items():
-            setattr(self,n,v)
     
     def rowCount():
         u"""Return number of rows as an integer."""

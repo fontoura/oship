@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.common.archetyped.locatable import Locatable 
@@ -34,15 +34,14 @@ class Event(Locatable):
     """
     
     implements(IEvent)
+    classProvides(IEvent)
     
-    def __init__(self,time,data,state,parent,offset,**kw):
+    def __init__(self,time,data,state,parent,offset):
         self.time=time
         self.data=data
         self.state=state
         self.parent=parent
         self.offset=offset
-        for n,v in kw.items():
-            setattr(self,n,v)
     
 
     def offsetValidity(event):

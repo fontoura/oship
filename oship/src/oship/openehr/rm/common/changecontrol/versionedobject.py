@@ -19,7 +19,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Container
 
 _ = MessageFactory('oship')
@@ -31,14 +31,13 @@ class VersionedObject(Container):
     """
     
     implements(IVersionedObject)
+    classProvides(IVersionedObject)
     
-    def __init__(self,uid,ownerId,timeCreated,**kw):
+    def __init__(self,uid,ownerId,timeCreated):
         self.uid=uid
         self.ownerId=ownerId
         self.timeCreated=timeCreated
-        for n,v in kw.items():
-            setattr(self,n,v)
-    
+     
     def allVersions():
         u"""Return a list of all versionsin this object. List <VERSION<T>>"""
         

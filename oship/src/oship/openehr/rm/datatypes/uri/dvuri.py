@@ -19,7 +19,7 @@ URI Package Rev. 2.1.0.
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import URI
 from zope.i18nmessageid import MessageFactory
 
@@ -40,15 +40,14 @@ class DvUri(DataValue,URI):
     of functions return the logical subparts of the URI string."""
     
     implements(IDvUri)
+    classProvides(IDvUri)
 
-    def __init__(self, value,scheme,path,fragmentId,query,**kw):
+    def __init__(self, value,scheme,path,fragmentId,query):
         self.value = value
         self.scheme=scheme
         self.path=path
         self.fragmentId=fragmentId
         self.query=query
-        for n,v in kw.items():
-            setattr(self,n,v)
 
     
     def scheme():

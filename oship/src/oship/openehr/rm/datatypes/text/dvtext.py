@@ -15,7 +15,7 @@ From the data types specification Rev 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.datatypes.basic.datavalue import DataValue
@@ -36,14 +36,13 @@ class DvText(DataValue):
     """
 
     implements(IDvText)
+    classProvides(IDvText)
     
-    def __init__(self, value, mappings, formatting, hyperlink, language, encoding,**kw):
+    def __init__(self, value, mappings, formatting, hyperlink, language, encoding):
         self.value = value
         self.mappings = mappings
         self.formatting = formatting
         self.hyperlink = hyperlink
         self.language = language
         self.encoding = encoding
-        self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)
+ 

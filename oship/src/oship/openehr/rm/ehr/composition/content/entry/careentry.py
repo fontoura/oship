@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from entry import Entry
 from interfaces.careentry import ICareEntry
@@ -36,8 +36,9 @@ class CareEntry(Entry):
     """
 
     implements(ICareEntry)
+    classProvides(ICareEntry)
     
-    def __init__(self,protocol,gid,**kwargs):
+    def __init__(self,protocol,gid):
         self.protocol=protocol
         self.guidelineId=gid
             

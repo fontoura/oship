@@ -29,8 +29,8 @@ class IExprItem(Interface):
     """
     
     type=TextLine(
-        title_("Type"),
-        description=_("Mathematical type name of this expression."),
+        title=_(u"Type"),
+        description=_(u"Mathematical type name of this expression."),
         required=True,
     )
 

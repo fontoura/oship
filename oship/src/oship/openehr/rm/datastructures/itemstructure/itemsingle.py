@@ -20,7 +20,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 
 from itemstructure import ItemStructure
 from interfaces.itemsingle import IItemSingle
@@ -34,11 +34,10 @@ class ItemSingle(ItemStructure):
     """
     
     implements(IItemStructure)
+    classProvides(IItemStructure)
     
-    def __init__(self,item,**kw):
+    def __init__(self,item):
         self.item=item
-        for n,v in kw.items():
-            setattr(self,n,v)
         
     
     def asHierarchy():

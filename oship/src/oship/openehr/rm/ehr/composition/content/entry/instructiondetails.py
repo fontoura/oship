@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from openehr.rm.common.archetyped.pathable import Pathable
 from interfaces.instructiondetails import IInstructionDetails
@@ -35,8 +35,9 @@ class InstructionDetails(Pathable):
     """
     
     implements(IInstructionDetails)
+    classProvides(IInstructionDetails)
     
-    def __init__(self,inst,actid,wfd,**kwargs):
+    def __init__(self,inst,actid,wfd):
         self.instructionId=inst
         self.activityId=actid
         self.wfDetails=wfd

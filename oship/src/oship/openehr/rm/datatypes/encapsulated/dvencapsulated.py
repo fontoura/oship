@@ -19,7 +19,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.rm.datatypes.basic.datavalue import DataValue
@@ -32,6 +32,7 @@ class DvEncapsulated(DataValue):
     """Abstract class defining the common meta-data of all types of encapsulated data."""
 
     implements(IDvEncapsulated)
+    classProvides(IDvEncapsulated)
 
     def __init__(self,size,charset,language):
         self.size=size

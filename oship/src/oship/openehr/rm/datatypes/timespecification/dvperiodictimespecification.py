@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from interfaces.dvperiodictimespecification import IDvPeriodicTimeSpecification
 from dvtimespecification import DvTimeSpecification
@@ -34,6 +34,7 @@ class DvPeriodicTimeSpecification(DvTimeSpecification):
     """
     
     implements(IDvPeriodicTimeSpecification)
+    classProvides(IDvPeriodicTimeSpecification)
 
     def __init__(self,value):
         self.value=value        

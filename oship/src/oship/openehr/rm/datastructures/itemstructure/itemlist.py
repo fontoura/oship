@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 
 from itemstructure import ItemStructure
 from interfaces.itemlist import IItemList
@@ -30,13 +30,13 @@ class ItemList(ItemStructure):
     Logical list data structure, where each item has a value and can be referred to by a name 
     and a positional index in the list. The list may be empty.
     """
+
     implements(IItemList)
+    classProvides(IItemList)
     
-    def __init__(self,items,**kw):
+    def __init__(self,items):
         self.item=items
-        for n,v in kw.items():
-            setattr(self,n,v)
-       
+      
     
     def itemCount():
         u"""Count of all items."""

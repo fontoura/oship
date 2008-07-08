@@ -32,7 +32,7 @@ class IAssertion(Interface):
     """
     
     tag=TextLine(
-        title_(u"Tag"),
+        title=_(u"Tag"),
         description=_(u"Used for differentiating multiple assertions."),
         required=False,
     )
@@ -45,13 +45,13 @@ class IAssertion(Interface):
     )
 
     stringExpression=TextLine(
-        title_(u"String Expression"),
+        title=_(u"String Expression"),
         description=_(u"String form of expression."),
         required=False,
     )
 
     variables=List(
-        title_(u"Variables"),
+        title=_(u"Variables"),
         description=_(u"Variable definitions used in the assertion."),
         required=False,
     )

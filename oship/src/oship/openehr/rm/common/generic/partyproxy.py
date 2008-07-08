@@ -18,7 +18,7 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.common.archetyped.locatable import Locatable
@@ -35,9 +35,8 @@ class PartyProxy(Locatable):
     """
     
     implements(IPartyProxy)
+    classProvides(IPartyProxy)
     
-    def __init__(self,extref,**kw):
+    def __init__(self,extref):
         self.externalRef=extref
-        for n,v in kw.items():
-            setattr(self,n,v)
         

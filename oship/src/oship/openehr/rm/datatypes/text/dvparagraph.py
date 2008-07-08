@@ -16,7 +16,7 @@ From the data types specification Rev 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.datatypes.basic.datavalue import DataValue
@@ -33,7 +33,8 @@ class DvParagraph(DataValue):
     ries, reports and so on.
     """
 
-    implements(IDvParagraph)    
+    implements(IDvParagraph)
+    classProvides(IDvParagraph)
     
     def __init__(self,items):
         self.items=items                

@@ -18,7 +18,7 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 from zope.i18nmessageid import MessageFactory
 
@@ -26,7 +26,7 @@ from interfaces.participation import IParticipation
 
 _ = MessageFactory('oship')        
         
-class Participation(Field):
+class Participation(object):
     u"""
     Model of a participation of a Party (any Actor or Role) in an activity.
     
@@ -38,14 +38,13 @@ class Participation(Field):
     """
     
     implements(IParticipation)
+    classProvides(IParticipation)
     
-    def __init_(self,performer,function,mode,time,**kw):
+    def __init_(self,performer,function,mode,time):
         self.performer=performer
         self.function=function
         self.mode=mode
         self.time=time
-        for n,v in kw.items():
-            setattr(self,n,v)
      
    
     def performerValid():

@@ -26,13 +26,13 @@ class IArchetypeTerm(Interface):
     """
     
     code=TextLine(
-        title_(u"Code"),
+        title=_(u"Code"),
         description=_(u"Code of this term."),
         required=True,
     )
 
     items=Dict(
-        title_(u"Items"),
+        title=_(u"Items"),
         description=_(u"Hash of keys (text,description) and corresponding values."),
         required=False,
     )

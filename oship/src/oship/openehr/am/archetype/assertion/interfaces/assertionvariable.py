@@ -29,13 +29,13 @@ class IAssertionVariable(Interface):
     """
     
     name=TextLine(
-        title_(u"Name"),
+        title=_(u"Name"),
         description=_(u"Name of variable."),
         required=True,
     )
 
     definition=TextLine(
-        title_(u"Definition"),
+        title=_(u"Definition"),
         description=_(u"Formal definition of variable."),
         required=True,
     )

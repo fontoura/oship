@@ -22,15 +22,16 @@ __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.schema import Object
+from zope.interface import Interface
 
 from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
-from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
+#from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 
 _ = MessageFactory('oship')
 
 
-class IPartyIdentity(ILocatable):
+class IPartyIdentified(Interface):
     """
     An identity owned by a party.
     """
@@ -43,7 +44,7 @@ class IPartyIdentity(ILocatable):
     )
     
     purpose=Object(
-        schema=IDvtext,
+        schema=IDvText,
         title=_(u"Purpose"),
         description=_(u"Purpose fo this identitiy."),
         required=True,

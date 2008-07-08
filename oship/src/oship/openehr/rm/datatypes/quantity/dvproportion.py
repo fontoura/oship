@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from dvamount import DvAmount
 from interfaces.dvproportion import IDvProportion,IProportionKind
@@ -41,6 +41,7 @@ class DvProportion(DvAmount,ProportionKind):
     """
 
     implements(IDvProportion)
+    classProvides(IDvProportion)
     
     def __init__(self, numerator, denominator, type, precision):
         if isinstance(numerator, float) or isinstance(numerator, int):

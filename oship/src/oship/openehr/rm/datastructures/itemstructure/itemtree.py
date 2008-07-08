@@ -22,7 +22,7 @@ __docformat__ = u'plaintext'
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements,classProvides
 
-from itemstructure import ItemStructure
+from openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
 from interfaces.itemtree import IItemTree
 from interfaces.itemstructure import IItemStructure
 
@@ -37,7 +37,7 @@ class ItemTree(ItemStructure):
     implements(IItemTree)
     classProvides(IItemStructure)
     
-    def __init__(self,items,**kw):
+    def __init__(self,items):
         self.items=items
         for n,v in kw.items():
             setattr(self,n,v)

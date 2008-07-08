@@ -21,29 +21,22 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from openehr.rm.common.archetyped.locatable import Locatable
-
+from interfaces.partyidentified import IPartyIdentified
 _ = MessageFactory('oship')
 
-class PartyIdentity(Locatable):
+class PartyIdentified(Locatable):
     """
     An identity owned by a party.
     """
     
-    details=ItemStructure(
-        title=_("Details"),
-        description=_("The value of the identitiy"),
-        required=False,
-    )
+    implements(IPartyIdentified)
+    classProvides(IPartyIdentified)
     
-    purpose=Dvtext(
-        title=_("Purpose"),
-        description=_("Purpose fo this identitiy."),
-        required=True,
-    )
-    
+    pass
+
     def asString():
         """
         Indentity in the form of a string.

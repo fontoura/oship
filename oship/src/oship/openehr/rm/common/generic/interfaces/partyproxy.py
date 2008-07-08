@@ -19,9 +19,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 
 from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.support.identification.partyref import PartyRef
+from openehr.rm.support.identification.interfaces.partyref import IPartyRef
 
 _ = MessageFactory('oship')
 
@@ -33,12 +34,12 @@ class IPartyProxy(ILocatable):
     system. Subtyped into PARTY_IDENTIFIED and PARTY_SELF.
     """
     
-    externalRef = PartyRef('','','',
+    externalRef = Object(
+        schema=IPartyRef,
         title=_(u"External Reference"),
         description=_(u"""Optional reference to more detailed demographic or 
                     identification information for this party, in an external 
                     system. Type == PartyRef."""),
-        #constraint = isinstance(PartyRef),
         required=False,
         )
 

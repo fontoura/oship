@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from careentry import CareEntry
 from interfaces.evaluation import IEvaluation
@@ -35,7 +35,8 @@ class Evaluation(CareEntry):
     """
     
     implements(IEvaluation)
+    classProvides(IEvaluation)
  
-    def __init__(self,data,state,**kwargs):
+    def __init__(self,data,state):
         self.data=data
   

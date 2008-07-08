@@ -16,14 +16,15 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.schema import TextLine,Dict,List
-from zope.schema.interfaces import IField
+from zope.schema import TextLine,Dict,List,Object
+from zope.interface import Interface
 
 from openehr.rm.datatypes.text.codephrase import CodePhrase
+from openehr.rm.common.resource.interfaces.authoredresource import IAuthoredResource
 
 _ = MessageFactory('oship')
 
-class IResourceDescription(IField):
+class IResourceDescription(Interface):
     u"""Defines the descriptive meta-data of a resource."""
     
     originalAuthor=Dict(
@@ -62,7 +63,8 @@ class IResourceDescription(IField):
         required=False
     )
     
-    parentResource=AuthoredResource(
+    parentResource=Object(
+        schema=IAuthoredResource,
         title=_(u'Parent Resource'),
         description=_(u""""""),
         required=False

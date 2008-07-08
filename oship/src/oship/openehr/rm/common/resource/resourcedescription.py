@@ -21,7 +21,7 @@ from zope.schema import Field
 
 _ = MessageFactory('oship')
 
-class ResourceDescription(Field):
+class ResourceDescription(object):
     u"""Defines the descriptive meta-data of a resource."""
     
     pass

@@ -18,13 +18,14 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
+from zope.interface import Interface
 from zope.i18nmessageid import MessageFactory
 from zope.schema import Field,TextLine
 
-from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
-from openehr.rm.support.identification.objectversionid import ObjectVersionId
-from openehr.rm.support.identification.objectref import ObjectRef
-from openehr.rm.common.generic.auditdetails import AuditDetails
+from openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
+from openehr.rm.support.identification.interfaces.objectversionid import IObjectVersionId
+from openehr.rm.support.identification.interfaces.objectref import IObjectRef
+from openehr.rm.common.generic.interfaces.auditdetails import IAuditDetails
 
 _ = MessageFactory('oship')
 
@@ -36,7 +37,8 @@ class IVersion(Interface):
 
     
     
-    uid = ObjectVersionId(
+    uid = Object(
+        schema=IObjectVersionId,
         title=_(u'UID'),
         description=_(u"""Unique identifier of this version, containing
                     owner_id, version_tree_id and creating_system_id.
@@ -44,7 +46,8 @@ class IVersion(Interface):
         required=True,
         )
     
-    precedingVersionId = ObjectVersionId(
+    precedingVersionId = Object(
+        schema=IObjectVersionId,
         title=_(u'Preceding Version Id'),
         description=_(u"""Unique identifier of the version of which this version 
                     is a modification; Void if this is the first version.
@@ -58,7 +61,8 @@ class IVersion(Interface):
         required=False,
         )
     
-    lifecycleState = DvCodedText(
+    lifecycleState = Object(
+        schema=IDvCodedText,
         title=_(u'Lifecycle State'),
         description=_(u"""Lifecycle state of this version; coded by openEHR 
                     vocabulary "version lifecycle state". 
@@ -67,14 +71,16 @@ class IVersion(Interface):
         )
     
     
-    commitAudit = AuditDetails(
+    commitAudit = Object(
+        schema=IAuditDetails,
         title=_(u'Commit Audit'),
         description=_(u"""Audit trail corresponding to the committal of this
                     version to the VERSIONED_OBJECT. Type == AUDIT_DETAILS"""),
         required=True,
         )
     
-    contribution = ObjectRef(
+    contribution = Object(
+        schema=IObjectRef,
         title=_(u'Contribution'),
         description=_(u"""Contribution in which this version was added."""),
         required=True,

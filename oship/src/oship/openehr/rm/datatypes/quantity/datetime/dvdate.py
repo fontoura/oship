@@ -19,7 +19,7 @@ in this implementation to datatypes.datetime
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.datatypes.quantity.datetime.dvtemporal import DvTemporal
@@ -36,6 +36,7 @@ class DvDate(DvTemporal):
     """
 
     implements(IDvDate)
+    classProvides(IDvDate)
 
     def __init__(self,value):
         self.value=date(value)

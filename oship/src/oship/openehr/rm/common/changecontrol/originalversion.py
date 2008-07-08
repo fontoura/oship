@@ -30,14 +30,14 @@ class OriginalVersion(Container):
     """
     
     uid=ObjectVersionId(
-        title=_("UID"),
-        description=_("""Stored version of inheritence precurosr."""),
+        title=_(u"UID"),
+        description=_(u"""Stored version of inheritence precurosr."""),
         required=True
     )
     
     precedingVersionUid=ObjectVersionId(
-        title=_("Preceding Version UID"),
-        description=_("""Stored version of inheritence precurosr."""),
+        title=_(u"Preceding Version UID"),
+        description=_(u"""Stored version of inheritence precurosr."""),
         required=True
     )
   

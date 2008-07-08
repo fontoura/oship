@@ -20,8 +20,9 @@ __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
 from zope.schema.interfaces import IContainer
+from zope.schema import Object
 
-from openehr.rm.support.identification.objectversionid import ObjectVersionId
+from openehr.rm.support.identification.interfaces.objectversionid import IObjectVersionId
 
 _ = MessageFactory('oship')
 
@@ -30,15 +31,17 @@ class IOriginalVersion(IContainer):
     A Version containing locally created content and optional attestations.
     """
     
-    uid=ObjectVersionId(
-        title=_("UID"),
-        description=_("""Stored version of inheritence precurosr."""),
+    uid=Object(
+        schema=IObjectVersionId,
+        title=_(u"UID"),
+        description=_(u"""Stored version of inheritence precurosr."""),
         required=True
     )
     
-    precedingVersionUid=ObjectVersionId(
-        title=_("Preceding Version UID"),
-        description=_("""Stored version of inheritence precurosr."""),
+    precedingVersionUid=Object(
+        schema=IObjectVersionId,
+        title=_(u"Preceding Version UID"),
+        description=_(u"""Stored version of inheritence precurosr."""),
         required=True
     )
   

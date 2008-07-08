@@ -19,7 +19,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 
 from interfaces.authoredresource import IAuthoredResource
@@ -27,19 +27,18 @@ from interfaces.authoredresource import IAuthoredResource
 
 _ = MessageFactory('oship')
 
-class AuthoredResource(Field):
+class AuthoredResource(object):
     u"""Abstract idea of an online resource created by a human author. """
     
     implements(IAuthoredResource)
+    classProvides(IAuthoredResource)
     
-    def __init__(self, olang,trans,descr,revhist,ctrld,**kw):
+    def __init__(self, olang,trans,descr,revhist,ctrld):
         self.originalLanguage=olang
         self.translations=trans
         self.description=descr
         self.revisionHistory=revhist
         self.isControlled=ctrld
-        for n,v in kw.items():
-            setattr(self,n,v)
 
     def currentRevision():
         u""" """

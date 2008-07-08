@@ -18,7 +18,7 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.common.archetyped.locatable import Locatable
@@ -32,16 +32,14 @@ class FeederAudit(Locatable):
     """
 
     implements(IFeederAudit)
+    classProvides(IFeederAudit)
     
-    def __init__(self,orgsysaudit,orgsysids,fsaudit,fsauditids,orgcontent,**kw):
+    def __init__(self,orgsysaudit,orgsysids,fsaudit,fsauditids,orgcontent):
         self.originatingSystemAudit=orgsysaudit
         self.originatingSystemItemIds=orgsysids
         self.feederSystemAudit=fsaudit
         self.feederSystemItemIds=fsauditids
-        self.originalContent=orgcontent
-        for n,v in kw.items():
-            setattr(self,n,v)
-        
+        self.originalContent=orgcontent        
      
     def originatingSystemAuditValid():
         """ originatingSystemAudit != None """

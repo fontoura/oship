@@ -17,7 +17,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
 
 from objectid import ObjectId
@@ -29,6 +29,7 @@ class TemplateId(ObjectId):
     u""" Identifier for templates. Lexical form to be determined. """
     
     implements(ITemplateId)
+    classProvides(ITemplateId)
 
     def __init__(self, value,**kw):
         self.value = value

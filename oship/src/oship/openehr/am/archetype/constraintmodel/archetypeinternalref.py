@@ -18,7 +18,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from creferenceobject import CReferenceObject
 from interfaces.archetypeinternalref import IArchetypeInternalRef
@@ -31,8 +31,7 @@ class ArchetypeInternalRef(CReferenceObject):
     """
     
     implements(IArchetypeInternalRef)
+    classProvides(IArchetypeInternalRef)
     
-    def __init__(self,tgtpath,**kw):
+    def __init__(self,tgtpath):
         self.tgtpath=tgtpath
-        for n,v in kw.items():
-            setattr(self,n,v)

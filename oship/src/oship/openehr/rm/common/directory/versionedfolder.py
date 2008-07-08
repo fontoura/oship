@@ -20,7 +20,7 @@ __docformat__ = u'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from versionedobject import VersionedObject
 from interfaces.versionedobject import IVersionedObject
@@ -33,6 +33,7 @@ class VersionedFolder(VersionedObject):
     """
     
     implements(IVersionedObject)
+    classProvides(IVersionedObject)
     
     pass
     

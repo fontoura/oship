@@ -16,7 +16,7 @@ Quantity Package Rev. 2.1.0.
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory
 
 from openehr.rm.datatypes.quantity.dvamount import DvAmount
@@ -40,6 +40,7 @@ class DvDuration(DvAmount):
     """
 
     implements(IDvDuration)
+    classProvides(IDvDuration)
 
     def __init__(self,value,**kw):
         self.value=value

@@ -17,7 +17,7 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory
 
@@ -26,13 +26,14 @@ from interfaces.validitykind import IValidityKind
 _ = MessageFactory('oship')
 
 
-class ValidityKind(Field):
+class ValidityKind(object):
     """
     An enumeration of three values which may commonly occur in constrint models.
     Use to indicate the validity of date/Time fields etc.
     
     """
     implements(IValidityKind)
+    classProvides(IValidityKind)
     
     constants={'mandatory':1001,'optional':1002,'disallowed':1003}
 

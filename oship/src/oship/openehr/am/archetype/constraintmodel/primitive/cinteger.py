@@ -15,7 +15,7 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory
 
 from cprimitive import CPrimitive
@@ -29,3 +29,4 @@ class CInteger(CPrimitive):
     """
     
     implements(ICInteger)
+    classProvides(ICInteger)

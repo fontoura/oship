@@ -18,7 +18,7 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from cobject import CObject
 from interfaces.creferenceobject import ICReferenceObject
@@ -31,3 +31,4 @@ class CReferenceObject(CObject):
     """
     
     implements(ICReferenceObject)
+    classProvides(ICReferenceObject)

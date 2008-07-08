@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 from event import Event
@@ -33,13 +33,12 @@ class IntervalEvent(Event):
     """
     
     implements(IIntervalEvent)
+    classProvides(IIntervalEvent)
     
-    def __init__(self,width,mfunc,scount,**kw):
+    def __init__(self,width,mfunc,scount):
         self.width=width
         self.mathFunction=mfunc
         self.sampleCount=scount
-        for n,v in kw.items():
-            setattr(self,n,v)
                                       
     def intervalStartTime():
         u"""Start time of the interval of this event."""

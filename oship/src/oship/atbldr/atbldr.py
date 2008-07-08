@@ -25,7 +25,7 @@ from ZODB import FileStorage,DB
 
 import transaction
 from zope.schema import Text
-from zope.interface import Interface,implements
+from zope.interface import Interface,implements,classProvides
 from persistent import Persistent 
 from zope.exceptions import DuplicationError
 from zope.app.folder import folder 
@@ -41,12 +41,9 @@ import mglob
 from sets import Set
 from pyparsing import *
 
-demoMode = True
-
-if not demoMode:
-    from openehr.rm.datatypes.text.codephrase import CodePhrase
-    from openehr.rm.datatypes.text.dvtext import DvText
-    from openehr.am.archetype.archetype import Archetype
+from openehr.rm.datatypes.text.codephrase import CodePhrase
+from openehr.rm.datatypes.text.dvtext import DvText
+from openehr.am.archetype.archetype import Archetype
 
 from oship.atdemo.atdemo import ATDemo
 from blddefinition import bldDefinition
@@ -161,28 +158,26 @@ def bldArchetype(parsed_adl):
     rev=bldRevisionHistory(parsed_adl,errlog) 
     uid=None
     
-    if demoMode:    
-        atObj=ATDemo(adl_version,archetype_id,uid,concept,parent_archetype_id,definition,ontology,invariants,rev)            
-    else:        
-        atObj=Archetype(adl_version,archetype_id,uid,concept,parent_archetype_id,definition,ontology,invariants,rev)            
-        print 'ADL Version: ',atObj.adlVersion        
-        print '__name__ = ', atObj.__name__
-        print 'UID: ', atObj.uid
-        print 'Concept: ',atObj.concept
-        print 'Parent: ', atObj.parentArchetypeId
-        print 'Definition: ',atObj.definition
-        
-        """
-        print 'Ontology: '
-        print '   terminologies_available = ',atObj.ontology[0]
-        print '   specialisation_depth = ',atObj.ontology[1]
-        print '   term_codes = ',atObj.ontology[2]
-        print '   constraint_codes = ',atObj.ontology[3]
-        print '   term_attribute_names = ',atObj.ontology[4]
-        print '   parent_archetype = ',atObj.ontology[5]
-        print 'Invariants: ', atObj.invariants
-        print 'Revision History: ',atObj.revisionHistory
-        """
+    
+    atObj=Archetype(adl_version,archetype_id,uid,concept,parent_archetype_id,definition,ontology,invariants,rev)            
+    print 'ADL Version: ',atObj.adlVersion        
+    print '__name__ = ', atObj.__name__
+    print 'UID: ', atObj.uid
+    print 'Concept: ',atObj.concept
+    print 'Parent: ', atObj.parentArchetypeId
+    print 'Definition: ',atObj.definition
+    
+    """
+    print 'Ontology: '
+    print '   terminologies_available = ',atObj.ontology[0]
+    print '   specialisation_depth = ',atObj.ontology[1]
+    print '   term_codes = ',atObj.ontology[2]
+    print '   constraint_codes = ',atObj.ontology[3]
+    print '   term_attribute_names = ',atObj.ontology[4]
+    print '   parent_archetype = ',atObj.ontology[5]
+    print 'Invariants: ', atObj.invariants
+    print 'Revision History: ',atObj.revisionHistory
+    """
         
     # now we need to persist the archetype in the ZODB
     try:

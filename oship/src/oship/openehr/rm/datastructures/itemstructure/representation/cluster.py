@@ -20,7 +20,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 
 from item import Item
 from interfaces.cluster import ICluster
@@ -34,9 +34,8 @@ class Cluster(Item):
     """
 
     implements(ICluster)
+    classProvides(ICluster)
     
-    def __init__(self,items,**kw):
+    def __init__(self,items):
         self.items=items
-        for n,v in kw.items():
-            setattr(self,n,v)
           

@@ -23,7 +23,7 @@ from zope.schema import TextLine,Object
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.demographic.interfaces.partyidentified import IPartyIdentified
-from openehr.rm.demographic.interfaces.partyproxy import IPartyProxy
+from openehr.rm.common.generic.interfaces.partyproxy import IPartyProxy
 from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
 
 _ = MessageFactory('oship')

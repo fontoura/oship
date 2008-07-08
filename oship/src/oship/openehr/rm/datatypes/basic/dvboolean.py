@@ -16,7 +16,7 @@ The basic openEHR data types. From the data types specification Rev 2.1.0
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.schema import Bool 
 from zope.i18nmessageid.message import MessageFactory 
 
@@ -46,6 +46,7 @@ class DvBoolean(Bool):
     """
 
     implements(IDvBoolean)
+    classProvides(IDvBoolean)
 
     def __init__(self, value):
         self.value=bool(value)

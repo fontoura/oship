@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from interfaces.entry import IEntry
 from openehr.rm.ehr.composition.content.contentitem import ContentItem
@@ -43,8 +43,9 @@ class Entry(ContentItem):
     """
 
     implements(IEntry)
+    classProvides(IEntry)
     
-    def __init__(self,lang,encod,subject,provider,opart,wfid,**kwargs):
+    def __init__(self,lang,encod,subject,provider,opart,wfid):
         self.language=lang
         self.encoding=encod
         self.subject=subject

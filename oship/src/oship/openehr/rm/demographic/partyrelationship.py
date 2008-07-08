@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from openehr.rm.common.archetyped.locatable import Locatable
 
@@ -32,36 +32,8 @@ class PartyRelationship(Locatable):
     Generic description of a relationship between parties.
     """
     
-    uid=HierObjectId(
-        title=_("UID"),
-        description=_("Identifier of this party."),
-        required=True,
-    )
-        
-    details=ItemStructure(
-        title_("Details"),
-        description=_("Description of the relationship."),
-        required=False,
-    )
-        
-    timeValidity=DvInterval(
-        title=_("Time Validity"),
-        description=_("Valid time interval for this relationship."),
-        required=False,
-    )
-    
-    source=PartyRef(
-        title=_("Source"),
-        description=_("Source of relationship."),
-        required=True,
-    )
-    
-    target=PartyRef(
-        title=_("Target"),
-        description=_("Target of relationship."),
-        required=True,
-    )
-    
+    pass
+
     def type():
         """
         Type of relationship such as employment, authority, etc.

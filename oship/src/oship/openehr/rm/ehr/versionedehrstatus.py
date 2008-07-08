@@ -17,7 +17,7 @@ EHR Information Model package Rev. 5.1.0
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('oship')

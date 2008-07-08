@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 
 from openehr.rm.datatypes.quantity.dvquantified import DvQuantified
 from interfaces.dvamount import IDvAmount
@@ -33,6 +33,7 @@ class DvAmount(DvQuantified):
     """
     
     implements(IDvAmount)
+    classProvides(IDvAmount)
     
     def __init__(self,accuracy,accuracyIsPercent):
         self.accuracy=accuracy

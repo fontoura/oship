@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory
 
 from creferenceobject import CReferenceObject
@@ -30,9 +30,9 @@ class ArchetypeSlot(CReferenceObject):
     """
     
     implements(IArchetypeSlot)
+    classProvides(IArchetypeSlot)
 
-    def __init__(self,incl,excl,**kw):
+    def __init__(self,incl,excl):
         self.includes=incl
         self.excludes=excl
-        for n,v in kw.items():
-            setattr(self,n,v)
+ 

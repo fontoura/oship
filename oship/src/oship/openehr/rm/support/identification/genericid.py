@@ -17,7 +17,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
 
 from objectid import ObjectId
@@ -31,6 +31,7 @@ class GenericId(ObjectId):
     """
 
     implements(IGenericId)
+    classProvides(IGenericId)
 
     def __init__(self,scheme,**kw):
         self.scheme=scheme

@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
 
 from uid import Uid
@@ -33,12 +33,11 @@ class IsoOid(Uid):
     """
 
     implements(IIsoOid)
+    classProvides(IIsoOid)
     
-    def __init__(self, value,**kwargs):
+    def __init__(self, value):
         self.value = value
-        for n,v in kw.items():
-            setattr(self,n,v)
-
+ 
 
     def valueExists(): 
         u"""        

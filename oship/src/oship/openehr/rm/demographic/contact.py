@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from openehr.rm.common.archetyped.locatable import Locatable
 
@@ -31,19 +31,8 @@ class Contact(Locatable):
     """
     Description of a means of contacting a party.
     """
-    
-    timeValidity=DvInterval(
-        title=_("Time Validity"),
-        description=_("Valid time interval for this contact descriptor."),
-        requires=False,
-    )
-    
-    addresses=List(
-        title=_("Addresses"),
-        description=_("A set of addresses for this purpose and time frame."),
-        required=True,
-    )
-    
+    pass
+
     def purpose():
         """
         Purpose for which this contact is used.

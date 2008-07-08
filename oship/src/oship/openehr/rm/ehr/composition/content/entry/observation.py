@@ -20,7 +20,7 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from careentry import CareEntry
 from interfaces.observation import IObservation
@@ -40,13 +40,12 @@ class Observation(CareEntry):
     """
 
     implements(IObservation)
+    classProvides(IObservation)
     
-    def __init__(self,data,state,**kw):
+    def __init__(self,data,state):
         self.data=data
         self.state=state
-        for n,v in kw.items():
-            setattr(self,n,v)
-
+ 
             
             
             

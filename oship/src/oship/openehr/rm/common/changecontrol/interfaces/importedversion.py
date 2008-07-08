@@ -19,9 +19,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 
 from version import IVersion
-from openehr.rm.common.resource.originalversion import OriginalVersion
+from openehr.rm.common.changecontrol.interfaces.resourceoriginalversion import IOriginalVersion
 
 _ = MessageFactory('oship')
 
@@ -30,9 +31,10 @@ class IImportedVersion(IVersion):
     A Version containing locally created content and optional attestations.
     """
     
-    item=OriginalVersion(
-        title=_("Item"),
-        description=_("""Original Version object that was imported."""),
+    item=Object(
+        schema=IOriginalVersion,
+        title=_(u"Item"),
+        description=_(u"""Original Version object that was imported."""),
         required=True
     )
     

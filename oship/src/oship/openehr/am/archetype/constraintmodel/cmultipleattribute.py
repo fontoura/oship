@@ -18,17 +18,18 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 
 _ = MessageFactory('oship')
 
-class CMultipleAttribute(Field):
+class CMultipleAttribute(object):
     """
     Abstract model of constraint on any kind of attribute node.
     """
     
     implements(ICMultipleAttribute)
+    classProvides(ICMultipleAttribute)
     
     def members(cobj):
         """

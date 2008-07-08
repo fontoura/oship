@@ -18,7 +18,7 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 import re
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
 
@@ -26,7 +26,7 @@ from interfaces.objectid import IObjectId
 
 _ = MessageFactory('oship')
 
-class ObjectId(Field):
+class ObjectId(object):
     u"""
     Ancestor (abstract) class of identifiers of informational objects. Ids may be completely
     meaningless, in which case their only job is to refer to something, or may carry
@@ -38,6 +38,7 @@ class ObjectId(Field):
     """
 
     implements(IObjectId)
+    classProvides(IObjectId)
 
     def __init__(self, value,**kw):
         self.value = value

@@ -18,7 +18,7 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from cdefinedobject import CDefinedObject
 from interfaces.cdomaintype import ICDomainType
@@ -31,3 +31,4 @@ class CDomainType(CDefinedObject):
     """
     
     implements(ICDomainType)
+    classProvides(ICDomainType)

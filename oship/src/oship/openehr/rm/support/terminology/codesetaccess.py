@@ -16,19 +16,20 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import Field
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
 
 from interfaces.codesetaccess import ICodeSetAccess
 
 _ = MessageFactory('oship')
 
-class CodeSetAccess(Field):
+class CodeSetAccess(object):
     """
     Defines an object providing proxy access to a code_set.
     """
 
     implements(ICodeSetAccess)
+    classProvides(ICodeSetAccess)
 
     def id():
         u"""External identifier of this Code Set"""

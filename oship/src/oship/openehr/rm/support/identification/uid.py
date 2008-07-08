@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
 
@@ -24,7 +24,7 @@ from interfaces.uid import IUid
 
 _ = MessageFactory('oship')
         
-class Uid(Field):
+class Uid(object):
     u"""
     Abstract parent of classes representing unique identifiers which identify informa-
     tion entities in a durable way. UIDs only ever identify one IE in time or space and
@@ -32,6 +32,7 @@ class Uid(Field):
     """
     
     implements(IUid)
+    classProvides(IUid)
 
     def __init__(self, value,**kw):
         self.value = value

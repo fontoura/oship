@@ -49,7 +49,6 @@ class IFeederAudit(ILocatable):
         )
     
     
-    
     feederSystemAudit = Object(
         schema=IFeederAuditDetails,
         title=_(u"Feeder System Audit"),
@@ -68,8 +67,8 @@ class IFeederAudit(ILocatable):
     
     originalContent=Object(
         schema=IDvEncapsulated,
-        title=_("Original Content"),
-        description=_(""" """),
+        title=_(u"Original Content"),
+        description=_(u""" """),
         required=False,
         )
     

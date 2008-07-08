@@ -218,7 +218,7 @@ class Largest:
 Inf = Largest()
 # Use -Inf for the smallest value      
 
-class Interval(Field):
+class Interval(object):
     """Represents a continuous range of values
     
     An Interval is composed of the lower bound, a closed lower bound 

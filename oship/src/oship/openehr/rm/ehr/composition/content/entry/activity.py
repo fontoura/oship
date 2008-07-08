@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from openehr.rm.common.archetyped.locatable import Locatable
 from interfaces.activity import IActivity
@@ -35,6 +35,7 @@ class Activity(Locatable):
     """
     
     implements(IActivity)
+    classProvides(IActivity)
     
     def __init__(self,descr,tim,atid,nodeid,**kw):
         self.description=descr

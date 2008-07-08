@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 from event import Event
@@ -33,6 +33,7 @@ class PointEvent(Event):
     """    
     
     implements(IPointEvent)
+    classProvides(IPointEvent)
     
     pass
     

@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from dvtimespecification import DvTimeSpecification
 from interfaces.dvgeneraltimespecification import IDvGeneralTimeSpecification
@@ -30,9 +30,10 @@ class DvGeneralTimeSpecification(DvTimeSpecification):
     u"""Specifies points in time in a general syntax. Based on the HL7v3 GTS data type."""
     
     implements(IDvGeneralTimeSpecification)
+    classProvides(IDvGeneralTimeSpecification)
     
     def __init__(self,value):
-        DvTimeSpecification.__init__(self,value)        
+        self.value=value        
     
     def calendarAlignment():
         u"""Calendar alignment extracted from value. """

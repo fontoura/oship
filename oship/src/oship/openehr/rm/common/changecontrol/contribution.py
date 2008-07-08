@@ -20,7 +20,7 @@ __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
 from zope.schema import Container
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from interfaces.contribution import IContribution
 
@@ -32,3 +32,4 @@ class Contribution(Container):
     """
     
     implements(IContribution)
+    classProvides(IContribution)

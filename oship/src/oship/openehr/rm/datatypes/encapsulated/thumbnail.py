@@ -19,7 +19,7 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory 
 from zope.schema import Field
 from openehr.rm.datatypes.basic import DataValue
@@ -27,14 +27,15 @@ from openehr.rm.datatypes.interfaces.thumbnail import IThumbNail
 
 _ = MessageFactory('oship')
        
-class ThumbNail(Field):
+class ThumbNail(object):
     """
     A DvMultimedia equivalent without the thumbnail attribute to be used as the the thumbnail in DvMultimedia 
     """
     
     implements(IThumbNail)
-
-    def __init__(self,size,charset,language,altTxt,mType,compAlg,intChk,intChkAlg,uri,data,**kwargs):
+    classProvides(IThumbNail)
+    
+    def __init__(self,size,charset,language,altTxt,mType,compAlg,intChk,intChkAlg,uri,data):
         self.size=size
         self.charset=charset
         self.language=language
@@ -44,7 +45,6 @@ class ThumbNail(Field):
         self.integrityCheckAlgorithm=intChkAlg
         self.uri=uri
         self.data=data
-        Field.__init__(self,**kwargs)
 
     
     

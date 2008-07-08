@@ -35,22 +35,22 @@ class IIsmTransition(IPathable):
     
     currentState=Object(
         schema=IDvCodedText,
-        title=_("Current State"),
-        description=_("The ISM current state."),
+        title=_(u"Current State"),
+        description=_(u"The ISM current state."),
         required=True,
     )
     
     transition=Object(
         schema=IDvCodedText,
-        title=_("Transition"),
-        description=_("The ISM transition which occured to arrive at the current state."),
+        title=_(u"Transition"),
+        description=_(u"The ISM transition which occured to arrive at the current state."),
         required=False,
     )
     
     careflowStep=Object(
         schema=IDvCodedText,
-        title=_("Careflow Step"),
-        description=_("The step in the careflow process which occured as part of this process."),
+        title=_(u"Careflow Step"),
+        description=_(u"The step in the careflow process which occured as part of this process."),
         required=False,
     )
     

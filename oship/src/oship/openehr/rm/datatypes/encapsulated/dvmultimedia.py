@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.rm.datatypes.encapsulated.dvencapsulated import DvEncapsulated
@@ -33,6 +33,7 @@ class DvMultimedia(DvEncapsulated):
     """
     
     implements(IDvMultimedia)
+    classProvides(IDvMultimedia)
 
     def __init__(self,altTxt,mType,compAlg,intChk,intChkAlg,tnail,uri,data):
         self.alternateText=altTxt

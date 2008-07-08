@@ -18,7 +18,7 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 from zope.i18nmessageid import MessageFactory
 
@@ -26,7 +26,7 @@ from interfaces.revisionhistory import IRevisionHistory
 
 _ = MessageFactory('oship')        
         
-class RevisionHistory(Field):
+class RevisionHistory(object):
     u"""
     Defines the notion of a revision history of audit items, each associated 
     with the version for which that audit was committed. The list is in 
@@ -34,12 +34,11 @@ class RevisionHistory(Field):
     """
 
     implements(IRevisionHistory)
+    classProvides(IRevisionHistory)
     
-    def __init__(self,items,**kw):
+    def __init__(self,items):
         self.items=items
         self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)
 
     def mostRecentVersion():
         u"""The version id of the most recent item, as a String. 

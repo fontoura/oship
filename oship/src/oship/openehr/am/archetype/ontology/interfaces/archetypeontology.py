@@ -22,7 +22,7 @@ from zope.schema import Int,Set,List,Object
 from zope.interface import Interface
 
 #from openehr.am.archetype.archetype import Archetype
-from openehr.rm.support.identification.objectref import ObjectRef
+from openehr.rm.support.identification.interfaces.objectref import IObjectRef
 
 _ = MessageFactory('oship')
 

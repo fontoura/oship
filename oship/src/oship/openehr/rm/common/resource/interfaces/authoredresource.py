@@ -19,7 +19,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.schema.interfaces import IField
+from zope.interface import Interface
 from zope.schema import Bool,Object
 
 from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
@@ -29,7 +29,7 @@ from openehr.rm.common.generic.revisionhistory import RevisionHistory
 
 _ = MessageFactory('oship')
 
-class IAuthoredResource(IField):
+class IAuthoredResource(Interface):
     u"""Abstract idea of an online resource created by a human author. """
     
     orignialLanguage=Object(

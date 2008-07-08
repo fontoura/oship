@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from datetime import datetime
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory
 
 from dvtemporal import DvTemporal
@@ -32,14 +32,13 @@ class DvDateTime(DvTemporal):
     """
 
     implements(IDvDateTime)
+    classProvides(IDvDateTime)
 
-    def __init__(self,value,**kw):
+    def __init__(self,value):
         # need to separate value into a Python tuple to submit to the datetime module.
         #self.value=datetime(value)
         self.value=datetime.now()
         self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)
         
 
     def diff(other):

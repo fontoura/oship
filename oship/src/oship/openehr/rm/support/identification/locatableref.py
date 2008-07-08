@@ -17,7 +17,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.location import Location
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
 
 from objectref import ObjectRef
@@ -32,13 +32,12 @@ class LocatableRef(ObjectRef,Location):
     """
 
     implements(ILocatableRef)
+    classProvides(ILocatableRef)
     
-    def __init__(self,id,path,**kw):
+    def __init__(self,id,path):
         self.id=id
         self.path=path
-        for n,v in kw.items():
-            setattr(self,n,v)
-        
+       
     def idExists():
         u""" id != None """
         

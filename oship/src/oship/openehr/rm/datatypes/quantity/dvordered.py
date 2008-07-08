@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 
 from openehr.rm.datatypes.basic.datavalue import DataValue
 from interfaces.dvordered import IDvOrdered
@@ -42,6 +42,7 @@ class DvOrdered(DataValue):
     """
 
     implements(IDvOrdered)
+    classProvides(IDvOrdered)
     
     def __init__(self, normalRange, otherReferenceRanges, normalStatus):
         self.normalRange = normalRange

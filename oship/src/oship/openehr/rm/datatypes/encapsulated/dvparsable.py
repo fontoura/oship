@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.rm.datatypes.encapsulated.dvencapsulated import DvEncapsulated
@@ -35,14 +35,12 @@ class DvParsable(DvEncapsulated):
     """
     
     implements(IDvParsable)
+    classProvides(IDvParsable)
 
-    def __init__(self,size,value,formalism,**kw):
+    def __init__(self,size,value,formalism):
         self.size=len(value)
         self.value=value
         self.formalism=formalism
-        self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)
 
     def valueValid():
         u"""value != None."""

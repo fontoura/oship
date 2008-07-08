@@ -8,7 +8,7 @@
 ##############################################################################
 
 
-"""
+u"""
 
 From the archetyped package as described in the 
 Common Information Model Rev. 2.1.0 
@@ -31,7 +31,7 @@ _ = MessageFactory('oship')
 
         
 class ILocatable(IPathable):
-    """
+    u"""
     Root class of all information model classes that can be archetyped.
     """
     
@@ -44,7 +44,7 @@ class ILocatable(IPathable):
         )
     
     archetypeNodeId = TextLine(
-        title=_("Node ID"),
+        title=_(u"Node ID"),
         description=_(u"""Design-time archetype id of this node taken from its generating archetype;
                      used to build archetype paths. Always in the form of an "at" code, e.g. "at0005".
                      This value enables a "standardised" name for this node to be generated, by
@@ -93,22 +93,22 @@ class ILocatable(IPathable):
     
     
     def isArchetypeRoot():
-        """True if this node is the root of an archetyped structure."""
+        u"""True if this node is the root of an archetyped structure."""
         
     def concept():
-        """
+        u"""
         Clinical concept of the archetype as a whole (= derived from the
        'archetype_node_id' of the root node) isArchetypeRoot must be True.
        """
         
     def nameValid():
-        """ name != None"""
+        u""" name != None"""
           
     def linksValid():
-        """ links != None and links != []"""
+        u""" links != None and links != []"""
  
     def archetypedValid():
-        """ isArchetypeRoot xor archetypeDetails = None """
+        u""" isArchetypeRoot xor archetypeDetails = None """
         
     def archetypeNodeIdValid():
-        """ archetypeNodeId != None and archetypeNodeId != '' """
+        u""" archetypeNodeId != None and archetypeNodeId != '' """

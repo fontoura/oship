@@ -17,7 +17,7 @@ EHR Information Model package Rev. 5.1.0
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.ehr.composition import Composition
@@ -29,10 +29,5 @@ class VersionedComposition(Composition):
     Version controlled compsoition abstraction.
     """
     
-    isPersistent=Bool(
-        title=_("Persistent"),
-        description=_("Indicates whether this compsoition set is persistent."),
-        required=True,
-        default=True,
-    )
-    
+    pass
+

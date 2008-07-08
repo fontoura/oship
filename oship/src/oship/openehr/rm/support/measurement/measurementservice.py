@@ -17,7 +17,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements 
+from zope.interface import implements,classProvides 
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
 
@@ -25,10 +25,11 @@ from interfaces.measurementservice import IMeasurementService
 
 _ = MessageFactory('oship')
 
-class MeasurementService(Field):
+class MeasurementService(object):
     """Defines an object providing proxy access to a measurement information service."""
 
     implements(IMeasurementService)
+    classProvides(IMeasurementService)
     
     
     def isValidUnitsString(units):

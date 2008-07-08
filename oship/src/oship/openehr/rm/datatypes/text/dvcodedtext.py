@@ -16,7 +16,7 @@
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory
 
 from dvtext import DvText
@@ -42,6 +42,7 @@ class DvCodedText(DvText):
     """
 
     implements(IDvCodedText)
+    classProvides(IDvCodedText)
     
     def __init__(self, definingCode,**kw):
         self.definingCode=definingCode

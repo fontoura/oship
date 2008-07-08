@@ -18,7 +18,7 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 from zope.i18nmessageid import MessageFactory
 
@@ -26,22 +26,21 @@ from interfaces.auditdetails import IAuditDetails
 
 _ = MessageFactory('oship')
 
-class AuditDetails(Field):
+class AuditDetails(object):
     u"""
     The set of attributes required to document the committal of an information 
     item to a repository.
     """
     
     implements(IAuditDetails)
+    classProvides(IAuditDetails)
     
-    def __init__(self,systemId,committer,tcommitted,chgtype,descr,**kw):
+    def __init__(self,systemId,committer,tcommitted,chgtype,descr):
         self.systemId=systemId
         self.committer=committer
         self.timeCommitted=tcommitted
         self.changeType=chgtype
         self.description=descr
-        for n,v in kw.items():
-            setattr(self,n,v)
       
     def systemIdValid():
         u"""systemId != None and systemId != '' """

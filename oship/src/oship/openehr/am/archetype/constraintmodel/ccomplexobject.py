@@ -18,7 +18,7 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from interfaces.ccomplexobject import ICComplexObject
 from cdefinedobject import CDefinedObject
@@ -31,6 +31,7 @@ class CComplexObject(CDefinedObject):
     """
     
     implements(ICComplexObject)
+    classProvides(ICComplexObject)
     
     pass
 

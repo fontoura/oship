@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.schema.interfaces import IField
+from zope.interface import Interface
 from zope.schema import TextLine, List, Dict,Object
 
 from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
@@ -24,7 +24,7 @@ from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
 
 _ = MessageFactory('oship')
 
-class IResourceDescriptionItem(IField):
+class IResourceDescriptionItem(Interface):
     u"""Language-specific detail of resource description. When a resource is translated
         for use in another language environment, each RESOURCE_DESCRIPTION_ITEM
         needs to be copied and translated into the new language.

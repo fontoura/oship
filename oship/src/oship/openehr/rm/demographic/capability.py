@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from openehr.rm.common.archetyped.locatable import Locatable
 
@@ -33,14 +33,14 @@ class Capability(Locatable):
     """
     
     credentials=ItemStructure(
-        title=_("Credentials"),
-        description=_("Qualifications of the performer of the role."),
+        title=_(u"Credentials"),
+        description=_(u"Qualifications of the performer of the role."),
         require=True,
     )
     
     timeValidity=DvInterval(
-        title=_("Time Validity"),
-        description=_("Valid time interval for the credentials of this capability."),
+        title=_(u"Time Validity"),
+        description=_(u"Valid time interval for the credentials of this capability."),
         required=False,
     )
     

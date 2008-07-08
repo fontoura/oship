@@ -21,7 +21,7 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implements,classProvides
 
 from careentry import CareEntry
 from interfaces.instruction import IInstruction
@@ -35,8 +35,9 @@ class Instruction(CareEntry):
     """
     
     implements(IInstruction)
+    classProvides(IInstruction)
     
-    def __init__(self,narr,act,exp,wfd,**kwargs):
+    def __init__(self,narr,act,exp,wfd):
         self.narrative=narr
         self.activities=act
         self.expiryTime=exp

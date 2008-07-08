@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.i18nmessageid import MessageFactory
 
 from openehr.rm.datastructures.datastructure import DataStructure 
@@ -36,15 +36,14 @@ class History(DataStructure):
     """
     
     implements(IHistory)
+    classProvides(IHistory)
     
-    def __init__(self,origin,events,period,duration,summary,**kw):
+    def __init__(self,origin,events,period,duration,summary):
         self.origin=origin
         self.events=events
         self.period=period
         self.duration=duration
         self.summary=summary
-        for n,v in kw.items():
-            setattr(self,n,v)
             
     def isPeriodic(): 
         u"""Indicates whether history is periodic. Returns Boolean"""

@@ -18,18 +18,19 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.interface import implements
+from zope.interface import implements,classProvides
 from zope.schema import Field
 
 from interfaces.cobject import ICObject
 
 _ = MessageFactory('oship')
 
-class CObject(Field):
+class CObject(object):
     """
     Abstract model of constraint on any kind of object node.
     """
     
     implements(ICObject)
+    classProvides(ICObject)
     
     pass

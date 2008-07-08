@@ -35,49 +35,49 @@ class IComposition(ILocatable):
     """
     
     content=List(
-        title=_("Content"),
-        description=_("Content of this composition."),
+        title=_(u"Content"),
+        description=_(u"Content of this composition."),
         required=False,
     )
     
     context=Object(
         schema=IEventContext,
-        title=_("Context"),
-        description=_("The clinical session context."),
+        title=_(u"Context"),
+        description=_(u"The clinical session context."),
         required=False,
     )
     
     composer=Object(
         schema=IPartyProxy,
-        title=_("Composer"),
-        description=_("The party responsible for the content. It may not be the actual person entering the data."),
+        title=_(u"Composer"),
+        description=_(u"The party responsible for the content. It may not be the actual person entering the data."),
         required=True,
     )
     
     category=Object(
         schema=IDvCodedText,
-        title=_("Category"),
-        description=_("Defines the broad category of this composition."),
+        title=_(u"Category"),
+        description=_(u"Defines the broad category of this composition."),
         required=True,
     )
     
     language=Object(
         schema=ICodePhrase,
-        title=_("Language"),
-        description=_("Indicator of the localised language where this composition was created."),
+        title=_(u"Language"),
+        description=_(u"Indicator of the localised language where this composition was created."),
         required=True,
     )
     
     territory=Object(
         schema=ICodePhrase,
-        title=_("Territory"),
-        description=_("Territory where this composition was written. ISO 3166."),
+        title=_(u"Territory"),
+        description=_(u"Territory where this composition was written. ISO 3166."),
         required=True,
     )
     
     isPersistent=Bool(
-        title=_("Persistent"),
-        description=_("Used to locate items that are of interest to most users."),
+        title=_(u"Persistent"),
+        description=_(u"Used to locate items that are of interest to most users."),
         required=True,
         default=True,
     )

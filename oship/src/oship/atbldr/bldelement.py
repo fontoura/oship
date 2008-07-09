@@ -13,5 +13,20 @@
         Parsing is performed in adl_1_4.py using Pyparsing. 
         
 """
-def bldElement(parsed_adl):
-        return "Element"
+
+from openehr.rm.datatypes.text.dvtext import DvText
+from openehr.rm.datastructures.itemstructure.representation.element import Element
+
+def bldElement(elist,errlog):
+    
+    if '[' in elist[0]:
+        archetypeNodeId=elist[0].strip('ITEM_TREE')
+    else:
+        archetypeNodeId=''
+     
+    if 'DV_TEXT' in elist[6]:
+        return DvText('',[],'','',{},{})
+    else:
+        errlog.write("Unknown Data Type for Element"+repr(elist[6]))
+        print "Unknown Data Type for Element",elist[6]
+        return None

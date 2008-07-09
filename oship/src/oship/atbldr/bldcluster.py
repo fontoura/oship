@@ -13,5 +13,24 @@
         Parsing is performed in adl_1_4.py using Pyparsing. 
         
 """
-def bldCluster(parsed_adl,errlog):
-        return "Cluster"
+from openehr.rm.datastructures.itemstructure.representation.cluster import Cluster
+
+from bldelement import bldElement
+
+def bldCluster(clist,errlog):
+    items=[]
+    if '[' in clist[0]:
+        archetypeNodeId=clist[0].strip('ITEM_TREE')
+    else:
+        archetypeNodeId=''
+        
+    occurrences=clist[2],clist[4]
+    x=0
+    for y in clist:
+        if isinstance(y,unicode) and 'ELEMENT' in y:
+            items.append(bldElement(clist[x:x+10],errlog))
+        x+=1
+        
+    print '\n\n',items
+    
+    return items

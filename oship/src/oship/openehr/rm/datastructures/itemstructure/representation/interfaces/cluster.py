@@ -23,7 +23,7 @@ from zope.i18nmessageid import MessageFactory
 from zope.interface import implements,classProvides 
 from zope.schema import List,Object
 
-from openehr.rm.datastructures.itemstructure.interfaces.item import IItem
+from openehr.rm.datastructures.itemstructure.representation.interfaces.item import IItem
 
 _ = MessageFactory('oship')
 

@@ -25,7 +25,7 @@ from zope.schema import List,Object
 
 from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
 from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
-from openehr.rm.datatypes.encapsulated.interfaces.dvparsable import IDvParasable
+from openehr.rm.datatypes.encapsulated.interfaces.dvparsable import IDvParsable
 from careentry import ICareEntry
 
 _ = MessageFactory('oship')

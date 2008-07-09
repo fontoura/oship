@@ -14,19 +14,21 @@
         
 """
 from openehr.rm.datastructures.itemstructure.itemtree import ItemTree
-from oship.utils.flatten import flatten
+from bldcluster import bldCluster
 
-def bldItemTree(parsed_adl,errlog):
-    itlist=[]
-    itgen=flatten(parsed_adl)
-    for x in itgen:
-        if isinstance(x,str):
-            x=unicode(x)
-            
-        itlist.append(x)
-               
-    #print itlist,type(itlist)
-    itObj= ItemTree(itlist)
-    #print type(itObj)
+def bldItemTree(itlist,errlog):
     
+    if '[' in itlist[0]:
+        archetypeNodeId=itlist[0].strip('ITEM_TREE')
+    else:
+        archetypeNodeId=''
+        
+    cardinality=itlist[6],itlist[8]
+    
+    if 'CLUSTER' in itlist[10]:
+        items=bldCluster(itlist[10:len(itlist)],errlog)
+    
+    itObj= ItemTree(items)
+    
+    #print '\n\nItem Tree: ',itlist
     return itObj

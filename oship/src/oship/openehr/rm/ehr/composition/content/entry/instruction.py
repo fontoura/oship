@@ -37,10 +37,10 @@ class Instruction(CareEntry):
     implements(IInstruction)
     classProvides(IInstruction)
     
-    def __init__(self,narr,act,exp,wfd):
+    def __init__(self,narr,act,exp,wfd,nodeid):
         self.narrative=narr
         self.activities=act
         self.expiryTime=exp
         self.wfDefinition=wfd
+        self.__name__=nodeid
         
-  

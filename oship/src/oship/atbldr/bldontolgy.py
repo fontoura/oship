@@ -68,4 +68,4 @@ def bldOntology(parsed_adl,errlog):
             
     termAttributeNames=tANList
     
-    return terminologies_available,specialsationDepth,termCodes,constraintCodes,termAttributeNames,parent_archetype
+    return [terminologies_available,specialsationDepth,termCodes,constraintCodes,termAttributeNames,parent_archetype]

@@ -13,6 +13,8 @@
         Parsing is performed in adl_1_4.py using Pyparsing. 
         
 """
+import logging
+
 from openehr.rm.datastructures.itemstructure.representation.element import Element
 
 #called from bldCluster

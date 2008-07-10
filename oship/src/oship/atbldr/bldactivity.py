@@ -19,19 +19,21 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
+import logging
+
 from blditemtree import bldItemTree
 from openehr.rm.ehr.composition.content.entry.activity import Activity
 from openehr.rm.datatypes.encapsulated.dvparsable import DvParsable
 
 #called from bldInstruction
-def bldActivity(activities,errlog,ontology):
+def bldActivity(activities,ontology):
     actObj=None
     description=None
     timing=''
     actionArchetypeId=[]
     
     if activities==None or activities==[]:
-        errlog.write("\nERROR:No Activities list in Instruction")
+        logging.error("\nERROR:No Activities list in Instruction")
         print "\nERROR:No Activities list in Instruction"
         return
     

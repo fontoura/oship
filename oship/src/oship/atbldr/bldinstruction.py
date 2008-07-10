@@ -20,6 +20,7 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 from datetime import datetime
+import logging
 
 from openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
 from openehr.rm.datatypes.text.dvtext import DvText
@@ -29,7 +30,7 @@ from openehr.rm.ehr.composition.content.entry.instruction import Instruction
 from bldactivity import bldActivity
 from oship.utils.flatten import flatten
 
-def bldInstruction(parsed_adl,errlog,ontology):
+def bldInstruction(parsed_adl,ontology):
     definList=[]
     definObj=None
     
@@ -59,7 +60,7 @@ def bldInstruction(parsed_adl,errlog,ontology):
         actList=definList[4:]
 
     
-    activities=bldActivity(actList,errlog,ontology) # list of activities
+    activities=bldActivity(actList,ontology) # list of activities
 
     #expires
     expires=datetime.isoformat(datetime.now())

@@ -18,7 +18,7 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 
-def bldOntology(parsed_adl,errlog):
+def bldOntology(parsed_adl):
     u"""
     Create the Ontolgy section of an archetype expressed in ADL.
     """

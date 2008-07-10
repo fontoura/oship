@@ -22,7 +22,7 @@ definClassMap={'SECTION':'Section','COMPOSITION':'Composition','OBSERVATION':'Ob
                 'EVALUATION':'Evaluation','INSTRUCTION':'Instruction','ELEMENT':'Element',\
                 'CLUSTER':'Cluster','EVENT':'Event'}
 
-def bldDefinition(parsed_adl,errlog,ontology):
+def bldDefinition(parsed_adl,ontology):
     """
     Create a CComplexObject containing the definition.
     """
@@ -40,57 +40,57 @@ def bldDefinition(parsed_adl,errlog,ontology):
         
     if className == 'Section':
         from bldsection import bldSection
-        defObj = bldSection(parsed_adl,errlog)
+        defObj = bldSection(parsed_adl)
         return defObj
         
     if className == 'Composition':
         from bldcomposition import bldComposition
-        defObj = bldComposition(parsed_adl,errlog)
+        defObj = bldComposition(parsed_adl)
         return defObj
         
     if className == 'Observation':
         from bldobservation import bldObservation
-        defObj = bldObservation(parsed_adl,errlog)
+        defObj = bldObservation(parsed_adl)
         return defObj
         
     if className == 'ItemTree':
         from blditemtree import bldItemTree
-        defObj = bldItemTree(parsed_adl,errlog)
+        defObj = bldItemTree(parsed_adl)
         return defObj
 
     if className == 'AdminEntry':
         from bldadminentry import bldAdminEntry
-        defObj = bldAdminEntry(parsed_adl,errlog)
+        defObj = bldAdminEntry(parsed_adl)
         return defObj
 
     if className == 'Action':
         from bldaction import bldAction
-        defObj = bldAction(parsed_adl,errlog)
+        defObj = bldAction(parsed_adl)
         return defObj
 
     if className == 'Evaluation':
         from bldevaluation import bldEvaluation
-        defObj = bldEvaluation(parsed_adl,errlog)
+        defObj = bldEvaluation(parsed_adl)
         return defObj
     
     if className == 'Instruction':
         from bldinstruction import bldInstruction
-        defObj = bldInstruction(parsed_adl,errlog,ontology)
+        defObj = bldInstruction(parsed_adl,ontology)
         return defObj
 
     if className == 'Element':
         from bldelement import bldElement
-        defObj = bldElement(parsed_adl,errlog)
+        defObj = bldElement(parsed_adl)
         return defObj
 
     if className == 'Cluster':
         from bldcluster import bldCluster
-        defObj = bldCluster(parsed_adl,errlog)
+        defObj = bldCluster(parsed_adl)
         return defObj
 
     if className == 'Event':
         from bldevent import bldEvent
-        defObj = bldEvent(parsed_adl,errlog)
+        defObj = bldEvent(parsed_adl)
         return defObj
     
     

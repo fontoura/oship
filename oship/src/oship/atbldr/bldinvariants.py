@@ -17,7 +17,7 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-def bldInvariants(parsed_adl,errlog):
+def bldInvariants(parsed_adl):
     u"""
     Create the invariants section of an archetype.
     """

@@ -17,8 +17,23 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
+import pprint
+import codecs
+import pprint
+import time
+import sys
+import os
+import traceback
+import mglob     
+from sets import Set
+
+logfile=os.getcwd().rstrip('src/oship/atbldr')+'/oship/log/ADL14parse_errors.log'
+
 import logging
-logging.basicConfig()
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(levelname)s %(message)s',
+                    filename=logfile,
+                    filemode='w')
 
 import ZODB
 from ZODB import FileStorage,DB
@@ -30,15 +45,6 @@ from persistent import Persistent
 from zope.exceptions import DuplicationError
 from zope.app.folder import folder 
 from zope.app.component.site import *
-import pprint
-import codecs
-import pprint
-import time
-import sys
-import os
-import traceback
-import mglob     
-from sets import Set
 from pyparsing import *
 
 from openehr.rm.datatypes.text.codephrase import CodePhrase
@@ -89,8 +95,6 @@ if 'DEMOGRAPHICS' not in root['Application']:
     root['Application']['DEMOGRAPHICS'].setSiteManager(sm)
     transaction.commit()    
 
-logDir=os.getcwd().rstrip('src/oship/atbldr')+'/oship/log/'
-errlog=open(logDir+'ADL14parse_errors.log', 'w')
 
 def CreateAT():
     """
@@ -117,9 +121,7 @@ def CreateAT():
             parsed_adl = adl_1_4.archetypeDefinition.parseString(adlSource)
         except ParseException: 
             e+=1
-            errlog.write("Error # "+str(e)+" Occured Parsing "+fname+':\n')
-            traceback.print_exc(2,file=errlog)
-            errlog.write("\n\n")
+            logging.error("Error # "+str(e)+" Occured Parsing "+fname+':\n')
             print "Parsing Failed -- Error Logged!\n"
             errCount+=1
         else:   
@@ -128,9 +130,8 @@ def CreateAT():
                 
     print "\n\nParsed ",count," files in",time.clock()-startTime," seconds."
     print "There were ",errCount," parse errors. " 
-    print logDir+"ADL14parse_errors.log file for errors & warnings."
-    errlog.write("***END of Error Log***\n\n")       
-    errlog.close()
+    logging.info("There were "+repr(errCount)+" parse errors. ") 
+    print "Please see: "+logfile+" file for errors & warnings."
     conn.close()
     db.close()
     os.remove(dbDir+'.lock')
@@ -151,10 +152,10 @@ def bldArchetype(parsed_adl):
     archetype_id=parsed_adl.archetype[1]
     concept=parsed_adl.concept
     parent_archetype_id=parsed_adl.specialize
-    ontology=bldOntology(parsed_adl,errlog)
-    definition=bldDefinition(parsed_adl,errlog,ontology)
-    invariants=bldInvariants(parsed_adl,errlog)
-    rev=bldRevisionHistory(parsed_adl,errlog) 
+    ontology=bldOntology(parsed_adl)
+    definition=bldDefinition(parsed_adl,ontology)
+    invariants=bldInvariants(parsed_adl)
+    rev=bldRevisionHistory(parsed_adl) 
     uid=None
     
     
@@ -183,14 +184,10 @@ def bldArchetype(parsed_adl):
         root['Application']['AR'].__setitem__(archetype_id,atObj)
         transaction.commit()
     except NameError:
-        errlog.write("WARNING: Error Occured Storing Archetype:\n")
-        traceback.print_exc(2,file=errlog)
-        errlog.write("\n\n")
+        logging.warning("WARNING: Error Occured Storing Archetype: "+archetype_id)
     except DuplicationError:
         print "WARNING:  ****Duplicate Archetype ID.***"
-        errlog.write("WARNING: Error Occured Storing Archetype:\n")
-        traceback.print_exc(2,file=errlog)
-        errlog.write("\n\n")       
+        logging.warning("Duplicate Archetype ID: "+archetype_id)
         
     return
    

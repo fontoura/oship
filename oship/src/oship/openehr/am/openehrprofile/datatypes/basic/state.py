@@ -17,21 +17,21 @@ From the openEHR Archetype Profile specifications Rev. 1.0.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements,classProvides
+
+from openehr.am.openehrprofile.datatypes.basic.interfaces.state import IState
 
 _ = MessageFactory('oship')
 
-class IState(Interface):
+class IState(object):
     """        
     Abstract definition of one state in a state machine.
     """
+    implements(IState)
+    classProvides(IState)
+    
+    def __init__(self,name):
+        self.name=name
 
-    name = TextLine(
-        title=_(u"Name"),
-        description=_(u"""Name of this State."""),
-        required=False,
-        )
-    
-    
+   

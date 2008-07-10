@@ -17,32 +17,25 @@ From the openEHR Archetype Profile specifications Rev. 1.0.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
-from zope.schema import List,Object
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
 
-from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
-from openehr.am.archetype.constraintmodel.interfaces.cdomaintype import ICDomainType
+from openehr.am.openehrprofile.datatypes.quantity.interfaces.cdvquantity import ICDvQuantity
+from openehr.am.archetype.constraintmodel.cdomaintype import CDomainType
 
 _ = MessageFactory('oship')
 
-class ICDvQuantity(ICDomainType):
+class CDvQuantity(CDomainType):
     """
     Constrains instances of DvQuantity.
     """
+    implements(ICDvQuantity)
+    classProvides(ICDvQuantity)
     
-    list = List(
-        title=_(u"List"),
-        description=_(u"""List of value/unit pairs."""),
-        required=False,
-        )
+    def __init__(self,list,property):
+        self.list=list
+        self.property=property
+        
     
-    property = Object(
-        schema=ICodePhrase,
-        title=_(u"Property"),
-        description=_(u"""Optional constraint of units property."""),
-        required=False,
-        )
 
-    
     

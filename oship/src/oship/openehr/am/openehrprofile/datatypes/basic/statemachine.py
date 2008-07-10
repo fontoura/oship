@@ -17,23 +17,23 @@ From the openEHR Archetype Profile specifications Rev. 1.0.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
-from zope.schema import Set
 from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements,classProvides
+
+from openehr.am.openehrprofile.datatypes.basic.interfaces.statemachine import IStateMachine
 
 _ = MessageFactory('oship')
 
-
-class IStateMachine(Interface):
-    """        
+class IStateMachine(object):
+    u"""        
     Definition of a state machine in terms of states, transition events and outputs, and
     next states.
     """
+    implements(IStateMachine)
+    classProvides(IStateMachine)
     
-    states = Set(
-        title=_(u"States"),
-        description=_(u"""A Set of State types. """),
-        required=True,
-        )
+    def __init__(self,states):
+        self.states=states
+    
     
     

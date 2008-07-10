@@ -17,34 +17,26 @@ From the openEHR Archetype Profile specifications Rev. 1.0.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
+from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
+
+from openehr.am.openehrprofile.datatypes.quantity.interfaces.cquantityitem import ICQuantityItem
 
 _ = MessageFactory('oship')
 
 
-class ICQuantityItem(Interface):
+class CQuantityItem(object):
     """
     Constrains instances of DvQuantity.
     """
+    implements(ICQuantityItem)
+    classProvides(ICQuantityItem)
     
-    magnitude = Float(
-        title=_(u"Magnitude"),
-        description=_(u"""Interval constraint on magnitude."""),
-        required=False,
-        )
+    def __init__(self,magnitude,precision,units):
+        self.magnitude=magnitude
+        self.precision=precision
+        self.units=units
     
-    precision = Int(
-        title=_(u"Precision"),
-        description=_(u"""Interval constraint on precision."""),
-        required=False,
-        )
-
-    units = TextLine(
-        title=_(u"Units"),
-        description=_(u"""Constraint on units."""),
-        required=True,
-        )
     
     def precisionUnconstrained():       
         """

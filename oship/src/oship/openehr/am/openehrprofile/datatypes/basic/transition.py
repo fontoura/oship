@@ -17,41 +17,24 @@ From the openEHR Archetype Profile specifications Rev. 1.0.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
-from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements,classProvides
 
-from openehr.am.openehrprofile.datatypes.basic.interfaces.state import IState
+from openehr.am.openehrprofile.datatypes.basic.interfaces.transition import ITransition
 
 _ = MessageFactory('oship')
 
 
-class ITransition(Interface):
+class Transition(object):
     """
     Definition of a state machine transition.
     """
+    implements(ITransition)
+    classProvides(ITransition)
     
-    event = TextLine(
-        title=_(u"Event"),
-        description=_(u"""Event which fires this transition."""),
-        required=True,
-        )
-
-    guard = TextLine(
-        title=_(u"Guard"),
-        description=_(u"""Guard condition which must be true for this transition to fire."""),
-        required=False,
-        )
-
-    action = TextLine(
-        title=_(u"Action"),
-        description=_(u"""Side-effect action to execute during the firing of this transition."""),
-        required=False,
-        )
-
-    nextState = Object(
-        schema=IState,
-        title=_(u"Next State"),
-        description=_(u"""Target state of next transition. """),
-        required=True,
-        )
+    def __init__(self,event,guard,action,nextstate):
+        self.event=event
+        self.guard=guard
+        self.action=action
+        self.nextState=nextstate
+        

@@ -17,21 +17,21 @@ From the openEHR Archetype Profile specifications Rev. 1.0.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.schema import Set
 from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import implements,classProvides
 
-from openehr.am.openehrprofile.datatypes.basic.interfaces.state import IState
+from openehr.am.openehrprofile.datatypes.basic.state import State
+from openehr.am.openehrprofile.datatypes.basic.interfaces.nonterminalstate import INonTerminalState
 
 _ = MessageFactory('oship')
 
-class INonTerminalState(IState):
+class NonTerminalState(State):
     """
     Definition of a non-terminal state in a state machine, i.e. one that has transitions.
     """
+    implements(INonTerminalState)
+    classProvides(INonTerminalState)
     
-    transitions = Set(
-        title=_(u"Transitions"),
-        description=_(u"""A Set of Transition types. """),
-        required=False,
-        )
+    def __init__(self,transitions):
+        self.transitions=transitions
     

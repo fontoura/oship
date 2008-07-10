@@ -17,20 +17,18 @@ from openehr.rm.datastructures.itemstructure.representation.cluster import Clust
 
 from bldelement import bldElement
 
-def bldCluster(clist,errlog):
+#called from bldItemTree
+def bldCluster(clist):
     items=[]
     if '[' in clist[0]:
-        archetypeNodeId=clist[0].strip('ITEM_TREE')
+        archetypeNodeId=clist[0].strip('CLUSTER')
     else:
         archetypeNodeId=''
+            
+    for y,x in enumerate(clist):
+        if isinstance(x,unicode) and 'ELEMENT' in x:
+            items.append(bldElement(clist[y:y+10]))
         
-    occurrences=clist[2],clist[4]
-    x=0
-    for y in clist:
-        if isinstance(y,unicode) and 'ELEMENT' in y:
-            items.append(bldElement(clist[x:x+10],errlog))
-        x+=1
-        
-    print '\n\n',items
+    #print '\n\n Items in Cluster:',items
     
     return items

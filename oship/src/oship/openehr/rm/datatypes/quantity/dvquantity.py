@@ -20,6 +20,8 @@ __docformat__ = u'plaintext'
 from zope.i18nmessageid.message import MessageFactory 
 from zope.interface import implements,classProvides 
 
+from interfaces.dvquantity import IDvQuantity
+
 from dvamount import DvAmount
 
 _ = MessageFactory('oship')       

@@ -7,29 +7,33 @@
 # terms of the license.
 ##############################################################################
 
-
-u"""
-
-From the Data Structures Information Model
- Representation Package Rev. 2.1.0.
-
 """
 
+The Archetype Profile basic package. 
+From the openEHR Archetype Profile specifications Rev. 1.0.0
+
+"""
 
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.i18nmessageid import MessageFactory
-from zope.interface import implements,classProvides 
-
-from openehr.rm.common.archetyped.locatable import Locatable
-from openehr.rm.datastructures.itemstructure.representation.interfaces.item import IItem
+from zope.interface import Interface
+from zope.schema import Set
+from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
 
-class Item(Locatable):
-    u"""
-    The abstract parent of CLUSTER and ELEMENT representation classes.
+
+class IStateMachine(Interface):
+    """        
+    Definition of a state machine in terms of states, transition events and outputs, and
+    next states.
     """
     
-    implements(IItem)
+    states = Set(
+        title=_(u"States"),
+        description=_(u"""A Set of State types. """),
+        required=True,
+        )
+    
+    

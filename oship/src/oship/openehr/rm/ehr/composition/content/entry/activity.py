@@ -37,11 +37,9 @@ class Activity(Locatable):
     implements(IActivity)
     classProvides(IActivity)
     
-    def __init__(self,descr,tim,atid,nodeid,**kw):
+    def __init__(self,descr,tim,atid,nodeid):
         self.description=descr
         self.timing=tim
         self.actionArchetypeId=atid
-        self.__name__=nodeid
-        for n,v in kw.items():
-            setattr(self,n,v)
+        self.__name__=archetypeNodeId=nodeid
         

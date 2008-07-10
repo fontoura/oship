@@ -33,12 +33,10 @@ class Element(Item):
     implements(IElement)
     classProvides(IElement)
     
-    def __init__(self,value,nullFlavor,**kw):
+    def __init__(self,value,nullFlavor,nodeid):
         self.value=value
         self.nullFlavor=nullFlavor
-        for n,v in kw.items():
-            setattr(self,n,v)
-
+        archetypeNodeId=nodeid
     
     def isNull():
         u"""Return True if value is unknown, etc."""

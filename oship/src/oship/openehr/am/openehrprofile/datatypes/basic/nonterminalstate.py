@@ -7,29 +7,31 @@
 # terms of the license.
 ##############################################################################
 
-
-u"""
-
-From the Data Structures Information Model
- Representation Package Rev. 2.1.0.
-
 """
 
+The Archetype Profile basic package. 
+From the openEHR Archetype Profile specifications Rev. 1.0.0
+
+"""
 
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.i18nmessageid import MessageFactory
-from zope.interface import implements,classProvides 
+from zope.schema import Set
+from zope.i18nmessageid.message import MessageFactory 
 
-from openehr.rm.common.archetyped.locatable import Locatable
-from openehr.rm.datastructures.itemstructure.representation.interfaces.item import IItem
+from openehr.am.openehrprofile.datatypes.basic.interfaces.state import IState
 
 _ = MessageFactory('oship')
 
-class Item(Locatable):
-    u"""
-    The abstract parent of CLUSTER and ELEMENT representation classes.
+class INonTerminalState(IState):
+    """
+    Definition of a non-terminal state in a state machine, i.e. one that has transitions.
     """
     
-    implements(IItem)
+    transitions = Set(
+        title=_(u"Transitions"),
+        description=_(u"""A Set of Transition types. """),
+        required=False,
+        )
+    

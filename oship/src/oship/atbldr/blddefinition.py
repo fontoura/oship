@@ -25,6 +25,8 @@ definClassMap={'SECTION':'Section','COMPOSITION':'Composition','OBSERVATION':'Ob
 def bldDefinition(parsed_adl,ontology):
     """
     Create a CComplexObject containing the definition.
+    This function determines the type of definition section to create 
+    and calls that builder.
     """
     definClassDict = parsed_adl.definition[0].asDict()
     oeClass = definClassDict['id']
@@ -50,7 +52,7 @@ def bldDefinition(parsed_adl,ontology):
         
     if className == 'Observation':
         from bldobservation import bldObservation
-        defObj = bldObservation(parsed_adl)
+        defObj = bldObservation(parsed_adl,ontology)
         return defObj
         
     if className == 'ItemTree':

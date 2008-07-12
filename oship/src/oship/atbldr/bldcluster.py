@@ -27,9 +27,14 @@ def bldCluster(clist):
     else:
         archetypeNodeId=''
             
-    for y,x in enumerate(clist):
+    for n,x in enumerate(clist):
         if isinstance(x,unicode) and 'ELEMENT' in x:
-            items.append(bldElement(clist[y:y+10]))
+            elem=bldElement(clist[n:n+10])
+            if elem == None:
+                logging.error("Element Failed in: "+archetypeNodeId)
+                return None
+            else:
+                items.append(elem)
         
     #print '\n\n Items in Cluster:',items
     

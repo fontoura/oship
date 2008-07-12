@@ -28,9 +28,14 @@ def bldItemTree(itlist):
     else:
         archetypeNodeId=''
             
-    for y,x in enumerate(itlist):
+    for n,x in enumerate(itlist):
         if isinstance(x,unicode) and 'CLUSTER' in x:
-            items.append(bldCluster(itlist[y:len(itlist)]))
+            cluster=bldCluster(itlist[n:len(itlist)])
+            if cluster==None:
+                logging.error("Cluster Failed in: "+archetypeNodeId)
+                return None
+            else:
+                items.append(cluster)
     
     itObj= ItemTree(items)
     

@@ -33,7 +33,7 @@ def bldActivity(activities,ontology):
     actionArchetypeId=[]
     
     if activities==None or activities==[]:
-        logging.error("\nERROR:No Activities list in Instruction")
+        logging.error("No Activities list in Instruction")
         print "\nERROR:No Activities list in Instruction"
         return
     
@@ -41,11 +41,11 @@ def bldActivity(activities,ontology):
     order=activities[5]
     archetypeNodeId=activities[6].strip('ACTIVITY')
 
-    for y,x in enumerate(activities):
+    for n,x in enumerate(activities):
         if x == 'description':
-            description=mkdescr(activities[y:len(activities)])
+            description=mkdescr(activities[n:len(activities)])
         elif x == 'allow_archetype':
-            allow_archetype=activities[y+1]
+            allow_archetype=activities[n+1]
             
     
     #print cardinality
@@ -62,12 +62,13 @@ def mkdescr(desclist):
     descrObj=None
     valid=False
     #print 'description: ',desclist
-    for y,x in enumerate(desclist):
+    for n,x in enumerate(desclist):
         if isinstance(x,unicode) and 'ITEM_TREE' in x:
-            descrObj=bldItemTree(desclist[y:len(desclist)])
+            descrObj=bldItemTree(desclist[n:len(desclist)])
             valid=True
             
     if not valid:
+        logging.error("Invalid Activity Description."+repr(desclist))
         print "\nUnknown Data Type for Description",desclist
         return None
 

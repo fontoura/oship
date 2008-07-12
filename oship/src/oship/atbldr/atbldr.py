@@ -139,6 +139,7 @@ def CreateAT():
     print "\n\nNow you should change back to "+(os.getcwd().rstrip('src/oship/atbldr')+'/oship')
     print "and execute '$bin/paster serve debug.ini' to restart your server."
     print "The point your browser to http://localhost:8080/AR to see your repository.\n\n"
+    logging.shutdown()
     
     return
         
@@ -152,6 +153,7 @@ def bldArchetype(parsed_adl):
     archetype_id=parsed_adl.archetype[1]
     concept=parsed_adl.concept
     parent_archetype_id=parsed_adl.specialize
+    # the ontology must be built first so it can be used in the definition section.
     ontology=bldOntology(parsed_adl)
     definition=bldDefinition(parsed_adl,ontology)
     invariants=bldInvariants(parsed_adl)

@@ -27,7 +27,7 @@ import traceback
 import mglob     
 from sets import Set
 
-logfile=os.getcwd().rstrip('src/oship/atbldr')+'/oship/log/ADL14parse_errors.log'
+logfile=os.getcwd().rstrip('src/oship/atbldr')+'/oship/log/at_build_errors.log'
 
 import logging
 logging.basicConfig(level=logging.DEBUG,

@@ -25,6 +25,7 @@ from zope.schema import TextLine,Object
 
 from openehr.rm.support.identification.interfaces.locatableref import ILocatableRef
 from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
+from openehr.rm.common.archetyped.interfaces.pathable import IPathable
 
 _ = MessageFactory('oship')
 

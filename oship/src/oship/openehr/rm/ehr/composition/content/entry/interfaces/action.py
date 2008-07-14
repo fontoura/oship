@@ -27,7 +27,7 @@ from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDate
 from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 from openehr.rm.ehr.composition.content.entry.ismtransition import IIsmTransition
 from openehr.rm.ehr.composition.content.entry.instructiondetails import IInstructionDetails
-
+from openehr.rm.ehr.composition.content.entry.interfaces.careentry import ICareEntry
 
 _ = MessageFactory('oship')
 

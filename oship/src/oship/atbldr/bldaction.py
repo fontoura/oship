@@ -20,7 +20,7 @@ from openehr.rm.ehr.composition.content.entry.action import Action
 
 from oship.utils.flatten import flatten
 
-def bldAction(parsed_adl):
+def bldAction(parsed_adl,ontology):
     actionList=[]
     actionObj=None
     
@@ -42,7 +42,6 @@ def bldAction(parsed_adl):
     archetypeNodeId=actionList[0].strip('ACTION')
         
     
-    print actionList
     return actionList
 
 def mkdescr(desclist):

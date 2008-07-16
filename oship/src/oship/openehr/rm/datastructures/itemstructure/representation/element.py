@@ -36,7 +36,7 @@ class Element(Item):
     def __init__(self,value,nullFlavor,nodeid):
         self.value=value
         self.nullFlavor=nullFlavor
-        archetypeNodeId=nodeid
+        self.archetypeNodeId=self.__name__=nodeid
     
     def isNull():
         u"""Return True if value is unknown, etc."""

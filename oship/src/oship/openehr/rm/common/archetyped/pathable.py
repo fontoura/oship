@@ -40,7 +40,6 @@ class Pathable(Location):
     """
     
     implements(IPathable)
-    classProvides(IPathable)
         
     
     def pathOfItem(an_item):

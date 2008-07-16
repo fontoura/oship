@@ -43,7 +43,7 @@ def bldActivity(activities,ontology):
 
     for n,x in enumerate(activities):
         if x == 'description':
-            description=mkdescr(activities[n:len(activities)])
+            description=mkdescr(activities[n:len(activities)],ontology)
         elif x == 'allow_archetype':
             allow_archetype=activities[n+1]
             
@@ -58,13 +58,13 @@ def bldActivity(activities,ontology):
     #print "actObj: ",actObj
     return actObj
 
-def mkdescr(desclist):
+def mkdescr(desclist,ontology):
     descrObj=None
     valid=False
     #print 'description: ',desclist
     for n,x in enumerate(desclist):
         if isinstance(x,unicode) and 'ITEM_TREE' in x:
-            descrObj=bldItemTree(desclist[n:len(desclist)])
+            descrObj=bldItemTree(desclist[n:len(desclist)],ontology)
             valid=True
             
     if not valid:

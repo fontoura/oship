@@ -16,15 +16,48 @@
 
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
+import logging
+
+from oship.utils.flatten import flatten
 
 from bldhistory import bldHistory
 from openehr.rm.ehr.composition.content.entry.observation import Observation
 
-def bldObservation(parsed_adl,ontology):
-        dataObj=bldHistory(parsed_adl.definition[0]['body'][0][0][1][0][0],'')
-        stateObj=''
-        obsObj=Observation(dataObj,stateObj)
+def bldObservation(parsed_adl):
+    obsDict={
+        "HISTORY":bldHistory,
+        }
+    
+    definList=[]
+    definObj=None
+    stateObj=None
+    nodeid=''
+    
+    #turn the parsed definition into a list with all strings converted to unicode
+    flat_adl = flatten(parsed_adl.definition)
+    for x in flat_adl:
+        if isinstance(x,str):
+            x=x.decode('utf-8')
         
-        return obsObj
+        definList.append(x)
+        
+    y=definList[5]
+    
+    if isinstance(y,unicode) and '[at' in y:
+        start=y.find('[')
+        nodeid=y[start:]
+        keyword=y[:start]
+    else:
+        keyword=y
+        
+    if obsDict.has_key(keyword):
+        definObj=obsDict[keyword](definList[5:])
+    else:
+        logging.error("Unknown Observation keyword: "+repr(keyword))
+        
+            
+    obsObj=Observation(definObj,stateObj,nodeid)
+   
+    return obsObj
 
         

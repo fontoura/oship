@@ -22,7 +22,7 @@ from bldelement import bldElement
 #called from bldItemTree
 def bldCluster(clist):
     items=[]
-    if '[' in clist[0]:
+    if '[at' in clist[0]:
         archetypeNodeId=clist[0].strip('CLUSTER')
     else:
         archetypeNodeId=''
@@ -31,6 +31,7 @@ def bldCluster(clist):
         if isinstance(x,unicode) and 'ELEMENT' in x:
             elem=bldElement(clist[n:n+10])
             if elem == None:
+                print "Element Failed in: "+archetypeNodeId
                 logging.error("Element Failed in: "+archetypeNodeId)
                 return None
             else:

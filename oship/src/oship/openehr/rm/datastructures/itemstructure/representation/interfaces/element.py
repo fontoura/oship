@@ -20,8 +20,9 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import Field,Object
+from zope.schema import Object
 
+from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
 from openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
 from openehr.rm.datastructures.itemstructure.representation.interfaces.item import IItem
 
@@ -30,7 +31,8 @@ _ = MessageFactory('oship')
 class IElement(IItem):
     u"""The leaf variant of ITEM, to which a DATA_VALUE instance is attached."""
     
-    value = Field(
+    value = Object(
+        schema=IDataValue,
         title=_(u"value"),
         description=_(u"""Data value of this leaf."""),
         required=False

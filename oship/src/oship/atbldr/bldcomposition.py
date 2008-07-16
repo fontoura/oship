@@ -20,7 +20,7 @@ __docformat__ = 'plaintext'
 from openehr.rm.datatypes.text.codephrase import CodePhrase
 from openehr.rm.datatypes.text.dvtext import DvText
 
-def bldComposition(parsed_adl):
+def bldComposition(parsed_adl,ontology):
     definClassDict=parsed_adl.definition[0].asDict()
     langTermId=parsed_adl.language['original_language'].split('::')[0].strip('[')
     langStr=parsed_adl.language['original_language'].split('::')[1].strip(']')   

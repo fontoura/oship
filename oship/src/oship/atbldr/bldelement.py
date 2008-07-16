@@ -21,12 +21,13 @@ from openehr.rm.datastructures.itemstructure.representation.element import Eleme
 def bldElement(elist):
     elem=None
     elemObj=None
-    if '[' in elist[0]:
+    if '[at' in elist[0]:
         archetypeNodeId=elist[0].strip('ELEMENT')
     else:
         archetypeNodeId=''
-        
-    # What kind of values are we putting into the tree?
+    print elist
+    
+    # What kind of element are we adding?
     if isinstance(elist[6],unicode):    
         if isinstance(elist[6],unicode) and u'DV_TEXT' in elist[6]:
             from openehr.rm.datatypes.text.dvtext import DvText
@@ -54,7 +55,6 @@ def bldElement(elist):
             from openehr.rm.datatypes.quantity.dvquantity import DvQuantity
             elem=DvQuantity(0,'',0)
         else:
-            print '\nElement List: ',elist
             print "\nUnknown Data Type for Element: ",elist[6]
             logging.error("Unknown Data Type for Element: "+repr(elist[6]))
             return None

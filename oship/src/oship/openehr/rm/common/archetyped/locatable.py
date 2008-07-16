@@ -33,11 +33,10 @@ class Locatable(Pathable):
     """
 
     implements(ILocatable)
-    classProvides(ILocatable)
     
     def __init__(self,uid,atnodeid,name,atdetails,fdraudit,links):
         self.uid=uid
-        self.archetypeNodeId=atnodeid
+        self.archetypeNodeId=self.__name__=atnodeid
         self.name=name
         self.archetypeDetails=atdetails
         self.feederAudit=fdraudit

@@ -42,9 +42,10 @@ class Observation(CareEntry):
     implements(IObservation)
     classProvides(IObservation)
     
-    def __init__(self,data,state):
+    def __init__(self,data,state,nodeid):
         self.data=data
         self.state=state
+        self.archetypeNodeId=self.__name__=nodeid
  
             
             

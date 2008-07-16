@@ -51,7 +51,7 @@ def bldDefinition(parsed_adl,ontology):
         
     #call the appropriate builder
     try:
-        definClassMap[oeClass](parsed_adl,ontology)
+        definClassMap[oeClass](parsed_adl)
     except KeyError ("Unknown Definition Type",oeClass):
         logging.error("Unknown Definition Type",oeClass)
     

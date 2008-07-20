@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import implements,classProvides
+from zope.interface import implements
 from zope.i18nmessageid.message import MessageFactory 
 
 from objectref import ObjectRef
@@ -28,14 +28,11 @@ class AccessGroupRef(ObjectRef):
     u""" Reference to access group in an access control service. """
 
     implements(IAccessGroupRef)
-    classProvides(IAccessGroupRef)
     
-    def __init__(self,id,nameSpace,type,**kw):
+    def __init__(self,id,nameSpace,type):
         self.id=id
         self.nameSpace=nameSpace
         self.type=type     
-        for n,v in kw.items():
-            setattr(self,n,v)
         
     def idExists():
         u""" id != None """

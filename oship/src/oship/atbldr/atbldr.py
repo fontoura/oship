@@ -155,7 +155,7 @@ def bldArchetype(parsed_adl):
     parent_archetype_id=parsed_adl.specialize
     # the ontology must be built first so it can be used in the definition section.
     ontology=bldOntology(parsed_adl)
-    definition=bldDefinition(parsed_adl,ontology)
+    definition=bldDefinition(parsed_adl)
     invariants=bldInvariants(parsed_adl)
     rev=bldRevisionHistory(parsed_adl) 
     uid=None

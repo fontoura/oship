@@ -20,7 +20,7 @@ from openehr.rm.ehr.composition.content.entry.action import Action
 
 from oship.utils.flatten import flatten
 
-def bldAction(parsed_adl,ontology):
+def bldAction(parsed_adl):
     actionList=[]
     actionObj=None
     

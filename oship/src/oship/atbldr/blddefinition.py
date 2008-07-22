@@ -34,7 +34,7 @@ definClassMap={'SECTION':bldSection,'COMPOSITION':bldComposition,'OBSERVATION':b
                 'EVALUATION':bldEvaluation,'INSTRUCTION':bldInstruction,'ELEMENT':bldElement,\
                 'CLUSTER':bldCluster,'EVENT':bldEvent}
 
-def bldDefinition(parsed_adl,ontology):
+def bldDefinition(parsed_adl):
     u"""
     Create an object containing the definition.
     This function determines the type of definition section to create 

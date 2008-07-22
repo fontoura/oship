@@ -30,7 +30,7 @@ from openehr.rm.ehr.composition.content.entry.instruction import Instruction
 from bldactivity import bldActivity
 from oship.utils.flatten import flatten
 
-def bldInstruction(parsed_adl,ontology):
+def bldInstruction(parsed_adl):
     definList=[]
     definObj=None
     
@@ -60,7 +60,7 @@ def bldInstruction(parsed_adl,ontology):
         actList=definList[4:]
 
     
-    activities=bldActivity(actList,ontology) # list of activities
+    activities=bldActivity(actList) # list of activities
 
     #expires
     expires=datetime.isoformat(datetime.now())

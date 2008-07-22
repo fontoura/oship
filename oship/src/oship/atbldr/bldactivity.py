@@ -26,7 +26,7 @@ from openehr.rm.ehr.composition.content.entry.activity import Activity
 from openehr.rm.datatypes.encapsulated.dvparsable import DvParsable
 
 #called from bldInstruction
-def bldActivity(activities,ontology):
+def bldActivity(activities):
     actObj=None
     description=None
     timing=''
@@ -43,7 +43,7 @@ def bldActivity(activities,ontology):
 
     for n,x in enumerate(activities):
         if x == 'description':
-            description=mkdescr(activities[n:len(activities)],ontology)
+            description=mkdescr(activities[n:len(activities)])
         elif x == 'allow_archetype':
             allow_archetype=activities[n+1]
             
@@ -58,13 +58,13 @@ def bldActivity(activities,ontology):
     #print "actObj: ",actObj
     return actObj
 
-def mkdescr(desclist,ontology):
+def mkdescr(desclist):
     descrObj=None
     valid=False
     #print 'description: ',desclist
     for n,x in enumerate(desclist):
         if isinstance(x,unicode) and 'ITEM_TREE' in x:
-            descrObj=bldItemTree(desclist[n:len(desclist)],ontology)
+            descrObj=bldItemTree(desclist[n:len(desclist)])
             valid=True
             
     if not valid:

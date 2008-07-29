@@ -19,6 +19,7 @@ __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
 from zope.schema import TextLine,Object
+from zope.schema.interfaces import IContainer
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.rm.support.interval import Interval
@@ -27,7 +28,7 @@ from openehr.am.archetype.constraintmodel.interfaces.cattribute import ICAttribu
 _ = MessageFactory('oship')
 
 
-class ICObject(Interface):
+class ICObject(IContainer):
     """
     Abstract model of constraint on any kind of object node.
     """

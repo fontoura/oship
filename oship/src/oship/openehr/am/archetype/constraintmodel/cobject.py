@@ -19,13 +19,13 @@ __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
 from zope.interface import implements,classProvides
-from zope.schema import Field
+from zope.schema import Field,Container
 
 from interfaces.cobject import ICObject
 
 _ = MessageFactory('oship')
 
-class CObject(object):
+class CObject(Container):
     """
     Abstract model of constraint on any kind of object node.
     """

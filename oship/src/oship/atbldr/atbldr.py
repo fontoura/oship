@@ -27,7 +27,11 @@ import traceback
 import mglob     
 from sets import Set
 
-logfile=os.getcwd().rstrip('src/oship/atbldr')+'/oship/log/at_build_errors.log'
+
+x=os.getcwd().rfind('src')
+
+logfile=os.getcwd()[:x]+'log/at_build_errors.log'
+
 #create the logfile if it doesn't exist
 f=open(logfile,'w')
 f.close()
@@ -67,12 +71,13 @@ edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 for
 if you choose not use use the standard import directory. For example the commented out 
 adlDir points to my SVN import tree of all archetypes on openEHR.org
 """
-adlDir=os.getcwd().rstrip('atbldr')+'/import_adl'
+
+adlDir=os.getcwd()+'/import_adl'
 #adlDir='/home/tim/Documents/openEHR/knowledge/archetypes'
 #adlDir='/home/tim/Documents/openEHR/knowledge/archetypes/dev-uk-nhs/adl/openehr/ehr/entry/observation'
 
-
-dbDir=os.getcwd().rstrip('src/oship/atbldr')+'/oship/var/Data.fs'
+x=os.getcwd().rfind('src')
+dbDir=os.getcwd()[:x]+'var/Data.fs'
 fs=FileStorage.FileStorage(dbDir)
 db=DB(fs)
 conn=db.open()
@@ -162,9 +167,13 @@ def bldArchetype(parsed_adl):
     invariants=bldInvariants(parsed_adl)
     rev=bldRevisionHistory(parsed_adl) 
     uid=None
+    olang=''
+    trans=''
+    descr=''
+    ctrld=''
     
     
-    atObj=Archetype(adl_version,archetype_id,uid,concept,parent_archetype_id,definition,ontology,invariants,rev)            
+    atObj=Archetype(adl_version,archetype_id,uid,concept,parent_archetype_id,definition,ontology,invariants,olang,trans,descr,rev,ctrld)            
     #print 'ADL Version: ',atObj.adlVersion        
     #print '__name__ = ', atObj.__name__
     #print 'UID: ', atObj.uid

@@ -22,13 +22,13 @@ from zope.interface import Interface
 from zope.schema import TextLine,Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
-from openehr.rm.datatypes.uri.interfaces.dvehruri import IDvEhrUri
+
+from oship.openehr.rm.datatypes.text.interfaces.dvtext import IDvText
+from oship.openehr.rm.datatypes.uri.interfaces.dvehruri import IDvEhrUri
 
 _ = MessageFactory('oship')
         
-class ILink(ILocatable):
+class ILink(Interface):
     """
     The LINK type defines a logical relationship between two items, such as two
     ENTRYs or an ENTRY and a COMPOSITION. Links can be used across composi-

@@ -21,10 +21,13 @@ __docformat__ = u'plaintext'
 from zope.schema import TextLine,List,Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.support.identification.interfaces.uidbasedid import IUidBasedId
-from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
-from openehr.rm.common.archetyped.interfaces.archetyped import IArchetyped
-from openehr.rm.common.archetyped.interfaces.pathable import IPathable
+
+from oship.openehr.rm.support.identification.interfaces.uidbasedid import IUidBasedId
+from oship.openehr.rm.datatypes.text.interfaces.dvtext import IDvText
+from oship.openehr.rm.support.identification.interfaces.objectref import IObjectRef
+from oship.openehr.rm.common.archetyped.interfaces.pathable import IPathable
+from oship.openehr.rm.common.archetyped.interfaces.feederaudit import IFeederAudit
+from oship.openehr.rm.common.archetyped.interfaces.link import ILink
 
 _ = MessageFactory('oship')
 
@@ -67,7 +70,7 @@ class ILocatable(IPathable):
 
     
     archetypeDetails = Object(
-        schema=IArchetyped,
+        schema=IObjectRef,
         title=_(u"Archetype Details"),
         description=_(u"Details of archetyping used on this node."),
         required=False,

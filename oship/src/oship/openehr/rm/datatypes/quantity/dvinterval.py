@@ -22,6 +22,7 @@ from zope.interface import implements,classProvides
 
 from openehr.rm.datatypes.basic.datavalue import DataValue
 from openehr.rm.support.interval import *
+from oship.openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
 
 _ = MessageFactory('oship')
        

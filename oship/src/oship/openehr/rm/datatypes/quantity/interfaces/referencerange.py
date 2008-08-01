@@ -19,9 +19,9 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
 
-from dvordered import IDvOrdered
-from openehr.rm.datatypes.text.dvtext import DvText
-from openehr.rm.datatypes.quantity.dvinterval import DvInterval
+from oship.openehr.rm.datatypes.quantity.interfaces.dvordered import IDvOrdered
+from oship.openehr.rm.datatypes.text.interfaces.dvtext import IDvText
+from oship.openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
 
 
 _ = MessageFactory('oship')
@@ -34,14 +34,15 @@ class IReferenceRange(IDvOrdered):
     May be used to represent normal, therapeutic, dangerous, critical etc ranges.
     """
     
-    meaning=DvText(
+    meaning=Object(
+        schema=IDvText,
         title=_(u"meaning"),
-        description=_(u"""Term whose value indicates the meaning of this range, 
-                     e.g. "normal", "critical", "therapeutic" etc."""),
+        description=_(u"""Term whose value indicates the meaning of this range,  e.g. "normal", "critical", "therapeutic" etc."""),
         required=True
         )
     
-    range=DvInterval(
+    range=Object(
+        schema=IDvInterval,
         title=_(u"range"),
         description=_(u"""The data range for this meaning, e.g."critical" etc."""),
         required=True
@@ -51,4 +52,3 @@ class IReferenceRange(IDvOrdered):
         """
         Indicates if the value 'val' is inside the range
         """
-        

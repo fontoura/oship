@@ -19,7 +19,7 @@ __docformat__ = u'plaintext'
 from zope.i18nmessageid.message import MessageFactory
 from zope.schema import Dict
 
-from dvtext import IDvText
+from oship.openehr.rm.datatypes.text.interfaces.dvtext import IDvText
 
 _ = MessageFactory('oship')
 

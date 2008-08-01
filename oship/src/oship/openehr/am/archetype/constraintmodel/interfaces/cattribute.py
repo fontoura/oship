@@ -18,10 +18,19 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
+
 from zope.schema import List, TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
-from openehr.rm.support.interval import Interval
+from zope.schema import List, TextLine,Int, Object
+from zope.i18nmessageid.message import MessageFactory
+
+from oship.openehr.rm.support.interval import Interval
+
+from oship.openehr.rm.support.interval import Interval
+from archetypeconstraint import IArchetypeConstraint
+from oship.openehr.rm.support.identification.interfaces.objectref import IObjectRef
+
 _ = MessageFactory('oship')
 
 
@@ -42,10 +51,16 @@ class ICAttribute(Interface):
         required=True,
     )
 
+    #children=List(
+        #title=_(u"Children"),
+        #description=_(u"Child constraint nodes."),
+        #required=False,
+        #value_type=Object(schema=ICObject),
+    #)
+    
     children=List(
         title=_(u"Children"),
         description=_(u"Child constraint nodes."),
         required=False,
-    )
     
-    
+

@@ -17,14 +17,15 @@ History Package Rev. 2.1.0.
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.schema import Field
+from zope.schema import Field, Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
-from openehr.rm.datatypes.quantity.datetime.interfaces.dvduration import IDvDuration
-from openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure 
-from openehr.rm.datastructures.history.interfaces.history import IHistory 
+
+from oship.openehr.rm.common.archetyped.interfaces.locatable import ILocatable
+from oship.openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
+from oship.openehr.rm.datatypes.quantity.datetime.interfaces.dvduration import IDvDuration
+from oship.openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure 
+from oship.openehr.rm.support.identification.interfaces.objectref import IObjectRef
 
 _ = MessageFactory('oship')
 
@@ -58,14 +59,14 @@ class IEvent(ILocatable):
     )
     
     parent=Object(
-        schema=IHistory,
+        schema=IObjectRef,
         title=_(u'parent'),
         description=_(u'redefinition of LOCATABLE.parent to type of History'),
         required=True
     )
     
     offset=Object(
-        schema=DvDuration,
+        schema=IDvDuration,
         title=_(u'offset'),
         description=_(u'Offset of this event from origin, computed as time.diff(parent.origin)'),
         required=True

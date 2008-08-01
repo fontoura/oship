@@ -46,6 +46,7 @@ class IHistory(IDataStructure):
     )
     
     events = List(
+        value_type = Object(schema=IEvent),
         title=_(u"events"),
         description=_(u"The events in the series."),
         required= False

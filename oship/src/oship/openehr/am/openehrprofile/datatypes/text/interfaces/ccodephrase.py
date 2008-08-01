@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import Interface
-from zope.schema import List
+from zope.schema import List,TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
 from openehr.am.archetype.constraintmodel.interfaces.cdomaintype import ICDomainType
@@ -41,6 +41,7 @@ class ICCodePhrase(ICDomainType):
         )
 
     codeList = List(
+        value_type=TextLine(),
         title=_(u"Code List"),
         description=_(u"""List of allowed codes.  If empty it means any code is allowed."""),
         required=False,

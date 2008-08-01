@@ -18,7 +18,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.schema import Int,Set,List,Object
+from zope.schema import Int,Set,List,Object, TextLine
 from zope.interface import Interface
 
 #from openehr.am.archetype.archetype import Archetype
@@ -35,6 +35,7 @@ class IArchetypeOntology(Interface):
         title=_(u"Terminologies"),
         description=_(u"List of terminologies in this ontology."),
         required=True,
+        value_type=TextLine(),
     )
 
     specialisationDepth=Int(
@@ -47,18 +48,21 @@ class IArchetypeOntology(Interface):
         title=_(u"Term Codes"),
         description=_(u"List of all term codes in this archetype."),
         required=True,
+        value_type=TextLine(),
     )
 
     constraintCodes=List(
         title=_(u"Constraint Codes"),
         description=_(u"List of all constraint codes in this archetype."),
         required=True,
+        value_type=TextLine(),
     )
     
     termAttributeNames=List(
         title=_(u"Term Attribute Names"),
         description=_(u"List of attribute names in this archetype ontolgy."),
         required=True,
+        value_type=TextLine(),
     )
 
     parentArchetype=Object(

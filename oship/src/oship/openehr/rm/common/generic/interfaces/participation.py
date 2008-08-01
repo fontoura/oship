@@ -19,13 +19,14 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import Interface
-from zope.schema import Field
+from zope.schema import Field, Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.generic.partyproxy import PartyProxy
-from openehr.rm.datatypes.text.dvtext import DvText
-from openehr.rm.datatypes.text.dvcodedtext import DvCodedText
-from openehr.rm.datatypes.quantity.dvinterval import DvInterval
+
+from oship.openehr.rm.common.generic.interfaces.partyproxy import IPartyProxy
+from oship.openehr.rm.datatypes.text.interfaces.dvtext import IDvText
+from oship.openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
+from oship.openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
 
 _ = MessageFactory('oship')
 
@@ -41,15 +42,16 @@ class IParticipation(Interface):
     Should not be used in place of more permanent relationships between demographic entities.
     """
     
-    performer = PartyProxy(
+    performer = Object(
+        schema=IPartyProxy,
         title=_(u'Performer'),
         description=_(u"""The id and possibly demographic system link of performer: 
                     (PartyProxy) the party participating in the activity."""),
         required=True,
-        constraint = isinstance(PartyProxy)
         )
     
-    function = DvText(
+    function = Object(
+        schema=IDvText,
         title=_(u'Function'),
         description=_(u"""The function of the Party in this participation (note 
                     that a given party might participate in more than one way 
@@ -59,14 +61,16 @@ class IParticipation(Interface):
         required=True,
         )
     
-    mode = DvCodedText(
+    mode = Object(
+        schema=IDvCodedText,
         title=_(u'Mode'),
         description=_(u"""The mode of the performer / activity interaction, e.g. 
                     present, by telephone, by email etc. Type == DvCodedText"""),
         required=True,
         )
     
-    time = DvInterval(
+    time = Object(
+        schema=IDvInterval,
         title=_(u'Time Interval'),
         description=_(u"""The time interval during which the participation took 
                     place, if it is used in an observational context (i.e. 

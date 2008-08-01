@@ -22,15 +22,17 @@ from zope.interface import Interface
 from zope.schema import List,Object
 from zope.i18nmessageid import MessageFactory
 
-from openehr.rm.common.archetyped.interfaces.feederauditdetails import IFeederAuditDetails
-from openehr.rm.datatypes.encapsulated.interfaces.dvencapsulated import IDvEncapsulated
-from openehr.rm.common.archetyped.interfaces.locatable import ILocatable
+
+from oship.openehr.rm.common.archetyped.interfaces.feederauditdetails import IFeederAuditDetails
+from oship.openehr.rm.datatypes.encapsulated.interfaces.dvencapsulated import IDvEncapsulated
+from oship.openehr.rm.datatypes.basic.interfaces.dvidentifier import IDvIdentifier
+
 
 
 _ = MessageFactory('oship')
 
 
-class IFeederAudit(ILocatable):
+class IFeederAudit(Interface):
     """
     Audit and other meta-data for systems in the feeder chain.
     """

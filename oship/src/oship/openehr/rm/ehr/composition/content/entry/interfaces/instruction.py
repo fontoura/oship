@@ -17,16 +17,18 @@ EHR Information Model package Rev. 5.1.0
 
 
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
+__Contributors__ = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
 from zope.schema import List,Object
 
-from openehr.rm.datatypes.text.interfaces.dvtext import IDvText
-from openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
-from openehr.rm.datatypes.encapsulated.interfaces.dvparsable import IDvParsable
-from careentry import ICareEntry
+from oship.openehr.rm.datatypes.text.interfaces.dvtext import IDvText
+from oship.openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
+from oship.openehr.rm.datatypes.encapsulated.interfaces.dvparsable import IDvParsable
+from oship.openehr.rm.ehr.composition.content.entry.interfaces.activity import IActivity
+from oship.openehr.rm.ehr.composition.content.entry.interfaces.careentry import ICareEntry
 
 _ = MessageFactory('oship')
 
@@ -43,6 +45,7 @@ class IInstruction(ICareEntry):
     )
     
     activities=List(
+        value_type = Object(schema = IActivity),
         title=_(u"Activities"),
         description=_(u"List of all activities in the Instruction."),
         required=False,

@@ -18,11 +18,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.schema import List,Object
+from zope.schema import List,Object,Int
 
-from openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
-from openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
-from openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
+from oship.openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
+from oship.openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
+from oship.openehr.rm.support.identification.interfaces.objectref import IObjectRef
+
 
 _= MessageFactory('oship')
 
@@ -42,30 +43,34 @@ class IDvOrdered(IDataValue):
     same kind of physical quantity.
     """
     
+    """ Cause circular import
     normalRange = Object(
         schema=IDvInterval,
+        title = _(u"normalRange"),
+        description = _(u"Optional normal range."),
+        required = False
+        )
+    """
+
+    normalRange = Int(
         title = _(u"normalRange"),
         description = _(u"""Optional normal range."""),
         required = False
         )
     
     otherReferenceRanges = List(
+        value_type=Object(schema=IObjectRef),
         title = _(u"otherReferenceRanges"),
-        description = _(u"""Optional tagged other reference ranges for this value in 
-                      its particular measurement context. A list of ReferenceRange types."""),
+        description = _(u"""Optional tagged other reference ranges for this value in its particular measurement context. A list of ReferenceRange types."""),
         required = False
         )
     
     normalStatus = Object(
         schema=ICodePhrase,
         title = _(u"normalStatus"),
-        description = _(u"""Optional normal status indicator of value with respect to normal 
-                     range for this value. Often included by lab, even if the normal range 
-                     itself is not included. Coded by ordinals in series HHH, HH, H, 
-                     (nothing), L, LL, LLL; see openEHR terminology group "normal status"."""),
+        description = _(u"""Optional normal status indicator of value with respect to normal range for this value. Often included by lab, even if the normal range itself is not included. Coded by ordinals in series HHH, HH, H, (nothing), L, LL, LLL; see openEHR terminology group "normal status"."""),
         required = False
     )
-                
        
     def isStrictlyComparableTo(other):
         """Test if two instances are strictly comparable. Called by object.__cmp__"""
@@ -73,9 +78,7 @@ class IDvOrdered(IDataValue):
 
     def isNormal():
         """ 
-        Value is in the normal range, determined by comparison of the value to the normalRange 
-        if present, or by the normalStatus marker if present.
-
+        Value is in the normal range, determined by comparison of the value to the normalRange if present, or by the normalStatus marker if present.
         isNormal: Boolean
         require
         normalRange /= Void or normalStatus /= Void
@@ -83,11 +86,10 @@ class IDvOrdered(IDataValue):
         normalRange /= Void implies Result = normalRange.has(Current)
         normalStatus /= Void implies normal_status.code_string.is_equal("N")
         """
-        
-        
+    
     def isSimple():
         """
         is_simple: Boolean 
         True if this quantity has no reference ranges.
         """
-                  
+    

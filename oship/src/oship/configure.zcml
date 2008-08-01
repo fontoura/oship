@@ -1,0 +1,43 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  i18n_domain="oship" >
+
+  <include package="zope.viewlet" file="meta.zcml" />
+  <include package="z3c.form" file="meta.zcml" />
+  <include package="z3c.macro" file="meta.zcml" />
+  <include package="z3c.template" file="meta.zcml" />
+  <include package="zope.security" file="meta.zcml" />
+  <include package="zope.app.zcmlfiles" file="meta.zcml" />
+
+  <include package="zope.publisher" />
+  <include package="zope.traversing" />
+  <include package="zope.traversing.browser" />
+  <include package="zope.app.zcmlfiles" />
+  <include package="zope.i18n" file="meta.zcml" />
+  <include package="zope.annotation" />
+  <include package="zope.copypastemove" />
+  <include package="zope.formlib" />
+  <include package="zope.i18n.locales" />
+  <include package="zope.app.authentication" />
+  <include package="zope.app.session" />
+  <include package="zope.app.intid" />
+  <include package="zope.app.keyreference" />
+  <include package="zope.app.catalog" />
+  <include package="z3c.form" />
+  <include package="z3c.formui" />
+   
+  <!-- Add your own component registrations here -->      
+
+<class class="oship.openehr.am.archetype.archetype.Archetype">
+  <require
+      interface="oship.openehr.am.archetype.interfaces.archetype.IArchetype"
+      permission="zope.View" />
+  <require
+      set_schema="oship.openehr.am.archetype.interfaces.archetype.IArchetype"
+      permission="zope.ManageContent" />
+</class>  
+  
+  <include package=".browser" />
+  <include package=".browser.skins" file="demoskin.zcml" />
+  
+</configure>

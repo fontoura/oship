@@ -19,3 +19,6 @@ zope.app.catalog
 zope.testing
 zope.app.testing
 zope.app.securitypolicy
+z3c.form
+z3c.formui
+z3c.layer

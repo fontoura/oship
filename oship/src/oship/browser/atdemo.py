@@ -15,5 +15,5 @@ from oship.openehr.am.archetype.interfaces.archetype import IArchetype
 class ATDemoDisplayForm(form.Form):
     """A simple display form Archetypes."""
 
-    fields = field.Fields(IArchetype)
+    fields = field.Fields(IArchetype).omit('__name__', '__parent__')
     mode = DISPLAY_MODE

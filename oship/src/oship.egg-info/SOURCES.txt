@@ -58,7 +58,10 @@ src/oship/basic_cfg/startup.py
 src/oship/basic_cfg/testing.py
 src/oship/browser/README.txt
 src/oship/browser/__init__.py
+src/oship/browser/archetypedisplay.py
 src/oship/browser/atdemo.py
+src/oship/browser/configure.zcml
+src/oship/browser/layers/__init__.py
 src/oship/browser/layers/demolayer.py
 src/oship/browser/skins/__init__.py
 src/oship/browser/skins/demoskin.py

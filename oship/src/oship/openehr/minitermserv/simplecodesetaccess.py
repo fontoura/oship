@@ -30,39 +30,39 @@ class SimpleCodeSetAccess(Object):
     """
     A simple in-memory implementation of CodeSetAccess.
     """
-    
-	implements(CodeSetAccess)
-	
-	def __init__(self, id, allCodes):
-		self.id = id;
-		self.__allCodes = {}
-		for code in allCodes:
-			codePhrase = CodePhrase(id, code)
-			self.__allCodes.append(codePhrase)	
-		
-	def id(self):
+
+        implements(CodeSetAccess)
+
+        def __init__(self, id, allCodes):
+            self.id = id;
+            self.__allCodes = {}
+            for code in allCodes:
+                codePhrase = CodePhrase(id, code)
+                self.__allCodes.append(codePhrase)	
+
+        def id(self):
         u"""External identifier of this Code Set"""
-		return id
+            return id
 
     def allCodes(self):
         u""" Return all codes known in this code set """
         return allCodes
-		
+
     def hasLang(self, a_lang):
         u""" True if code set knows about 'a_lang'.
 		  TODO: seems to be impossible to implement
 	      code sets are language _independent_ by definition
 		"""
         return false
-		
+
     def hasCode(self, a_code):
         u""" True if code set knows about 'a_code' """
-		if(a_code is None):
-			raise ValueError(u'code is null')   
-		if a_code.__class__ is not CodePhrase:    // *******************
-			raise TypeError(u'a_code is not a Code Phrase')
-		return code in allCodes
- 
+            if(a_code is None):
+                raise ValueError(u'code is null')   
+            if a_code.__class__ is not CodePhrase:    // *******************
+                raise TypeError(u'a_code is not a Code Phrase')
+            return code in allCodes
+
 }
-		
-	
+
+

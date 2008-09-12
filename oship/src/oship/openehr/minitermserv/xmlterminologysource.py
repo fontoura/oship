@@ -31,50 +31,49 @@ class XMLTerminologySource():
     """
     Defines an object providing proxy access to a terminology service.
     """
-    
-	def __init__(self, filename)
-		try:
-			self.codeSetList = []
-			self.groupList = []
-			__loadTerminologyFromXML(filename)
-		except (IOError, OSError):
-			raise IOError('file not found')
 
-	
-	def __loadTerminologyFromXML(self, filename):	
-		try:
-			sys.setdefaultencoding('utf-8')
-			input = open(filename) 
-			doc = minidom.parse(input)
-			root = doc.firstChild()
-			codesets = root.getElementsByTagName('codeset')
-			
-			for element in codesets:
-				self.codeSetList.append(__loadCodeSet(element))
-			
-			groups = root.getElementsByTagName('group')
-			for group in codesets:
-				self.groupList.append(loadGroup(element))
-		finally:
-			input.close();
-	
-	def __loadCodeSet(element):
-	"""
+        def __init__(self, filename)
+            try:
+                self.codeSetList = []
+                self.groupList = []
+                __loadTerminologyFromXML(filename)
+            except (IOError, OSError):
+                raise IOError('file not found')
+
+
+        def __loadTerminologyFromXML(self, filename):	
+            try:
+                sys.setdefaultencoding('utf-8')
+                input = open(filename) 
+                doc = minidom.parse(input)
+                root = doc.firstChild()
+                codesets = root.getElementsByTagName('codeset')
+
+                for element in codesets:
+                    self.codeSetList.append(__loadCodeSet(element))
+
+                groups = root.getElementsByTagName('group')
+                for group in codesets:
+                    self.groupList.append(loadGroup(element))
+            finally:
+                input.close();
+
+        def __loadCodeSet(element):
+        """
 		Loads a code set from XML element
 	"""
-		codeset = CodeSet(element.attributes['openehr_id'], element.attributes['external_id'], element.attributes['code'])
-		children = element.getElementsByTagName('code')
-		for code in children:
-			codeset.append(code.attributes['value'])
-		return codeset;
-	
-	def __loadGroup(element):
-	"""
+            codeset = CodeSet(element.attributes['openehr_id'], element.attributes['external_id'], element.attributes['code'])
+            children = element.getElementsByTagName('code')
+            for code in children:
+                codeset.append(code.attributes['value'])
+            return codeset;
+
+        def __loadGroup(element):
+        """
 		Loads a concept group from XML element
 	"""
-		group = Group(element.attributes['name'])
-		children = element.getElementsByTagName('concept');
-		for item in children:
-			group.addConcept(Concept(item.attributes['id'], item.attributes['rubric']))
-		return group
-	
+            group = Group(element.attributes['name'])
+            children = element.getElementsByTagName('concept');
+            for item in children:
+                group.addConcept(Concept(item.attributes['id'], item.attributes['rubric']))
+            return group

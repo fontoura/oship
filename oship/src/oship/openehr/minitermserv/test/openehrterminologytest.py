@@ -24,27 +24,26 @@ import unittest
 
 
 class OpenEHRTerminologyTest(unittest.TestCase):
-	
-	def setUp(self):
-		self.service = SimpleTerminologyService()
-	
-	def testHasOpenEHRSettingCode(self):		
-		terminology = self.service.terminology('openehr')	
-		assertEqual(False, terminology is None)		
-		codes = terminology.codesForGroupName('setting', 'en')		
-		assertEqual(False, codes is None)		
-		home = CodePhrase('openehr', '225')		
-		assertEqual(True, home in codes)
-	
-	def testHasCountryCodes(self):
-		codeSet = self.service.codeSetForId('countries')
-		assertEqual(False, codeSet is None)
-		assertEqual(True, CodePhrase('ISO_3166-1', 'CN') in codeSet)
-		assertEqual(True, CodePhrase('ISO_3166-1', 'SE') in codeSet)
-		assertEqual(True, CodePhrase('ISO_3166-1', 'GB') in codeSet)
-		assertEqual(True, CodePhrase('ISO_3166-1', 'DK') in codeSet)
-		assertEqual(True, CodePhrase('ISO_3166-1', 'FR') in codeSet)
 
-	if __name__ == "__main__":
-		unittest.main()
-	
+    def setUp(self):
+        self.service = SimpleTerminologyService()
+
+    def testHasOpenEHRSettingCode(self):		
+        terminology = self.service.terminology('openehr')	
+        assertEqual(False, terminology is None)		
+        codes = terminology.codesForGroupName('setting', 'en')		
+        assertEqual(False, codes is None)		
+        home = CodePhrase('openehr', '225')		
+        assertEqual(True, home in codes)
+
+    def testHasCountryCodes(self):
+        codeSet = self.service.codeSetForId('countries')
+        assertEqual(False, codeSet is None)
+        assertEqual(True, CodePhrase('ISO_3166-1', 'CN') in codeSet)
+        assertEqual(True, CodePhrase('ISO_3166-1', 'SE') in codeSet)
+        assertEqual(True, CodePhrase('ISO_3166-1', 'GB') in codeSet)
+        assertEqual(True, CodePhrase('ISO_3166-1', 'DK') in codeSet)
+        assertEqual(True, CodePhrase('ISO_3166-1', 'FR') in codeSet)
+
+    if __name__ == "__main__":
+        unittest.main()

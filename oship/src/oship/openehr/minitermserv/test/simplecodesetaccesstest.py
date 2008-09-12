@@ -25,27 +25,27 @@ import unittest
 _ = MessageFactory('oship')
 
 class SimpleCodeSetAccessTest(unittest.TestCase):
-	
-	CODESET_ID = 'test_id'
-	CODES = ['code1', 'code2', 'code3', 'code4' ]
 
-	def setUp(self) {
-		self.instance = SimpleCodeSetAccess(CODESET_ID, CODES)
-	
-	def testGetId(self):
-		assertEqual(CODESET_ID, self.instance.id())
-	
-	def testGetAllCodes(self):
-		allCodes = []
-		for c in CODES):
-			allCodes.append(CodePhrase(CODESET_ID, c))
-		assertEqual(allCodes, self.instance.allCodes())
-	
-	def testHasCode(self):
-		for c in CODES:
-			code = CodePhrase(CODESET_ID, c)
-			assertEqual(True, self.instance.hasCode(code))
+    CODESET_ID = 'test_id'
+    CODES = ['code1', 'code2', 'code3', 'code4' ]
+
+    def setUp(self) {
+        self.instance = SimpleCodeSetAccess(CODESET_ID, CODES)
+
+    def testGetId(self):
+        assertEqual(CODESET_ID, self.instance.id())
+
+    def testGetAllCodes(self):
+        allCodes = []
+        for c in CODES):
+            allCodes.append(CodePhrase(CODESET_ID, c))
+        assertEqual(allCodes, self.instance.allCodes())
+
+    def testHasCode(self):
+        for c in CODES:
+            code = CodePhrase(CODESET_ID, c)
+            assertEqual(True, self.instance.hasCode(code))
 
 if __name__ = "__main__":
-	unittest.main()
+    unittest.main()
 

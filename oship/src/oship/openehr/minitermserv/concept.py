@@ -27,7 +27,7 @@ class Concept(Object):
     a concept in a terminology group
     """
 
-	def __init__(self, id, rubric, description=None)
-		self.id = id
-		self.rubric = rubric
-		self.description = description
+        def __init__(self, id, rubric, description=None)
+            self.id = id
+            self.rubric = rubric
+            self.description = description

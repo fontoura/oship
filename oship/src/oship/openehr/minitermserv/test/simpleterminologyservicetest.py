@@ -25,56 +25,56 @@ import unittest
 _ = MessageFactory('oship')
 
 class SimpleTerminologyServiceTest(unittest.TestCase):
-	
-	def setUp(self):
-		self.instance = SimpleTerminologyService(self)
-	
-	def tearDown(self):
-		self.instance = None
 
-	def testGetTerminology(self):
-		terminology = self.instance.terminology('openehr')
-		assertEqual(terminology is None, False)
+    def setUp(self):
+        self.instance = SimpleTerminologyService(self)
 
-	def testGetCodeSetWithAllValidIds(self):
-		for id in OpenEHRCodeSetIdentifiers.values:
-			codeSet = self.instance.codeSetForId(id.items()[0][0]);
-			assertEqual(False, codeSet is None)
+    def tearDown(self):
+        self.instance = None
 
-	def testHasTerminologyWithOpenEHR(self):
-		name = 'openehr'
-		assertEqual(True, self.instance.hasTerminology(name))
+    def testGetTerminology(self):
+        terminology = self.instance.terminology('openehr')
+        assertEqual(terminology is None, False)
 
-	def testHasCodeSet(self, name):
-		for id in OpenEHRCodeSetIdentifiers.values():
-			assertEqual(True, self.instance.hasCodeSet(id.items()[0][0]))		
+    def testGetCodeSetWithAllValidIds(self):
+        for id in OpenEHRCodeSetIdentifiers.values:
+            codeSet = self.instance.codeSetForId(id.items()[0][0]);
+            assertEqual(False, codeSet is None)
 
-	def testGetTerminologyIdentifiers(self):
-		ids = self.instance.terminologyIdentifiers()
-		assertEqual(False, ids is None)
-		assertEqual(True, len(ids) > 0)
+    def testHasTerminologyWithOpenEHR(self):
+        name = 'openehr'
+        assertEqual(True, self.instance.hasTerminology(name))
 
-	def testGetCodeSetIdentifiers(self):
-		ids = self.instance.codeSetIdentifiers()
-		assertEqual(False, ids is None)
-		assertEqual(True, len(ids) > 0)
+    def testHasCodeSet(self, name):
+        for id in OpenEHRCodeSetIdentifiers.values():
+            assertEqual(True, self.instance.hasCodeSet(id.items()[0][0]))		
 
-	def testGetOpenehrCodeSets(self):
-		codeSets = self.instance.openehrCodeSets()
-		assertEqual(False, codeSets is None)
-		assertEqual(True, len(codeSets) > 0)
-	
-	def testGetCountryCodeSetByExternalName(self):
-		externalNames = [
-				'ISO_3166-1', 'IANA_character-sets', 
-				'openehr_compression_algorithms', 
-				'openehr_integrity_check_algorithms',
-				'ISO_639-1', 'IANA_media-types',
-				'openehr_normal_statuses' ]
+    def testGetTerminologyIdentifiers(self):
+        ids = self.instance.terminologyIdentifiers()
+        assertEqual(False, ids is None)
+        assertEqual(True, len(ids) > 0)
 
-		for name in externalNames:
-			codeSet = self.instance.codeSet(name)
-			assertEqual(False, codeSet is None)
+    def testGetCodeSetIdentifiers(self):
+        ids = self.instance.codeSetIdentifiers()
+        assertEqual(False, ids is None)
+        assertEqual(True, len(ids) > 0)
+
+    def testGetOpenehrCodeSets(self):
+        codeSets = self.instance.openehrCodeSets()
+        assertEqual(False, codeSets is None)
+        assertEqual(True, len(codeSets) > 0)
+
+    def testGetCountryCodeSetByExternalName(self):
+        externalNames = [
+            'ISO_3166-1', 'IANA_character-sets', 
+            'openehr_compression_algorithms', 
+            'openehr_integrity_check_algorithms',
+            'ISO_639-1', 'IANA_media-types',
+            'openehr_normal_statuses' ]
+
+        for name in externalNames:
+            codeSet = self.instance.codeSet(name)
+            assertEqual(False, codeSet is None)
 
 if __name__ = "__main__":
-	unittest.main()
+    unittest.main()

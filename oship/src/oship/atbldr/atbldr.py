@@ -104,6 +104,11 @@ if 'DEMOGRAPHICS' not in root['Application']:
     root['Application']['DEMOGRAPHICS'].setSiteManager(sm)
     transaction.commit()    
 
+if 'TR' not in root['Application']:
+    root['Application']['TR']=folder.Folder()
+    sm = LocalSiteManager(root['Application']['TR'])
+    root['Application']['TR'].setSiteManager(sm)
+    transaction.commit()
 
 def CreateAT():
     """

@@ -1,4 +1,3 @@
-.installed.cfg
 apidoc.zcml
 buildout.cfg
 debug.ini
@@ -15,6 +14,7 @@ src/oship/__init__.py
 src/oship/codesets.py
 src/oship/configure.zcml
 src/oship/ftesting.zcml
+src/oship/load_ar.py
 src/oship/startup.py
 src/oship/testing.py
 src/oship.egg-info/PKG-INFO
@@ -30,6 +30,7 @@ src/oship/atbldr/adl_1_4.py
 src/oship/atbldr/atbldr.py
 src/oship/atbldr/bldaction.py
 src/oship/atbldr/bldactivity.py
+src/oship/atbldr/bldaddress.py
 src/oship/atbldr/bldadminentry.py
 src/oship/atbldr/bldcluster.py
 src/oship/atbldr/bldcomposition.py

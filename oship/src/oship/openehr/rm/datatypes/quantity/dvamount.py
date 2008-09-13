@@ -8,10 +8,8 @@
 ##############################################################################
 
 u"""
-
 From Data Types Information Model
 Quantity Package Rev. 2.1.0.
-
 """
 
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'

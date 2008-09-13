@@ -12,6 +12,7 @@ From the quantity data types from Data Types Information Model
 Quantity Package Rev. 2.1.0.
 """
 
+
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Renato Pesca <rpesca@gmail.com>',u'Andre Goncalves <goncalves.aluiz@gmail.com'

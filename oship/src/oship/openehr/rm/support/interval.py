@@ -5,6 +5,7 @@ import copy
 
 from zope.schema import Field
 
+
 class Smallest:
   """Represents the smallest value
   

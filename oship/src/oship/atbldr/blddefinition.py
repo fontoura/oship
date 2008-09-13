@@ -17,6 +17,7 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
+from bldaddress import bldAddress
 from bldevent import bldEvent
 from bldcluster import bldCluster
 from bldelement import bldElement
@@ -32,7 +33,7 @@ from bldsection import bldSection
 definClassMap={'SECTION':bldSection,'COMPOSITION':bldComposition,'OBSERVATION':bldObservation,\
                'ITEM_TREE':bldItemTree,'ADMIN_ENTRY':bldAdminEntry,'ACTION':bldAction,\
                 'EVALUATION':bldEvaluation,'INSTRUCTION':bldInstruction,'ELEMENT':bldElement,\
-                'CLUSTER':bldCluster,'EVENT':bldEvent}
+                'CLUSTER':bldCluster,'EVENT':bldEvent,'ADDRESS':bldAddress}
 
 def bldDefinition(parsed_adl):
     u"""

@@ -15,7 +15,6 @@ src/oship/__init__.py
 src/oship/codesets.py
 src/oship/configure.zcml
 src/oship/ftesting.zcml
-src/oship/load_ar.py
 src/oship/startup.py
 src/oship/testing.py
 src/oship.egg-info/PKG-INFO
@@ -550,6 +549,19 @@ src/oship/openehr/am/openehrprofile/datatypes/text/__init__.py
 src/oship/openehr/am/openehrprofile/datatypes/text/ccodephrase.py
 src/oship/openehr/am/openehrprofile/datatypes/text/interfaces/__init__.py
 src/oship/openehr/am/openehrprofile/datatypes/text/interfaces/ccodephrase.py
+src/oship/openehr/minitermserv/__init__.py
+src/oship/openehr/minitermserv/codeset.py
+src/oship/openehr/minitermserv/concept.py
+src/oship/openehr/minitermserv/group.py
+src/oship/openehr/minitermserv/simplecodesetaccess.py
+src/oship/openehr/minitermserv/simpleterminologyaccess.py
+src/oship/openehr/minitermserv/simpleterminologyservice.py
+src/oship/openehr/minitermserv/xmlterminologysource.py
+src/oship/openehr/minitermserv/test/__init__.py
+src/oship/openehr/minitermserv/test/openehrterminologytest.py
+src/oship/openehr/minitermserv/test/simplecodesetaccesstest.py
+src/oship/openehr/minitermserv/test/simpleterminologyaccesstest.py
+src/oship/openehr/minitermserv/test/simpleterminologyservicetest.py
 src/oship/openehr/rm/__init__.py
 src/oship/openehr/rm/common/__init__.py
 src/oship/openehr/rm/common/archetyped/__init__.py

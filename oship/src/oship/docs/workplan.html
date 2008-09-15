@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Linux)">
+	<META NAME="AUTHOR" CONTENT="Timothy Cook">
+	<META NAME="CREATED" CONTENT="20080915;15162900">
+	<META NAME="CHANGEDBY" CONTENT="Timothy Cook">
+	<META NAME="CHANGED" CONTENT="20080915;18502600">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><BR><BR>
+</P>
+<P>This page describes the work plan for OSHIP developers. 
+</P>
+<P>The idea is to provide a process that allows full collaboration
+among several developers but does not impose undue constraints (time
+and talents) on who can and cannot contribute to the development and
+promotion of OSHIP.</P>
+<P>A project of this size requires a large number of contributors
+with a wide variety of expertise.   The broader openEHR community
+provides a lot of that expertise and we can and do leverage it quite
+well.  We also re-use the Python and Zope community contributions. 
+This <B>is</B> the wonderful result of open source and open
+collaboration towards a common cause. 
+</P>
+<P><BR><BR>
+</P>
+<P>The most urgent need for OSHIP is to complete the implementation
+of all the classes in the openEHR reference model and archetype
+model.  
+</P>
+<P>The interfaces are complete.  Interfaces basically describe the
+attributes and  methods of each class in the models.  The
+implementations of those classes are at varying levels of completion.
+ The document <A HREF="class_status.html">class_status.html</A> 
+shows the status, the filename and the classname (incomplete as yet)
+of each class in the model.  The status column indicators are as
+follows:</P>
+<P>√ == complete and checked by multiple developers</P>
+<P>⧫ <FONT FACE="New Century Schoolbook">== currently being
+implemented by an OSHIP developer</FONT></P>
+<P><FONT FACE="New Century Schoolbook">(blank) == awaiting someone to
+take it on</FONT></P>
+<P><FONT FACE="New Century Schoolbook">Anyone can select any class
+that they wish to work on implementing.  You do not have to be an
+expert on openEHR or even a Python/Zope guru.  This is an open source
+project and a great opportunity for all of us to learn and
+contribute.   The approach that I am outlining follows what we did at
+the LNCC workshop and I think we were very successful.</FONT></P>
+<P><FONT FACE="New Century Schoolbook">Select a filename/classname
+from the class_status.html page that you would like to work on.  Send
+me a private email or send one to the mailing list saying that you
+are taking it on.  I will update the  class_status.html with a </FONT><FONT FACE="DejaVu LGC Serif, serif">⧫
+in the status column so no one else chooses it.   When it is complete
+and committed I will put a √ in the status column.</FONT></P>
+<P><FONT FACE="DejaVu LGC Serif, serif">These tasks are generally
+quite simple and I will personally tutor you or </FONT><FONT FACE="DejaVu LGC Serif, serif"><B>(preferably)</B></FONT><FONT FACE="DejaVu LGC Serif, serif">
+you will communicate with the community via the mailing list.   Think
+of it as an opportunity to attend the international openEHR
+University and Python programming course.   :-)</FONT></P>
+<P><FONT FACE="DejaVu LGC Serif, serif">Once you select a class to
+implement you will find that it is already partially implemented or
+that it is simply a copy of the class interface.  You will then need
+to complete the implementation as described below.</FONT></P>
+<P><FONT FACE="DejaVu LGC Serif, serif">Interfaces are definitions of
+a class (of sorts) that say what that class defines as attributes and
+methods.  They are sort of a contract to the rest of the application
+saying that they will provide those entities.  Python doesn't have a
+formal interface capability but we use the Zope Component
+Architecture's (ZCA) interface implementation to create this facility
+within OSHIP.    The OSHIP interfaces were defined precisely from the
+openEHR specifications, Release 1.0.1.</FONT></P>
+<P><FONT FACE="DejaVu LGC Serif, serif">When you select a class to
+work on you will see that it has a corresponding interface in the
+'interfaces' subdirectory.  Your task is to be sure that the class
+implements the attributes defined in the interface as well as all
+inherited attributes in its __init___().  The class must also provide
+the functionality described for each method detailed in the
+interface.</FONT></P>
+<P><FONT FACE="DejaVu LGC Serif, serif">There are doc strings for
+each of these but you should also refer to the referenced openEHR
+documentation and implement according to those specifications.  If
+you have a question, comment or problem please discuss it on the
+mailing list.  A foundational pillar of openEHR is implementation. 
+We can change the specs if it is not implementable in an OO language.</FONT></P>
+<P><FONT FACE="DejaVu LGC Serif, serif">Some may ask, why we need
+these interfaces.  We can just build the classes in Python and be
+done.  That is very true; we could.  However, I wanted OSHIP to be
+more functional than just a reference implementation.   In the time I
+spent building the interfaces I could have probably been finished
+with a pure Python implementation.   But, we are increasingly seeing
+the reality that more people that are new to openEHR want something
+that they can turn on and run.  This is what users and even
+developers are used to having.   This is why I decided to build the
+Python implementation in concert with the Zope Component
+Architecture.  While there is very little dependence on the ZCA; the
+interfaces are a major dependence.   The interfaces provide the ZCA
+infrastructure with the meta-data that it needs to automatically
+create webpages, etc.   Though we have work to do in crating custom
+widgets for our classes.  The overall effect will be that others can
+create small, purpose specific healthcare applications that can
+easily exchange semantically correct information with other
+applications, large or small.  This is actually a very long
+discussion so I'll close it by saying that a little bit of extra work
+here and now will save an enormous amount later AND more importantly
+it will attract more healthcare information specialists to the world
+of two-level modeling.</FONT></P>
+<P><BR><BR>
+</P>
+<P><FONT FACE="DejaVu LGC Serif, serif">So; no matter your openEHR
+skills or your Python skills.  Pick a file to work on and let's get
+started!!!!</FONT></P>
+<P><BR><BR>
+</P>
+<P><FONT FACE="DejaVu LGC Serif, serif">Thanks,</FONT></P>
+<P><FONT FACE="DejaVu LGC Serif, serif">Tim</FONT></P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P> 
+</P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -28,10 +28,11 @@ class Group(Object):
     a terminology group
     """
 
-        def __init__(self, name)
-            self.name =  name
-            self.concepts = []
+    def __init__(self, name):
+        self.name =  name
+        self.concepts = []
 
     def addConcept(self, concept):
         if concept not in concepts:
             concept.append(concept)
+            

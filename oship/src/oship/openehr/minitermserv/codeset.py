@@ -27,12 +27,13 @@ class CodeSet(Object):
     a CodeSet
     """
 
-        def __init__(self, issuer, openehrId, externalId)
-            self.issuer =  issuer
-            self.openehrId = openehrId
-            self.externalId = externalId
-            self.codes = []
+    def __init__(self, issuer, openehrId, externalId):
+        self.issuer =  issuer
+        self.openehrId = openehrId
+        self.externalId = externalId
+        self.codes = []
 
     def addCode(self, code):
         if code not in codes:
             codes.append(code)
+            

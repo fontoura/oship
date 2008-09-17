@@ -3,131 +3,149 @@
 <HEAD>
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
 	<TITLE>Installation of the OSHIP framework and the demo-application</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Linux)">
 	<META NAME="AUTHOR" CONTENT="Timothy Cook">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGEDBY" CONTENT="Timothy Cook">
+	<META NAME="CHANGED" CONTENT="20080917;14131300">
 	<META NAME="CHANGEDBY" CONTENT="Roger Erens">
-    <STYLE TYPE="text/css">
-            pre {background-color: pink;}
-    </STYLE>
+	<STYLE TYPE="text/css">
+	<!--
+		PRE { background: #ffc0cb }
+	-->
+	</STYLE>
 </HEAD>
-<BODY> 
-        <h1>Create Future Proof Healthcare Applications!</h1>
-        <h6>(And if you have problems with this, use the <a href="mailto:ref_impl_python@openehr.org">mailing list</a> )</h6>
-        In the following lines with instructions (in pink), the leading $ represents the tail of your
-        system prompt. It may be necessary to prefix the commands with 'sudo' when you, using a non-administrator account,
-        try to install into system-wide Python directories.
-
-        <h2>Installing the OSHIP framework on GNU Linux</h2>
-
-        <h3>Prerequisites</h3>
-        <dl>
-                <dt>Python2.5</dt>
-                <dd>OSHIP requires at least Python 2.5; if it is not already installed
-                on your system, you can download it from <a href="http://www.python.org/">http://www.python.org</a>.
-                We also need Python header files. They can be obtained by something like:
-                <pre>
-$sudo apt-get install python-dev</pre>
-                </dd>
-                <dt>gcc</dt>
-                <dd>On Ubuntu, this means installing the package build-essential:
-                <pre>
-$sudo apt-get install build-essential</pre>
-                <dt>setuptools</dt>
-                <dd>This package contains the easy_setup command, to make installing the next item real easy.
-                <pre>
-$wget http://peak.telecommunity.com/dist/ez_setup.py
-$python ez_setup.py</pre>
-                </dd>
-                <dt>virtualenv</dt>
-                <dd>In order to prevent your OSHIP project interfering with your other never-ending projects,
-                we advice you to work in separate environments. Virtualenv can be used to create isolated
-                environments.</br>
-                <pre>
-$easy_install virtualenv</pre>
-                </dd>
-                <dt>subversion</dt>
-                <dd>We currently use subversion (svn) as a version control system in our project. You can probably
-                install it by means of something like
-                <pre>
-$sudo apt-get install subversion</pre>
-                </dd>
-        </dl>
-
-        <h3>Installation steps</h3>
-        <ol>
-                <li>Let's prepare for the use of buildout; we use it now, and in the future. Buildout makes the process of 
-                creating projects repeatable. For example, it can pinpoint the versions of the software
-                components used in the project. In order to be able to repeat the building of a specific project 
-                in the distant future, it is vital to have a local copy of the used components. We tuck them away
-                in the hidden directory <b>.buildout</b> (note the leading dot):
-                <pre>
-$mkdir ~/.buildout
-$cd ~/.buildout</pre>
-                Now use your favorite text editor to create the file <b>default.cfg</b> containing the following:
-                <pre>
-[buildout]
+<BODY LANG="en-US" DIR="LTR">
+<H1>Create Future Proof Healthcare Applications!</H1>
+<H6>(And if you have problems with this, use the <A HREF="http://lists.chime.ucl.ac.uk/mailman/listinfo/ref_impl_python">mailing
+list </A>)</H6>
+<P>In the following lines with instructions (in pink), the leading $
+represents the tail of your system prompt. It may be necessary to
+prefix the commands with 'sudo' when you, using a non-administrator
+account, try to install into system-wide Python directories. 
+</P>
+<H2>Installing the OSHIP framework on GNU Linux</H2>
+<H3>Prerequisites</H3>
+<DL>
+	<DT>Python2.5 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	OSHIP requires at least Python 2.5; if it is not already installed
+	on your system, you can download it from <A HREF="http://www.python.org/">http://www.python.org</A>.
+	We also need Python header files. They can be obtained by something
+	like: 
+	</DD></DL>
+<PRE STYLE="margin-left: 0.39in; margin-bottom: 0.2in">$sudo apt-get install python-dev</PRE>
+<DL>
+	<DT>
+	gcc 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	On Ubuntu, this means installing the package build-essential: 
+	</DD></DL>
+<PRE STYLE="margin-left: 0.39in; margin-bottom: 0.2in">$sudo apt-get install build-essential</PRE>
+<DL>
+	<DT>
+	setuptools 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	This package contains the easy_setup command, to make installing the
+	next item real easy. 
+	</DD></DL>
+<PRE STYLE="margin-left: 0.39in">$wget http://peak.telecommunity.com/dist/ez_setup.py
+$python ez_setup.py</PRE>
+<DL>
+	<DT>
+	virtualenv 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	In order to prevent your OSHIP project interfering with your other
+	never-ending projects, we advice you to work in separate
+	environments. Virtualenv can be used to create isolated
+	environments.</DD></DL>
+<PRE STYLE="margin-left: 0.39in; margin-bottom: 0.2in">$easy_install virtualenv</PRE>
+<DL>
+	<DT>
+	subversion 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	We currently use subversion (svn) as a version control system in our
+	project. You can probably install it by means of something like 
+	</DD></DL>
+<PRE STYLE="margin-left: 0.39in; margin-bottom: 0.2in">$sudo apt-get install subversion</PRE><H3>
+Installation steps</H3>
+<OL>
+	<LI><P>Let's prepare for the use of buildout; we use it now, and in
+	the future. Buildout makes the process of creating projects
+	repeatable. For example, it can pinpoint the versions of the
+	software components used in the project. In order to be able to
+	repeat the building of a specific project in the distant future, it
+	is vital to have a local copy of the used components. We tuck them
+	away in the hidden directory <B>.buildout</B> (note the leading
+	dot): 
+	</P>
+	<PRE>$mkdir ~/.buildout
+$cd ~/.buildout</PRE><P>
+	Now use your favorite text editor to create the file <B>default.cfg</B>
+	containing the following: 
+	</P>
+	<PRE>[buildout]
 eggs-directory = /home/&lt;username&gt;/.buildout/eggs
-download-directory = /home/&lt;username&gt;/.buildout/downloads</pre>
-                Of course you substitute &lt;username &gt; with your own username.
-                </li>
-                <li>
-                Now create the isolated OSHIP environment and activate it:
-                <pre>
-$virtualenv ~/oshipenv
+download-directory = /home/&lt;username&gt;/.buildout/downloads</PRE><P STYLE="margin-bottom: 0in">
+	Of course you substitute &lt;username &gt; with your own username. 
+	</P>
+	<LI><P>Now create the isolated OSHIP environment and activate it: 
+	</P>
+	<PRE>$virtualenv ~/oshipenv
 $cd ~/oshipenv
-$source bin/activate</pre>
-                Check that your system prompt is now prefixed with <b>(oshipenv)</b>
-                e.g.<pre>
-(oshipenv)&lt;username&gt;@&lt;machinename&gt;:~/oshipenv$</pre>
-                </li>
-                <li>Now install the buildout-machinery.
-                <pre>
-$easy_install zc.buildout</pre>
-                </li>
-                <li>We provide you with a buildout recipe in the file <b>buildout.cfg</b>. Get it, and our other source
-                files, from <a href="http://www.openehr.org/svn/ref_impl_python/TRUNK/oship">our subversion server</a>:
-                <pre>
-svn co http://www.openehr.org/svn/ref_impl_python/TRUNK/oship oship</pre>
-                </li>
-                <li>
-                Now it's time for a chat at the coffee machine. Meanwhile, let buildout create your project:
-                <pre>
-$cd oship
-$buildout</pre>
-                All of the required Python eggs will be downloaded and installed. You might consider reading the next
-                section of this document now.<br />
-                <em>NOTE: In the past, we saw some errors during these downloads such as unknown
-                protocols for svn and https but everything seemed to work okay and we
-                haven't investigated the cause yet.</em>
-                </li>
-                <li>
-                Now you have a working OSHIP installation. You can start the server with
-                <pre>
-$bin/oship-ctl fg</pre> or the equivalent
-                <pre>
-$bin/paster serve deploy.ini</pre>
-Verify it is up by visiting <a href="http://localhost:8080/">http://localhost:8080</a> in your browser.
-The login link is on the upper right side of the browser window. <em>login=admin password=abc123</em>
-<img src="OSHIP_framework_index.png" />
-<img src="OSHIP_framework_contents.png" />
-                </li>
-        </ol>
-
-        <h2>Installing the demo-application in the OSHIP framework on GNU Linux</h2>
-        <p>&lt;To be written&gt;</p>
-
-        <h2>Installing the OSHIP framework on MS Windows XP</h2>
+$source bin/activate</PRE><P>
+	Check that your system prompt is now prefixed with <B>(oshipenv)</B>
+	e.g.</P>
+	<PRE STYLE="margin-bottom: 0.2in">(oshipenv)&lt;username&gt;@&lt;machinename&gt;:~/oshipenv$</PRE>
+	<LI><P>Now install the buildout-machinery. 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">$easy_install zc.buildout</PRE>
+	<LI><P>We provide you with a buildout recipe in the file
+	<B>buildout.cfg</B>. Get it, and our other source files, from <A HREF="http://www.openehr.org/svn/ref_impl_python/TRUNK/oship">our
+	subversion server</A>: 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">svn co http://www.openehr.org/svn/ref_impl_python/TRUNK/oship oship</PRE>
+	<LI><P>Now it's time for a chat at the coffee machine. Meanwhile,
+	let buildout create your project: 
+	</P>
+	<PRE>$cd oship
+$buildout</PRE><P STYLE="margin-bottom: 0in">
+	All of the required Python eggs will be downloaded and installed.
+	You might consider reading the next section of this document
+	now.<BR><EM>NOTE: In the past, we saw some errors during these
+	downloads such as unknown protocols for svn and https but everything
+	seemed to work okay and we haven't investigated the cause yet.</EM> 
+	</P>
+	<LI><P>Now you have a working OSHIP installation. You can start the
+	server with 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">$bin/oship-ctl fg</PRE><P>
+	or the equivalent 
+	</P>
+	<PRE STYLE="margin-bottom: 0.2in">$bin/paster serve deploy.ini</PRE><P>
+	Verify it is up by visiting <A HREF="http://localhost:8080/">http://localhost:8080</A>
+	in your browser. The login link is on the upper right side of the
+	browser window. <EM>login=admin password=abc123</EM> 
+	<IMG SRC="OSHIP_framework_index.png" NAME="graphics1" ALIGN=BOTTOM WIDTH=78 HEIGHT=39 BORDER=0>
+		<IMG SRC="OSHIP_framework_contents.png" NAME="graphics2" ALIGN=BOTTOM WIDTH=78 HEIGHT=39 BORDER=0>
+		</P>
+</OL>
+<H2>Installing the demo-application in the OSHIP framework on GNU
+Linux</H2>
+<P>&lt;To be written&gt;</P>
+<H2>Installing the OSHIP framework on MS Windows XP</H2>
 <P><B>This install guide was contributed by Alessandro Torrisi.&nbsp;
 Please contact&nbsp; Alessandro on the mailing list with any
-questions or corrections.<BR><TT>OShip Installation on Windows</TT><FONT COLOR="#ff0033">**NOTE:</FONT>
-<FONT COLOR="#000000">OSHIP requires Python 2.5! If it isn't already
-installed on your system you can download it from</FONT>
-<A HREF="http://www.python.org/"><FONT COLOR="#000000">http://www.python.org</FONT><FONT COLOR="#000000"><SUP></A><A HREF="http://www.python.org/"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics7" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A><A HREF="http://www.python.org/"></SUP></FONT></A><BR>You
+questions or corrections.<BR></B><TT><B>OShip Installation on
+Windows</B></TT><FONT COLOR="#ff0033"><B>**NOTE:</B></FONT><B> </B><FONT COLOR="#000000"><B>OSHIP
+requires Python 2.5! If it isn't already installed on your system you
+can download it from</B></FONT><B> </B><A HREF="http://www.python.org/"><FONT COLOR="#000000"><B>http://www.python.org</B></FONT></A><FONT COLOR="#000000"><SUP><B><A HREF="http://www.python.org/"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics7" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A></B></SUP></FONT><B><BR>You
 will need setuptools for Python2.5 as well.&nbsp; Get the ez_setup.py
 script from PEAK
-<A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-install&amp;nbsp">http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-install&amp;nbsp<SUP></A><A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-install&amp;nbsp"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics8" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A><A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-install&amp;nbsp"></SUP></A>;</B></P>
+<A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-install&amp;nbsp">http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-install&amp;nbsp</A></B><SUP><B><A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-install&amp;nbsp"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics8" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A></B></SUP><B>;</B></P>
 <P><TT>2) You will need setuptools for Python2.4 as well.&nbsp; Get
 the ez_setup.py</TT><BR>{{script from PEAK }}</P>
-<P><A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-inst"><TT>http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-inst</TT><TT><SUP></A><A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-inst"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics9" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A><A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-inst"></SUP></TT></A><BR><TT>all</TT></P>
+<P><TT><A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-inst">http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-inst</A></TT><TT><SUP><A HREF="http://peak.telecommunity.com/DevCenter/EasyInstall#installing-easy-inst"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics9" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A></SUP></TT><BR><TT>all</TT></P>
 <P><TT>save it to you c:\Python24\ folder</TT></P>
 <P><TT>3) Execute ez_setup.py</TT></P>
 <P>{{C:\Python24&gt;ez_setup.py }}</P>
@@ -171,15 +189,15 @@ volumenummer is 1C09-E2E2</TT></P>
 <P><TT>(sandbox) c:\sandbox&gt;</TT></P>
 <P><TT>10) If you do not have SVN on your system then install
 TortoiseSVN</TT></P>
-<P><A HREF="http://tortoisesvn.net/downloads"><TT>http://tortoisesvn.net/downloads</TT><TT><SUP></A><A HREF="http://tortoisesvn.net/downloads"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics10" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A><A HREF="http://tortoisesvn.net/downloads"></SUP></TT></A></P>
+<P><TT><A HREF="http://tortoisesvn.net/downloads">http://tortoisesvn.net/downloads</A></TT><TT><SUP><A HREF="http://tortoisesvn.net/downloads"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics10" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A></SUP></TT></P>
 <P><TT>11) Create oship folder</TT></P>
 <P><TT>(sandbox) c:\sandbox&gt;mkdir oship</TT></P>
 <P><TT>12) Checkout the source from svn:</TT></P>
-<P><A HREF="http://www.openehr.org/svn/ref_impl_python/BRANCHES/stable/oship/"><TT>http://www.openehr.org/svn/ref_impl_python/BRANCHES/stable/oship/</TT><TT><SUP></A><A HREF="http://www.openehr.org/svn/ref_impl_python/BRANCHES/stable/oship/"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics11" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A><A HREF="http://www.openehr.org/svn/ref_impl_python/BRANCHES/stable/oship/"></SUP></TT></A></P>
+<P><TT><A HREF="http://www.openehr.org/svn/ref_impl_python/BRANCHES/stable/oship/">http://www.openehr.org/svn/ref_impl_python/BRANCHES/stable/oship/</A></TT><TT><SUP><A HREF="http://www.openehr.org/svn/ref_impl_python/BRANCHES/stable/oship/"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics11" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A></SUP></TT></P>
 <P><TT>into the folder c:\sanbox\oship</TT></P>
 <P><TT>13) Now some stuff to make it work in my situation</TT></P>
 <P><TT>13a) Download last release from
-<A HREF="http://prdownloads.sourceforge.net/mingw">http://prdownloads.sourceforge.net/mingw</A></TT><A HREF="http://prdownloads.sourceforge.net/mingw"><TT><SUP></A><A HREF="http://prdownloads.sourceforge.net/mingw"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics12" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A><A HREF="http://prdownloads.sourceforge.net/mingw"></SUP></TT></A><BR><TT>(MinGW-5.1.3.exe)</TT></P>
+<A HREF="http://prdownloads.sourceforge.net/mingw">http://prdownloads.sourceforge.net/mingw</A></TT><TT><SUP><A HREF="http://prdownloads.sourceforge.net/mingw"><IMG SRC="http://www.openehr.org/wiki/images/icons/linkext7.gif" NAME="graphics12" ALIGN=ABSMIDDLE WIDTH=7 HEIGHT=7 BORDER=0></A></SUP></TT><BR><TT>(MinGW-5.1.3.exe)</TT></P>
 <P><TT>Run the file to start the installation process</TT><BR><TT>Keep
 all values at their defaults and select at least next
 components:</TT><BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o
@@ -206,8 +224,9 @@ c:\Python24\libs\python24.lib</TT><BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
 <P><TT>(test) c:\sandbox\oship&gt;bin\paster.exe serve deploy.ini</TT></P>
 <P><TT>16) you should be able to start a browser and go
 to</TT><BR><TT><A HREF="http://localhost:8080/">http://localhost:8080/</A></TT></P>
-<P STYLE="margin-bottom: 0cm"><BR>
+<P STYLE="margin-bottom: 0in"><BR>
 </P>
-        <h2>Installing the demo-application in the OSHIP framework on GNU Linux</h2>
+<H2>Installing the demo-application in the OSHIP framework on GNU
+Linux</H2>
 </BODY>
 </HTML>

@@ -14,26 +14,20 @@ From the terminology package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 
-from zope.interface import implements 
+from zope.interface import Interface 
 from zope.i18nmessageid.message import MessageFactory 
-
-from openehrcodesetidentifiers import OpenehrCodeSetIdentifiers
-from openehrterminologygroupidentifiers import OpenehrTerminologyGroupIndentifiers
-from interfaces.terminologyservice import ITerminologyService
 
 _ = MessageFactory('oship')
 
-class TerminologyService(OpenehrCodeSetIdentifiers,OpenehrTerminologyGroupIndentifiers):
-    """
+
+class TerminologyService(Interface):
+    u"""
     Defines an object providing proxy access to a terminology service.
     """
-    
-    implements(ITerminologyService)
-   
-                     
+                      
     def terminology(name):
         u"""
         Return an interface to the terminology named name. Allowable names include
@@ -42,7 +36,6 @@ class TerminologyService(OpenehrCodeSetIdentifiers,OpenehrTerminologyGroupIndent
         
         name != None and name is a valid TerminologyAccess.        
         """
-        
     def codeSet(name):
         u"""
         Return an interface to the code_set identified by the external identifier name (e.g. "ISO_639-1").
@@ -90,4 +83,3 @@ class TerminologyService(OpenehrCodeSetIdentifiers,OpenehrTerminologyGroupIndent
         Set of all code sets identifiers for which there is an internal openEHR name;
         returned as a Hash of ids keyed by internal name.
         """
-

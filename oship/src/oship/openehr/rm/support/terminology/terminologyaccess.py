@@ -14,25 +14,24 @@ From the terminology package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
-from zope.interface import implements 
-from zope.schema import Field
-from zope.i18nmessageid.message import MessageFactory
-
-from interfaces.terminologyaccess import ITerminologyAccess
+from zope.interface import Interface
+from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
 
-class TerminologyAccess(object):
-    """
+
+class TerminologyAccess(Interface):
+    u"""
     Defines an object providing proxy access to a terminology.
     """
-    implements(ITerminologyAccess)
-
-    def __init__(self,id):
-        self.id=id
-        
+    
+    id = TextLine(
+        description=_(u'Identification of this Terminology'),
+        required = True,
+        )
+    
     def allCodes():
         u""" Return all codes known in this terminology """
         
@@ -58,4 +57,3 @@ class TerminologyAccess(object):
 
     def idExists():
         u""" True if id != None and id != '' """
-        

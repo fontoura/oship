@@ -14,24 +14,43 @@ From the terminology package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
-from zope.interface import implements
 from zope.i18nmessageid.message import MessageFactory 
-
-from interfaces.openehrterminologygroupidentifiers import IOpenehrTerminologyGroupIndentifiers
 
 _ = MessageFactory('oship')
        
-class OpenehrTerminologyGroupIndentifiers(object):
+class OpenehrTerminologyGroupIdentifiers():
     """
     List of identifiers for groups in the openEHR terminology.
     """
-    
-    implements(IOpenehrTerminologyGroupIndentifiers)
-    
-    def validTerminologyGroupId(anId):
-        u"""
-        Validity function to test if an identifier is in the set defined by this class.
-        """
-        
+    terminologyId='openehr'
+    groupIdAuditChangeType='audit change type'
+    groupIdAttestationReason='attestation reason'
+    groupIdCompositionCategory='composition category'
+    groupIdEventMathFunction='event math function'
+    groupIdIsmStates='instruction states'
+    groupIdIsmTransitions='instruction transitions'
+    groupIdNullFlavours='null flavours'
+    groupIdMeasurableProperties='property'
+    groupIdParticipationFunction='participation function'
+    groupIdParticipationMode='participation mode'
+    groupIdRelatedPartyRelationship='related party relationship'
+    groupIdSetting='setting'
+    groupIdTermMappingPurpose='term mapping purpose'	
+    groupIdVersionLifecycleState='version lifecycle state'	
+	
+    values=(terminologyId, groupIdAuditChangeType, groupIdAttestationReason,\
+	    groupIdCompositionCategory, groupIdEventMathFunction, groupIdIsmStates, \
+	    groupIdIsmTransitions, groupIdNullFlavours, groupIdMeasurableProperties, \
+	    groupIdParticipationFunction, groupIdParticipationMode, \
+	    groupIdRelatedPartyRelationship, groupIdSetting, groupIdTermMappingPurpose, \
+	    groupIdVersionLifecycleState)
+      
+def validTerminologyGroupId(anId):
+    u"""
+    Validity function to test if an identifier is in the tuple defined by class OpenehrTerminologyGroupIdentifiers.
+    """
+    return anId in OpenehrTerminologyGroupIdentifiers.values
+
+

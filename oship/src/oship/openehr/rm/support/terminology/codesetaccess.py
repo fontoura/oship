@@ -14,22 +14,17 @@ From the terminology package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
-from zope.interface import implements
+from zope.interface import Interface
 from zope.i18nmessageid.message import MessageFactory 
-
-from interfaces.codesetaccess import ICodeSetAccess
 
 _ = MessageFactory('oship')
 
-class CodeSetAccess(object):
-    """
+class CodeSetAccess(Interface):
+    u"""
     Defines an object providing proxy access to a code_set.
     """
-
-    implements(ICodeSetAccess)
-    
 
     def id():
         u"""External identifier of this Code Set"""
@@ -45,4 +40,3 @@ class CodeSetAccess(object):
         
     def idValid():
         u""" True if id != None and id != ''  """
-        

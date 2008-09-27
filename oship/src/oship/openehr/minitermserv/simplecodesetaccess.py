@@ -18,15 +18,15 @@ This is a simple in-memory implementation of CodeSetAccess .
 __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
-from zope.schema import Object
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements
 from openehr.rm.datatypes.text.codephrase import CodePhrase
 from openehr.rm.support.terminology.codesetaccess import CodeSetAccess
+from openehr.rm.support.identification.terminologyid import TerminologyId
 
 _ = MessageFactory('oship')
 
-class SimpleCodeSetAccess(Object):
+class SimpleCodeSetAccess():
     """
     A simple in-memory implementation of CodeSetAccess.
     """
@@ -34,19 +34,20 @@ class SimpleCodeSetAccess(Object):
     implements(CodeSetAccess)
 
     def __init__(self, id, allCodes):
-        self.id = id;
-        self.__allCodes = {}
+        self.identifier = id;
+        terminologyId = TerminologyId(id)
+        self.codes = []
         for code in allCodes:
-            codePhrase = CodePhrase(id, code)
-            self.__allCodes.append(codePhrase)	
+            codePhrase = CodePhrase(terminologyId, code)
+            self.codes.append(codePhrase)	
 
     def id(self):
         u"""External identifier of this Code Set"""
-        return id
+        return self.identifier
 
     def allCodes(self):
         u""" Return all codes known in this code set """
-        return allCodes
+        return self.codes
 
     def hasLang(self, a_lang):
         u""" True if code set knows about 'a_lang'.
@@ -61,7 +62,4 @@ class SimpleCodeSetAccess(Object):
             raise ValueError(u'code is null')   
         if a_code.__class__ is not CodePhrase:    
             raise TypeError(u'a_code is not a Code Phrase')
-        return code in allCodes
-
-
-
+        return a_code in self.codes

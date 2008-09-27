@@ -17,13 +17,11 @@ This class contains a name and the concepts for a terminology group.
 __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
-from zope.schema import Object
 from zope.i18nmessageid import MessageFactory
-
 
 _ = MessageFactory('oship')
 
-class Group(Object):
+class Group():
     """
     a terminology group
     """
@@ -33,6 +31,6 @@ class Group(Object):
         self.concepts = []
 
     def addConcept(self, concept):
-        if concept not in concepts:
-            concept.append(concept)
+        if concept not in self.concepts:
+            self.concepts.append(concept)
             

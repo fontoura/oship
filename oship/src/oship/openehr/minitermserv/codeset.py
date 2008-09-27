@@ -17,12 +17,11 @@ This class represents CodeSet.
 __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
-from zope.schema import Object
 from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('oship')
 
-class CodeSet(Object):
+class CodeSet():
     """
     a CodeSet
     """
@@ -34,6 +33,6 @@ class CodeSet(Object):
         self.codes = []
 
     def addCode(self, code):
-        if code not in codes:
-            codes.append(code)
+        if code not in self.codes:
+            self.codes.append(code)
             

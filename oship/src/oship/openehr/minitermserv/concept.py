@@ -17,12 +17,11 @@ This class represent a concept in a terminology group.
 __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
-from zope.schema import Object
 from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('oship')
 
-class Concept(Object):
+class Concept():
     """
     a concept in a terminology group
     """

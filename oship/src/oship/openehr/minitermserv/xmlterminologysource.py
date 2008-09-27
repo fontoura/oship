@@ -22,8 +22,7 @@ from zope.i18nmessageid import MessageFactory
 from openehr.minitermserv.group import Group
 from openehr.minitermserv.concept import Concept
 from openehr.minitermserv.codeset import CodeSet
-from xml.minidom import minidom
-import sys
+from xml.dom import minidom
 
 _ = MessageFactory('oship')
 
@@ -33,47 +32,49 @@ class XMLTerminologySource():
     """
 
     def __init__(self, filename):
-        try:
-            self.codeSetList = []
-            self.groupList = []
-            __loadTerminologyFromXML(filename)
-        except (IOError, OSError):
-            raise IOError('file not found')
-
-
+        self.codeSetList = []
+        self.groupList = []
+        self.__loadTerminologyFromXML(filename)
+            
     def __loadTerminologyFromXML(self, filename):	
         try:
-            sys.setdefaultencoding('utf-8')
             input = open(filename) 
-            doc = minidom.parse(input)
-            root = doc.firstChild()
-            codesets = root.getElementsByTagName('codeset')
+            try:
+                encoding = sys.getdefaultencoding()
+                doc = minidom.parse(input)
+                root = doc.firstChild
+                codesets = root.getElementsByTagName('codeset')
 
-            for element in codesets:
-                self.codeSetList.append(__loadCodeSet(element))
+                for element in codesets:
+                    self.codeSetList.append(self.__loadCodeSet(element))
 
-            groups = root.getElementsByTagName('group')
-            for group in codesets:
-                self.groupList.append(loadGroup(element))
-        finally:
-            input.close();
-
-    def __loadCodeSet(element):
+                groups = root.getElementsByTagName('group')
+                for element in groups:
+                    self.groupList.append(self.__loadGroup(element))       
+            finally:
+                input.close()
+        except (IOError, OSError):
+            raise IOError('file not found')
+ 
+    def __loadCodeSet(self, element):
         """
                 Loads a code set from XML element
         """
-        codeset = CodeSet(element.attributes['openehr_id'], element.attributes['external_id'], element.attributes['code'])
+        issuer = element.attributes['issuer']
+        openehrId = element.attributes['openehr_id']
+        externalId = element.attributes['external_id']
+        codeset = CodeSet(issuer.value, openehrId.value , externalId.value)
         children = element.getElementsByTagName('code')
         for code in children:
-            codeset.append(code.attributes['value'])
+            codeset.addCode(code.attributes['value'].value)
         return codeset;
 
-    def __loadGroup(element):
+    def __loadGroup(self, element):
         """
                 Loads a concept group from XML element
         """
-        group = Group(element.attributes['name'])
+        group = Group(element.attributes['name'].value)
         children = element.getElementsByTagName('concept');
         for item in children:
-            group.addConcept(Concept(item.attributes['id'], item.attributes['rubric']))
+            group.addConcept(Concept(item.attributes['id'].value, item.attributes['rubric'].value))
         return group

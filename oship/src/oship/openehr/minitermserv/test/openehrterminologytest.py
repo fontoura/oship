@@ -16,12 +16,11 @@ __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
 import sys
-from openehr.rm.support.terminology.openehrcodesetidentifiers import OpenEHRCodeSetIdentifiers
+from openehr.rm.support.terminology.openehrcodesetidentifiers import OpenehrCodeSetIdentifiers
 from openehr.minitermserv.simpleterminologyservice import SimpleTerminologyService
 from openehr.rm.datatypes.text.codephrase import CodePhrase
+from openehr.rm.support.identification.terminologyid import TerminologyId
 import unittest
-
-
 
 class OpenEHRTerminologyTest(unittest.TestCase):
 
@@ -29,21 +28,22 @@ class OpenEHRTerminologyTest(unittest.TestCase):
         self.service = SimpleTerminologyService()
 
     def testHasOpenEHRSettingCode(self):		
-        terminology = self.service.terminology('openehr')	
-        assertEqual(False, terminology is None)		
+        terminology = self.service.terminologies['openehr']	
+        self.assertEqual(False, terminology is None)		
         codes = terminology.codesForGroupName('setting', 'en')		
-        assertEqual(False, codes is None)		
-        home = CodePhrase('openehr', '225')		
-        assertEqual(True, home in codes)
+        self.assertEqual(False, codes is None)		
+        home = CodePhrase(TerminologyId('openehr'), '225')		
+        self.assertEqual(True, home in codes)
 
     def testHasCountryCodes(self):
-        codeSet = self.service.codeSetForId('countries')
-        assertEqual(False, codeSet is None)
-        assertEqual(True, CodePhrase('ISO_3166-1', 'CN') in codeSet)
-        assertEqual(True, CodePhrase('ISO_3166-1', 'SE') in codeSet)
-        assertEqual(True, CodePhrase('ISO_3166-1', 'GB') in codeSet)
-        assertEqual(True, CodePhrase('ISO_3166-1', 'DK') in codeSet)
-        assertEqual(True, CodePhrase('ISO_3166-1', 'FR') in codeSet)
+        codeSetAccess = self.service.codeSetForId('countries')
+        terminologyId = TerminologyId('ISO_3166-1')
+        self.assertEqual(False, codeSetAccess is None)
+        self.assertEqual(True, codeSetAccess.hasCode(CodePhrase(terminologyId, 'CN')))
+        self.assertEqual(True, codeSetAccess.hasCode(CodePhrase(terminologyId, 'SE')))
+        self.assertEqual(True, codeSetAccess.hasCode(CodePhrase(terminologyId, 'GB')))
+        self.assertEqual(True, codeSetAccess.hasCode(CodePhrase(terminologyId, 'DK')))
+        self.assertEqual(True, codeSetAccess.hasCode(CodePhrase(terminologyId, 'FR')))
 
-    if __name__ == "__main__":
-        unittest.main()
+if __name__ == "__main__":
+    unittest.main()

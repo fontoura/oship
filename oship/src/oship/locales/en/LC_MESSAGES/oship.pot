@@ -1,26 +1,17 @@
-##############################################################################
-#
-# Copyright (c) 2003-2004 Zope Corporation and Contributors.
-# All Rights Reserved.
-#
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE.
-#
-##############################################################################
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Development/Unknown\n"
-"POT-Creation-Date: Tue Jul  8 14:28:42 2008\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-08 14:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2008-09-28 06:56+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 "Generated-By: zope/app/locales/extract.py\n"
 
 #: site.zcml:38
@@ -147,7 +138,8 @@ msgid "Precedence Overridden"
 msgstr ""
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exproperator.py:42
-msgid "True if natural precedence of operators is overridden in the expression."
+msgid ""
+"True if natural precedence of operators is overridden in the expression."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/assertion/interfaces/exprunaryoperator.py:35
@@ -197,7 +189,8 @@ msgid "Includes"
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:33
-msgid "List of constraints defining other archetypes that can be included here."
+msgid ""
+"List of constraints defining other archetypes that can be included here."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:38
@@ -237,7 +230,8 @@ msgid "RM Attribute Name"
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/cattribute.py:35
-msgid "Reference model attribute within the enclosed type representedby a CObject."
+msgid ""
+"Reference model attribute within the enclosed type representedby a CObject."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/cattribute.py:40
@@ -358,7 +352,8 @@ msgid "Alternatives"
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/interfaces/csingleattribute.py:33
-msgid "A list of alternative constraints for the single child of this attribute."
+msgid ""
+"A list of alternative constraints for the single child of this attribute."
 msgstr ""
 
 #: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cboolean.py:31
@@ -721,8 +716,10 @@ msgstr ""
 #: src/oship/openehr/rm/common/archetyped/interfaces/archetyped.py:50
 msgid ""
 "Globally unique template identifier, if a template was active at \n"
-"                    this point in the structure. Normally, a template would only be used \n"
-"                    at the top of a top-level structure, but the possibility exists for \n"
+"                    this point in the structure. Normally, a template would "
+"only be used \n"
+"                    at the top of a top-level structure, but the possibility "
+"exists for \n"
 "                    templates at lower levels."
 msgstr ""
 
@@ -733,7 +730,8 @@ msgstr ""
 #: src/oship/openehr/rm/common/archetyped/interfaces/archetyped.py:59
 msgid ""
 "Version of the openEHR reference model used to create this object.\n"
-"                    Expressed in terms of the release version string, e.g. \"1.0\", \"1.2.4\". "
+"                    Expressed in terms of the release version string, e.g. "
+"\"1.0\", \"1.2.4\". "
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:40
@@ -741,7 +739,8 @@ msgid "Originating System Audit"
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:41
-msgid "Any audit information for the information item from the originating system."
+msgid ""
+"Any audit information for the information item from the originating system."
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:46
@@ -749,7 +748,9 @@ msgid "Originating System Item IDs"
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:47
-msgid "Identifiers used for the item in the originating system, e.g. filler and placer ids."
+msgid ""
+"Identifiers used for the item in the originating system, e.g. filler and "
+"placer ids."
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:54
@@ -769,7 +770,8 @@ msgstr ""
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:62
 msgid ""
 "Identifiers used for the item in the feeder system, where the feeder \n"
-"                    system is distinct from the originating system. The List contents are restricted to\n"
+"                    system is distinct from the originating system. The List "
+"contents are restricted to\n"
 "                    type == DvIdentifiers"
 msgstr ""
 
@@ -805,8 +807,10 @@ msgstr ""
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:58
 msgid ""
 "Identifier of the particular site/facility within an organisation \n"
-"                    which handled the item. For computability, this identifier needs to be \n"
-"                    e.g. a PKI identifier which can be included in the identifier list of \n"
+"                    which handled the item. For computability, this "
+"identifier needs to be \n"
+"                    e.g. a PKI identifier which can be included in the "
+"identifier list of \n"
 "                    the PARTY_IDENTIFIED object."
 msgstr ""
 
@@ -817,8 +821,10 @@ msgstr ""
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:68
 msgid ""
 "Time of handling the item. For an originating time: DV_DATE_TIME system, \n"
-"                    this will be time of creation, for an intermediate feeder system, this will \n"
-"                    be a time of accession or other time of handling, where available."
+"                    this will be time of creation, for an intermediate "
+"feeder system, this will \n"
+"                    be a time of accession or other time of handling, where "
+"available."
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:76
@@ -848,20 +854,28 @@ msgstr ""
 #: src/oship/openehr/rm/common/archetyped/interfaces/link.py:50
 msgid ""
 "Used to describe the relationship, usually in clinical terms, such as \n"
-"                    \"in response to\" (the relationship between test results and an order),\n"
-"                    \"follow-up to\" and so on. Such relationships can represent any clinically \n"
-"                    meaningful connection between pieces of information. Values for meaning \n"
-"                    include those described in Annex C, ENV 13606 pt 2 [11] under the categories \n"
-"                    of \"generic\", \"documenting and reporting\",\"organisational\",\"clinical\",\n"
+"                    \"in response to\" (the relationship between test "
+"results and an order),\n"
+"                    \"follow-up to\" and so on. Such relationships can "
+"represent any clinically \n"
+"                    meaningful connection between pieces of information. "
+"Values for meaning \n"
+"                    include those described in Annex C, ENV 13606 pt 2 [11] "
+"under the categories \n"
+"                    of \"generic\", \"documenting and "
+"reporting\",\"organisational\",\"clinical\",\n"
 "                    \"circumstancial\", and \"view management\".  "
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/link.py:63
 msgid ""
 "The type attribute is used to indicate a clinical or domain-level meaning \n"
-"                    for the kind of link, for example \"problem\" or \"issue\". If type values are \n"
-"                    designed appropriately, they can be used by the requestor of EHR extracts to \n"
-"                    categorise links which must be followed and which can be broken when the extract \n"
+"                    for the kind of link, for example \"problem\" or "
+"\"issue\". If type values are \n"
+"                    designed appropriately, they can be used by the "
+"requestor of EHR extracts to \n"
+"                    categorise links which must be followed and which can be "
+"broken when the extract \n"
 "                    is created. "
 msgstr ""
 
@@ -878,7 +892,9 @@ msgid ""
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:41
-msgid "Optional globally unique object identifier for root points of archetyped structures. A UidBasedId "
+msgid ""
+"Optional globally unique object identifier for root points of archetyped "
+"structures. A UidBasedId "
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:46
@@ -888,20 +904,27 @@ msgstr ""
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:47
 msgid ""
 "Design-time archetype id of this node taken from its generating archetype;\n"
-"                     used to build archetype paths. Always in the form of an \"at\" code, e.g. \"at0005\".\n"
-"                     This value enables a \"standardised\" name for this node to be generated, by\n"
+"                     used to build archetype paths. Always in the form of an "
+"\"at\" code, e.g. \"at0005\".\n"
+"                     This value enables a \"standardised\" name for this "
+"node to be generated, by\n"
 "                     referring to the generating archetype local ontology.\n"
 "                     \n"
-"                     At an archetype root point, the value of this attribute is always the stringified\n"
-"                     form of the archetype_id found in the archetype_details object."
+"                     At an archetype root point, the value of this attribute "
+"is always the stringified\n"
+"                     form of the archetype_id found in the archetype_details "
+"object."
 msgstr ""
 
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:60
 msgid ""
 "DvText type - Runtime name of this fragment, used to build runtime paths. \n"
-"                     This is the term provided via a clinical application or batch\n"
-"                     process to name this EHR construct: its retention in the EHR \n"
-"                     faithfully preserves the original label by which this entry\n"
+"                     This is the term provided via a clinical application or "
+"batch\n"
+"                     process to name this EHR construct: its retention in "
+"the EHR \n"
+"                     faithfully preserves the original label by which this "
+"entry\n"
 "                     was known to end. "
 msgstr ""
 
@@ -921,7 +944,8 @@ msgstr ""
 #: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:87
 msgid ""
 "Audit trail from non-openEHR system of original commit of information \n"
-"                    forming the content of this node, or from a conversion gateway which has \n"
+"                    forming the content of this node, or from a conversion "
+"gateway which has \n"
 "                    synthesised this node."
 msgstr ""
 
@@ -945,9 +969,11 @@ msgstr ""
 #: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:43
 msgid ""
 "Set of references to versions causing changes to\n"
-"                      this EHR. Each contribution contains a list of versions\n"
+"                      this EHR. Each contribution contains a list of "
+"versions\n"
 "                      which may include paths pointing to any number of \n"
-"                      VERSIONABLE items, i.e. items of type COMPOSITION and FOLDER."
+"                      VERSIONABLE items, i.e. items of type COMPOSITION and "
+"FOLDER."
 msgstr ""
 
 #: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:51
@@ -1042,7 +1068,8 @@ msgstr ""
 #: src/oship/openehr/rm/common/changecontrol/interfaces/versionedobject.py:40
 msgid ""
 "Unique identifier of this version container. This id \n"
-"                    will be the same in all instances of the same container \n"
+"                    will be the same in all instances of the same container "
+"\n"
 "                    in a distributed environment, meaning that it can be \n"
 "                    understood as the uid of the \"virtual version tree\"."
 msgstr ""
@@ -1101,9 +1128,11 @@ msgstr ""
 #: src/oship/openehr/rm/common/generic/interfaces/attestation.py:50
 msgid ""
 "Items attested, expressed as fully qualified runtime \n"
-"                    paths to the items in question. Although not recommended, \n"
+"                    paths to the items in question. Although not "
+"recommended, \n"
 "                    these may include fine-grained items which have been \n"
-"                    attested in some other system. Otherwise it is assumed to\n"
+"                    attested in some other system. Otherwise it is assumed "
+"to\n"
 "                    be for the entire VERSION with which it is associated. \n"
 "                    Set <DV_EHR_URI>"
 msgstr ""
@@ -1115,7 +1144,8 @@ msgstr ""
 #: src/oship/openehr/rm/common/generic/interfaces/attestation.py:62
 msgid ""
 "Reason of this attestation. Optionally coded by the \n"
-"                    openEHR Terminology group \"attestation reason\"; includes \n"
+"                    openEHR Terminology group \"attestation reason\"; "
+"includes \n"
 "                    values like \"authorisation\", \"witness\" etc."
 msgstr ""
 
@@ -1132,7 +1162,8 @@ msgstr ""
 #: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:41
 msgid ""
 "Identity of the system where the change was committed.\n"
-"                    Ideally this is a machine- and human-processable identifier,\n"
+"                    Ideally this is a machine- and human-processable "
+"identifier,\n"
 "                    but it may not be."
 msgstr ""
 
@@ -1193,10 +1224,14 @@ msgstr ""
 #: src/oship/openehr/rm/common/generic/interfaces/participation.py:54
 msgid ""
 "The function of the Party in this participation (note \n"
-"                    that a given party might participate in more than one way \n"
-"                    in a particular activity). This attribute should be coded, \n"
-"                    but cannot be limited to the HL7v3:ParticipationFunction \n"
-"                    vocabulary, since it is too limited and hospital-oriented."
+"                    that a given party might participate in more than one "
+"way \n"
+"                    in a particular activity). This attribute should be "
+"coded, \n"
+"                    but cannot be limited to the HL7v3:ParticipationFunction "
+"\n"
+"                    vocabulary, since it is too limited and hospital-"
+"oriented."
 msgstr ""
 
 #: src/oship/openehr/rm/common/generic/interfaces/participation.py:63
@@ -1218,7 +1253,8 @@ msgid ""
 "The time interval during which the participation took \n"
 "                    place, if it is used in an observational context (i.e. \n"
 "                    recording facts about the past); or the intended time \n"
-"                    interval of the participation when used in future contexts,\n"
+"                    interval of the participation when used in future "
+"contexts,\n"
 "                    such as EHR Instructions."
 msgstr ""
 
@@ -1243,7 +1279,8 @@ msgstr ""
 #: src/oship/openehr/rm/common/generic/interfaces/partyproxy.py:40
 msgid ""
 "Optional reference to more detailed demographic or \n"
-"                    identification information for this party, in an external \n"
+"                    identification information for this party, in an "
+"external \n"
 "                    system. Type == PartyRef."
 msgstr ""
 
@@ -1254,7 +1291,8 @@ msgstr ""
 #: src/oship/openehr/rm/common/generic/interfaces/partyrelated.py:41
 msgid ""
 "Relationship of subject of this ENTRY to the subject\n"
-"                    of the record. May be coded. If it is the patient, coded \n"
+"                    of the record. May be coded. If it is the patient, coded "
+"\n"
 "                    as \"self\"."
 msgstr ""
 
@@ -1269,7 +1307,8 @@ msgstr ""
 #: src/oship/openehr/rm/common/generic/interfaces/revisionhistoryitem.py:39
 msgid ""
 "The audits for this revision; there will always be at \n"
-"                    least one commit audit (which may itself be an ATTESTATION), \n"
+"                    least one commit audit (which may itself be an "
+"ATTESTATION), \n"
 "                    there may also be further attestations."
 msgstr ""
 
@@ -1412,7 +1451,8 @@ msgid "offset"
 msgstr ""
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/event.py:70
-msgid "Offset of this event from origin, computed as time.diff(parent.origin)"
+msgid ""
+"Offset of this event from origin, computed as time.diff(parent.origin)"
 msgstr ""
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/history.py:43
@@ -1420,7 +1460,9 @@ msgid "origin"
 msgstr ""
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/history.py:44
-msgid "Time origin of this event history. The first event is not necessarily at the origin point."
+msgid ""
+"Time origin of this event history. The first event is not necessarily at the "
+"origin point."
 msgstr ""
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/history.py:49
@@ -1446,7 +1488,8 @@ msgstr ""
 #: src/oship/openehr/rm/datastructures/history/interfaces/history.py:65
 msgid ""
 "Duration of the entire History; either corresponds to the duration of all \n"
-"                    the events, and/or the duration represented by the summary, if it exists."
+"                    the events, and/or the duration represented by the "
+"summary, if it exists."
 msgstr ""
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/history.py:72
@@ -1466,8 +1509,10 @@ msgstr ""
 #: src/oship/openehr/rm/datastructures/history/interfaces/intervalevent.py:39
 msgid ""
 "Length of the interval during which the state was true. \n"
-"                      Void if an instantaneous event. OSHIP NOTE: The specs indicate \n"
-"                      this attribute is required but the text says it is Void if instantaneous.\n"
+"                      Void if an instantaneous event. OSHIP NOTE: The specs "
+"indicate \n"
+"                      this attribute is required but the text says it is "
+"Void if instantaneous.\n"
 "                      How should this conflict be resolved?"
 msgstr ""
 
@@ -1477,8 +1522,10 @@ msgstr ""
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/intervalevent.py:49
 msgid ""
-"Mathematical function of the data of this event, e.g. \"maximum\", \"mean\" etc. \n"
-"                      Coded using openEHR Terminology group \"event math function\"."
+"Mathematical function of the data of this event, e.g. \"maximum\", \"mean\" "
+"etc. \n"
+"                      Coded using openEHR Terminology group \"event math "
+"function\"."
 msgstr ""
 
 #: src/oship/openehr/rm/datastructures/history/interfaces/intervalevent.py:55
@@ -1522,7 +1569,8 @@ msgid "Physical representation of the tree."
 msgstr ""
 
 #: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/cluster.py:37
-msgid "Ordered list of items - CLUSTER or ELEMENT objects - under this CLUSTER."
+msgid ""
+"Ordered list of items - CLUSTER or ELEMENT objects - under this CLUSTER."
 msgstr ""
 
 #: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/element.py:34
@@ -1584,19 +1632,26 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/basic/interfaces/dvidentifier.py:63
 msgid ""
 "The identifier type, such as \"prescription\",or \"SSN\". \n"
-"                      One day a controlled vocabulary might be possible for this."
+"                      One day a controlled vocabulary might be possible for "
+"this."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/basic/interfaces/dvstate.py:38
 msgid ""
 "The state name. State names are determined by a state/event \n"
-"                      table defined in archetypes, and coded using openEHR Terminology \n"
-"                      or local archetype terms, as specified by the archetype.\n"
+"                      table defined in archetypes, and coded using openEHR "
+"Terminology \n"
+"                      or local archetype terms, as specified by the "
+"archetype.\n"
 "                      \n"
-"                      A module was added to the rm.support package to parse the State \n"
-"                      values from the archetype in the current context. This function \n"
-"                      is DvStateParser() and it may be called anywhere in the application\n"
-"                      that the developer needs to know the current available states.\n"
+"                      A module was added to the rm.support package to parse "
+"the State \n"
+"                      values from the archetype in the current context. This "
+"function \n"
+"                      is DvStateParser() and it may be called anywhere in "
+"the application\n"
+"                      that the developer needs to know the current available "
+"states.\n"
 "                      It returns a DvCodedText type.\n"
 "                      "
 msgstr ""
@@ -1622,7 +1677,8 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:34
 msgid ""
 "Original size in bytes of unencoded encapsulated data. I.e. encodings \n"
-"                    such as base64, hexadecimal etc do not change the value of this attribute."
+"                    such as base64, hexadecimal etc do not change the value "
+"of this attribute."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:41
@@ -1632,15 +1688,18 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:42
 msgid ""
 "Name of character encoding scheme in which this value is encoded. \n"
-"        Coded from openEHR Code Set \"character sets\". Unicode is the default assumption \n"
-"        in openEHR, with UTF-8 being the assumed encoding. This attribute allows for \n"
+"        Coded from openEHR Code Set \"character sets\". Unicode is the "
+"default assumption \n"
+"        in openEHR, with UTF-8 being the assumed encoding. This attribute "
+"allows for \n"
 "        variations from these assumptions. Type==CodePhrase"
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:52
 msgid ""
 "Optional indicator of the localised language in which the data \n"
-"                    is written, if relevant. Coded from openEHR Code Set \"languages\". Type==CodePhrase"
+"                    is written, if relevant. Coded from openEHR Code Set "
+"\"languages\". Type==CodePhrase"
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:39
@@ -1684,7 +1743,9 @@ msgid "Integrity Check Algorithm"
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:69
-msgid "Type of integrity check, a coded value from the openEHR \"Integrity check\" code set."
+msgid ""
+"Type of integrity check, a coded value from the openEHR \"Integrity check\" "
+"code set."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:75
@@ -1703,7 +1764,8 @@ msgstr ""
 
 #: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:84
 msgid ""
-"URI reference to electronic information stored outside the record as a file, \n"
+"URI reference to electronic information stored outside the record as a file, "
+"\n"
 "        database entry etc, if supplied as a reference. Type == DvUri."
 msgstr ""
 
@@ -1744,7 +1806,9 @@ msgid "Accuracy"
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvabsolutequantity.py:36
-msgid "Accuracy of measurement, expressed as a half-range value of the diff type for this quantity (i.e. an accuracy of x means +/- x)."
+msgid ""
+"Accuracy of measurement, expressed as a half-range value of the diff type "
+"for this quantity (i.e. an accuracy of x means +/- x)."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvamount.py:35
@@ -1754,8 +1818,10 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvamount.py:36
 msgid ""
 "Accuracy of measurement, expressed either as a half-range \n"
-"                         percent value (accuracyIsPercent = True) or a half-range\n"
-"                         quantity. A value of 0 means that accuracy was not recorded."
+"                         percent value (accuracyIsPercent = True) or a half-"
+"range\n"
+"                         quantity. A value of 0 means that accuracy was not "
+"recorded."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvamount.py:44
@@ -1764,8 +1830,10 @@ msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvamount.py:45
 msgid ""
-"If True, indicates that when this object was created, accuracy was recorded \n"
-"                    as a percent value; if False, as an absolute quantity value."
+"If True, indicates that when this object was created, accuracy was recorded "
+"\n"
+"                    as a percent value; if False, as an absolute quantity "
+"value."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvcount.py:39
@@ -1792,7 +1860,8 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordered.py:54
 msgid ""
 "Optional tagged other reference ranges for this value in \n"
-"                      its particular measurement context. A list of ReferenceRange types."
+"                      its particular measurement context. A list of "
+"ReferenceRange types."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordered.py:61
@@ -1802,9 +1871,12 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordered.py:62
 msgid ""
 "Optional normal status indicator of value with respect to normal \n"
-"                     range for this value. Often included by lab, even if the normal range \n"
-"                     itself is not included. Coded by ordinals in series HHH, HH, H, \n"
-"                     (nothing), L, LL, LLL; see openEHR terminology group \"normal status\"."
+"                     range for this value. Often included by lab, even if "
+"the normal range \n"
+"                     itself is not included. Coded by ordinals in series "
+"HHH, HH, H, \n"
+"                     (nothing), L, LL, LLL; see openEHR terminology group "
+"\"normal status\"."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordinal.py:43
@@ -1818,8 +1890,10 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordinal.py:50
 msgid ""
 "Coded textual representation of this \n"
-"                       value in the enumeration, which may be strings made from \"+\" symbols, \n"
-"                       or other enumerations of terms such as \"mild\", \"moderate\", \"severe\",\n"
+"                       value in the enumeration, which may be strings made "
+"from \"+\" symbols, \n"
+"                       or other enumerations of terms such as \"mild\", "
+"\"moderate\", \"severe\",\n"
 "                       or even the same number series as the values,\n"
 "                       e.g. \"1\", \"2\", \"3\". Codes come from archetype."
 msgstr ""
@@ -1845,7 +1919,8 @@ msgid "type"
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:72
-msgid "Indicates semantic type of proportion, including percent, unitary etc."
+msgid ""
+"Indicates semantic type of proportion, including percent, unitary etc."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:77
@@ -1855,8 +1930,10 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:78
 msgid ""
 "Precision to which the numerator and denominator values of the proportion \n"
-"                    are expressed, in terms of number of decimal places. The value 0 implies an \n"
-"                    integral quantity. The value -1 implies no limit, i.e.any number of decimal places."
+"                    are expressed, in terms of number of decimal places. The "
+"value 0 implies an \n"
+"                    integral quantity. The value -1 implies no limit, "
+"i.e.any number of decimal places."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantified.py:34
@@ -1866,8 +1943,10 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantified.py:35
 msgid ""
 "Numeric value of the quantity in canonical (i.e. single value)\n"
-"                          form. Implemented as constant, function or attribute in subtypes as\n"
-"                          appropriate. The type OrdereNumeric is mapped to the available \n"
+"                          form. Implemented as constant, function or "
+"attribute in subtypes as\n"
+"                          appropriate. The type OrdereNumeric is mapped to "
+"the available \n"
 "                          appropriate type in each implementation technology."
 msgstr ""
 
@@ -1898,7 +1977,8 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantity.py:47
 msgid ""
 "Stringified units, expressed in UCUM unit syntax, \n"
-"                    e.g. \"kg/m2\", \"mm[Hg]\", \"ms-1\", \"km/h\".Implemented accordingly in subtypes."
+"                    e.g. \"kg/m2\", \"mm[Hg]\", \"ms-1\", "
+"\"km/h\".Implemented accordingly in subtypes."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantity.py:54
@@ -1908,8 +1988,10 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantity.py:55
 msgid ""
 "Precision to which the value of the quantity is expressed, in terms of \n"
-"                    number of decimal places. The value 0 implies an integral quantity.\n"
-"                    The value -1 implies no limit, i.e. any number of decimal places."
+"                    number of decimal places. The value 0 implies an "
+"integral quantity.\n"
+"                    The value -1 implies no limit, i.e. any number of "
+"decimal places."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/quantity/interfaces/referencerange.py:38
@@ -1960,13 +2042,15 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/text/interfaces/dvcodedtext.py:45
 msgid ""
 "The term which the 'value' attribute is the\n"
-"                      defining_code:CODE_PHRASE textual rendition (i.e. rubric) of."
+"                      defining_code:CODE_PHRASE textual rendition (i.e. "
+"rubric) of."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/text/interfaces/dvparagraph.py:37
 msgid ""
 "Items making up the paragraph, each of which is a text item \n"
-"                      (which may have its own formatting, and/or have hyperlinks).\n"
+"                      (which may have its own formatting, and/or have "
+"hyperlinks).\n"
 "                      The list contents are DvText"
 msgstr ""
 
@@ -1974,7 +2058,8 @@ msgstr ""
 msgid ""
 "Displayable rendition of the item, regardless of its \n"
 "                      underlying structure. For DV_CODED_TEXT, this is the \n"
-"                      rubric of the complete term as provided by the termi- \n"
+"                      rubric of the complete term as provided by the termi- "
+"\n"
 "                      nology service. No carriage returns, line feeds, or \n"
 "                      other non-printing characters permitted."
 msgstr ""
@@ -1986,10 +2071,13 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:48
 msgid ""
 "A list of MappingTerm,terms from other terminologies most closely matching \n"
-"                      this term, typically used where the originator (e.g.  \n"
-"                      pathology lab) of information uses a local terminology \n"
+"                      this term, typically used where the originator (e.g.  "
+"\n"
+"                      pathology lab) of information uses a local terminology "
+"\n"
 "                      but also supplies one or more equivalents from well- \n"
-"                      known terminologies (e.g. LOINC). The list contents should be of the type TermMapping"
+"                      known terminologies (e.g. LOINC). The list contents "
+"should be of the type TermMapping"
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:57
@@ -1999,8 +2087,10 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:58
 msgid ""
 "A format string of the form \"name:value; name:value...\", \n"
-"                      e.g. \"font-weight : bold; font-family : Arial; font-size : 12pt;\". \n"
-"                      Values taken from W3C CSS2 properties lists \"background\" and \"font\"."
+"                      e.g. \"font-weight : bold; font-family : Arial; font-"
+"size : 12pt;\". \n"
+"                      Values taken from W3C CSS2 properties lists "
+"\"background\" and \"font\"."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:65
@@ -2017,10 +2107,14 @@ msgstr ""
 msgid ""
 "Optional indicator of the localised language in which \n"
 "                      the value is written. Coded from openEHR Code Set \n"
-"                      \"languages\". Only used when either the text object is \n"
-"                      in a different language from the enclosing ENTRY, or  \n"
-"                      else the text object is being used outside of an ENTRY \n"
-"                      or other enclosing structure which indicates the language."
+"                      \"languages\". Only used when either the text object "
+"is \n"
+"                      in a different language from the enclosing ENTRY, or  "
+"\n"
+"                      else the text object is being used outside of an ENTRY "
+"\n"
+"                      or other enclosing structure which indicates the "
+"language."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:83
@@ -2031,9 +2125,11 @@ msgstr ""
 msgid ""
 "Name of character encoding scheme in which this \n"
 "                      value is encoded. Coded from openEHR Code Set \n"
-"                      \"character sets\". Unicode is the default assumption in \n"
+"                      \"character sets\". Unicode is the default assumption "
+"in \n"
 "                      openEHR, with UTF-8 being the assumed encoding. \n"
-"                      This attribute allows for variations from these assumptions."
+"                      This attribute allows for variations from these "
+"assumptions."
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:44
@@ -2077,7 +2173,8 @@ msgstr ""
 #: src/oship/openehr/rm/datatypes/timespecification/interfaces/dvtimespecification.py:39
 msgid ""
 "the specification, in the HL7v3 syntax for PIVL or EIVL types. \n"
-"                    See section 8.2.2.1 Phase-linked Time Specification Syntax"
+"                    See section 8.2.2.1 Phase-linked Time Specification "
+"Syntax"
 msgstr ""
 
 #: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:42
@@ -2147,7 +2244,8 @@ msgid "Roles"
 msgstr ""
 
 #: src/oship/openehr/rm/demographic/interfaces/actor.py:35
-msgid "Identifiers of the Version container for each Role played by this party."
+msgid ""
+"Identifiers of the Version container for each Role played by this party."
 msgstr ""
 
 #: src/oship/openehr/rm/demographic/interfaces/actor.py:40
@@ -2203,7 +2301,8 @@ msgstr ""
 
 #: src/oship/openehr/rm/demographic/interfaces/party.py:68
 #: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:67
-msgid "Indicator of the localised language where this composition was created."
+msgid ""
+"Indicator of the localised language where this composition was created."
 msgstr ""
 
 #: src/oship/openehr/rm/demographic/interfaces/party.py:73
@@ -2312,12 +2411,18 @@ msgstr ""
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/careentry.py:42
 msgid ""
 "Description of the method (i.e. how) the information in this \n"
-"                    entry was arrived at. For OBSERVATIONs, this is a description of the\n"
-"                    method or instrument used. For EVALUATIONs, how the evaluation was \n"
-"                    arrived at. For INSTRUCTIONs, how to execute the Instruction. \n"
-"                    This may take the form of references to guidelines, including \n"
-"                    manually followed and executable; knowledge references such as a\n"
-"                    paper in Medline; clinical reasons within a largercare process."
+"                    entry was arrived at. For OBSERVATIONs, this is a "
+"description of the\n"
+"                    method or instrument used. For EVALUATIONs, how the "
+"evaluation was \n"
+"                    arrived at. For INSTRUCTIONs, how to execute the "
+"Instruction. \n"
+"                    This may take the form of references to guidelines, "
+"including \n"
+"                    manually followed and executable; knowledge references "
+"such as a\n"
+"                    paper in Medline; clinical reasons within a largercare "
+"process."
 msgstr ""
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/careentry.py:54
@@ -2367,12 +2472,14 @@ msgstr ""
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:77
 msgid ""
-"Optional identification of provider of the informatoin in this ENTRY, which might be:\n"
+"Optional identification of provider of the informatoin in this ENTRY, which "
+"might be:\n"
 "                        the patient\n"
 "                        a patient agent, e.g. parent, guardian\n"
 "                        the clinician\n"
 "                        a device or software\n"
-"                       Generally only used when the recorder needs to make it explicit. Otherwise, Composition\n"
+"                       Generally only used when the recorder needs to make "
+"it explicit. Otherwise, Composition\n"
 "                       composer and other participants are assumed. "
 msgstr ""
 
@@ -2475,7 +2582,8 @@ msgid "Careflow Step"
 msgstr ""
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/ismtransition.py:53
-msgid "The step in the careflow process which occured as part of this process."
+msgid ""
+"The step in the careflow process which occured as part of this process."
 msgstr ""
 
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/observation.py:43
@@ -2487,13 +2595,17 @@ msgstr ""
 #: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/observation.py:51
 msgid ""
 "Optional recording of the state of subject of this\n"
-"                    observation during the observation process, in the form of \n"
-"                    a separate history of values which may be of any complexity. \n"
-"                    State may also be recorded within the History of the data attribute."
+"                    observation during the observation process, in the form "
+"of \n"
+"                    a separate history of values which may be of any "
+"complexity. \n"
+"                    State may also be recorded within the History of the "
+"data attribute."
 msgstr ""
 
 #: src/oship/openehr/rm/ehr/composition/content/navigation/interfaces/section.py:36
-msgid "Ordered list of content items that may include more SECTIONs or ENTRYs."
+msgid ""
+"Ordered list of content items that may include more SECTIONs or ENTRYs."
 msgstr ""
 
 #: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:38
@@ -2517,7 +2629,9 @@ msgid "Composer"
 msgstr ""
 
 #: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:53
-msgid "The party responsible for the content. It may not be the actual person entering the data."
+msgid ""
+"The party responsible for the content. It may not be the actual person "
+"entering the data."
 msgstr ""
 
 #: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:73
@@ -2736,9 +2850,12 @@ msgstr ""
 #: src/oship/openehr/rm/support/identification/interfaces/partyref.py:60
 msgid ""
 "Name of the class (concrete or abstract) of object to which this \n"
-"                          identifier type refers, e.g.\"PARTY\", \"PERSON\", \"GUIDELINE\" etc.\n"
-"                          These class names are from the relevant reference model. \n"
-"                          The type name \"ANY\" can be used to indicate that any type is accepted \n"
+"                          identifier type refers, e.g.\"PARTY\", \"PERSON\", "
+"\"GUIDELINE\" etc.\n"
+"                          These class names are from the relevant reference "
+"model. \n"
+"                          The type name \"ANY\" can be used to indicate that "
+"any type is accepted \n"
 "                          (e.g. if the type is unknown). "
 msgstr ""
 
@@ -2765,18 +2882,23 @@ msgid "A single unicode string containing a valid UID"
 msgstr ""
 
 #: src/oship/openehr/rm/support/identification/interfaces/locatableref.py:37
-msgid "id is redefined here to contain an ObjectVersionId. The identifier of the Version."
+msgid ""
+"id is redefined here to contain an ObjectVersionId. The identifier of the "
+"Version."
 msgstr ""
 
 #: src/oship/openehr/rm/support/identification/interfaces/locatableref.py:44
 msgid ""
 "The path to an instance in question, as an absolute path \n"
-"        with respect to the object found at VERSION.data. An empty path means that\n"
+"        with respect to the object found at VERSION.data. An empty path "
+"means that\n"
 "        the object referred to by id being specified."
 msgstr ""
 
 #: src/oship/openehr/rm/support/identification/interfaces/objectref.py:39
-msgid "Globally unique id of an object (of type ObjectId), regardless of where it is stored."
+msgid ""
+"Globally unique id of an object (of type ObjectId), regardless of where it "
+"is stored."
 msgstr ""
 
 #: src/oship/openehr/rm/support/identification/interfaces/objectversionid.py:41
@@ -2998,4 +3120,3 @@ msgstr ""
 #: src/oship/openehr/rm/support/terminology/interfaces/terminologyaccess.py:33
 msgid "Identification of this Terminology"
 msgstr ""
-

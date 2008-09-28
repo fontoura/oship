@@ -34,14 +34,14 @@ class IOriginalVersion(IContainer):
     uid=Object(
         schema=IObjectVersionId,
         title=_(u"UID"),
-        description=_(u"""Stored version of inheritence precurosr."""),
+        description=_(u"""Stored version of inheritence precursor."""),
         required=True
     )
     
     precedingVersionUid=Object(
         schema=IObjectVersionId,
         title=_(u"Preceding Version UID"),
-        description=_(u"""Stored version of inheritence precurosr."""),
+        description=_(u"""Stored version of inheritence precursor."""),
         required=True
     )
   

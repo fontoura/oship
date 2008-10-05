@@ -22,7 +22,6 @@ from bldelement import bldElement
 
 
 def bldItemTree(itlist): 
-    print '\nBegin: ',itlist[0]
     itDict={
         "CLUSTER":bldCluster,
         "ELEMENT":bldElement
@@ -68,5 +67,4 @@ def bldItemTree(itlist):
    
     itObj= ItemTree('',archetypeNodeId,'','','','',items)
     
-    print '\nEnd: ',itlist[0]
     return itObj

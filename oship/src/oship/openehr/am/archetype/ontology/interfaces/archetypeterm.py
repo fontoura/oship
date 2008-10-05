@@ -17,8 +17,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
+from zope.i18nmessageid.message import MessageFactory 
 from zope.schema.interfaces import IField
 from zope.schema import Dict,TextLine
+
+_ = MessageFactory('oship')
 
 class IArchetypeTerm(IField):
     """
@@ -35,6 +38,8 @@ class IArchetypeTerm(IField):
         title=_(u"Items"),
         description=_(u"Hash of keys (text,description) and corresponding values."),
         required=False,
+        key_type=TextLine(),
+        value_type=TextLine(),
     )
     
     def keys(set):

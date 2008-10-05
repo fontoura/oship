@@ -26,7 +26,7 @@ from interfaces.objectid import IObjectId
 
 _ = MessageFactory('oship')
 
-class ObjectId(object):
+class ObjectId(Field):
     u"""
     Ancestor (abstract) class of identifiers of informational objects. Ids may be completely
     meaningless, in which case their only job is to refer to something, or may carry
@@ -39,11 +39,13 @@ class ObjectId(object):
 
     implements(IObjectId)
 
-    def __init__(self, value,**kw):
+    def __init__(self, value):
         self.value = value
-        self.__name__=''
-        for n,v in kw.items():
-            setattr(self,n,v)
+        
+    def __eq__(self, other):
+        if not isinstance(other,  ObjectId):
+            return False
+        return self.value == other.value
 
 
     def valueExists(): 

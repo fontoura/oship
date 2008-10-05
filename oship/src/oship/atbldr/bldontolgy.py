@@ -17,55 +17,73 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
+from zope.schema import Dict,TextLine,Tuple,Set,Int
+from zope.app.folder import Folder
+
+from oship.openehr.am.archetype.ontology.archetypeontology import ArchetypeOntology
+#from oship.openehr.am.archetype.ontology.archetypeterm import ArchetypeTerm
+from oship.openehr.rm.support.identification.objectref import ObjectRef
+from oship.openehr.rm.support.identification.objectid import ObjectId
 
 def bldOntology(parsed_adl):
     u"""
     Create the Ontolgy section of an archetype expressed in ADL.
+    The specifications for attributes of ArchetypeOntology call for the types of set and list.
+    The Python implementation uses dictionaries for term_codes and constraint_codes.
+    This simplifies the end-user application code required to lookup the description and text of the codes.
+    Within each language section (dictionary) the codes are keys to a tuple containing the description and text.
+    for example: {'en':{'at0001':{'description':'some description','text':'some text')}...}
+    
     """
-
-    sections = parsed_adl.ontology.keys()    
-    tANList = []
-    termCodes = []
-    constraintCodes = []
-    parent_archetype = parsed_adl.archetype[1]
+    ontObj = Folder()
+    ontObj.__name__ = u'ArchetypeOntology'
+    
+    ontObj.data[u'termCodes'] = {}
+    ontObj.data[u'constraintCodes'] = {}
+    
+    termsDict={}
+    codeList=[]
+    sections = parsed_adl.ontology.keys() #which sections are included in this ontology?   
+    
+    #ontObj.parentArchetype = ObjectRef(ObjectId(unicode(parsed_adl.archetype[1])),u'openehr',u'ARCHETYPE')
     
     if len(parsed_adl.specialize) == 0 or parsed_adl.specialize == '':
-        specialsationDepth = 0
+        ontObj.data[u'specialsationDepth'] = Int(0)
     else:
-        specialsationDepth = parsed_adl.specialize 
+        ontObj.data[u'specialsationDepth'] = Int(parsed_adl.specialize) 
             
             
     if 'terminologies_available' in sections:
-        terminologies_available=parsed_adl.ontology['terminologies_available'][0]
+        ontObj.data[u'terminologiesAvailable'] = parsed_adl.ontology['terminologies_available'][0]
     else:
-        terminologies_available=['None']
+        ontObj.data[u'terminologiesAvailable'] = []
             
+        
     if 'term_definitions' in sections:
         avail_lang = []
         for language in parsed_adl.ontology['term_definitions']:
             avail_lang.append(language[0])
         
-        for l in avail_lang:
+        for l in avail_lang: # now process each language section
             at_codes = parsed_adl.ontology['term_definitions'][l]['items']
             for code in at_codes:
-                    for x in range(1,len(code)):
-                            tANList.append(code[x][0])
-                    termCodes.append([l,code[0]])
-            
+                # At some future point this should be more flexible than only having text and description
+                termsDict[code[0]] = {'description':code[1][1],'text':code[2][1]}
+            ontObj.data[u'termCodes'][l] = termsDict  # for each language add the terms list.
+    
+    ontObj.data[u'termAttributeNames'] = ['description','text']
+    
     if 'constraint_definitions' in sections:
         avail_lang = []
         for language in parsed_adl.ontology['constraint_definitions']:
-            avail_lang.append(language[0])       
-        for l in avail_lang:
-            ac_codes = parsed_adl.ontology['constraint_definitions'][l]['items']
-            for code in ac_codes:
-                for x in range(1,len(code)):
-                        tANList.append(code[x][0])
-                constraintCodes.append([l,code[0]])
-
-    else:
-        constraintCodes=[]
+            avail_lang.append(language[0])    
             
-    termAttributeNames=tANList
-    
-    return [terminologies_available,specialsationDepth,termCodes,constraintCodes,termAttributeNames,parent_archetype]
+        for l in avail_lang: # now process each language section
+            at_codes = parsed_adl.ontology['constraint_definitions'][l]['items']
+            for code in at_codes:
+                # At some future point this should be more flexible than only having text and description
+                termsDict[code[0]] = {'description':code[1][1],'text':code[2][1]}
+            ontObj.data[u'constraintCodes'][l] = termsDict  # for each language add the terms list.
+     
+
+    return ontObj

@@ -30,7 +30,6 @@ def bldItemTable(itlist):
             
     for n,x in enumerate(itlist):
         if isinstance(x,unicode):
-            print x
             if 'CLUSTER' in x:
                 cluster=bldCluster(itlist[n:len(itlist)])
                 if cluster==None:
@@ -48,5 +47,4 @@ def bldItemTable(itlist):
     
     itObj= ItemTree(items)
     
-    print '\n\nItem Tree: ',itObj
     return itObj

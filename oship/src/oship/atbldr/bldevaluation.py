@@ -44,7 +44,6 @@ def bldEvaluation(parsed_adl):
         definList.append(x)
         
     y=definList[5]
-    print 'Building:',definList[0]
     
     if isinstance(y,unicode) and '[at' in y:
         start=y.find('[')

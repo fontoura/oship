@@ -31,13 +31,13 @@ from zope.schema.interfaces import IContainer
 
 _ = MessageFactory('oship')
 
-class IAuthoredResource(IContainer):
+class IAuthoredResource(IField):
     u"""Abstract idea of an online resource created by a human author. """
     
     orignialLanguage=Object(
         schema=ICodePhrase,
         title=_(u"Original Language"),
-        description=_(u""""""),
+        description=_(u"""Original Language"""),
         required=True
     )
        

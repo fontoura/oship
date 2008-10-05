@@ -47,7 +47,6 @@ def bldAction(parsed_adl):
 def mkdescr(desclist):
     descrObj=None
     valid=False
-    #print 'description: ',desclist
     for n,x in enumerate(desclist):
         if isinstance(x,unicode) and 'ITEM_TREE' in x:
             descrObj=bldItemTree(desclist[n:len(desclist)])
@@ -57,8 +56,6 @@ def mkdescr(desclist):
         logging.error("Invalid Action Description."+repr(desclist))
         print "\nUnknown Data Type for Action Description",desclist
         return None
-
-    #print descrObj
     
     return descrObj
  

@@ -21,7 +21,6 @@ from bldelement import bldElement
 
 
 def bldCluster(clist):
-    print '\nBuilding a Cluster :',clist[0]
     items=[]
     if '[at' in clist[0]:
         archetypeNodeId=clist[0].strip('CLUSTER')
@@ -37,7 +36,5 @@ def bldCluster(clist):
                 return None
             else:
                 items.append(elem)
-        
-    print 'End Cluster:',clist[0],'\n\n'
     
     return items

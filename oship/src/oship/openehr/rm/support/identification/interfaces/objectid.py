@@ -16,15 +16,15 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.interface import Interface
-from zope.schema import TextLine
+from zope.schema.interfaces import IField
+from zope.schema import TextLine,Field
 from zope.i18nmessageid.message import MessageFactory 
 
 
 _ = MessageFactory('oship')
 
 
-class IObjectId(Interface):
+class IObjectId(IField):
     u"""
     Ancestor (abstract) class of identifiers of informational objects. Ids may be completely
     meaningless, in which case their only job is to refer to something, or may carry

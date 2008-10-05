@@ -19,28 +19,30 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
 from zope.interface import implements
-from zope.schema import Field,Container
+from zope.schema.fieldproperty import FieldProperty
+from zope.schema import Field
 
 from oship.openehr.am.archetype.ontology.interfaces.archetypeontology import IArchetypeOntology
 
 _ = MessageFactory('oship')
    
-class ArchetypeOntology(Container):
+class ArchetypeOntology(Field):
     """
     Local ontology of an archetype.
     """
     
     implements(IArchetypeOntology)
     
-    def __init__(self,tavail,sdepth,tcodes,ccodes,tanames,parent):
-        self.terminolgiesAvailable=tavail
-        self.specialisationDepth=sdepth
-        self.termCodes=tcodes
-        self.constraintCodes=ccodes
-        self.termAttributeNames=tanames
-        self.parentArchetype=parent        
-     
-
+    # assign the attributes to their schema definitions
+    terminologiesAvailable = FieldProperty(IArchetypeOntology['terminologiesAvailable'])
+    specialisationDepth = FieldProperty(IArchetypeOntology['specialisationDepth'])
+    termCodes = FieldProperty(IArchetypeOntology['termCodes'])
+    constraintCodes = FieldProperty(IArchetypeOntology['constraintCodes'])
+    termAttributenames = FieldProperty(IArchetypeOntology['termAttributeNames'])
+    parentArchetype = FieldProperty(IArchetypeOntology['parentArchetype'])
+    
+    
+    
     def hasLanguage(aLang):
         """
         True if aLang is present in ontology.

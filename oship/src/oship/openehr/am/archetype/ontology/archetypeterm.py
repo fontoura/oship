@@ -37,3 +37,5 @@ class ArchetypeTerm(Field):
         """
         List of all keys used in this term.
         """
+        
+        return self.items.keys()

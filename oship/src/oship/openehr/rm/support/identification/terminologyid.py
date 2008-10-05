@@ -20,7 +20,7 @@ from zope.interface import implements
 from zope.i18nmessageid.message import MessageFactory 
 
 from objectid import ObjectId
-from interfaces.terminologyid import ITerminologyId
+from oship.openehr.rm.support.identification.interfaces.terminologyid import ITerminologyId
 
 _ = MessageFactory('oship')
       
@@ -37,10 +37,11 @@ class TerminologyId(ObjectId):
     """
 
     implements(ITerminologyId)
-
-    def __init__(self, value):
-        self.value = value
-
+    
+    def __init__(self, name,versionId):
+        self.name = name
+        self.versionId = versionId
+    
 
     def valueExists(): 
         u"""        

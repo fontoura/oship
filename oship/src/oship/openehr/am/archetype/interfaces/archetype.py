@@ -16,6 +16,7 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
 from zope.schema import TextLine,Set,Object
+from zope.app.folder.interfaces import IFolder
 from zope.i18nmessageid.message import MessageFactory
 
 from oship.openehr.rm.support.identification.interfaces.hierobjectid import IHierObjectId
@@ -28,7 +29,7 @@ from oship.openehr.am.archetype.assertion.interfaces.assertion import IAssertion
 _ = MessageFactory('oship')
 
 
-class IArchetype(IAuthoredResource):
+class IArchetype(IAuthoredResource,IFolder):
     """
     Archetype equivalent to ARCHETYPED class in Common reference model.
     Defines semantics of identfication, lifecycle, versioning, composition 
@@ -39,7 +40,8 @@ class IArchetype(IAuthoredResource):
         title = _(u"adlVersion"),
         description = _(u"""ADL version if archteype was read in from an ADL sharable archetype."""),
         required = False,
-        default = None
+        default = u'',
+        readonly = True,
     )
     
     archetypeId=Object(
@@ -60,6 +62,7 @@ class IArchetype(IAuthoredResource):
         title=_(u"Concept"),
         description=_(u"The normative meaning of archetype as a whole."),
         required=True,
+        readonly = True,
     )
     
     parentArchetypeId=Object(

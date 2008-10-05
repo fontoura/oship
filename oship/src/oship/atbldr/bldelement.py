@@ -37,11 +37,9 @@ def bldElement(elist):
     elem=None
     
     # What kind of element are we adding?
-    print '\nElement List:',elist
     for a in elist:
         if typeDict.has_key(a):    
             elem=typeDict[a](elist)
-            print "Making: ",a
             break                          
                           
     if '[at' in elist[0]:

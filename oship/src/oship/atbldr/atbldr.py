@@ -44,6 +44,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 import ZODB
 from ZODB import FileStorage,DB
+from BTrees.OOBTree import OOBTree
 
 import transaction
 from zope.schema import Text
@@ -58,6 +59,7 @@ from oship.openehr.rm.datatypes.text.codephrase import CodePhrase
 from oship.openehr.rm.datatypes.text.dvtext import DvText
 from oship.openehr.am.archetype.archetype import Archetype
 from oship.openehr.rm.support.identification.terminologyid import TerminologyId
+from oship.openehr.rm.support.identification.archetypeid import ArchetypeId
 
 from blddefinition import bldDefinition
 from bldinvariants import bldInvariants
@@ -74,8 +76,6 @@ adlDir points to my SVN import tree of all archetypes on openEHR.org
 """
 
 adlDir=os.getcwd()+'/import_adl'
-#adlDir='/home/tim/Documents/openEHR/knowledge/archetypes'
-#adlDir='/home/tim/Documents/openEHR/knowledge/archetypes/dev-uk-nhs/adl/openehr/ehr/entry/observation'
 
 x=os.getcwd().rfind('src')
 dbDir=os.getcwd()[:x]+'var/Data.fs'
@@ -163,53 +163,47 @@ def bldArchetype(parsed_adl):
     Build the archetype object ready for persistence in the Archetype Repository site (AR).
     """
         
-    adl_version=parsed_adl.archetype.adl_version
-    archetype_id=parsed_adl.archetype[1]
-    concept=parsed_adl.concept
-    parent_archetype_id=parsed_adl.specialize
+    adlVersion = unicode(parsed_adl.archetype.adl_version)
+    archetypeId = ArchetypeId(unicode(parsed_adl.archetype[1]))
+    concept = unicode(parsed_adl.concept)
+    parentArchetypeId = archetypeId # it's the same minus specialisation;  I think. 
+    parentArchetypeId.specialisation = u'' #strip any specialisation info off
+    
     # the ontology must be built first so it can be used in the definition section.
     ontology=bldOntology(parsed_adl)
     definition=bldDefinition(parsed_adl)
     invariants=bldInvariants(parsed_adl)
     rev=None #bldRevisionHistory(parsed_adl) 
-    uid=None
+    uid=None # The OID can be assigned in the application instances
     #terminology ID for original language
-    termID=TerminologyId("[ISO_639-1::en]")
-    olang=CodePhrase(termID,'en')
+    termID=TerminologyId(u"ISO_639-1::en",None)
+    olang=CodePhrase(termID,u'en')
     trans=None #translations
     descr=None #ResourceDescription(olang,'testing',[],'the use','mis-use','copyright',{},{})
     ctrld=False #is controlled
     
     
-    atObj=Archetype(adl_version,archetype_id,uid,concept,parent_archetype_id,definition,ontology,invariants,olang,trans,descr,rev,ctrld)            
-    #print 'ADL Version: ',atObj.adlVersion        
-    #print '__name__ = ', atObj.__name__
-    #print 'UID: ', atObj.uid
-    #print 'Concept: ',atObj.concept
-    #print 'Parent: ', atObj.parentArchetypeId
-    #print 'Definition: ',atObj.definition
+    atObj=Archetype(adlVersion,archetypeId,uid,concept,parentArchetypeId,definition,ontology,invariants,olang,trans,descr,rev,ctrld)            
+    # now fillin the data attribute with the object attributes so the Zope machinery works
+    atObj.__name__ = unicode(parsed_adl.archetype[1])
+    atObj.data = folder.Folder()
+    atObj.data[u'concept'] = concept
+    atObj.data[u'adlVersion'] = adlVersion
     
-    """
-    print 'Ontology: '
-    print '   terminologies_available = ',atObj.ontology[0]
-    print '   specialisation_depth = ',atObj.ontology[1]
-    print '   term_codes = ',atObj.ontology[2]
-    print '   constraint_codes = ',atObj.ontology[3]
-    print '   term_attribute_names = ',atObj.ontology[4]
-    print '   parent_archetype = ',atObj.ontology[5]
-    print 'Invariants: ', atObj.invariants
-    print 'Revision History: ',atObj.revisionHistory
-    """
-        
+    atObj.data[definition.__name__] = definition
+    atObj.data[u'ontology'] = ontology
+   
+    
+    
     # now we need to persist the archetype in the ZODB
     try:
-        root['Application']['AR'].__setitem__(archetype_id,atObj)
+        root['Application']['AR'].__setitem__(archetypeId.__name__,atObj)
         transaction.commit()
     except NameError:
-        logging.warning("WARNING: Error Occured Storing Archetype: "+archetype_id)
+        logging.warning("WARNING: Error Occured Storing Archetype: "+archetypeId.__name__)
     except DuplicationError:
         print "WARNING:  ****Duplicate Archetype ID.***"
-        logging.warning("Duplicate Archetype ID: "+archetype_id)
+        logging.warning("Duplicate Archetype ID: "+archetypeId.__name__)
         
     return
    

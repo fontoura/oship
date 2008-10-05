@@ -47,21 +47,14 @@ def bldActivity(activities):
         elif x == 'allow_archetype':
             allow_archetype=activities[n+1]
             
-    
-    #print cardinality
-    #print order
-    #print nodeid
-    #print description
-    
+        
     actObj=Activity(description,timing,actionArchetypeId,archetypeNodeId)
-    #print '\nactlist=',activities
-    #print "actObj: ",actObj
+
     return actObj
 
 def mkdescr(desclist):
     descrObj=None
     valid=False
-    #print 'description: ',desclist
     for n,x in enumerate(desclist):
         if isinstance(x,unicode) and 'ITEM_TREE' in x:
             descrObj=bldItemTree(desclist[n:len(desclist)])
@@ -71,8 +64,6 @@ def mkdescr(desclist):
         logging.error("Invalid Activity Description."+repr(desclist))
         print "\nUnknown Data Type for Description",desclist
         return None
-
-    #print descrObj
     
     return descrObj
         

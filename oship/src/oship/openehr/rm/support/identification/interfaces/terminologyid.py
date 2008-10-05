@@ -36,12 +36,17 @@ class ITerminologyId(IObjectId):
     Lexical form: name [ '(' version ')' ]
     """
 
-    value = TextLine(
+    name = TextLine(
         title=_(u"Value"),
         description=_(u"A single unicode string containing a valid ID"),
-        default=_(u""),
         required=True)
-    
+
+    versionId = TextLine(
+        title=_(u"Version"),
+        description=_(u"A single unicode string containing a valid version if supported. Otherwise and empty string."),
+        default=u'',        
+        required=True)
+   
     def valueExists():
         u"""        
         value != None and then not value != ''

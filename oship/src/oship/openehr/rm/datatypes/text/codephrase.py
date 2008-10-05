@@ -24,7 +24,7 @@ from interfaces.codephrase import ICodePhrase
 
 _ = MessageFactory('oship')
 
-class CodePhrase(object):
+class CodePhrase(Field):
     """
     A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
     minology service (as distinct from a particular terminology).
@@ -35,4 +35,12 @@ class CodePhrase(object):
     def __init__(self, terminologyId, codeString):
         self.terminologyId=terminologyId
         self.codeString=codeString
+
+        
+    def __eq__(self, other):
+        if  not isinstance(other, CodePhrase):
+            return False
+        if self.codeString != other.codeString:
+            return False
+        return self.terminologyId == other.terminologyId
 

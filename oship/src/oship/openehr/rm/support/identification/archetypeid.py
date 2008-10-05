@@ -73,105 +73,27 @@ class ArchetypeId(ObjectId):
 
     implements(IArchetypeId)
 
-    def __init__(self, value):
-        self.value = value
-
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
+    def __init__(self, atidstr):
         """
-        return self.value != None and self.value != ''
-    
-    
-    def qualifiedRmEntity():
-        u"""
-        Globally qualified reference model entity, e.g. "openehr-composition-OBSERVATION".
+        atidstr is a unicode str of the full archetype ID from the ADL
+        Maybe we shoudl do a regex on the full name too?        
         """
-        return value.split('.')[0]
-    
-    def domainConcept():
-        u"""
-        Name of the concept represented by this archetype, including specialisation, e.g. "biochemistry_result-cholesterol".
-        """
-        return value.split('.')[1]
-    
-    def rmOriginator():
-        u"""
-        Organisation originating the reference model on which this archetype is based, e.g. "openehr", "cen", "hl7".
-        """
-        return value.split('.')[0].split('-')[0]
-    
-    def rmName():
-        u"""
-        Name of the reference model, e.g. "rim","ehr_rm", "en13606".
-        """
-        return value.split('.')[0].split('-')[1]
-    
-    def rmEntity():
-        u"""
-        Name of the ontological level within the reference model to which this archetype is targeted, e.g. for openEHR, "folder","composition", "section", "entry".
-        """
-        return value.split('.')[0].split('-')[2]
-    
-    def conceptName():
-        return value.split('.')[1].split('-')[0]
-    
-    def specialisation():
-        u"""
-        Name of specialisation of concept, if this archetype is a specialisation of another archetype, e.g. "cholesterol".
-        """
-        if (value.split('.')[1].count('-')):
-            return value.split('.')[1].split('-')[1]
-        return None
+        self.__name__ = atidstr
         
-    def versionId():
-        u"""
-        Version of this archetype.
-        """
-        return value.split('.')[2]
+        atid = atidstr.split(u'.')
         
-    def qualifiedRmEntityValid():
-        u""" qualifiedRmEntity != None and qualifiedRmEntity != '' """
-        if (self.qualifiedRmEntity != None):
-            return self.qualifiedRmEntity != ''
-        return self.qualifiedRmEntity == None
+        self.qualifiedRmEntity = atid[0]
+        self.rmOriginator = atid[0].split(u'-')[0]
+        self.domainConcept = atid[1]
+        self.rmEntity = atid[0].split(u'-')[2]
+        self.versionId = atid[2]
+        self.rmName = u'openehr'  # we only use openehr archetypes
+        is_spec = atid[1].find(u'-')
+        if  is_spec > 0:
+            self.specialisation = atid[1][is_spec+1:len(atid[1])]
+        else:
+            self.specialisation = u''
+        
         
 
-    def domainConceptValid():
-        u""" domainConcept != None and domainConcept != ''  """
-        if (self.domainConcept != None):
-            return self.domainConcept != ''
-        return self.domainConcept == None
-
-    def rmOriginatorValid():
-        u""" rmOriginator != None and rmOriginator != '' """
-        if (self.rmOriginator != None):
-            return self.rmOriginator != ''
-        return self.rmOriginator == None
-
-    def rmNameValid():
-        u""" rmName != None and rmName != '' """
-        if (self.rmName != None):
-            return self.rmName != ''
-        return self.rmName == None
-        
-    
-    def rmEntityValid():
-        u""" rmEntity != None and rmEntity != '' """
-        if (self.rmEntity != None):
-            return self.rmEntity != ''
-        return self.rmEntity == None
-    
-    def specialisationValid():
-        u""" specialisation != None and specialisation != '' """
-        if (self.specialisation != None):
-            return self.specialisation != ''
-        return self.specialisation == None
-          
-    def versionIdValid():
-        u""" versionId != None and versionId != '' """
-        if (self.versionId != None):
-            return self.versionId != ''
-        return self.versionId == None
 

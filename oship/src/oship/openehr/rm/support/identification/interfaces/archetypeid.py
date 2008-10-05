@@ -70,11 +70,49 @@ class IArchetypeId(IObjectId):
     Archetypes can also be identified by other means, such as ISO oids.
     """
 
-    value = TextLine(
-        title=_(u"Value"),
-        description=_(u"A single unicode string containing a valid ID"),
-        default=_(u""),
-        required=True)
+    qualifiedRmEntity = TextLine(
+        title = _(u'Qualified RM Entity'),
+        description = _(u'Globally qualified reference model entity.'),
+        required = True,
+        )
+    
+    domainConcept = TextLine(
+        title = _(u'Domain Concept'),
+        description = _('Name of the concept represented by this archetype.'),
+        required = True,
+        )
+    
+    rmOriginator = TextLine(
+        title = _(u'RM Orginator'),
+        description = _(u'Name of the organization originating the reference model.'),
+        required = True,
+        )
+    
+    rmName = TextLine(
+        title = _(u'RM Name'),
+        description = _('The name of the reference model.'),
+        required = True,
+        )
+    
+    rmEntity = TextLine(
+        title = _(u'RM Entity'),
+        description = _(u'The ontological section froom the reference model.'),
+        required = True,
+        )
+    
+    specialisation = TextLine(
+        title = _(u'Specialisation'),
+        description = _(u'name of the specialisation of concept.'),
+        required = True,
+        default = u'',
+        )
+    
+    versionId = TextLine(
+        title = _(u'Version ID'),
+        description = _(u'Version ID of this archetype.'),
+        required = True,
+        )
+    
     
     def valueExists():
         u"""        

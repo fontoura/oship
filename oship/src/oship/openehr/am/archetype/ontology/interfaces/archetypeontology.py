@@ -18,44 +18,49 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.i18nmessageid.message import MessageFactory 
-from zope.schema import Int,Set,List,Object, TextLine
-from zope.schema.interfaces import IContainer
+from zope.schema import Int,Set,List,Object, TextLine, Dict, Tuple
+from zope.schema.interfaces import Interface
 
 #from oship.openehr.am.archetype.archetype import Archetype
 from oship.openehr.rm.support.identification.interfaces.objectref import IObjectRef
+from oship.openehr.am.archetype.ontology.interfaces.archetypeterm import IArchetypeTerm
 
 _ = MessageFactory('oship')
 
-class IArchetypeOntology(IContainer):
+class IArchetypeOntology(Interface):
     """
     Local ontology of an archetype.
     """
     
-    terminologiesAvailable=Set(
+    terminologiesAvailable=List(
         title=_(u"Terminologies"),
         description=_(u"List of terminologies in this ontology."),
         required=True,
         value_type=TextLine(),
+        default=[],
     )
 
     specialisationDepth=Int(
         title=_(u"Specialisation Depth"),
         description=_(u"Specialisation depth of this archetype."),
         required=True,
+        default = 0,
     )
     
-    termCodes=List(
+    termCodes=Dict(
         title=_(u"Term Codes"),
         description=_(u"List of all term codes in this archetype."),
         required=True,
-        value_type=TextLine(),
+        value_type=Dict(title=u'TermCode',key_type=TextLine(),value_type=Tuple()),
+        key_type=TextLine(),
     )
 
-    constraintCodes=List(
+    constraintCodes=Dict(
         title=_(u"Constraint Codes"),
         description=_(u"List of all constraint codes in this archetype."),
         required=True,
-        value_type=TextLine(),
+        value_type=Dict(title=u'ConstraintCode',key_type=TextLine(),value_type=Tuple()),
+        key_type=TextLine(),
     )
     
     termAttributeNames=List(

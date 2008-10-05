@@ -42,7 +42,6 @@ def bldInstruction(parsed_adl):
             
         definList.append(x)
         
-    #print definList
     
     #What is in an INSTRUCTION?    
     #narrative

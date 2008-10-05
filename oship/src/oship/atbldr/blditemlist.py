@@ -41,5 +41,5 @@ def bldItemList(adl_list):
     
     ilObj= ItemList(items)
     """
-    #print '\n\nItem List: ',ilObj
+
     return ilObj

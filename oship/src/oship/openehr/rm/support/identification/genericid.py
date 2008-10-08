@@ -14,7 +14,8 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'; u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
+
 
 
 from zope.interface import implements
@@ -32,12 +33,12 @@ class GenericId(ObjectId):
 
     implements(IGenericId)
 
-    def __init__(self,scheme,**kw):
+    def __init__(self,scheme):
         self.scheme=scheme
-        for n,v in kw.items():
-            setattr(self,n,v)
-
-
-    def schemeValid():
-        return self.scheme!=None and self.scheme!=''
         
+    def __eq__(self, other):
+        if not isinstance(other,  GenericId):
+            return False
+        if self.value != other.value:
+            return False
+        return self.scheme == other.scheme

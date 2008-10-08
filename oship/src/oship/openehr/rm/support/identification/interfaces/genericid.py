@@ -14,7 +14,7 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 
 from zope.schema import TextLine
@@ -36,7 +36,4 @@ class IGenericId(IObjectId):
         description = _(u"Name of the scheme to which this identifier conforms."),
         required = True
         )
-            
-    def schemeValid():
-        u""" scheme != None and scheme != ''  """
         

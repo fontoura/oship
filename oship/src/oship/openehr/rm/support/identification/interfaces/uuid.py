@@ -36,8 +36,3 @@ class IUuid(IUid):
         description=_(u"A single unicode string containing a valid UID"),
         default=_(u""),
         required=True)
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """

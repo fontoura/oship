@@ -14,7 +14,7 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 from zope.location import Location
 from zope.interface import implements
@@ -37,32 +37,17 @@ class LocatableRef(ObjectRef,Location):
         self.id=id
         self.path=path
        
-    def idExists():
-        u""" id != None """
-        
-    def nameSpaceExists():
-        u""" nameSpace != None and nameSpace != '' """
-        
-    def typeExists():
-        u""" type != None and type != '' """
-    
     def asUri():
         u"""
         A URI form of the reference, created by concatenating the following:
         "ehr://" + id.value + "/" + path
         """
-        
-    def pathValid():
-        u""" path != None and path != '' """
-    def typeExists():
-        u""" type != None and type != '' """
-    
-    def asUri():
-        u"""
-        A URI form of the reference, created by concatenating the following:
-        "ehr://" + id.value + "/" + path
-        """
-        
-    def pathValid():
-        u""" path != None and path != '' """
+        return 'ehr://' + self.id.value + "/" + self.path
 
+    def __eq__(self, other):
+        if not isinstance(other,  LocatableRef):
+            return False
+        if self.id != other.id:
+            return False
+        return self.path == other.path
+       

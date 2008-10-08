@@ -14,14 +14,14 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Fabricio Ferracioli <fabricioferracioli@gmail.com>'
-
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Fabricio Ferracioli <fabricioferracioli@gmail.com>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
 
 from objectid import ObjectId
 from interfaces.archetypeid import IArchetypeId
+import re
 
 _ = MessageFactory('oship')
 
@@ -73,27 +73,102 @@ class ArchetypeId(ObjectId):
 
     implements(IArchetypeId)
 
+    AXIS_SEPARATOR = u'.'
+    SECTION_SEPARATOR = u'-'   
+    NAME_PATTERN = r"[a-zA-Z][a-zA-Z0-9()_/%$#&]*"
+    VERSION_PATTERN = r"[a-zA-Z0-9]+"
+    
     def __init__(self, atidstr):
         """
         atidstr is a unicode str of the full archetype ID from the ADL
         Maybe we shoudl do a regex on the full name too?        
         """
-        self.__name__ = atidstr
+        self.value = atidstr
+        tokens = atidstr.split(self.AXIS_SEPARATOR)
+        if len(tokens) != 3:
+            raise ValueError, 'bad format, wrong number of sections'
+        self.__qualifiedRmEntity = tokens[0]
+ 
+        self.__domainConcept = tokens[1]
+        self.__version = tokens[2]
+        self.__validateVersionId(self.__version)
         
-        atid = atidstr.split(u'.')
-        
-        self.qualifiedRmEntity = atid[0]
-        self.rmOriginator = atid[0].split(u'-')[0]
-        self.domainConcept = atid[1]
-        self.rmEntity = atid[0].split(u'-')[2]
-        self.versionId = atid[2]
-        self.rmName = u'openehr'  # we only use openehr archetypes
-        is_spec = atid[1].find(u'-')
-        if  is_spec > 0:
-            self.specialisation = atid[1][is_spec+1:len(atid[1])]
+        tokens = self.__qualifiedRmEntity.split(self.SECTION_SEPARATOR)
+        if len(tokens) != 3:
+            raise ValueError, 'bad format, wrong number of sections in ' + self.value
+        self.__rmOriginator = tokens[0]
+        self.__validateName(self.__rmOriginator, 'rm_originator')
+        self.__rmName = tokens[1]
+        self.__validateName(self.__rmName, 'rm_name')
+        self.__rmEntity = tokens[2]
+        self.__validateName(self.__rmEntity, 'rm_entity')
+
+        tokens = self.__domainConcept.split(self.SECTION_SEPARATOR)
+        if len(tokens) < 1:
+            raise ValueError, 'bad format, too few sections for domainConcept in ' + self.value
+        self.__conceptName = tokens[0]    
+        self.__validateName(self.__conceptName, 'concept_name')
+        if len(tokens) > 1:
+            self.__specialisation = tokens[-1]
+            self.__validateName(self.__specialisation, 'specialisation')
         else:
-            self.specialisation = u''
-        
-        
+            self.__specialisation = None
+ 
+    def __validateName(self, value, label):
+        match = re.compile(self.NAME_PATTERN).match(value)
+        if (match is None) or (match.end() < len(value)):
+            raise ValueError, 'wrong format of ' + label + ': ' + value
+
+    def __validateVersionId(self, version):
+        match = re.compile(self.VERSION_PATTERN).match(version)
+        if (match is None) or (match.end() < len(version)):
+            raise ValueError, 'wrong format of versionId: ' + version
+ 
+    def qualifiedRmEntity(self):
+        u"""
+        Globally qualified reference model entity, e.g. "openehr-composition-OBSERVATION".
+        """
+        return self.__qualifiedRmEntity
+
+    def domainConcept(self):
+        u"""
+        Name of the concept represented by this archetype, including specialisation, 
+        e.g. "biochemistry_result-cholesterol".
+        """
+        return self.__domainConcept
+
+    def rmOriginator(self):
+        u"""
+        Organisation originating the reference model on which this archetype is based, 
+        e.g. "openehr", "cen", "hl7".
+        """
+        return self.__rmOriginator
+
+    def rmName(self):
+        u"""
+        Name of the reference model, e.g. "rim","ehr_rm", "en13606".
+        """
+        return self.__rmName
+
+    def rmEntity(self):
+        u"""
+        Name of the ontological level within the reference model to which this archetype is 
+        targeted, e.g. for openEHR, "folder","composition", "section", "entry".
+        """
+        return self.__rmEntity
+
+    def specialisation(self): 
+        u"""
+        Name of specialisation of concept, if this archetype is a specialisation of another 
+        archetype, e.g. "cholesterol".
+        """
+        return self.__specialisation;
+    
+    def versionId(self):
+        u"""
+        Version of this archetype.
+        """
+        return self.__version
+      
 
 

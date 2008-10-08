@@ -14,7 +14,7 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
@@ -68,57 +68,7 @@ class IArchetypeId(IObjectId):
         openehr-composition-OBSERVATION.progress_note-naturopathy.v2
        
     Archetypes can also be identified by other means, such as ISO oids.
-    """
-
-    qualifiedRmEntity = TextLine(
-        title = _(u'Qualified RM Entity'),
-        description = _(u'Globally qualified reference model entity.'),
-        required = True,
-        )
-    
-    domainConcept = TextLine(
-        title = _(u'Domain Concept'),
-        description = _('Name of the concept represented by this archetype.'),
-        required = True,
-        )
-    
-    rmOriginator = TextLine(
-        title = _(u'RM Orginator'),
-        description = _(u'Name of the organization originating the reference model.'),
-        required = True,
-        )
-    
-    rmName = TextLine(
-        title = _(u'RM Name'),
-        description = _('The name of the reference model.'),
-        required = True,
-        )
-    
-    rmEntity = TextLine(
-        title = _(u'RM Entity'),
-        description = _(u'The ontological section froom the reference model.'),
-        required = True,
-        )
-    
-    specialisation = TextLine(
-        title = _(u'Specialisation'),
-        description = _(u'name of the specialisation of concept.'),
-        required = True,
-        default = u'',
-        )
-    
-    versionId = TextLine(
-        title = _(u'Version ID'),
-        description = _(u'Version ID of this archetype.'),
-        required = True,
-        )
-    
-    
-    def valueExists():
-        u"""        
-        value != None and then not value != ''
-        """
-    
+    """ 
     
     def qualifiedRmEntity():
         u"""
@@ -158,26 +108,3 @@ class IArchetypeId(IObjectId):
         u"""
         Version of this archetype.
         """
-        
-    def qualifiedRmEntityValid():
-        u""" qualifiedRmEntity != None and qualifiedRmEntity != '' """
-
-    def domainConceptValid():
-        u""" domainConcept != None and domainConcept != ''  """
-
-    def rmOriginatorValid():
-        u""" rmOriginator != None and rmOriginator != '' """
-
-    def rmNameValid():
-        u""" rmName != None and rmName != '' """
-        
-    
-    def rmEntityValid():
-        u""" rmEntity != None and rmEntity != '' """
-          
-    def specialisationValid():
-        u""" specialisation != None and specialisation != '' """
-          
-    def versionIdValid():
-        u""" versionId != None and versionId != '' """
-

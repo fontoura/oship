@@ -40,10 +40,11 @@ class ObjectRef(ObjectId):
         self.nameSpace=nameSpace
         self.type=type
        
-    def nameSpaceExists():
-        if len(nameSpace) == 0:
-            raise ValueError("nameSpace must not be empty")
-        
-    def typeExists():
-        if len(type) == 0:
-            raise ValueError("type must not be empty")
+    def __eq__(self, other):
+        if not isinstance(other,  ObjectRef):
+            return False
+        if self.id != other.id:
+            return False
+        if self.nameSpace != other.nameSpace:
+            return False
+        return self.type == other.type

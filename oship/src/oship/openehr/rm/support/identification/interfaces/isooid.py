@@ -14,7 +14,7 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
@@ -36,9 +36,4 @@ class IIsoOid(IUid):
         title=_(u"Value"),
         description=_(u"A single unicode string containing a valid UID"),
         required=True)
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """
 

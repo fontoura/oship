@@ -14,7 +14,8 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
+
 
 from zope.interface import Interface
 from zope.schema import TextLine
@@ -39,9 +40,14 @@ class IVersionTreeId(Interface):
         Returns a string of the trunk version number; numbering starts at 1.     
         """
         
-    def branchVersion():
+    def branchNumber():
         u"""
         Number of branch from the trunk point; numbering starts at 1.
+        """
+
+    def branchVersion():
+        u"""
+        Version of the branch; numbering starts at 1.
         """
 
     def isBranch():
@@ -55,33 +61,4 @@ class IVersionTreeId(Interface):
         True if this version identifier corresponds to the
         first version, i.e. trunkVersion == "1"
         """
-
-    def valueValid():
-        u""" value != None and value != '' """
-        
-    def trunkVersionValid():
-        u"""
-        trunkVersion != None and isinstance(trunkVersion, int) and trunkVersion >= 1
-        """
-
-    def branchNumberValid():
-        """
-        branchNumber != None and isinstance(branchNumber, int) and branchNumber >= 1
-        """
-    
-    def branchVersionValid():
-        u"""
-        branchVersion != None and isinstance(branchVersion, int) and branchVersion >= 1
-        """
-        
-    def branchValidity():
-        u"""
-        (branchNumber == None and branchVersion == None ) xor
-        (branchNumber != None and branchVersion != None )
-        """
-        
-    def isBranchValidity():
-        u""" isBranch xor (branchNumber == None) """
-        
-    def isFirstValidity():
-        u""" not isFirst xor trunkVersion == "1" """
+   

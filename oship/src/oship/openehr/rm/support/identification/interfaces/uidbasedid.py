@@ -14,7 +14,7 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
@@ -36,11 +36,6 @@ class IUidBasedId(IObjectId):
         default=_(u""),
         required=True)
     
-    def valueExists():
-        u"""        
-        value != None and then not value != ''
-        """
-
     def root():
         u"""
         The identifier of the conceptual namespace in which the object exists, within 
@@ -54,17 +49,6 @@ class IUidBasedId(IObjectId):
         Returns the part to the right of the first '::' separator if any, or else any empty String.
         """
 
-
     def hasExtension():
         u""" True if extension != None """
 
-        
-    def rootValid():
-        u""" True if root != None """
-        
-    def extensionValidity():
-        u""" True if extension != None """
-        
-        
-    def hasExtensionValidity():
-        """ extension == '' xor hasExtension() """

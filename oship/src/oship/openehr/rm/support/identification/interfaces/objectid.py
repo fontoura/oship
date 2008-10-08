@@ -39,9 +39,4 @@ class IObjectId(IField):
         title=_(u"Value"),
         description=_(u"A single unicode string containing a valid ID"),
         required=True)
-    
-    def valueExists():
-        u"""        
-        value != None and then not value != ''
-        """
 

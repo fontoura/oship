@@ -14,7 +14,7 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
@@ -36,22 +36,6 @@ class ITerminologyId(IObjectId):
     Lexical form: name [ '(' version ')' ]
     """
 
-    name = TextLine(
-        title=_(u"Value"),
-        description=_(u"A single unicode string containing a valid ID"),
-        required=True)
-
-    versionId = TextLine(
-        title=_(u"Version"),
-        description=_(u"A single unicode string containing a valid version if supported. Otherwise and empty string."),
-        default=u'',        
-        required=True)
-   
-    def valueExists():
-        u"""        
-        value != None and then not value != ''
-        """
-
     def name():
         u"""
         Return the terminology id (which includes the "version" in some cases). 
@@ -61,11 +45,3 @@ class ITerminologyId(IObjectId):
         
     def versionId():
         u""" Version of this terminology, if versioning supported, else the empty string."""
-        
-    
-    def nameValid():
-        u""" name != None and name != '' """
-
-    def versionIdValid():
-        u""" versionId != None """
-        

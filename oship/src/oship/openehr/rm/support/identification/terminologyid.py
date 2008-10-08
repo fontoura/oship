@@ -14,7 +14,7 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 from zope.interface import implements 
 from zope.i18nmessageid.message import MessageFactory 
@@ -39,30 +39,22 @@ class TerminologyId(ObjectId):
     implements(ITerminologyId)
     
     def __init__(self, name,versionId):
-        self.name = name
-        self.versionId = versionId
+        self.value = value
+        parts = value.partition('(')
+        self.__name = parts[0]
+        self.__version = parts[2].rstrip(')')
     
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """
-        return self.value!=None and self.value!=''
-
-    def name():
+    def name(self):
         u"""
         Return the terminology id (which includes the "version" in some cases). 
         Distinct names correspond to distinct (i.e. non-compatible) terminologies.
         Thus the names "ICD10AM" and "ICD10" refer to distinct terminologies.
         """
-        
-    def versionId():
-        u""" Version of this terminology, if versioning supported, else the empty string."""
-        
+        return self.__name
     
-    def nameValid():
-        u""" name != None and name != '' """
-
-    def versionIdValid():
-        u""" versionId != None """
+    def versionId(self):
+        u""" Version of this terminology, if versioning supported, else the empty string."""
+        return self.__version
+         
+    
         

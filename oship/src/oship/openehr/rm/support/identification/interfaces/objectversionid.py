@@ -14,14 +14,12 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
-from zope.schema import Bool,Object
+
 from zope.i18nmessageid.message import MessageFactory 
 
 from uidbasedid import IUidBasedId
-from oship.openehr.rm.support.identification.interfaces.uuid import IUid
-from oship.openehr.rm.support.identification.interfaces.versiontreeid import IVersionTreeId
 
 _ = MessageFactory('oship')
 
@@ -35,26 +33,27 @@ class IObjectVersionId(IUidBasedId):
     F7C5C7B7-75DB-4b39-9A1E-C0BA9BFDBDEC::87284370-2D4B-4e3d-A3F3-F303D2F4F34B::2  
     """
 
-    objectId = Object(
-        schema=IUid,
-        title=_(u"Id"),
-        description=_(u"Unique identifier for a single version of a logical object."),
-        required=True)
+    def objectId():
+        u"""
+        Unique identifier for logical object of which this identifier identifies one version;
+        normally the object_id will be the unique identifier of the version container containing
+        the version referred to by this OBJECT_VERSION_ID instance.
+        """
+	
+    def versionTreeId():
+        u"""
+        Tree identifier of this version with respect to other versions in the same version tree,
+        as either 1 or 3 part dot-separated numbers, e.g. '1', '2.1.4'.  
+        """
+	
+    def creatingSystemId():
+        u"""
+        Identifier of the system that created the Version corresponding to this Object version id.
+        """
+        
+    def isBranch():
+        u"""
+        True if this version identifier represents a branch. 
+        """
+	
     
-    versionTreeId=Object(
-        schema=IVersionTreeId,
-        title=_(u'Version Tree Id'),
-        description=_(u'Tree identifier of this version.'),
-        required=True)
-    
-    creatingSystemId=Object(
-        schema=IUid,
-        title=_(u'Creating System Id'),
-        description=_(u'Identifier of the system that created this version.'),
-        required=True)
-    
-    isBranch=Bool(
-        title=_(u'Is Branch'),
-        description=_(u'True if this version ID represents a branch.'),
-        required=True)
-            

@@ -14,7 +14,7 @@ From the identification package in support_im.pdf Rev. 1.6.0
 """
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 from zope.interface import implements 
 from zope.i18nmessageid.message import MessageFactory 
@@ -34,15 +34,6 @@ class Uuid(Uid):
 
     implements(IUuid)
    
-    def __init__(self, value,**kw):
+    def __init__(self, value):
         self.value = value
-        for n,v in kw.items():
-            setattr(self,n,v)
-
-
-    def valueExists(): 
-        u"""        
-        value != None and then not value != ''
-        """
-        return self.value!=None and self.value!=''
 

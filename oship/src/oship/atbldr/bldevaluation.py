@@ -17,6 +17,7 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
+
 from oship.utils.flatten import flatten
 
 from oship.openehr.rm.ehr.composition.content.entry.evaluation import Evaluation
@@ -26,9 +27,9 @@ from blditemsingle import bldItemSingle
 from blditemtable import bldItemTable
 
 def bldEvaluation(parsed_adl):
-    definList=[]
-    definObj=None
-    evaDict={
+    
+    definList = []
+    evaDict = {
         "ITEM_LIST":bldItemList,
         "ITEM_SINGLE":bldItemSingle,
         "ITEM_TABLE":bldItemTable,
@@ -47,15 +48,19 @@ def bldEvaluation(parsed_adl):
     
     if isinstance(y,unicode) and '[at' in y:
         start=y.find('[')
+        name = y[start+1:].strip(']')
         nodeid=y[start:]
         keyword=y[:start]
     else:
         keyword=y
+        definObj.__name__ = y 
         
     # now go build the type of evaluation object based on the keyword   
     if evaDict.has_key(keyword):
-        definObj=evaDict[keyword](definList[5:])
+        definObj.__setitem__(keyword, evaDict[keyword](definList[5:]))
     else:
         logging.error("Unknown Evaluation keyword: "+repr(keyword))
 
+    definObj.__name__ = name
+    
     return definObj

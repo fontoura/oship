@@ -78,7 +78,7 @@ adlDir points to my SVN import tree of all archetypes on openEHR.org
 adlDir=os.getcwd()+'/import_adl'
 
 x=os.getcwd().rfind('src')
-dbDir=os.getcwd()[:x]+'var/Data.fs'
+dbDir=os.getcwd()[:x]+'var/OSHIP.fs'
 fs=FileStorage.FileStorage(dbDir)
 db=DB(fs)
 conn=db.open()
@@ -145,14 +145,16 @@ def CreateAT():
     print "\n\nParsed ",count," files in",time.clock()-startTime," seconds."
     print "There were ",errCount," parse errors. " 
     logging.info("There were "+repr(errCount)+" parse errors. ") 
-    print "Please see: "+logfile+" file for errors & warnings."
+    if errCount > 0:
+        print "Please see: "+logfile+" file for errors & warnings."
+        
     conn.close()
     db.close()
     os.remove(dbDir+'.lock')
     
     print "\n\nNow you should change back to "+(os.getcwd().rstrip('src/oship/atbldr')+'/oship')
-    print "and execute '$bin/paster serve debug.ini' to restart your server."
-    print "The point your browser to http://localhost:8080/AR to see your repository.\n\n"
+    print "and execute 'bin/paster serve debug.ini' to restart your server."
+    print "Then point your browser to http://localhost:8080/AR to see your repository.\n\n"
     logging.shutdown()
     
     return
@@ -186,24 +188,17 @@ def bldArchetype(parsed_adl):
     atObj=Archetype(adlVersion,archetypeId,uid,concept,parentArchetypeId,definition,ontology,invariants,olang,trans,descr,rev,ctrld)            
     # now fillin the data attribute with the object attributes so the Zope machinery works
     atObj.__name__ = unicode(parsed_adl.archetype[1])
-    atObj.data = folder.Folder()
-    atObj.data[u'concept'] = concept
-    atObj.data[u'adlVersion'] = adlVersion
-    
-    atObj.data[definition.__name__] = definition
-    atObj.data[u'ontology'] = ontology
-   
     
     
     # now we need to persist the archetype in the ZODB
     try:
-        root['Application']['AR'].__setitem__(archetypeId.__name__,atObj)
+        root['Application']['AR'].__setitem__(atObj.__name__,atObj)
         transaction.commit()
     except NameError:
-        logging.warning("WARNING: Error Occured Storing Archetype: "+archetypeId.__name__)
+        logging.warning("WARNING: Error Occured Storing Archetype: "+atObj.__name__)
     except DuplicationError:
-        print "WARNING:  ****Duplicate Archetype ID.***"
-        logging.warning("Duplicate Archetype ID: "+archetypeId.__name__)
+        print "WARNING:**** Duplicate Archetype ID. This Archetype was not committed to the repository. ***"
+        logging.warning("Duplicate Archetype ID: "+atObj.__name__+" was not commited to the repository.")
         
     return
    

@@ -17,8 +17,6 @@
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-from zope.app.folder import Folder
-
 
 from bldaddress import bldAddress
 from bldevent import bldEvent
@@ -45,25 +43,24 @@ def bldDefinition(parsed_adl):
     and calls that builder.
     """
     
+    
     definClassDict = parsed_adl.definition[0].asDict()
     oeClass = definClassDict['id']
-    definition = Folder()
-    
+     
     #strip off the nodeid if there is one
     if oeClass.find('[at')!=-1:
         oeClass = oeClass[:oeClass.find('[at')]
         
-    definition.__name__ = u'definition'
-        
+           
+    
     #call the appropriate builder and add it to the definition folder
     try:
         defObj = definClassMap[oeClass](parsed_adl)
     except KeyError ("Unknown Definition Type",oeClass):
         logging.error("Unknown Definition Type",oeClass)
+        
+    defObj.__name__ = 'definition'
+        
     
-    definition.data[unicode(oeClass)] = defObj
-    
-    
-    return definition
-
+    return defObj
 

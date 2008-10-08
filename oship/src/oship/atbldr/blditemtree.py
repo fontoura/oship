@@ -22,21 +22,22 @@ from bldelement import bldElement
 
 
 def bldItemTree(itlist): 
-    itDict={
+    itDict = {
         "CLUSTER":bldCluster,
         "ELEMENT":bldElement
         }
     
-    keylist=itDict.keys()
-    keyloc=[]
-    elements=[]
-    clusters=[]
-    itObj=None
-    items=[]
+    keylist = itDict.keys()
+    keyloc = []
+    elements = []
+    clusters = []
+    items = []
     if '[' in itlist[0]:
         archetypeNodeId=itlist[0].strip('ITEM_TREE')
+        archetypeNodeId = archetypeNodeId.strip('[]')
     else:
-        archetypeNodeId=''
+        archetypeNodeId=u''
+        
         
     # locate all of the elements and clusters
     for n,val in enumerate(itlist):
@@ -64,7 +65,8 @@ def bldItemTree(itlist):
             if len(sublist)>0:
                 elements.append(bldElement(sublist))
             
-   
-    itObj= ItemTree('',archetypeNodeId,'','','','',items)
     
+    itObj = ItemTree('',archetypeNodeId,'','','','',items)
+    itObj.__name__ = itlist[0]
+
     return itObj

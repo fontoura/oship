@@ -18,8 +18,6 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Fabricio Ferracioli
 
 
 from zope.interface import implements
-from zope.app.folder import Folder
-from zope.app.folder.interfaces import IFolder
 from zope.i18nmessageid.message import MessageFactory
 
 from oship.openehr.rm.common.resource.authoredresource import AuthoredResource
@@ -27,14 +25,14 @@ from oship.openehr.am.archetype.interfaces.archetype import IArchetype
 
 _ = MessageFactory('oship')
 
-class Archetype(AuthoredResource,Folder):
+class Archetype(AuthoredResource):
     """
     Archetype equivalent to ARCHETYPED class in Common reference model.
     Defines semantics of identfication, lifecycle, versioning, composition 
     and specialisation.
     """
     
-    implements(IArchetype,IFolder)
+    implements(IArchetype)
     
     def __init__(self,adlver,atid,uid,concept,paid,defin,ont,inv,olang,trans,descr,revhist,ctrld):
         AuthoredResource.__init__(self,olang,trans,descr,revhist,ctrld)

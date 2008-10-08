@@ -20,12 +20,13 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
+from zope.app.folder.interfaces import IFolder
 
 from oship.openehr.rm.common.archetyped.interfaces.locatable import ILocatable 
 
 _ = MessageFactory('oship')
 
-class IDataStructure(ILocatable):
+class IDataStructure(ILocatable,IFolder):
     u"""
      Abstract parent class of all data structure types. Includes the as_hierarchy func-
     tion which can generate the equivalent CEN EN13606 single hierarchy for each

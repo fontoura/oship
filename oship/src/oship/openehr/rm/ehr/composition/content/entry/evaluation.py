@@ -20,7 +20,6 @@ __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 __contributors__ = 'Andre Goncalves <goncalves.aluiz@gmail.com>'
 
-
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements
 

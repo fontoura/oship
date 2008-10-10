@@ -17,8 +17,6 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
 
-import re
-
 from zope.interface import implements
 from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
@@ -42,7 +40,7 @@ class ObjectId(Field):
 
     def __init__(self, value):
         self.value = value
-        self.__name__=''
+        #self.__name__=''
         
     def __eq__(self, other):
         if not isinstance(other,  ObjectId):

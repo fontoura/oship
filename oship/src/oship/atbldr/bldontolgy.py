@@ -43,9 +43,8 @@ def bldOntology(parsed_adl):
     codeList=[]
     constraintCodes = {}
     sections = parsed_adl.ontology.keys() #which sections are included in this ontology?   
-    
-    #ontObj.parentArchetype = ObjectRef(ObjectId(unicode(parsed_adl.archetype[1])),u'openehr',u'ARCHETYPE')
-    ontObj.parentArchetype = ''
+    oid = ObjectId(unicode(parsed_adl.archetype[1]))
+    ontObj.parentArchetype = ObjectRef(oid,u'openehr',u'ARCHETYPE')
     
     if len(parsed_adl.specialize) == 0 or parsed_adl.specialize == '':
         ontObj.specialsationDepth = Int(0)
@@ -65,11 +64,13 @@ def bldOntology(parsed_adl):
             avail_lang.append(language[0])
         
         for l in avail_lang: # now process each language section
-            at_codes = parsed_adl.ontology['term_definitions'][l]['items']
-            for code in at_codes:
-                # At some future point this should be more flexible than only having text and description
-                termsDict[code[0]] = {'description':code[1][1],'text':code[2][1]}
-            ontObj.termCodes[l] = termsDict  # for each language add the terms list.
+            print 'language',l
+            if l is not None:
+                at_codes = parsed_adl.ontology['term_definitions'][l]['items']
+                for code in at_codes:
+                    # At some future point this should be more flexible than only having text and description
+                    termsDict[code[0]] = {'description':code[1][1],'text':code[2][1]}
+                ontObj.termCodes[l] = termsDict  # for each language add the terms list.
             
     # this needs to be fixed to actually get the keywords in case there are more than these two
     ontObj.termAttributeNames = ['description','text']

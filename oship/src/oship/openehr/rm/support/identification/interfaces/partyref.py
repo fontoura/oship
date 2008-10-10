@@ -43,5 +43,6 @@ class IPartyRef(IObjectRef):
                         The type name "ANY" can be used to indicate that any type is accepted 
                         (e.g. if the type is unknown). """),
         required = True,
-        constraint = validateType
+        #constraint = validateType
         )
+    

@@ -17,7 +17,7 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.schema.interfaces import IField
-from zope.schema import TextLine,Field
+from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
 
@@ -38,5 +38,6 @@ class IObjectId(IField):
     value = TextLine(
         title=_(u"Value"),
         description=_(u"A single unicode string containing a valid ID"),
-        required=True)
+        required=True,
+    )
 

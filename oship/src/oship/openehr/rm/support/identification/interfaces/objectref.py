@@ -17,14 +17,14 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire sergio@lampada.uerj.br'
 
 from zope.schema import TextLine,Object
+from zope.schema.interfaces import IField
 from zope.i18nmessageid.message import MessageFactory 
 
 from oship.openehr.rm.support.identification.interfaces.objectid import IObjectId
-from objectid import IObjectId
 
 _ = MessageFactory('oship')
 
-class IObjectRef(IObjectId):
+class IObjectRef(IField):
     u"""
     Class describing a reference to another object, which may exist locally or be
     maintained outside the current namespace, e.g. in another service. Services are
@@ -33,14 +33,14 @@ class IObjectRef(IObjectId):
     tems they may be part of the same executable as the data containing the Id.
     """
 
-    id = Object(
+    refId = Object(
         schema=IObjectId,
         title = _(u'Id'),
         description = _(u'Globally unique id of an object (of type ObjectId), regardless of where it is stored.'),
         required = True
         )
 
-    nameSpace = TextLine(
+    refNameSpace = TextLine(
         title = _(u"Namespace"),
         description = _(u"""Namespace to which this identifier belongs in
                         the local system context (and possibly in any
@@ -54,7 +54,7 @@ class IObjectRef(IObjectId):
         )
 
 
-    type = TextLine(
+    refType = TextLine(
         title = _(u"Type"),
         description = _(u"""Name of the class (concrete or abstract) of object to which this 
                         identifier type refers, e.g."PARTY", "PERSON", "GUIDELINE" etc.

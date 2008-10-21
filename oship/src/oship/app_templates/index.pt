@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>OSHIP</title>
+</head>
+
+<body bgcolor="#c2c2c2">
+<table border="2">
+<tr>
+<td><img tal:attributes="src static/images/oship-logo.png" width="300" height="170" alt="" align="middle" />
+</td>
+<td><font size="40" color="#000000"><b><i>O</i></b>pen <b><i>S</i></b>ource <b><i>H</i></b>ealth <b><i>I</i></b>nformation <b><i>P</i></b>latform</font></td>
+</tr>
+</table>
+
+
+<table>
+<tr>
+<td>
+OSHIP is the Python language implementation of the openEHR healthcare information model.  OSHIP expands upon the model by providing you with a robust,
+ proven, standards compliant and open source application server and development environment. The openEHR model provides you with the structure to create future proof
+ and semantically interoperable healthcare applications.  Everything from disease registries to complete electronic health record systems.<br />
+ OSHIP adds on the layer that you need to rapidly become familiar with the openEHR model and begin building your applications today.  There are
+ implementations in most popular object oriented languages allowing your team to transfer this knowledge to which ever language you choose.  But only OSHIP provides you with the complete bottom to top access to a 
+ solution to your healthcare application interoperability requirements.  You can then take this knowledge and transfer it to your preferred 
+development environment.
+</td></tr></table>
+
+
+
+
+<p>
+The links below will provide you with a start into the world of interoperable healthcare applications.  Please read the OSHIP Overview first 
+in order to understand the overall architecture and which other documents that you should concentrate on first.
+</p>
+
+<p>
+Please note that the API links run on your local server and we assume that you are in development mode on the same machine as the server.  
+If your URL to the server is different than http://localhost:8080 then you will need to adjust the links.
+</p>
+
+<p>
+<table border="2">
+<tr>
+<td width="50%"><a href="http://www.openehr.org/svn/ref_impl_python/BRANCHES/grok/oship/src/oship/docs/oship_overview.html">OSHIP Overview</a></td>
+<td width="50%"><a href="http://www.openehr.org/releases/1.0.1/roadmap.html">openEHR Specifications</a></td>
+</tr>
+<tr>
+<td width="50%"><a href="http://localhost:8080/docgrok/oship">OSHIP API</a></td>
+<td width="50%"><a href="http://grok.zope.org/doc/current/grok_overview.html">Grok Developers Notes</a></td>
+</tr>
+<tr>
+<td width="50%"><a href="http://localhost:8080/docgrok/grok">Grok API</a></td>
+<td width="50%"><a href="http://grok.zope.org/doc/current/reference/index.html">Grok Reference</a></td>
+</tr>
+<tr>
+<td width="50%"><a href="http://localhost:8080/docgrok/zope">Zope API</a></td>
+<td width="50%"><a href="http://grok.zope.org/doc/current/tutorial.html">Grok Tutorials</a></td>
+</tr>
+</table>
+
+
+<p>
+
+You can also use <a href="http://localhost:8080/@@inspect.html">this link</a> to browse the Object Database.
+</p>
+
+<p>
+OSHIP is open source software based on an open specification.  Both the specifications and the software are licensed under a business friendly
+license allowing for both open source and proprietary applications to be developed and still share semantically complete information.  
+For more information please join the <a href="http://lists.chime.ucl.ac.uk/mailman/listinfo/ref_impl_python">OSHIP developer mailing</a> list
+and/or contact the lead developer <a href="mailto:timothywayne.cook@gmail.com">Tim Cook</a>.
+</p>
+
+</body>
+</html>
+

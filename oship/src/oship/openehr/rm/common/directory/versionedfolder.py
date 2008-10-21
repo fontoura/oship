@@ -22,8 +22,8 @@ __docformat__ = u'plaintext'
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements,classProvides
 
-from versionedobject import VersionedObject
-from interfaces.versionedobject import IVersionedObject
+from oship.openehr.rm.common.changecontrol.versionedobject import VersionedObject
+from interfaces.versionedfolder import IVersionedFolder
 
 _ = MessageFactory('oship')
 
@@ -32,7 +32,7 @@ class VersionedFolder(VersionedObject):
     A version-controlled hierarchy of FOLDERs giving the effect of a directory.
     """
     
-    implements(IVersionedObject)
+    implements(IVersionedFolder)
     
     pass
     

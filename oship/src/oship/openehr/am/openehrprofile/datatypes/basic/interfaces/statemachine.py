@@ -18,10 +18,10 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import Interface
-from zope.schema import Set
+from zope.schema import Set,Object
 from zope.schema.interfaces import IField
 from zope.i18nmessageid.message import MessageFactory
-from openehr.am.openehrprofile.datatypes.basic.interfaces.state import IState
+from oship.openehr.am.openehrprofile.datatypes.basic.interfaces.state import IState
 
 _ = MessageFactory('oship')
 

@@ -17,8 +17,8 @@ __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
 
-from openehr.rm.support.terminology.openehrcodesetidentifiers import OpenehrCodeSetIdentifiers
-from openehr.minitermserv.simpleterminologyservice import SimpleTerminologyService
+from oship.openehr.rm.support.terminology.openehrcodesetidentifiers import OpenehrCodeSetIdentifiers
+from oship.openehr.minitermserv.simpleterminologyservice import SimpleTerminologyService
 import unittest
 
 class SimpleTerminologyServiceTest(unittest.TestCase):

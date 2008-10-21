@@ -19,10 +19,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import implements
+from zope.schema import Object
 from zope.i18nmessageid import MessageFactory
 
 from oship.openehr.rm.common.generic.partyidentified import IPartyIdentified
-from oship.openehr.rm.datatypes.text.dvcodedtext import DvCodedText
+from oship.openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
 
 _ = MessageFactory('oship')
 
@@ -36,13 +37,13 @@ class IPartyRelated(IPartyIdentified):
     must be known.
     """
 
-    relationship = DvCodedText(
+    relationship = Object(
+        schema=IDvCodedText,
         title=_(u'Relationship'),
         description=_(u"""Relationship of subject of this ENTRY to the subject
                     of the record. May be coded. If it is the patient, coded 
                     as "self"."""),
         required=True,
-        constraint = isinstance(DvCodedText),
         )
     
     def relationshipValid():

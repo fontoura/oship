@@ -21,7 +21,7 @@ __contributors__ = u'Renato Pesca <rpesca@gmail.com>'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.schema import List
+from zope.schema import List,Object
 
 from oship.openehr.rm.ehr.composition.content.interfaces.contentitem import IContentItem
 

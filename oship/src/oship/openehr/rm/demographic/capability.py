@@ -24,6 +24,8 @@ from zope.i18nmessageid import MessageFactory
 from zope.interface import implements
 
 from oship.openehr.rm.common.archetyped.locatable import Locatable
+from interfaces.capability import ICapability
+
 
 _ = MessageFactory('oship')
 
@@ -32,15 +34,9 @@ class Capability(Locatable):
     Capability of a role such as ehr modifier, healthcare provider, etc.
     """
     
-    credentials=ItemStructure(
-        title=_(u"Credentials"),
-        description=_(u"Qualifications of the performer of the role."),
-        require=True,
-    )
+    implements(ICapability)
     
-    timeValidity=DvInterval(
-        title=_(u"Time Validity"),
-        description=_(u"Valid time interval for the credentials of this capability."),
-        required=False,
-    )
-    
+    def __init__(self,credentials,timeValidity):
+        self.credentials=credentials
+        self.timeValidity=timeValidity
+        

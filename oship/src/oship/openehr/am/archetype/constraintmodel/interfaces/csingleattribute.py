@@ -18,9 +18,11 @@ __docformat__ = 'plaintext'
 __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 
 from zope.interface import Interface
-from zope.schema import List
+from zope.schema import List,Object
 from zope.i18nmessageid.message import MessageFactory 
+from oship.openehr.am.archetype.constraintmodel.interfaces.cattribute import ICAttribute
 from oship.openehr.am.archetype.constraintmodel.interfaces.cobject import ICObject
+
 _ = MessageFactory('oship')
 
 

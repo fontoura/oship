@@ -19,11 +19,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import Interface
-from zope.schema import List
+from zope.schema import List,Object
 from zope.i18nmessageid import MessageFactory
 
-from oship.openehr.rm.support.objectversionid import ObjectVersionId
-from oship.openehr.rm.common.archetyped.interfaces.feederauditdetails import IFeederAuditDetails
+from oship.openehr.rm.support.identification.interfaces.objectversionid import IObjectVersionId
+from oship.openehr.rm.common.generic.interfaces.auditdetails import IAuditDetails
 
 _ = MessageFactory('oship')
 
@@ -44,7 +44,8 @@ class IRevisionHistoryItem(Interface):
         required=True,
         )
     
-    versionId = ObjectVersionId(
+    versionId = Object(
+        schema=IObjectVersionId,
         title=_(u'Version Id'),
         description=_(u"""Version identifier for this revision."""),
         required=True,

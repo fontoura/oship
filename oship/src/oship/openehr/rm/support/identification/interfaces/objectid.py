@@ -38,6 +38,6 @@ class IObjectId(IField):
     value = TextLine(
         title=_(u"Value"),
         description=_(u"A single unicode string containing a valid ID"),
-        required=True,
+        required=False
     )
 

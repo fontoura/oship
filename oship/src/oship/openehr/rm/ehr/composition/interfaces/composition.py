@@ -28,7 +28,7 @@ from oship.openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
 from oship.openehr.rm.ehr.composition.interfaces.eventcontext import IEventContext
 from oship.openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 
-from oship.openehr.rm.ehr.composition.interfaces.contentitem import IContentItem
+from oship.openehr.rm.ehr.composition.content.interfaces.contentitem import IContentItem
 
 _ = MessageFactory('oship')
 

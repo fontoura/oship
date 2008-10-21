@@ -22,6 +22,7 @@ from zope.schema import List,Object
 from zope.i18nmessageid import MessageFactory
 
 from oship.openehr.rm.common.archetyped.interfaces.locatable import ILocatable
+from oship.openehr.rm.support.identification.interfaces.objectref import IObjectRef
 
 _ = MessageFactory('oship')
 

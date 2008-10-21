@@ -19,9 +19,9 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-
+from zope.schema import Object
 from oship.openehr.rm.datatypes.basic.interfaces.datavalue import IDataValue
-from oship.openehr.rm.datatypes.encapsulated.interfaces.dvparsable import IDvParasable
+from oship.openehr.rm.datatypes.encapsulated.interfaces.dvparsable import IDvParsable
 
 _ = MessageFactory('oship')
 

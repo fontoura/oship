@@ -20,7 +20,7 @@ from zope.i18nmessageid.message import MessageFactory
 
 from oship.openehr.am.archetype.interfaces.validitykind import IValidityKind
 from oship.openehr.rm.support.interval import Interval
-from oship.openehr.am.archetype.constraintmodel.interfaces.cprimitive import ICPrimitive
+from oship.openehr.am.archetype.constraintmodel.primitive.interfaces.cprimitive import ICPrimitive
 
 _ = MessageFactory('oship')
 
@@ -57,13 +57,14 @@ class ICTime(ICPrimitive):
         description=_(u" "),
         required=False,
     )
-    
+    """ Interval is not a zope schema field
     range=Interval(
         title=_(u"Range"),
         description=_(u"Interval of times."),
         required=False,
     )
-
+    """
+    
     assumedValue=Time(
         title=_(u"Assumed Value"),
         description=_(u" "),

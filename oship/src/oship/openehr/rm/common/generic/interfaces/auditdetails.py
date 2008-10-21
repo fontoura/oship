@@ -18,15 +18,14 @@ Common Information Model Rev. 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
-from zope.schema import TextLine
+from zope.schema import TextLine,Object
 from zope.schema.interfaces import IField
 from zope.i18nmessageid import MessageFactory
 
-from oship.openehr.rm.datatypes.text.dvtext import DvText
-from oship.openehr.rm.datatypes.quantity.datetime.dvdatetime import DvDateTime
-from oship.openehr.rm.datatypes.text.dvcodedtext import DvCodedText
-from oship.openehr.rm.common.generic.partyproxy import PartyProxy
+from oship.openehr.rm.datatypes.text.interfaces.dvtext import IDvText
+from oship.openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
+from oship.openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
+from oship.openehr.rm.common.generic.interfaces.partyproxy import IPartyProxy
 
 _ = MessageFactory('oship')
 
@@ -45,27 +44,31 @@ class IAuditDetails(IField):
         required=True,
         )
     
-    committer = PartyProxy(
+    committer = Object(
+        schema=IPartyProxy,
         title=_(u"""Committer"""),
         description=_(u"""Identity and optional reference into identity management
                     service, of user who committed the item."""),
         required=True,
         )
     
-    timeCommitted = DvDateTime(
+    timeCommitted = Object(
+        schema=IDvDateTime,
         title=_(u"""Time Committed"""),
         description=_(u"""Time of committal of the item."""),
         required=True,
         )
     
-    changeType = DvCodedText(
+    changeType = Object(
+        schema=IDvCodedText,
         title=_(u"""Change Type"""),
         description=_(u"""Type of change. Coded using the openEHR Terminology 
                     "audit change type" group. Type==DvCodedText"""),
         required=True,
         )
     
-    description = DvText(
+    description = Object(
+        schema=IDvText,
         title=_(u"""Description"""),
         description=_(u"""Reason for committal. Type==DvText"""),
         required=False,

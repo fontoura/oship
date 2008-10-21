@@ -19,9 +19,9 @@ __docformat__ = u'plaintext'
 
 
 from zope.interface import implements 
-from zope.schema import TextLine,BytesLine,Object
+from zope.schema import TextLine,BytesLine,Object,fieldproperty
 from zope.i18nmessageid.message import MessageFactory 
-
+from zope.app.file.interfaces import IImage
 
 from oship.openehr.rm.datatypes.encapsulated.interfaces.dvencapsulated import IDvEncapsulated
 from oship.openehr.rm.datatypes.text.interfaces.codephrase import ICodePhrase
@@ -71,7 +71,7 @@ class IDvMultimedia(IDvEncapsulated):
         )
     
     thumbnail = Object(
-        schema=IDvMultimedia,
+        schema=IImage,
         title=_(u"Thumbnail"),
         description=_(u"""The thumbnail for this item, if one exists; 
                     mainly for graphics formats. Type == DvMultimedia"""),
@@ -89,7 +89,7 @@ class IDvMultimedia(IDvEncapsulated):
     data = BytesLine(
         title=_(u"Data"),
         description=_(u"""The actual data found at uri, if supplied inline. Type==Array<Octet>"""),
-        requires=False,
+        required=False,
         )
     
     def isExternal():

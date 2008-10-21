@@ -20,7 +20,7 @@ __docformat__ = 'plaintext'
 from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
-from oship.openehr.rm.ehr.composition import Composition
+from oship.openehr.rm.ehr.composition.composition import Composition
 
 _ = MessageFactory('oship')
 

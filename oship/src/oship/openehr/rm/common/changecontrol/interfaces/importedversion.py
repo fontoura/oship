@@ -22,7 +22,7 @@ from zope.i18nmessageid import MessageFactory
 from zope.schema import Object
 
 from version import IVersion
-from oship.openehr.rm.common.changecontrol.interfaces.resourceoriginalversion import IOriginalVersion
+from oship.openehr.rm.common.changecontrol.interfaces.originalversion import IOriginalVersion
 
 _ = MessageFactory('oship')
 

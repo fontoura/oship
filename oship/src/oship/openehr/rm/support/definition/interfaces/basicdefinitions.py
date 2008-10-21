@@ -17,9 +17,8 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import TextLine, Field
+from zope.schema import TextLine
 from zope.schema.interfaces import IField
-from zope.interface import Interface
 from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
@@ -31,7 +30,6 @@ class IBasicDefinitions(IField):
     cr = TextLine(
         title=_(u"CR"),
         description=_(u"Carriage Return Character"),
-        default=u"\015",
         readonly=True,
         )
     
@@ -39,7 +37,6 @@ class IBasicDefinitions(IField):
     lf = TextLine(
         title=_(u"LF"),
         description=_(u"Line Feed Character"),
-        default=u"\012",
         readonly=True,
         )
 

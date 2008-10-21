@@ -25,6 +25,26 @@ from interfaces.dvproportion import IDvProportion,IProportionKind
 
 _ = MessageFactory('oship')   
  
+
+class ProportionKind(object):
+    """
+    Class of enumeration constants defining types of proportion for the
+    DV_PROPORTION class.
+    """
+    def __init__(self):
+        self.pkRatio = 0
+        self.pkUnitary = 1
+        self.pkPercent = 2
+        self.pkFraction = 3
+        self.pkIntegerFraction = 4
+
+    def validProportionKind(n):
+        """
+        True if n is one of the defined types.
+        """
+        return n in (pkRatio,pkUnitary,pkPercent,pkFraction,pkIntegerFraction)
+    
+
 class DvProportion(DvAmount,ProportionKind):
     """
               Models a ratio of values, i.e. where the numerator and denominator are both pure
@@ -77,22 +97,4 @@ class DvProportion(DvAmount,ProportionKind):
         Result = numerator / denominator
         """  
         return self.numerator / self.denominator
-    
-class ProportionKind(object):
-    """
-    Class of enumeration constants defining types of proportion for the
-    DV_PROPORTION class.
-    """
-    def __init__(self):
-        self.pkRatio = 0
-        self.pkUnitary = 1
-        self.pkPercent = 2
-        self.pkFraction = 3
-        self.pkIntegerFraction = 4
-
-    def validProportionKind(n):
-        """
-        True if n is one of the defined types.
-        """
-        return n in (pkRatio,pkUnitary,pkPercent,pkFraction,pkIntegerFraction)
     

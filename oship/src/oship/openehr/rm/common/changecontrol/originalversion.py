@@ -20,8 +20,9 @@ __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
 from zope.schema import Container
+from zope.interface import implements
 
-
+from interfaces.originalversion import IOriginalVersion
 _ = MessageFactory('oship')
 
 class OriginalVersion(Container):
@@ -29,16 +30,11 @@ class OriginalVersion(Container):
     A Version containing locally created content and optional attestations.
     """
     
-    uid=ObjectVersionId(
-        title=_(u"UID"),
-        description=_(u"""Stored version of inheritence precursor."""),
-        required=True
-    )
+    implements(IOriginalVersion)
     
-    precedingVersionUid=ObjectVersionId(
-        title=_(u"Preceding Version UID"),
-        description=_(u"""Stored version of inheritence precursor."""),
-        required=True
-    )
+    def __init__(self,uid,previd):
+        self.uid=uid
+        self.precedingVersionUid=previd
+        
   
     

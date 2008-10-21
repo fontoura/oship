@@ -21,7 +21,7 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 
-from versionedobject import IVersionedObject
+from oship.openehr.rm.common.changecontrol.interfaces.versionedobject import IVersionedObject
 
 _ = MessageFactory('oship')
 

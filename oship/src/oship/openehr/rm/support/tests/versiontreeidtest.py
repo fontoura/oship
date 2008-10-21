@@ -15,7 +15,7 @@ From the terminology package in support_im.pdf Rev. 1.6.0
 __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
-from openehr.rm.support.identification.versiontreeid import VersionTreeId
+from oship.openehr.rm.support.identification.versiontreeid import VersionTreeId
 import unittest
 
 class VersionTreeIdTest(unittest.TestCase):

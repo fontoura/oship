@@ -20,6 +20,7 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 from zope.i18nmessageid.message import MessageFactory 
 from zope.interface import implements
 from basicdefinitions import BasicDefinitions
+from interfaces.openehrdefinitions import IOpenehrDefinitions
 
 _ = MessageFactory('oship')
 
@@ -27,3 +28,5 @@ class OpenehrDefinitions(BasicDefinitions):
     """ Inheritance class to provide access to constants defined in other packages."""
     
     implements(IOpenehrDefinitions)
+
+    pass

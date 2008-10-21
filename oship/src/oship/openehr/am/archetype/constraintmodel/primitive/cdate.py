@@ -18,8 +18,8 @@ __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 from zope.interface import implements
 from zope.i18nmessageid.message import MessageFactory
 
-from oship.openehr.am.archetype.constraintmodel.cprimitive import CPrimitive
-from oship.openehr.am.archetype.constraintmodel.interfaces.cdate import ICDate
+from oship.openehr.am.archetype.constraintmodel.primitive.cprimitive import CPrimitive
+from oship.openehr.am.archetype.constraintmodel.primitive.interfaces.cdate import ICDate
 
 _ = MessageFactory('oship')
 

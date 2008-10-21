@@ -24,7 +24,7 @@ from uid import IUid
 _ = MessageFactory('oship')
 
 
-class IInternetId(IUID):
+class IInternetId(IUid):
     u"""
     Model of a reverse internet domain, as used to uniquely identify an internet
     domain. In the form of a dot-separated string in the reverse order of a domain

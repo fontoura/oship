@@ -17,12 +17,12 @@ EHR Information Model package Rev. 5.1.0
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
 
-from zope.schema import Bool
+from zope.schema import Bool,Object
 from zope.i18nmessageid import MessageFactory
 
-from oship.openehr.rm.common.generic.partyself import PartySelf
+from oship.openehr.rm.common.generic.interfaces.partyself import IPartySelf
 from oship.openehr.rm.common.archetyped.interfaces.locatable import ILocatable
-from oship.openehr.rm.datastructures.itemstructure.itemstructure import ItemStructure
+from oship.openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 
 _ = MessageFactory('oship')
 
@@ -32,7 +32,8 @@ class IEhrStatus(ILocatable):
     Instance providing various EHR wide status information.
     """
     
-    subject=PartySelf(
+    subject=Object(
+        schema=IPartySelf,
         title=_(u"Subject"),
         description=_(u"The subject of this EHR."),
         required=True,
@@ -52,7 +53,8 @@ class IEhrStatus(ILocatable):
         default=True,
     )
     
-    otherDetails=ItemStructure('',
+    otherDetails=Object(
+        schema=IItemStructure,
         title=_(u"Other Details"),
         description=_(u"Any other details of the EHR summary."),
         required=False,

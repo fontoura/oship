@@ -22,7 +22,6 @@ __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.schema import Object
-u
 from oship.openehr.rm.datastructures.itemstructure.interfaces.itemstructure import IItemStructure
 from oship.openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 

@@ -17,8 +17,8 @@ From the openEHR Archetype Profile specifications Rev. 1.0.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
-from zope.schema import List
+
+from zope.schema import List,Object,TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
 from oship.openehr.am.archetype.constraintmodel.interfaces.cdomaintype import ICDomainType

@@ -19,9 +19,9 @@ __docformat__ = 'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from openehr.minitermserv.group import Group
-from openehr.minitermserv.concept import Concept
-from openehr.minitermserv.codeset import CodeSet
+from oship.openehr.minitermserv.group import Group
+from oship.openehr.minitermserv.concept import Concept
+from oship.openehr.minitermserv.codeset import CodeSet
 from xml.dom import minidom
 
 _ = MessageFactory('oship')

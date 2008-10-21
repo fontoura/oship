@@ -20,6 +20,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 
 from itemstructure import IItemStructure
 from oship.openehr.rm.datastructures.itemstructure.representation.interfaces.element import IElement

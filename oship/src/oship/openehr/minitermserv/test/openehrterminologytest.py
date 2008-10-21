@@ -16,10 +16,10 @@ __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
 import sys
-from openehr.rm.support.terminology.openehrcodesetidentifiers import OpenehrCodeSetIdentifiers
-from openehr.minitermserv.simpleterminologyservice import SimpleTerminologyService
-from openehr.rm.datatypes.text.codephrase import CodePhrase
-from openehr.rm.support.identification.terminologyid import TerminologyId
+from oship.openehr.rm.support.terminology.openehrcodesetidentifiers import OpenehrCodeSetIdentifiers
+from oship.openehr.minitermserv.simpleterminologyservice import SimpleTerminologyService
+from oship.openehr.rm.datatypes.text.codephrase import CodePhrase
+from oship.openehr.rm.support.identification.terminologyid import TerminologyId
 import unittest
 
 class OpenEHRTerminologyTest(unittest.TestCase):

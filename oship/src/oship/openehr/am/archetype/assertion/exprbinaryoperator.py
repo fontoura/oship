@@ -30,4 +30,4 @@ class ExprBinaryOperator(ExprOperator):
     Binary expression node.
     """
     
-    implements(ExprBinaryOperator)
+    implements(IExprBinaryOperator)

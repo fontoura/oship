@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>Installation of the OSHIP framework and the demo-application</TITLE>
+	<meta name="author" content="Tim Cook">
+	<META NAME="CHANGEDBY" CONTENT="Timothy Cook">
+	<META NAME="CHANGEDBY" CONTENT="Roger Erens">
+	<META NAME="CHANGEDBY" CONTENT="Timothy Cook">
+    <STYLE TYPE="text/css">
+            pre {background-color: pink;}
+            tt {background-color: red;}
+            blockquote {background-color: lightblue;}
+            h1, h2 {background-color: lightgrey;}
+    </STYLE>
+</HEAD>
+<BODY> 
+        <h1>Create Future Proof Healthcare Applications!</h1>
+        <h6>(And if you have problems with this, use the <a href="http://lists.chime.ucl.ac.uk/mailman/listinfo/ref_impl_python">
+        mailing list</a>)</h6>
+
+        <h2>Installing the OSHIP framework on GNU Linux</h2>
+        In the following lines with instructions (in pink), the leading <b>$</b> represents the tail of your
+        system prompt. It may be necessary to prefix the commands with 'sudo' when you, using a non-administrator account,
+        try to install into system-wide Python directories.
+
+
+        <h3>Prerequisites</h3>
+        <dl>
+                <dt>Python2.5</dt>
+                <dd>OSHIP requires at least Python 2.5; if it is not already installed
+                on your system, you can download it from <a href="http://www.python.org/">http://www.python.org</a>.
+                We also need Python header files. They can be obtained by something like:
+                <pre>
+$sudo apt-get install python-dev</pre>
+                </dd>
+                <dt>g++</dt>
+                <dd>In order to create Python C extensions a compiler is needed. On Ubuntu, this means installing
+                the package build-essential:
+                <pre>
+$sudo apt-get install build-essential</pre>
+                </dd>
+                <dt>setuptools</dt>
+                <dd>This package contains the easy_setup command, to make installing the next item real easy.
+                <pre>
+$wget http://peak.telecommunity.com/dist/ez_setup.py
+$sudo python ez_setup.py</pre>
+                </dd>
+                <dt>virtualenv</dt>
+                <dd>In order to prevent your OSHIP project interfering with your other never-ending projects,
+                we advice you to work in separate environments. Virtualenv can be used to create isolated
+                environments.</br>
+                <pre>
+$sudo easy_install virtualenv</pre>
+                </dd>
+                <dt>subversion</dt>
+                <dd>We currently use subversion (svn) as a version control system in our project. You can probably
+                install it by means of something like
+                <pre>
+$sudo apt-get install subversion</pre>
+                </dd>
+        </dl>
+
+        <h3>Installation steps</h3>
+        <ol>
+                <li>Let's prepare for the use of buildout; we use it now, and in the future. Buildout makes the process of 
+                creating projects repeatable. For example, it can pinpoint the versions of the software
+                components used in the project. In order to be able to repeat the building of a specific project 
+                in the distant future, it is vital to have a local copy of the used components. We tuck them away
+                in the hidden directory <b>.buildout</b> (note the leading dot):
+                <pre>
+$mkdir ~/.buildout
+$cd ~/.buildout</pre>
+                Now use your favorite text editor to create the file <b>default.cfg</b> containing the following:
+                <pre>
+[buildout]
+eggs-directory = /home/&lt;username&gt;/.buildout/eggs
+download-directory = /home/&lt;username&gt;/.buildout/downloads</pre>
+                Of course, you have to substitute &lt;username &gt; with your own username.
+                </li>
+                <li>
+                Now create the isolated OSHIP environment and activate it:
+                <pre>
+$virtualenv ~/oshipenv
+$cd ~/oshipenv
+$source bin/activate</pre>
+                Check that your system prompt is now prefixed with <b>(oshipenv)</b>
+                e.g.<pre>
+(oshipenv)&lt;username&gt;@&lt;machinename&gt;:~/oshipenv$</pre>
+                </li>
+                <li>Then, install the buildout-machinery.
+                <pre>
+$easy_install zc.buildout</pre>
+                </li>
+                <li>We provide you with a buildout recipe in the file <b>buildout.cfg</b>. Get it, and our other source
+                files, from <a href="http://www.openehr.org/svn/ref_impl_python/BRANCHES/grok/oship">our subversion server</a>:
+                <pre>
+svn co http://www.openehr.org/svn/ref_impl_python/BRANCHES/grok/oship oship</pre>
+                </li>
+                <li>
+                Now it's time for a chat at the coffee machine. Meanwhile, let buildout create your project:
+                <pre>
+$cd oship
+$buildout</pre>
+                All of the required Python eggs will be downloaded and installed.<br />
+                <em>NOTE: In the past, we saw some errors during these downloads such as unknown
+                protocols for svn and https but everything seemed to work okay and we
+                haven't investigated the cause yet.</em>
+                </li>
+                <li>
+                Finally, you have a working OSHIP installation. You can start the server with
+                <pre>
+$bin/zopectl fg</pre> 
+<p>Note that you need to enter this command from the oship directory.<br />
+Verify that the server is up and running by visiting <a href="http://localhost:8080/">http://localhost:8080</a> in your browser.<br />
+The login link is on the upper right side of the browser window. <em>login=admin password=abc123</em>. Your browser may look something
+like this:</p>
+<img src="OSHIP_framework_index.png" />
+<p>Now enter "oship" (without the quotes) into the form to create the OSHIP application.  Then change your URL to <a href="http://localhost:8080/oship">http://localhost:8080/oship</a></p>
+Now you should have a browser that looks like this.
+
+<img src="OSHIP_framework_contents.png" />
+                </li>
+        </ol>
+
+
+        <h2>Installing the OSHIP framework on MS Windows XP & Vista</h2>
+        <p>The original install guide was contributed by Alessandro Torrisi.</p>
+
+        <h3>Prerequisites</h3>
+        <dl>
+                <dt>Python2.5</dt>
+                <dd>OSHIP requires at least Python 2.5; if it is not already installed
+                on your system, you can download an installer from <a href="http://www.python.org/">http://www.python.org</a>.
+                We assume it is installed for all users in the default directory C:\python25. Add the directories <b>C:\Python25</b>
+                and <b>C:\Python25\Scripts</b> to your environment variable <b>PATH</b>. This way you don't need to specify
+                the full path of the Python binary every time you need it.
+                <ol>
+                        <li>In Vista, go to the Control Panel --> System and Maintenance -->
+                        System window and choose in the left pane <b>Advanced system settings</b>.</li>
+                        <li>This will show up a dialog called <b>System
+                                Properties</b> which containis a tab called <b>Advanced</b>.</li>
+                        <li>Now you can click the button <b>Environment Variables...</b></li>
+                        <li>Then, edit the System variable <b>Path</b> and extend it with the semicolon separated paths
+                        <b>C:\Python25;C:\Python25\Scripts</b>.</li>
+                </ol>
+                </dd>
+                <dt>MinGW tools</dt>
+                <dd>
+                In order to create Python C extensions a compiler is needed.
+                <ol>
+                        <li>Download the <a href="http://sourceforge.net/projects/mingw">
+                                MinGW installer</a></li>
+                        <li>Upon running it, choose the options <b>base</b> and <b>make</b>.</li>
+                        <li>Copy the files <b>cc1</b> and <b>collect2</b> from the folder <b>C:\MinGW\libexec\gcc\mingw32\3.4.5</b>
+                        to the folder <b>C:\MinGW\bin</b>.</li>
+                        <li>Add <b>C:\MinGW\bin</b> to the environment variable <b>Path</b>.</li>
+                        <li>Verify in a cmd window that
+                        <pre>gcc --version</pre> reports version 3.4.5 or newer.
+                </ol>
+                </dd>
+                <dt>setuptools</dt>
+                <dd>This package contains the easy_setup command, to make installing the next item real easy.
+                <ol>
+                        <li>Visit the page <a href="http://peak.telecommunity.com/dist">http://peak.telecommunity.com/dist</a> and save the file
+                        <b>ez_setup.py</b>.<br>
+                        Alternatively, download <a href="http://pypi.python.org/packages/2.5/s/setuptools/setuptools-0.6c8.win32-py2.5.exe">
+                                the executable</a> from the Python Package Index.</li>
+                        <li>Double click it so that the Python interpreter executes the script, or the executable runs.</li>
+                        <li>Verify that C:\Python25\Scripts now contains the files <b>easy_install, easy_install-2.5,
+                        easy_install-2.5-script</b>, and <b>easy_install-script</b>.</li>
+                </ol>
+                </dd>
+                <dt>virtualenv</dt>
+                <dd>In order to prevent your OSHIP project interfering with your other never-ending projects,
+                we advice you to work in separate environments. Virtualenv can be used to create isolated
+                environments.
+                <ol><li>In a cmd window, type:</br>
+                <pre>
+easy_install virtualenv</pre></li>
+                <li>Verify that C:\Python25\Scripts now contains the files <b>virtualenv</b> and <b>virtualenv-script</b> as well.</li>
+                </ol>
+                </dd>
+                <dt>A subversion client</dt>
+                <dd>We currently use subversion (svn) as a version control system in our project. For Windows, <a href="http://tortoisesvn.net/downloads">
+                TortoiseSVN</a> is a nice client.
+                <tt>Currently, you should use a client supporting svn version less than 1.5. Sorry for the inconvenience.</tt>
+                </dd>
+        </dl>
+
+        <h3>Installation steps</h3>
+        <ol>
+                <li>
+                First, open a cmd window, create the isolated OSHIP environment, and activate it. We assume that we start in the
+                root folder C:\
+                <pre>
+virtualenv oshipenv
+cd oshipenv
+Scripts\activate.bat</pre>
+                Check that your system prompt is now prefixed with <b>(oshipenv)&nbsp;</b>
+                e.g.<pre>
+(oshipenv)&nbsp;C:\oshipenv></pre>
+                </li>
+                <li>
+<blockquote>
+        <P><em>13) Now some stuff that made it work in Allesandro's situation (used when Python2.4 was required for OSHIP).<br />
+        We need to decide whether this is still needed</em></P>
+Install MinGW g++ compiler<BR>
+<P>13b) create a folder called libs in c:\oshipenv</P>
+<P>(oshipenv) c:\oshipenv&gt; mkdir libs</P>
+<P>(oshipenv) c:\oshipenv&gt;cd libs</P>
+<P>(oshipenv) c:\oshipenv\libs&gt;copy c:\Python24\libs\libpython24.a<BR></P>
+<P>(oshipenv) c:\oshipenv\libs&gt;copy c:\Python24\libs\python24.lib<BR></P>
+Skip the rest of this step.
+</blockquote>
+                Configure distutils to use MinGW: edit the file <b>C:\oshipenv\Lib\distutils\distutils.cfg</b> with your
+                favorite editor and add the lines
+                <pre>
+[build]
+compiler=mingw32</pre>
+                <li>Then, install the buildout-machinery.
+                <pre>
+Scripts\easy_install.exe zc.buildout</pre>
+                </li>
+                <li>We provide you with a buildout recipe in the file <b>buildout.cfg</b>. We store it, and our other source
+                files, on <a href="http://www.openehr.org/svn/ref_impl_python/BRANCHES/grok/oship">our subversion server</a>. Use
+                Windows Explorer to navigate to <b>C:\oshipenv</b> and right-click the mouse to choose the menu-item
+                <b>SVN Checkout...</b> from the context menu. Typing
+                <pre>
+http://www.openehr.org/svn/ref_impl_python/BRANCHES/grok/oship</pre>
+                into the field <b>URL of repository</b> will automatically lead to the creation of the folder
+                <b>C:\oshipenv\oship</b>
+                </li>
+                <li>
+                Now it's time for a chat at the coffee machine. Meanwhile, let buildout create your project:
+                <pre>
+cd oship
+..\Scripts\buildout.exe</pre>
+                All of the required Python eggs will be downloaded and installed.<br />
+                <tt>Alas, the process fails currently. The problem is under investigation.</tt>
+                </li>
+                <li>
+                Finally, you have a working OSHIP installation. You can start the server with
+                <pre>
+bin/zopectl fg</pre>
+Verify it is up by visiting <a href="http://localhost:8080/">http://localhost:8080</a> in your browser.
+The login link is on the upper right side of the browser window. <em>login=admin password=abc123</em>
+                </li>
+        </ol>
+Once the server is running you will need to add the application 'oship' in the form provided.  
+Then change your URL to http://localhost:8080/oship.  There are links on this page to the relevant APIs as well as 
+background information you need to build health care applications with OSHIP. 
+
+        <h2>Installing the demo-application in the OSHIP framework on MS Windows</h2>
+        <p>&lt;To be written&gt;</p>
+
+        <h2>OSHIP Tutorial</h2>
+        <p>&lt;To be written&gt;</p>
+
+</BODY>
+</HTML>

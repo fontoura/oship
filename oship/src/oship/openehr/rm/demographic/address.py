@@ -20,24 +20,24 @@ __docformat__ = u'plaintext'
 
 
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements,classProvides
+from zope.interface import implements
 
 from oship.openehr.rm.common.archetyped.locatable import Locatable
+from interfaces.address import IAddress
 
 _ = MessageFactory('oship')
 
 class Address(Locatable):
     """
-    Address of contact.
+    Address of contact as an ItemStructure.
     """
     
-    details=ItemStructure(
-        title=_(u"Details"),
-        description=_(u"The details of the address."),
-        required=False,
-    )
+    implements(IAddress)
     
-    
+    def __init__(self,details):
+        self.details=details
+        
+   
        
     
     def type():

@@ -17,11 +17,13 @@ Common Information Model Rev. 2.1.0
 
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
- 
-from zope.i18nmessageid import MessageFactory
 
+from zope.interface import implements
+from zope.i18nmessageid import MessageFactory
+from zope.schema import Object
 from version import Version
-from oship.openehr.rm.common.resource.originalversion import OriginalVersion
+from interfaces.importedversion import IImportedVersion
+from oship.openehr.rm.common.changecontrol.interfaces.originalversion import IOriginalVersion
 
 _ = MessageFactory('oship')
 
@@ -29,12 +31,10 @@ class ImportedVersion(Version):
     u"""
     A Version containing locally created content and optional attestations.
     """
+    implements(IImportedVersion)
     
-    item=OriginalVersion(
-        title=_(u"Item"),
-        description=_(u"""Original Version object that was imported."""),
-        required=True
-    )
-    
+    def __init__(self,item):
+        self.item = item
+        
     
    

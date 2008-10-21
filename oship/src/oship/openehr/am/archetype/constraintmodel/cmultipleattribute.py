@@ -21,6 +21,9 @@ from zope.i18nmessageid.message import MessageFactory
 from zope.interface import implements
 from zope.schema import Field
 
+from oship.openehr.am.archetype.constraintmodel.cattribute import CAttribute
+from oship.openehr.am.archetype.constraintmodel.interfaces.cmultipleattribute import ICMultipleAttribute
+
 _ = MessageFactory('oship')
 
 class CMultipleAttribute(CAttribute):

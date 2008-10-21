@@ -22,6 +22,7 @@ from zope.interface import implements
 from zope.i18nmessageid.message import MessageFactory 
 
 from objectid import ObjectId
+from interfaces.genericid import IGenericId
 
 _ = MessageFactory('oship')
       

@@ -25,7 +25,7 @@ from oship.openehr.am.openehrprofile.datatypes.basic.interfaces.state import ISt
 
 _ = MessageFactory('oship')
 
-class IState(Field):
+class State(Field):
     """        
     Abstract definition of one state in a state machine.
     """

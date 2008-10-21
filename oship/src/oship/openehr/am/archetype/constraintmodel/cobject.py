@@ -21,6 +21,8 @@ from zope.i18nmessageid.message import MessageFactory
 from zope.interface import implements
 from zope.schema import Field
 
+from oship.openehr.am.archetype.constraintmodel.archetypeconstraint import ArchetypeConstraint
+
 from interfaces.cobject import ICObject
 
 _ = MessageFactory('oship')

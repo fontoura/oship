@@ -19,6 +19,8 @@ __docformat__ = 'plaintext'
 
 from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
+from oship.openehr.rm.common.changecontrol.versionedobject import VersionedObject
+from interfaces.versionedehraccess import IVersionedEhrAccess
 
 _ = MessageFactory('oship')
 
@@ -27,3 +29,7 @@ class VersionedEhrAccess(VersionedObject):
     """
     Version container for EHR Access instance.
     """
+    
+    implements(IVersionedEhrAccess)
+    
+    pass

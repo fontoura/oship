@@ -15,25 +15,25 @@ From the terminology package in support_im.pdf Rev. 1.6.0
 __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
-from openehr.rm.support.identification.archetypeid import ArchetypeId
+from oship.openehr.rm.support.identification.archetypeid import ArchetypeId
 import unittest
 
 class ArchetypeIdTest(unittest.TestCase):
 
     ARCHETYPEIDS = [ 'openehr-ehr_rm-section.physical_examination.v2', \
-		     'openehr-ehr_rm-section.physical_examination-prenatal.v1', \
-		     'hl7-rim-act.progress_note.v1', \
-		     'openehr-ehr_rm-ENTRY.progress_note-naturopathy.draft' ] 
+                     'openehr-ehr_rm-section.physical_examination-prenatal.v1', \
+                     'hl7-rim-act.progress_note.v1', \
+                     'openehr-ehr_rm-ENTRY.progress_note-naturopathy.draft' ] 
 
     SECTIONS = [ ['openehr', 'ehr_rm', 'section', 'physical_examination', None, 'v2'], \
-		 ['openehr', 'ehr_rm', 'section', 'physical_examination', 'prenatal', 'v1'], \
-		 ['hl7', 'rim', 'act', 'progress_note', None, 'v1'], \
-		 ['openehr', 'ehr_rm', 'ENTRY', 'progress_note', 'naturopathy', 'draft'] ]
+                 ['openehr', 'ehr_rm', 'section', 'physical_examination', 'prenatal', 'v1'], \
+                 ['hl7', 'rim', 'act', 'progress_note', None, 'v1'], \
+                 ['openehr', 'ehr_rm', 'ENTRY', 'progress_note', 'naturopathy', 'draft'] ]
 
     AXES = [ ['openehr-ehr_rm-section', 'physical_examination', 'v2'], \
-	     ['openehr-ehr_rm-section', 'physical_examination-prenatal', 'v1'], \
-	     ['hl7-rim-act', 'progress_note', 'v1'], \
-	     ['openehr-ehr_rm-ENTRY', 'progress_note-naturopathy', 'draft'] ]
+             ['openehr-ehr_rm-section', 'physical_examination-prenatal', 'v1'], \
+             ['hl7-rim-act', 'progress_note', 'v1'], \
+             ['openehr-ehr_rm-ENTRY', 'progress_note-naturopathy', 'draft'] ]
 
     def tearDown(self):
         self.instance = None
@@ -57,17 +57,17 @@ class ArchetypeIdTest(unittest.TestCase):
             'openehr-ehr_rm-entry.progress_note-naturopathy' ] # missing version
 
         for datum in data:            
-	    self.assertRaises(ValueError,ArchetypeId, datum)
- 
-    def testMultipleSpecialisation(self):
-    	aid = None
-    	try:
-	    aid = ArchetypeId('openEHR-EHR-CLUSTER.exam-generic-joint.v1')
-	    self.assertEqual('joint', aid.specialisation())
-    	except Exception:
-	    self.fail('failed to create ArchetypeID with multiple specialisation')
+            self.assertRaises(ValueError,ArchetypeId, datum)
 
- 
+    def testMultipleSpecialisation(self):
+        aid = None
+        try:
+            aid = ArchetypeId('openEHR-EHR-CLUSTER.exam-generic-joint.v1')
+            self.assertEqual('joint', aid.specialisation())
+        except Exception:
+            self.fail('failed to create ArchetypeID with multiple specialisation')
+
+
     def assertArchetypeID(self, aid, i):
         self.assertEqual(self.ARCHETYPEIDS[ i ], aid.value)
         self.assertEqual(self.SECTIONS[ i ][ 0 ], aid.rmOriginator())
@@ -78,6 +78,6 @@ class ArchetypeIdTest(unittest.TestCase):
         self.assertEqual(self.AXES[ i ][ 0 ], aid.qualifiedRmEntity())
         self.assertEqual(self.AXES[ i ][ 1 ], aid.domainConcept())
         self.assertEqual(self.AXES[ i ][ 2 ], aid.versionId())
-       
+
 if __name__ == '__main__':
     unittest.main()

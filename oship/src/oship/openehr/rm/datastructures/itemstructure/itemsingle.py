@@ -33,7 +33,7 @@ class ItemSingle(ItemStructure):
     Used to represent any data which is logically a single value, such as a person's height or weight.   
     """
     
-    implements(IItemStructure)
+    implements(IItemSingle)
     
     def __init__(self,item):
         self.item=item

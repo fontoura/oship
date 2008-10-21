@@ -16,18 +16,18 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 
-from zope.interface import Interface
+from zope.schema import Field,TextLine
 from zope.i18nmessageid.message import MessageFactory 
 
 _ = MessageFactory('oship')
 
 
-class TerminologyAccess(Interface):
+class TerminologyAccess(Field):
     u"""
     Defines an object providing proxy access to a terminology.
     """
     
-    id = TextLine(
+    id_ = TextLine(
         description=_(u'Identification of this Terminology'),
         required = True,
         )

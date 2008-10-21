@@ -22,6 +22,8 @@ from zope.i18nmessageid import MessageFactory
 from zope.interface import implements,classProvides
 from zope.schema import Container
 
+from interfaces.versionedobject import IVersionedObject
+
 _ = MessageFactory('oship')
 
 class VersionedObject(Container):

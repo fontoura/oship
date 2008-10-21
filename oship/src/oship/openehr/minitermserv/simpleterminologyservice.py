@@ -20,11 +20,11 @@ __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements
-from openehr.minitermserv.xmlterminologysource import XMLTerminologySource
-from openehr.minitermserv.simplecodesetaccess import SimpleCodeSetAccess
-from openehr.minitermserv.simpleterminologyaccess import SimpleTerminologyAccess
-from openehr.rm.support.terminology.terminologyservice import TerminologyService
-from openehr.rm.datatypes.text.codephrase import CodePhrase
+from oship.openehr.minitermserv.xmlterminologysource import XMLTerminologySource
+from oship.openehr.minitermserv.simplecodesetaccess import SimpleCodeSetAccess
+from oship.openehr.minitermserv.simpleterminologyaccess import SimpleTerminologyAccess
+from oship.openehr.rm.support.terminology.terminologyservice import TerminologyService
+from oship.openehr.rm.datatypes.text.codephrase import CodePhrase
 
 _ = MessageFactory('oship')
 

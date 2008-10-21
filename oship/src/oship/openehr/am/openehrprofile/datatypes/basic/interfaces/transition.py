@@ -18,7 +18,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
 from zope.interface import Interface
-from zope.schema import TextLine
+from zope.schema import TextLine,Object
 from zope.schema.interfaces import IField
 from zope.i18nmessageid.message import MessageFactory 
 

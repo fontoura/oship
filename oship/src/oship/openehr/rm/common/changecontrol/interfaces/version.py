@@ -20,7 +20,7 @@ __docformat__ = u'plaintext'
  
 from zope.interface import Interface
 from zope.i18nmessageid import MessageFactory
-from zope.schema import Field,TextLine
+from zope.schema import Field,TextLine,Object
 
 from oship.openehr.rm.datatypes.text.interfaces.dvcodedtext import IDvCodedText
 from oship.openehr.rm.support.identification.interfaces.objectversionid import IObjectVersionId

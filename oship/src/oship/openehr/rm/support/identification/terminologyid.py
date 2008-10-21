@@ -38,9 +38,9 @@ class TerminologyId(ObjectId):
 
     implements(ITerminologyId)
     
-    def __init__(self, name,versionId):
-        self.value = value
-        parts = value.partition('(')
+    def __init__(self, name):
+        self.value = name
+        parts = name.partition('(')
         self.__name = parts[0]
         self.__version = parts[2].rstrip(')')
     

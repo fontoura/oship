@@ -19,8 +19,10 @@ __docformat__ = 'plaintext'
 
 from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
+from zope.schema import Object,TextLine
 
 from oship.openehr.rm.common.archetyped.locatable import Locatable
+from interfaces.ehraccess import IEhrAccess
 
 _ = MessageFactory('oship')
 
@@ -30,15 +32,9 @@ class EhrAccess(Locatable):
     EHR-wide access control object. Contains all policies and rules for access to data in this EHR.
     """
         
-    settings=AccessControlSettings(
-        title=_("Settings"),
-        description=_("Access control settings for this EHR."),
-        required=False,
-    )
+    implements(IEhrAccess)
     
-    scheme=TextLine(
-        title=_("Scheme"),
-        description=_("Name of the access control scheme."),
-        required=True,
-    )
-    
+    def __init__(self,settings,scheme):
+        self.settings=settings
+        self.scheme=scheme
+        

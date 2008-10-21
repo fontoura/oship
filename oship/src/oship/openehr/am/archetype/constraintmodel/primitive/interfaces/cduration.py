@@ -18,7 +18,8 @@ __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 from zope.schema import Bool
 from zope.i18nmessageid.message import MessageFactory
 
-from oship.openehr.am.archetype.constraintmodel.interfaces.cprimitive import ICPrimitive
+#from oship.openehr.am.archetype.constraintmodel.primitive.cduration import CDuration
+from oship.openehr.am.archetype.constraintmodel.primitive.interfaces.cprimitive import ICPrimitive
 from oship.openehr.rm.support.interval import Interval
 
 _ = MessageFactory('oship')
@@ -83,16 +84,18 @@ class ICDuration(ICPrimitive):
         required=False,
         default=True,
     )
-
+    """
     range=Interval(
         title=_(u"Range"),
         description=_(u"Interval of duration."),
         required=False,
     )
-
+    """
+    
+    """ causes a circular import
     assumedValue=Duration(
         title=_(u"Assumed Value"),
         description=_(u" "),
         required=True,
     )
-    
+    """    

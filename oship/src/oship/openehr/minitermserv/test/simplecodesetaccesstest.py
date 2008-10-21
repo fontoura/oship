@@ -16,9 +16,9 @@ This is a test unit for a Simple Terminology Service
 __author__  = u'Sergio Miranda Freire <sergio@lampada.uerj.br>'
 __docformat__ = 'plaintext'
 
-from openehr.rm.datatypes.text.codephrase import CodePhrase
-from openehr.rm.support.identification.terminologyid import TerminologyId
-from openehr.minitermserv.simplecodesetaccess import SimpleCodeSetAccess
+from oship.openehr.rm.datatypes.text.codephrase import CodePhrase
+from oship.openehr.rm.support.identification.terminologyid import TerminologyId
+from oship.openehr.minitermserv.simplecodesetaccess import SimpleCodeSetAccess
 import unittest
 
 class SimpleCodeSetAccessTest(unittest.TestCase):

@@ -16,7 +16,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
 
-from zope.schema import Set
+from zope.schema import Set,Object
 from zope.i18nmessageid.message import MessageFactory
 
 from creferenceobject import ICReferenceObject

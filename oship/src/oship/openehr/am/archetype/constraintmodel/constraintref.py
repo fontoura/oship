@@ -21,7 +21,7 @@ from zope.i18nmessageid.message import MessageFactory
 from zope.interface import implements
 
 from creferenceobject import CReferenceObject
-from interfaces.constraintref import ICReferenceObject
+from interfaces.constraintref import IConstraintRef
 
 _ = MessageFactory('oship')
     

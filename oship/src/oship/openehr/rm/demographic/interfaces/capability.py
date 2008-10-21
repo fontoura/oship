@@ -36,7 +36,7 @@ class ICapability(ILocatable):
         schema=IItemStructure,
         title=_(u"Credentials"),
         description=_(u"Qualifications of the performer of the role."),
-        require=True,
+        required=True,
     )
     
     timeValidity=Object(

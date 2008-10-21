@@ -18,8 +18,9 @@ __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 from zope.schema import Datetime,Object
 from zope.i18nmessageid.message import MessageFactory
 
-from oship.openehr.am.archetype.validitykind import ValidityKind
-from oship.openehr.am.archetype.constraintmodel.interfaces.cprimitive import ICPrimitive
+from oship.openehr.am.archetype.interfaces.validitykind import IValidityKind
+from oship.openehr.am.archetype.constraintmodel.primitive.interfaces.cprimitive import ICPrimitive
+from oship.openehr.am.archetype.constraintmodel.primitive.cprimitive import CPrimitive
 
 _ = MessageFactory('oship')
 
@@ -86,17 +87,18 @@ class ICDateTime(ICPrimitive):
         description=_(u" "),
         required=False,
     )
-    
+
+    """
     range=Interval(
         title=_(u"Range"),
         description=_(u"Interval of times."),
         required=False,
     )
-
+    """
+    
     assumedValue=Datetime(
         title=_(u"Assumed Value"),
         description=_(u" "),
-        default=Datetime(), 
         required=True,
     )
 

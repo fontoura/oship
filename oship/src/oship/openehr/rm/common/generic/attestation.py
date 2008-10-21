@@ -22,6 +22,7 @@ from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
 from interfaces.attestation import IAttestation
+from auditdetails import AuditDetails
 
 _ = MessageFactory('oship')
 

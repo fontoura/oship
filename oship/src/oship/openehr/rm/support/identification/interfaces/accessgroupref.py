@@ -18,6 +18,7 @@ __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Frei
 
 from zope.schema import TextLine
 from zope.i18nmessageid.message import MessageFactory 
+from zope.interface import invariant
 
 from objectref import IObjectRef
 
@@ -35,6 +36,10 @@ class IAccessGroupRef(IObjectRef):
                           The type name "ANY" can be used to indicate that any type is accepted 
                           (e.g. if the type is unknown). """),
         required = True,
-        constraint = validateType
         )
+    
+    @invariant
+    def validateType(self):
+        return self.type in ["PERSON","PARTY","GUIDELINE"]
+        
        

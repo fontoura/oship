@@ -18,11 +18,11 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __contributors__= u'Sergio Miranda Freire sergio@lampada.uerj.br'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
+from zope.schema import TextLine
 from zope.schema.interfaces import IField
 
 from zope.i18nmessageid.message import MessageFactory 
-from oship.openehr.rm.support import Interval
+#from oship.openehr.rm.support import Interval
 
 _ = MessageFactory('oship')
 
@@ -32,18 +32,23 @@ class ICQuantityItem(IField):
     Constrains instances of DvQuantity.
     """
     
+    """ 
+    Interval is not a schema field
     magnitude = Interval(
         title=_(u"Magnitude"),
-        description=_(u"""Interval constraint on magnitude."""),
+        description=_(u"Interval constraint on magnitude."),
         required=False,
         )
+    """
+    """
     
     precision = Interval(
         title=_(u"Precision"),
-        description=_(u"""Interval constraint on precision."""),
+        description=_(u"Interval constraint on precision."),
         required=False,
         )
-
+    """
+    
     units = TextLine(
         title=_(u"Units"),
         description=_(u"""Constraint on units."""),

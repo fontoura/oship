@@ -19,7 +19,7 @@ from zope.schema import Set,Int
 from zope.i18nmessageid.message import MessageFactory
 
 from oship.openehr.rm.support.interval import Interval
-from oship.openehr.am.archetype.constraintmodel.interfaces.cprimitive import ICPrimitive
+from oship.openehr.am.archetype.constraintmodel.primitive.interfaces.cprimitive import ICPrimitive
 
 _ = MessageFactory('oship')
 
@@ -29,18 +29,19 @@ class ICInteger(ICPrimitive):
     Constraint on integers.
     """
     
-    list=Set(
+    list_=Set(
         title=_(u"List"),
         description=_(u"Set of integers specifying constraints."),
         required=False,
-        value_type=Int,
     )
     
+    """ Interval is not a zope schema field
     range=Interval(
         title=_(u"Range"),
         description=_(u"Range of integers specifying constraint."),
         required=False,
     )
+    """
     
     assumedValue=Int(
         title=_(u"Assumed Value"),

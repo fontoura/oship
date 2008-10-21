@@ -19,12 +19,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
  
 from zope.i18nmessageid import MessageFactory
-from zope.schema import Field,TextLine,Container
+from zope.schema import Field,TextLine,Object
 from zope.schema.interfaces import IContainer
 
-from oship.openehr.rm.support.objectref import ObjectRef
-from oship.openehr.rm.support.hierobjectid import HierObjectId
-from oship.openehr.rm.datatypes.dvdatetime import DvDateTime
+from oship.openehr.rm.support.identification.interfaces.objectref import IObjectRef
+from oship.openehr.rm.support.identification.interfaces.hierobjectid import IHierObjectId
+from oship.openehr.rm.datatypes.quantity.datetime.interfaces.dvdatetime import IDvDateTime
 
 
 _ = MessageFactory('oship')
@@ -35,7 +35,8 @@ class IVersionedObject(IContainer):
     complex object.
     """
     
-    uid = HierObjectId(
+    uid = Object(
+        schema=IHierObjectId,
         title=_(u'UID'),
         description=_(u"""Unique identifier of this version container. This id 
                     will be the same in all instances of the same container 
@@ -44,7 +45,8 @@ class IVersionedObject(IContainer):
         required=True,
         )
     
-    ownerId = ObjectRef(
+    ownerId = Object(
+        schema=IObjectRef,
         title=_(u'Owner Id'),
         description=_(u"""Reference to object to which this version container 
                     belongs, e.g. the id of the containing EHR or other 
@@ -52,7 +54,8 @@ class IVersionedObject(IContainer):
         required=True,
         )
     
-    timeCreated = DvDateTime(
+    timeCreated = Object(
+        schema=IDvDateTime,
         title=_(u'Time Created'),
         description=_(u"""Time of initial creation of this versioned object."""),
         required=True,

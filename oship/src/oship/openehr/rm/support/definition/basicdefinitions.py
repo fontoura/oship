@@ -26,9 +26,13 @@ from interfaces.basicdefinitions import IBasicDefinitions
 _ = MessageFactory('oship')
 
 
-class BasicDefinitions(object):
+class BasicDefinitions(Field):
     """ Defines globally used constant values. """
     
     implements(IBasicDefinitions)
     
-
+    def __init__(self):
+        self.cr=u"\015"
+        self.lf=u"\012"
+        
+        

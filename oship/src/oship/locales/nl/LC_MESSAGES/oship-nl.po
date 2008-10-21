@@ -1,0 +1,3497 @@
+# Dutch translation for oship
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the oship package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: oship\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-07-08 14:28+0000\n"
+"PO-Revision-Date: 2008-09-23 02:02+0000\n"
+"Last-Translator: Roger Erens <roger.erens@e-s-c.biz>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2008-09-28 06:56+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: site.zcml:38
+msgid "Site Manager"
+msgstr "Site-Beheerder"
+
+#: site.zcml:39
+msgid "Site Member"
+msgstr "Site-Lid"
+
+#: site.zcml:45
+msgid "Everybody"
+msgstr "Iedereen"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertion.py:35
+msgid "Tag"
+msgstr "Ruitertje"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertion.py:36
+msgid "Used for differentiating multiple assertions."
+msgstr "Gebruikt om meerdere asserties te differentiëren."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertion.py:42
+msgid "Expression"
+msgstr "Uitdrukking"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertion.py:43
+msgid "Root of expression tree."
+msgstr "Wortel van de expressieboom."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertion.py:48
+msgid "String Expression"
+msgstr "String uitdrukking"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertion.py:49
+msgid "String form of expression."
+msgstr "Expressie uitgeschreven als String."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertion.py:54
+msgid "Variables"
+msgstr "Variabelen"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertion.py:55
+msgid "Variable definitions used in the assertion."
+msgstr "Definities van de variabelen gebruikt in de assertie."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertionvariable.py:32
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:59
+#: src/oship/openehr/rm/common/generic/interfaces/partyidentified.py:46
+msgid "Name"
+msgstr "Naam"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertionvariable.py:33
+msgid "Name of variable."
+msgstr "Naam van de variabele."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertionvariable.py:38
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:74
+msgid "Definition"
+msgstr "Definitie"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/assertionvariable.py:39
+msgid "Formal definition of variable."
+msgstr "Formele definitie van de variabele."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprbinaryoperator.py:34
+msgid "Left"
+msgstr "Links"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprbinaryoperator.py:35
+msgid "Left operand node."
+msgstr "Linker operandknoop."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprbinaryoperator.py:41
+msgid "Right"
+msgstr "Rechts"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprbinaryoperator.py:42
+msgid "Right operand node."
+msgstr "Rechter operandknoop."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/expritem.py:32
+#: src/oship/openehr/rm/common/archetyped/interfaces/link.py:62
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvidentifier.py:62
+#: src/oship/openehr/rm/support/identification/interfaces/accessgroupref.py:51
+#: src/oship/openehr/rm/support/identification/interfaces/objectref.py:58
+#: src/oship/openehr/rm/support/identification/interfaces/partyref.py:59
+msgid "Type"
+msgstr "Type"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/expritem.py:33
+msgid "Mathematical type name of this expression."
+msgstr "Mathematische typenaam van deze expressie."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprleaf.py:34
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cprimitiveobject.py:41
+#: src/oship/openehr/rm/common/changecontrol/importedversion.py:34
+#: src/oship/openehr/rm/common/changecontrol/interfaces/importedversion.py:36
+msgid "Item"
+msgstr "Item"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprleaf.py:35
+msgid "The value refered to."
+msgstr "De waarde waarnaar verwezen werd."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprleaf.py:40
+msgid "Reference Type"
+msgstr "Referentietype"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprleaf.py:41
+msgid "Type of reference: constant, attribute, etc."
+msgstr "Type verwijzing: constante, attribuut, etc."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exproperator.py:35
+msgid "Operator"
+msgstr "Operator"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exproperator.py:36
+msgid "Code of the operator."
+msgstr "Code van de operator."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exproperator.py:41
+msgid "Precedence Overridden"
+msgstr "Natuurlijke volgorde van verwerking overnomen"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exproperator.py:42
+msgid ""
+"True if natural precedence of operators is overridden in the expression."
+msgstr ""
+"Waar, als de natuurlijke volgorde van bewerkingen overnomen is in de "
+"expressie."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprunaryoperator.py:35
+msgid "Operand"
+msgstr "Operand"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/exprunaryoperator.py:36
+msgid "Operand node."
+msgstr "Operandknoop."
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/operatorkind.py:55
+#: src/oship/openehr/am/archetype/interfaces/validitykind.py:38
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvparsable.py:44
+#: src/oship/openehr/rm/datatypes/quantity/datetime/interfaces/dvdate.py:39
+#: src/oship/openehr/rm/datatypes/quantity/datetime/interfaces/dvdatetime.py:35
+#: src/oship/openehr/rm/datatypes/quantity/datetime/interfaces/dvduration.py:43
+#: src/oship/openehr/rm/datatypes/quantity/datetime/interfaces/dvtime.py:39
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:37
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:41
+#: src/oship/openehr/rm/support/identification/interfaces/archetypeid.py:74
+#: src/oship/openehr/rm/support/identification/interfaces/internetid.py:35
+#: src/oship/openehr/rm/support/identification/interfaces/isooid.py:36
+#: src/oship/openehr/rm/support/identification/interfaces/objectid.py:39
+#: src/oship/openehr/rm/support/identification/interfaces/templateid.py:32
+#: src/oship/openehr/rm/support/identification/interfaces/terminologyid.py:40
+#: src/oship/openehr/rm/support/identification/interfaces/uid.py:34
+#: src/oship/openehr/rm/support/identification/interfaces/uidbasedid.py:34
+#: src/oship/openehr/rm/support/identification/interfaces/uuid.py:35
+#: src/oship/openehr/rm/support/identification/interfaces/versiontreeid.py:32
+msgid "Value"
+msgstr "Waarde"
+
+#: src/oship/openehr/am/archetype/assertion/interfaces/operatorkind.py:56
+msgid "Actual value of this instance."
+msgstr "Actuele waarde van deze objectconcretisatie."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeinternalref.py:34
+msgid "Target Path"
+msgstr "Doelpad"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeinternalref.py:35
+msgid "Reference to an object node using archetype path notation."
+msgstr ""
+"Verwijzing naar een objectknoop met gebruikmaking van archetype pad notatie."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:32
+msgid "Includes"
+msgstr "Ingesloten"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:33
+msgid ""
+"List of constraints defining other archetypes that can be included here."
+msgstr ""
+"Lijst van beperkende voorwaarden die definieert welke andere archetypes hier "
+"ingesloten kunnen worden."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:38
+msgid "Excludes"
+msgstr "Uitgesloten"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/archetypeslot.py:39
+msgid "List of constraints defining archetypes that cannot be include here."
+msgstr ""
+"Lijst van beperkende voorwaarden die definieert welke overige archetypes "
+"hier niet kunnen voorkomen."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cardinality.py:34
+msgid "Ordered"
+msgstr "Geordend"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cardinality.py:35
+msgid "True if members are ordered."
+msgstr "Waar, als leden geordend zijn."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cardinality.py:40
+msgid "Unique"
+msgstr "Uniek"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cardinality.py:41
+msgid "True if members are unique."
+msgstr "Waar, als leden uniek zijn."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cardinality.py:46
+msgid "Interval"
+msgstr "Interval"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cardinality.py:47
+msgid "Interval of this cardinality."
+msgstr "Interval van deze kardinaliteit."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cattribute.py:34
+msgid "RM Attribute Name"
+msgstr "RM Attribuut Naam"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cattribute.py:35
+msgid ""
+"Reference model attribute within the enclosed type representedby a CObject."
+msgstr ""
+"Referentiemodelattribuut binnenin het ingesloten type, weergegeven als een "
+"CObject."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cattribute.py:40
+msgid "Existence"
+msgstr "Bestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cattribute.py:41
+msgid "Indicates whether the target object exists or not."
+msgstr "Geeft aan of het doelobject al dan niet bestaat."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cattribute.py:46
+msgid "Children"
+msgstr "Kinderen"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cattribute.py:47
+msgid "Child constraint nodes."
+msgstr "Kinderknopen met beperkende voorwaarden."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/ccomplexobject.py:34
+msgid "Attributes"
+msgstr "Attributen"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/ccomplexobject.py:35
+msgid "List of constraints on attributes of the reference model."
+msgstr ""
+"Lijst van beperkende voorwaarden voor attributen van het referentiemodel"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/ccomplexobject.py:40
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cprimitiveobject.py:34
+msgid "Any Allowed"
+msgstr "Elke toegestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/ccomplexobject.py:41
+msgid "True if any value of the reference model is allowed."
+msgstr "Waar, als elke waarde van het referentiemodel toegestaan is."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cdefinedobject.py:34
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cboolean.py:43
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:61
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:97
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:94
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cinteger.py:45
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/creal.py:45
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:68
+msgid "Assumed Value"
+msgstr "Verstekwaarde"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cdefinedobject.py:35
+msgid "Value to be assumed if none sent in data."
+msgstr "Verstekwaarde als geen waarde is meegezonden in de gegevens."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cdomaintype.py:35
+msgid "Standard Equivalent"
+msgstr "Standaardequivalent"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cdomaintype.py:36
+msgid "Standard form of constraint."
+msgstr "Standaardvorm van de beperkende voorwaarde."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cmultipleattribute.py:35
+msgid "Cardinality"
+msgstr "Kardinaliteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cmultipleattribute.py:36
+msgid "Cardinality of this attribute constraint."
+msgstr "Kardinaliteit van de beperkende voorwaarde van dit attribuut."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:36
+msgid "RM Type Name"
+msgstr "RM Typenaam"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:37
+msgid "Reference model type that this node corresponds to."
+msgstr "Referentiemodeltype waarmee deze knoop correspondeert."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:42
+msgid "Occurences"
+msgstr "Voorkomens"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:43
+msgid "Occurences of this object node in the data."
+msgstr "Voorkomens van deze objectknoop in de gegevens."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:48
+msgid "Node Id"
+msgstr "Knoopidentificator"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:49
+msgid "Semantic id of this node."
+msgstr "Semantische identificator van deze knoop."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:56
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:66
+msgid "Parent"
+msgstr "Ouder"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cobject.py:57
+msgid "CAttribute that owns the CObject."
+msgstr "CAttribute dat eigenaar is van het CObject."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/constraintref.py:33
+msgid "Reference"
+msgstr "Verwijzing"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/constraintref.py:34
+msgid "Reference to a constraint in the archetype ontology."
+msgstr ""
+"Verwijzing naar een beperkende voorwaarde in de archtetype-ontologie."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cprimitiveobject.py:35
+msgid "True if any value of the type being constrained is allowed."
+msgstr ""
+"Waar, als elke waarde van het door voorwaarden beperkte type is toegestaan."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/cprimitiveobject.py:42
+msgid "Object actually defining the constraint."
+msgstr "Object dat daadwerkelijk de beperkende voorwaarde definieert."
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/csingleattribute.py:32
+msgid "Alternatives"
+msgstr "Alternatieven"
+
+#: src/oship/openehr/am/archetype/constraintmodel/interfaces/csingleattribute.py:33
+msgid ""
+"A list of alternative constraints for the single child of this attribute."
+msgstr ""
+"Een lijst van alternatieve beperkende voorwaarden voor het enig kind van dit "
+"attribuut."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cboolean.py:31
+msgid "True Valid"
+msgstr "Waarheid Validiteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cboolean.py:32
+msgid "True if value True is allowed."
+msgstr "Waar, als de waarde True is toegestaan."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cboolean.py:37
+msgid "False Valid"
+msgstr "Onwaarheid Validiteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cboolean.py:38
+msgid "True if the value False is allowed."
+msgstr "Waar, als de waarde False is toegestaan."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cboolean.py:44
+msgid "The value to assume of this item is not included in the data."
+msgstr "De verstekwaarde als dit item niet voorkomt in de gegevens."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:34
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:33
+msgid "Month Validity"
+msgstr "Maanden Validiteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:35
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:43
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:50
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:62
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:34
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:42
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:49
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:56
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:64
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:72
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:79
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:86
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:98
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:95
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/creal.py:40
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:35
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:43
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:50
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:57
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:69
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:71
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:36
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:42
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvparsable.py:39
+msgid " "
+msgstr " "
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:42
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:41
+msgid "Day Validity"
+msgstr "Dagen Validiteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:49
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:48
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:85
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:56
+msgid "Timezone Validity"
+msgstr "Tijdzones Validiteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:55
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:91
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:88
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cinteger.py:39
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/creal.py:39
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:62
+msgid "Range"
+msgstr "Bereik"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdate.py:56
+msgid "Interval of dates."
+msgstr "Datumsinterval."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:55
+msgid "Hour Validity"
+msgstr "Uren Validiteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:63
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:34
+msgid "Minute Validity"
+msgstr "Minuten Validiteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:71
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:42
+msgid "Second Validity"
+msgstr "Seconden Validiteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:78
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:49
+msgid "Millisecond Validity"
+msgstr "Milliseconden Validiteit"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cdatetime.py:92
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/ctime.py:63
+msgid "Interval of times."
+msgstr "Tijdsinterval"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:32
+msgid "Years Allowed"
+msgstr "Jaartallen toegestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:33
+msgid "True if years are allowed in the constrained duration."
+msgstr "Waar, als jaren toegestaan zijn in de beperkte duur."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:39
+msgid "Months Allowed"
+msgstr "Maanden toegestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:40
+msgid "True if months are allowed in the constrained duration."
+msgstr "Waar, als maanden zijn toegestaan in de afgebakende periode."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:46
+msgid "Weeks Allowed"
+msgstr "Weken toegestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:47
+msgid "True if weeks are allowed in the constrained duration."
+msgstr "Waar, als weken zijn toegestaan in de afgebakende periode."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:53
+msgid "Days Allowed"
+msgstr "Dagen toegestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:54
+msgid "True if days are allowed in the constrained duration."
+msgstr "Waar, als dagen zijn toegestaan in de afgebakende periode."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:60
+msgid "Hours Allowed"
+msgstr "Uren toegestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:61
+msgid "True if hours are allowed in the constrained duration."
+msgstr "Waar, als uren zijn toegestaan in de afgebakende periode."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:67
+msgid "Minutes Allowed"
+msgstr "Minuten toegestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:68
+msgid "True if minutes are allowed in the constrained duration."
+msgstr "Waar, als minuten zijn toegestaan in de afgebakende periode."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:74
+msgid "Seconds Allowed"
+msgstr "Seconden toegestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:75
+msgid "True if seconds are allowed in the constrained duration."
+msgstr "Waar, als seconden zijn toegestaan in de afgebakende periode."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:81
+msgid "Fractional Seconds Allowed"
+msgstr "Secondenfracties toegestaan"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:82
+msgid "True if fractional seconds are allowed in the constrained duration."
+msgstr "Waar, als secondefracties zijn toegestaan in de afgebakende periode."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cduration.py:89
+msgid "Interval of duration."
+msgstr "Interval van de periode."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cinteger.py:33
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/creal.py:32
+msgid "List"
+msgstr "Lijst"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cinteger.py:34
+msgid "Set of integers specifying constraints."
+msgstr "Verzameling van integers die beperkende voorwaarden specificeert."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cinteger.py:40
+msgid "Range of integers specifying constraint."
+msgstr "Bereik van integers dat de beperkende voorwaarde specificeert."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cinteger.py:46
+msgid "The value to assume if this item is not in the data."
+msgstr "De verstekwaarde als dit item niet in de gegevens voorkomt."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cprimitive.py:30
+msgid "Default Value"
+msgstr "Verstekwaarde"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cprimitive.py:31
+msgid "A default value for this constraint object."
+msgstr "Een verstekwaarde voor dit beperkende voorwaarde stellende object."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cprimitive.py:36
+msgid "Has Assumed Value"
+msgstr "Heeft een veronderstelde waarde"
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/cprimitive.py:37
+msgid "True if there is an assumed value."
+msgstr "Waar, indien er een veronderstelde waarde is."
+
+#: src/oship/openehr/am/archetype/constraintmodel/primitive/interfaces/creal.py:33
+msgid "Set of Reals specifying constraint"
+msgstr "Verzameling van Reals die een beperkende voorwaarde specificeert."
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:38
+msgid "adlVersion"
+msgstr "adlVersie"
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:39
+msgid ""
+"ADL version if archteype was read in from \n"
+"                        an ADL sharable archetype."
+msgstr ""
+"ADL-versie indien het archetype was ingelezen vanuit een ADL-deelbaar "
+"archetype."
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:47
+msgid "Archetype Id"
+msgstr "Archetype-identificator"
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:48
+msgid "Multi-axial identifier of this archetype."
+msgstr "Multiaxiale identificator van dit archetype."
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:54
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:40
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:36
+#: src/oship/openehr/rm/common/changecontrol/interfaces/originalversion.py:36
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:42
+#: src/oship/openehr/rm/common/changecontrol/interfaces/versionedobject.py:39
+#: src/oship/openehr/rm/common/changecontrol/originalversion.py:33
+#: src/oship/openehr/rm/demographic/interfaces/party.py:41
+#: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:42
+msgid "UID"
+msgstr "UID"
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:55
+msgid "OID of this archetype."
+msgstr "OID van dit archetype."
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:60
+msgid "Concept"
+msgstr "Concept"
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:61
+msgid "The normative meaning of archetype as a whole."
+msgstr "De normatieve betekenis van het archetype als een geheel."
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:67
+msgid "Parent Archetype Id"
+msgstr "Ouderarchetype-identificator"
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:68
+msgid "Identifier of the specialsation parent of this archetype."
+msgstr "Identificator van de specialisatieouder van dit archetype."
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:75
+msgid "Root node of this archetype."
+msgstr "Wortelknop van dit archetype."
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:81
+msgid "Ontology"
+msgstr "Ontologie"
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:82
+msgid "The ontology of the archetype"
+msgstr "De ontologie van het archetype."
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:87
+msgid "Invariants"
+msgstr "Invarianten"
+
+#: src/oship/openehr/am/archetype/interfaces/archetype.py:88
+msgid "FOPL invariant statements"
+msgstr "Instructies die invariant zijn volgens Eerste Orde Predicaten Logica"
+
+#: src/oship/openehr/am/archetype/interfaces/validitykind.py:39
+msgid "Actual value."
+msgstr "Actuele waarde."
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:35
+msgid "Terminologies"
+msgstr "Terminologieën"
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:36
+msgid "List of terminologies in this ontology."
+msgstr "Lijst van terminologieën in deze ontologie."
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:41
+msgid "Specialisation Depth"
+msgstr "Specialisatiediepte"
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:42
+msgid "Specialisation depth of this archetype."
+msgstr "Specialisatiediepte van dit archetype."
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:47
+msgid "Term Codes"
+msgstr "Termcodes"
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:48
+msgid "List of all term codes in this archetype."
+msgstr "Lijst van alle termcodes in dit archetype."
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:53
+msgid "Constraint Codes"
+msgstr "Codes voor beperkende voorwaarden"
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:54
+msgid "List of all constraint codes in this archetype."
+msgstr "Lijst van alle beperkende voorwaarden in dit archetype."
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:59
+msgid "Term Attribute Names"
+msgstr "Termattribuutnamen"
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:60
+msgid "List of attribute names in this archetype ontolgy."
+msgstr "Lijst van atrribuutnamen in deze archetype-ontologie."
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeontology.py:67
+msgid "Archetype which owns this ontology."
+msgstr "Archetype dat de eigenaar is van deze ontologie."
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeterm.py:29
+msgid "Code"
+msgstr "Code"
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeterm.py:30
+msgid "Code of this term."
+msgstr "Code van deze term."
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeterm.py:35
+#: src/oship/openehr/rm/common/directory/interfaces/folder.py:40
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:49
+#: src/oship/openehr/rm/common/generic/interfaces/revisionhistory.py:36
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvparagraph.py:36
+#: src/oship/openehr/rm/ehr/composition/content/navigation/interfaces/section.py:35
+msgid "Items"
+msgstr "Items"
+
+#: src/oship/openehr/am/archetype/ontology/interfaces/archetypeterm.py:36
+msgid "Hash of keys (text,description) and corresponding values."
+msgstr "Hash van sleutels (tekst, omschrijving) en corresponderende waarden."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/archetyped.py:42
+msgid "Archetype ID"
+msgstr "Archetype-identificator"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/archetyped.py:43
+msgid "Globally unique archetype identifier."
+msgstr "Mondiaal unieke archetype-identificator."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/archetyped.py:49
+msgid "Template ID"
+msgstr "Sjabloonidentificator."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/archetyped.py:50
+msgid ""
+"Globally unique template identifier, if a template was active at \n"
+"                    this point in the structure. Normally, a template would "
+"only be used \n"
+"                    at the top of a top-level structure, but the possibility "
+"exists for \n"
+"                    templates at lower levels."
+msgstr ""
+"Mondiaal unieke sjabloonidentificator, indien een sjabloon al actief was op "
+"dit punt in de structuur. Normaliter wordt een sjabloon alleen gebruikt op "
+"het hoogste nivo van een top-level structuur, maar de mogelijkheid bestaat "
+"om sjablonen op lagere nivo's te gebruiken."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/archetyped.py:58
+msgid "RM Version"
+msgstr "Referentiemodelversie."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/archetyped.py:59
+msgid ""
+"Version of the openEHR reference model used to create this object.\n"
+"                    Expressed in terms of the release version string, e.g. "
+"\"1.0\", \"1.2.4\". "
+msgstr ""
+"Versie van het openEHR referentiemodel dat gebruikt werd om dit object te "
+"creëren. Uitgedrukt in de vorm van de release-versiestring, bijvoorbeeld "
+"\"1.0\" of \"1.2.4\". "
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:40
+msgid "Originating System Audit"
+msgstr "Bronsysteem Audit"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:41
+msgid ""
+"Any audit information for the information item from the originating system."
+msgstr ""
+"Welke auditinformatie dan ook voor het informatie-item vanuit het "
+"bronsysteem."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:46
+msgid "Originating System Item IDs"
+msgstr "Itemidentificators in het bronsysteem"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:47
+msgid ""
+"Identifiers used for the item in the originating system, e.g. filler and "
+"placer ids."
+msgstr ""
+"Identificators gebruikt bij het item in het bronsysteem, bijvoorbeeld "
+"vulling- en positie-identificators."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:54
+msgid "Feeder System Audit"
+msgstr "Voedingsysteem Audit"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:55
+msgid ""
+"Any audit information for the information item from the feeder system, \n"
+"                    if different from the originating system."
+msgstr ""
+"Welke auditinformatie dan ook voor het informatie-item vanuit het "
+"voedingssysteem, indien dit anders is dan het bronsysteem."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:61
+msgid "Feeder System Item IDs"
+msgstr "Itemidentificators in het voedingssysteem"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:62
+msgid ""
+"Identifiers used for the item in the feeder system, where the feeder \n"
+"                    system is distinct from the originating system. The List "
+"contents are restricted to\n"
+"                    type == DvIdentifiers"
+msgstr ""
+"Identificators gebruikt voor het item in het voedingssysteem, waarbij het "
+"voedingssyteem niet het bronsysteem is. De identificators in de lijst zijn "
+"beperkt tot het type DvIdentifiers"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederaudit.py:70
+msgid "Original Content"
+msgstr "Originele inhoud"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:42
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:40
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:37
+msgid "System Id"
+msgstr "Systeemidentificator"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:43
+msgid "Identifier of the system which handled the information item."
+msgstr "Identificator van het systeem dat het informatie-item afhandelde."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:49
+msgid "Provider"
+msgstr "Leverancier"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:50
+msgid ""
+"Optional provider(s) who created, committed, forwarded or otherwise \n"
+"        handled the item. Type == PARTY_IDENTIFIED"
+msgstr ""
+"Optionele partij(en) die het item creëerde, wegschreef, doorstuurde of "
+"anderszins behandelde. Is van het type PARTY_IDENTIFIED"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:57
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:66
+msgid "Location"
+msgstr "Locatie"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:58
+msgid ""
+"Identifier of the particular site/facility within an organisation \n"
+"                    which handled the item. For computability, this "
+"identifier needs to be \n"
+"                    e.g. a PKI identifier which can be included in the "
+"identifier list of \n"
+"                    the PARTY_IDENTIFIED object."
+msgstr ""
+"Identificator van de betreffende afdeling of voorziening in een organisatie "
+"het item behandelde. Om geautomatiseerde verwerking mogelijk te maken moet "
+"deze identificator bijvoorbeeld een PKI-identificator zijn, die opgenomen "
+"kan worden in de identificatorlijst van het PARTY_IDENTIFIED object."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:67
+msgid "Time"
+msgstr "Tijd"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:68
+msgid ""
+"Time of handling the item. For an originating time: DV_DATE_TIME system, \n"
+"                    this will be time of creation, for an intermediate "
+"feeder system, this will \n"
+"                    be a time of accession or other time of handling, where "
+"available."
+msgstr "."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:76
+#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:36
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:77
+msgid "Identifiers for subject of the received information item."
+msgstr "Identificators voor het onderwerp van het onvangen informatie-item."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:82
+#: src/oship/openehr/rm/common/generic/interfaces/revisionhistoryitem.py:46
+msgid "Version Id"
+msgstr "Versie-identificator"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/feederauditdetails.py:83
+msgid ""
+"Any identifier used in the system such as \"interim\", \"final\", \n"
+"                      or numeric versions if available."
+msgstr ""
+"Willekeurig welke identificator die in het systeem gebruikt wordt, zoals "
+"\"interim\", \"definitief\", of numerieke versies indien beschikbaar."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/link.py:49
+msgid "Meaning"
+msgstr "Betekenis"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/link.py:50
+msgid ""
+"Used to describe the relationship, usually in clinical terms, such as \n"
+"                    \"in response to\" (the relationship between test "
+"results and an order),\n"
+"                    \"follow-up to\" and so on. Such relationships can "
+"represent any clinically \n"
+"                    meaningful connection between pieces of information. "
+"Values for meaning \n"
+"                    include those described in Annex C, ENV 13606 pt 2 [11] "
+"under the categories \n"
+"                    of \"generic\", \"documenting and "
+"reporting\",\"organisational\",\"clinical\",\n"
+"                    \"circumstancial\", and \"view management\".  "
+msgstr ""
+"Gebruikt om de relatie te beschrijven, normaliter in klinische termen zoals "
+"\"in antwoord op\" (de relatie tussen een testresultaat en een opdracht), "
+"\"follow-up op\", enzovoort. Zulke relaties kunnen elke klinische "
+"betekenisvolle connectie tussen stukjes informatie beschrijven. "
+"Betekeniswaarden omvatten degenen die beschreven zijn in Annex C, ENV 13606 "
+"pt 2 [11] onder de categorieën \"generic\", \"documenting and reporting\", "
+"\"organisational\", \"clinical\", \"circumstantial\" en \"view management\". "
+" "
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/link.py:63
+msgid ""
+"The type attribute is used to indicate a clinical or domain-level meaning \n"
+"                    for the kind of link, for example \"problem\" or "
+"\"issue\". If type values are \n"
+"                    designed appropriately, they can be used by the "
+"requestor of EHR extracts to \n"
+"                    categorise links which must be followed and which can be "
+"broken when the extract \n"
+"                    is created. "
+msgstr ""
+"Het type-attribuut geeft een klinische of domeinspecifieke betekenis weer "
+"van de soort verwijzing, bijvoorbeeld \"probleem\" of \"punt van zorg\". Als "
+"typewaarden gepasd ontworpen zijn, kan de aanvrager van EHR-extracties "
+"aangeven welke verwijzingssoorten wel of niet gevolgd moeten worden bij het "
+"creëren van de extractie. "
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/link.py:73
+#: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:43
+#: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:70
+msgid "Target"
+msgstr "Doel"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/link.py:74
+msgid ""
+"The logical \"to\" object in the link relation, as target: \n"
+"                    per the linguistic sense of the meaning attribute."
+msgstr ""
+"Het logische \"naar\" object in de verwijzingsrelatie, als doel: in de "
+"linguïstische zin van het betekenisattribuut."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:41
+msgid ""
+"Optional globally unique object identifier for root points of archetyped "
+"structures. A UidBasedId "
+msgstr ""
+"Optioneel mondiaal unieke objectidentificator voor de boomwortels van "
+"gearchetypeerde structuren. Is een UidBasedId. "
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:46
+msgid "Node ID"
+msgstr "Knoopidentificator"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:47
+msgid ""
+"Design-time archetype id of this node taken from its generating archetype;\n"
+"                     used to build archetype paths. Always in the form of an "
+"\"at\" code, e.g. \"at0005\".\n"
+"                     This value enables a \"standardised\" name for this "
+"node to be generated, by\n"
+"                     referring to the generating archetype local ontology.\n"
+"                     \n"
+"                     At an archetype root point, the value of this attribute "
+"is always the stringified\n"
+"                     form of the archetype_id found in the archetype_details "
+"object."
+msgstr ""
+"Gegenereerde archetype-identificator van deze knoop door diens aanmakende "
+"archetype in het ontwerpproces; gebruikt om archetypepaden te vormen. Altijd "
+"in de vorm van een \"at\"-code, bijvoorbeeld \"at0005\". Deze waarde maakt "
+"het mogelijk een \"gestandaardiseerde\" naam voor deze knoop te genereren, "
+"door te refereren aan de lokale ontologie van het genererende archetype . "
+"Voor het wortelpunt van een archetype is de waarde van dit attribuut altijd "
+"de in een stringvorm gegoten archetype_id uit het archetype_details object."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:60
+msgid ""
+"DvText type - Runtime name of this fragment, used to build runtime paths. \n"
+"                     This is the term provided via a clinical application or "
+"batch\n"
+"                     process to name this EHR construct: its retention in "
+"the EHR \n"
+"                     faithfully preserves the original label by which this "
+"entry\n"
+"                     was known to end. "
+msgstr ""
+"Van het type DvText - de runtime-benaming voor dit fragment, gebruikt om "
+"runtime-paden te vormen. Dit is de term die ingevoerd wordt via een "
+"klinische toepassing of een batchproces om dit EHR construct te benoemen: "
+"opslaan in het EHR behoudt getrouw tot aan het einde het originele label "
+"waaronder deze invoer bekend was. "
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:71
+msgid "Archetype Details"
+msgstr "Archetypedetails"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:72
+msgid "Details of archetyping used on this node."
+msgstr "Details van archetypering gebruikt bij deze knoop."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:77
+msgid "Feeder Audit"
+msgstr "Voedingsysteem audit"
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:78
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:87
+msgid ""
+"Audit trail from non-openEHR system of original commit of information \n"
+"                    forming the content of this node, or from a conversion "
+"gateway which has \n"
+"                    synthesised this node."
+msgstr ""
+"Auditspoor vanaf het niet-openEHR systeem waarin de informatie die de inhoud "
+"vormt van deze knoop van origine werd weggeschreven, danwel vanaf een "
+"conversie-netwerkkoppeling die deze knoop aanmaakte."
+
+#: src/oship/openehr/rm/common/archetyped/interfaces/locatable.py:86
+msgid "Links"
+msgstr "Koppelingen"
+
+#: src/oship/openehr/rm/common/changecontrol/importedversion.py:35
+#: src/oship/openehr/rm/common/changecontrol/interfaces/importedversion.py:37
+msgid "Original Version object that was imported."
+msgstr "Origineel versie-object dat geïmporteerd werd."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:37
+msgid "Unique identifier for this contribution."
+msgstr "Unieke identificator voor deze bijdrage."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:42
+msgid "Versions"
+msgstr "Versies"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:43
+msgid ""
+"Set of references to versions causing changes to\n"
+"                      this EHR. Each contribution contains a list of "
+"versions\n"
+"                      which may include paths pointing to any number of \n"
+"                      VERSIONABLE items, i.e. items of type COMPOSITION and "
+"FOLDER."
+msgstr ""
+"Verzameling van verwijzingen naar versies die leiden tot veranderingen in "
+"dit EHR. Elke bijdrage bevat een lijst van versies; een versie kan één of "
+"meer paden bevatten die wijzen naar items die versiebeheerd zijn, d.w.z. "
+"items van het type COMPOSITION en FOLDER"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:51
+msgid "Audit"
+msgstr "Audit"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/contribution.py:52
+msgid "Audit trail corresponding to the committal of this Contribution."
+msgstr "Auditspoor overeenkomend met het wegschrijven van deze bijdrage."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/originalversion.py:37
+#: src/oship/openehr/rm/common/changecontrol/interfaces/originalversion.py:44
+#: src/oship/openehr/rm/common/changecontrol/originalversion.py:34
+#: src/oship/openehr/rm/common/changecontrol/originalversion.py:40
+msgid "Stored version of inheritence precurosr."
+msgstr "Opgeslagen versie van de overervingsvoorganger."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/originalversion.py:43
+#: src/oship/openehr/rm/common/changecontrol/originalversion.py:39
+msgid "Preceding Version UID"
+msgstr "Voorgaand versie UID"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:43
+msgid ""
+"Unique identifier of this version, containing\n"
+"                    owner_id, version_tree_id and creating_system_id.\n"
+"                    Type == OBJECT_VERSION_ID"
+msgstr ""
+"Unieke identificator van deze versie, bevattende owner_id, version_tree_id "
+"en creating_system_id. Is van het type OBJECT_VERSION_ID"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:51
+msgid "Preceding Version Id"
+msgstr "Voorgaande versie-identificator"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:52
+msgid ""
+"Unique identifier of the version of which this version \n"
+"                    is a modification; Void if this is the first version.\n"
+"                    Type == OBJECT_VERSION_ID"
+msgstr ""
+"Unieke identificator van de versie waarvan deze versie een modificatie is. "
+"\"Void\" als dit de eerste versie is; het type is OBJECT_VERSION_ID."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:59
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:90
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/evaluation.py:38
+#: src/oship/openehr/rm/integration/interfaces/genericentry.py:36
+msgid "Data"
+msgstr "Gegevens"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:60
+msgid "Original content of this Version."
+msgstr "Originele inhoud van deze Versie"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:66
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:43
+msgid "Lifecycle State"
+msgstr "Levenscyclustoestand"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:67
+msgid ""
+"Lifecycle state of this version; coded by openEHR \n"
+"                    vocabulary \"version lifecycle state\". \n"
+"                    Type == DV_CODED_TEXT"
+msgstr ""
+"Levenscyclustoestand van deze versie; gecodeerd door de openEHR woordenschat "
+"\"version lifecycle state\". Is van het type DV_CODED_TEXT."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:76
+msgid "Commit Audit"
+msgstr "Wegschrijf audit"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:77
+msgid ""
+"Audit trail corresponding to the committal of this\n"
+"                    version to the VERSIONED_OBJECT. Type == AUDIT_DETAILS"
+msgstr ""
+"Auditspoor dat correspondeert met het wegschrijven van deze versie naar het "
+"VERSIONED_OBJECT. Is van het type AUDIT_DETAILS."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:84
+msgid "Contribution"
+msgstr "Bijdrage"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:85
+msgid "Contribution in which this version was added."
+msgstr "Bijdrage waarin deze versie is toegevoegd."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:90
+msgid "Signature"
+msgstr "Ondertekening"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/version.py:91
+msgid ""
+"OpenPGP digital signature or digest of content \n"
+"                    committed in this Version."
+msgstr ""
+"OpenPGP digitale handtekening danwel digestie van de inhoud die is "
+"weggeschreven in deze Versie."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/versionedobject.py:40
+msgid ""
+"Unique identifier of this version container. This id \n"
+"                    will be the same in all instances of the same container "
+"\n"
+"                    in a distributed environment, meaning that it can be \n"
+"                    understood as the uid of the \"virtual version tree\"."
+msgstr ""
+"Unieke identificator van deze versiecontainer. Deze identificator is gelijk "
+"in alle instanties van deze zelfde container in een gedistribueerde "
+"omgeving, wat betekent dat hij opgevat kan worden als de uid van de "
+"\"virtuele versieboom\"."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/versionedobject.py:48
+msgid "Owner Id"
+msgstr "Eigenaaridentificator"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/versionedobject.py:49
+msgid ""
+"Reference to object to which this version container \n"
+"                    belongs, e.g. the id of the containing EHR or other \n"
+"                    relevant owning entity."
+msgstr ""
+"Verwijzing naar het object aan wie deze versiecontainer toebehoort, "
+"bijvoorbeeld de identificator van het omvattende EHR of een andere relevante "
+"eigenaarsentiteit."
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/versionedobject.py:56
+msgid "Time Created"
+msgstr "Tijdstip van aanmaak"
+
+#: src/oship/openehr/rm/common/changecontrol/interfaces/versionedobject.py:57
+msgid "Time of initial creation of this versioned object."
+msgstr "Tijdstip van initiële aanmaak van dit versiebeheerde object."
+
+#: src/oship/openehr/rm/common/directory/interfaces/folder.py:34
+msgid "Folders"
+msgstr "Mappen"
+
+#: src/oship/openehr/rm/common/directory/interfaces/folder.py:35
+msgid "Subfolders of this folder."
+msgstr "Submappen van deze map."
+
+#: src/oship/openehr/rm/common/directory/interfaces/folder.py:41
+msgid ""
+"The list of references to other (usually) versioned \n"
+"                    objects logically in this folder."
+msgstr ""
+"De lijst van verwijzingen naar andere (normaliter) versiebeheerde objecten "
+"die logischerwijs in deze map zitten."
+
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:36
+msgid "Attested View"
+msgstr "Beeld van gegevens voorzien van attest"
+
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:37
+msgid ""
+"Optional visual representation of content attested e.g. \n"
+"                    screen image. Type==DvMultimedia"
+msgstr ""
+"Optioneel visuele representatie van geattesteerde inhoud, bijvoorbeeld een "
+"schermafbeelding. Is van het type DvMultimedia"
+
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:43
+msgid "Proof"
+msgstr "Bewijs"
+
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:44
+msgid "Proof of attestation."
+msgstr "Bewijs van attest."
+
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:50
+msgid ""
+"Items attested, expressed as fully qualified runtime \n"
+"                    paths to the items in question. Although not "
+"recommended, \n"
+"                    these may include fine-grained items which have been \n"
+"                    attested in some other system. Otherwise it is assumed "
+"to\n"
+"                    be for the entire VERSION with which it is associated. \n"
+"                    Set <DV_EHR_URI>"
+msgstr ""
+"Geattesteertde items, uitgedrukt als volledig uitgeschreven runtime paden "
+"naar de betreffende items. Hoewel niet aanbevolen, mogen deze kleinschaliger "
+"items omvatten die geattesteerd zijn in andere systemen. Normaliter wordt "
+"echter verondersteld dat de attestatie geldt voor de gehele VERSION waarmee "
+"het geassocieerd is. Is van de verzameling <DV_EHR_URI>"
+
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:61
+msgid "Reason"
+msgstr "Reden"
+
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:62
+msgid ""
+"Reason of this attestation. Optionally coded by the \n"
+"                    openEHR Terminology group \"attestation reason\"; "
+"includes \n"
+"                    values like \"authorisation\", \"witness\" etc."
+msgstr ""
+"Reden van de attestatie. Optioneel gecodeerd door de openEHR "
+"Terminologiegroep \"attestation reason\"; omvat waarden zoals "
+"\"autorisatie\", \"getuige\", enzovoort."
+
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:69
+msgid "Pending?"
+msgstr "Onderhanden"
+
+#: src/oship/openehr/rm/common/generic/interfaces/attestation.py:70
+msgid ""
+"True if this attestation is outstanding; \n"
+"                    False means it has been completed."
+msgstr ""
+"Waar, indien deze attestatie in onderhanden is. Onwaar betekent dat de "
+"attestatie afgerond is."
+
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:41
+msgid ""
+"Identity of the system where the change was committed.\n"
+"                    Ideally this is a machine- and human-processable "
+"identifier,\n"
+"                    but it may not be."
+msgstr ""
+"Identiteit van het systeem waarin de verandering werd weggeschreven. "
+"Idealiter is dit een identificator die door zowel computer als mens te "
+"verwerken is, maar dit hoeft niet het geval te zijn."
+
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:48
+msgid "Committer"
+msgstr "Committer"
+
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:49
+msgid ""
+"Identity and optional reference into identity management\n"
+"                    service, of user who committed the item."
+msgstr ""
+"Identiteit van (en optionele verwijzing naar de identiteitsbeheerservice "
+"voor) de gebruiker die het item wegschreef."
+
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:55
+msgid "Time Committed"
+msgstr "Tijdstip van wegschrijven"
+
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:56
+msgid "Time of committal of the item."
+msgstr "Tijdstip van wegschrijven van het item."
+
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:61
+msgid "Change Type"
+msgstr "Veranderingstype"
+
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:62
+msgid ""
+"Type of change. Coded using the openEHR Terminology \n"
+"                    \"audit change type\" group. Type==DvCodedText"
+msgstr ""
+"Veranderingstype. Gecodeerd met behulp van de openEHR-terminologie \"audit "
+"change type\"-groep. Is van het type DvCodedText"
+
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:68
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:52
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:48
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/activity.py:41
+msgid "Description"
+msgstr "Omschrijving"
+
+#: src/oship/openehr/rm/common/generic/interfaces/auditdetails.py:69
+msgid "Reason for committal. Type==DvText"
+msgstr "Reden van wegschrijven. Type==DvText"
+
+#: src/oship/openehr/rm/common/generic/interfaces/participation.py:45
+#: src/oship/openehr/rm/demographic/interfaces/role.py:54
+msgid "Performer"
+msgstr "Uitvoerder"
+
+#: src/oship/openehr/rm/common/generic/interfaces/participation.py:46
+msgid ""
+"The id and possibly demographic system link of performer: \n"
+"                    (PartyProxy) the party participating in the activity."
+msgstr ""
+"De identificator en mogelijkerwijs de demografische systeemverwijzing  naar "
+"de uitvoerder: (PartyProxy) de partij die deelneemt in de activiteit."
+
+#: src/oship/openehr/rm/common/generic/interfaces/participation.py:53
+msgid "Function"
+msgstr "Functie"
+
+#: src/oship/openehr/rm/common/generic/interfaces/participation.py:54
+msgid ""
+"The function of the Party in this participation (note \n"
+"                    that a given party might participate in more than one "
+"way \n"
+"                    in a particular activity). This attribute should be "
+"coded, \n"
+"                    but cannot be limited to the HL7v3:ParticipationFunction "
+"\n"
+"                    vocabulary, since it is too limited and hospital-"
+"oriented."
+msgstr ""
+"De functie van de Partij in deze deelneming (merk op dat een partij op "
+"meerdere manieren zou kunnen deelnemen in een en dezelfde activiteit). Dit "
+"attribuut dient gecodeerd te worden, maar mag niet beperkt worden tot de "
+"woordenschat van de HL7v3:ParticipationFunction. Deze woordenschat is "
+"namelijk te beperkt en eenzijdig op ziekenhuizen gericht."
+
+#: src/oship/openehr/rm/common/generic/interfaces/participation.py:63
+msgid "Mode"
+msgstr "Modus"
+
+#: src/oship/openehr/rm/common/generic/interfaces/participation.py:64
+msgid ""
+"The mode of the performer / activity interaction, e.g. \n"
+"                    present, by telephone, by email etc. Type == DvCodedText"
+msgstr ""
+"De modus van de uitvoerder / activiteitinteractie, bijvoorbeeld "
+"\"aanwezig\", \"telefonisch\", \"per e-mail\" enzovoort. Is van het type "
+"DvCodedText"
+
+#: src/oship/openehr/rm/common/generic/interfaces/participation.py:70
+msgid "Time Interval"
+msgstr "Tijdsinterval"
+
+#: src/oship/openehr/rm/common/generic/interfaces/participation.py:71
+msgid ""
+"The time interval during which the participation took \n"
+"                    place, if it is used in an observational context (i.e. \n"
+"                    recording facts about the past); or the intended time \n"
+"                    interval of the participation when used in future "
+"contexts,\n"
+"                    such as EHR Instructions."
+msgstr ""
+"Het tijdsinterval gedurende welke de deelneming plaats vond, indien gebruikt "
+"in een waarnemingscontext (d.w.z. het beschrijven van voldongen feiten); "
+"indien gebruikt in toekomstige contexten, zoals EHR Instructies: het beoogde "
+"tijdsinterval van de deelneming."
+
+#: src/oship/openehr/rm/common/generic/interfaces/partyidentified.py:47
+msgid "Optional human-readable name (in String form)."
+msgstr "Optioneel humaan-leesbare naam (in de vorm van een String)"
+
+#: src/oship/openehr/rm/common/generic/interfaces/partyidentified.py:52
+msgid "Identifiers"
+msgstr "Identificators"
+
+#: src/oship/openehr/rm/common/generic/interfaces/partyidentified.py:53
+msgid ""
+"One or more formal identifiers (possiblycomputable).\n"
+"                    List<DvIdentifier>"
+msgstr ""
+"Eén of meerdere formele identificators (mogelijk berekenbaar). Is van het "
+"type List<DvIdentifier>"
+
+#: src/oship/openehr/rm/common/generic/interfaces/partyproxy.py:39
+msgid "External Reference"
+msgstr "Externe verwijzing"
+
+#: src/oship/openehr/rm/common/generic/interfaces/partyproxy.py:40
+msgid ""
+"Optional reference to more detailed demographic or \n"
+"                    identification information for this party, in an "
+"external \n"
+"                    system. Type == PartyRef."
+msgstr ""
+"Optionele verwijzing naar gedetailleerdere demografische of identificerende "
+"informatie over deze partij, in een extern systeem. Is van het type PartyRef."
+
+#: src/oship/openehr/rm/common/generic/interfaces/partyrelated.py:40
+msgid "Relationship"
+msgstr "Relatie"
+
+#: src/oship/openehr/rm/common/generic/interfaces/partyrelated.py:41
+msgid ""
+"Relationship of subject of this ENTRY to the subject\n"
+"                    of the record. May be coded. If it is the patient, coded "
+"\n"
+"                    as \"self\"."
+msgstr ""
+"Relatie van het onderwerp van deze ENTRY naar het onderwerp van het record. "
+"Kan gecodeerd zijn. Als het om de patiënt gaat, dan is de codering \"self\"."
+
+#: src/oship/openehr/rm/common/generic/interfaces/revisionhistory.py:37
+msgid "The items in this history in most-recent-last order."
+msgstr "De items in de geschiedenis in de volgorde van oudste naar nieuwste."
+
+#: src/oship/openehr/rm/common/generic/interfaces/revisionhistoryitem.py:38
+msgid "Audits"
+msgstr "Audits"
+
+#: src/oship/openehr/rm/common/generic/interfaces/revisionhistoryitem.py:39
+msgid ""
+"The audits for this revision; there will always be at \n"
+"                    least one commit audit (which may itself be an "
+"ATTESTATION), \n"
+"                    there may also be further attestations."
+msgstr ""
+"De audits voor deze revisie; er zal altijd tenminste één wegschrijfaudit "
+"zijn (welke zelf een ATTESTATION mag zijn), er mogen verder ook attestaties "
+"zijn."
+
+#: src/oship/openehr/rm/common/generic/interfaces/revisionhistoryitem.py:47
+msgid "Version identifier for this revision."
+msgstr "Versie identificator van deze revisie."
+
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:37
+msgid "Original Language"
+msgstr "Originele taal"
+
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:44
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:45
+msgid "Translations"
+msgstr "Vertalingen"
+
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:59
+msgid "Revision History"
+msgstr "Revisiegeschiedenis"
+
+#: src/oship/openehr/rm/common/resource/interfaces/authoredresource.py:65
+msgid "Is Controlled"
+msgstr "Wordt beheerd"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:31
+msgid "Original Author"
+msgstr "Oorspronkelijke auteur"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:37
+msgid "Other Contributors"
+msgstr "Overige medewerkers"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:49
+#: src/oship/openehr/rm/demographic/address.py:35
+#: src/oship/openehr/rm/demographic/interfaces/address.py:39
+#: src/oship/openehr/rm/demographic/interfaces/party.py:80
+#: src/oship/openehr/rm/demographic/interfaces/partyidentified.py:41
+#: src/oship/openehr/rm/demographic/interfaces/partyidentity.py:40
+#: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:49
+msgid "Details"
+msgstr "Details"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:55
+msgid "Resource Package URI"
+msgstr "Resource Package URI"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:61
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:77
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:53
+#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:56
+msgid "Other Details"
+msgstr "Overige details"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescription.py:68
+msgid "Parent Resource"
+msgstr "Oudermiddel"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:35
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:35
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:51
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:72
+#: src/oship/openehr/rm/demographic/interfaces/party.py:67
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:66
+msgid "Language"
+msgstr "Taal"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:41
+#: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:75
+#: src/oship/openehr/rm/demographic/interfaces/partyidentified.py:48
+#: src/oship/openehr/rm/demographic/interfaces/partyidentity.py:47
+msgid "Purpose"
+msgstr "Doel"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:47
+msgid "Keywords"
+msgstr "Steekwoorden"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:53
+msgid "Use"
+msgstr "Gebruik"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:59
+msgid "Misuse"
+msgstr "Misbruik"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:65
+msgid "Copyright"
+msgstr "Copyright"
+
+#: src/oship/openehr/rm/common/resource/interfaces/resourcedescriptionitem.py:71
+msgid "Original Resource URI"
+msgstr "Originele resource URI"
+
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:41
+msgid "Author"
+msgstr "Auteur"
+
+#: src/oship/openehr/rm/common/resource/interfaces/translationdetails.py:47
+msgid "Accreditation"
+msgstr "Accreditatie"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:40
+msgid "time"
+msgstr "tijd"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:41
+msgid ""
+"Time of this event. If the width is non-zero, it is the time point of the \n"
+"                         trailing edge of the event."
+msgstr ""
+"Tijdstip van deze gebeurtenis. Als een gebeurtenis niet instantaan is, dan "
+"wordt het tijdstip van beeindiging van de gebeurtenis genomen."
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:48
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/observation.py:42
+msgid "data"
+msgstr "gegevens"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:49
+msgid "The data of this event."
+msgstr "De gegevens van deze gebeurtenis."
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:55
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/observation.py:50
+msgid "state"
+msgstr "toestand"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:56
+msgid "Optional state information.for this event."
+msgstr "Optionele toestandsinformatie over deze gebeurtenis."
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:62
+msgid "parent"
+msgstr "ouder"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:63
+msgid "redefinition of LOCATABLE.parent to type of History"
+msgstr "herdefinitie van LOCATABLE.ouder naar het type Geschiedenis"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:69
+msgid "offset"
+msgstr "verschuiving"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/event.py:70
+msgid ""
+"Offset of this event from origin, computed as time.diff(parent.origin)"
+msgstr ""
+"Verschuiving van deze gebeurtenis vanaf de oorsprong, berekend als "
+"time.diff(parent.origin)"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:43
+msgid "origin"
+msgstr "oorsprong"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:44
+msgid ""
+"Time origin of this event history. The first event is not necessarily at the "
+"origin point."
+msgstr ""
+"Tijdsoorsprong van deze geschiedenis van gebeurtenissen. De eerste "
+"gebeurtenis valt niet noodzakelijkerwijs op de oorsprong."
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:49
+msgid "events"
+msgstr "gebeurtenissen"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:50
+msgid "The events in the series."
+msgstr "De gebeurtenissen in de reeks."
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:57
+msgid "period"
+msgstr "periode"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:58
+msgid "Period between samples in this segment if periodic."
+msgstr "Indien periodiek de periode tussen steekproeven in dit segment."
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:64
+msgid "duration"
+msgstr "duur"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:65
+msgid ""
+"Duration of the entire History; either corresponds to the duration of all \n"
+"                    the events, and/or the duration represented by the "
+"summary, if it exists."
+msgstr ""
+"Duur van de gehele Geschiedenis; komt ofwel overeen met de duur van alle "
+"gebeurtenissen, en/ofwel met de duur zoals weergegeven door de samenvatting "
+"indien die bestaat."
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:72
+msgid "summary"
+msgstr "samenvatting"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/history.py:73
+msgid ""
+"Optional summary data expressing e.g. text or image which summarises \n"
+"                         entire History."
+msgstr ""
+"Optionele samenvatting: gegevens die in bijvoorbeeld tekst of beeld  de "
+"gehele Geschiedenis samenvatten."
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/intervalevent.py:38
+msgid "width"
+msgstr "breedte"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/intervalevent.py:39
+msgid ""
+"Length of the interval during which the state was true. \n"
+"                      Void if an instantaneous event. OSHIP NOTE: The specs "
+"indicate \n"
+"                      this attribute is required but the text says it is "
+"Void if instantaneous.\n"
+"                      How should this conflict be resolved?"
+msgstr ""
+"Lengte van het interval gedurende hetwelk de status gelijk aan waar was. "
+"Ongeldig in geval van een instantane gebeurtenis. OSHIP aanvulling: de "
+"specificaties geven aan dat dit attribuut verplicht is, maar in de tekst "
+"staat dat hij Ongeldig is indien de gebeurtenis instantaan is. Hoe moet deze "
+"tegenspraak opgelost worden?"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/intervalevent.py:48
+msgid "mathFunction"
+msgstr "mathFunctie"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/intervalevent.py:49
+msgid ""
+"Mathematical function of the data of this event, e.g. \"maximum\", \"mean\" "
+"etc. \n"
+"                      Coded using openEHR Terminology group \"event math "
+"function\"."
+msgstr ""
+"Mathematische functio van de gegevens van deze gebeurtenis, bijvoorbeeld "
+"\"maximum\", \"gemiddelde\", etc. Is gecodeerd met de openEHR "
+"Terminologiegroep \"event math function\""
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/intervalevent.py:55
+msgid "sampleCount"
+msgstr "steekproeftelling"
+
+#: src/oship/openehr/rm/datastructures/history/interfaces/intervalevent.py:56
+msgid "Optional count of original samples to which this event corresponds."
+msgstr ""
+"Optioneel aantal van originele steekproeven waarmee deze gebeurtenis "
+"overeenkomt."
+
+#: src/oship/openehr/rm/datastructures/itemstructure/interfaces/itemlist.py:36
+#: src/oship/openehr/rm/datastructures/itemstructure/interfaces/itemtree.py:32
+#: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/cluster.py:36
+msgid "items"
+msgstr "items"
+
+#: src/oship/openehr/rm/datastructures/itemstructure/interfaces/itemlist.py:37
+msgid "Physical representation of the list."
+msgstr "Fysische representatie van de lijst"
+
+#: src/oship/openehr/rm/datastructures/itemstructure/interfaces/itemsingle.py:37
+msgid "item"
+msgstr "item"
+
+#: src/oship/openehr/rm/datastructures/itemstructure/interfaces/itemsingle.py:38
+msgid "Single item."
+msgstr "Enkel item."
+
+#: src/oship/openehr/rm/datastructures/itemstructure/interfaces/itemtable.py:47
+msgid "rows"
+msgstr "rijen"
+
+#: src/oship/openehr/rm/datastructures/itemstructure/interfaces/itemtable.py:48
+msgid ""
+"Physical representation of the table as a list of CLUSTERs, \n"
+"                    each containing the data of one row of the table."
+msgstr ""
+"Fysische weergave van de tabel als een lijst van CLUSTERs, elk bevattend de "
+"gegevens van één rij uit de tabel."
+
+#: src/oship/openehr/rm/datastructures/itemstructure/interfaces/itemtree.py:33
+msgid "Physical representation of the tree."
+msgstr "Fysische weergave van de boom."
+
+#: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/cluster.py:37
+msgid ""
+"Ordered list of items - CLUSTER or ELEMENT objects - under this CLUSTER."
+msgstr ""
+"Geordende lijst van items (CLUSTER of ELEMENT objecten) onder dit CLUSTER."
+
+#: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/element.py:34
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvboolean.py:34
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvstate.py:37
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordinal.py:42
+#: src/oship/openehr/rm/datatypes/timespecification/interfaces/dvtimespecification.py:38
+msgid "value"
+msgstr "waarde"
+
+#: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/element.py:35
+msgid "Data value of this leaf."
+msgstr "Gegevenswaarde van dit blad."
+
+#: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/element.py:41
+msgid "nullFlavor"
+msgstr "nullSoort"
+
+#: src/oship/openehr/rm/datastructures/itemstructure/representation/interfaces/element.py:42
+msgid "Flavor of null value, e.g. 'indeterminate', 'not asked', etc."
+msgstr ""
+"Soort van de null-waarde, bijvoorbeeld \"onbepaalbaar\", \"niet gevraagd\" "
+"enzovoort."
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvboolean.py:35
+msgid "The boolean value of this item."
+msgstr "De Boolse waarde van dit item"
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvidentifier.py:42
+msgid "Issuer"
+msgstr "Uitgever"
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvidentifier.py:43
+msgid ""
+"Authority which issues the kind of id used in the id field  \n"
+"                      of this object."
+msgstr ""
+"Autoriteit die de identificatortype uitgeeft voor het identificatorveld van "
+"dit object."
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvidentifier.py:49
+msgid "Assignor"
+msgstr "Toekenner"
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvidentifier.py:50
+msgid "Organisation that assigned the id to the item being identified."
+msgstr ""
+"Organisatie die de identificator toekende aan het te identificeren object."
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvidentifier.py:55
+#: src/oship/openehr/rm/support/identification/interfaces/accessgroupref.py:31
+#: src/oship/openehr/rm/support/identification/interfaces/locatableref.py:36
+#: src/oship/openehr/rm/support/identification/interfaces/objectref.py:38
+#: src/oship/openehr/rm/support/identification/interfaces/objectversionid.py:40
+msgid "Id"
+msgstr "Identificator"
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvidentifier.py:56
+msgid ""
+" The identifier value. Often structured, according to the \n"
+"                      definition of the issuing authority's rules."
+msgstr ""
+" De identificatorwaarde. Vaak gestructureerd, volgens de definitieregels van "
+"de utigevende autoriteit."
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvidentifier.py:63
+msgid ""
+"The identifier type, such as \"prescription\",or \"SSN\". \n"
+"                      One day a controlled vocabulary might be possible for "
+"this."
+msgstr ""
+"Het identificatorype, zoals bijvoorbeeld \"recept\", of \"BSN\". Ooit wordt "
+"een beheerde woordenschat mogelijk voor dit."
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvstate.py:38
+msgid ""
+"The state name. State names are determined by a state/event \n"
+"                      table defined in archetypes, and coded using openEHR "
+"Terminology \n"
+"                      or local archetype terms, as specified by the "
+"archetype.\n"
+"                      \n"
+"                      A module was added to the rm.support package to parse "
+"the State \n"
+"                      values from the archetype in the current context. This "
+"function \n"
+"                      is DvStateParser() and it may be called anywhere in "
+"the application\n"
+"                      that the developer needs to know the current available "
+"states.\n"
+"                      It returns a DvCodedText type.\n"
+"                      "
+msgstr ""
+"De toestandsnaam. Toestandsnamen worden bepaald door een "
+"toestanden/gebeurtenissen-tabel gedefinieerd in archetypen, en gecodeerd met "
+"behulp van openEHR Terminologie of lokale archetype termen, zoals "
+"gespecificeerd door het archetype. Een module was toegevoegd aan het "
+"rm.support package om de Toestandwaarden te doorlopen van het archetype in "
+"de huidige context. Deze functie is DvStateParser() en mag overal in de "
+"applicatie aangeroepen worden waar de ontwikkelaar achter de momenteel "
+"aanwezige toestanden wil komen. Retourneert het type DvCodedText.\n"
+"                      "
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvstate.py:52
+msgid "isTerminal"
+msgstr "isTerminaal"
+
+#: src/oship/openehr/rm/datatypes/basic/interfaces/dvstate.py:53
+msgid ""
+"Indicates whether this state is a terminal\n"
+"                      state, such as \"aborted\", \"completed\" etc\n"
+"                      from which no further transitions are possible.\n"
+"                      It is required and the default is False.\n"
+"                      "
+msgstr ""
+"Geeft aan of deze toestand een terminale toestand is, zoals \"afgebroken\", "
+"\"compleet\" enzovoort. Van hieruit zijn geen verdere overgangen mogelijk. "
+"Het veld is verplicht en de verstekwaarde is Onwaar\n"
+"                      "
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:33
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvparsable.py:38
+msgid "Size"
+msgstr "Grootte"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:34
+msgid ""
+"Original size in bytes of unencoded encapsulated data. I.e. encodings \n"
+"                    such as base64, hexadecimal etc do not change the value "
+"of this attribute."
+msgstr ""
+"Originele grootte in bytes van ongecodeerde ingekapselde gegevens. Dat "
+"betekent dat coderingen zoals base64, hexadecimaal, etcetera de waarde van "
+"dit attribuut niet doen veranderen."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:41
+msgid "charset"
+msgstr "Kararkterverzameling"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:42
+msgid ""
+"Name of character encoding scheme in which this value is encoded. \n"
+"        Coded from openEHR Code Set \"character sets\". Unicode is the "
+"default assumption \n"
+"        in openEHR, with UTF-8 being the assumed encoding. This attribute "
+"allows for \n"
+"        variations from these assumptions. Type==CodePhrase"
+msgstr ""
+"Naam van het karaktercoderingsschema waarin deze waarde is gecodeerd. "
+"Gecodeerd in de openEHR coderingsverzameling \"character sets\". Bij verstek "
+"wordt Unicode in openEHR gebruikt, met UTF-8 als verstekcodering. Dit "
+"attribuut maakt het mogelijk af te wijken van die verstekwaarden. Is van het "
+"type CodePhrase."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvencapsulated.py:52
+msgid ""
+"Optional indicator of the localised language in which the data \n"
+"                    is written, if relevant. Coded from openEHR Code Set "
+"\"languages\". Type==CodePhrase"
+msgstr ""
+"Optionele indicator van de gelokaliseerde taal waarin de gegevens zijn "
+"geschreven, indien relevant. Gecodeerd in de openEHR coderingsverzameling "
+"\"languages\". Is van het type CodePhrase."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:39
+msgid "Alternate Text"
+msgstr "Alternatieve Tekst"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:40
+msgid "Text to display in lieu of multimedia display/replay"
+msgstr "Weer te geven tekst in plaats van multimedia weergave."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:46
+msgid "Media Type"
+msgstr "Type medium"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:47
+msgid ""
+"Data media type coded from openEHR code set \"media types\" \n"
+"        (interface for the IANA MIME types code set)."
+msgstr ""
+"Gegevensmediumtype gecodeerd in de openEHR coderingsverzameling "
+"\"mediumtypes\" (grensvlak voor de IANA MIME-types coderingsverzameling)."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:54
+msgid "Compression Algorithm"
+msgstr "Compressiealgoritme"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:55
+msgid ""
+"Compression type, a coded value from the openEHR \"Integrity check\" \n"
+"        code set. Void means no compression."
+msgstr ""
+"Compressietype, een gecodeerde waarde in de openEHR \"integrity check\" "
+"coderingsverzameling."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:61
+msgid "Integrity Check"
+msgstr "Integriteitscontrole"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:62
+msgid "Binary cryptographic integrity checksum. Type==Array<Octet>"
+msgstr ""
+"Binaire cryptografische integriteitscontrolesom. Is van het type Array<Octet>"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:68
+msgid "Integrity Check Algorithm"
+msgstr "Integriteitscontrole-algoritme"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:69
+msgid ""
+"Type of integrity check, a coded value from the openEHR \"Integrity check\" "
+"code set."
+msgstr ""
+"Type van de integriteitscontrole, een gecodeerde waarde uit de openEHR "
+"\"Integrity check\" coderingsverzameling."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:75
+msgid "Thumbnail"
+msgstr "Miniatuur"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:76
+msgid ""
+"The thumbnail for this item, if one exists; \n"
+"                    mainly for graphics formats. Type == DvMultimedia"
+msgstr ""
+"De miniatuur voor dit item, indien aanwezig; voornamelijk in gebruik bij "
+"grafische formaten. Is van het type DvMultimedia"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:83
+msgid "URI"
+msgstr "URI"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:84
+msgid ""
+"URI reference to electronic information stored outside the record as a file, "
+"\n"
+"        database entry etc, if supplied as a reference. Type == DvUri."
+msgstr ""
+"URI-verwijzing naar digitale informatie opgeslagen buiten het record als een "
+"bestand, database-record, enzovoort indien gegeven als een verwijzing. Is "
+"van het type DvUri."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvmultimedia.py:91
+msgid "The actual data found at uri, if supplied inline. Type==Array<Octet>"
+msgstr ""
+"De actuele gegevens gevonden op de URI, indien ter plekke aangegeven. Is van "
+"het type Array<Octet>."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvparsable.py:45
+msgid "The string, which may validly be empty in some syntaxes"
+msgstr "De string die geldig leeg mag zijn in sommige syntaxen."
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvparsable.py:50
+msgid "Formalism"
+msgstr "Formalisme"
+
+#: src/oship/openehr/rm/datatypes/encapsulated/interfaces/dvparsable.py:51
+msgid "The name of the formalism, e.g. \"GLIF 1.0\", \"proforma\" etc."
+msgstr ""
+"De naam van het formalisme, bijvoorbeeld \"GLIF 1.0\", \"proforma\" "
+"enzovoort."
+
+#: src/oship/openehr/rm/datatypes/quantity/datetime/interfaces/dvdate.py:40
+msgid "ISO8601 date string"
+msgstr "ISO8601 datumstring"
+
+#: src/oship/openehr/rm/datatypes/quantity/datetime/interfaces/dvdatetime.py:36
+msgid "ISO8601 date/time string"
+msgstr "ISO8601 datum-tijdstring"
+
+#: src/oship/openehr/rm/datatypes/quantity/datetime/interfaces/dvduration.py:44
+msgid "ISO8601 duration"
+msgstr "ISO8601 tiidsduur"
+
+#: src/oship/openehr/rm/datatypes/quantity/datetime/interfaces/dvtime.py:40
+msgid "ISO8601 time string"
+msgstr "ISO8601 tijdstring"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvabsolutequantity.py:35
+msgid "Accuracy"
+msgstr "Nauwkeurigheid"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvabsolutequantity.py:36
+msgid ""
+"Accuracy of measurement, expressed as a half-range value of the diff type "
+"for this quantity (i.e. an accuracy of x means +/- x)."
+msgstr ""
+"Meetnauwkeurigheid, uitgedrukt als een halve afwijking van het verschiltype "
+"van deze kwantiteit (d.w.z. een nauwkeurigheid van x betekent +/- x)."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvamount.py:35
+msgid "accuracy"
+msgstr "nauwkeurigheid"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvamount.py:36
+msgid ""
+"Accuracy of measurement, expressed either as a half-range \n"
+"                         percent value (accuracyIsPercent = True) or a half-"
+"range\n"
+"                         quantity. A value of 0 means that accuracy was not "
+"recorded."
+msgstr ""
+"Meetnauwkeurigheid, uitgedrukt als hetzij een halve afwijking als percentage "
+"(dan is accuracyIsPercent waar), hetzij als een halve afwijkingswaarde. Een "
+"waarde nul betekent dat de meetnauwkeurigheid niet bepaald was."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvamount.py:44
+msgid "accuracyIsPercent"
+msgstr "accuracyIsPercent"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvamount.py:45
+msgid ""
+"If True, indicates that when this object was created, accuracy was recorded "
+"\n"
+"                    as a percent value; if False, as an absolute quantity "
+"value."
+msgstr ""
+"Indien waar, werd de meetnauwkeurigheid als percentage opgegeven bij de "
+"creatie van dit object. Indien onwaar, werd de nauwkeurigheid als een "
+"absolute hoeveelheid opgegeven."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvcount.py:39
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantity.py:40
+msgid "Magnitude"
+msgstr "Grootte"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvcount.py:40
+msgid "numeric magnitude of the quantity"
+msgstr "Numerieke grootte van de kwantiteit"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordered.py:47
+msgid "normalRange"
+msgstr "normalRange"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordered.py:48
+msgid "Optional normal range."
+msgstr "Optioneel normaal bereik"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordered.py:53
+msgid "otherReferenceRanges"
+msgstr "otherReferenceRanges"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordered.py:54
+msgid ""
+"Optional tagged other reference ranges for this value in \n"
+"                      its particular measurement context. A list of "
+"ReferenceRange types."
+msgstr ""
+"Als optioneel aangemerkte overige verwijzingsbereiken voor deze waarde in "
+"diens betreffende metingscontext. Is een lijst van ReferenceRange-typen."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordered.py:61
+msgid "normalStatus"
+msgstr "normaleToestand"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordered.py:62
+msgid ""
+"Optional normal status indicator of value with respect to normal \n"
+"                     range for this value. Often included by lab, even if "
+"the normal range \n"
+"                     itself is not included. Coded by ordinals in series "
+"HHH, HH, H, \n"
+"                     (nothing), L, LL, LLL; see openEHR terminology group "
+"\"normal status\"."
+msgstr ""
+"Optionele normale toestandsindicator voor de waarde met betrekking tot het "
+"normale bereik van deze waarde. Wordt vaak doorgegeven door het lab, zelfs "
+"als het normale bereik zelf niet wordt doorgegeven. Wordt gecodeerd met "
+"rangcodes in series als HHH, HH, H, (niets), L, LL, LLL; zie de openEHR "
+"terminologiegroep \"normal status\"."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordinal.py:43
+msgid " Ordinal position in enumeration of values. "
+msgstr " Rangpositie in enumeratie van waarden. "
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordinal.py:49
+msgid "symbol"
+msgstr "symbool"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvordinal.py:50
+msgid ""
+"Coded textual representation of this \n"
+"                       value in the enumeration, which may be strings made "
+"from \"+\" symbols, \n"
+"                       or other enumerations of terms such as \"mild\", "
+"\"moderate\", \"severe\",\n"
+"                       or even the same number series as the values,\n"
+"                       e.g. \"1\", \"2\", \"3\". Codes come from archetype."
+msgstr ""
+"Gecodeerde tekstweergave van deze waarde in de enumeratie, die kunnen "
+"bestaan uit strings van \"+\"-symbolen of andere enumeratie van termen zoals "
+"\"mild\", \"matig\", \"ernstig\" of zelfs dezelfde getallenreeks als de "
+"waarden, bijvoorbeeld \"1\", \"2\", \"3\", enzovoort. Codes komen uit het "
+"archetype vandaan."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:59
+msgid "numerator"
+msgstr "teller"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:60
+msgid "numerator of ratio"
+msgstr "teller van de breuk"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:65
+msgid "denominator"
+msgstr "noemer"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:66
+msgid "denominator of ratio"
+msgstr "noemer van de breuk"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:71
+msgid "type"
+msgstr "type"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:72
+msgid ""
+"Indicates semantic type of proportion, including percent, unitary etc."
+msgstr ""
+"Geeft het semantische type aan van de breuk, inclusief procentuele, unaire "
+"enzovoort verhoudingen."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:77
+msgid "precision"
+msgstr "precisie"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvproportion.py:78
+msgid ""
+"Precision to which the numerator and denominator values of the proportion \n"
+"                    are expressed, in terms of number of decimal places. The "
+"value 0 implies an \n"
+"                    integral quantity. The value -1 implies no limit, "
+"i.e.any number of decimal places."
+msgstr ""
+"Precisie uitgedrukt in decimalen van de teller en noemer van de breuk. De "
+"waarde nul impliceert een geheel getal en de waarde -1 impliceert geen "
+"enkele limiet, dat wil zeggen elk aantal decimalen is mogelijk."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantified.py:34
+msgid "magnitude"
+msgstr "grootte"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantified.py:35
+msgid ""
+"Numeric value of the quantity in canonical (i.e. single value)\n"
+"                          form. Implemented as constant, function or "
+"attribute in subtypes as\n"
+"                          appropriate. The type OrdereNumeric is mapped to "
+"the available \n"
+"                          appropriate type in each implementation technology."
+msgstr ""
+"Numerieke waarde van de grootheid in kanonieke vorm (d.w.z. een enkele "
+"waarde). Zo nodig geïmplementeerd als constante, functie of attribuut in "
+"subtypes. Het type GeordendNumeriek wordt gelinkt naar de beschikbare "
+"geschikte type in elke implementatietechnologie."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantified.py:43
+msgid "magnitudeStatus"
+msgstr "magnitudeStatus"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantified.py:44
+msgid ""
+"Optional status of magnitude with values:\n"
+"                                = : magnitude is a point value\n"
+"                                < : value is < magnitude\n"
+"                                > : value is > magnitude\n"
+"                                <= : value is <= magnitude\n"
+"                                >= : value is >= magnitude\n"
+"                                ~ : value is approximately magnitude\n"
+"                                If not present, meaning is =. "
+msgstr ""
+"Optionele status van grootte met de volgende codes: =: grootte is een "
+"puntwaarde; <: waarde is kleiner dan grootte; >: waarde is groter dan "
+"grootte; <=: waarde is hoogstens de grootte; >=: waarde is minstens de "
+"grootte; ~:waarde is bij benadering de grootte. Indien de status afwezig is, "
+"is de verstekcode =. "
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantity.py:41
+msgid "Numeric magnitude of the quantity."
+msgstr "Numerieke grootte van de grootheid."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantity.py:46
+msgid "Units"
+msgstr "Eenheden"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantity.py:47
+msgid ""
+"Stringified units, expressed in UCUM unit syntax, \n"
+"                    e.g. \"kg/m2\", \"mm[Hg]\", \"ms-1\", "
+"\"km/h\".Implemented accordingly in subtypes."
+msgstr ""
+"Eenheden in strings uitgedrukt in UCUM eenhedensyntax, bijvoorbeeld "
+"\"kg/m2\", \"mm[Hg]\", \"ms-1\", \"km/h\". Overeenkomstig geïmplementeerd in "
+"subtypen."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantity.py:54
+msgid "Precision"
+msgstr "Nauwkeurigheid"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/dvquantity.py:55
+msgid ""
+"Precision to which the value of the quantity is expressed, in terms of \n"
+"                    number of decimal places. The value 0 implies an "
+"integral quantity.\n"
+"                    The value -1 implies no limit, i.e. any number of "
+"decimal places."
+msgstr ""
+"Nauwkeurigheid waarin de waarde van de grootheid is uitgedrukt, aangegeven "
+"met het aantal decimalen. De waarde nul impliceert een geheel getal. De "
+"waarde -1 impliceert geen enkele limiet, d.w.z. elk aantal decimalen is "
+"mogelijk."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/referencerange.py:38
+msgid "meaning"
+msgstr "betekenis"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/referencerange.py:39
+msgid ""
+"Term whose value indicates the meaning of this range, \n"
+"                     e.g. \"normal\", \"critical\", \"therapeutic\" etc."
+msgstr ""
+"Term wiens waarde aangeeft wat de betekenis van dit bereik is, bijvoorbeeld "
+"\"normaal\", \"kritiek\", \"therapeutisch\" enzovoort."
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/referencerange.py:45
+msgid "range"
+msgstr "bereik"
+
+#: src/oship/openehr/rm/datatypes/quantity/interfaces/referencerange.py:46
+msgid "The data range for this meaning, e.g.\"critical\" etc."
+msgstr ""
+"Het gegevensbereik voor deze betekenis, bijvoorbeeld \"kritiek\" enzovoort."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/codephrase.py:32
+msgid "TerminologyId"
+msgstr "TerminologieId"
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/codephrase.py:33
+msgid ""
+"Identifier of the distinct terminology from\n"
+"                      which the code_string (or its elements) was extracted."
+msgstr ""
+"Identificator van de specifieke terminologie waaruit de code_string (of "
+"diens elementen) was gehaald."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/codephrase.py:39
+msgid "CodeString"
+msgstr "CodeString"
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/codephrase.py:40
+msgid ""
+"The key used by the terminology service to\n"
+"                      identify a concept or coordination of concepts.\n"
+"                      This string is most likely parsable inside the ter-\n"
+"                      minology service, but nothing can be assumed\n"
+"                      about its syntax outside that context."
+msgstr ""
+"Het steekwoord gebruikt door de terminologiedienst om een concept of reeks "
+"van concepten te identificeren. Deze string is hoogstwaarschijnlijk "
+"ontleedbaar binnen de terminologiedienst, maar er mag niets aangenomen "
+"worden over de syntax buiten die omgeving."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvcodedtext.py:44
+msgid "DefiningCode"
+msgstr "DefinitieCode"
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvcodedtext.py:45
+msgid ""
+"The term which the 'value' attribute is the\n"
+"                      defining_code:CODE_PHRASE textual rendition (i.e. "
+"rubric) of."
+msgstr ""
+"De term waarvoor het 'waarde'-attribuut een tekstuele weergave is met de "
+"definitie_code (van het type CODE_PHRASE)"
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvparagraph.py:37
+msgid ""
+"Items making up the paragraph, each of which is a text item \n"
+"                      (which may have its own formatting, and/or have "
+"hyperlinks).\n"
+"                      The list contents are DvText"
+msgstr ""
+"De paragraafvormende items, die elk een tekstitem zijn (en elk hun eigen "
+"formattering en/of hyperlinks kunnen hebben). Type van de lijstonderdelen is "
+"DvText."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:38
+msgid ""
+"Displayable rendition of the item, regardless of its \n"
+"                      underlying structure. For DV_CODED_TEXT, this is the \n"
+"                      rubric of the complete term as provided by the termi- "
+"\n"
+"                      nology service. No carriage returns, line feeds, or \n"
+"                      other non-printing characters permitted."
+msgstr ""
+"Toonbare weergave van het item, wat de onderliggende structuur ook is. Voor "
+"DV_CODED_TEXT is dit de rubriek van de complete term zoals in voorzien door "
+"de terminologiedienst. Terugloop-, regelovergang- of andere niet-afdrukbare "
+"tekens zijn niet toegestaan."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:47
+msgid "Mappings"
+msgstr "Associaties"
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:48
+msgid ""
+"A list of MappingTerm,terms from other terminologies most closely matching \n"
+"                      this term, typically used where the originator (e.g.  "
+"\n"
+"                      pathology lab) of information uses a local terminology "
+"\n"
+"                      but also supplies one or more equivalents from well- \n"
+"                      known terminologies (e.g. LOINC). The list contents "
+"should be of the type TermMapping"
+msgstr ""
+"Een lijst met termen uit andere terminologieën die zo goed mogelijk met deze "
+"term overeenkomen. Veelal gebruikt in de situatie waar de leverancier van de "
+"informatie (bijvoorbeeld een pathologie laboratorium) een lokale "
+"terminologie gebruikt, maar ook één of meerdere equivalente termen uit "
+"bekende terminologieën (bijvoorbeeld LOINC) aanlevert. De termen dienen van "
+"het type TermMapping te zijn."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:57
+msgid "Formatting"
+msgstr "Opmaak"
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:58
+msgid ""
+"A format string of the form \"name:value; name:value...\", \n"
+"                      e.g. \"font-weight : bold; font-family : Arial; font-"
+"size : 12pt;\". \n"
+"                      Values taken from W3C CSS2 properties lists "
+"\"background\" and \"font\"."
+msgstr ""
+"Een opmaakstring in de vorm van \"naam:waarde; naam:waarde;...\", zoals "
+"bijvoorbeeld \"font-weight: bold; font-family: Arial; font-size: 12pt;\". "
+"Waarden worden genomen uit de CSS2 eigenschaplijsten \"background\" en "
+"\"font\" van het W3C."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:65
+msgid "Hyperlink"
+msgstr "Hyperlink"
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:66
+msgid ""
+"Optional link sitting behind a section of plain text or \n"
+"                      coded term item as type DvUri."
+msgstr ""
+"Optionele koppeling achter een sectie van eenvoudige tekst of een gecodeerd "
+"term-item van het type DvUri."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:73
+msgid ""
+"Optional indicator of the localised language in which \n"
+"                      the value is written. Coded from openEHR Code Set \n"
+"                      \"languages\". Only used when either the text object "
+"is \n"
+"                      in a different language from the enclosing ENTRY, or  "
+"\n"
+"                      else the text object is being used outside of an ENTRY "
+"\n"
+"                      or other enclosing structure which indicates the "
+"language."
+msgstr ""
+"Optionele indicator van de gelokaliseerde taal waarin de waarde is gegeven. "
+"Gecodeerd met de openEHR codeverzameling \"languages\". De indicator wordt "
+"alleen gebruikt als hetzij het tekstobject in een taal is die afwijkt van "
+"die van het omvattende ENTRY, hetzij het tekstobject gebruikt wordt buiten "
+"een ENTRY of andere omvattende structuur die de taal aangeeft."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:83
+msgid "Encoding"
+msgstr "Codering"
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/dvtext.py:84
+msgid ""
+"Name of character encoding scheme in which this \n"
+"                      value is encoded. Coded from openEHR Code Set \n"
+"                      \"character sets\". Unicode is the default assumption "
+"in \n"
+"                      openEHR, with UTF-8 being the assumed encoding. \n"
+"                      This attribute allows for variations from these "
+"assumptions."
+msgstr ""
+"Naam van het karaktercoderingsschema waarin deze waarde is gecodeerd. "
+"Gecodeerd met de openEHR coderingsverzameling \"character sets\". Unicode "
+"wordt bij verstek aangenomen in openEHR, met UTF-8 de codering bij verstek. "
+"Dit attribuut staat zo toe af te wijken van de verstekwaarden."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:44
+msgid "The target term of the mapping as a CodePhrase."
+msgstr "De doelterm van de CodePhrase-associatie."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:49
+msgid "Match"
+msgstr "Overeenkomst"
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:50
+msgid ""
+"The relative match of the target term with respect to the \n"
+"                      mapped text item. \n"
+"                      Result meanings:\n"
+"                          '>': the mapping is to a broader term\n"
+"                          e.g. orginal text = \"arbovirus infection\", \n"
+"                          target = \"viral infection\"\n"
+"                          \n"
+"                          '=': the mapping is to a (supposedly)\n"
+"                          equivalent to the original item\n"
+"\n"
+"                          '<': the mapping is to a narrower term.\n"
+"                          e.g. original text = \"diabetes\", mapping\n"
+"                          = \"diabetes mellitus\".\n"
+"                          '?': the kind of mapping is unknown.\n"
+"\n"
+"                      The first three values are taken from the\n"
+"                      ISO standards 2788 (\"Guide to Establish-\n"
+"                      ment and development of monolingual the-\n"
+"                      sauri\") and 5964 (\"Guide to Establishment\n"
+"                      and development of multilingual thesauri\")."
+msgstr ""
+"De relatieve verhouding van het doelitem ten opzichte van te relateren "
+"tekstitem. Mogelijke waarden:\n"
+"'>' geeft een relatie aan naar een algemenere term (bijvoorbeeld een "
+"tekstitem 'arbovirus infectie' en het doelitem 'virale infectie'; '=' geeft "
+"een (naar aangenomen) equivalente relatie aan tussen tekstitem en doelitem;\n"
+"'<' geeft een relatie aan naar een specifiekere term (bijvoorbeeld een "
+"tekstitem 'diabetes' en het doelitem 'diabetes mellitus'); '?' geeft een "
+"onbekende verhouding aan. De eerste drie waarden komen uit de ISO "
+"standaarden 2788 (\"Gids ter vaststelling en ontwikkeling van enkeltalige "
+"thesauri\") en 9564 (\"Gids ter vaststelling en ontwikkeling van meertalige "
+"thesauri)."
+
+#: src/oship/openehr/rm/datatypes/text/interfaces/termmapping.py:76
+msgid ""
+"Purpose of the mapping e.g. \"automated\n"
+"                      data mining\", \"billing\", \"interoperability"
+msgstr ""
+"Het doel van de associatie, bijvoorbeeld \"geautomatiseerd datamining\", "
+"\"doorberekenen\", \"interoperabiliteit\"."
+
+#: src/oship/openehr/rm/datatypes/timespecification/interfaces/dvtimespecification.py:39
+msgid ""
+"the specification, in the HL7v3 syntax for PIVL or EIVL types. \n"
+"                    See section 8.2.2.1 Phase-linked Time Specification "
+"Syntax"
+msgstr ""
+"de specificering in HL7v3 syntax voor de typen PIVL en EIVL. Zie ook sectie "
+"8.2.2.1 Phase-linked Time Specification Syntax."
+
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:42
+msgid "The URI as a string."
+msgstr "De URI als een string."
+
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:47
+#: src/oship/openehr/rm/ehr/ehraccess.py:40
+#: src/oship/openehr/rm/ehr/interfaces/ehraccess.py:40
+#: src/oship/openehr/rm/support/identification/interfaces/genericid.py:35
+msgid "Scheme"
+msgstr "Schema"
+
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:48
+msgid "Distributed information space."
+msgstr "Gedistribueerde informatieruimte."
+
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:53
+#: src/oship/openehr/rm/support/identification/interfaces/locatableref.py:43
+msgid "Path"
+msgstr "Pad"
+
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:54
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:60
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:66
+msgid "_"
+msgstr "_"
+
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:59
+msgid "FragmentId"
+msgstr "FragmentIdentificator"
+
+#: src/oship/openehr/rm/datatypes/uri/interfaces/dvuri.py:65
+msgid "Query"
+msgstr "Zoekopdracht"
+
+#: src/oship/openehr/rm/demographic/address.py:36
+#: src/oship/openehr/rm/demographic/interfaces/address.py:40
+msgid "The details of the address."
+msgstr "De details van het adres."
+
+#: src/oship/openehr/rm/demographic/capability.py:36
+#: src/oship/openehr/rm/demographic/interfaces/capability.py:37
+msgid "Credentials"
+msgstr "Waarmerkingskenmerken"
+
+#: src/oship/openehr/rm/demographic/capability.py:37
+#: src/oship/openehr/rm/demographic/interfaces/capability.py:38
+msgid "Qualifications of the performer of the role."
+msgstr "Kwalificaties van de uitvoerder van de rol."
+
+#: src/oship/openehr/rm/demographic/capability.py:42
+#: src/oship/openehr/rm/demographic/interfaces/capability.py:44
+#: src/oship/openehr/rm/demographic/interfaces/contact.py:39
+#: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:56
+#: src/oship/openehr/rm/demographic/interfaces/role.py:46
+msgid "Time Validity"
+msgstr "Tijdsgeldigheid."
+
+#: src/oship/openehr/rm/demographic/capability.py:43
+#: src/oship/openehr/rm/demographic/interfaces/capability.py:45
+msgid "Valid time interval for the credentials of this capability."
+msgstr ""
+"Geldig tijdsinterval voor de waarmerkingskenmerken van deze bekwaamheid."
+
+#: src/oship/openehr/rm/demographic/interfaces/actor.py:34
+msgid "Roles"
+msgstr "Rollen"
+
+#: src/oship/openehr/rm/demographic/interfaces/actor.py:35
+msgid ""
+"Identifiers of the Version container for each Role played by this party."
+msgstr ""
+"Identificator van de Versiecontainer voor elke rol die deze belanghebbende "
+"speelt."
+
+#: src/oship/openehr/rm/demographic/interfaces/actor.py:40
+msgid "Languages"
+msgstr "Talen"
+
+#: src/oship/openehr/rm/demographic/interfaces/actor.py:41
+msgid "A list of languages to be used to communicate with this actor."
+msgstr ""
+"Een lijst van talen die gebruikt kan worden om met deze actor te "
+"communiceren."
+
+#: src/oship/openehr/rm/demographic/interfaces/contact.py:40
+msgid "Valid time interval for this contact descriptor."
+msgstr "Geldig tijdsinterval voor deze contactomschrijving."
+
+#: src/oship/openehr/rm/demographic/interfaces/contact.py:45
+msgid "Addresses"
+msgstr "Adressen"
+
+#: src/oship/openehr/rm/demographic/interfaces/contact.py:46
+msgid "A set of addresses for this purpose and time frame."
+msgstr "Een adressenverzameling voor dit doel en tijdsbestek."
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:42
+#: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:43
+msgid "Identifier of this party."
+msgstr "Identificator van deze belanghebbende."
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:47
+msgid "Indentities"
+msgstr "Identiteiten"
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:48
+msgid "Identities used by the party to identify itself."
+msgstr ""
+"Identiteiten gebruikt door de belanghebbende om zich te identificeren."
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:53
+msgid "Contacts"
+msgstr "Contactpersonen"
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:54
+msgid "Contacts for this party."
+msgstr "Contactpersonen voor deze belanghebbende."
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:60
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:59
+msgid "Category"
+msgstr "Categorie"
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:61
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:60
+msgid "Defines the broad category of this composition."
+msgstr "Definieert de brede categorie van deze compositie."
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:68
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:67
+msgid ""
+"Indicator of the localised language where this composition was created."
+msgstr ""
+"Indicator van de gelokaliseerde taal waarin deze compositie werd aangemaakt."
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:73
+msgid "Relationships"
+msgstr "Relaties"
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:74
+msgid "Relationships in which this role takes part as target."
+msgstr "Relaties waarin deze rol deelneemt als doel."
+
+#: src/oship/openehr/rm/demographic/interfaces/party.py:81
+msgid "All other party details."
+msgstr "Alle andere details over de belanghebbende."
+
+#: src/oship/openehr/rm/demographic/interfaces/partyidentified.py:42
+#: src/oship/openehr/rm/demographic/interfaces/partyidentity.py:41
+msgid "The value of the identitiy"
+msgstr "De waarde van de identiteit."
+
+#: src/oship/openehr/rm/demographic/interfaces/partyidentified.py:49
+#: src/oship/openehr/rm/demographic/interfaces/partyidentity.py:48
+msgid "Purpose fo this identitiy."
+msgstr "Doel van deze identiteit."
+
+#: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:57
+msgid "Valid time interval for this relationship."
+msgstr "Geldig tijdsinterval voor deze relatie."
+
+#: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:63
+msgid "Source"
+msgstr "Bron"
+
+#: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:64
+msgid "Source of relationship."
+msgstr "Bron van deze relatie."
+
+#: src/oship/openehr/rm/demographic/interfaces/partyrelationship.py:71
+msgid "Target of relationship."
+msgstr "Doel van deze relatie."
+
+#: src/oship/openehr/rm/demographic/interfaces/role.py:39
+msgid "Capabilities"
+msgstr "Mogelijkheden"
+
+#: src/oship/openehr/rm/demographic/interfaces/role.py:40
+msgid "Capabilities of this role."
+msgstr "Mogelijkheden van deze rol."
+
+#: src/oship/openehr/rm/demographic/interfaces/role.py:47
+msgid "Valid time interval for this role."
+msgstr "Geldig tijdsinterval voor deze rol."
+
+#: src/oship/openehr/rm/demographic/interfaces/role.py:55
+msgid "Reference to Version container of Actor playing this role."
+msgstr "Verwijzing naar de Versiecontainer van de Actor die deze rol speelt."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:41
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/activity.py:48
+msgid "Timing"
+msgstr "Tijdsduur"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:42
+msgid "Point in time of completion of this action."
+msgstr "Tijdstip waarop deze actie werd afgerond."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:49
+msgid "Description of the activity in ItemStructure form."
+msgstr "Beschrijving van de activiteit in de vorm ItemStructure."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:55
+msgid "ISM Transition"
+msgstr "ISM Overgang"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:56
+msgid "Details of the transition of the Instruction state."
+msgstr "Details van de overgang van de Instructie Status."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:62
+msgid "Instruction Details"
+msgstr "Instructiedetails"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/action.py:63
+msgid "Details of the Instruction causing this Action."
+msgstr "Details over de Instructie die de aanleiding gaf tot deze Actie."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/activity.py:42
+msgid "Description of the activity."
+msgstr "Omschrijving van de activiteit."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/activity.py:49
+msgid "Timing of the activity in a format such as ISO8601."
+msgstr "Tijdsduur van de activiteit in een formaat zoals ISO8601"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/activity.py:54
+msgid "Action ArchetypeId"
+msgstr "Actiearchetypeidentificator"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/activity.py:55
+msgid "re pattern enclosed in '//' delimiters."
+msgstr "Reguliere Expressie afgebakend door '//'-tekens."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/careentry.py:41
+msgid "Protocol"
+msgstr "Protocol"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/careentry.py:42
+msgid ""
+"Description of the method (i.e. how) the information in this \n"
+"                    entry was arrived at. For OBSERVATIONs, this is a "
+"description of the\n"
+"                    method or instrument used. For EVALUATIONs, how the "
+"evaluation was \n"
+"                    arrived at. For INSTRUCTIONs, how to execute the "
+"Instruction. \n"
+"                    This may take the form of references to guidelines, "
+"including \n"
+"                    manually followed and executable; knowledge references "
+"such as a\n"
+"                    paper in Medline; clinical reasons within a largercare "
+"process."
+msgstr ""
+"Omschrijving van de methode (d.w.z. hoe) de informatie in deze Invoer was "
+"verkregen. Voor OBSERVATIEs is dit een omschrijving van de gebruikte methode "
+"of het gebruikte instrument. Voor EVALUATIEs geeft dit aan hoe tot de "
+"conclusie gekomen werd. Voor INSTRUCTIEs geeft dit aan hoe de instructie "
+"uitgevoerd moet worden. Het kan in de vorm van: verwijzingen naar "
+"voorschriften, ook indien handmatig uit te voeren of uitgevoerd; "
+"verwijzingen naar kennisbronnen zoals een publicatie in Medline;  klinische "
+"redenen in een omvattend zorgproces."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/careentry.py:54
+msgid "guidelineId"
+msgstr "RichtlijnIdentificator"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/careentry.py:55
+msgid ""
+"Optional external identifier of guideline creating this \n"
+"                    action if relevant."
+msgstr ""
+"Optionele externe identificator van de richtlijn die aanleiding geeft tot "
+"deze actie, indien relevant."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:50
+msgid "language"
+msgstr "taal"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:51
+msgid ""
+"Mandatory indicator of the localised language in which this Entry \n"
+"                      is written. Coded from openEHR Code Set \"languages\"."
+msgstr ""
+"Verplicht aanwezige indicator van de gelokaliseerde taal waarin deze Entry "
+"is geschreven. Gecodeerd met de openEHR coderingsverzameling \"languages\"."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:58
+msgid "encoding"
+msgstr "Codering"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:59
+msgid ""
+"Name of character set in which text values in this Entry are encoded. \n"
+"                      Coded from openEHR Code Set \"character sets\"."
+msgstr ""
+"Naam van de tekenverzameling waarin de tekstwaarden in deze Entry zijn "
+"gecodeerd. Gecodeerd met de openEHR codeverzameling \"character sets\"."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:67
+msgid "subject"
+msgstr "onderwerp"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:68
+msgid ""
+"Id of human subject of this ENTRY, e.g.\n"
+"                           organ donor, foetus, a family member\n"
+"                           another clinically relevant person."
+msgstr ""
+"Identificator van het menselijke subject van deze INVOER, bijvoorbeeld een "
+"orgaan donor, een foetus, een familielid of een ander klinisch relevant "
+"persoon."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:76
+msgid "provider"
+msgstr "Leverancier"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:77
+msgid ""
+"Optional identification of provider of the informatoin in this ENTRY, which "
+"might be:\n"
+"                        the patient\n"
+"                        a patient agent, e.g. parent, guardian\n"
+"                        the clinician\n"
+"                        a device or software\n"
+"                       Generally only used when the recorder needs to make "
+"it explicit. Otherwise, Composition\n"
+"                       composer and other participants are assumed. "
+msgstr ""
+"Optionele identificatie van de leverancier van de informatie in deze ENTRY. "
+"Kan zijn: de patiënt: een patiëntvertegenwoordiger zoals bijvoorbeeld een "
+"ouder of voogd; de arts; een apparaat of programmatuur. In het algemeen "
+"alleen gebruikt wanneer degene die de gegevens invoert dit expliciet wil "
+"aangeven. Anders wordt bij verstek Compositieleverancier en overige "
+"deelnemers gebruikt. "
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:88
+msgid "otherParticipations"
+msgstr "overigeParticipaties"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:89
+msgid "Other participations at ENTRY level."
+msgstr "Andere deelnemers op het ENTRY-nivo."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:95
+msgid "workflowId"
+msgstr "WerkstroomIdentificator"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/entry.py:96
+msgid ""
+"Identifier of externally held workflow engine data for this \n"
+"                      workflow execution, for this subject of care."
+msgstr ""
+"Identificator van de extern bijgehouden werkstroominformatie ten behoeve van "
+"de werkstroomuitvoering voor dit zorgsubject."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/evaluation.py:39
+msgid "The data of this evaluation."
+msgstr "De gegevens van deze evaluatie."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instruction.py:40
+msgid "Narrative"
+msgstr "Verhalend"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instruction.py:41
+msgid "Human readable version of the Instructions."
+msgstr "Menselijk leesbare versie van de Instructies."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instruction.py:46
+msgid "Activities"
+msgstr "Activiteiten"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instruction.py:47
+msgid "List of all activities in the Instruction."
+msgstr "Lijst van alle activiteiten in de Instructie."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instruction.py:53
+msgid "Expiry Time"
+msgstr "Verloopdatum"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instruction.py:54
+msgid "Data/time when this Instruction can be assumed to have expired."
+msgstr ""
+"Datum/tijdstip waarvan wordt aangenomen dat hierna de Instructie verlopen is."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instruction.py:60
+msgid "Workflow Definition"
+msgstr "Werkstroomdefinitie"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instruction.py:61
+msgid "Workflow engine executable expression of the Instruction."
+msgstr ""
+"Uitvoerbare uitdrukking van de Instructie voor de werkstroomapplicatie."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instructiondetails.py:38
+msgid "Instruction Id"
+msgstr "InstructieIdentificator"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instructiondetails.py:39
+msgid "Reference to causing Instruction."
+msgstr "Verwijzing naar de veroorzakende Instructie"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instructiondetails.py:44
+msgid "Activity Id"
+msgstr "ActiviteitsIdentificator"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instructiondetails.py:45
+msgid "Indentifier of Activity within Instruction."
+msgstr "Identificator van de Activiteit binnenin de Instructie."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instructiondetails.py:51
+msgid "WF Details"
+msgstr "WerkStroom Details"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/instructiondetails.py:52
+msgid "Various workflow engine state details."
+msgstr "Diverse details over de toestand van de werkstroomaandrijving."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/ismtransition.py:38
+msgid "Current State"
+msgstr "Huidige Toestand"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/ismtransition.py:39
+msgid "The ISM current state."
+msgstr "De huidige toestand van de ISM."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/ismtransition.py:45
+msgid "Transition"
+msgstr "Overgang"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/ismtransition.py:46
+msgid "The ISM transition which occured to arrive at the current state."
+msgstr "De ISM overgang die plaatsvond om in de huidige toestand te geraken."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/ismtransition.py:52
+msgid "Careflow Step"
+msgstr "ZorgstroomStap"
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/ismtransition.py:53
+msgid ""
+"The step in the careflow process which occured as part of this process."
+msgstr ""
+"De stap in het zorgstroomproces die optrad als onderdeel van dit proces."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/observation.py:43
+msgid ""
+"The data of this observation, in the form of a history of \n"
+"                    values which may be of any complexity."
+msgstr ""
+"De gegevens van deze observatie, in de vorm van een historie van waarden die "
+"willekeurig complex kunnen zijn."
+
+#: src/oship/openehr/rm/ehr/composition/content/entry/interfaces/observation.py:51
+msgid ""
+"Optional recording of the state of subject of this\n"
+"                    observation during the observation process, in the form "
+"of \n"
+"                    a separate history of values which may be of any "
+"complexity. \n"
+"                    State may also be recorded within the History of the "
+"data attribute."
+msgstr ""
+"Optionele vastlegging van de toestand van het onderwerp van observatie ten "
+"tijde van de observatie, in de vorm van een aparte historie van waarden van "
+"willekeurige complexiteit. De toestand kan ook vastgelegd worden in de "
+"Historie van het gegevensattribuut."
+
+#: src/oship/openehr/rm/ehr/composition/content/navigation/interfaces/section.py:36
+msgid ""
+"Ordered list of content items that may include more SECTIONs or ENTRYs."
+msgstr ""
+"Geordende lijst van inhoudsitems die meerdere SECTIEs en INVOERen kan "
+"omvatten."
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:38
+msgid "Content"
+msgstr "Inhoud"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:39
+msgid "Content of this composition."
+msgstr "Inhoud van deze compositie."
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:45
+msgid "Context"
+msgstr "Context"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:46
+msgid "The clinical session context."
+msgstr "De context van de klinische sessie."
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:52
+msgid "Composer"
+msgstr "Opsteller"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:53
+msgid ""
+"The party responsible for the content. It may not be the actual person "
+"entering the data."
+msgstr ""
+"De verantwoordelijke voor de inhoud. Dit hoeft niet degene te zijn die de "
+"gegevens heeft ingevoerd."
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:73
+msgid "Territory"
+msgstr "Territorium"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:74
+msgid "Territory where this composition was written. ISO 3166."
+msgstr "Territorium waarin deze compositie was geschreven, volgens ISO 3166"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:79
+#: src/oship/openehr/rm/ehr/interfaces/versionedcomposition.py:33
+msgid "Persistent"
+msgstr "Blijvend"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/composition.py:80
+msgid "Used to locate items that are of interest to most users."
+msgstr ""
+"Gebruikt om items te vinden die van belang zijn voor de meeste gebruikers."
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:40
+msgid "Healthcare Facility"
+msgstr "Gezondheidszorg Voorziening"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:41
+msgid "Where this event took place."
+msgstr "Waar deze gebeurtenis plaats vond."
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:47
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:48
+msgid "Start Time"
+msgstr "Starttijd"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:54
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:55
+msgid "End Time"
+msgstr "Eindtijd"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:60
+msgid "Participations"
+msgstr "Deelnemers"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:61
+msgid "List of all parties involved in the event."
+msgstr "Lijst van alle partijen die betrokken waren bij de gebeurtenis."
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:67
+msgid "Physical location of this event; ABCLab, home,etc."
+msgstr ""
+"Plaats van handeling: bijvoorbeeld ABClaboratorium, thuis, enzovoort."
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:73
+msgid "Setting"
+msgstr "Instelling"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:74
+msgid "The setting of the clinical event."
+msgstr "De context van de klinische gebeurtenis."
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:80
+msgid "Other Context"
+msgstr "Andere Context"
+
+#: src/oship/openehr/rm/ehr/composition/interfaces/eventcontext.py:81
+msgid "Other optional archetyped context."
+msgstr "Andere optionele gearchetypeerde context."
+
+#: src/oship/openehr/rm/ehr/ehraccess.py:34
+#: src/oship/openehr/rm/ehr/interfaces/ehraccess.py:34
+msgid "Settings"
+msgstr "Instellingen"
+
+#: src/oship/openehr/rm/ehr/ehraccess.py:35
+#: src/oship/openehr/rm/ehr/interfaces/ehraccess.py:35
+msgid "Access control settings for this EHR."
+msgstr "Toegangscontrole-instellingen voor dit EHR."
+
+#: src/oship/openehr/rm/ehr/ehraccess.py:41
+#: src/oship/openehr/rm/ehr/interfaces/ehraccess.py:41
+msgid "Name of the access control scheme."
+msgstr "Naam van het toegangscontroleschema."
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:38
+msgid "Id of system where this EHR was created."
+msgstr "Identificator van het systeem waarin dit EHR werd aangemaakt"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:44
+msgid "EHR ID"
+msgstr "EHR ID"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:45
+msgid "Id of this EHR."
+msgstr "Identificator van dit EHR"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:51
+msgid "Created"
+msgstr "Aangemaakt"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:52
+msgid "Creation data/time"
+msgstr "Aanmaakdatum"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:57
+msgid "Contributions"
+msgstr "Bijdragen"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:58
+msgid "List of contributions causing changes to this EHR."
+msgstr "Lijst van bijdragen die veranderingen in dit EHR veroorzaakten."
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:64
+msgid "EHR Access"
+msgstr "EHR Toegang"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:65
+msgid "A reference to the EHR Access object."
+msgstr "Een verwijzing naar het EHR Toegangsobject."
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:71
+msgid "EHR Status"
+msgstr "EHR Status"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:72
+msgid "A reference to the EHR Status object."
+msgstr "Een verwijzing naar het EHR Statusobject"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:78
+msgid "Directory"
+msgstr "Map"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:79
+msgid "Optional directory structure."
+msgstr "Optionele mappenstructuur."
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:84
+msgid "Compositions"
+msgstr "Composities"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehr.py:85
+msgid "Master list of all compositions references."
+msgstr "Oerlijst met alle compositiereferenties."
+
+#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:37
+msgid "The subject of this EHR."
+msgstr "Het onderwerp van dit EHR."
+
+#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:42
+msgid "Queryable"
+msgstr "Uitvraagbaar"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:43
+msgid "True if this EHR can be included in population wide queries."
+msgstr "Waar, indien dit EHR in bevolkingsbrede uitvragingen kan deelnemen."
+
+#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:49
+msgid "Modifiable"
+msgstr "Modificeerbaar"
+
+#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:50
+msgid "True if this EHR can be written to."
+msgstr "Waar, indien er in dit EHR geschreven kan worden."
+
+#: src/oship/openehr/rm/ehr/interfaces/ehrstatus.py:57
+msgid "Any other details of the EHR summary."
+msgstr "Ieder overig detail van de EHR-samenvatting."
+
+#: src/oship/openehr/rm/ehr/interfaces/versionedcomposition.py:34
+msgid "Indicates whether this compsoition set is persistent."
+msgstr "Geeft aan of deze compositie als blivend is ingesteld."
+
+#: src/oship/openehr/rm/integration/interfaces/genericentry.py:37
+msgid "an ITEM_TREE - The 'data' from the source message or record."
+msgstr "een ITEM_TREE - De 'gegevens' van het bronbericht of -dossier."
+
+#: src/oship/openehr/rm/support/definition/interfaces/basicdefinitions.py:31
+msgid "CR"
+msgstr "CR"
+
+#: src/oship/openehr/rm/support/definition/interfaces/basicdefinitions.py:32
+msgid "Carriage Return Character"
+msgstr "Terugloopteken"
+
+#: src/oship/openehr/rm/support/definition/interfaces/basicdefinitions.py:39
+msgid "LF"
+msgstr "LF"
+
+#: src/oship/openehr/rm/support/definition/interfaces/basicdefinitions.py:40
+msgid "Line Feed Character"
+msgstr "Regelovergangsteken"
+
+#: src/oship/openehr/rm/support/identification/interfaces/accessgroupref.py:32
+#: src/oship/openehr/rm/support/identification/interfaces/partyref.py:40
+msgid "Globally unique id of an object, regardless of where it is stored."
+msgstr ""
+"Mondiaal unieke identificator van een object, onafhankelijk waar het "
+"opgeslagen is."
+
+#: src/oship/openehr/rm/support/identification/interfaces/accessgroupref.py:37
+#: src/oship/openehr/rm/support/identification/interfaces/objectref.py:44
+#: src/oship/openehr/rm/support/identification/interfaces/partyref.py:45
+msgid "Namespace"
+msgstr "Naamruimte"
+
+#: src/oship/openehr/rm/support/identification/interfaces/accessgroupref.py:38
+#: src/oship/openehr/rm/support/identification/interfaces/objectref.py:45
+#: src/oship/openehr/rm/support/identification/interfaces/partyref.py:46
+msgid ""
+"Namespace to which this identifier belongs in\n"
+"                       the local system context (and possibly in any\n"
+"                       other openEHR compliant environment) e.g.\n"
+"                       \"terminology\", \"demographic\". These names\n"
+"                       are not yet standardised. Legal values for the\n"
+"                       namespace are\n"
+"                       \"local\" | \"unknown\" | \"[a-zA-\n"
+"                       Z][a-zA-Z0-9_-:/&+?]*\" "
+msgstr ""
+"Naamruimte waarin deze identificator hoort in de context van het lokale "
+"systeem (en mogelijkerwijs in ieder andere omgeving die voldoet aan de "
+"openEHR specificaties), bijvoorbeeld \"terminologie\", \"demografisch\". "
+"Deze namen zijn nog niet gestandaardiseerd. Geldige waarden voor de "
+"naamruimte zijn \"lokaal\" | \"onbekend\" | \"[a-zA-Z][a-aA-Z0-9_-:/&+?*\" "
+
+#: src/oship/openehr/rm/support/identification/interfaces/accessgroupref.py:52
+#: src/oship/openehr/rm/support/identification/interfaces/objectref.py:59
+#: src/oship/openehr/rm/support/identification/interfaces/partyref.py:60
+msgid ""
+"Name of the class (concrete or abstract) of object to which this \n"
+"                          identifier type refers, e.g.\"PARTY\", \"PERSON\", "
+"\"GUIDELINE\" etc.\n"
+"                          These class names are from the relevant reference "
+"model. \n"
+"                          The type name \"ANY\" can be used to indicate that "
+"any type is accepted \n"
+"                          (e.g. if the type is unknown). "
+msgstr ""
+"Naam van de klasse (concreet of abstract) van het object waar dit "
+"identificatortype naar verwijst, bijvoorbeeld \"PARTIJ\", \"PERSOON\", "
+"\"RICHTLIJN\", enzovoort. Deze klassenamen komen uit het relevante "
+"referentiemodel. De klassenaam \"ANY\" kan gebruikt worden om aan te geven "
+"dat elk type acceptabel is (bijvoorbeeld als het type onbekend is). "
+
+#: src/oship/openehr/rm/support/identification/interfaces/archetypeid.py:75
+#: src/oship/openehr/rm/support/identification/interfaces/objectid.py:40
+#: src/oship/openehr/rm/support/identification/interfaces/templateid.py:33
+#: src/oship/openehr/rm/support/identification/interfaces/terminologyid.py:41
+#: src/oship/openehr/rm/support/identification/interfaces/uidbasedid.py:35
+msgid "A single unicode string containing a valid ID"
+msgstr "Een enkele unicodestring die een geldige identificator bevat"
+
+#: src/oship/openehr/rm/support/identification/interfaces/genericid.py:36
+msgid "Name of the scheme to which this identifier conforms."
+msgstr "Naam van het schema waaraan deze identificator zich conformeert."
+
+#: src/oship/openehr/rm/support/identification/interfaces/internetid.py:36
+msgid "A single unicode string containing a valid URL"
+msgstr "Een enkele unicodestring die een geldige URL bevat"
+
+#: src/oship/openehr/rm/support/identification/interfaces/isooid.py:37
+#: src/oship/openehr/rm/support/identification/interfaces/uid.py:35
+#: src/oship/openehr/rm/support/identification/interfaces/uuid.py:36
+msgid "A single unicode string containing a valid UID"
+msgstr ""
+"Een enkele unicodestring die een geldige mondiale identificator bevat."
+
+#: src/oship/openehr/rm/support/identification/interfaces/locatableref.py:37
+msgid ""
+"id is redefined here to contain an ObjectVersionId. The identifier of the "
+"Version."
+msgstr ""
+"De identificator wordt hier herdefinieerd om een ObjectVersionId te "
+"bevatten, de identificator van de Versie."
+
+#: src/oship/openehr/rm/support/identification/interfaces/locatableref.py:44
+msgid ""
+"The path to an instance in question, as an absolute path \n"
+"        with respect to the object found at VERSION.data. An empty path "
+"means that\n"
+"        the object referred to by id being specified."
+msgstr ""
+"Het pad naar een objectconcretisatie als een absoluut pad met betrekking tot "
+"het object gevonden in de VERSION.gegevens. Een leeg pad betekent dat het "
+"object waarnaar gerefereerd wordt via de identificator wordt gespecificeerd."
+
+#: src/oship/openehr/rm/support/identification/interfaces/objectref.py:39
+msgid ""
+"Globally unique id of an object (of type ObjectId), regardless of where it "
+"is stored."
+msgstr ""
+"Mondiaal unieke identificator van een object (van het type ObjectId), waar "
+"het ook opgeslagen is."
+
+#: src/oship/openehr/rm/support/identification/interfaces/objectversionid.py:41
+msgid "Unique identifier for a single version of a logical object."
+msgstr "Unieke identificator voor een enkel versie van een logisch object."
+
+#: src/oship/openehr/rm/support/identification/interfaces/objectversionid.py:46
+msgid "Version Tree Id"
+msgstr "Versie BoomIdentificator"
+
+#: src/oship/openehr/rm/support/identification/interfaces/objectversionid.py:47
+msgid "Tree identifier of this version."
+msgstr "Boomidentificator van deze versie"
+
+#: src/oship/openehr/rm/support/identification/interfaces/objectversionid.py:52
+msgid "Creating System Id"
+msgstr "Identificator van het creatiesysteem"
+
+#: src/oship/openehr/rm/support/identification/interfaces/objectversionid.py:53
+msgid "Identifier of the system that created this version."
+msgstr "Identificator van het systeem dat deze versie creerde."
+
+#: src/oship/openehr/rm/support/identification/interfaces/objectversionid.py:57
+msgid "Is Branch"
+msgstr "Is een tak"
+
+#: src/oship/openehr/rm/support/identification/interfaces/objectversionid.py:58
+msgid "True if this version ID represents a branch."
+msgstr "Waar indien deze versie-identificator een aftakking aanduidt."
+
+#: src/oship/openehr/rm/support/identification/interfaces/partyref.py:39
+msgid "Object Id"
+msgstr "Object identificator"
+
+#: src/oship/openehr/rm/support/identification/interfaces/versiontreeid.py:33
+msgid "String form of this Version Tree identifier."
+msgstr "Stringvorm van deze Versieboomidenticator"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:35
+msgid "Code Set Id Character Sets"
+msgstr "Codeset Identificator Karaktersets"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:36
+msgid "character sets"
+msgstr "Karaktersets"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:41
+msgid "Code Set Id Compression Algorithms"
+msgstr "Codeset Identificator Compressiealgoritmes"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:42
+msgid "compression algorithms"
+msgstr "Compressiealgoritmes"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:47
+msgid "Code Set Id Countries"
+msgstr "Codeset Identificator Landen"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:48
+msgid "countries"
+msgstr "landen"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:53
+msgid "Code Set Id Integrity Check Algorithms"
+msgstr "Codeset Identificator Controle-algoritmes"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:54
+msgid "integrity check algorithms"
+msgstr "integriteitscontrole-algoritmes"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:59
+msgid "Code Set Id Languages"
+msgstr "Codeset Identificator Talen"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:60
+msgid "languages"
+msgstr "talen"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:65
+msgid "Code Set Id Media Types"
+msgstr "Codeset Identificator Mediatypes"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:66
+msgid "media types"
+msgstr "mediatypes"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:71
+msgid "Code Set Id Normal Statuses"
+msgstr "Codeset Identificator"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrcodesetidentifiers.py:72
+msgid "normal statuses"
+msgstr "normaalstatussen"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:100
+msgid "Group Id Related Party Relationship"
+msgstr "Groepsidentificator Betrokkeneverband"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:101
+msgid "related party relationship"
+msgstr "betrokkeneverband"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:106
+msgid "Group ID Setting"
+msgstr "Groepsidentificator omgeving"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:107
+msgid "setting"
+msgstr "omgeving"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:112
+msgid "Group Id Term Mapping Purpose"
+msgstr "Groepsidentificator Termbinding Doel"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:113
+msgid "term mapping purpose"
+msgstr "termbinding doel"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:119
+msgid "Group Id Version Lifecycle State"
+msgstr "Groepsidentificator Versie Bestaanscyclus Toestand"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:120
+msgid "version lifecycle state"
+msgstr "versie bestaanscyclus toestand"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:32
+msgid "Terminology ID"
+msgstr "Terminologie Identificator"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:33
+msgid "Name of openEHR's own terminology"
+msgstr "Naam van de terminologie van openEHR zelf"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:39
+msgid "Group ID Audit Change"
+msgstr "Groepsidentificator Audit Aanpassing"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:40
+msgid "audit change type"
+msgstr "audit aanpassingstype"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:45
+msgid "Group ID Atesstation Reason"
+msgstr "Groepsidentificator Attest Reden"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:46
+msgid "attestation reason"
+msgstr "attest reden"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:51
+msgid "Group ID Composition Category"
+msgstr "Groepsidentificator Compositiecategorie"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:52
+msgid "composition category"
+msgstr "compositiecategorie"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:57
+msgid "Group Id Event Math Function"
+msgstr "Groepsidentificator Gebeurtenis Mathematische functie"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:58
+msgid "event math function"
+msgstr "gebeurtenis mathematische functie"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:63
+msgid "Group ID ISM States"
+msgstr "Groepsidentificator Interne Staat Machine Toestanden"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:64
+msgid "ISM states"
+msgstr "Interne Staat Machine toestanden"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:69
+msgid "Group ID ISM Transitions"
+msgstr "Groepsidentificator Interne Staat Machine Overgangen"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:70
+msgid "ISM transitions"
+msgstr "Interne Staat Machine overgangen"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:75
+msgid "Group ID Null Flavours"
+msgstr "Groepsidentificator Null Smaken"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:76
+msgid "null flavours"
+msgstr "null smaken"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:81
+msgid "Group ID Measurable Properties"
+msgstr "Groepsidentificator Meetbare Eigenschappen"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:82
+msgid "measurable properties"
+msgstr "meetbare eigenschappen"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:88
+msgid "Group ID Participation Function"
+msgstr "Groepsidentificator Participatiefunctie"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:89
+msgid "participation function"
+msgstr "participatiefunctie"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:94
+msgid "Group ID Participation Mode"
+msgstr "Groepsidentificator Deelnamemodus"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/openehrterminologygroupidentifiers.py:95
+msgid "participation mode"
+msgstr "deelnamemodus"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/terminologyaccess.py:32
+msgid "ID"
+msgstr "Identificator"
+
+#: src/oship/openehr/rm/support/terminology/interfaces/terminologyaccess.py:33
+msgid "Identification of this Terminology"
+msgstr "Identificator van deze terminologie"

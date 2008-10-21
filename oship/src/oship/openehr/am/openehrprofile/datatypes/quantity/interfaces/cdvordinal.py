@@ -17,7 +17,7 @@ From the openEHR Archetype Profile specifications Rev. 1.0.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface
+from zope.schema import Set,Object
 from zope.i18nmessageid.message import MessageFactory 
 
 from oship.openehr.am.archetype.constraintmodel.interfaces.cdomaintype import ICDomainType
@@ -30,11 +30,11 @@ class ICDvOrdinal(ICDomainType):
     Class specifying constraints on instances of DV_ORDINAL. Custom constrainer type for instances of DV_ORDINAL.
     """
     
-    list = Set(
+    list_ = Set(
         title=_(u"List"),
         description=_(u"""Set of allowed DV_ORDINALS."""),
         required=True,
-        vaue_type=Object(schema=IDvOrdinal),
+        value_type=Object(schema=IDvOrdinal),
         )
      
     

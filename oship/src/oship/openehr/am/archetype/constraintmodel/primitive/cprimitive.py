@@ -19,7 +19,7 @@ from zope.interface import implements
 from zope.i18nmessageid.message import MessageFactory
 from zope.schema import Field
 
-from oship.openehr.am.archetype.constraintmodel.interfaces.cprimitive import ICPrimitive
+from oship.openehr.am.archetype.constraintmodel.primitive.interfaces.cprimitive import ICPrimitive
 
 _ = MessageFactory('oship')
 

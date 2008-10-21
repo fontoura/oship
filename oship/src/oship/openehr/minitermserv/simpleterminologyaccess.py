@@ -20,28 +20,26 @@ __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements
-from openehr.rm.support.terminology.terminologyaccess import TerminologyAccess
-from openehr.rm.support.identification.terminologyid import TerminologyId
-from openehr.rm.datatypes.text.codephrase import CodePhrase
+from oship.openehr.rm.support.terminology.terminologyaccess import TerminologyAccess
+from oship.openehr.rm.support.identification.terminologyid import TerminologyId
+from oship.openehr.rm.datatypes.text.codephrase import CodePhrase
 
 _ = MessageFactory('oship')
 
-class SimpleTerminologyAccess():
+class SimpleTerminologyAccess(TerminologyAccess):
     """
     Simple in-memory implementation of a terminology access
     """
 
-    implements(TerminologyAccess)
-
-    def __init__(self, id):
+    def __init__(self, id_):
         u"""
         groups is a dictionary of groups indexed by group id
         codeRubrics is a dictionary where the key is a language and the value is a dictionary of concept.id to concept.rubric
         groupLangNameToId is a dictionary where the key is a languagen and the value is a dictionary of group.name to groupId
                 Use group.name in english as a groupId
         """
-        self.identifier = id
-        self.terminologyId = TerminologyId(id)
+        self.identifier = id_
+        self.terminologyId = TerminologyId(id_)
         self.groups = {}
         self.groupLangNameToId = {}
         self.codeRubrics = {}

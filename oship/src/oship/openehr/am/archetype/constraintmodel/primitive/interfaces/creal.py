@@ -19,7 +19,7 @@ from zope.schema import Set,Float
 from zope.i18nmessageid.message import MessageFactory
 
 from oship.openehr.rm.support.interval import Interval
-from oship.openehr.am.archetype.constraintmodel.interfaces.cprimitive import ICPrimitive
+from oship.openehr.am.archetype.constraintmodel.primitive.interfaces.cprimitive import ICPrimitive
 
 _ = MessageFactory('oship')
 
@@ -28,20 +28,20 @@ class ICReal(ICPrimitive):
     Constraints on instances of Real
     """
     
-    list=Set(
+    list_=Set(
         title=_(u"List"),
         description=_(u"Set of Reals specifying constraint"),
         required=False,
-        value_type=Float,
     )
 
-
+    """ Interval is no a Zope schema field
     range=Interval(
         title=_(u"Range"),
         description=_(u" "),
         required=False,
     )
-
+    """
+    
     assumedValue=Float(
         title=_(u"Assumed Value"),
         description=_(u""),

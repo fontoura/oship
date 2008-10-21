@@ -26,7 +26,7 @@ from zope.schema import List,Object
 
 from oship.openehr.rm.common.archetyped.interfaces.locatable import ILocatable
 from oship.openehr.rm.datatypes.quantity.interfaces.dvinterval import IDvInterval
-from oship.openehr.rm.demographic.interfaces.contact import IContact
+from oship.openehr.rm.demographic.interfaces.address import IAddress
 
 _ = MessageFactory('oship')
 
@@ -40,11 +40,11 @@ class IContact(ILocatable):
         schema=IDvInterval,
         title=_(u"Time Validity"),
         description=_(u"Valid time interval for this contact descriptor."),
-        requires=False,
+        required=False,
     )
     
     addresses=List(
-        value_type = Object(schema = IContact),
+        value_type = Object(schema = IAddress),
         title=_(u"Addresses"),
         description=_(u"A set of addresses for this purpose and time frame."),
         required=True,

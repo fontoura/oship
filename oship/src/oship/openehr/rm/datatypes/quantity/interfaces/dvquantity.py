@@ -57,7 +57,7 @@ class IDvQuantity(IDvAmount):
                     number of decimal places. The value 0 implies an integral quantity.
                     The value -1 implies no limit, i.e. any number of decimal places."""),        
         required=False,
-        constraint = precisionValid
+        #constraint = precisionValid
         )
     def precisionValid():
         """Precision must be >= -1"""

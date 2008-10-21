@@ -42,7 +42,7 @@ class IParty(ILocatable):
     """
     
     uid=Object(
-        schema=IHeirObjectId,
+        schema=IHierObjectId,
         title=_(u"UID"),
         description=_(u"Identifier of this party."),
         required=True,

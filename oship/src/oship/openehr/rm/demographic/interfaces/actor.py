@@ -19,7 +19,7 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __Contributors__ = u'Roberto Cunha <roliveiracunha@yahoo.com.br>'
 
-from zope.schema import Set,List,TextLine
+from zope.schema import Set,List,TextLine,Object
 from zope.i18nmessageid import MessageFactory
 from oship.openehr.rm.datatypes.text.interfaces.dvtext import IDvText
 from oship.openehr.rm.support.identification.interfaces.partyref import IPartyRef
@@ -34,7 +34,6 @@ class IActor(IParty):
     """
     
     roles=Set(
-        value_type=TextLine(),
         title=_(u"Roles"),
         description=_(u"Identifiers of the Version container for each Role played by this party."),
         required=False,
@@ -42,7 +41,6 @@ class IActor(IParty):
     )
     
     languages=List(
-        value_type=TextLine(),
         title=_(u"Languages"),
         description=_(u"A list of languages to be used to communicate with this actor."),
         required=False,

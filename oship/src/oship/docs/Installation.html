@@ -1,5 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN"
- "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <HTML>
 <HEAD>
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
@@ -21,10 +20,11 @@
         mailing list</a>)</h6>
 
         <h2>Installing the OSHIP framework on GNU Linux</h2>
+        <p>
         In the following lines with instructions (in pink), the leading <b>$</b> represents the tail of your
         system prompt. It may be necessary to prefix the commands with 'sudo' when you, using a non-administrator account,
         try to install into system-wide Python directories.
-
+        </p>
 
         <h3>Prerequisites</h3>
         <dl>
@@ -206,13 +206,13 @@ Scripts\activate.bat</pre>
 <blockquote>
         <P><em>13) Now some stuff that made it work in Allesandro's situation (used when Python2.4 was required for OSHIP).<br>
         We need to decide whether this is still needed</em></P>
-Install MinGW g++ compiler<BR>
+<p>Install MinGW g++ compiler</p>
 <P>13b) create a folder called libs in c:\oshipenv</P>
 <P>(oshipenv) c:\oshipenv&gt; mkdir libs</P>
 <P>(oshipenv) c:\oshipenv&gt;cd libs</P>
 <P>(oshipenv) c:\oshipenv\libs&gt;copy c:\Python24\libs\libpython24.a<BR></P>
 <P>(oshipenv) c:\oshipenv\libs&gt;copy c:\Python24\libs\python24.lib<BR></P>
-Skip the rest of this step.
+<p>Skip the rest of this step.</p>
 </blockquote>
                 Configure distutils to use MinGW: edit the file <b>C:\oshipenv\Lib\distutils\distutils.cfg</b> with your
                 favorite editor and add the lines
@@ -248,10 +248,10 @@ Verify it is up by visiting <a href="http://localhost:8080/">http://localhost:80
 The login link is on the upper right side of the browser window. <em>login=admin password=abc123</em>
                 </li>
         </ol>
-Once the server is running you will need to add the application 'oship' in the form provided.  
+<p>Once the server is running you will need to add the application 'oship' in the form provided.  
 Then change your URL to http://localhost:8080/oship.  There are links on this page to the relevant APIs as well as 
 background information you need to build health care applications with OSHIP. 
-
+</p>
         <h2>Installing the demo-application in the OSHIP framework on MS Windows</h2>
         <p>&lt;To be written&gt;</p>
 

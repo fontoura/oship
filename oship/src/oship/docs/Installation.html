@@ -1,17 +1,18 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
 <HTML>
 <HEAD>
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
 	<TITLE>Installation of the OSHIP framework and the demo-application</TITLE>
-	<meta name="author" content="Tim Cook">
+	<meta name="author" content="Roger Erens">
 	<META NAME="CHANGEDBY" CONTENT="Timothy Cook">
 	<META NAME="CHANGEDBY" CONTENT="Roger Erens">
 	<META NAME="CHANGEDBY" CONTENT="Timothy Cook">
     <STYLE TYPE="text/css">
-            pre {background-color: pink;}
+            pre {background-color: #ffc0cb;}
             tt {background-color: red;}
-            blockquote {background-color: lightblue;}
-            h1, h2 {background-color: lightgrey;}
+            blockquote {background-color: #add8e6;}
+            h1, h2 {background-color: #d3d3d3;}
     </STYLE>
 </HEAD>
 <BODY> 
@@ -49,7 +50,7 @@ $sudo python ez_setup.py</pre>
                 <dt>virtualenv</dt>
                 <dd>In order to prevent your OSHIP project interfering with your other never-ending projects,
                 we advice you to work in separate environments. Virtualenv can be used to create isolated
-                environments.</br>
+                environments.<br>
                 <pre>
 $sudo easy_install virtualenv</pre>
                 </dd>
@@ -102,7 +103,7 @@ svn co http://www.openehr.org/svn/ref_impl_python/BRANCHES/grok/oship oship</pre
                 <pre>
 $cd oship
 $buildout</pre>
-                All of the required Python eggs will be downloaded and installed.<br />
+                All of the required Python eggs will be downloaded and installed.<br>
                 <em>NOTE: In the past, we saw some errors during these downloads such as unknown
                 protocols for svn and https but everything seemed to work okay and we
                 haven't investigated the cause yet.</em>
@@ -111,15 +112,15 @@ $buildout</pre>
                 Finally, you have a working OSHIP installation. You can start the server with
                 <pre>
 $bin/zopectl fg</pre> 
-<p>Note that you need to enter this command from the oship directory.<br />
-Verify that the server is up and running by visiting <a href="http://localhost:8080/">http://localhost:8080</a> in your browser.<br />
+<p>Note that you need to enter this command from the oship directory.<br>
+Verify that the server is up and running by visiting <a href="http://localhost:8080/">http://localhost:8080</a> in your browser.<br>
 The login link is on the upper right side of the browser window. <em>login=admin password=abc123</em>. Your browser may look something
 like this:</p>
-<img src="OSHIP_framework_index.png" />
+<img src="OSHIP_framework_index.png" alt="Grok administration UI">
 <p>Now enter "oship" (without the quotes) into the form to create the OSHIP application.  Then change your URL to <a href="http://localhost:8080/oship">http://localhost:8080/oship</a></p>
 Now you should have a browser that looks like this.
 
-<img src="OSHIP_framework_contents.png" />
+<img src="OSHIP_framework_contents.png" alt="Oship index page">
                 </li>
         </ol>
 
@@ -175,7 +176,7 @@ Now you should have a browser that looks like this.
                 <dd>In order to prevent your OSHIP project interfering with your other never-ending projects,
                 we advice you to work in separate environments. Virtualenv can be used to create isolated
                 environments.
-                <ol><li>In a cmd window, type:</br>
+                <ol><li>In a cmd window, type:<br>
                 <pre>
 easy_install virtualenv</pre></li>
                 <li>Verify that C:\Python25\Scripts now contains the files <b>virtualenv</b> and <b>virtualenv-script</b> as well.</li>
@@ -203,7 +204,7 @@ Scripts\activate.bat</pre>
                 </li>
                 <li>
 <blockquote>
-        <P><em>13) Now some stuff that made it work in Allesandro's situation (used when Python2.4 was required for OSHIP).<br />
+        <P><em>13) Now some stuff that made it work in Allesandro's situation (used when Python2.4 was required for OSHIP).<br>
         We need to decide whether this is still needed</em></P>
 Install MinGW g++ compiler<BR>
 <P>13b) create a folder called libs in c:\oshipenv</P>
@@ -236,7 +237,7 @@ http://www.openehr.org/svn/ref_impl_python/BRANCHES/grok/oship</pre>
                 <pre>
 cd oship
 ..\Scripts\buildout.exe</pre>
-                All of the required Python eggs will be downloaded and installed.<br />
+                All of the required Python eggs will be downloaded and installed.<br>
                 <tt>Alas, the process fails currently. The problem is under investigation.</tt>
                 </li>
                 <li>

@@ -1,4 +1,4 @@
-$HeadURL$
-$Rev: 222 $ $LastChangedDate$
+$URL$
+$Rev: 223 $ $Date$
 
 The HL7 Information Model package

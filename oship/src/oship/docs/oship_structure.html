@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Tim Cook">
+	<META NAME="CREATED" CONTENT="20081024;6430000">
+	<META NAME="CHANGEDBY" CONTENT="Tim Cook">
+	<META NAME="CHANGED" CONTENT="20081024;6575300">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in; margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		H1 { margin-bottom: 0.08in }
+		H1.western { font-family: "Nimbus Sans L", sans-serif; font-size: 16pt }
+		H1.cjk { font-family: "DejaVu Sans"; font-size: 16pt }
+		H1.ctl { font-family: "DejaVu Sans"; font-size: 16pt }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<DIV TYPE=HEADER>
+	<H1 CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0.2in">OSHIP
+	Structure</H1>
+</DIV>
+<P STYLE="margin-bottom: 0in">This document is intended to describe
+the layout and structure of OSHIP.  This will informa healthcare
+application developers regarding the operation of OSHIP as well as
+how to implement their own applications using OSHIP as a base. 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The overall diagram seen in the figure
+below is at the oship/src/oship level:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="oship_structure_html_6fd52658.png" NAME="graphics1" ALIGN=LEFT WIDTH=397 HEIGHT=593 BORDER=0><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The 13606 and hl7 folders are currently
+place holders for future work to include these models as part of
+OSHIP.  The app_templates folder is where the default OSHIP templates
+are stored. Notice that there is also an app.py file.  These are
+automatically associated by the Grok machinery. When you create your
+own application you will create a myapp.py file and a myapp_templates
+folder.  The reasons and processes for this are described in other
+documents.  The docs folder holds this and other OSHIP documentation.
+ The km folder is the knowledge module library for OSHIP.  It is
+explained in detail below.   The locales folder contains the i18n
+translations for OSHIP.   The openehr folder contains the source code
+for the openEHR Reference Model.   The static folder is where static
+files such as images, CSS and javascript files are placed for your
+application.  The utils folder is a place for us to put various
+utilities needed by OSHIP that may not be available as Python eggs
+through other sources.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+</BODY>
+</HTML>

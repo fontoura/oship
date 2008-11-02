@@ -1,6 +1,6 @@
 # Hand developed representation of the ADL archetype in Python
 # Author - Timothy W. Cook - October 2008
-# For demonstration and testing purposes only
+# For demonstration purposes only
 
 import grok
 from zope.interface import implements
@@ -13,7 +13,7 @@ from oship.openehr.rm.datastructures.itemstructure.representation.element import
 from oship.openehr.rm.datatypes.text.dvtext import DvText
 
 
-class openEHREHRCLUSTERchecklist_itemgeneralv1(Archetype,grok.Model):
+class ChecklistItemGeneral(Archetype,grok.Model):
     """
     description
     original_author = <

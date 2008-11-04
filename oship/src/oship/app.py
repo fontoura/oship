@@ -17,8 +17,11 @@ class ATView(grok.View):
     grok.context(IArchetype) # register the context for all archetypes.
     form_fields = grok.Fields(IArchetype)
     
-    pass
+    def render(self):
+        return "Here we'll show an Archetype"
 
 class ARList(grok.View):
     """ Show the Archetype Repository Contents"""
-    pass
+
+    def render(self):
+        return "Here we'll show a list of Archetypes"

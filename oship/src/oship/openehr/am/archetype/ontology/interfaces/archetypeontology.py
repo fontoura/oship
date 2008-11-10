@@ -47,25 +47,23 @@ class IArchetypeOntology(Interface):
         default = 0,
     )
     
-    termCodes=Dict(
+    termCodes=List(
         title=_(u"Term Codes"),
         description=_(u"List of all term codes in this archetype."),
         required=True,
-        value_type=Dict(title=u'TermCode',key_type=TextLine(),value_type=Tuple()),
-        key_type=TextLine(),
+        value_type=TextLine(),
     )
 
-    constraintCodes=Dict(
+    constraintCodes=List(
         title=_(u"Constraint Codes"),
         description=_(u"List of all constraint codes in this archetype."),
         required=True,
-        value_type=Dict(title=u'ConstraintCode',key_type=TextLine(),value_type=Tuple()),
-        key_type=TextLine(),
+        value_type=TextLine(),
     )
     
     termAttributeNames=List(
         title=_(u"Term Attribute Names"),
-        description=_(u"List of attribute names in this archetype ontolgy."),
+        description=_(u"List of attribute names in this archetype ontology."),
         required=True,
         value_type=TextLine(),
     )

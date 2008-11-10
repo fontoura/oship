@@ -7,19 +7,17 @@
 </head>
 
 <body >
-<table border="0">
+
+
+<table border="0" align="center">
 <tr>
-<td><img tal:attributes="src static/images/oship-logo.png" width="300" height="170" alt="" align="middle" />
+<td><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo" align="middle" />
 </td>
-<td><font size="40" color="#000000"><b><i>O</i></b>pen <b><i>S</i></b>ource <b><i>H</i></b>ealth <b><i>I</i></b>nformation <b><i>P</i></b>latform</font></td>
 </tr>
-</table>
 
-
-<table border="0">
 <tr>
 <td>
-OSHIP is the Python language implementation of the openEHR healthcare information model.  OSHIP expands upon the model by providing you with a robust,
+The Open Source Health Information Platform (OSHIP) is the Python language implementation of the openEHR healthcare information model.  OSHIP expands upon the model by providing you with a robust,
  proven, standards compliant and open source application server and development environment. The openEHR model provides you with the structure to create future proof
  and semantically interoperable healthcare applications.  Everything from disease registries to complete electronic health record systems.<br />
  OSHIP adds on the layer that you need to rapidly become familiar with the openEHR model and begin building your applications today.  There are
@@ -61,6 +59,16 @@ If your URL to the server is different than http://localhost:8080 then you will 
 </tr>
 </table>
 
+<p>
+<table align="center" border="0">
+<tr>
+<td><b>Sample Archetypes</b></td>
+</tr>
+<tr>
+<td>openEHR-EHR-CLUSTER.checklist_item-general.v1 -- <i>Coming soon.  Please see the source code in oship/km/openehr/ehr/cluster</i></td>
+</tr>
+
+</table>
 
 <p>
 

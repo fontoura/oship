@@ -80,8 +80,7 @@ class ArchetypeId(ObjectId):
     
     def __init__(self, atidstr):
         """
-        atidstr is a unicode str of the full archetype ID from the ADL
-        Maybe we shoudl do a regex on the full name too?        
+        atidstr is a unicode str of the full archetype ID from the ADL       
         """
         self.value = atidstr
         tokens = atidstr.split(self.AXIS_SEPARATOR)

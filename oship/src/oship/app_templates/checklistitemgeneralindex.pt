@@ -1,7 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
             xmlns:tal="http://xml.zope.org/namespaces/tal">
              
-<head><title> Archetype name goes here</title>
+<head>
+<LINK rel="stylesheet" type="text/css" 
+      tal:attributes="href static/css/oship.css" />
+
+<title> Archetype name goes here</title>
 </head>
 <body  bgcolor="#eaeae5">
 <h1>Archetype Details</h1>

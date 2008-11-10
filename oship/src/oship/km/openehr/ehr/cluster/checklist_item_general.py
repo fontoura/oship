@@ -2,15 +2,28 @@
 # Author - Timothy W. Cook - October 2008
 # For demonstration purposes only
 
+
+
+# this section are required imports for (almost?) all archetypes
 import grok
+import datetime
+
 from zope.interface import implements
 
 from oship.openehr.am.archetype.archetype import Archetype
-from oship.openehr.am.archetype.interfaces.archetype import IArchetype
+from oship.openehr.rm.support.identification.archetypeid import ArchetypeId
 
+from oship.openehr.am.archetype.interfaces.archetype import IArchetype
+from oship.openehr.am.archetype.constraintmodel.ccomplexobject import CComplexObject
+from oship.openehr.am.archetype.ontology.archetypeontology import ArchetypeOntology
+from oship.openehr.rm.support.identification.terminologyid import TerminologyId
+
+
+# this section is archetype specific though many apply to almost all archetypes
 from oship.openehr.rm.datastructures.itemstructure.representation.cluster import Cluster
 from oship.openehr.rm.datastructures.itemstructure.representation.element import Element
 from oship.openehr.rm.datatypes.text.dvtext import DvText
+from oship.openehr.rm.datatypes.text.codephrase import CodePhrase
 
 
 class ChecklistItemGeneral(Archetype,grok.Model):
@@ -37,21 +50,30 @@ class ChecklistItemGeneral(Archetype,grok.Model):
     
     def __init__(self):
         self.adlVersion = u"1.4"
-        self.__name__ = u"openEHR-EHR-CLUSTER.checklist_item-general.v1"
-                
+        self.archetypeId = ArchetypeId(u"openEHR-EHR-CLUSTER.checklist_item-general.v1")
+        self.parentArchetypeId = ArchetypeId(u"openEHR-EHR-CLUSTER.checklist_item.v1")
+        self.concept = u"at0000.1"
+        self.description = None  # this really should be set to a Resource Description object.
+        self.isControlled = True
+        self.originalLanguage = CodePhrase(TerminologyId((u"ISO_639-1"),u"en"))
+        self.translations = None
+        self.uid = None
+        self.invariants = None
+        self.revisionHistory = None
         
+        self.__name__ = datetime.datetime.isoformat()   # just to generate a random name for the demo 
+        
+        # the modeling of teh ontology, or at least our implementation of the ontology needs work because we do not actually carry 
+        # the languages, or content of the description and text into the instance.  Since this is a specialization
+        # we also do not have the parent archetype ontology info in this one.
+        self.ontology = ArchetypeOntology([u''],1,[u'at0000',u'at0000.1',u'at0001',u'at0002'], \
+                                          [u''],[u'description',u'text'],self.parentArchetypeId) 
+        
+        # the meat of the matter
+        self.definition = CComplexObject()
         
         
 """
-archetype (adl_version=1.4)
-    openEHR-EHR-CLUSTER.checklist_item-general.v1
-specialize
-    openEHR-EHR-CLUSTER.checklist_item.v1
-
-concept
-    [at0000.1]	-- General check list item
-language
-    original_language = <[ISO_639-1::en]>
 
 definition
     CLUSTER[at0000.1] matches {	-- General check list item

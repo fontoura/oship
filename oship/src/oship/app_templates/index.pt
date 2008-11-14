@@ -44,6 +44,7 @@ If your URL to the server is different than http://localhost:8080 then you will 
 <tr>
 <td width="50%"><a tal:attributes="href python:view.url('docs/oship_overview.html')">OSHIP Overview</a></td>
 <td width="50%"><a href="http://www.openehr.org/releases/1.0.1/roadmap.html">openEHR Specifications</a></td>
+<td rowspan="3"><img tal:attributes="src static/images/oship-logo_star.png" alt="another oship logo" /></td>
 </tr>
 <tr>
 <td width="50%"><a href="http://localhost:8080/docgrok/oship">OSHIP API</a></td>

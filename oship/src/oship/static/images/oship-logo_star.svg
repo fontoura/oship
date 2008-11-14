@@ -1,0 +1,132 @@
+<?xml version="2.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="OSHIP_logo_star.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.18"
+     inkscape:cx="374.99576"
+     inkscape:cy="519.99412"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1202"
+     inkscape:window-height="790"
+     inkscape:window-x="40"
+     inkscape:window-y="26" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:type="star"
+       style="opacity:0.98999999000000005;fill:#008000"
+       id="path3501"
+       sodipodi:sides="5"
+       sodipodi:cx="327.11865"
+       sodipodi:cy="312.53168"
+       sodipodi:r1="62.946196"
+       sodipodi:r2="31.831747"
+       sodipodi:arg1="-2.3847582"
+       sodipodi:arg2="-3.7519589"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 281.35594,269.31134 L 301.0345,330.7766 L 354.08218,255.65293 L 301.70625,293.36217 L 389.54574,320.59902 L 337.49707,282.43934 L 338.73719,374.39631 L 358.94527,313.1031 L 271.87221,342.69879 L 336.41016,342.97717 L 281.35594,269.31134 z"
+       transform="translate(202.54237,294.91525)"
+       inkscape:export-filename="/home/roger/OSHIP_logo_star.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:0.98999999;fill:#008000"
+       d="M 521.17152,613.47289 L 516.79796,607.62862 L 521.0394,601.60849 C 523.37212,598.29745 525.47839,595.5884 525.71991,595.5884 C 525.96144,595.5884 529.02203,596.42027 532.52118,597.43701 C 539.92923,599.58956 540.41949,600.30744 540.41949,609.00557 L 540.41949,614.68527 L 533.85169,617.00952 C 530.2394,618.28788 526.89262,619.33007 526.41449,619.32551 C 525.93635,619.32096 523.57703,616.68728 521.17152,613.47291 L 521.17152,613.47289 z"
+       id="path3504"
+       inkscape:export-filename="/home/roger/OSHIP_logo_star.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="474.57626"
+       y="660.83685"
+       id="text3506"
+       inkscape:export-filename="/home/roger/OSHIP_logo_star.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3508"
+         x="474.57626"
+         y="660.83685">OSHIP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="594.06781"
+       y="583.71814"
+       id="text3510"
+       inkscape:export-filename="/home/roger/OSHIP_logo_star.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3512"
+         x="594.06781"
+         y="583.71814">Open</tspan><tspan
+         sodipodi:role="line"
+         x="594.06781"
+         y="601.21814"
+         id="tspan3514">Source</tspan><tspan
+         sodipodi:role="line"
+         x="594.06781"
+         y="618.71814"
+         id="tspan3516">Health</tspan><tspan
+         sodipodi:role="line"
+         x="594.06781"
+         y="636.21814"
+         id="tspan3518">Information</tspan><tspan
+         sodipodi:role="line"
+         x="594.06781"
+         y="653.71814"
+         id="tspan3520">Platform</tspan></text>
+  </g>
+</svg>

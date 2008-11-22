@@ -44,5 +44,4 @@ class CComplexObject(CDefinedObject):
         else:
             return (False)
     
-    pass
 

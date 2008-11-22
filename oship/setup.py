@@ -22,6 +22,7 @@ setup(name='oship',
                         'grok',
                         'grokui.admin',
                         'z3c.testsetup',
+                        'pyparsing',
                         # Add extra requirements here
                         ],
       entry_points="""

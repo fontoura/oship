@@ -1,0 +1,34 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:tal="http://xml.zope.org/namespaces/tal">
+             
+<head>
+<LINK rel="stylesheet" type="text/css" 
+      tal:attributes="href static/css/oship.css" />
+
+<title> Archetype name goes here</title>
+</head>
+<body  bgcolor="#eaeae5">
+    <h1>Archetype Details</h1>
+
+    <table border="1" width="100%"
+        tal:define="items python:view.
+        gA('oship.km.openehr.ehr.cluster.checklist_item_general')"
+        tal:condition="items">
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+        <tr tal:repeat="item items">
+            <td>
+                <span tal:content="item">__module__</span>
+            </td>
+            <td>
+                <span tal:content="python:items[item]">oship.km.openehr.ehr.cluster.checklist_item_general</span>
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

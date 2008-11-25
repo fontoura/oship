@@ -38,7 +38,7 @@ class ArchetypeOntology(Field):
     specialisationDepth = FieldProperty(IArchetypeOntology['specialisationDepth'])
     termCodes = FieldProperty(IArchetypeOntology['termCodes'])
     constraintCodes = FieldProperty(IArchetypeOntology['constraintCodes'])
-    termAttributenames = FieldProperty(IArchetypeOntology['termAttributeNames'])
+    termAttributeNames = FieldProperty(IArchetypeOntology['termAttributeNames'])
     parentArchetype = FieldProperty(IArchetypeOntology['parentArchetype'])
     
     

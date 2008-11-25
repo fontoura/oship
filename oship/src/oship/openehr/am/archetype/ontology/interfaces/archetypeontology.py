@@ -21,7 +21,6 @@ from zope.i18nmessageid.message import MessageFactory
 from zope.schema import Int,Set,List,Object, TextLine, Dict, Tuple
 from zope.schema.interfaces import Interface
 
-#from oship.openehr.am.archetype.archetype import Archetype
 from oship.openehr.rm.support.identification.interfaces.objectref import IObjectRef
 from oship.openehr.am.archetype.ontology.interfaces.archetypeterm import IArchetypeTerm
 
@@ -37,7 +36,7 @@ class IArchetypeOntology(Interface):
         description=_(u"List of terminologies in this ontology."),
         required=True,
         value_type=TextLine(),
-        default=[],
+        default=[''],
     )
 
     specialisationDepth=Int(
@@ -69,7 +68,7 @@ class IArchetypeOntology(Interface):
     )
 
     parentArchetype=Object(
-        schema=IObjectRef,
+        schema=IObjectRef,  # This is an instance of Archetype in the AM specs. but it causes a circular import problem
         title=_(u"Parent"),
         description=_(u"Archetype which owns this ontology."),
         required=True,

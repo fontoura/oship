@@ -12,7 +12,7 @@ from zope.interface import implements
 
 from oship.openehr.am.archetype.archetype import Archetype
 from oship.openehr.rm.support.identification.archetypeid import ArchetypeId
-
+from oship.openehr.rm.support.identification.objectref import ObjectRef
 from oship.openehr.am.archetype.interfaces.archetype import IArchetype
 from oship.openehr.am.archetype.constraintmodel.ccomplexobject import CComplexObject
 from oship.openehr.am.archetype.ontology.archetypeontology import ArchetypeOntology
@@ -55,7 +55,7 @@ class ChecklistItemGeneral(Archetype,grok.Model):
         self.concept = u"at0000.1"
         self.description = None  # this really should be set to a Resource Description object.
         self.isControlled = True
-        #self.originalLanguage = CodePhrase(TerminologyId((u"ISO_639-1"),u"en"))
+        self.originalLanguage = CodePhrase(TerminologyId((u"ISO_639-1")),u"en")
         self.translations = None
         self.uid = None
         self.invariants = None
@@ -66,10 +66,15 @@ class ChecklistItemGeneral(Archetype,grok.Model):
         # the modeling of the ontology, or at least our implementation of the ontology needs work because we do not actually carry 
         # the languages, or content of the description and text into the instance.  Since this is a specialization
         # we also do not have the parent archetype ontology info in this one.
-        #self.ontology = ArchetypeOntology([u''],1,[u'at0000',u'at0000.1',u'at0001',u'at0002'], \
-        #                                  [u''],[u'description',u'text'],self.parentArchetypeId) 
+        self.ontology = ArchetypeOntology()
+        self.ontology.terminologiesAvailable=[u'N/A']
+        self.ontology.specialisationDepth=1
+        self.ontology.termCodes=[u'at0000',u'at0000.1',u'at0001',u'at0002']
+        self.ontology.constraintCodes=[u'N/A']
+        self.ontology.termAttributeNames=[u'description',u'text']
+        #self.ontology.parentArchetype=ObjectRef(self.archetypeId,u'openehr',None)
         
-        # the meat of the matter
+        # the meat of the matter -- coming soon
         #self.definition = CComplexObject()
         
         

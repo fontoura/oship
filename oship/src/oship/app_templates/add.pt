@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:tal="http://xml.zope.org/namespaces/tal">
+  <head>
+        <title>TITLE</title>
+        <LINK rel="stylesheet" type="text/css" 
+      tal:attributes="href static/css/oship.css" />
+  </head>
+<body>
+<!-- render the form tag -->
+  <form action="." tal:attributes="action request/URL" method="post"
+      class="edit-form" enctype="multipart/form-data">
+  <!-- render any validation errors on top -->
+  <ul class="errors" tal:condition="view/errors">
+    <li tal:repeat="error view/error_views">
+       <span tal:replace="structure error">Error Type</span>
+    </li>
+  </ul>
+
+  <!-- render the widgets -->
+  <tal:block repeat="widget view/widgets">
+    <label tal:attributes="for widget/name">
+      <!-- a * when the widget is required -->
+      <span class="required" tal:condition="widget/required">*</span>
+      <!-- the title of the field -->
+      <span i18n:translate="" tal:content="widget/label">label</span>
+    </label>
+
+    <!-- render the HTML widget -->
+    <div class="widget" tal:content="structure widget">
+      <input type="text" />
+    </div>
+
+    <!-- render any field specific validation error from a previous
+         form submit next to the field -->
+    <div class="error" tal:condition="widget/error">
+      <span tal:replace="structure widget/error">error</span>
+    </div>
+  </tal:block>
+
+  <!-- render all the action submit buttons -->
+  <span class="actionButtons" tal:condition="view/availableActions">
+    <input tal:repeat="action view/actions"
+           tal:replace="structure action/render" />
+  </span>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+Index: openehr/am/archetype/interfaces/archetype.py
+===================================================================
+--- openehr/am/archetype/interfaces/archetype.py	(revision 239)
++++ openehr/am/archetype/interfaces/archetype.py	(working copy)
+@@ -43,19 +43,19 @@
+         readonly = True,
+     )
+     
+-    archetypeId=Object(
+-        schema=IArchetypeId,
+-        title=_(u"Archetype Id"),
+-        description=_(u"Multi-axial identifier of this archetype."),
+-        required=True,
+-    )
++    #archetypeId=Object(
++    #    schema=IArchetypeId,
++    #    title=_(u"Archetype Id"),
++    #    description=_(u"Multi-axial identifier of this archetype."),
++    #    required=True,
++    #)
+     
+-    uid=Object(
+-        schema=IHierObjectId,
+-        title=_(u"UID"),
+-        description=_(u"OID of this archetype."),
+-        required=False,
+-    )
++    #uid=Object(
++    #    schema=IHierObjectId,
++    #    title=_(u"UID"),
++    #    description=_(u"OID of this archetype."),
++    #    required=False,
++    #)
+     
+     concept=TextLine(
+         title=_(u"Concept"),
+@@ -63,35 +63,41 @@
+         required=True,
+         readonly = True,
+     )
+-    
+-    parentArchetypeId=Object(
+-        schema=IArchetypeId,
+-        title=_(u"Parent Archetype Id"),
+-        description=_(u"Identifier of the specialsation parent of this archetype."),
+-        required=False,
+-    )
+-    
+-    definition=Object(
+-        schema=ICComplexObject,
+-        title=_(u"Definition"),
+-        description=_(u"Root node of this archetype."),
+-        required=True,
+-    )
+ 
+-    ontology=Object(
+-        schema=IArchetypeOntology,
+-        title=_(u"Ontology"),
+-        description=_(u"The ontology of the archetype"),
++    ## A name for demostrative purpose
++    __name__=TextLine(
++        title=u"Temp Name",
+         required=True,
+     )
++    
++    #parentArchetypeId=Object(
++    #    schema=IArchetypeId,
++    #    title=_(u"Parent Archetype Id"),
++    #    description=_(u"Identifier of the specialsation parent of this archetype."),
++    #    required=False,
++    #)
++    
++    ##definition=Object(
++    #    schema=ICComplexObject,
++    #    title=_(u"Definition"),
++    #    description=_(u"Root node of this archetype."),
++    #    required=True,
++    #)
+ 
+-    invariants=Set(
+-        title=_(u"Invariants"),
+-        description=_(u"FOPL invariant statements"),
+-        required=False,
+-        value_type=Object(schema=IAssertion),
+-    )
++    #ontology=Object(
++    #    schema=IArchetypeOntology,
++    #    title=_(u"Ontology"),
++    #    description=_(u"The ontology of the archetype"),
++    #    required=True,
++    #)
+ 
++    #invariants=Set(
++    #    title=_(u"Invariants"),
++    #    description=_(u"FOPL invariant statements#"),
++    #    required=False,
++    #    value_type=Object(schema=IAssertion),
++    #)
++
+     def version():
+         """
+         Version string extracted from id.
+Index: openehr/rm/common/resource/interfaces/authoredresource.py
+===================================================================
+--- openehr/rm/common/resource/interfaces/authoredresource.py	(revision 239)
++++ openehr/rm/common/resource/interfaces/authoredresource.py	(working copy)
+@@ -31,37 +31,37 @@
+ 
+ _ = MessageFactory('oship')
+ 
+-class IAuthoredResource(IField):
++class IAuthoredResource(Interface):
+     u"""Abstract idea of an online resource created by a human author. """
+     
+-    orignialLanguage=Object(
+-        schema=ICodePhrase,
+-        title=_(u"Original Language"),
+-        description=_(u"""Original Language"""),
+-        required=True
+-    )
++    #orignialLanguage=Object(
++    #    schema=ICodePhrase,
++    #    title=_(u"Original Language"),
++    #    description=_(u"""Original Language"""),
++    #    required=True
++    #)
+        
+-    translations=Object(
+-        schema=ITranslationDetails,
+-        title=_(u"Translations"),
+-        description=_(u"Translations"),
+-        required=False
+-    )
++    #translations=Object(
++    #    schema=ITranslationDetails,
++    #    title=_(u"Translations"),
++    #    description=_(u"Translations"),
++    #    required=False
++    #)
+     
+     
+-    description=Object(
+-        schema=IResourceDescription,
+-        title=_(u"Description"),
+-        description=_(u""""""),
+-        required=False
+-    )
++    #description=Object(
++    #    schema=IResourceDescription,
++    #    title=_(u"Description"),
++    #    description=_(u""""""),
++    #    required=False
++    #)
+        
+-    revisionHistory=Object(
+-        schema=IRevisionHistory,
+-        title=_(u"Revision History"),
+-        description=_(u""""""),
+-        required=False
+-    )
++    #revisionHistory=Object(
++    #    schema=IRevisionHistory,
++    #    title=_(u"Revision History"),
++    #    description=_(u""""""),
++    #    required=False
++    #)
+     
+     isControlled=Bool(
+         title=_(u"Is Controlled"),
+@@ -77,4 +77,4 @@
+         
+         
+                                
+-    
+\ No newline at end of file
++    
+

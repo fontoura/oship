@@ -54,6 +54,5 @@ class IActivity(ILocatable):
         title=_(u"Action ArchetypeId"),
         description=_(u"re pattern enclosed in '//' delimiters."),
         required=True,
-        default=u"/.*/",
     )
    

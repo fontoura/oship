@@ -43,14 +43,12 @@ class IEhrStatus(ILocatable):
         title=_(u"Queryable"),
         description=_(u"True if this EHR can be included in population wide queries."),
         required=True,
-        default=True,
     )
     
     isModifiable=Bool(
         title=_(u"Modifiable"),
         description=_(u"True if this EHR can be written to."),
         required=True,
-        default=True,
     )
     
     otherDetails=Object(

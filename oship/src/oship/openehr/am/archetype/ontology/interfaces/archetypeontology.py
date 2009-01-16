@@ -36,14 +36,12 @@ class IArchetypeOntology(Interface):
         description=_(u"List of terminologies in this ontology."),
         required=True,
         value_type=TextLine(),
-        default=[''],
     )
 
     specialisationDepth=Int(
         title=_(u"Specialisation Depth"),
         description=_(u"Specialisation depth of this archetype."),
         required=True,
-        default = 0,
     )
     
     termCodes=List(
@@ -68,10 +66,10 @@ class IArchetypeOntology(Interface):
     )
 
     parentArchetype=Object(
-        schema=IObjectRef,  # This is an instance of Archetype in the AM specs. but it causes a circular import problem
+        schema=IObjectRef,  
         title=_(u"Parent"),
         description=_(u"Archetype which owns this ontology."),
-        required=True,
+        required=False,
     )
 
     def hasLanguage(aLang):

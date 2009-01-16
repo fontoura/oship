@@ -56,6 +56,5 @@ class IDvState(IDataValue):
                       It is required and the default is False.
                       """),
         required = True,
-        default = False
         )
     

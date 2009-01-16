@@ -39,7 +39,6 @@ class IArchetype(IAuthoredResource):
         title = _(u"adlVersion"),
         description = _(u"""ADL version if archteype was read in from an ADL sharable archetype."""),
         required = False,
-        default = u'',
         readonly = True,
     )
     

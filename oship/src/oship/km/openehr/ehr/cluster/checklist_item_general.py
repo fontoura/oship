@@ -13,6 +13,7 @@ from zope.interface import implements
 from oship.openehr.am.archetype.archetype import Archetype
 from oship.openehr.rm.support.identification.archetypeid import ArchetypeId
 from oship.openehr.rm.support.identification.objectref import ObjectRef
+from oship.openehr.rm.support.identification.objectid import ObjectId
 from oship.openehr.am.archetype.interfaces.archetype import IArchetype
 from oship.openehr.am.archetype.constraintmodel.ccomplexobject import CComplexObject
 from oship.openehr.am.archetype.ontology.archetypeontology import ArchetypeOntology
@@ -72,7 +73,7 @@ class ChecklistItemGeneral(Archetype,grok.Model):
         self.ontology.termCodes=[u'at0000',u'at0000.1',u'at0001',u'at0002']
         self.ontology.constraintCodes=[u'N/A']
         self.ontology.termAttributeNames=[u'description',u'text']
-        #self.ontology.parentArchetype=ObjectRef(self.archetypeId,u'openehr',None)
+        self.ontology.parentArchetype=ObjectRef(ObjectId(u"openEHR-EHR-CLUSTER.checklist_item.v1"),u'openehr',None)
         
         # the meat of the matter -- coming soon
         #self.definition = CComplexObject()

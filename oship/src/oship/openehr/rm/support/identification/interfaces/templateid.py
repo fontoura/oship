@@ -31,5 +31,5 @@ class ITemplateId(IObjectId):
     value = TextLine(
         title=_(u"Value"),
         description=_(u"A single unicode string containing a valid ID"),
-        default=_(u""),
-        required=True)    
+        required=True,
+    )    

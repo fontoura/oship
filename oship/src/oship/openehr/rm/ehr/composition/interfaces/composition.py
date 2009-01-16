@@ -83,5 +83,4 @@ class IComposition(ILocatable):
         title=_(u"Persistent"),
         description=_(u"Used to locate items that are of interest to most users."),
         required=True,
-        default=True,
     )

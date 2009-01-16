@@ -34,6 +34,5 @@ class IDvBoolean(IBool):
         title = _(u"value"),
         description = _(u"The boolean value of this item."),
         required = True,
-        default = False
     )
 

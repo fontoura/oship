@@ -33,6 +33,5 @@ class IVersionedComposition(IComposition):
         title=_(u"Persistent"),
         description=_(u"Indicates whether this compsoition set is persistent."),
         required=True,
-        default=True,
     )
     

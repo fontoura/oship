@@ -20,6 +20,7 @@ from zope.interface import implements,classProvides
 from zope.i18nmessageid.message import MessageFactory 
 
 from objectid import ObjectId
+from interfaces.objectref import IObjectRef
 from interfaces.archetypeid import IArchetypeId
 import re
 

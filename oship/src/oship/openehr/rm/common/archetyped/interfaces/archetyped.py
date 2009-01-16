@@ -60,7 +60,6 @@ class IArchetyped(IContainer):
         description=_(u"""Version of the openEHR reference model used to create this object.
                     Expressed in terms of the release version string, e.g. "1.0", "1.2.4". """),
         required=True,
-        default=u"1.0.1",
         )
         
 

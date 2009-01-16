@@ -34,5 +34,5 @@ class IUuid(IUid):
     value = TextLine(
         title=_(u"Value"),
         description=_(u"A single unicode string containing a valid UID"),
-        default=_(u""),
-        required=True)
+        required=True,
+    )

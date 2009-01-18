@@ -40,9 +40,4 @@ class ObjectId(Field):
 
     def __init__(self, value):
         self.value = value
-        #self.__name__=''
-        
-    def __eq__(self, other):
-        if not isinstance(other,  ObjectId):
-            return False
-        return self.value == other.value
+ 

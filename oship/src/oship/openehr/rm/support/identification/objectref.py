@@ -25,7 +25,7 @@ from oship.openehr.rm.support.identification.interfaces.objectref import IObject
 
 _ = MessageFactory('oship')
 
-class ObjectRef(Field):
+class ObjectRef(ObjectId):
     u"""
     Class describing a reference to another object, which may exist locally or be
     maintained outside the current namespace, e.g. in another service. Services are
@@ -34,13 +34,14 @@ class ObjectRef(Field):
     tems they may be part of the same executable as the data containing the Id.
     """
 
-    implements(IObjectRef)
+    implements(IObjectRef,IObjectRef)
     
-    def __init__(self,refId,refNameSpace,refType):
+    def __init__(self,refId,refNameSpace,refType, value):
         self.refId=refId
         self.refNameSpace=refNameSpace
         self.refType=refType
-       
+        self.value=value
+        
     def __eq__(self, other):
         if not isinstance(other,  ObjectRef):
             return False

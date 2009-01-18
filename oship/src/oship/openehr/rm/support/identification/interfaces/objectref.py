@@ -24,7 +24,7 @@ from oship.openehr.rm.support.identification.interfaces.objectid import IObjectI
 
 _ = MessageFactory('oship')
 
-class IObjectRef(IField):
+class IObjectRef(IObjectId):
     u"""
     Class describing a reference to another object, which may exist locally or be
     maintained outside the current namespace, e.g. in another service. Services are
@@ -37,7 +37,7 @@ class IObjectRef(IField):
         schema=IObjectId,
         title = _(u'Id'),
         description = _(u'Globally unique id of an object (of type ObjectId), regardless of where it is stored.'),
-        required = False
+        required = False,
         )
 
     refNameSpace = TextLine(
@@ -50,7 +50,7 @@ class IObjectRef(IField):
                         namespace are
                         "local" | "unknown" | "[a-zA-
                         Z][a-zA-Z0-9_-:/&+?]*" """),
-        required = False
+        required = False,
         )
 
 
@@ -61,5 +61,5 @@ class IObjectRef(IField):
                         These class names are from the relevant reference model. 
                         The type name "ANY" can be used to indicate that any type is accepted 
                         (e.g. if the type is unknown). """),
-        required = False
+        required = False,
         )

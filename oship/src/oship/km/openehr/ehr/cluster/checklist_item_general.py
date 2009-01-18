@@ -73,7 +73,8 @@ class ChecklistItemGeneral(Archetype,grok.Model):
         self.ontology.termCodes=[u'at0000',u'at0000.1',u'at0001',u'at0002']
         self.ontology.constraintCodes=[u'N/A']
         self.ontology.termAttributeNames=[u'description',u'text']
-        self.ontology.parentArchetype=ObjectRef(ObjectId(u"openEHR-EHR-CLUSTER.checklist_item.v1"),u'openehr',None)
+        self.ontology.parentArchetype=ObjectRef(None,None,None,None)
+        #self.ontology.parentArchetype=None
         
         # the meat of the matter -- coming soon
         #self.definition = CComplexObject()

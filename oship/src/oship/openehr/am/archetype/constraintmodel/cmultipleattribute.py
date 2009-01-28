@@ -19,19 +19,18 @@ __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>', u'Fabricio Ferracioli 
 
 from zope.i18nmessageid.message import MessageFactory 
 from zope.interface import implements
-from zope.schema import Field
 
-from oship.openehr.am.archetype.constraintmodel.cattribute import CAttribute
+from oship.openehr.am.archetype.constraintmodel.interfaces.cattribute import ICAttribute
 from oship.openehr.am.archetype.constraintmodel.interfaces.cmultipleattribute import ICMultipleAttribute
 
 _ = MessageFactory('oship')
 
-class CMultipleAttribute(CAttribute):
+class CMultipleAttribute(object):
     """
     Abstract model of constraint on any kind of attribute node.
     """
     
-    implements(ICMultipleAttribute)
+    implements(ICMultipleAttribute,ICAttribute)
     
     def __init__(self, cardinality):
         self.cardinality = cardinality

@@ -34,8 +34,12 @@ class CComplexObject(CDefinedObject):
    
     
     def __init__(self,attributes,assumedValue,rmTypeName,occurrences,nodeId,parent):
-        CDefinedObject.__init__(assumedValue,rmTypeName,occurrences,nodeId,parent)
         self.attributes=attributes
+        self.assumedValue=assumedValue
+        self.rmTypeName=rmTypeName
+        self.occurrences=occurrences
+        self.nodeId=nodeId
+        self.parent=parent
         
         
     def anyAllowed():

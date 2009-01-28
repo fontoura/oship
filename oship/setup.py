@@ -9,7 +9,7 @@ setup(name='oship',
 """,
       # Get strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[],
-      keywords="healthcare grok zope oship",
+      keywords="healthcare grok zope oship openehr",
       author="Timothy W. Cook",
       author_email="timothywayne.cook@gmail.com",
       url="",

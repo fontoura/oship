@@ -160,8 +160,8 @@ class Largest:
     return -0x55555555
   
 
-class Interval(object):
-  def __init__(self, lower=Smallest(), upper=Largest(), lower_included=False, upper_included=False):
+class Interval(Field):
+  def __init__(self, lower=Smallest(), upper=Largest(), lower_included=False, upper_included=False,**kw):
       self.__name__=''
       
       """Initializes an interval

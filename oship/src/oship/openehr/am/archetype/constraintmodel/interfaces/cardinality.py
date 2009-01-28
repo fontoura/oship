@@ -43,13 +43,11 @@ class ICardinality(Interface):
         required=True,
     )
     
-    """ Interval is not a Zope schema object so this doesn't work.  It will need to be implemented in the archetypes themselves.
     interval=Interval(
         title=_(u"Interval"),
         description=_(u"Interval of this cardinality."),
         required=True,
     )
-    """
     
     def isBag():
         """

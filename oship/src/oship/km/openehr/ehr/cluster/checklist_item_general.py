@@ -9,6 +9,7 @@ import grok
 import datetime
 
 from zope.interface import implements
+from zope.schema import Set
 
 from oship.openehr.am.archetype.archetype import Archetype
 from oship.openehr.rm.support.identification.archetypeid import ArchetypeId
@@ -18,6 +19,8 @@ from oship.openehr.am.archetype.interfaces.archetype import IArchetype
 from oship.openehr.am.archetype.constraintmodel.ccomplexobject import CComplexObject
 from oship.openehr.am.archetype.ontology.archetypeontology import ArchetypeOntology
 from oship.openehr.rm.support.identification.terminologyid import TerminologyId
+from oship.openehr.am.archetype.constraintmodel.cardinality import Cardinality
+from oship.openehr.rm.support.interval import Interval
 
 
 # this section is archetype specific though many apply to almost all archetypes
@@ -73,11 +76,18 @@ class ChecklistItemGeneral(Archetype,grok.Model):
         self.ontology.termCodes=[u'at0000',u'at0000.1',u'at0001',u'at0002']
         self.ontology.constraintCodes=[u'N/A']
         self.ontology.termAttributeNames=[u'description',u'text']
-        self.ontology.parentArchetype=ObjectRef(None,None,None,None)
-        #self.ontology.parentArchetype=None
+        self.ontology.parentArchetype=ObjectRef(ObjectId(u"test_id"),u"openEHR",u"ANY")
         
-        # the meat of the matter -- coming soon
-        #self.definition = CComplexObject()
+        # Now setup the definition section
+        card=Cardinality(False,True,Interval(lower=0, upper=Largest(), lower_included=False, upper_included=False))
+        
+        attributes=Set()
+        assumedValue=None
+        rmTypeName=u"openEHR"
+        occurrences=1
+        nodeId=u"at0000.1"
+        parent=u"openEHR-EHR-CLUSTER.checklist_item.v1"
+        self.definition = CComplexObject(attributes,assumedValue,rmTypeName,occurrences,nodeId,parent)
         
         
         """

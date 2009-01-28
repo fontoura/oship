@@ -17,14 +17,14 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire sergio@lampada.uerj.br'
 
 from zope.schema import TextLine,Object
-from zope.schema.interfaces import IField
+from zope.interface import Interface
 from zope.i18nmessageid.message import MessageFactory 
 
 from oship.openehr.rm.support.identification.interfaces.objectid import IObjectId
 
 _ = MessageFactory('oship')
 
-class IObjectRef(IObjectId):
+class IObjectRef(Interface):
     u"""
     Class describing a reference to another object, which may exist locally or be
     maintained outside the current namespace, e.g. in another service. Services are

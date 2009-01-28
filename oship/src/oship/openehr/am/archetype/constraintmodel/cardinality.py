@@ -19,7 +19,6 @@ __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>', u'Roberto Cunha <roliv
 
 from zope.i18nmessageid.message import MessageFactory 
 from zope.interface import implements
-from zope.schema import Field
 
 from oship.openehr.am.archetype.constraintmodel.interfaces.cardinality import ICardinality
 
@@ -32,7 +31,7 @@ class Cardinality(object):
     
     implements(ICardinality)
     
-    def __init__(self, isOrdered, isUnique, interval)    :
+    def __init__(self, isOrdered, isUnique, interval,**kw)    :
         self.isOrdered = isOrdered
         self.isUnique = isUnique
         self.interval = interval
@@ -54,3 +53,4 @@ class Cardinality(object):
         Return True if this cardinality represents an unordered, non-unique membership.
         """
         return (not self.isOrdered) and (self.isUnique)
+    

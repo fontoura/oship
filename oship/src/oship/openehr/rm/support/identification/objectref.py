@@ -17,15 +17,14 @@ __docformat__ = u'plaintext'
 __contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>', u'Sergio Miranda Freire sergio@lampada.uerj.br'
 
 from zope.interface import implements
-from zope.schema import Field
 from zope.i18nmessageid.message import MessageFactory 
 
-from objectid import ObjectId
+from oship.openehr.rm.support.identification.objectid import ObjectId
 from oship.openehr.rm.support.identification.interfaces.objectref import IObjectRef
 
 _ = MessageFactory('oship')
 
-class ObjectRef(ObjectId):
+class ObjectRef(object):
     u"""
     Class describing a reference to another object, which may exist locally or be
     maintained outside the current namespace, e.g. in another service. Services are
@@ -34,13 +33,12 @@ class ObjectRef(ObjectId):
     tems they may be part of the same executable as the data containing the Id.
     """
 
-    implements(IObjectRef,IObjectRef)
+    implements(IObjectRef)
     
-    def __init__(self,refId,refNameSpace,refType, value):
+    def __init__(self,refId,refNameSpace,refType):
         self.refId=refId
         self.refNameSpace=refNameSpace
         self.refType=refType
-        self.value=value
         
     def __eq__(self, other):
         if not isinstance(other,  ObjectRef):

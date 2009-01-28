@@ -28,7 +28,7 @@ from oship.openehr.am.archetype.constraintmodel.interfaces.archetypeconstraint i
 _ = MessageFactory('oship')
 
 
-class ICObject(IArchetypeConstraint):
+class ICObject(Interface):
     """
     Abstract model of constraint on any kind of object node.
     """

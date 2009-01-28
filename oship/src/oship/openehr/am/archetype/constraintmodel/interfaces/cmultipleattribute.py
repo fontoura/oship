@@ -21,12 +21,11 @@ from zope.interface import Interface
 from zope.i18nmessageid.message import MessageFactory 
 from zope.schema import Object 
 
-from oship.openehr.am.archetype.constraintmodel.interfaces.cattribute import ICAttribute
 from oship.openehr.am.archetype.constraintmodel.interfaces.cardinality import ICardinality
 _ = MessageFactory('oship')
 
 
-class ICMultipleAttribute(ICAttribute):
+class ICMultipleAttribute(Interface):
     """
     Abstract model of constraint on any kind of attribute node.
     """

@@ -20,13 +20,13 @@ __contributors__ = 'Roger Erens <roger.erens@e-s-c.biz>'
 from zope.interface import Interface
 from zope.schema import List,Object
 from zope.i18nmessageid.message import MessageFactory 
-from oship.openehr.am.archetype.constraintmodel.interfaces.cattribute import ICAttribute
+
 from oship.openehr.am.archetype.constraintmodel.interfaces.cobject import ICObject
 
 _ = MessageFactory('oship')
 
 
-class ICSingleAttribute(ICAttribute):
+class ICSingleAttribute(Interface):
     """
     Concrete model of constraint on a single valued attribute.
     """

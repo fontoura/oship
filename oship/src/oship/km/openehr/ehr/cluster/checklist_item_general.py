@@ -30,7 +30,7 @@ from oship.openehr.rm.datatypes.text.dvtext import DvText
 from oship.openehr.rm.datatypes.text.codephrase import CodePhrase
 
 
-class ChecklistItemGeneral(Archetype,grok.Model):
+class ChecklistItemGeneral(Archetype,grok.Container):
     """
     description
     original_author = <

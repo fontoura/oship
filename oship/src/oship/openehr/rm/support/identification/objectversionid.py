@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
-# Redistribution and use are governed by the license in OSHIP-LICENSE.txt
+# Redistribution and use are governed by the MPL License.
 #
 # Use and/or redistribution of this file assumes you have read and accepted the
 # terms of the license.
@@ -34,14 +34,14 @@ class ObjectVersionId(UidBasedId):
     u"""
     Globally unique identifier for one version of a versioned object; lexical form:
     object_id '::' creating_system_id '::' version_tree_id
-    
+
     The string form of an OBJECT_VERSION_ID stored in its value attribute consists of 
     three segments separated by double colons ("::"), i.e. (EBNF):
-      
+
     value:      object_id '::' creating_system_id '::' version_tree_id
     object_id:  uid  (see UID below)
     creating_system_id:
-    
+
     An example ObjectVersionId is as follows:
     F7C5C7B7-75DB-4b39-9A1E-C0BA9BFDBDEC::87284370-2D4B-4e3d-A3F3-F303D2F4F34B::2  
     """
@@ -51,28 +51,28 @@ class ObjectVersionId(UidBasedId):
     SIMPLE_UUID_PATTERN = r"([0-9a-fA-F])+(-([0-9a-fA-F])+)*"
     SIMPLE_ISOOID_PATTERN = r"(\d)+(\.(\d)+)*"
     SIMPLE_INTERNET_PATTERN = r"(\w)+(\.(\w)+)*"
-    
+
     def __init__(self,value):
         self.value=value
 
-	# Steps for value checking:
+        # Steps for value checking:
         # 1. Check if value contains any :: or starts with ::
         doubleColons = value.find('::')
         if doubleColons <= 0:
-	    raise(ValueError, 'bad format, missing objectId')
-        
+            raise(ValueError, 'bad format, missing objectId')
+
         # 2. Check how many segments in the value
         splits = value.split('::')
         segments = len(splits)
         if segments < 3:
-	    raise(ValueError, 'bad format, missing creatingSystemId or versionTreeId')
+            raise(ValueError, 'bad format, missing creatingSystemId or versionTreeId')
         if segments > 4:
-	    raise(ValueError, 'bad format, too many segments or "::"')
+            raise(ValueError, 'bad format, too many segments or "::"')
 
-	# 3. Construct objects for each segment
+        # 3. Construct objects for each segment
         # the patterns below are for sorting only, the correct syntax
         # checking is handled by the UID sublcasses.
-	rootStr = splits[0]
+        rootStr = splits[0]
         matchUUID = re.compile(self.SIMPLE_UUID_PATTERN).match(rootStr)
         matchISO = re.compile(self.SIMPLE_ISOOID_PATTERN).match(rootStr)
         matchInternet = re.compile(self.SIMPLE_INTERNET_PATTERN).match(rootStr)
@@ -85,15 +85,15 @@ class ObjectVersionId(UidBasedId):
         else:
             raise ValueError('wrong format ' + rootStr)
 
-	if (segments == 4):
-	    self.__creatingSystemId = HierObjectId(splits[1] + '::' + splits[2])
-	    self.__versionTreeId = VersionTreeId(splits[3])
+        if (segments == 4):
+            self.__creatingSystemId = HierObjectId(splits[1] + '::' + splits[2])
+            self.__versionTreeId = VersionTreeId(splits[3])
         else:
-	    self.__creatingSystemId = HierObjectId(splits[1])
+            self.__creatingSystemId = HierObjectId(splits[1])
             self.__versionTreeId = VersionTreeId(splits[2])
-	    
-	self.rootPart = self.objectId
-	self.extensionPart = self.__creatingSystemId.value + '::' + self.__versionTreeId.value   
+
+        self.rootPart = self.objectId
+        self.extensionPart = self.__creatingSystemId.value + '::' + self.__versionTreeId.value   
 
 
     def  objectId(self):
@@ -102,24 +102,23 @@ class ObjectVersionId(UidBasedId):
         normally the object_id will be the unique identifier of the version container containing
         the version referred to by this OBJECT_VERSION_ID instance.
         """
-	return self.__objectId
-	
+        return self.__objectId
+
     def versionTreeId(self):
         u"""
         Tree identifier of this version with respect to other versions in the same version tree,
         as either 1 or 3 part dot-separated numbers, e.g. '1', '2.1.4'.  
         """
-	return self.__versionTreeId
-	
+        return self.__versionTreeId
+
     def creatingSystemId(self):
         u"""
         Identifier of the system that created the Version corresponding to this Object version id.
         """
-	return self.__creatingSystemId
-    
+        return self.__creatingSystemId
+
     def isBranch():
         u"""
         True if this version identifier represents a branch. 
         """
-	return self.__versionTreeId.isBranch()
-	
+        return self.__versionTreeId.isBranch()

@@ -1,0 +1,2336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html40/strict.dtd">
+<!-- Created from PDF via Acrobat SaveAsXML -->
+<!-- Mapping table version: 28-February-2003 -->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<STYLE type="text/css">
+IMG {
+ text-align:left;
+ vertical-align:top;
+ margin-bottom:39px;
+ margin-top:0px;
+ margin-right:0px;
+ margin-left:0px;
+ direction:ltr
+}
+SPAN {
+ font-family:'DLIJLO+PalatinoLinotype','Palatino',serif;
+ font-size:18pt;
+ font-style:normal;
+ font-weight:bold
+}
+CAPTION {
+ text-align:left;
+ margin-bottom:24px;
+ margin-top:0px;
+ margin-right:0px;
+ text-indent:0px;
+ direction:ltr
+}
+P {
+ text-align:center;
+ margin-bottom:24px;
+ margin-top:0px;
+ margin-right:0px;
+ text-indent:0px;
+ direction:ltr
+}
+TABLE {
+ border-width:thin;
+ border-collapse:collapse;
+ padding:3px;
+ text-align:center;
+ vertical-align:top;
+ margin-bottom:4px;
+ margin-top:0px;
+ margin-right:0px;
+ margin-left:0px;
+ direction:ltr;
+ width:auto;
+ height:auto;
+ display:table;
+ float:none
+}
+TR {
+ vertical-align:top;
+ height:auto
+}
+TH {
+ text-align:left;
+ vertical-align:middle
+}
+TD { 
+ text-align:left;
+ vertical-align:middle
+}
+A {
+ font-style:normal;
+ font-weight:normal
+}
+DIV[class="Part"] {
+ text-align:left;
+ margin-bottom:0px;
+ margin-top:0px;
+ margin-right:0px;
+ text-indent:0px;
+ direction:ltr
+}
+H5 {
+ text-align:center;
+ margin-bottom:15px;
+ margin-top:0px;
+ margin-right:0px;
+ text-indent:0px;
+ direction:ltr
+}
+H4 {
+ text-align:left;
+ margin-bottom:24px;
+ margin-top:0px;
+ margin-right:0px;
+ text-indent:0px;
+ direction:ltr
+}
+OL {
+ list-style-type:decimal;
+ text-align:left;
+ margin-bottom:0px;
+ margin-top:0px;
+ margin-right:0px;
+ text-indent:0px;
+ direction:ltr
+}
+LI {
+ list-style-type:decimal;
+ text-align:left;
+ margin-bottom:0px;
+ margin-top:0px;
+ margin-right:0px;
+ margin-left:144px;
+ text-indent:-47px;
+ direction:ltr;
+ line-height:16px
+}
+DT {
+ text-align:left;
+ margin-bottom:0px;
+ margin-top:0px;
+ margin-right:0px;
+ margin-left:144px;
+ text-indent:-47px;
+ direction:ltr
+}
+DD {
+ text-align:left;
+ margin-bottom:0px;
+ margin-top:0px;
+ margin-right:0px;
+ margin-left:144px;
+ text-indent:-47px;
+ direction:ltr
+}
+H2 {
+ text-align:justify;
+ margin-bottom:29px;
+ margin-top:0px;
+ margin-right:0px;
+ margin-left:72px;
+ text-indent:0px;
+ direction:ltr
+}
+DIV[class="Sect"] {
+ text-align:left;
+ margin-bottom:0px;
+ margin-top:0px;
+ margin-right:0px;
+ text-indent:0px;
+ direction:ltr
+}
+H3 {
+ text-align:justify;
+ margin-bottom:8px;
+ margin-top:0px;
+ margin-right:0px;
+ text-indent:0px;
+ direction:ltr
+}
+</STYLE>
+<META
+ name="dc.creator"
+ content="Thomas" >
+<META
+ name="dc.title"
+ content="main.book" >
+<META
+ name="dc.date"
+ content="2007-03-12T16:18:41Z" >
+<META
+ name="dc.date.modified"
+ content="2007-03-12T16:18:41Z" >
+<META
+ name="generator"
+ content="Adobe Acrobat Exchange-Pro 8.258" >
+</HEAD>
+<BODY bgcolor=white text=black link=blue vlink=purple alink=fushia >
+<HR>
+<UL>
+<LI>
+<A href="#LinkTarget_2243">Copyright Notice</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2290">Amendment Record</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2324">Acknowledgements</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2355">Table of Contents</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2438">1 Introduction</A>
+<UL>
+<LI>
+<A href="#LinkTarget_2440">1.1 Purpose</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2463">1.2 Related Documents</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2473">1.3 Status</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2484">1.4 Peer review</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2492">1.5 Conformance</A>
+</LI>
+</UL>
+</LI>
+<LI>
+<A href="#LinkTarget_2521">2 Integration Package</A>
+<UL>
+<LI>
+<A href="#LinkTarget_2523">2.1 Requirements</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2532">2.2 Design Basis</A>
+<UL>
+<LI>
+<A href="#LinkTarget_2534">2.2.1 Overview</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2576">2.2.2 Semantics of GENERIC_ENTRY</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2599">2.2.3 Use with openEHR Extracts</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2603">2.2.4 Integration with CEN EN13606</A>
+</LI>
+</UL>
+</LI>
+<LI>
+<A href="#LinkTarget_2608">2.3 Data Conversion Architecture</A>
+</LI>
+<LI>
+<A href="#LinkTarget_2636">2.4 Class Descriptions</A>
+<UL>
+<LI>
+<A href="#LinkTarget_2638">2.4.1 GENERIC_ENTRY Class</A>
+</LI>
+</UL>
+</LI>
+</UL>
+</LI>
+<LI>
+<A href="#LinkTarget_2676">A References</A>
+<UL>
+<LI>
+<A href="#LinkTarget_2679">A.1 Standards</A>
+</LI>
+</UL>
+</LI>
+</UL>
+</HR>
+<IMG width=144 height=127 style="display:block; float:none" src="images/integration_im_img_0.png">
+<IMG width=424 height=232 style="display:block; float:none; text-align:center; margin-bottom:24px" src="images/integration_im_img_1.png">
+<TABLE>
+<TR>
+<TH style="vertical-align:top; width:117px; height:30px; border-style: solid none solid solid; border-color: #000000; border-width:1px 1px 1px 1px"/>
+<TH colspan=2 style="width:284px; height:30px; border-style: solid solid solid none; border-color: #000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Editors: </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>T Beale</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.6pt; font-weight:normal; color:#000000"
+>a </SPAN
+></TH>
+</TR>
+<TR>
+<TD style="width:117px; height:29px; border-style:solid; border-color:#000000; border-width:1px">
+<A href="#LinkTarget_2303">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Revision: </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</TD>
+<TD style="width:89px; height:29px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Pages: </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>15 </SPAN
+></SPAN>
+</TD>
+<TD style="width:194px; height:29px; border-style:solid; border-color:#000000; border-width:1px">
+<A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Date of issue: </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>22 Jul 2006 </SPAN
+></A>
+</TD>
+</TR>
+</TABLE>
+<P style="text-align:; margin-bottom:29px; margin-right:251px; margin-left:71px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>a.</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> Ocean Informatics </SPAN
+></P>
+<P style="margin-bottom:39px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Keywords: </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR, reference model, integration, EN13606, openehr </SPAN
+></P>
+<TABLE style="margin-bottom:119px">
+<TR>
+<TH colspan=4 style="text-align:center; width:245px; height:24px; background-color:#00FFFF; border-style:solid; border-color:#000000; border-width:1px 6px 5px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>EHR Extract </SPAN
+></TH>
+<TH colspan=2 style="vertical-align:top; width:198px; height:24px; border-style:solid; border-color:#000000; border-width:1px 2px 5px 6px"/>
+</TR>
+<TR>
+<TH style="text-align:center; width:42px; height:23px; background-color:#00FFFF; border-style:solid; border-color:#000000; border-width:5px 7px 5px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>EHR </SPAN
+></TH>
+<TD colspan=2 style="width:102px; height:23px; background-color:#00FFFF; border-style:solid; border-color:#000000; border-width:5px 5px 5px 7px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>Demographic </SPAN
+></TD>
+<TD style="width:88px; height:23px; background-color:#00FFFF; border-style:solid; border-color:#000000; border-width:5px 6px 5px 5px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Integration </SPAN
+></TD>
+<TD colspan=2 style="width:198px; height:23px; background-color:#96FF52; border-style:solid; border-color:#000000; border-width:5px 2px 5px 6px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>Template OM </SPAN
+></TD>
+</TR>
+<TR>
+<TH colspan=4 style="text-align:center; width:245px; height:23px; background-color:#00FFFF; border-style: solid solid none solid; border-color: #000000; border-width:5px 6px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>Composition </SPAN
+></TH>
+<TD colspan=2 style="width:198px; height:23px; background-color:#C9FF5C; border-style: border-style:solid solid none solid; border-color: #000000; border-width:5px 2px 1px 6px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>open</SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>EHR Archetype Profile </SPAN
+></TD>
+</TR>
+<TR>
+<TH colspan=2 style="text-align:center; width:119px; height:23px; background-color:#B3FBE6; border-style: none solid none solid; border-color: #000000; border-width:1px 6px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>Security </SPAN
+></TH>
+<TD colspan=2 style="width:120px; height:23px; background-color:#B3FBE6; border-style: border-style:none solid none solid; border-color: #000000; border-width:1px 6px 1px 6px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>Common </SPAN
+></TD>
+<TD style="width:150px; height:23px; background-color:#C9FF5C; border-style: border-style:none solid none solid; border-color: #000000; border-width:1px 9px 1px 6px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>Archetype OM </SPAN
+></TD>
+<TD style="width:39px; height:23px; border-style: border-style:none solid none solid; border-color: #000000; border-width:1px 2px 1px 9px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>ADL </SPAN
+></TD>
+</TR>
+<TR>
+<TH colspan=6 style="text-align:center; width:449px; height:23px; background-color:#D6FBF9; border-style: none solid none solid; border-color: #000000; border-width:1px 2px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>Data Structures </SPAN
+></TH>
+</TR>
+<TR>
+<TH colspan=6 style="text-align:center; vertical-align:top; width:449px; height:23px; background-color:#D6FBF9; border-style: none solid none solid; border-color: #000000; border-width:1px 2px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>Data Types </SPAN
+></TH>
+</TR>
+<TR>
+<TH colspan=6 style="text-align:center; vertical-align:top; width:449px; height:24px; background-color:#D6FBF9; border-style: none solid solid solid; border-color: #000000; border-width:1px 2px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#ADADAD"
+>Support </SPAN
+></TH>
+</TR>
+</TABLE>
+<DIV class="Part"
+><H5>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:10.9pt; color:#0000FF"
+>© 2003-2007 The </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:10.9pt; color:#0000FF"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:10.9pt; color:#0000FF"
+>EHR Foundation. </SPAN
+></H5>
+<P style="margin-bottom:20px; line-height:15px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#0000FF"
+>The </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#0000FF"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#0000FF"
+>EHR Foundation is an independent, non-profit community, facilitating the sharing of health records by consumers and clinicians via open-source, standards-based implementations. </SPAN
+></P>
+<TABLE style="margin-bottom:0px">
+<TR>
+<TH style="vertical-align:top; width:63px; height:14px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; color:#0000FF"
+>Founding </SPAN
+></TH>
+<TD style="vertical-align:top; width:392px; height:14px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#0000FF"
+>David Ingram, Professor of Health Informatics, </SPAN
+></TD>
+</TR>
+<TR>
+<TH style="vertical-align:top; width:63px; height:20px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; color:#0000FF"
+>Chairman </SPAN
+></TH>
+<TD style="vertical-align:top; width:392px; height:20px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#0000FF"
+>CHIME, University College London </SPAN
+></TD>
+</TR>
+<TR>
+<TH style="width:63px; height:20px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; color:#0000FF"
+>Founding </SPAN
+></TH>
+<TD style="width:392px; height:20px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#0000FF"
+>Dr P Schloeffel, Dr S Heard, Dr D Kalra, D Lloyd, T Beale </SPAN
+></TD>
+</TR>
+<TR>
+<TH style="vertical-align:top; width:63px; height:18px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; color:#0000FF"
+>Members </SPAN
+></TH>
+<TD style="vertical-align:top; width:392px; height:18px"/>
+</TR>
+<TR>
+<TH style="vertical-align:top; width:63px; height:21px"/>
+<TD style="vertical-align:bottom; width:392px; height:21px">
+<A href="http://www.openEHR.org">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; color:#0000FF"
+>email</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#0000FF"
+>: info@openEHR.org </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; color:#0000FF"
+>web</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#0000FF"
+>: http://www.openEHR.org </SPAN
+></A>
+</TD>
+</TR>
+</TABLE>
+<P style="margin-bottom:109px">
+<A href="#LinkTarget_2181">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+</P>
+<P style="text-align:left; margin-bottom:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+</DIV>
+<DIV class="Part"
+><H4 ID="LinkTarget_2243">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Copyright Notice </SPAN
+></H4>
+<P style="text-align:left; margin-bottom:15px; margin-left:38px; line-height:16px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>© Copyright openEHR Foundation 2001 - 200</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>7 
+</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>All Rights Reserve</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>d 
+</SPAN
+></P>
+<ol style="list-style-type:decimal">
+<LI>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>This document is protected by copyright and/or database right throughout the world and is owned by the openEHR Foundation. </SPAN
+></LI>
+<LI>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>You may read and print the document for private, non-commercial use. </SPAN
+></LI>
+<LI>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>You may use this document (in whole or in part) for the purposes of making presentations and education, so long as such purposes are non-commercial and are designed to comment on, further the goals of, or inform third parties about, openEHR. </SPAN
+></LI>
+<LI>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>You must not alter, modify, add to or delete anything from the document you use (except as is permitted in paragraphs 2 and 3 above). </SPAN
+></LI>
+<LI>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>You shall, in any use of this document, include an acknowledgement in the form: &quot;© Copyright openEHR Foundation 2001-2007. All rights reserved. www.openEHR.org&quot; </SPAN
+></LI>
+<LI>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>This document is being provided as a service to the academic community and on a non-commercial basis. Accordingly, to the fullest extent permitted under applicable law, the openEHR Foundation accepts no liability and offers no warranties in relation to the materials and documentation and their content. </SPAN
+></LI>
+<LI style="margin-bottom:500px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>If you wish to commercialise, license, sell, distribute, use or otherwise copy the materials and documents on this site other than as provided for in paragraphs 1 to 6 above, you must comply with the terms and conditions of the openEHR Free Commercial Use Licence, or enter into a separate written agreement with openEHR Foundation covering such activities. The terms and conditions of the openEHR Free Commercial Use Licence can be found at http://www.openehr.org/free_commercial_use.htm </SPAN
+></LI>
+</ol>
+<P style="margin-bottom:15px; margin-left:566px; text-indent:-565px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 2 of 1</SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>5 	</SPAN
+></A>
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<A href="#LinkTarget_2290">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></A>
+<A href="#LinkTarget_2237">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></A>
+</P>
+<P style="text-align:justify; margin-bottom:0px">
+<A href="#LinkTarget_2181">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+</P>
+<P style="text-align:; margin-bottom:34px; margin-left:607px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+<P ID="LinkTarget_2290" style="text-align:justify; margin-bottom:24px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Amendment Record </SPAN
+></P>
+<TABLE style="margin-bottom:15px">
+<TR>
+<TH style="text-align:center; width:105px; height:33px; border-style:solid; border-color:#000000; border-width:1px 1px 4px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; color:#000000"
+>Issue </SPAN
+></TH>
+<TH style="text-align:right; width:354px; height:33px; border-style:solid; border-color:#000000; border-width:1px 1px 4px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; color:#000000"
+>Details </SPAN
+></TH>
+<TH style="text-align:center; width:85px; height:33px; border-style:solid; border-color:#000000; border-width:1px 1px 4px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; color:#000000"
+>Who </SPAN
+></TH>
+<TH style="text-align:center; width:104px; height:33px; border-style:solid; border-color:#000000; border-width:1px 1px 4px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; color:#000000"
+>Completed </SPAN
+></TH>
+</TR>
+<TR>
+<TD style="text-align:center; vertical-align:top; width:105px; height:25px; background-color:#0000FF; border-style: border-style:solid none solid solid; border-color: #000000; border-width:4px 1px 1px 1px"/>
+<TD style="text-align:right; vertical-align:top; width:354px; height:25px; background-color:#0000FF; border-style: border-style:solid none solid none; border-color: #000000; border-width:4px 1px 1px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; color:#FFFFFF"
+>R E L E A S E  1.0.1 </SPAN
+></TD>
+<TD style="text-align:center; vertical-align:top; width:85px; height:25px; background-color:#0000FF; border-style: border-style:solid none solid none; border-color: #000000; border-width:4px 1px 1px 1px"/>
+<TD style="text-align:center; vertical-align:top; width:104px; height:25px; background-color:#0000FF; border-style: border-style:solid solid solid none; border-color: #000000; border-width:4px 1px 1px 1px"/>
+</TR>
+<TR>
+<TD style="text-align:center; vertical-align:top; width:105px; height:59px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></TD>
+<TD style="text-align:right; width:354px; height:59px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; color:#000000"
+>CR-000203</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>: Release 1.0 explanatory text improvements. Added section on </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>EHR Extract. Added integration archi</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>tecture diagram </SPAN
+></TD>
+<TD style="text-align:center; vertical-align:top; width:85px; height:59px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>T Beale </SPAN
+></TD>
+<TD style="text-align:center; vertical-align:top; width:104px; height:59px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>22 Jul 2006 </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="text-align:center; vertical-align:top; width:105px; height:27px; background-color:#9404FF; border-style: border-style:solid none solid solid; border-color: #000000; border-width:1px 1px 1px 1px"/>
+<TD style="text-align:right; width:354px; height:27px; background-color:#9404FF; border-style: border-style:solid none solid none; border-color: #000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; color:#FFFFFF"
+>R E L E A S E  1.0 </SPAN
+></TD>
+<TD style="text-align:center; vertical-align:top; width:85px; height:27px; background-color:#9404FF; border-style: border-style:solid none solid none; border-color: #000000; border-width:1px 1px 1px 1px"/>
+<TD style="text-align:center; vertical-align:top; width:104px; height:27px; background-color:#9404FF; border-style: border-style:solid solid solid none; border-color: #000000; border-width:1px 1px 1px 1px"/>
+</TR>
+<TR>
+<TD style="text-align:center; width:105px; height:27px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>0.5 </SPAN
+></TD>
+<TD style="text-align:right; width:354px; height:27px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>Initial Writing </SPAN
+></TD>
+<TD style="text-align:center; width:85px; height:27px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>T Beale </SPAN
+></TD>
+<TD style="text-align:center; width:104px; height:27px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; font-weight:normal; color:#000000"
+>15 Sep 2005 </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="text-align:center; vertical-align:top; width:105px; height:27px; background-color:#0000FF; border-style: border-style:solid none solid solid; border-color: #000000; border-width:1px 1px 1px 1px"/>
+<TD style="text-align:right; width:354px; height:27px; background-color:#0000FF; border-style: border-style:solid none solid none; border-color: #000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9.9pt; color:#FFFFFF"
+>R E L E A S E  0.96 </SPAN
+></TD>
+<TD style="text-align:center; vertical-align:top; width:85px; height:27px; background-color:#0000FF; border-style: border-style:solid none solid none; border-color: #000000; border-width:1px 1px 1px 1px"/>
+<TD style="text-align:center; vertical-align:top; width:104px; height:27px; background-color:#0000FF; border-style: border-style:solid solid solid none; border-color: #000000; border-width:1px 1px 1px 1px"/>
+</TR>
+</TABLE>
+</DIV>
+<DIV class="Part"
+><H4 ID="LinkTarget_2324" style="text-align:justify; margin-bottom:0px; line-height:19px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Acknowledgements </SPAN
+></H4>
+<P style="text-align:justify; margin-bottom:633px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The work reported in this paper has been funded by The University College, London and Ocean Informatics, Australia. </SPAN
+></P>
+<P style="margin-bottom:15px">
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 3 of 15 </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<A href="#LinkTarget_2219">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></A>
+<A href="#LinkTarget_2237">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:487px">
+<A href="#LinkTarget_2181">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+</P>
+<P style="margin-bottom:959px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+<P style="margin-bottom:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 4 of 15 </SPAN
+></A>
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<A href="#LinkTarget_2290">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></A>
+<A href="#LinkTarget_2237">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></A>
+</P>
+<P style="text-align:left; margin-bottom:0px">
+<A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+</P>
+<P style="margin-bottom:8px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+</DIV>
+<DIV class="Part"
+><H4 ID="LinkTarget_2355" style="text-align:; margin-bottom:8px; margin-right:137px; margin-left:257px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Table of Contents </SPAN
+></H4>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2438">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:13.9pt; color:#000000"
+>1 Introduction.............................................................................. </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:13.9pt; color:#000000"
+>7 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2440">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>1.1 Purpose...................................................................................................</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>7 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2463">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>1.2 Related Documents ................................................................................</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>7 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2473">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>1.3 Status......................................................................................................</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>7 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2484">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>1.4 Peer review ............................................................................................</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>7 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:8px">
+<A href="#LinkTarget_2492">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>1.5 Conformance..........................................................................................</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>7 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2521">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:13.9pt; color:#000000"
+>2 Integration Package ................................................................. </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:13.9pt; color:#000000"
+>9 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2523">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2.1 Requirements .........................................................................................</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>9 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2532">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2.2 Design Basis ..........................................................................................</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>9 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2534">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2.2.1 Overview..........................................................................................</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>9 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2576">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2.2.2 Semantics of GENERIC_ENTRY .................................................1</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>0 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2599">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2.2.3 Use with openEHR Extracts ..........................................................1</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>1 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2603">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2.2.4 Integration with CEN EN13606 ....................................................1</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>1 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2608">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2.3 Data Conversion Architecture .............................................................1</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>1 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2636">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2.4 Class Descriptions................................................................................1</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:8px">
+<A href="#LinkTarget_2638">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2.4.1 GENERIC_ENTRY Class .............................................................1</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:0px">
+<A href="#LinkTarget_2676">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:13.9pt; color:#000000"
+>A References ............................................................................... 1</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:13.9pt; color:#000000"
+>3 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:554px">
+<A href="#LinkTarget_2679">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>A.1 Standards..............................................................................................1</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>3 
+</SPAN
+></A>
+</P>
+<P style="margin-bottom:15px">
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 5 of 15 </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></SPAN>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="margin-bottom:487px">
+<A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+</P>
+<P style="margin-bottom:959px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+<P style="margin-bottom:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 6 of 15 </SPAN
+></A>
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<A href="#LinkTarget_2290">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></A>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="text-align:justify; margin-bottom:15px; margin-left:607px; text-indent:-606px; line-height:15px">
+<A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Introduction Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+</DIV>
+<DIV class="Part"
+><H2 ID="LinkTarget_2438">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; color:#000000"
+>Introduction </SPAN
+></H2>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2440">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>1.1 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Purpose </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>This document describes the architecture of the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR Integration Information Model, designed for use in legacy and other integration situations. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The intended audience includes: </SPAN
+></P>
+<ul style="list-style-type:disc">
+<LI style="list-style-type:disc; text-align:justify; margin-bottom:4px; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Standards bodies producing health informatics standards; </SPAN
+></LI>
+<LI style="list-style-type:disc; text-align:justify; margin-bottom:4px; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Software development groups using </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR; </SPAN
+></LI>
+<LI style="list-style-type:disc; text-align:justify; margin-bottom:4px; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Academic groups using </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR; </SPAN
+></LI>
+<LI style="list-style-type:disc; text-align:justify; margin-bottom:4px; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The open source healthcare community; </SPAN
+></LI>
+<LI style="list-style-type:disc; text-align:justify; margin-bottom:4px; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Medical informaticians and clinicians intersted in health information; </SPAN
+></LI>
+<LI style="list-style-type:disc; text-align:justify; margin-bottom:20px; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Health data managers. </SPAN
+></LI>
+</ul>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2463">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>1.2 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Related Documents </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Prerequisite documents for reading this document include: </SPAN
+></P>
+<ul style="list-style-type:disc">
+<LI style="list-style-type:disc; text-align:justify; margin-bottom:4px; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR Architecture Overview </SPAN
+></LI>
+<LI style="list-style-type:disc; text-align:justify; margin-bottom:20px; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR Reference Model documents </SPAN
+></LI>
+</ul>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2473">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>1.3 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Status </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>This document is under development, and is published as a proposal for input to standards processes and implementation works. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>This document is available at </SPAN
+><A href="http://svn.openehr.org/specification/TAGS/Release-1.0.1/publishing/architecture/rm/integration_im.pdf">
+<SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#0000FF"
+>http://svn.openehr.org/specification/TAGS/Release</SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#0000FF"
+></SPAN
+></A>
+<A href="http://svn.openehr.org/specification/TAGS/Release-1.0.1/publishing/architecture/rm/integration_im.pdf">
+<SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#0000FF"
+>1.0.1/publishing/architecture/rm/integration_im.pdf</SPAN
+></A>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:20px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The latest version of this document can be found at </SPAN
+><A href="http://svn.openehr.org/specification/TRUNK/publishing/architecture/rm/integration_im.pdf">
+<SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#0000FF"
+>http://svn.openehr.org/specifica</SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#0000FF"
+></SPAN
+></A>
+<A href="http://svn.openehr.org/specification/TRUNK/publishing/architecture/rm/integration_im.pdf">
+<SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#0000FF"
+>tion/TRUNK/publishing/architecture/rm/integration_im.pdf</SPAN
+></A>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>. </SPAN
+></P>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2484">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>1.4 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Peer review </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Areas where more analysis or explanation is required are indicated with “to be continued” paragraphs like the following: </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:12pt; font-weight:normal; color:#FF00FF"
+>To Be Continued: more work required </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:20px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Reviewers are encouraged to comment on and/or advise on these paragraphs as well as the main con</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>tent. Please send requests for information to </SPAN
+><A href="mailto:info@gehr.org">
+<SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#0000FF"
+>info@openEHR.org</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>. Feedback should preferably be </SPAN
+></A>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>provided on the mailing list </SPAN
+><A href="mailto:openehr-technical@openehr.org">
+<SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#0000FF"
+>openehr-technical@openehr.org</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>, or by private email. </SPAN
+></A>
+</P>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2492">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>1.5 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Conformance </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:39px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Conformance of a data or software artifact to an </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR Reference Model specification is deter</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>mined by a formal test of that artifact against the relevant </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR Implementation Technology Specification(s) (ITSs), such as an IDL interface or an XML-schema. Since ITSs are formal, auto</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>mated derivations from the Reference Model, ITS conformance indicates RM conformance. </SPAN
+></P>
+<P style="margin-bottom:15px">
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 7 of 15 </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></SPAN>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="text-align:justify; margin-bottom:959px; line-height:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Introduction </SPAN
+><A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+<P style="margin-bottom:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 8 of 15 </SPAN
+></A>
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<A href="#LinkTarget_2290">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></A>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="text-align:justify; margin-bottom:15px; margin-left:607px; text-indent:-606px; line-height:15px">
+<A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Package Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+</DIV>
+</DIV>
+<DIV class="Part"
+><H2 ID="LinkTarget_2521">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; color:#000000"
+>Integration Package </SPAN
+></H2>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2523">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>2.1 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Requirements </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Getting data in and out of the EHR is one of the most basic requirements </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR aims to satisfy. In “greenfield” (new build) situations, and for data being created by GUI applications via the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR EHR APIs, there is no issue, since native </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR structures and semantics are being used. In almost all other situations, existing data sources and sinks have to be accounted for. In general, external or ‘legacy’ data (here the term is used for convenience, and does not imply anything about the age or quality of the systems in question) have different syntactic and semantic formats than </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR data, and seamless conversion requires addressing both levels. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Typical examples of legacy data sources and sinks include relational databases, HL7v2 messages, and HL7 CDA documents. HL7v2 messages are probably one of the most common sources of pathology messages in many countries; EDIFACT messages are another. More recently, HL7v2 messages have been designed for referrals and even discharge summaries. Not all legacy systems are standardised; many if not most hospitals as well as GP and other desktop products have their own private models of data and terminology usage. Technically speaking, there is not much difference between standardised and non-standardised legacy models; only the reusability of the solution differs. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Another important category of externally sourced data addressed by the Integration package described here is data expressed in a form of a CEN EN13606 Extract. Part 1 of EN13606 defines a information model which is nearly identical to that of </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR at the </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>COMPOSITION</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> and </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>SECTION </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>levels. The CEN EN13606 </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>Entry</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> class is a generic structure with a minimum of contextual meta</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>data, and can easily be mapped to the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR Entry type described in this specification. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The primary need with respect to legacy data is to be able to convert data from multiple mutually incompatible sources into a single, standardised patient-centric EHR for each patient, that can then be longitudinally viewed and queried. This is what enables GP and specialist notes, diagnoses and plans to be integrated with laboratory results from multiple sources, patient notes, administrative data and so on, to provide a coherent record of the patient journey. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:20px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>In technical terms, a number of types of incompatibility have to be dealt with. There is no guarantee of correspondence of scope of incoming transactions and target </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR structures - an incoming document for example might correspond to a number of clinical archetypes. Structure will not usually correspond, with legacy data (particularly messages) usually having flatter structures than those defined in target archetypes. Terminology use is extremely variable in existing systems and messages, and also has to be dealt with. Data types will also not correspond directly, so that for example, a map</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>ping between an incoming string “110/80 mmHg” and the target </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR form of two </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>DV_QUANTITY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> objects each with their own value and units has to be made. </SPAN
+></P>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2532" style="margin-bottom:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>2.2 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Design Basis </SPAN
+></H3>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2534" style="margin-bottom:0px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>2.2.1 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>Overview </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:29px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The design basis for connecting existing systems to </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR is founded upon a clear separation of the syntactic and semantic transformations required on data. The syntactic transformation converts source data from its original form (or whatever intermediate form it may have been converted to) to a format obeying a special class in the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR reference model, but whose logical structure and semantics are controlled by ‘integration’ archetypes so as to mimic the design of the source data. This step brings the data into the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR computational context. The second step causes transformation </SPAN
+></P>
+<P style="margin-bottom:15px">
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 9 of 15 </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></SPAN>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="text-align:left; margin-bottom:15px; line-height:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Package </SPAN
+><A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+<P style="text-align:left; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>on this intermediate </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR data into data which are a) instances of the main </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR reference model, and b) obey ‘designed’ clinical archetypes. </SPAN
+></P>
+<P style="text-align:left; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The additional elements of the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR architecture which make this transformation possible are: </SPAN
+></P>
+<ul style="list-style-type:disc">
+<LI style="list-style-type:disc; margin-bottom:4px; margin-left:60px; text-indent:-23px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>a class </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>, which is a sibling of </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>SECTION</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> and </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>, and contains com</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>pletely generic, archetypable structures; </SPAN
+></LI>
+<LI style="list-style-type:disc; margin-bottom:4px; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>‘integration’ archetypes, i.e. archetypes defined against the </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> class; </SPAN
+></LI>
+<LI style="list-style-type:disc; margin-left:60px; text-indent:-23px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>semantic transformation rules from </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR data based on </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> and integra</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+></LI>
+</ul>
+<P style="text-align:left; margin-bottom:20px; text-indent:60px; line-height:20px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>tion archetypes to data based on the subtypes of </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>, and designed archetypes. </SPAN
+><A href="#LinkTarget_2574">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>FIGURE 1 </SPAN
+></A>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>illustrates the </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>rm.integration</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> package, which contains a single class </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>. Unlike other classes in the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR reference model, </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> contains no hard-wired attributes at all, only one generic attribute, </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>data</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>. No assumptions at all are made about the actual shape of such data. </SPAN
+></P>
+<P style="margin-bottom:0px">
+<SPAN style="font-family:'sans-serif', 'Arial Narrow', sans-serif; font-size:9.9pt; font-style:italic; font-weight:normal; font-stretch:semi-condensed; color:#96B5B8"
+>LOCATABL</SPAN
+><SPAN style="font-family:'sans-serif', 'Arial Narrow', sans-serif; font-size:9.9pt; font-style:italic; font-weight:normal; font-stretch:semi-condensed; color:#96B5B8"
+>E </SPAN
+></P>
+<P style="margin-bottom:15px">
+<SPAN style="font-family:'sans-serif', 'Arial Narrow', sans-serif; font-size:9.9pt; font-weight:normal; font-stretch:semi-condensed; color:#96B5B8"
+>(rm.common.archetyped</SPAN
+><SPAN style="font-family:'sans-serif', 'Arial Narrow', sans-serif; font-size:9.9pt; font-weight:normal; font-stretch:semi-condensed; color:#96B5B8"
+>) </SPAN
+></P>
+<IMG width=396 height=161 style="display:block; float:none; text-align:center; margin-bottom:15px" src="images/integration_im_img_2.png">
+<P style="margin-bottom:15px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; color:#000000"
+>FIGURE 1 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; font-weight:normal; color:#000000"
+>rm.integration Package </SPAN
+></P>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2576" style="margin-bottom:0px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>2.2.2 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>Semantics of GENERIC_ENTRY </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>A number of useful consequences follow from this modelling approach. Firstly, instances of </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> will contain attributes inherited from the </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>LOCATABLE</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> class, including </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>archetype_node_id</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>, and are thus archetypable in the same way as all other classes in the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR reference model. The </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>LOCATABLE</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> attribute </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>feeder_audit</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> is also inherited, and may be used to mark every node of data with relevant meta-data from the source system record or message. Secondly, as a subtype of </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>CONTENT_ITEM</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>, </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> is a valid value for </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>COMPOSITION</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>.</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>content</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>. This is a completely desirable situation, since the same rules apply to </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> as to other content: instances can only be committed to the record as part of a </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>COMPOSITION</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> instance. </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>data are thus audit-trailed and versioned in the normal way. Thirdly, </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> instances can occur within a hierarchy of </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>SECTIONs</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>, which is useful for data sources which have headings or sec</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>tion equivalents (this is quite common in hospital information systems containing physician notes). Lastly, in common with all other </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR data, design-time paths can be constructed for archetypes of </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>, while runtime paths can be extracted from data based on such archetypes. These path sets can be used for writing the data transformation rules. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:29px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>It should be remembered that while </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> provides a standardised syntactic form for externally sourced data within </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR, it provides no semantic coherence. This is particularly true for </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> instances sourced from numerous data sources: there is no guarantee that the </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> representations of “cholesterol result” from system A will be congruent with those sourced from system B. It is not even required that the data sources be vastly different for this prob-</SPAN
+></P>
+<P style="margin-bottom:15px; margin-left:566px; text-indent:-565px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 10 of 1</SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>5 	</SPAN
+></A>
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<A href="#LinkTarget_2290">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></A>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="text-align:justify; margin-bottom:15px; margin-left:607px; text-indent:-606px; line-height:15px">
+<A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Package Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>lem to occur. Examples of messages can be found coming from different pathology laboratories, which obey the same minor version of HL7v2 (e.g. 2.3.1) and supposedly implement the same mes</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>sage type (e.g. “complete blood picture”) but which differ in actual structure and content. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:15px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The consequence of this situation is that </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> data cannot in general be safely used for clinical computation (e.g. decision support), and will not in general even support reliable clinical que</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>rying. In other words, a repository of </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRYs</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> (within appropriate </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>COMPOSITION</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> struc</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>tures) does not constitute a reliable or interoperable health record - it can only be considered a standardised health information data store whose primary purpose is as the input to or output of semantic conversion processes, or for other auditing or non-clinical data management purposes. </SPAN
+></P>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2599" style="margin-bottom:0px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>2.2.3 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>Use with </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>EHR Extracts </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:15px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> class provides a way to represent data from non-</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR systems that imple</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>ment the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR Extract specification in order to either communicate with </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR systems, or to communicate with other systems also implementing the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR Extract specification. </SPAN
+></P>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2603" style="margin-bottom:0px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>2.2.4 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>Integration with CEN EN13606 </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:20px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> class provides a convenient basis for making </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR systems EN13606</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>compliant, which in turn gives </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR a gateway capability in heterogeneous environments where EN13606 is being used to communicate data. A CEN EN13606 EHR Extract can be converted to a series of </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>COMPOSITIONs</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> containing </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> objects which obey appropriate integration archetypes; this data can then be semantically converted into orthodox </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR objects for integra</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>tion into a coherent EHR. Similarly, </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR data can be converted into the </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>-based intermediate form for further conversion into EN13606 EHR Extracts. </SPAN
+></P>
+</DIV>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2608">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>2.3 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Data Conversion Architecture </SPAN
+></H3>
+<P style="text-align:justify; margin-bottom:48px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The integration archetype-based strategy for importing data into an </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR system, shown in </SPAN
+><A href="#LinkTarget_2616">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>FIG</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+></A>
+<A href="#LinkTarget_2616">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>URE 2, consists of two steps. </SPAN
+></A>
+</P>
+<P style="text-align:justify; margin-bottom:29px; margin-left:20px; line-height:14px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>CDA 1.0 </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:0px; margin-right:21px; margin-left:11px; text-indent:-9px; line-height:14px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>HL7v2.5 path </SPAN
+></P>
+<IMG width=9 height=8 style="display:block; float:none; text-align:right; margin-bottom:75px; margin-right:13px; margin-left:43px" src="images/integration_im_img_3.png">
+<IMG width=603 height=363 style="display:block; float:none; text-align:right; margin-bottom:78px" src="images/integration_im_img_4.png">
+<P style="text-align:left; margin-bottom:-11px; margin-left:18px; line-height:13px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>HIS Db .csv files </SPAN
+></P>
+<IMG width=9 height=7 style="display:block; float:none; text-align:right; margin-bottom:239px" src="images/integration_im_img_5.png">
+<P style="margin-bottom:15px; line-height:15px">
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 11 of 15 </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></SPAN>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="text-align:justify; margin-bottom:15px; line-height:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Package </SPAN
+><A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+<P style="text-align:justify; margin-bottom:8px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Firstly, data are converted from their original syntactic format into </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>COMPOSITION</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>/</SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>SEC</SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>TION</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>/</SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> structures, shown in the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR integration switch. Most of the data will appear in the </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>GENERIC_ENTRY</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> part, controlled by an integration archetype designed to mimic the incoming structure (such as an HL7v2 lab message) as closely as possible; </SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>FEEDER_AUDIT</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>structures are used to contain integration meta-data. The result of this step is data that are expressed in the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR type system (i.e. as instances of the </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR reference model), and are immediately ame</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+></SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>nable to processing with normal </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR software. </SPAN
+></P>
+<P style="text-align:justify; margin-bottom:20px; line-height:19px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>In the second step, semantic transformation is effected, by the use of mappings between integration and designed archetypes. Such mappings are created by archetype authors using tools. The mapping rules are the key to defining structural transformations, use of terminological codes, and other changes. Serious challenges of course remain in the business of integrating heterogeneous systems; some of these are dealt with in the Common IM document sections on Feeder systems. </SPAN
+></P>
+</DIV>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2636" style="margin-bottom:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>2.4 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Class Descriptions </SPAN
+></H3>
+<DIV class="Sect">
+<H3 ID="LinkTarget_2638" style="margin-bottom:24px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>2.4.1 </SPAN
+><SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:13.9pt; color:#000000"
+>GENERIC_ENTRY Class </SPAN
+></H3>
+<TABLE style="margin-bottom:316px">
+<TR>
+<TH style="text-align:center; width:114px; height:31px; background-color:#CCFFFF; border-style:solid; border-color:#000000; border-width:3px 1px 4px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>CLASS </SPAN
+></TH>
+<TH colspan=2 style="width:536px; height:31px; background-color:#CCFFFF; border-style:solid; border-color:#000000; border-width:3px 1px 4px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>GENERIC_ENTRY </SPAN
+></TH>
+</TR>
+<TR>
+<TD style="text-align:center; width:114px; height:65px; background-color:#CCFFFF; border-style:solid; border-color:#000000; border-width:4px 1px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Purpose </SPAN
+></TD>
+<TD colspan=2 style="vertical-align:top; width:536px; height:65px; border-style:solid; border-color:#000000; border-width:4px 1px 1px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>This class is used to create intermediate representations of data from sources not otherwise conforming to </SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>open</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>EHR classes, such as HL7 messages, relational databases and so on. </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="text-align:center; width:114px; height:35px; background-color:#FFFF7E; border-style:solid; border-color:#000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>CEN </SPAN
+></TD>
+<TD colspan=2 style="vertical-align:top; width:536px; height:35px; border-style:solid; border-color:#000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>Entry </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="text-align:center; width:114px; height:35px; background-color:#CCFFFF; border-style:solid; border-color:#000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Inherit </SPAN
+></TD>
+<TD colspan=2 style="vertical-align:top; width:536px; height:35px; border-style:solid; border-color:#000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>CONTENT_ITEM </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="text-align:center; width:114px; height:35px; background-color:#CCFFFF; border-style:solid; border-color:#000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Attributes </SPAN
+></TD>
+<TD style="width:256px; height:35px; background-color:#CCFFFF; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Signature </SPAN
+></TD>
+<TD style="width:281px; height:35px; background-color:#CCFFFF; border-style:solid; border-color:#000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Meaning </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="text-align:center; vertical-align:top; width:114px; height:48px; background-color:#CCFFFF; border-style:solid; border-color:#000000; border-width:1px 1px 1px 1px"/>
+<TD style="vertical-align:top; width:256px; height:48px; border-style:solid; border-color:#000000; border-width:1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; color:#000000"
+>data</SPAN
+><SPAN style="font-family:'serif', 'Courier New PSMT'; font-size:10.9pt; font-weight:normal; color:#000000"
+>: ITEM_TREE </SPAN
+></TD>
+<TD style="width:281px; height:48px; border-style:solid; border-color:#000000; border-width:1px 1px 1px 1px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>The ‘data’ from the source message or record. </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="text-align:center; width:114px; height:32px; background-color:#CCFFFF; border-style:solid; border-color:#000000; border-width:1px 1px 4px 1px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:12pt; color:#000000"
+>Invariants </SPAN
+></TD>
+<TD colspan=2 style="vertical-align:top; width:536px; height:32px; border-style:solid; border-color:#000000; border-width:1px 1px 4px 1px"/>
+</TR>
+</TABLE>
+<P style="margin-bottom:15px; line-height:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 12 of 15 </SPAN
+></A>
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<A href="#LinkTarget_2290">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></A>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="text-align:justify; margin-bottom:15px; margin-left:607px; text-indent:-606px; line-height:15px">
+<A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>References Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+</DIV>
+</DIV>
+</DIV>
+<DIV class="Part"
+><H2 ID="LinkTarget_2676" style="margin-bottom:39px; margin-left:0px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; color:#000000"
+>A References </SPAN
+></H2>
+<TABLE style="margin-bottom:789px">
+<TR>
+<TD ID="LinkTarget_2679" style="vertical-align:top; width:41px; height:26px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>A.1 </SPAN
+></TD>
+<TD style="vertical-align:top; width:603px; height:26px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:15.9pt; color:#000000"
+>Standards </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="vertical-align:bottom; width:41px; height:25px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>1 </SPAN
+></TD>
+<TD style="vertical-align:bottom; width:603px; height:25px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>ENV 13606-1</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+> - Electronic healthcare record communication - Part 1: Extended architecture</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>. </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="vertical-align:top; width:41px; height:26px"/>
+<TD style="vertical-align:top; width:603px; height:26px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>CEN/ TC 251 Health Informatics Technical Committee. </SPAN
+></TD>
+</TR>
+<TR>
+<TD style="vertical-align:bottom; width:41px; height:18px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>2 </SPAN
+></TD>
+<TD style="vertical-align:bottom; width:603px; height:18px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; font-weight:normal; color:#000000"
+>HL7 version 2 ref.... </SPAN
+></TD>
+</TR>
+</TABLE>
+<P style="margin-bottom:15px">
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 13 of 15 </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></SPAN>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="text-align:justify; margin-bottom:959px; line-height:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>References </SPAN
+><A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+<P style="margin-bottom:15px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue:</SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+> 22 Jul 2006 </SPAN
+></A>
+<A href="#LinkTarget_2718">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 14 of 15 </SPAN
+></A>
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<A href="#LinkTarget_2290">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></A>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+<P style="text-align:left; margin-bottom:0px">
+<A href="#LinkTarget_2180">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Integration Information Model </SPAN
+></A>
+</P>
+<P style="margin-bottom:34px">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Rev </SPAN
+><A href="#LinkTarget_2303">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>0.6 </SPAN
+></A>
+</P>
+<P style="margin-bottom:608px">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; color:#000000"
+>END OF DOCUMEN</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:12pt; color:#000000"
+>T 
+</SPAN
+></P>
+<P style="margin-bottom:15px">
+<A href="#LinkTarget_2185">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Editors:T Beale </SPAN
+></A>
+<A href="#LinkTarget_2717">
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Page 15 of 15 </SPAN
+></A>
+<SPAN style="font-family:'sans-serif', 'Arial', sans-serif; font-size:9pt; font-weight:normal; color:#000000"
+>Date of Issue: </SPAN
+><A href="#LinkTarget_2307">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>22 Jul 2006 </SPAN
+></A>
+</P>
+<P style="margin-bottom:0px; line-height:15px">
+<A href="#LinkTarget_2290">
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>© 2003-2007 The openEHR Foundation</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>. 
+</SPAN
+></A>
+<SPAN>
+<SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>email: info@openEHR.org web: http://www.openEHR.or</SPAN
+><SPAN style="font-family:'serif', 'Times New Roman'; font-size:9pt; font-weight:normal; color:#000000"
+>g 
+</SPAN
+></SPAN>
+</P>
+</DIV>
+</BODY>
+</HTML>

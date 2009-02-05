@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:tal="http://xml.zope.org/namespaces/tal">
+             
+<head>
+<LINK rel="stylesheet" type="text/css" 
+      tal:attributes="href static/css/oship.css" />
+
+<title> Archetype name goes here</title>
+</head>
+<body  bgcolor="#eaeae5">
+<h1>Archetype Details</h1>
+<p>
+ADL Version = <span tal:content="python:ChecklistItemGeneral/adlVersion" />
+
+</p>
+</body>
+</html>

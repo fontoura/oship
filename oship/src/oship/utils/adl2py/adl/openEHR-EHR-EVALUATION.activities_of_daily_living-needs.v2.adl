@@ -1,0 +1,521 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.activities_of_daily_living-needs.v2
+specialize
+	openEHR-EHR-EVALUATION.activities_of_daily_living.v2
+
+concept
+	[at0000.1]	-- Activities of daily living needs
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["organisation"] = <"NHS CFH">
+		["name"] = <"D B Hutchinson">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a service user's ability and their assesed needs">
+			use = <"For constraining as required to record general activities of daily living and assessed needs">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+	>
+
+definition
+	EVALUATION[at0000.1] matches {	-- Activities of daily living needs
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0056] occurrences matches {0..1} matches {	-- Documented needs
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0026] occurrences matches {0..*} matches {	-- Activity/Need
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0058] occurrences matches {0..*} matches {	-- Long term objective
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							CLUSTER[at0065] occurrences matches {0..1} matches {	-- Need
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0027] occurrences matches {0..1} matches {	-- Activity/Need
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0016, 	-- Mobility
+													at0018, 	-- Transport
+													at0021, 	-- Eyesight & Hearing
+													at0034, 	-- Communication
+													at0037, 	-- Accommodation
+													at0038, 	-- Food
+													at0039, 	-- Self care
+													at0040, 	-- Daytime activities
+													at0041, 	-- General Physical Health
+													at0042, 	-- Seizures
+													at0043, 	-- Major Mental Health Problems
+													at0044, 	-- Minor Mental Health Problems
+													at0045, 	-- Information
+													at0046, 	-- Safety to self
+													at0047, 	-- Exploitation Risk
+													at0048, 	-- Safety to others
+													at0049, 	-- Inappropriate behaviour
+													at0050, 	-- Substance misuse
+													at0051, 	-- Social relationship
+													at0052, 	-- Sexual expression
+													at0053, 	-- Caring for someone else
+													at0054, 	-- Basic Education
+													at0055, 	-- Welfare benefits
+													at0.70, 	-- Looking after the home
+													at0.71]	-- Money budgeting
+												}
+											}
+										}
+									}
+									ELEMENT[at0031] occurrences matches {0..1} matches {	-- Need description
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0069] occurrences matches {0..1} matches {	-- Priority
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+							CLUSTER[at0066] occurrences matches {0..1} matches {	-- Intervention
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0028] occurrences matches {0..1} matches {	-- Intervention
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0029] occurrences matches {0..1} matches {	-- Service/Task Description
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									CLUSTER[at0064] occurrences matches {0..1} matches {	-- Responsible by
+										items cardinality matches {0..*; unordered} matches {
+											allow_archetype CLUSTER occurrences matches {0..1} matches {
+												include
+													archetype_id/value matches {/individual_professional\.v1/}
+													archetype_id/value matches {/individual_professional\.v2/}
+												exclude
+													archetype_id/value matches {/.*/}
+											}
+										}
+									}
+									ELEMENT[at0030] occurrences matches {0..1} matches {	-- Frequency
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::128]>
+												list = <
+													["1"] = <
+														units = <"a">
+													>
+													["2"] = <
+														units = <"mo">
+													>
+													["3"] = <
+														units = <"wk">
+													>
+													["4"] = <
+														units = <"d">
+													>
+													["5"] = <
+														units = <"h">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0059] occurrences matches {0..1} matches {	-- Start Date of Task
+										value matches {
+											DV_DATE_TIME matches {
+												value matches {yyyy-??-??T??:??:??}
+											}
+										}
+									}
+									ELEMENT[at0060] occurrences matches {0..1} matches {	-- Anticipated End Date of Task
+										value matches {
+											DV_DATE_TIME matches {
+												value matches {yyyy-??-??T??:??:??}
+											}
+										}
+									}
+								}
+							}
+							CLUSTER[at0061] occurrences matches {0..1} matches {	-- Outcome
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0036] occurrences matches {0..1} matches {	-- Target Outcome
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0062] occurrences matches {0..1} matches {	-- Achieved Outcome
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0063] occurrences matches {0..1} matches {	-- Review Date
+										value matches {
+											DV_DATE_TIME matches {
+												value matches {yyyy-??-??T??:??:??}
+											}
+										}
+									}
+								}
+							}
+							ELEMENT[at0.72] occurrences matches {0..1} matches {	-- Planned date of next review meeting
+								value matches {
+									DV_DATE_TIME matches {
+										value matches {yyyy-??-??T??:??:??}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.70"] = <
+					text = <"Looking after the home">
+					description = <"*">
+				>
+				["at0.71"] = <
+					text = <"Money budgeting">
+					description = <"*">
+				>
+				["at0.72"] = <
+					text = <"Planned date of next review meeting">
+					description = <"*">
+				>
+				["at0000"] = <
+					text = <"Activities of daily living">
+					description = <"An expanded set to accommodate general activities of daily living and assessed needs">
+				>
+				["at0000.1"] = <
+					text = <"Activities of daily living needs">
+					description = <"An expanded set to accommodate general assessed needs">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Dressing">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Washing">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Bathing">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Oral hygiene">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Food">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Cooking">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Eating">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Food - preferred diet">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Hair care">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Toileting activities">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Laundry">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Housework">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Shopping">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Mobility">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Transfers">
+					description = <"??">
+				>
+				["at0018"] = <
+					text = <"Transport">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Use of stairs">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Sight">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Eyesight & Hearing">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Speech">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Home security">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Finances">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Safety">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Activity/Need">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Activity/Need">
+					description = <"A list of activities for assessment">
+				>
+				["at0028"] = <
+					text = <"Intervention">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Service/Task Description">
+					description = <"A description of the service or task required to meet needs or ameliorate risk">
+				>
+				["at0030"] = <
+					text = <"Frequency">
+					description = <"The frequency at which the service or task should be performed">
+				>
+				["at0031"] = <
+					text = <"Need description">
+					description = <"Any other comments or activities">
+				>
+				["at0032"] = <
+					text = <"Showering">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Nail care">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Communication">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Undressing">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Target Outcome">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Accommodation">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Food">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Self care">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Daytime activities">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"General Physical Health">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Seizures">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Major Mental Health Problems">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Minor Mental Health Problems">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Information">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Safety to self">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Exploitation Risk">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Safety to others">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Inappropriate behaviour">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Substance misuse">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Social relationship">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Sexual expression">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Caring for someone else">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Basic Education">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Welfare benefits">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Documented needs">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"Long term objective">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Start Date of Task">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Anticipated End Date of Task">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Outcome">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Achieved Outcome">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Review Date">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Responsible by">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"Need">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Intervention">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Dexterity / Motor Skills">
+					description = <"To evaluate the dexterity and motor skills of a patient">
+				>
+				["at0068"] = <
+					text = <"Sleep Pattern">
+					description = <"To evaluate the sleep pattern of a patient">
+				>
+				["at0069"] = <
+					text = <"Priority">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_binding = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0000"] = <[SNOMED-CT::284545001]>
+				["at0002"] = <[SNOMED-CT::165235000]>
+				["at0003"] = <[SNOMED-CT::284785009]>
+				["at0004"] = <[SNOMED-CT::284797005]>
+				["at0005"] = <[SNOMED-CT::288470005]>
+				["at0006"] = <[SNOMED-CT::286452004]>
+				["at0007"] = <[SNOMED-CT::286513008]>
+				["at0008"] = <[SNOMED-CT::288999009]>
+				["at0009"] = <[SNOMED-CT::286434004]>
+				["at0010"] = <[SNOMED-CT::288471009]>
+				["at0011"] = <[SNOMED-CT::284899001]>
+				["at0013"] = <[SNOMED-CT::286040004]>
+				["at0014"] = <[SNOMED-CT::286171005]>
+				["at0015"] = <[SNOMED-CT::300718007]>
+				["at0016"] = <[SNOMED-CT::301438001]>
+				["at0017"] = <[SNOMED-CT::364666007]>
+				["at0018"] = <[SNOMED-CT::300619007]>
+				["at0019"] = <[SNOMED-CT::301581000]>
+				["at0020"] = <[SNOMED-CT::415823006]>
+				["at0021"] = <[SNOMED-CT::364019009]>
+				["at0022"] = <[SNOMED-CT::288598006]>
+				["at0023"] = <[SNOMED-CT::286190002]>
+				["at0024"] = <[SNOMED-CT::300681000]>
+				["at0025"] = <[SNOMED-CT::406201004]>
+				["at0032"] = <[SNOMED-CT::284791006]>
+				["at0033"] = <[SNOMED-CT::288472002]>
+				["at0034"] = <[SNOMED-CT::288574004]>
+				["at0035"] = <[SNOMED-CT::284984000]>
+			>
+		>
+	>

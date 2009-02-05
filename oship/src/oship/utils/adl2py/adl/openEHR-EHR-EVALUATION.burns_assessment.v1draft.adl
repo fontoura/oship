@@ -1,0 +1,550 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.burns_assessment.v1draft
+
+concept
+	[at0000]	-- Burns Assessment
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["organisation"] = <"NHS CFH">
+		["name"] = <"D B Hutchinson">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the type and degree of burns at assessment">
+			use = <"">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Burns Assessment
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Burn Mechanism of Injury
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Scald
+									at0004, 	-- Contact
+									at0005, 	-- Steam
+									at0006, 	-- Flame
+									at0007, 	-- Chemical
+									at0008, 	-- Electrical
+									at0009, 	-- Blast
+									at0010, 	-- Radiation
+									at0011, 	-- Diathermy
+									at0012, 	-- Laser
+									at0013, 	-- Cold Burn
+									at0014]	-- Other
+								}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Burn Mechanism of Injury Other
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Burn Injury Date and Time
+						value matches {
+							DV_DATE_TIME matches {
+								value matches {yyyy-??-??T??:??:??}
+							}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Burn Cooling Duration
+						value matches {
+							DV_DURATION matches {
+								value matches {PTHMS}
+							}
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Burn Cooling Method
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Burn Surface Area Estimation Method
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0021, 	-- Wallace Rule of Nines
+									at0022, 	-- Palmar Surface
+									at0023]	-- Lund and Browder
+								}
+							}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- Burn Exposure Duration
+						value matches {
+							DV_DURATION matches {
+								value matches {PTHMS}
+							}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Total Burn Surface Area
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::507]>
+								list = <
+									["1"] = <
+										units = <"%">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {	-- Scald Liquid Information
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0027] occurrences matches {0..1} matches {	-- Chemical Burn
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0028] occurrences matches {0..1} matches {	-- Chemical Burn Substance Details
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0029, 	-- Acid
+											at0030, 	-- Alkali
+											at0031]	-- Unknown
+										}
+									}
+								}
+							}
+							ELEMENT[at0032] occurrences matches {0..1} matches {	-- Chemical Burn Substance Notes
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0033] occurrences matches {0..1} matches {	-- Electrical Injury
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0034] occurrences matches {0..1} matches {	-- Electrical Injury Details
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0035, 	-- Domestic
+											at0036, 	-- Industrial
+											at0037, 	-- High Tension
+											at0038]	-- Flash
+										}
+									}
+								}
+							}
+							ELEMENT[at0039] occurrences matches {0..1} matches {	-- Electrical Injury Notes
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0040] occurrences matches {0..1} matches {	-- Electrical Injury Entry Wound Details
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0041] occurrences matches {0..1} matches {	-- Electrical Injury Exit Wound Details
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							CLUSTER[at0042] occurrences matches {0..1} matches {	-- ECG Abnormalities
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..1} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0044] occurrences matches {0..1} matches {	-- Burn Checklist
+						items cardinality matches {0..*; unordered} matches {
+							CLUSTER[at0045] occurrences matches {0..1} matches {	-- Loss of Consciousness?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..1} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0046] occurrences matches {0..1} matches {	-- Eye Injury?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0047] occurrences matches {0..1} matches {	-- Singeing of Facial Hair?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0048] occurrences matches {0..1} matches {	-- Risk of Inhalational Injury?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0049] occurrences matches {0..1} matches {	-- Soot in Mouth or Pharynx?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0050] occurrences matches {0..1} matches {	-- Oesophageal Burn?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0051] occurrences matches {0..1} matches {	-- Facial Swelling?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0052] occurrences matches {0..1} matches {	-- Carbonaceous Sputum?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0053] occurrences matches {0..1} matches {	-- Penetrating Injury to Chest?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0054] occurrences matches {0..1} matches {	-- Circumferential Burn to Limb?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0055] occurrences matches {0..1} matches {	-- Circumferential Burn to Chest/Neck?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0056] occurrences matches {0..1} matches {	-- Circumferential Burn to Abdomen?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0057] occurrences matches {0..1} matches {	-- Risk of Other Injuries?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0058] occurrences matches {0..1} matches {	-- Carbon Monoxide or other Poisoning?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+							CLUSTER[at0059] occurrences matches {0..1} matches {	-- Suspicion of Non-Accidental Injury?
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER occurrences matches {0..*} matches {
+										include
+											archetype_id/value matches {/checklist_item-general-cvs1\.v1/}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0060] occurrences matches {0..1} matches {	-- Burn Treatment Notes
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Burns Assessment">
+					description = <"To record the type and degree of burns at assessment">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Burn Mechanism of Injury">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Scald">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Contact">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Steam">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Flame">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Chemical">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Electrical">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Blast">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Radiation">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Diathermy">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Laser">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Cold Burn">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Other">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Burn Mechanism of Injury Other">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Burn Injury Date and Time">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Burn Exposure Duration">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Burn Cooling Duration">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Burn Cooling Method">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Burn Surface Area Estimation Method">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Wallace Rule of Nines">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Palmar Surface">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Lund and Browder">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Total Burn Surface Area">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Scald Liquid Information">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Chemical Burn">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Chemical Burn Substance Details">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Acid">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Alkali">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Unknown">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Chemical Burn Substance Notes">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Electrical Injury">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Electrical Injury Details">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Domestic">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Industrial">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"High Tension">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Flash">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Electrical Injury Notes">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Electrical Injury Entry Wound Details">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Electrical Injury Exit Wound Details">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"ECG Abnormalities">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Burn Checklist">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Loss of Consciousness?">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Eye Injury?">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Singeing of Facial Hair?">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Risk of Inhalational Injury?">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Soot in Mouth or Pharynx?">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Oesophageal Burn?">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Facial Swelling?">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Carbonaceous Sputum?">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Penetrating Injury to Chest?">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Circumferential Burn to Limb?">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Circumferential Burn to Chest/Neck?">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Circumferential Burn to Abdomen?">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Risk of Other Injuries?">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"Carbon Monoxide or other Poisoning?">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Suspicion of Non-Accidental Injury?">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Burn Treatment Notes">
+					description = <"*">
+				>
+			>
+		>
+	>

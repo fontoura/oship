@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body>
+  <h2>Existing entries</h2>
+  <ul>
+    <li tal:repeat="key python:context.keys()">
+      <a tal:attributes="href python:view.url(key)" 
+         tal:content="python:key"></a>
+  
+        <ul>
+          <li tal:repeat="key1 python:context.keys()">
+            <a tal:attributes="href python:view.url(key1)" 
+               tal:content="python:key1"></a>
+          </li>
+        </ul>
+     </li>   
+  </ul>
+  
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:tal="http://xml.zope.org/namespaces/tal">
+             
+<head>
+<LINK rel="stylesheet" type="text/css" 
+      tal:attributes="href static/css/oship.css" />
+
+<title>OSHIP Demo</title>
+</head>
+<body>
+<h1 align="center">The OSHIP Demo</h1>
+<hr align="center" size="5" />
+
+<table align="center">
+<tr>
+<td align="center">Add New Record</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td align="center">Lookup Record</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td align="center">Archetypes</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td align="center">Terminologies</td>
+</tr>
+</table>
+
+<hr align="center" size="5" />
+
+<p><b>OSHIP Sections</b></p>
+  <ul>
+    <li tal:repeat="key python:context.keys()">
+      <a tal:attributes="href python:view.url(context[key])" 
+         tal:content="python:key"></a>
+    </li>
+  </ul>
+
+<p><b>Clients</b></p>
+  <ul>
+    <li tal:repeat="key python:context['demographics']">
+      <p>Client ID: <a tal:content="python:context['demographics'][key].clientId"></a><br />
+      <a tal:content="python:context['demographics'][key].firstName"></a>
+      <a tal:content="python:context['demographics'][key].lastName"></a>
+      <a tal:content="python:context['demographics'][key].dob"></a></p>
+    </li>
+  </ul>
+
+</body>
+</html>

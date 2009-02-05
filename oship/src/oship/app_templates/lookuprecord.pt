@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:tal="http://xml.zope.org/namespaces/tal">
+             
+<head>
+<LINK rel="stylesheet" type="text/css" 
+      tal:attributes="href static/css/oship.css" />
+
+<title>Lookup Record</title>
+</head>
+<body>
+<h1 align="center">The OSHIP Demo Lookup Record Page</h1>
+<hr align="center" size="5" />
+
+</body>
+</html>

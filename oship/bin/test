@@ -1,8 +1,8 @@
-#!/home/tim/oshipenv3/bin/python
+#!/home/tim/oship-openehr/bin/python
 
 import sys
 sys.path[0:0] = [
-  '/home/tim/oshipenv3/oship/oship/src',
+  '/home/tim/oship-openehr/oship/oship/src',
   '/home/tim/.buildout/eggs/zope.testing-3.5.4-py2.5.egg',
   '/home/tim/.buildout/eggs/setuptools-0.6c8-py2.5.egg',
   '/home/tim/.buildout/eggs/mglob-0.4-py2.5.egg',
@@ -121,12 +121,12 @@ sys.path[0:0] = [
 
 import os
 sys.argv[0] = os.path.abspath(sys.argv[0])
-os.chdir('/home/tim/oshipenv3/oship/oship/parts/test')
+os.chdir('/home/tim/oship-openehr/oship/oship/parts/test')
 
 
 import zope.testing.testrunner
 
 if __name__ == '__main__':
     zope.testing.testrunner.run((['--tests-pattern', '^f?tests$', '-v']) + [
-  '--test-path', '/home/tim/oshipenv3/oship/oship/src',
+  '--test-path', '/home/tim/oship-openehr/oship/oship/src',
   ])

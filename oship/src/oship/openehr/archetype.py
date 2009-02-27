@@ -24,8 +24,8 @@ from zope.schema.fieldproperty import FieldProperty
 
 import grok
 
-from oship.openehr.support import IArchetypeId,Interval,IHierObjectId,IObjectRef
-from oship.openehr.common import AuthoredResource
+from support import IArchetypeId,Interval,IHierObjectId,IObjectRef
+from common import AuthoredResource
 
 
 _ = MessageFactory('oship')

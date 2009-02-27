@@ -1,8 +1,8 @@
-#!/home/tim/oshipenv3/bin/python
+#!/home/tim/oship-openehr/bin/python
 
 import sys
 sys.path[0:0] = [
-  '/home/tim/oshipenv3/oship/oship/src',
+  '/home/tim/oship-openehr/oship/oship/src',
   '/home/tim/.buildout/eggs/z3c.evalexception-2.0-py2.5.egg',
   '/home/tim/.buildout/eggs/Paste-1.7.1-py2.5.egg',
   '/home/tim/.buildout/eggs/setuptools-0.6c8-py2.5.egg',

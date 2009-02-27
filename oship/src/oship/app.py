@@ -8,28 +8,41 @@
 ##############################################################################
 
 import grok
+from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
+from zope.app.container.btree import BTreeContainer
+from zope.app.folder import Folder
+from oship.openehr.atbldr import CreateAT, getFileList
 
-
-class Oship(grok.Application, grok.Container):
+# Begine OSHIP Demo
+class oship(grok.Application, grok.Container ):
     pass
 
 class Index(grok.View):
-    grok.context(Oship)
-    
+    grok.context(oship)
+
+
 class Setup(grok.View):
-    grok.context(Oship)
+    grok.context(oship)
+    
     try:
         def render(self):
-            self.context['termserver'] = grok.Container()
-            self.context['demographics'] = grok.Container()
-            self.context['clinical'] = grok.Container()
-            return "Setup is complete. Return to the main page"
+            self.context['ar'] = Folder()
+            self.context['termserver'] = Folder()
+            self.context['demographics'] = Folder()
+            self.context['clinical'] = Folder()
+            atname=u'a-name'
+            fnames = getFileList()
+            for fname in fnames:
+                atlist=CreateAT(fname)
+                atname=atlist[0]
+                fldr=atlist[1]
+                try:
+                    self.context['ar'].__setitem__(atname,fldr)
+                except DuplicationError:
+                    break
+                
+            self.redirect("http://localhost:8080/oship/ar/@@contents.html")
+            
     except DuplicationError:
-        duplicate()
-        
-    def duplicate():
-        grok.PageTemplate("Setup already executed. Return to the main page.")
-        return
-    
-    
+        pass

@@ -1,17 +1,8 @@
-#This file was created with create_pyfiles.py from the OSHIP project Release 1.0.1a2.
+#This file was created with create_pyfiles.py from the OSHIP project Release 1.0a.
 #Its quality is not guaranteed and will likely need hand editing before use.
+#The files should then be moved to the appropriate directory under oship/km/openehr.
+#You should also move the matching ADL file to the same location.
 
-#First write the parsed_adl out so it can be used as a Python structure.  A bit messy but it works.
-
-def getAtId(parsed_adl):
-    return u'openEHR-EHR-CLUSTER.checklist_item-general.v1'
-def getVersion(parsed_adl):
-    return 1.4
-
-
-import sys
-import oship.newsyspath
-sys.path[0:0] = mypath()
 import grok
 import datetime
 from zope.interface import implements
@@ -27,13 +18,12 @@ from oship.openehr.support import TerminologyId
 from oship.openehr.archetype import Cardinality
 from oship.openehr.support import Interval   
   
-class ChecklistItemGeneralV1(Archetype,grok.Container):
+class BurnsAssessmentV1draft(Archetype,grok.Container):
 
     implements(IArchetype)
 
-    def __init__(self):
-        self.archetypeId=getAtId()
-        self.adlVersion = getVersion()
+    def __init__(self,parsed_adl):
+        self.adlVersion = unicode(parsed_adl.archetype.adl_version)
         self.archetypeId = ArchetypeId(ObjectId(unicode(parsed_adl.archetype[1])))
         self.concept = unicode(parsed_adl.concept)
-        self.parentArchetypeId = ArchetypeId(ObjectId(unicode(parsed_adl.specialize)))
+        self.parentArchetypeId=ArchetypeId(ObjectId(u''))

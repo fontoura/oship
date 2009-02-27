@@ -1,4 +1,4 @@
-#!/home/tim/oshipenv3/bin/python
+#!/home/tim/oship-openehr/bin/python
 
 import sys
 sys.path[0:0] = [

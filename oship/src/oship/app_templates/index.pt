@@ -3,7 +3,7 @@
 <head>
 <LINK rel="stylesheet" type="text/css" 
       tal:attributes="href static/css/oship.css" />
-<title>OSHIP Rel. 1.0.1a2</title>
+<title>OSHIP Release 1.0a</title>
 </head>
 
 <body >
@@ -33,7 +33,7 @@ development environment.
 <p>
 <b>The first thing to do is to go to the <a href="http://localhost:8080/applications">Add Application form</a> and create your 
 'Oship' (case sensitive, no quotes) application. Then return here by clicking on the <b>Oship (Oship) link</b> and execute this 
-<a href="http://localhost:8080/Oship/setup">setup link.</a></b>
+<a href="http://localhost:8080/oship/setup">setup link.</a></b>
 You should then return to the main page. 
 </p>
 
@@ -64,7 +64,7 @@ If your URL to the server is different than http://localhost:8080 then you will 
 <td width="50%"><a href="http://localhost:8080/docgrok/zope">Zope API</a></td>
 <td width="50%"><a href="http://grok.zope.org/doc/current/tutorial.html">Grok Tutorials</a></td>
 </tr>
-<tr><td><a href="http://localhost:8080/oship/@@inspect.html">Object Database</a></td><td><a href="http://localhost:8080/Oship/demo">OSHIP Demo</a></td></tr>
+<tr><td><a href="http://localhost:8080/manage">Object Database</a></td><td><a href="http://localhost:8080/Oship/demo">OSHIP Demo</a></td></tr>
 </table>
 
 

@@ -1,18 +1,19 @@
 from setuptools import setup, find_packages
 
-version = '1.0.1a2'
+version = '0.0'
 
 setup(name='oship',
       version=version,
-      description="OSHIP",
-      long_description="""Open Source Health Information Platform""",
+      description="",
+      long_description="""\
+""",
       # Get strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[], 
-      keywords="healthcare EMR EHR openEHR",
-      author="Timothy Cook & Contributors",
+      keywords="",
+      author="",
       author_email="",
       url="",
-      license="MPL",
+      license="",
       package_dir={'': 'src'},
       packages=find_packages('src'),
       include_package_data=True,
@@ -21,9 +22,9 @@ setup(name='oship',
                         'grok',
                         'grokui.admin',
                         'z3c.testsetup',
-                        'pyparsing',
-                        'mglob',
                         # Add extra requirements here
+                        'pyparsing',
+                        'mglob'
                         ],
       entry_points = """
       [console_scripts]

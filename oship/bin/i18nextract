@@ -1,8 +1,8 @@
-#!/home/tim/oshipenv3/bin/python
+#!/home/tim/oship-openehr/bin/python
 
 import sys
 sys.path[0:0] = [
-  '/home/tim/oshipenv3/oship/oship/src',
+  '/home/tim/oship-openehr/oship/oship/src',
   '/home/tim/.buildout/eggs/zope.app.locales-3.4.5-py2.5.egg',
   '/home/tim/.buildout/eggs/zope.tal-3.4.1-py2.5.egg',
   '/home/tim/.buildout/eggs/zope.interface-3.4.1-py2.5-linux-x86_64.egg',
@@ -128,4 +128,4 @@ os.chdir('/home/tim/.buildout/eggs/z3c.recipe.i18n-0.5.0-py2.5.egg')
 import z3c.recipe.i18n.i18nextract
 
 if __name__ == '__main__':
-    z3c.recipe.i18n.i18nextract.main(['i18nextract', '-d', 'oship', '-s', '/home/tim/oshipenv3/oship/oship/parts/i18n/configure.zcml', '-o', '/home/tim/oshipenv3/oship/oship/src/oship/locales', '-p', 'oship'])
+    z3c.recipe.i18n.i18nextract.main(['i18nextract', '-d', 'oship', '-s', '/home/tim/oship-openehr/oship/oship/parts/i18n/configure.zcml', '-o', '/home/tim/oship-openehr/oship/oship/src/oship/locales', '-p', 'oship'])

@@ -22,7 +22,7 @@ from zope.schema import Text,Bool,TextLine,Int,Field,BytesLine,Float,List,URI,Or
 from zope.app.file.image import Image
 import grok
 
-from oship.openehr.support import Interval,ITerminologyId,IObjectRef
+from support import Interval,ITerminologyId,IObjectRef
 
 
 _ = MessageFactory('oship')

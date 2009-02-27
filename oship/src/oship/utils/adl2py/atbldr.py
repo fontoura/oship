@@ -122,6 +122,11 @@ def bldArchetype(fname,parsed_adl):
     """
     Build the archetype source file.
     """
+    
+    print parsed_adl.archetype
+
+    
+    
     #get the class name from the archetypeID
     class_name=(parsed_adl.archetype[1]).partition('.')[2]
     class_name=class_name.replace('.','_')
@@ -139,12 +144,19 @@ def bldArchetype(fname,parsed_adl):
     print '\n Creating Class : ',class_name+'\n\n'
     logging.info("The Python class name is: "+class_name+' in file: '+class_file+'\n') 
     f=open('./py_files/'+class_file,'w') # create the file for writing
-    archetypeId=unicode(parsed_adl.archetype[1])
+    
     
     f.write("#This file was created with create_pyfiles.py from the OSHIP project Release 1.0.1a2.\n")
     f.write("#Its quality is not guaranteed and will likely need hand editing before use.\n\n")
-    
-    
+    f.write("#First write the parsed_adl out so it can be used as a Python structure.  A bit messy but it works.\n\n")
+    f.write("def getAtId(parsed_adl):\n")
+    f.write("    return "+repr(unicode(parsed_adl.archetype[1]))+"\n")
+    f.write("def getVersion(parsed_adl):\n")
+    f.write("    return " + unicode(parsed_adl.archetype[0][1])+"\n")
+    f.write("\n\n")
+    f.write("import sys\n")
+    f.write("import oship.newsyspath\n")
+    f.write("sys.path[0:0] = mypath()\n")    
     f.write("import grok\n")  
     f.write("import datetime\n")  
     f.write("from zope.interface import implements\n")  
@@ -162,8 +174,9 @@ def bldArchetype(fname,parsed_adl):
     
     f.write("class "+ class_name+"(Archetype,grok.Container):\n\n")
     f.write("    implements(IArchetype)\n\n" )
-    f.write("    def __init__(self,parsed_adl):\n" )
-    f.write("        self.adlVersion = unicode(parsed_adl.archetype.adl_version)\n")
+    f.write("    def __init__(self):\n" )
+    f.write("        self.archetypeId=getAtId()\n")
+    f.write("        self.adlVersion = getVersion()\n")
     f.write("        self.archetypeId = ArchetypeId(ObjectId(unicode(parsed_adl.archetype[1])))\n")
     f.write("        self.concept = unicode(parsed_adl.concept)\n")
     
@@ -201,6 +214,7 @@ def bldArchetype(fname,parsed_adl):
         #print "WARNING:**** Duplicate Archetype ID. This Archetype was not committed to the repository. ***"
         #logging.warning("Duplicate Archetype ID: "+atObj.__name__+" was not commited to the repository.")
         
+     
     f.close()    
 
 

@@ -1,14 +1,15 @@
-import sys 
+#!/home/tim/oship-openehr/bin/python
 
-
+import sys
 sys.path[0:0] = [
-  '/home/tim/oshipenv/ref_impl_python/BRANCHES/oship/src',
+  '/home/tim/oship-openehr/oship/oship',
   '/home/tim/.buildout/eggs/z3c.evalexception-2.0-py2.5.egg',
   '/home/tim/.buildout/eggs/Paste-1.7.1-py2.5.egg',
   '/home/tim/.buildout/eggs/setuptools-0.6c8-py2.5.egg',
   '/home/tim/.buildout/eggs/PasteScript-1.6.3-py2.5.egg',
   '/home/tim/.buildout/eggs/PasteDeploy-1.3.2-py2.5.egg',
   '/home/tim/.buildout/eggs/zope.security-3.4.1-py2.5-linux-x86_64.egg',
+  '/home/tim/.buildout/eggs/mglob-0.4-py2.5.egg',
   '/home/tim/.buildout/eggs/pyparsing-1.5.0-py2.5.egg',
   '/home/tim/.buildout/eggs/z3c.testsetup-0.2.1-py2.5.egg',
   '/home/tim/.buildout/eggs/grokui.admin-0.1.2-py2.5.egg',
@@ -121,7 +122,6 @@ sys.path[0:0] = [
   '/home/tim/.buildout/eggs/RestrictedPython-3.4.2-py2.5.egg',
   '/home/tim/.buildout/eggs/zope.app.file-3.4.4-py2.5.egg',
   ]
-
 
 from atbldr import CreateAT
 CreateAT()

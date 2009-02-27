@@ -1,8 +1,8 @@
 #!/home/tim/oship-openehr/bin/python
+
 import sys
-    
 sys.path[0:0] = [
-  '/home/tim/oship-openehr/oship/oship/src',
+  '/home/tim/oship-openehr/oship/oship',
   '/home/tim/.buildout/eggs/z3c.evalexception-2.0-py2.5.egg',
   '/home/tim/.buildout/eggs/Paste-1.7.1-py2.5.egg',
   '/home/tim/.buildout/eggs/setuptools-0.6c8-py2.5.egg',
@@ -123,21 +123,4 @@ sys.path[0:0] = [
   '/home/tim/.buildout/eggs/zope.app.file-3.4.4-py2.5.egg',
   ]
 
-_interactive = True
-if len(sys.argv) > 1:
-    import getopt
-    _options, _args = getopt.getopt(sys.argv[1:], 'ic:')
-    _interactive = False
-    for (_opt, _val) in _options:
-        if _opt == '-i':
-            _interactive = True
-        elif _opt == '-c':
-            exec _val
-            
-    if _args:
-        sys.argv[:] = _args
-        execfile(sys.argv[0])
-
-if _interactive:
-    import code
-    code.interact(banner="", local=globals())
+  

@@ -14,7 +14,7 @@ from zope.app.container.btree import BTreeContainer
 from zope.app.folder import Folder
 from oship.openehr.atbldr import CreateAT, getFileList
 
-# Begine OSHIP Demo
+# Begin OSHIP Demo
 class oship(grok.Application, grok.Container ):
     pass
 
@@ -27,22 +27,22 @@ class Setup(grok.View):
     
     try:
         def render(self):
-            self.context['ar'] = Folder()
-            self.context['termserver'] = Folder()
-            self.context['demographics'] = Folder()
-            self.context['clinical'] = Folder()
-            atname=u'a-name'
+            self.context['ar'] = Folder() # archetype repository
+            self.context['termserver'] = Folder() # terminology server
+            self.context['demographics'] = Folder() # demographics space
+            self.context['clinical'] = Folder() # clinical space
+            atname=u'a-name' #place holder name
             fnames = getFileList()
-            for fname in fnames:
-                atlist=CreateAT(fname)
-                atname=atlist[0]
-                fldr=atlist[1]
+            for fname in fnames: # we have our list of ADL files
+                atlist=CreateAT(fname) # take one ADL file and process it into a nested list
+                atname=atlist[0] # get the real archetype  name
+                fldr=atlist[1] #setup a place to put the archetype in the ar
                 try:
                     self.context['ar'].__setitem__(atname,fldr)
                 except DuplicationError:
                     break
                 
-            self.redirect("http://localhost:8080/oship/ar/@@contents.html")
+            self.redirect("http://localhost:8080/manage") # now simply redirect to the ZMI
             
     except DuplicationError:
         pass

@@ -112,6 +112,7 @@ def bldArchetype(fname,parsed_adl):
     at.__setitem__(u"Definition",repr(parsed_adl.definition))
     
     
+    print "\n*** Finished: ***", class_name
     
     return at
 

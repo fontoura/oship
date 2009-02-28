@@ -1466,3 +1466,33 @@ TypeError: ('Not enough context information to get parent', <zope.app.folder.fol
 2009-02-27T20:07:18 INFO paste.httpserver.ThreadPool Shutting down threadpool
 ------
 2009-02-27T20:07:18 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:02:15 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T14:06:58 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:06:58 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:06:58 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:06:58 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:10:06 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T14:10:57 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:10:57 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:10:57 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:10:57 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:11:42 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T14:12:37 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:12:37 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:12:37 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:12:37 INFO paste.httpserver.ThreadPool All workers stopped

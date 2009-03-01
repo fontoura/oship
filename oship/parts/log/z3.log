@@ -2289,3 +2289,51 @@ UnicodeDecodeError: 'ascii' codec can't decode byte 0xc2 in position 0: ordinal 
 2009-03-01T04:03:06 INFO paste.httpserver.ThreadPool Shutting down threadpool
 ------
 2009-03-01T04:03:06 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T07:29:07 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T07:29:18 WARNING ZODB.FileStorage Ignoring index for /home/tim/oship-openehr/oship/oship/parts/data/Data.fs
+------
+2009-03-01T07:29:23 ERROR SiteError http://localhost:8080/oship/setup
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <oship.app.Setup object at 0x28becd0>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 60, in __call__
+    return mapply(self.render, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Setup.render of <oship.app.Setup object at 0x28becd0>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/app.py", line 48, in render
+    self.context['ar'].__setitem__(atname,fldr)
+  File "/home/tim/.buildout/eggs/zope.app.folder-3.4.0-py2.5.egg/zope/app/folder/folder.py", line 92, in __setitem__
+    raise DuplicationError("name, %s, is already in use" % name)
+DuplicationError: name, 'openEHR-EHR-CLUSTER_checklist_item-general_v1', is already in use
+------
+2009-03-01T07:29:49 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T07:29:49 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T07:29:49 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T07:29:49 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T07:32:22 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T07:33:09 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T07:33:09 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T07:33:09 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T07:33:09 INFO paste.httpserver.ThreadPool All workers stopped

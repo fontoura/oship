@@ -36,18 +36,17 @@ class Setup(grok.View):
         
         atname=u'a-name' #place holder name
         fnames = getFileList()
-        
-        for fname in fnames: # we have our list of ADL files
-            print "Processing: ",fname
-            atlist=CreateAT(fname) # take one ADL file and process it into a nested list
-            atname=atlist[0] # get the real archetype  name
-            
-         
-            fldr=atlist[1] #setup a place to put the archetype in the ar
-            try:            
+        try:        
+            for fname in fnames: # we have our list of ADL files
+                print "Processing: ",fname
+                atlist=CreateAT(fname) # take one ADL file and process it into a nested list
+                atname=atlist[0] # get the real archetype  name
+                
+             
+                fldr=atlist[1] #setup a place to put the archetype in the ar
                 self.context['ar'].__setitem__(atname,fldr)
-            except ValueError:   
-                pass
+        except DuplicationError:
+            pass
          
         
         self.redirect("http://localhost:8080/manage") # now simply redirect to the ZMI

@@ -31,10 +31,11 @@ development environment.
 
 
 <p>
-<b>The first thing to do is to go to the <a href="http://localhost:8080/applications">Add Application form</a> and create your 
-'Oship' (case sensitive, no quotes) application. Then return here by clicking on the <b>Oship (Oship) link</b> and execute this 
-<a href="http://localhost:8080/oship/setup">setup link.</a></b>
-You should then return to the main page. 
+<b>After adding your 'oship' (case sensitive, no quotes) application. Then return here by clicking on the <b>'oship' link 
+in the top left</b> 
+and execute this <a href="http://localhost:8080/oship/setup">setup link.</a></b>
+When your ADL files are finished processing; you will be redirected to the Zope Management Interface (ZMI).<br />
+Just click down through the menu on the top left to find the 'ar'.   
 </p>
 
 <p>
@@ -53,7 +54,7 @@ If your URL to the server is different than http://localhost:8080 then you will 
 <td rowspan="3"></td>
 </tr>
 <tr>
-<td width="50%"><a href="http://localhost:8080/docgrok/oship">OSHIP API</a></td>
+<td width="50%"><a href="http://localhost:8080/docgrok/oship">OSHIP API</a> where you can browse teh objects in your archetype repository (ar)</td>
 <td width="50%"><a href="http://grok.zope.org/doc/current/grok_overview.html">Grok Developers Notes</a></td>
 </tr>
 <tr>
@@ -64,14 +65,14 @@ If your URL to the server is different than http://localhost:8080 then you will 
 <td width="50%"><a href="http://localhost:8080/docgrok/zope">Zope API</a></td>
 <td width="50%"><a href="http://grok.zope.org/doc/current/tutorial.html">Grok Tutorials</a></td>
 </tr>
-<tr><td><a href="http://localhost:8080/manage">Object Database</a></td><td><a href="http://localhost:8080/Oship/demo">OSHIP Demo</a></td></tr>
+<tr><td><a href="http://localhost:8080/manage">Object Database (ZMI)</a></td><td><a href="http://localhost:8080/Oship/demo">OSHIP Demo</a></td></tr>
 </table>
 
 
 <p>
 OSHIP is open source software based on an open specification.  Both the specifications and the software are licensed under a business friendly
 license allowing for both open source and proprietary applications to be developed and still share semantically complete information.  
-For more information please join the <a href="http://lists.chime.ucl.ac.uk/mailman/listinfo/ref_impl_python">OSHIP developer mailing</a> list
+For more information please join the OSHIP developer mailing list on <a href="https://launchpad.net/oship/">Launchpad</a> by adding it to your Launchpad profile.
 and/or contact the lead developer <a href="mailto:timothywayne.cook@gmail.com">Tim Cook</a>.
 </p>
 <p align="center">OSHIP is based on <a href="http://grok.zope.org">Grok 1.0a1</a></p>

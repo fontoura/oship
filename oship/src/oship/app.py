@@ -25,24 +25,30 @@ class Index(grok.View):
 class Setup(grok.View):
     grok.context(oship)
     
-    try:
-        def render(self):
+    def render(self):
+        try:
             self.context['ar'] = Folder() # archetype repository
             self.context['termserver'] = Folder() # terminology server
             self.context['demographics'] = Folder() # demographics space
             self.context['clinical'] = Folder() # clinical space
-            atname=u'a-name' #place holder name
-            fnames = getFileList()
-            for fname in fnames: # we have our list of ADL files
-                atlist=CreateAT(fname) # take one ADL file and process it into a nested list
-                atname=atlist[0] # get the real archetype  name
-                fldr=atlist[1] #setup a place to put the archetype in the ar
-                try:
-                    self.context['ar'].__setitem__(atname,fldr)
-                except DuplicationError:
-                    break
-                
-            self.redirect("http://localhost:8080/manage") # now simply redirect to the ZMI
+        except DuplicationError:
+            pass
+        
+        atname=u'a-name' #place holder name
+        fnames = getFileList()
+        
+        for fname in fnames: # we have our list of ADL files
+            print "Processing: ",fname
+            atlist=CreateAT(fname) # take one ADL file and process it into a nested list
+            atname=atlist[0] # get the real archetype  name
             
-    except DuplicationError:
-        pass
+         
+            fldr=atlist[1] #setup a place to put the archetype in the ar
+            try:            
+                self.context['ar'].__setitem__(atname,fldr)
+            except ValueError:   
+                pass
+         
+        
+        self.redirect("http://localhost:8080/manage") # now simply redirect to the ZMI
+            

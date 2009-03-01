@@ -1496,3 +1496,796 @@ TypeError: ('Not enough context information to get parent', <zope.app.folder.fol
 2009-02-28T14:12:37 INFO paste.httpserver.ThreadPool Shutting down threadpool
 ------
 2009-02-28T14:12:37 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:26:35 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T14:31:12 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:31:12 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:31:12 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:31:12 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:34:42 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T14:40:41 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:41:32 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T14:41:32 INFO paste.httpserver.ThreadPool Killing thread 1138641232
+------
+2009-02-28T14:41:34 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T14:41:35 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:41:35 INFO paste.httpserver.ThreadPool 0 workers didn't stop properly, and 1 zombies
+------
+2009-02-28T14:42:38 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T14:54:10 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T14:58:28 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:58:28 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T14:58:28 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T14:58:29 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T14:58:30 INFO paste.httpserver.ThreadPool Killing thread 1141152080
+------
+2009-02-28T14:58:30 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T15:04:29 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:06:16 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:06:16 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:06:16 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:06:17 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T15:06:17 INFO paste.httpserver.ThreadPool Killing thread 1150503248
+------
+2009-02-28T15:06:17 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T15:07:12 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:08:00 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:08:51 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:08:51 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:08:51 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:08:52 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T15:08:52 INFO paste.httpserver.ThreadPool Killing thread 1142503760
+------
+2009-02-28T15:08:52 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T15:11:03 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:12:01 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:12:03 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:12:03 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:12:03 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T15:12:03 INFO paste.httpserver.ThreadPool Killing thread 1135864144
+------
+2009-02-28T15:12:03 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T15:16:14 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:18:34 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:18:34 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:18:34 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:18:34 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:18:43 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:19:29 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:19:29 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:19:29 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:19:30 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T15:19:30 INFO paste.httpserver.ThreadPool Killing thread 1105549648
+------
+2009-02-28T15:19:30 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T15:20:11 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:20:26 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:20:26 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:20:26 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:20:26 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:20:48 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:21:29 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:21:29 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:21:29 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:21:29 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:22:46 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:23:20 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:23:20 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:23:20 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:23:20 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:24:08 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:27:18 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:27:18 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:27:18 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:27:18 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:27:30 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:28:10 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:28:10 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:28:10 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:28:10 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:28:17 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:29:16 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:29:16 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:29:16 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:29:17 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T15:29:17 INFO paste.httpserver.ThreadPool Killing thread 1141614928
+------
+2009-02-28T15:29:17 WARNING SiteError Publisher received a legacy classic class exception: <type 'exceptions.SystemExit'>. This will be handled by the request.
+------
+2009-02-28T15:29:17 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T15:32:59 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:34:00 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:34:00 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:34:00 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:34:01 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T15:34:01 INFO paste.httpserver.ThreadPool Killing thread 1138657616
+------
+2009-02-28T15:34:01 WARNING SiteError Publisher received a legacy classic class exception: <type 'exceptions.SystemExit'>. This will be handled by the request.
+------
+2009-02-28T15:34:01 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T15:35:53 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T15:36:36 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:36:36 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T15:36:36 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T15:36:36 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T15:36:36 INFO paste.httpserver.ThreadPool Killing thread 1142982992
+------
+2009-02-28T15:36:36 WARNING SiteError Publisher received a legacy classic class exception: <type 'exceptions.SystemExit'>. This will be handled by the request.
+------
+2009-02-28T15:36:36 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T17:19:02 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:21:03 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:21:03 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:21:03 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:21:04 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T17:21:04 INFO paste.httpserver.ThreadPool Killing thread 1143294288
+------
+2009-02-28T17:21:04 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T17:21:58 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:24:55 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:25:08 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:25:08 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:25:10 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T17:25:10 INFO paste.httpserver.ThreadPool Killing thread 1142913360
+------
+2009-02-28T17:25:12 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T17:25:31 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:25:41 WARNING ZODB.FileStorage Ignoring index for /home/tim/oship-openehr/oship/oship/parts/data/Data.fs
+------
+2009-02-28T17:26:14 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:26:14 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:26:14 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:26:14 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:34:22 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:37:28 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:37:28 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:37:28 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:37:28 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T17:37:28 INFO paste.httpserver.ThreadPool Killing thread 1140570448
+------
+2009-02-28T17:37:28 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T17:38:52 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:39:29 ERROR SiteError http://localhost:8080/oship/setup
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <oship.app.Setup object at 0x28fc9d0>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 60, in __call__
+    return mapply(self.render, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Setup.render of <oship.app.Setup object at 0x28fc9d0>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/app.py", line 39, in render
+    atlist=CreateAT(fname) # take one ADL file and process it into a nested list
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 83, in CreateAT
+    return [item_name.replace('.','_'),bldArchetype(fname,parsed_adl)]
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 109, in bldArchetype
+    at.__setitem__(u"Description",parsed_adl.description)
+  File "/home/tim/.buildout/eggs/zope.app.folder-3.4.0-py2.5.egg/zope/app/folder/folder.py", line 94, in __setitem__
+    setitem(self, self.data.__setitem__, name, object)
+  File "/home/tim/.buildout/eggs/zope.app.container-3.5.6-py2.5-linux-x86_64.egg/zope/app/container/contained.py", line 588, in setitem
+    object, event = containedEvent(object, container, name)
+  File "/home/tim/.buildout/eggs/zope.app.container-3.5.6-py2.5-linux-x86_64.egg/zope/app/container/contained.py", line 326, in containedEvent
+    if not IContained.providedBy(object):
+TypeError: 'str' object is not callable
+------
+2009-02-28T17:40:12 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:40:12 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:40:12 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:40:12 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:41:15 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:41:48 ERROR SiteError http://localhost:8080/oship/setup
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <oship.app.Setup object at 0x28fc9d0>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 60, in __call__
+    return mapply(self.render, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Setup.render of <oship.app.Setup object at 0x28fc9d0>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/app.py", line 39, in render
+    atlist=CreateAT(fname) # take one ADL file and process it into a nested list
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 83, in CreateAT
+    return [item_name.replace('.','_'),bldArchetype(fname,parsed_adl)]
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 111, in bldArchetype
+    at.__setitem__(u"Description",parsed_adl.description)
+  File "/home/tim/.buildout/eggs/zope.app.folder-3.4.0-py2.5.egg/zope/app/folder/folder.py", line 94, in __setitem__
+    setitem(self, self.data.__setitem__, name, object)
+  File "/home/tim/.buildout/eggs/zope.app.container-3.5.6-py2.5-linux-x86_64.egg/zope/app/container/contained.py", line 588, in setitem
+    object, event = containedEvent(object, container, name)
+  File "/home/tim/.buildout/eggs/zope.app.container-3.5.6-py2.5-linux-x86_64.egg/zope/app/container/contained.py", line 326, in containedEvent
+    if not IContained.providedBy(object):
+TypeError: 'str' object is not callable
+------
+2009-02-28T17:44:24 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:44:24 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:44:24 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:44:24 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:44:33 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:44:54 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:45:20 ERROR SiteError http://localhost:8080/oship/setup
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <oship.app.Setup object at 0x28fc9d0>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 60, in __call__
+    return mapply(self.render, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Setup.render of <oship.app.Setup object at 0x28fc9d0>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/app.py", line 39, in render
+    atlist=CreateAT(fname) # take one ADL file and process it into a nested list
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 83, in CreateAT
+    return [item_name.replace('.','_'),bldArchetype(fname,parsed_adl)]
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 111, in bldArchetype
+    at.__setitem__({u"Description":parsed_adl.description})
+TypeError: __setitem__() takes exactly 3 arguments (2 given)
+------
+2009-02-28T17:45:48 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:45:48 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:45:48 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:45:48 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:47:10 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:50:08 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:50:08 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:50:08 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:50:08 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:50:22 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T17:55:04 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:55:04 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T17:55:04 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T17:55:04 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T18:17:49 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T18:20:51 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T18:20:51 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T18:20:51 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T18:27:56 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T18:28:51 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T18:28:52 INFO paste.httpserver.ThreadPool 1 workers didn't stop properly, and 0 zombies
+------
+2009-02-28T18:28:52 INFO paste.httpserver.ThreadPool Killing thread 1096468816
+------
+2009-02-28T18:28:52 INFO paste.httpserver.ThreadPool Workers killed forcefully
+------
+2009-02-28T18:28:52 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T18:28:52 INFO paste.httpserver.ThreadPool 0 workers didn't stop properly, and 1 zombies
+------
+2009-02-28T18:29:02 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T18:33:20 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T18:33:20 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T18:33:20 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T18:33:20 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T18:34:23 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T18:34:26 WARNING ZODB.FileStorage Ignoring index for /home/tim/oship-openehr/oship/oship/parts/data/Data.fs
+------
+2009-02-28T19:50:20 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T19:51:34 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T19:51:34 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T19:51:34 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T19:51:34 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T19:52:14 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T19:52:45 ERROR SiteError http://localhost:8080/oship/setup
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <oship.app.Setup object at 0x28fc9d0>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 60, in __call__
+    return mapply(self.render, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Setup.render of <oship.app.Setup object at 0x28fc9d0>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/app.py", line 38, in render
+    atlist=CreateAT(fname) # take one ADL file and process it into a nested list
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 84, in CreateAT
+    return [item_name.replace('.','_'),bldArchetype(fname,parsed_adl)]
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 111, in bldArchetype
+    at.__setitem__(u"Ontology",bldOntology(parsed_adl.ontology))
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 121, in bldOntology
+    print parsedontology[1]
+  File "/home/tim/.buildout/eggs/pyparsing-1.5.0-py2.5.egg/pyparsing.py", line 302, in __getitem__
+    return self.__toklist[i]
+IndexError: list index out of range
+------
+2009-02-28T19:53:29 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T19:53:29 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T19:53:29 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T19:53:29 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T19:53:39 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:30:37 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:30:37 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:30:37 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:30:37 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:31:59 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:32:02 WARNING ZODB.FileStorage Ignoring index for /home/tim/oship-openehr/oship/oship/parts/data/Data.fs
+------
+2009-02-28T20:32:10 ERROR SiteError http://localhost:8080/oship/setup
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <oship.app.Setup object at 0x28becd0>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 60, in __call__
+    return mapply(self.render, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Setup.render of <oship.app.Setup object at 0x28becd0>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/app.py", line 29, in render
+    self.context['ar'] = Folder() # archetype repository
+  File "/home/tim/.buildout/eggs/zope.app.container-3.5.6-py2.5-linux-x86_64.egg/zope/app/container/btree.py", line 93, in __setitem__
+    setitem(self, self._setitemf, key, value)
+  File "/home/tim/.buildout/eggs/zope.app.container-3.5.6-py2.5-linux-x86_64.egg/zope/app/container/contained.py", line 586, in setitem
+    raise DuplicationError(name)
+DuplicationError: ar
+------
+2009-02-28T20:32:38 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:32:38 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:32:38 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:32:38 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:33:26 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:34:11 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:34:11 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:34:11 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:34:11 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:36:42 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:39:36 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:39:36 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:39:36 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:39:36 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:39:46 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:40:42 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:40:42 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:40:42 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:40:42 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:41:42 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:43:23 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:43:23 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:43:23 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:43:23 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:43:33 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:44:47 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:44:47 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:44:47 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:44:47 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:44:57 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:46:34 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:46:34 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:46:34 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:46:34 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:47:17 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:48:04 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:48:04 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:48:04 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:48:04 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:48:56 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:54:33 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:54:33 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:54:33 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:54:33 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:54:44 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T20:59:23 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:59:23 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T20:59:23 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T20:59:23 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T21:06:08 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T21:07:09 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T21:07:09 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T21:07:09 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T21:07:09 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T21:08:18 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T21:11:26 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T21:11:26 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T21:11:26 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T21:11:26 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T21:11:36 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-02-28T21:13:37 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T21:13:37 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T21:13:37 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-02-28T21:13:37 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-02-28T21:13:50 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T02:46:39 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T02:46:39 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T02:46:39 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T02:46:39 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T02:47:08 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T02:48:06 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T02:54:21 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T02:54:49 ERROR SiteError http://localhost:8080/oship/setup
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <oship.app.Setup object at 0x25bb750>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 60, in __call__
+    return mapply(self.render, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Setup.render of <oship.app.Setup object at 0x25bb750>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/app.py", line 41, in render
+    atlist=CreateAT(fname) # take one ADL file and process it into a nested list
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 84, in CreateAT
+    return [item_name.replace('.','_'),bldArchetype(fname,parsed_adl)]
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 112, in bldArchetype
+    at.__setitem__(u"Definition",flattern(parsed_adl.definition))
+NameError: global name 'flattern' is not defined
+------
+2009-03-01T02:55:19 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T02:55:19 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T02:55:19 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T02:55:19 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T02:55:33 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T02:57:29 ERROR SiteError http://localhost:8080/docgrok-obj/oship/ar/%27openEHR-EHR-OBSERVATION_blood_pressure_v4%27/Definition/@@inspect.html
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <grokui.admin.view.Inspect object at 0x5f5ca10>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 59, in __call__
+    return self._render_template()
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 63, in _render_template
+    return self.template.render(self)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 219, in render
+    return template.pt_render(namespace)
+  File "/home/tim/.buildout/eggs/zope.pagetemplate-3.4.0-py2.5.egg/zope/pagetemplate/pagetemplate.py", line 116, in pt_render
+    return output.getvalue()
+  File "/usr/lib/python2.5/StringIO.py", line 270, in getvalue
+    self.buf += ''.join(self.buflist)
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc2 in position 0: ordinal not in range(128)
+------
+2009-03-01T02:57:46 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T02:57:46 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T02:57:46 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T02:57:46 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T03:04:46 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T03:12:56 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T03:12:56 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T03:12:56 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T03:12:56 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T03:14:09 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T03:45:35 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T03:45:35 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T03:45:35 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T03:45:35 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T03:45:46 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T03:54:13 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T03:54:13 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T03:54:13 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T03:54:13 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T03:57:57 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T04:03:06 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T04:03:06 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T04:03:06 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T04:03:06 INFO paste.httpserver.ThreadPool All workers stopped

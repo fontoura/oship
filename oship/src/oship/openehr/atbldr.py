@@ -116,8 +116,38 @@ def bldArchetype(fname,parsed_adl):
     return at
 
 def bldOntology(ontlist):
-    """Build an ontology dictionary."""
+    """Build an ontology."""
+    
+    ontlist=flatten(ontlist)
+    
+    key_list=[u'constraint_definitions',u'term_binding',u'term_definitions',u'terminologies_available']
+    # now step backwards through ontlist to see which possible key words are present and extract them
 
+    #if key_list[0] in ontlist:
+        #ontlist=cd=ontlist[key_list[0]:len(ontlist)]
+    #else:
+        #cd=[]
+    
+    #if key_list[1] in ontlist:
+        #ontlist=tb=ontlist[key_list[1]:len(ontlist)]
+    #else:
+        #tb=[]
+    
+    #if key_list[2] in ontlist:
+        #ontlist=td=ontlist[key_list[2]:len(ontlist)]
+    #else:
+        #td=[]
+    
+    #if key_list[3] in ontlist:
+        #ontlist=ta=ontlist[key_list[3]:len(ontlist)]
+    #else:
+        #ta=[]
+    
+    
+    #print cd
+    #print tb
+    #print td
+    #print ta
     
     
     #term_defs=Folder() # contains folders of all languages
@@ -125,7 +155,7 @@ def bldOntology(ontlist):
     #items=Folder() # contains a dictionary of codes as keys and a list of description and text 
     
     
-    return flatten(ontlist)
+    return ontlist
 
    
 def bldDescription(desclist):

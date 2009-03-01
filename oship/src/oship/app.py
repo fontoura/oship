@@ -27,7 +27,7 @@ class Setup(grok.View):
     
     def render(self):
         try:
-            self.context['ar'] = Folder() # archetype repository
+            self.context['ar'] = grok.Container() # archetype repository
             self.context['termserver'] = Folder() # terminology server
             self.context['demographics'] = Folder() # demographics space
             self.context['clinical'] = Folder() # clinical space

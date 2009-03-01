@@ -2337,3 +2337,13 @@ DuplicationError: name, 'openEHR-EHR-CLUSTER_checklist_item-general_v1', is alre
 2009-03-01T07:33:09 INFO paste.httpserver.ThreadPool Shutting down threadpool
 ------
 2009-03-01T07:33:09 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T07:35:33 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-01T09:35:04 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T09:35:04 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-01T09:35:04 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-01T09:35:04 INFO paste.httpserver.ThreadPool All workers stopped

@@ -2423,3 +2423,29 @@ TypeError: slice indices must be integers or None or have an __index__ method
 2009-03-01T15:33:08 INFO paste.httpserver.ThreadPool Shutting down threadpool
 ------
 2009-03-01T15:33:08 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-02T06:37:25 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-02T07:43:07 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-02T07:43:12 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-02T10:22:42 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-02T10:40:08 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-02T10:40:08 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-02T10:40:08 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-02T10:40:08 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-02T10:40:41 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-02T10:41:08 WARNING ZODB.FileStorage Ignoring index for /home/tim/oship-openehr/oship/oship/parts/data/Data.fs
+------
+2009-03-02T11:27:15 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-02T11:27:15 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-02T11:27:16 INFO paste.httpserver.ThreadPool All workers stopped

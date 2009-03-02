@@ -29,8 +29,8 @@ class Setup(grok.View):
         try:
             self.context['ar'] = grok.Container() # archetype repository
             self.context['termserver'] = Folder() # terminology server
-            self.context['demographics'] = Folder() # demographics space
-            self.context['clinical'] = Folder() # clinical space
+            #self.context['demographics'] = Folder() # demographics space
+            #self.context['clinical'] = Folder() # clinical space
         except DuplicationError:
             pass
         

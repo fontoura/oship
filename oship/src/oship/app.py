@@ -29,22 +29,19 @@ class Setup(grok.View):
         try:
             self.context['ar'] = grok.Container() # archetype repository
             self.context['termserver'] = Folder() # terminology server
-            #self.context['demographics'] = Folder() # demographics space
-            #self.context['clinical'] = Folder() # clinical space
         except DuplicationError:
             pass
         
-        atname=u'a-name' #place holder name
         fnames = getFileList()
         try:        
             for fname in fnames: # we have our list of ADL files
                 print "Processing: ",fname
-                atlist=CreateAT(fname) # take one ADL file and process it into a nested list
-                atname=atlist[0] # get the real archetype  name
                 
-             
-                fldr=atlist[1] #setup a place to put the archetype in the ar
-                self.context['ar'].__setitem__(atname,fldr)
+                at=CreateAT(fname) # take one ADL file and process it into a mapping
+
+                atname=at[u"className"]
+                
+                self.context['ar'][atname]=at
         except DuplicationError:
             pass
          

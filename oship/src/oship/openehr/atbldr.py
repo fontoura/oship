@@ -37,6 +37,8 @@ import grok
 import datetime
 from zope.app.folder import Folder
 from zope.schema import TextLine
+from persistent.dict import PersistentDict
+
 
 #logfile=os.getcwd()+'/at_build.log'
 
@@ -77,11 +79,11 @@ def CreateAT(fname):
         item_name = repr(parsed_adl.archetype[1])
     except ParseException: 
         #logging.error("Error Occured Parsing "+fname+':\n')
-        print "Parsing Failed -- Error Logged!\n"
+        print "Parsing Failed!\n"
     #else: 
         #logging.info("Processing: "+item_name) 
         
-    return [item_name.replace('.','_'),bldArchetype(fname,parsed_adl)]  
+    return bldArchetype(fname,parsed_adl)
                 
 
 #logging.info("There were ADL parse errors. ") 
@@ -95,6 +97,7 @@ def bldArchetype(fname,parsed_adl):
     """
     Build the archetype content for the ar.
     """
+    
     #now lets turn the archetypeid into a normal Python CamelCase name
     class_name=(parsed_adl.archetype[1]).partition('.')[2]
     class_name.lower()
@@ -104,12 +107,22 @@ def bldArchetype(fname,parsed_adl):
     class_name = string.capwords(class_name)
     class_name=class_name.replace(' ','') # replace spaces    
     
-    at=Folder()  # The folder that holds each archetype
-    at.__setitem__(class_name,parsed_adl.archetype[1])
-    at.__setitem__(u"adlVersion",parsed_adl.archetype[0][1])
-    at.__setitem__(u"Description",bldDescription(parsed_adl.description))
-    at.__setitem__(u"Ontology",bldOntology(parsed_adl.ontology))
-    at.__setitem__(u"Definition",bldDefinition(parsed_adl.definition))
+    ontmap=bldOntology(parsed_adl.ontology)
+    definmap=bldDefinition(parsed_adl.definition,ontmap)
+    descmap=bldDescription(parsed_adl.description)
+    at=grok.Container()  # The container that holds each archetype
+    at[u"className"]=class_name
+    at[u"archetypeId"]=parsed_adl.archetype[1]
+    at[u"adlVersion"]=parsed_adl.archetype[0][1]
+    at[u"description"]=descmap
+    at[u"ontology"]=ontmap
+    at[u"definition"]=definmap
+    at[u"uid"]=u""   
+    at[u"concept"]=ontmap[5] # this is PROBABLY not always correct but no time to build a scanner for at0000 right now.
+    at[u"parentArchetypeId"]=u""
+    at[u"invariants"]={}
+    at[u"revisionHistory"]={}
+    
  
     print "\n\nAll finished processing ADL for: ",class_name, "\n\n"
     
@@ -121,56 +134,43 @@ def bldOntology(ontlist):
     ontlist=flatten(ontlist)
     
     key_list=[u'constraint_definitions',u'term_binding',u'term_definitions',u'terminologies_available']
-    # now step backwards through ontlist to see which possible key words are present and extract them
-
-    #if key_list[0] in ontlist:
-        #ontlist=cd=ontlist[key_list[0]:len(ontlist)]
-    #else:
-        #cd=[]
+    # now go through ontlist and map all the words.  
     
-    #if key_list[1] in ontlist:
-        #ontlist=tb=ontlist[key_list[1]:len(ontlist)]
-    #else:
-        #tb=[]
-    
-    #if key_list[2] in ontlist:
-        #ontlist=td=ontlist[key_list[2]:len(ontlist)]
-    #else:
-        #td=[]
-    
-    #if key_list[3] in ontlist:
-        #ontlist=ta=ontlist[key_list[3]:len(ontlist)]
-    #else:
-        #ta=[]
-    
-    
-    #print cd
-    #print tb
-    #print td
-    #print ta
-    
-    
-    #term_defs=Folder() # contains folders of all languages
-    #languages=Folder() #contains folders of all items in a language
-    #items=Folder() # contains a dictionary of codes as keys and a list of description and text 
-    
-    
-    return ontlist
+    ontmap={}
+    for index, item in enumerate(ontlist):
+        ontmap[index]=item                
+    return ontmap
 
    
+    
+    
+def bldDefinition(definlist,ontmap):
+    """Build a definition object using the ontmap to lookup the at & ac codes"""
+    
+    definlist=flatten(definlist)
+    defmap={}
+    
+    for index, item in enumerate(definlist):
+        defmap[index]=item
+        
+    #print ontmap   
+        
+    return defmap
+    
+
+
 def bldDescription(desclist):
     """Build a description object"""
+    
+    desclist=flatten(desclist)
+    descmap={}
+    for index, item in enumerate(desclist):
+        descmap[index]=item
 
-    return flatten(desclist)
+    return descmap
     
-    
-    
-def bldDefinition(definlist):
-    """Build a definition object"""
-        
-    return flatten(definlist)
-    
-    
+
+
 def flatten(x):
     """flatten(sequence) -> list
 
@@ -192,7 +192,10 @@ def flatten(x):
     rtnlist=[]
     for x in result:
         if isinstance(x,str):
-            x=unicode(x)
+            try:
+                x=unicode(x, "utf-8")  # need more decode types here
+            except UnicodeDecodeError:
+                x=unicode(x, "latin1")
         
         rtnlist.append(x)
 

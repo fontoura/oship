@@ -40,7 +40,7 @@ class IState(Interface):
         required=False,
         )
     
-class State(object):
+class State(grok.Model):
     """        
     Abstract definition of one state in a state machine.
     """
@@ -145,7 +145,7 @@ class NonTerminalState(State):
 
   
   
-class StateMachine(object):
+class StateMachine(grok.Model):
     u"""        
     Definition of a state machine in terms of states, transition events and outputs, and
     next states.
@@ -174,7 +174,7 @@ class TerminalState(State):
 
     
 
-class Transition(object):
+class Transition(grok.Model):
     """
     Definition of a state machine transition.
     """
@@ -318,7 +318,7 @@ class ICQuantityItem(Interface):
         """
         
         
-class CQuantityItem(object):
+class CQuantityItem(grok.Model):
     """
     Constrains instances of DvQuantity.
     """

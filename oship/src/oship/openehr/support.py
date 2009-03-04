@@ -49,7 +49,7 @@ class IBasicDefinitions(Interface):
         readonly=True,
     )
 
-class BasicDefinitions(object):
+class BasicDefinitions(grok.Model):
     """ Defines globally used constant values. """
 
     implements(IBasicDefinitions)
@@ -91,7 +91,7 @@ class IObjectId(Interface):
         required=False,
     )
 
-class ObjectId(object):
+class ObjectId(grok.Model):
     u"""
     Ancestor (abstract) class of identifiers of informational objects. Ids may be completely
     meaningless, in which case their only job is to refer to something, or may carry
@@ -150,7 +150,7 @@ class IObjectRef(Interface):
         required = False,
     )
 
-class ObjectRef(object):
+class ObjectRef(grok.Model):
     u"""
     Class describing a reference to another object, which may exist locally or be
     maintained outside the current namespace, e.g. in another service. Services are
@@ -601,7 +601,7 @@ class IUid(Interface):
         required=True
     )
 
-class Uid(object):
+class Uid(grok.Model):
     u"""
     Abstract parent of classes representing unique identifiers which identify informa-
     tion entities in a durable way. UIDs only ever identify one IE in time or space and
@@ -1048,7 +1048,7 @@ class IVersionTreeId(Interface):
         first version, i.e. trunkVersion == "1"
         """
 
-class VersionTreeId(object):
+class VersionTreeId(grok.Model):
     u"""
     Version tree identifier for one version. Lexical form:
     trunkVersion [ '.' branchNumber '.' branchVersion ]
@@ -1182,7 +1182,7 @@ class IMeasurementService(Interface):
         isValidUnitsString(units1) and isValidUnitsString(units2)
         """
 
-class MeasurementService(object):
+class MeasurementService(grok.Model):
     """Defines an object providing proxy access to a measurement information service."""
 
     implements(IMeasurementService)
@@ -1202,7 +1202,7 @@ class MeasurementService(object):
 
 
 #Begin Terminology package
-class CodeSetAccess(object):
+class CodeSetAccess(grok.Model):
     u"""
     Defines an object providing proxy access to a code_set.
     """
@@ -1278,7 +1278,7 @@ def validTerminologyGroupId(anId):
     return anId in OpenehrTerminologyGroupIdentifiers.values
 
 
-class TerminologyAccess(object):
+class TerminologyAccess(grok.Model):
     u"""
     Defines an object providing proxy access to a terminology.
     """
@@ -1313,7 +1313,7 @@ class TerminologyAccess(object):
         u""" True if id != None and id != '' """
         
         
-class TerminologyService(object):
+class TerminologyService(grok.Model):
     u"""
     Defines an object providing proxy access to a terminology service.
     """

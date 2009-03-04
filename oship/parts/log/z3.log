@@ -3667,3 +3667,215 @@ AttributeError: 'int' object has no attribute 'startswith'
 2009-03-03T14:27:07 INFO paste.httpserver.ThreadPool Shutting down threadpool
 ------
 2009-03-03T14:27:07 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T16:08:07 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T16:09:56 ERROR SiteError http://localhost:8080/docgrok-obj/oship/ar/BodyWeightV1/definition/@@inspect.html
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <grokui.admin.view.Inspect object at 0x46b1cd0>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 51, in __call__
+    mapply(self.update, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Inspect.update of <grokui.admin.view.Inspect object at 0x46b1cd0>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokui.admin-0.1.2-py2.5.egg/grokui/admin/view.py", line 238, in update
+    if self.show_private or not x['key'].startswith('_')]
+AttributeError: 'int' object has no attribute 'startswith'
+------
+2009-03-03T16:13:28 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T16:13:28 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T16:13:28 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T16:13:28 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T16:13:40 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T16:16:37 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T16:16:37 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T16:16:37 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T16:16:37 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T16:22:39 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T18:40:40 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T18:40:42 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T18:40:42 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T18:40:42 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T19:37:35 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T19:39:31 ERROR SiteError http://localhost:8080/oship/setup
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <oship.app.Setup object at 0x2830a10>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 60, in __call__
+    return mapply(self.render, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Setup.render of <oship.app.Setup object at 0x2830a10>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/app.py", line 40, in render
+    at=CreateAT(fname) # take one ADL file and process it into a mapping
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 86, in CreateAT
+    return bldArchetype(fname,parsed_adl)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 111, in bldArchetype
+    definmap=bldDefinition(parsed_adl.definition,ontmap)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 150, in bldDefinition
+    definClassMap={'SECTION':bldSection,'COMPOSITION':bldComposition,'OBSERVATION':bldObservation,\
+NameError: global name 'bldSection' is not defined
+------
+2009-03-03T19:40:19 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T19:40:19 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T19:40:19 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T19:40:19 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T19:40:27 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T19:40:36 WARNING ZODB.FileStorage Ignoring index for /home/tim/oship-openehr/oship/oship/parts/data/Data.fs
+------
+2009-03-03T19:40:57 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T19:40:57 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T19:40:57 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T19:40:57 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T19:50:33 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T19:50:54 ERROR SiteError http://localhost:8080/oship/setup
+Traceback (most recent call last):
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 133, in publish
+    result = publication.callObject(request, obj)
+  File "/home/tim/.buildout/eggs/grok-1.0a1-py2.5.egg/grok/publication.py", line 91, in callObject
+    return super(ZopePublicationSansProxy, self).callObject(request, ob)
+  File "/home/tim/.buildout/eggs/zope.app.publication-3.4.3-py2.5.egg/zope/app/publication/zopepublication.py", line 167, in callObject
+    return mapply(ob, request.getPositionalArguments(), request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <oship.app.Setup object at 0x2830a10>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/.buildout/eggs/grokcore.view-1.2.1-py2.5.egg/grokcore/view/components.py", line 60, in __call__
+    return mapply(self.render, (), self.request)
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 108, in mapply
+    return debug_call(obj, args)
+   - __traceback_info__: <bound method Setup.render of <oship.app.Setup object at 0x2830a10>>
+  File "/home/tim/.buildout/eggs/zope.publisher-3.4.6-py2.5.egg/zope/publisher/publish.py", line 114, in debug_call
+    return obj(*args)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/app.py", line 40, in render
+    at=CreateAT(fname) # take one ADL file and process it into a mapping
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 86, in CreateAT
+    return bldArchetype(fname,parsed_adl)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 111, in bldArchetype
+    definmap=bldDefinition(parsed_adl.definition,ontmap)
+  File "/home/tim/oship-openehr/oship/oship/src/oship/openehr/atbldr.py", line 150, in bldDefinition
+    definClassMap={'SECTION':bldSection(definlist,ontmap),'COMPOSITION':bldComposition(definlist,ontmap),'OBSERVATION':bldObservation,\
+TypeError: bldSection() takes no arguments (2 given)
+------
+2009-03-03T19:51:14 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T19:51:14 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T19:51:14 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T19:51:14 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T19:52:09 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T19:52:50 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T19:52:50 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T19:52:50 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T19:52:50 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T20:36:34 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T20:37:32 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T20:38:05 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T20:38:05 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T20:38:05 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T20:38:05 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T21:30:07 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-03T21:31:45 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T21:31:45 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-03T21:31:45 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-03T21:31:45 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-04T06:07:25 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-04T06:13:50 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-04T06:13:50 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-04T06:13:50 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-04T06:13:50 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-04T06:31:13 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-04T06:34:01 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-04T06:34:05 WARNING ZODB.FileStorage Ignoring index for /home/tim/oship-openehr/oship/oship/parts/data/Data.fs
+------
+2009-03-04T06:34:21 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-04T06:34:21 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-04T06:34:21 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-04T06:34:21 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-04T06:34:44 WARNING root Developer mode is enabled: this is a security risk and should NOT be enabled on production servers. Developer mode can be turned off in etc/zope.conf
+------
+2009-03-04T07:49:53 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-04T07:49:54 INFO paste.httpserver.ThreadPool All workers stopped
+------
+2009-03-04T07:49:54 INFO paste.httpserver.ThreadPool Shutting down threadpool
+------
+2009-03-04T07:49:54 INFO paste.httpserver.ThreadPool All workers stopped

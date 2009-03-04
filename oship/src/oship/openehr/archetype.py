@@ -474,7 +474,7 @@ class IValidityKind(Interface):
         """
         
 
-class ValidityKind(object):
+class ValidityKind(grok.Model):
     _(u"""
     An enumeration of three values which may commonly occur in constrint models.
     Use to indicate the validity of date/Time fields etc.
@@ -510,7 +510,7 @@ class Assertion(grok.Container):
         self.variables=var
 
 
-class AssertionVariable(object):
+class AssertionVariable(grok.Model):
     """
     Definition of named variable.
     """
@@ -593,7 +593,7 @@ class ExprOperator(grok.Model):
     
     
    
-class ExprItem(object):
+class ExprItem(grok.Model):
     """
     Abstract parent of allexpression tree items.
     """
@@ -689,7 +689,7 @@ class ExprUnaryOperator(ExprOperator):
         ExprOperator.__init__(self,operator,precedenceOverridden)
     
         
-class OperatorKind(object):
+class OperatorKind(grok.Model):
     """
     Enumeration of assertion package operator types.
     """
@@ -783,7 +783,7 @@ class ICObject(Interface):
     )
     
     
-class CObject(object):
+class CObject(grok.Model):
     """
     Abstract model of constraint on any kind of object node.
     """
@@ -922,7 +922,7 @@ class ICardinality(Interface):
         Return True if this cardinality represents an unordered, non-unique membership.
         """
                 
-class Cardinality(object):
+class Cardinality(grok.Model):
     """
     Expresses constraints on the cardinality of container classes.
     """
@@ -1083,7 +1083,7 @@ class ICMultipleAttribute(Interface):
         List of constraints representing members of the container value of this attribute.
         """
          
-class CMultipleAttribute(object):
+class CMultipleAttribute(grok.Model):
     """
     Abstract model of constraint on any kind of attribute node.
     """
@@ -1199,7 +1199,7 @@ class ICSingleAttribute(Interface):
         value_type=Object(schema=ICObject),
     )
 
-class CSingleAttribute(object):
+class CSingleAttribute(grok.Model):
     """
     Concrete model of constraint on a single valued attribute.
     """
@@ -1216,7 +1216,7 @@ class CSingleAttribute(object):
 
 
         
-class CPrimitive(object):
+class CPrimitive(grok.Model):
     """
     Abstract super type of all primitive types.
     """
@@ -1632,7 +1632,7 @@ class CTime(CPrimitive):
      
         
         
-class ArchetypeOntology(object):
+class ArchetypeOntology(grok.Container):
     """
     Local ontology of an archetype.
     """
@@ -1708,7 +1708,7 @@ class IArchetypeTerm(Interface):
         List of all keys used in this term.
         """
  
-class ArchetypeTerm(object):
+class ArchetypeTerm(grok.Model):
     """
     Representation of any coded entity in the archetype ontology.
     """

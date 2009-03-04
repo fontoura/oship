@@ -120,7 +120,7 @@ def bldArchetype(fname,parsed_adl):
     at[u"uid"]=u""   
     at[u"concept"]=ontmap[5] # this is PROBABLY not always correct but no time to build a scanner for at0000 right now.
     at[u"parentArchetypeId"]=u""
-    at[u"invariants"]={}
+    at[u"invariants"]=[]
     at[u"revisionHistory"]={}
     
  
@@ -146,18 +146,62 @@ def bldOntology(ontlist):
     
 def bldDefinition(definlist,ontmap):
     """Build a definition object using the ontmap to lookup the at & ac codes"""
-    
+        
+    # flatten and unicode the nested input list.    
     definlist=flatten(definlist)
     defmap={}
     
     for index, item in enumerate(definlist):
         defmap[index]=item
         
-    #print ontmap   
         
+    if "COMPOSITION" in defmap[0]:
+        bldComposition(defmap,ontmap)
+        
+    # add all the other possibilities here
+    
+        
+    #print "Ontology: ",ontmap   
+    #print "Definition: ",defmap  
+    
+    
     return defmap
     
+def bldSection(defmap,ontmap):
+    pass
 
+def bldComposition(defmap,ontmap):
+    print "Execute Composition"
+
+def bldObservation(defmap,ontmap):
+    pass
+
+def bldItemTree(defmap,ontmap):
+    pass
+
+def bldAdminEntry(defmap,ontmap):
+    pass
+
+def bldAction(defmap,ontmap):
+    pass
+
+def bldEvaluation(defmap,ontmap):
+    pass
+
+def bldInstruction(defmap,ontmap):
+    pass
+
+def bldElement(defmap,ontmap):
+    pass
+
+def bldCluster(defmap,ontmap):
+    pass
+
+def bldEvent(defmap,ontmap):
+    pass
+
+def bldAddress(defmap,ontmap):
+    pass
 
 def bldDescription(desclist):
     """Build a description object"""

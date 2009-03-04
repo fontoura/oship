@@ -41,7 +41,7 @@ class IGenericEntry(Interface):
 
     
 
-class GenericEntry(object):
+class GenericEntry(grok.Model):
     """
     This class is used to create intermediate representations of data from sources not
     otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.

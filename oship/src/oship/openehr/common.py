@@ -686,7 +686,7 @@ class IFeederAuditDetails(Interface):
         
         
         
-class FeederAuditDetails(object):
+class FeederAuditDetails(grok.Model):
     u"""
     Audit details for any system in a feeder system chain. Audit details here means
     the general notion of who/where/when the information item to which the audit is
@@ -914,7 +914,7 @@ class IVersion(Interface):
 """
 
 
-class Version(object):
+class Version(grok.Model):
     u"""
     Abstract model of one Version within a Version container, containing 
     data, commit audit trail, and the identifier of its Contribution.
@@ -1399,7 +1399,7 @@ class VersionedFolder(VersionedObject):
 
 
 
-class AuditDetails(object):
+class AuditDetails(grok.Model):
     u"""
     The set of attributes required to document the committal of an information 
     item to a repository.
@@ -1705,7 +1705,7 @@ class IRevisionHistoryItem(Interface):
         
         
 
-class RevisionHistoryItem(object):
+class RevisionHistoryItem(grok.Model):
     u"""
     An entry in a revision history, corresponding to a version from a versioned 
     container. Consists of AUDIT_DETAILS instances with revision identifier of 
@@ -1752,7 +1752,7 @@ class IRevisionHistory(Interface):
         u"""items != None """
         
       
-class RevisionHistory(object):
+class RevisionHistory(grok.Model):
     u"""
     Defines the notion of a revision history of audit items, each associated 
     with the version for which that audit was committed. The list is in 
@@ -1973,7 +1973,7 @@ class IResourceDescriptionItem(Interface):
         required=False
     )
   
-class ResourceDescriptionItem(object):
+class ResourceDescriptionItem(grok.Model):
     u"""Language-specific detail of resource description. When a resource is translated
         for use in another language environment, each RESOURCE_DESCRIPTION_ITEM
         needs to be copied and translated into the new language.
@@ -1984,7 +1984,7 @@ class ResourceDescriptionItem(object):
     
 
       
-class ResourceDescription(object):
+class ResourceDescription(grok.Model):
     u"""Defines the descriptive meta-data of a resource."""
     
     pass
@@ -2037,7 +2037,7 @@ class ResourceDescription(object):
      
 
       
-class TranslationDetails(object):
+class TranslationDetails(grok.Model):
     u""" """
     
     implements(ITranslationDetails)

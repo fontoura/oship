@@ -182,10 +182,10 @@ class IDataValue(Interface):
 
     pass
 
-class DataValue(Field):
+class DataValue(grok.Model):
     u""" 
     Abstract class. 
-    Serves as a common ancestor of all data value types in openEHR models.  but acts as a Zope3 Filed ancestor.
+    Serves as a common ancestor of all data value types in openEHR models.  but acts as a Zope3 Field ancestor.
     """
     
     implements(IDataValue)
@@ -1251,7 +1251,7 @@ class IProportionKind(Interface):
         """
         True if n is one of the defined types.
         """
-class ProportionKind(object):
+class ProportionKind(grok.Model):
     """
     Class of enumeration constants defining types of proportion for the
     DV_PROPORTION class.
@@ -1881,7 +1881,7 @@ class DvText(DataValue):
        
         
        
-class CodePhrase(object):
+class CodePhrase(grok.Model):
     """
     A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
     minology service (as distinct from a particular terminology).

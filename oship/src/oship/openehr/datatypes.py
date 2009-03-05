@@ -190,8 +190,8 @@ class DataValue(grok.Model):
     
     implements(IDataValue)
 
-    def __init_(self,**kw):
-        Field.__init__(self,**kw)
+    #def __init_(self,**kw):
+        #Field.__init__(self,**kw)
         
 
 class IDvBoolean(Interface):
@@ -215,8 +215,6 @@ class DvBoolean(DataValue):
     enumerated types such as male/female etc. Such values should be coded, and in
     any case the enumeration often has more than two values.  
 
-    You cannot subclass bool() in Python.  The solution is to assign a private variable 
-    with the bool() result of the value passed at instantiation.
     
     Example:
     

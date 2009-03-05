@@ -39,9 +39,9 @@ class Setup(grok.View):
                 
                 at=CreateAT(fname) # take one ADL file and process it into a mapping
 
-                atname=at[u"className"]
+                atname=at[0]
                 
-                self.context['ar'][atname]=at
+                self.context['ar'][atname]=at[1]
         except DuplicationError:
             pass
          

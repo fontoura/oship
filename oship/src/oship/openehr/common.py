@@ -1897,7 +1897,7 @@ class IAuthoredResource(Interface):
         
         
         
-class AuthoredResource(grok.Container):
+class AuthoredResource(grok.Model):
     u"""Abstract idea of an online resource created by a human author. """
     
     implements(IAuthoredResource)

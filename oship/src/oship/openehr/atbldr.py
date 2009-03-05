@@ -34,24 +34,8 @@ import adl_1_4
 
 
 import grok
-import datetime
-from zope.app.folder import Folder
-from zope.schema import TextLine
-from persistent.dict import PersistentDict
 
-
-#logfile=os.getcwd()+'/at_build.log'
-
-#create the logfile if it doesn't exist
-#f=open(logfile,'w')
-#f.close()
-
-#logging.basicConfig(level=logging.DEBUG,
-                    #format='%(asctime)s %(levelname)s %(message)s',
-                    #filename=logfile,
-                    #filemode='w')
-
-
+from archetype import Archetype,ArchetypeOntology
 
 """
 edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 format 
@@ -110,23 +94,11 @@ def bldArchetype(fname,parsed_adl):
     ontmap=bldOntology(parsed_adl.ontology)
     definmap=bldDefinition(parsed_adl.definition,ontmap)
     descmap=bldDescription(parsed_adl.description)
-    at=grok.Container()  # The container that holds each archetype
-    at[u"className"]=class_name
-    at[u"archetypeId"]=parsed_adl.archetype[1]
-    at[u"adlVersion"]=parsed_adl.archetype[0][1]
-    at[u"description"]=descmap
-    at[u"ontology"]=ontmap
-    at[u"definition"]=definmap
-    at[u"uid"]=u""   
-    at[u"concept"]=ontmap[5] # this is PROBABLY not always correct but no time to build a scanner for at0000 right now.
-    at[u"parentArchetypeId"]=u""
-    at[u"invariants"]=[]
-    at[u"revisionHistory"]={}
     
- 
+    arch=Archetype(parsed_adl.archetype[0][1],parsed_adl.archetype[1],u"",ontmap[5],u"",definmap,ontmap,[],u"en",None,None,None,False)
     print "\n\nAll finished processing ADL for: ",class_name, "\n\n"
     
-    return at
+    return [class_name,arch]
 
 def bldOntology(ontlist):
     """Build an ontology."""

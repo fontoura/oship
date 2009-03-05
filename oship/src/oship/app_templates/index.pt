@@ -8,41 +8,20 @@
 
 <table border="0" align="center">
   <tbody>
-    <tr>
-      <td align="left"><i height="100"></i></td>
-      <td><img width="200" height="100" alt="another oship logo"></td>
-    </tr>
-    <tr>
-      <td>The <strong>Open Source Health Information Platform</strong>
-        (OSHIP) is a Python language implementation of the openEHR healthcare
-        information model. 
-
-        <p>OSHIP expands upon the model by providing you with a robust,
-        proven, standards compliant and open source application server and
-        development environment. The openEHR model provides you with the
-        structure to create future proof and semantically interoperable
-        healthcare applications. Everything from disease registries to
-        complete electronic health record systems.<br>
-        OSHIP adds on the layer that you need to rapidly become familiar with
-        the openEHR model and begin building your applications today. There
-        are implementations in most popular object oriented languages
-        allowing your team to transfer this knowledge to which ever language
-        you choose. But only OSHIP provides you with the complete bottom to
-        top access to a solution to your healthcare application
-        interoperability requirements. You can then take this knowledge and
-        transfer it to your preferred development environment. </p>
-      </td>
-      <td></td>
-    </tr>
-  </tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong> (OSHIP) is running.</p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
 </table>
 
-<p><b>After adding your 'oship' (case sensitive, no quotes) application. Then
-return here by clicking on the <b>'oship' link in the top left</b> and
-execute this <a href="http://localhost:8080/oship/setup">setup link.</a></b>
-When your ADL files are finished processing; you will be redirected to the
-Zope Management Interface (ZMI).<br>
-Just click down through the menu on the top left to find the 'ar'. </p>
+<p>Now execute this <a href="http://localhost:8080/oship/setup">setup link.</p>
+<p>
+When your ADL files are finished processing; you will be redirected back to this page.
+ </p>
+<p><span style="font-size: smaller;">The ADL files are located in the <code>oship/src/oship/openehr/adl</code> directory. </span></p>
 
 <p>The links below will provide you with a start into the world of
 interoperable healthcare applications. </p>
@@ -52,49 +31,36 @@ your local server and we assume that you are in development mode on the same
 machine as the server. If your URL to the server is different than
 http://localhost:8080 then you will need to adjust the links. </span></p>
 
-<p></p>
+
 
 <table border="0" align="center">
   <tbody>
     <tr>
       <td width="50%"><a>OSHIP Overview</a></td>
-      <td width="50%"><a
-        href="http://www.openehr.org/releases/1.0.1/roadmap.html">openEHR
-        Specifications</a></td>
-      <td rowspan="3"></td>
+      <td width="50%"><a href="http://www.openehr.org/releases/1.0.1/roadmap.html">openEHR Specifications</a></td>
     </tr>
     <tr>
-      <td width="50%"><a href="http://localhost:8080/docgrok/oship">OSHIP
-        API</a> where you can browse the objects in your archetype repository
-        (ar)</td>
-      <td width="50%"><a
-        href="http://grok.zope.org/doc/current/grok_overview.html">Grok
-        Developers Notes</a></td>
+      <td width="50%"><a href="http://localhost:8080/docgrok/oship">OSHIP API</a> where you can browse the objects in OSHIP</td>
+      <td width="50%"><a href="http://grok.zope.org/doc/current/grok_overview.html">Grok Developers Notes</a></td>
     </tr>
     <tr>
-      <td width="50%"><a href="http://localhost:8080/docgrok/grok">Grok
-        API</a></td>
-      <td width="50%"><a
-        href="http://grok.zope.org/doc/current/reference/index.html">Grok
-        Reference</a></td>
+      <td width="50%"><a href="http://localhost:8080/docgrok/grok">Grok API</a></td>
+      <td width="50%"><a href="http://grok.zope.org/doc/current/reference/index.html">Grok Reference</a></td>
     </tr>
     <tr>
-      <td width="50%"><a href="http://localhost:8080/docgrok/zope">Zope
-        API</a></td>
-      <td width="50%"><a
-        href="http://grok.zope.org/doc/current/tutorial.html">Grok
-        Tutorials</a></td>
-      <td></td>
+      <td width="50%"><a href="http://localhost:8080/docgrok/zope">Zope API</a></td>
+      <td width="50%"><a href="http://grok.zope.org/doc/current/tutorial.html">Grok Tutorials</a></td>
     </tr>
     <tr>
-      <td><a href="http://localhost:8080/manage">Object Database
-      (ZMI)</a></td>
-      <td><a href="http://localhost:8080/Oship/demo">OSHIP Demo</a></td>
-      <td></td>
+      <td><a href="http://localhost:8080/manage">Object Database (ZMI)</a></td>
+      <td>Inspect the Archetype Repository (ar) and Terminology Server (termserver) <a href="http://localhost:8080/oship/@@inspect.html">here.</td>
+      
     </tr>
   </tbody>
 </table>
-
+<p>
+The <a href="http://localhost:8080/htwt">Height/Weight Demo</a> is under construction.  You will first need to add the application 'htwt' just like you  did oship earlier in the oship.htwt.htwt box on the <a href="http://localhost:8080">applications page</a>
+</p>
 <p>OSHIP is open source software based on an open specification. Both the
 specifications and the software are licensed under a business friendly
 license allowing for both open source and proprietary applications to be
@@ -105,6 +71,6 @@ Launchpad profile and/or contact the lead developer <a
 href="mailto:timothywayne.cook@gmail.com">Tim Cook</a>. </p>
 
 <p align="center">OSHIP is based on <a href="http://grok.zope.org">Grok
-1.0a1</a></p>
+1.0a2</a></p>
 </body>
 </html>

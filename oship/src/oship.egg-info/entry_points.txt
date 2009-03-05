@@ -1,7 +1,0 @@
-
-      [console_scripts]
-      oship-debug = oship.startup:interactive_debug_prompt
-      oship-ctl = oship.startup:zdaemon_controller
-      [paste.app_factory]
-      main = oship.startup:application_factory
-      

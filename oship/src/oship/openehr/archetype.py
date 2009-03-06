@@ -95,18 +95,28 @@ class IArchetypeOntology(Interface):
         
     )
     
-    termCodes=List(
+    #termCodes=List(
+        #title=_(u"Term Codes"),
+        #description=_(u"List of all term codes in this archetype."),        
+        #value_type=TextLine(),
+    #)
+    # modified for OSHIP to also track languages.
+    termCodes=Dict(
         title=_(u"Term Codes"),
-        description=_(u"List of all term codes in this archetype."),
-        
-        value_type=TextLine(),
+        description=_(u"List of all term codes in this archetype."),        
     )
 
-    constraintCodes=List(
+    #constraintCodes=List(
+        #title=_(u"Constraint Codes"),
+        #description=_(u"List of all constraint codes in this archetype."),
+        
+        #value_type=TextLine(),
+    #)
+    
+    # modified for OSHIP to also track languages.    
+    constraintCodes=Dict(
         title=_(u"Constraint Codes"),
         description=_(u"List of all constraint codes in this archetype."),
-        
-        value_type=TextLine(),
     )
     
     termAttributeNames=List(
@@ -1632,20 +1642,20 @@ class CTime(CPrimitive):
      
         
         
-class ArchetypeOntology(grok.Container):
+class ArchetypeOntology(grok.Model):
     """
     Local ontology of an archetype.
     """
     
     implements(IArchetypeOntology)
     
-    # assign the attributes to their schema definitions
-    terminologiesAvailable = FieldProperty(IArchetypeOntology['terminologiesAvailable'])
-    specialisationDepth = FieldProperty(IArchetypeOntology['specialisationDepth'])
-    termCodes = FieldProperty(IArchetypeOntology['termCodes'])
-    constraintCodes = FieldProperty(IArchetypeOntology['constraintCodes'])
-    termAttributeNames = FieldProperty(IArchetypeOntology['termAttributeNames'])
-    parentArchetype = FieldProperty(IArchetypeOntology['parentArchetype'])
+    def __init__(self,termAvail,specDepth,termCodes,constCodes,termAN,parent):
+        self.terminologiesAvailable = termAvail
+        self.specialisationDepth = specDepth
+        self.termCodes = termCodes
+        self.constraintCodes = constCodes
+        self.termAttributeNames = termAN
+        self.parentArchetype = parent
     
     
     

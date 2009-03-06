@@ -28,7 +28,7 @@ class Setup(grok.View):
     def render(self):
         try:
             self.context['ar'] = grok.Container() # archetype repository
-            self.context['termserver'] = Folder() # terminology server
+            self.context['termserver'] = grok.Container() # terminology server
         except DuplicationError:
             pass
         
@@ -46,5 +46,18 @@ class Setup(grok.View):
             pass
          
         
+        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+            
+class Emptyar(grok.View):
+    """Remove all the archetypes in the repository"""
+    
+    grok.context(oship)
+    
+    def render(self):
+        atnames=list(self.context['ar'].keys())
+
+        for x in atnames:
+            del self.context['ar'][x]
+            
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
             

@@ -9,7 +9,7 @@
 
 
 """
-   Creates Python source files from ADL files.        
+   Creates Python instances from ADL files and stores them in the ZODB 'ar' .        
         Parsing is performed in adl_1_4.py using Pyparsing. 
         You will need to easy_install pyparsing and mglob in your 'oshipenv'
         
@@ -28,6 +28,7 @@ import mglob
 import logging
 import string
 
+
 from pyparsing import ParseBaseException
 
 import adl_1_4
@@ -35,7 +36,7 @@ import adl_1_4
 
 import grok
 
-from archetype import Archetype,ArchetypeOntology
+from archetype import Archetype,ArchetypeOntology,ArchetypeTerm
 
 """
 edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 format 
@@ -62,19 +63,10 @@ def CreateAT(fname):
        
         item_name = repr(parsed_adl.archetype[1])
     except ParseException: 
-        #logging.error("Error Occured Parsing "+fname+':\n')
         print "Parsing Failed!\n"
-    #else: 
-        #logging.info("Processing: "+item_name) 
         
     return bldArchetype(fname,parsed_adl)
                 
-
-#logging.info("There were ADL parse errors. ") 
-#logging.info("*******END OF LOG FILE FOR THIS RUN*******")         
-#logging.shutdown()
-    
-
         
         
 def bldArchetype(fname,parsed_adl):
@@ -95,7 +87,7 @@ def bldArchetype(fname,parsed_adl):
     definmap=bldDefinition(parsed_adl.definition,ontmap)
     descmap=bldDescription(parsed_adl.description)
     
-    arch=Archetype(parsed_adl.archetype[0][1],parsed_adl.archetype[1],u"",ontmap[5],u"",definmap,ontmap,[],u"en",None,None,None,False)
+    arch=Archetype(unicode(parsed_adl.archetype[0][1]),unicode(parsed_adl.archetype[1]),u"",u"at0000",u"",definmap,ontmap,[],u"en",None,None,None,False)
     print "\n\nAll finished processing ADL for: ",class_name, "\n\n"
     
     return [class_name,arch]
@@ -103,15 +95,62 @@ def bldArchetype(fname,parsed_adl):
 def bldOntology(ontlist):
     """Build an ontology."""
     
-    ontlist=flatten(ontlist)
+    # pre-assign all attributes
+    termAvail=[]
+    specDepth=0
+    termCodes={}
+    constCodes={}
+    termAN=[]
+    parent=u''
     
-    key_list=[u'constraint_definitions',u'term_binding',u'term_definitions',u'terminologies_available']
+    #cleanup the list
+    ontlist=flatten(ontlist)
+    key_list=[u'terminologies_available',u'term_definitions',u'term_binding',u'constraint_definitions']
+    lang_list=[u'en',u'de',u'nl']
+    itemlist=[]
     # now go through ontlist and map all the words.  
     
     ontmap={}
+
     for index, item in enumerate(ontlist):
-        ontmap[index]=item                
-    return ontmap
+        ontmap[index]=item  
+    
+    if ontmap[0]==u'term_definitions':      
+        ontlist=ontmap.items()
+        try:
+            for x in ontlist:
+                if x[1] in lang_list:
+                    itemlist.append(x[1])
+                if x[1].startswith(u'at0'): 
+                    #print x
+                    n=x[0] # the index  number of this at code
+                    #print n
+                    itemlist.append({x[1]:{ontlist[n+1][1]:ontlist[n+2][1],ontlist[n+3][1]:ontlist[n+4][1]}})
+        except IndexError:
+            pass
+        
+        
+        ##Language test
+        #for y in itemlist:
+            #if y == u'en':
+                #print y
+        
+    #for x in ontlist:
+        #if x[1].startswith(u'ac0'):        
+            #print x
+
+        
+    
+        
+    
+    
+    
+    
+    
+    
+    termCodes=itemlist        
+    ontology=ArchetypeOntology(termAvail,specDepth,termCodes,constCodes,termAN,parent)    
+    return ontology
 
    
     
@@ -133,6 +172,7 @@ def bldDefinition(definlist,ontmap):
     # add all the other possibilities here
     
         
+    #
     #print "Ontology: ",ontmap   
     #print "Definition: ",defmap  
     
@@ -143,7 +183,7 @@ def bldSection(defmap,ontmap):
     pass
 
 def bldComposition(defmap,ontmap):
-    print "Execute Composition"
+    pass
 
 def bldObservation(defmap,ontmap):
     pass
@@ -208,6 +248,9 @@ def flatten(x):
     rtnlist=[]
     for x in result:
         if isinstance(x,str):
+            # replace any brackets with underscores so Python doesn't thnk it's a list and we still havea seperator.
+            x=x.replace('[','_')
+            x=x.replace(']','_')
             try:
                 x=unicode(x, "utf-8")  # need more decode types here
             except UnicodeDecodeError:

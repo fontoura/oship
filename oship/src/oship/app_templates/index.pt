@@ -53,7 +53,9 @@ http://localhost:8080 then you will need to adjust the links. </span></p>
     </tr>
     <tr>
       <td><a href="http://localhost:8080/manage">Object Database (ZMI)</a></td>
-      <td>Inspect the Archetype Repository (ar) and Terminology Server (termserver) <a href="http://localhost:8080/oship/@@inspect.html">here.</td>
+      <td>Inspect the Archetype Repository (ar) and Terminology Server (termserver) 
+      <a href="http://localhost:8080/oship/@@inspect.html">here</a> and you can remove the 
+      AR contents <a href="http://localhost:8080/oship/emptyar">here</a>.</td>
       
     </tr>
   </tbody>

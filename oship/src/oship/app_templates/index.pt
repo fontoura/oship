@@ -59,7 +59,7 @@ http://localhost:8080 then you will need to adjust the links. </span></p>
   </tbody>
 </table>
 <p>
-The <a href="http://localhost:8080/htwt">Height/Weight Demo</a> is under construction.  You will first need to add the application 'htwt' just like you  did oship earlier in the oship.htwt.htwt box on the <a href="http://localhost:8080">applications page</a>
+The <a href="http://localhost:8080/htwt">Height/Weight Demo</a> is under construction.  You will first need to add the application 'htwt' just like you  did oship earlier in the oship.htwt.htwt box on the <a href="http://localhost:8080">applications page</a> Then execute this <a href="http://localhost:8080/htwt/setup">setup link</a>.
 </p>
 <p>OSHIP is open source software based on an open specification. Both the
 specifications and the software are licensed under a business friendly

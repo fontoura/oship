@@ -362,7 +362,7 @@ class IArchetype(Interface):
         """
 
 
-class Archetype(AuthoredResource):
+class Archetype(grok.Container):
     _(u"""
     Archetype equivalent to ARCHETYPED class in Common reference model.
     Defines semantics of identfication, lifecycle, versioning, composition 
@@ -370,18 +370,23 @@ class Archetype(AuthoredResource):
     """)
     
     implements(IArchetype)
+    def __init__(self):
+        super(Archetype,self).__init__()
+        
     
-    def __init__(self,adlver,atid,uid,concept,paid,defin,ont,inv,olang,trans,descr,revhist,ctrld):
-        AuthoredResource.__init__(self,olang,trans,descr,revhist,ctrld)
-
-        self.adlVersion=adlver
-        self.archetypeId=atid
-        self.uid=uid
-        self.concept=concept
-        self.parentArchetypeId=paid
-        self.definition=defin
-        self.ontology=ont
-        self.invariants=inv
+    #def __init__(self,adlver,atid,uid,concept,paid,defin,ont,inv,olang,trans,descr,revhist,ctrld):
+        #AuthoredResource.__init__(self,olang,trans,descr,revhist,ctrld)
+        
+        #self.adlVersion=adlver
+        #self.archetypeId=atid
+        #self.uid=uid
+        #self.concept=concept
+        #self.parentArchetypeId=paid
+        #self.definition=defin
+        #self.ontology=ont
+        #self.invariants=inv
+        
+        
             
     def version(self):
         """

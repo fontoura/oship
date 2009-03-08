@@ -37,6 +37,7 @@ import adl_1_4
 import grok
 
 from archetype import Archetype,ArchetypeOntology,ArchetypeTerm
+from datatypes import CodePhrase
 
 """
 edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 format 
@@ -82,14 +83,31 @@ def bldArchetype(fname,parsed_adl):
     class_name=class_name.replace('_',' ') # replace underscores with spaces
     class_name = string.capwords(class_name)
     class_name=class_name.replace(' ','') # replace spaces    
-    
+    adlver=unicode(parsed_adl.archetype[0][1])
+    atid=unicode(parsed_adl.archetype[1])
     ontmap=bldOntology(parsed_adl.ontology)
     definmap=bldDefinition(parsed_adl.definition,ontmap)
     descmap=bldDescription(parsed_adl.description)
     
-    arch=Archetype(unicode(parsed_adl.archetype[0][1]),unicode(parsed_adl.archetype[1]),u"",u"at0000",u"",definmap,ontmap,[],u"en",None,None,None,False)
-    print "\n\nAll finished processing ADL for: ",class_name, "\n\n"
+    arch=Archetype()
+    #parch=grok.Container()
     
+    arch[u"adlVersion"]=adlver
+    arch[u"archetypeId"]=atid
+    arch[u"uid"]=u""
+    arch[u"concept"]=u"at0000"
+    arch[u"parentArchetypeId"]=None
+    arch[u"definition"]=definmap
+    arch[u"ontology"]=ontmap
+    arch[u"invariants"]=[]
+    arch[u"originalLanguage"]=u"en"
+    arch[u"translations"]=None
+    arch[u"description"]=descmap
+    arch[u"revisionHistory"]=None
+    arch[u"isControlled"]=False
+    
+    print "\n\nAll finished processing ADL for: ",class_name, "\n\n"
+     
     return [class_name,arch]
 
 def bldOntology(ontlist):
@@ -105,50 +123,143 @@ def bldOntology(ontlist):
     
     #cleanup the list
     ontlist=flatten(ontlist)
-    key_list=[u'terminologies_available',u'term_definitions',u'term_binding',u'constraint_definitions']
-    lang_list=[u'en',u'de',u'nl']
+    key_list=[u'terminologies_available',u'term_definitions',u'constraint_definitions',u'term_binding',u'constraint_binding']
+    lang_list=[u'en',u'de',u'nl'] # needs to access termserver
     itemlist=[]
     # now go through ontlist and map all the words.  
     
     ontmap={}
-
     for index, item in enumerate(ontlist):
         ontmap[index]=item  
     
-    if ontmap[0]==u'term_definitions':      
-        ontlist=ontmap.items()
-        try:
-            for x in ontlist:
-                if x[1] in lang_list:
-                    itemlist.append(x[1])
-                if x[1].startswith(u'at0'): 
-                    #print x
-                    n=x[0] # the index  number of this at code
-                    #print n
-                    itemlist.append({x[1]:{ontlist[n+1][1]:ontlist[n+2][1],ontlist[n+3][1]:ontlist[n+4][1]}})
-        except IndexError:
-            pass
         
+    a = ontmap.items()
+    keywords=[]
+    for x in a:
+        for v in key_list:
+            if v in x:
+                keywords.append(x)
+            
+    """
+    keywords now contains tuples of all the possible section names and their index:
+    i.e. [(0, u'terminologies_available'), (3, u'term_definitions'), (346, u'term_binding')]
+    """
+    numkeys=len(keywords)
+    ends=[]
+    endsection=[]
+    for x in keywords:
+        ends.append([x][0][0])
+    
+    ends=ends[1:]
+    for x in ends:
+        y=x-1
+        endsection.append(y)
         
-        ##Language test
-        #for y in itemlist:
-            #if y == u'en':
-                #print y
+    endsection.append(len(a)) # final word in the ontology.
         
-    #for x in ontlist:
-        #if x[1].startswith(u'ac0'):        
-            #print x
+    sections=[]
+    n=0
+    for x in keywords:
+        t=(x[1],x[0],endsection[n])
+        sections.append(t)
+        n+=1
+     
+    """
+    Now sections contain tuples of the name of the present sections in the ontology, 
+    the starting word and the ending word.
+    i.e. [(u'terminologies_available', 0, 2), (u'term_definitions', 3, 345), (u'term_binding', 346, 405)]
+    
+    We need to prcess the sections in the order that they are expected to appear so that they break will work correctly (I think).
+    """
+    
+    #print "Sections: ",sections
+    
+    # process terminologies available
+    itemlist=[]
+    for y in sections:    
+        if y[0]==u'terminologies_available':      
+            ontlist=ontmap.items() 
+            #print ontlist
+            try:
+                for x in ontlist:
+                    n=x[0]
+                    if n > y[2]: 
+                        break # if we have reached the end of the section then leave.
+                    else:
+                        itemlist.append(x[1])
+            except IndexError:
+                pass
 
+    termAvail=itemlist
+    
+    # process termCodes - 
+    """
+    In OSHIP we added the word 'bind' as a key to every entry in order to maintain a 
+    balanced structure for those that have term bindings and those that do not.  
+    I find the word 'provenance as used in the specifications to be less than intuitive.  
+    """
+    itemlist=[]
+    for y in sections:    
+        if y[0]==u'term_definitions':      
+            ontlist=ontmap.items() 
+            try:
+                for x in ontlist:
+                    if x[1] in lang_list: # If it's a langugage change just enter it.
+                        itemlist.append(x[1]) 
+                    if x[1].startswith(u'at0'): # check to see if this is an at code. 
+                        n=x[0] # the index  number of this tuple
+                        if n > y[2]: 
+                            break # if we have reached the end of the section then leave.
+                        else:
+                            itemlist.append({x[1]:{ontlist[n+1][1]:ontlist[n+2][1],ontlist[n+3][1]:ontlist[n+4][1],u"bind":None}})
+            except IndexError:
+                pass
         
+    termCodes=itemlist  
     
+    #process constraint codes
+    itemlist=[]
+    for y in sections:    
+        if y[0]==u'constraint_definitions':      
+            print y
+    
+    
+    #process term bindings 
+    itemlist=[]
+    binddict={}
+    for y in sections:    
+        if y[0]==u'term_binding':      
+            ontlist=ontmap.items() 
+            tmplist=ontlist[y[1]:y[2]]
+            try:
+                z=3 # key of first at code
+                for x in tmplist:
+                    
+                    binddict[tmplist[z][1]]=tmplist[z+1][1]
+                    z+=2                             
+            except IndexError:
+                pass
+            
+        for y in termCodes:
+            if isinstance(y,dict):
+                z=y.keys() # always only one
+                if binddict.has_key(z[0]):
+                    codestr=binddict[z[0]].replace('_','')
+                    codelist=codestr.split('::')
+                    cp=CodePhrase(codelist[0],codelist[1])
+                    y[z[0]][u'bind']=cp
+                                
+               
         
-    
-    
-    
-    
-    
-    
-    termCodes=itemlist        
+            
+    #process constraint bindings
+    itemlist=[]
+    for y in sections:    
+        if y[0]==u'constraint_binding':      
+            print y
+            
+            
+        
     ontology=ArchetypeOntology(termAvail,specDepth,termCodes,constCodes,termAN,parent)    
     return ontology
 

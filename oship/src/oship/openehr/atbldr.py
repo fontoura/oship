@@ -124,7 +124,7 @@ def bldOntology(ontlist):
     #cleanup the list
     ontlist=flatten(ontlist)
     key_list=[u'terminologies_available',u'term_definitions',u'constraint_definitions',u'term_binding',u'constraint_binding']
-    lang_list=[u'en',u'de',u'nl'] # needs to access termserver
+    lang_list=[u'en',u'de',u'nl',u'fr'] # needs to access termserver
     itemlist=[]
     # now go through ontlist and map all the words.  
     
@@ -221,9 +221,19 @@ def bldOntology(ontlist):
     itemlist=[]
     for y in sections:    
         if y[0]==u'constraint_definitions':      
-            print y
-    
-    
+            ontlist=ontmap.items() 
+            try:
+                for x in range(y[1],y[2]):
+                    if ontlist[x][1] in lang_list: # If it's a langugage change just enter it.
+                        itemlist.append(ontlist[x][1]) 
+                    if ontlist[x][1].startswith(u'ac0'): # check to see if this is an ac code. 
+                        n=ontlist[x][0] # the index  number of this tuple
+                        itemlist.append({ontlist[x][1]:{ontlist[x+1][1]:ontlist[x+2][1],ontlist[x+3][1]:ontlist[x+4][1],u"bind":None}})
+            except IndexError:
+                pass
+            
+    constCodes=itemlist
+   
     #process term bindings 
     itemlist=[]
     binddict={}
@@ -254,12 +264,21 @@ def bldOntology(ontlist):
             
     #process constraint bindings
     itemlist=[]
+    binddict={}
     for y in sections:    
         if y[0]==u'constraint_binding':      
-            print y
-            
-            
-        
+            ontlist=ontmap.items() 
+            for x in range(y[1],y[2]):
+                if ontlist[x][1].startswith(u'ac0'): # check to see if this is an ac code.
+                    
+                    for y in constCodes:
+                        if isinstance(y,dict):
+                            print y
+                            if y.has_key(ontlist[x][1]):
+                                #constCodes[y][u'bind']=ontlist[x+1]
+                                print constCodes[x]
+           
+    
     ontology=ArchetypeOntology(termAvail,specDepth,termCodes,constCodes,termAN,parent)    
     return ontology
 

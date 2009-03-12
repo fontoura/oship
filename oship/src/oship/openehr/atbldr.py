@@ -268,16 +268,18 @@ def bldOntology(ontlist):
     for y in sections:    
         if y[0]==u'constraint_binding':      
             ontlist=ontmap.items() 
-            for x in range(y[1],y[2]):
-                if ontlist[x][1].startswith(u'ac0'): # check to see if this is an ac code.
-                    
-                    for y in constCodes:
-                        if isinstance(y,dict):
-                            print y
-                            if y.has_key(ontlist[x][1]):
-                                #constCodes[y][u'bind']=ontlist[x+1]
-                                print constCodes[x]
-           
+            try:
+                for x in range(y[1],y[2]):
+                    if ontlist[x][1].startswith(u'ac0'): # check to see if this is an ac code.
+                        
+                        for y in constCodes:
+                            if isinstance(y,dict):
+                                print y
+                                if y.has_key(ontlist[x][1]):
+                                    #constCodes[y][u'bind']=ontlist[x+1]
+                                    print constCodes[x]
+            except IndexError:
+                pass
     
     ontology=ArchetypeOntology(termAvail,specDepth,termCodes,constCodes,termAN,parent)    
     return ontology

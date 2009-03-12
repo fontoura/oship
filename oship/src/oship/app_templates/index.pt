@@ -28,12 +28,13 @@ This creates the archetype repository (ar) and the terminology server (termserve
 Then it parses all the ADL files in oship/src/oship/openehr/adl to create the archetype instance models in the ar.
 </p>
 </li>
-<li>
-To add content to the Terminology Server, follow the instructions (<strong><em>coming soon</em></strong>).
-</li>
+
 <li>
 <p>This <a href="http://localhost:8080/oship/emptyar">cleanup link</a> will remove all of the archetype models from the ar.</p>
 <p>You can then reload the ar by placing your adl files in the oship/src/oship/openehr/adl directory and re-run the Setup link.</p>
+</li>
+<li>
+<p>Add the <a href="http://localhost:8080/oship/importmsw">Sample Mammal Vocabulary</a> to the Terminology Server.</p>
 </li>
 <li>
 Add the <a href="http://localhost:8080/htwt">Height/Weight Demo</a> application by going back to the <a href="http://localhost:8080/applications">applications page</a> and entering 'htwt' in the oship.htwt.htwt box.<br />
@@ -50,7 +51,7 @@ Then execute this <a href="http://localhost:8080/htwt/setup">setup link</a> to c
 <li><a href="http://localhost:8080/docgrok/zope">Zope API</a></li><br />
 <li><a href="http://grok.zope.org/doc/current/tutorial.html">Grok Tutorials</a></li><br />
 <li><a href="http://localhost:8080/manage">Object Database (ZMI)</a></li><br />
-<li>Inspect the Archetype Repository (ar) and Terminology Server (termserver) 
+<li>Inspect the contents Archetype Repository (ar) and Terminology Server (termserver) 
       <a href="http://localhost:8080/oship/@@inspect.html">here</a></li><br />
 </ul>
 </td>
@@ -68,6 +69,6 @@ href="https://launchpad.net/oship/">Launchpad</a> by joining the OSHIP Developer
 href="mailto:timothywayne.cook@gmail.com">Tim Cook</a>. </p>
 
 <p align="center">OSHIP is based on <a href="http://grok.zope.org">Grok
-1.0a2</a></p>
+1.0a1</a></p>
 </body>
 </html>

@@ -13,6 +13,7 @@ from zope.i18nmessageid import MessageFactory
 from zope.app.container.btree import BTreeContainer
 from zope.app.folder import Folder
 from oship.openehr.atbldr import CreateAT, getFileList
+from oship.msw.createmsw import CreatMSW
 
 # Begin OSHIP Demo
 class oship(grok.Application, grok.Container ):
@@ -59,5 +60,20 @@ class Emptyar(grok.View):
         for x in atnames:
             del self.context['ar'][x]
             
+        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+        
+        
+class ImportMSW(grok.View):
+    """Import the mammal vocabulary into the term server."""
+    grok.context(oship)
+
+    def render(self):
+        
+        try:
+            self.context['termserver']['msw'] = grok.Container()
+            self.context['termserver']['msw']['Sample']=CreatMSW()
+        except DuplicationError:
+            pass
+        
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
             

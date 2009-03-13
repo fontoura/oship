@@ -41,6 +41,8 @@ def CreatMSW():
         line=line.replace(']','>')
         mswlist= unicode(line,'latin1').split(';')
         if linecnt > 0:  # the zero line is the headers so we skip it.
+            """ Create  a unique Id for each mammal from the class codes"""
+            mswlist[5]=mswlist[7]+mswlist[9]+mswlist[11]+mswlist[13]+mswlist[15]+mswlist[17]+mswlist[19]+mswlist[21]+mswlist[23]+mswlist[25]
             vocab.append((mswlist[5],Mammal(mswlist))) # go build one mammal instance, append it to a list 
         linecnt+=1 
     
@@ -184,28 +186,29 @@ class Mammal(grok.Model):
             title=_("Order"),
             description=_("A tuple consisting of the 'order' and the order code segment")
         )
+        order=(mswlist[7],mswlist[6])
         #cod01
-        suborder=(mswlist[7],mswlist[6])
+        suborder=(mswlist[9],mswlist[8])
         #cod02
-        infraOrder=(mswlist[9],mswlist[8])
+        infraOrder=(mswlist[11],mswlist[10])
 
         #cod03
-        superFamily=(mswlist[11],mswlist[10])
+        superFamily=(mswlist[13],mswlist[12])
 
         #cod04
-        family=(mswlist[13],mswlist[12])
+        family=(mswlist[15],mswlist[14])
 
         #cod05
-        subFamily=(mswlist[15],mswlist[14])
+        subFamily=(mswlist[17],mswlist[16])
 
         #cod06
-        tribe=(mswlist[17],mswlist[16])
+        tribe=(mswlist[19],mswlist[18])
         #cod07
-        genre=(mswlist[19],mswlist[18])        
+        genre=(mswlist[21],mswlist[20])        
         #cod08
-        subGenre=(mswlist[21],mswlist[20])
+        subGenre=(mswlist[23],mswlist[22])
         #cod09
-        species=(mswlist[23],mswlist[22])
+        species=(mswlist[25],mswlist[24])
         #cod10
         #popNamePt01
         #popNamePt02
@@ -214,8 +217,8 @@ class Mammal(grok.Model):
         #popNameEn02
         #popNameEn03
         #popNameEn04
-        linkWikiEn=mswlist[31]
-        stdLink=bool(mswlist[32])
+        linkWikiEn=mswlist[33]
+        stdLink=bool(int(mswlist[34]))
         #seqId
     
 

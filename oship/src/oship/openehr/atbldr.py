@@ -29,7 +29,7 @@ import logging
 import string
 
 
-from pyparsing import ParseBaseException
+from pyparsing import ParseBaseException,ParseException 
 
 import adl_1_4
 

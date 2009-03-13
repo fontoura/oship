@@ -71,9 +71,35 @@ class ImportMSW(grok.View):
         
         try:
             self.context['termserver']['msw'] = grok.Container()
-            self.context['termserver']['msw']['Sample']=CreatMSW()
         except DuplicationError:
             pass
         
+        vocab=CreatMSW() # a list of tuples consisiting of an Id and a mammal model
+        print len(vocab), " = # of mammals to be added."
+        n=len(vocab)
+        x=0
+        while x<n:
+            try:
+                mammal=vocab[x]
+                mammalid=mammal[0]
+                mammalobj=mammal[1]
+                self.context['termserver']['msw'][mammalid]=mammalobj 
+                print "Added: # ",x, " - ",mammalid, mammalobj
+            except DuplicationError:
+                print "Duplication of Mammal ID: ", mammalid
+                pass
+            x+=1
+            
+        
+        
+        #try:
+            #for x in vocab:
+                #self.context['termserver']['msw'][x[0]]=x[1] 
+                #print "Added: ",x[0]
+        #except DuplicationError:
+            #print "Duplication of Mammal ID: ", x[0]
+            #pass
+        
+
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
             

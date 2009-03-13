@@ -31,7 +31,7 @@ def CreatMSW():
     """ read the file and return a code structure"""
     
     
-    vocab=grok.Container()
+    vocab=[]
 
     mswfile=open(os.getcwd()+"/src/oship/msw/MSW3.csv",'r')
     
@@ -41,15 +41,13 @@ def CreatMSW():
         line=line.replace(']','>')
         mswlist= unicode(line,'latin1').split(';')
         if linecnt > 0:  # the zero line is the headers so we skip it.
-            vocab[mswlist[5]]=Mammal(mswlist) # go build one mammal instance
-            print lintcnt, vocab[mswlist[5]]
-            linecnt+=1 
-        
+            vocab.append((mswlist[5],Mammal(mswlist))) # go build one mammal instance, append it to a list 
+        linecnt+=1 
     
-    return(vocab)   
+    return vocab   
     
     
-    # this commented section is the pre-grok version.
+    # this commented section is the pre-grok (aka. dictionary based) version.
     #linecnt=0
     #mswdict={}
     #keytest={}
@@ -203,7 +201,7 @@ class Mammal(grok.Model):
         #cod06
         tribe=(mswlist[17],mswlist[16])
         #cod07
-        genre(mswlist[19],mswlist[18])        
+        genre=(mswlist[19],mswlist[18])        
         #cod08
         subGenre=(mswlist[21],mswlist[20])
         #cod09

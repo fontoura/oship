@@ -269,7 +269,7 @@ class IArchetype(Interface):
     parentArchetypeId=Object(
         schema=IArchetypeId,
         title=_(u"Parent Archetype Id"),
-        description=_(u"Identifier of the specialsation parent of this archetype."),
+        description=_(u"Identifier of the specialisation parent of this archetype."),
         required=False,
     )
     

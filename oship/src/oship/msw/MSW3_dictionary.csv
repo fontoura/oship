@@ -1,0 +1,39 @@
+VECTOR_ID;DEFINITION
+POPNAMES_PT;Popular names in Portuguese
+GENPOPN_PT;Generic popular name in Portuguese
+POPNAMES_EN;Popular names in English
+GENPOPN_EN;Generic popular name in English
+RISK;"Risk of rabies transmission (1 = high; 2 = moderate; 3 = none)"
+COD_MAM;Mammal code
+ORDER;Taxonomic rank between class and family
+COD01;Code fraction for order
+SUBORDER;Subdivision of order
+COD02;Code fraction for suborder
+INFRAORDER;Subdivision of suborder
+COD03;Code fraction for infraorder
+SUPERFAMILY;Aggregation of families
+COD04;Code fraction for superfamily
+FAMILY;Taxonomic rank between order and genre
+COD05;Code fraction for family
+SUBFAMILY;Subdivision of family
+COD06;Code fraction for subfamily
+TRIBE;Subtype of family
+COD07;Code fraction for tribe
+GENRE;Taxonomic rank between family and species
+COD08;Code fraction for genre
+SUBGENRE;Subdivision of genre
+COD09;Code fraction for subgenre
+SPECIES;Taxonomic rank under genre
+COD10;Code fraction for species
+POPNAME_PT01;Popular name in Portuguese 1
+POPNAME_PT02;Popular name in Portuguese 2
+POPNAME_PT03;Popular name in Portuguese 3
+POPNAME_PT04;Popular name in Portuguese 4
+POPNAME_EN01;Popular name in English 1
+POPNAME_EN02;Popular name in English 2
+POPNAME_EN03;Popular name in English 3
+POPNAMEENG04;Popular name in English 4
+LINKWIKIENG;Link for the mammal on Wikipedia or alternative sites
+STDLINK;"Standard Wikipedia link (1 = yes; 0 = no)"
+SEQ_ID;Sequential ID (for internal use)
+COUNT;Vector of 1s (for internal use)

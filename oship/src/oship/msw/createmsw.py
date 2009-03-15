@@ -79,95 +79,101 @@ class IMammal(Interface):
     """Interface for mammals"""
     
     popNamesPt=TextLine(
-        title=_("Portuguese Popular Name"),
-        description=_(" ")
+        title=_(u"Portuguese Popular Name"),
+        description=_(u"Popular names in Portuguese")
     )
     genPopNPt=TextLine(
-        title=_("Portuguese Popular Name"),
-        description=_(" ")
+        title=_(u"Portuguese Popular Name"),
+        description=_(u"Generic popular name in Portuguese")
     )
     popNamesEn=TextLine(
-        title=_("English Popular Name"),
-        description=_(" ")
+        title=_(u"English Popular Name"),
+        description=_(u"Popular names in English")
     )
     genPopNEn=TextLine(
-        title=_("English Popular Name"),
-        description=_(" ")
+        title=_(u"English Popular Name"),
+        description=_(u"Generic popular name in English")
     )
     risk=TextLine(
-        title=_("Rabies Risk Factor"),
-        description=_(" ")
+        title=_(u"Rabies Risk Factor"),
+        description=_(u"Risk of rabies transmission (1 = high; 2 = moderate; 3 = none)")
     )
     codMam=TextLine(
-        title=_("Unique Mammal Code"),
-        description=_(" ")
+        title=_(u"Unique Mammal Code"),
+        description=_(u"Mammal code")
     )
     order=Tuple(
-        title=_("Order"),
-        description=_("A tuple consisting of the 'order' and the order code segment")
+        title=_(u"Order"),
+        description=_(u"A tuple consisting of the 'order' and the order code segment")
     )
-    #cod01
+    #cod01-Code fraction for order
     suborder=Tuple(
-        title=_("Suborder"),
-        description=_("A tuple consisting of the 'suborder' and the suborder code segment")
+        title=_(u"Suborder"),
+        description=_(u"A tuple consisting of the 'suborder' and the suborder code segment")
     )
-    #cod02
+    #cod02-Code fraction for suborder
     infraOrder=Tuple(
         title=_("InfraOrder"),
         description=_("A tuple consisting of the 'infraorder' and the infraorder code segment")
     )
-    #cod03
+    #cod03-Code fraction for infraorder
     superFamily=Tuple(
         title=_("Super Family"),
         description=_("A tuple consisting of the 'superfamily' and the superfamily code segment")
     )
-    #cod04
+    #cod04-Code fraction for superfamily
     family=Tuple(
         title=_("Family"),
         description=_("A tuple consisting of the 'family' and the family code segment")
     )
-    #cod05
+    #cod05-Code fraction for family
     subFamily=Tuple(
-        title=_("Subfamily"),
-        description=_("A tuple consisting of the 'subfamily' and the subfamily code segment")
+        title=_(u"Subfamily"),
+        description=_(u"A tuple consisting of the 'subfamily' and the subfamily code segment")
     )
-    #cod06
+    #cod06-Code fraction for subfamily
     tribe=Tuple(
-        title=_("Tribe"),
-        description=_("A tuple consisting of the 'tribe' and the tribe code segment")
+        title=_(u"Tribe"),
+        description=_(u"A tuple consisting of the 'tribe' and the tribe code segment")
     )
-    #cod07
+    #cod07-Code fraction for tribe
     genre=Tuple(
-        title=_("Genre"),
-        description=_("A tuple consisting of the 'genre' and the genre code segment")
+        title=_(u"Genre"),
+        description=_(u"A tuple consisting of the 'genre' and the genre code segment")
     )
-    #cod08
+    #cod08-Code fraction for genre
     subGenre=Tuple(
-        title=_("Subgenre"),
-        description=_("A tuple consisting of the 'subgenre' and the subgenre code segment")
+        title=_(u"Subgenre"),
+        description=_(u"A tuple consisting of the 'subgenre' and the subgenre code segment")
     )
-    #cod09
+    #cod09-Code fraction for subgenre
     species=Tuple(
-        title=_("Species"),
-        description=_("A tuple consisting of the 'species' and the species code segment")
+        title=_(u"Species"),
+        description=_(u"A tuple consisting of the 'species' and the species code segment")
     )
-    #cod10
-    #popNamePt01
-    #popNamePt02
-    #popNamePt03
-    #popNameEn01
-    #popNameEn02
-    #popNameEn03
-    #popNameEn04
+    #cod10-Code fraction for species
+    
+    
+    #popNamePt01-(not used in OSHIP)
+    #popNamePt02-(not used in OSHIP)
+    #popNamePt03-(not used in OSHIP)
+    #popNameEn01-(not used in OSHIP)
+    #popNameEn02-(not used in OSHIP)
+    #popNameEn03-(not used in OSHIP)
+    #popNameEn04-(not used in OSHIP)
+
+    
     linkWikiEn=TextLine(
-        title=_("WWW Link"),
-        description=_(" ")
+        title=_(u"WWW Link"),
+        description=_(u"Link for the mammal on Wikipedia or alternative sites")
     )
     stdLink=Bool(
-        title=_("Standard Link"),
-        description=_("If TRUE then this is a Wikipedia link.")
+        title=_(u"Standard Link"),
+        description=_(u"If TRUE then this is a Wikipedia link.")
     )
-    #seqId
+    
+    #seqId-(not used in OSHIP)
+    #count-(not used in OSHIP)
 
 class Mammal(grok.Model):
     """Mammals in the terminology"""

@@ -14,6 +14,8 @@ from zope.app.container.btree import BTreeContainer
 from zope.app.folder import Folder
 from oship.openehr.atbldr import CreateAT, getFileList
 from oship.msw.createmsw import CreatMSW
+from oship.oeterm.oeterm import importOETerms
+
 
 # Begin OSHIP Demo
 class oship(grok.Application, grok.Container ):
@@ -22,7 +24,7 @@ class oship(grok.Application, grok.Container ):
 class Index(grok.View):
     grok.context(oship)
 
-
+# Create the containers and initial archetypes
 class Setup(grok.View):
     grok.context(oship)
     
@@ -61,7 +63,10 @@ class Emptyar(grok.View):
             del self.context['ar'][x]
             
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
-        
+
+"""
+Start the terminology import section
+"""
         
 class ImportMSW(grok.View):
     """Import the mammal vocabulary into the term server."""
@@ -74,7 +79,7 @@ class ImportMSW(grok.View):
         except DuplicationError:
             pass
         
-        vocab=CreatMSW() # a list of tuples consisiting of an Id and a mammal model
+        vocab=CreatMSW() # a list of tuples consisting of an Id and a mammal model
         print len(vocab), " = # of mammals to be added."
         n=len(vocab)
         x=0
@@ -89,17 +94,41 @@ class ImportMSW(grok.View):
                 print "Duplication of Mammal ID: ", mammalid
                 pass
             x+=1
-            
-        
-        
-        #try:
-            #for x in vocab:
-                #self.context['termserver']['msw'][x[0]]=x[1] 
-                #print "Added: ",x[0]
-        #except DuplicationError:
-            #print "Duplication of Mammal ID: ", x[0]
-            #pass
-        
+                    
 
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
             
+        
+class ImportOE(grok.View):
+    """Import the openEHR vocabulary into the term server."""
+    grok.context(oship)
+
+    def render(self):
+        
+        try:
+            self.context['termserver']['oeterms'] = grok.Container()
+        except DuplicationError:
+            pass
+        
+        vocab=importOETerms() # a list of tuples consisting of 
+        print len(vocab), " = # of terms to be added."
+        n=len(vocab)
+        x=0
+        while x<n:
+            try:
+                term=vocab[x]
+                grpconcept=term[0]
+                termobj=term[1]
+                print grpconcept,termobj
+                
+                self.context['termserver']['oeterms'][grpconcept]=termobj 
+                #print "Added: # ",x, " - ",concept, termobj
+            except DuplicationError:
+                print "Duplication of Concept: ", grpconcept
+                pass
+            x+=1
+                    
+
+        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+
+        

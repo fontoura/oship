@@ -223,8 +223,8 @@ class Mammal(grok.Model):
         #popNameEn02
         #popNameEn03
         #popNameEn04
-        linkWikiEn=mswlist[33]
-        stdLink=bool(int(mswlist[34]))
+        linkWikiEn=mswlist[34]
+        stdLink=bool(int(mswlist[35]))
         #seqId
     
 

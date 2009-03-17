@@ -1,0 +1,330 @@
+archetype (adl_version=1.4)
+	openehr-demographic-ADDRESS.location_address.v1
+
+concept
+	[at0000]	-- location address
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["fr"] = <
+			language = <[ISO_639-1::fr]>
+			author = <
+				["name"] = <"????">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Thomas Beale">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"thomasXXX@OceanXXXInformatics.biz">
+	>
+	details = <
+		["fr"] = <
+			language = <[ISO_639-1::fr]>
+			purpose = <"Description d'une adresse physique d'un domicile ou d'une entreprise">
+			use = <"Service demographique">
+			keywords = <"demographique", ...>
+			copyright = <"(c) Ocean Informatics 2003">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Describe physical address of a domicile or business">
+			use = <"Demographic service">
+			keywords = <"demographics", ...>
+			copyright = <"(c) Ocean Informatics 2003">
+		>
+	>
+	lifecycle_state = <"draft">
+	other_contributors = <"Sam.HeardXXX@OceanInfXXXormatics.bizXXX", ...>
+
+definition
+	ADDRESS[at0000] matches {	-- location address
+		details matches {
+			LIST[at0001] matches {	-- address items
+				items cardinality matches {0..*; ordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- apartment id
+						name matches {
+							CODED_TEXT matches {
+								code matches {[ac0001]}		-- apartment id constraint
+							}
+						}
+						value matches {
+							TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- building id
+						name matches {
+							CODED_TEXT matches {
+								code matches {[ac0002]}		-- building id constraint
+							}
+						}
+						value matches {
+							TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- street name
+						name matches {
+							CODED_TEXT matches {
+								code matches {[ac0003]}		-- street name constraint
+							}
+						}
+						value matches {
+							TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- locality
+						name matches {
+							CODED_TEXT matches {
+								code matches {[ac0004]}		-- locality constraint
+							}
+						}
+						value matches {
+							TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- postcode
+						name matches {
+							CODED_TEXT matches {
+								code matches {[ac0005]}		-- postcode constraint
+							}
+						}
+						value matches {
+							TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- state/province
+						name matches {
+							CODED_TEXT matches {
+								code matches {[ac0006]}		-- state/province constraint
+							}
+						}
+						value matches {
+							TEXT matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- country
+						name matches {
+							CODED_TEXT matches {
+								code matches {[ac0007]}		-- country name constraint
+							}
+						}
+						value matches {
+							CODED_TEXT matches {
+								code matches {[ac0008]}		-- country value constraint
+							}
+						}
+					}
+					ELEMENT[at9000] occurrences matches {0..*} matches {	-- new
+						name matches {
+							CODED_TEXT matches {
+								code matches {[ac0009]}		-- other address part constraint
+							}
+						}
+						value matches {
+							TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"acme", ...>
+	term_definitions = <
+		["fr"] = <
+			items = <
+				["at0000"] = <
+					description = <"adresse d'un lieu, appartement, domicile ou entreprise">
+					text = <"adresse">
+				>
+				["at0001"] = <
+					description = <"items in the address">
+					text = <"éléments de l'adresse">
+				>
+				["at0002"] = <
+					description = <"identification de l'appartement, studio, ou bureau, dans l'immeuble">
+					text = <"identification de l'appartement">
+				>
+				["at0003"] = <
+					description = <"identification de l'immeuble">
+					text = <"identification de l'immeuble">
+				>
+				["at0004"] = <
+					description = <"nom de la rue">
+					text = <"rue">
+				>
+				["at0005"] = <
+					description = <"nom du quartier, village, ou ville">
+					text = <"lieu">
+				>
+				["at0006"] = <
+					description = <"code postale pour l'adresse">
+					text = <"code postale">
+				>
+				["at0007"] = <
+					description = <"nom du department, region, ou province">
+					text = <"department/province">
+				>
+				["at0008"] = <
+					description = <"nom du pays">
+					text = <"pays">
+				>
+				["at9000"] = <
+					description = <"nouvel élément">
+					text = <"???">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					description = <"address of a physical apartment, domicile or business">
+					text = <"location address">
+				>
+				["at0001"] = <
+					description = <"items in the address">
+					text = <"address items">
+				>
+				["at0002"] = <
+					description = <"identifier of the apartment, studio, or office in a shared building">
+					text = <"apartment id">
+				>
+				["at0003"] = <
+					description = <"identifier of the building">
+					text = <"building id">
+				>
+				["at0004"] = <
+					description = <"name of the street">
+					text = <"street name">
+				>
+				["at0005"] = <
+					description = <"name of the suburb, village, town">
+					text = <"locality">
+				>
+				["at0006"] = <
+					description = <"postal code for the address">
+					text = <"postcode">
+				>
+				["at0007"] = <
+					description = <"state or province">
+					text = <"state/province">
+				>
+				["at0008"] = <
+					description = <"country">
+					text = <"country">
+				>
+				["at9000"] = <
+					description = <"new item">
+					text = <"new">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["fr"] = <
+			items = <
+				["ac0001"] = <
+					description = <"synonyme de 'id appartement'">
+					text = <"contrainte sur id appartement">
+				>
+				["ac0002"] = <
+					description = <"*any synonym of 'building id'(en)">
+					text = <"*building id constraint(en)">
+				>
+				["ac0003"] = <
+					description = <"*any synonym of 'street name'(en)">
+					text = <"*street name constraint(en)">
+				>
+				["ac0004"] = <
+					description = <"*any synonym of 'locality'(en)">
+					text = <"*locality constraint(en)">
+				>
+				["ac0005"] = <
+					description = <"synonyme de code postale">
+					text = <"contraint sur code postale">
+				>
+				["ac0006"] = <
+					description = <"*any synonym of 'state' or 'province'(en)">
+					text = <"*state/province constraint(en)">
+				>
+				["ac0007"] = <
+					description = <"*any synonym of 'country'(en)">
+					text = <"*country name constraint(en)">
+				>
+				["ac0008"] = <
+					description = <"*a valid country code(en)">
+					text = <"*country value constraint(en)">
+				>
+				["ac0009"] = <
+					description = <"*any synonym of 'other address part'(en)">
+					text = <"*other address part constraint(en)">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["ac0001"] = <
+					description = <"any synonym of 'apartment id'">
+					text = <"apartment id constraint">
+				>
+				["ac0002"] = <
+					description = <"any synonym of 'building id'">
+					text = <"building id constraint">
+				>
+				["ac0003"] = <
+					description = <"any synonym of 'street name'">
+					text = <"street name constraint">
+				>
+				["ac0004"] = <
+					description = <"any synonym of 'locality">
+					text = <"locality constraint">
+				>
+				["ac0005"] = <
+					description = <"any synonym of 'postcode'">
+					text = <"postcode constraint">
+				>
+				["ac0006"] = <
+					description = <"any synonym of 'state' or 'province'">
+					text = <"state/province constraint">
+				>
+				["ac0007"] = <
+					description = <"any synonym of 'country'">
+					text = <"country name constraint">
+				>
+				["ac0008"] = <
+					description = <"a valid country code">
+					text = <"country value constraint">
+				>
+				["ac0009"] = <
+					description = <"any synonym of 'other address part'">
+					text = <"other address part constraint">
+				>
+			>
+		>
+	>
+	term_binding = <
+		["acme"] = <
+			items = <
+				["at0000"] = <[acme::163020007]>
+				["at0001"] = <[acme::163020008]>
+				["at0002"] = <[acme::163020009]>
+				["at0003"] = <[acme::163020010]>
+			>
+		>
+	>
+	constraint_binding = <
+		["acme"] = <
+			items = <
+				["ac0001"] = <http://free.terminology.org?terminology_id=acme;synonym_of=163020007>
+				["ac0002"] = <http://free.terminology.org?terminology_id=acme;synonym_of=163030003>
+				["ac0003"] = <http://free.terminology.org?terminology_id=acme;synonym_of=163031004>
+				["ac0004"] = <http://free.terminology.org?terminology_id=acme;synonym_of=163031004>
+				["ac0005"] = <http://free.terminology.org?terminology_id=acme;synonym_of=57134006>
+				["ac0006"] = <http://free.terminology.org?terminology_id=acme;synonym_of=246273001>
+				["ac0007"] = <http://free.terminology.org?terminology_id=acme;synonym_of=246273001>
+				["ac0008"] = <http://free.terminology.org?terminology_id=acme;has_relation=102002;with_target=246273001>
+			>
+		>
+	>

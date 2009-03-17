@@ -39,10 +39,6 @@ Then it parses all the ADL files in oship/src/oship/openehr/adl to create the ar
 <li>
 <p>Add the <a href="http://localhost:8080/oship/importmsw">Sample Mammal Vocabulary</a> to the Terminology Server.</p>
 </li>
-
-<li>
-<p>Add the <a href="http://localhost:8080/oship/importmsw">Sample Mammal Vocabulary</a> to the Terminology Server.</p>
-</li>
 <li>
 Add the <a href="http://localhost:8080/htwt">Height/Weight Demo</a> application by going back to the <a href="http://localhost:8080/applications">applications page</a> and entering 'htwt' in the oship.htwt.htwt box.<br />
 Then execute this <a href="http://localhost:8080/htwt/setup">setup link</a> to create the clinical and demographics data spaces for the application.

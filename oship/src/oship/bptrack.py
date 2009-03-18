@@ -18,7 +18,6 @@ class bptrack(grok.Application, grok.Container ):
 class Index(grok.View):
     grok.context(bptrack)
 
-
 class Setup(grok.View):
     grok.context(bptrack)
     
@@ -30,5 +29,5 @@ class Setup(grok.View):
             pass
                  
         
-        self.redirect("http://localhost:8080/bptrack") # now simply redirect to the main page
+        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
             

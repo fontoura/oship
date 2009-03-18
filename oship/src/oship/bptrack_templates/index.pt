@@ -41,7 +41,7 @@ function toggleAnnotations()
 <body>
 <h2 align="center">OSHIP Demo</h2>
 <div id="top">
-<h3 class="bordered-title">Blood pressure</h3><i>This form doesnt really do anything yet.</i>
+<h3 class="bordered-title">Blood pressure</h3><i>This form doesnt really validate or commit data yet.</i>
 <div id="information">
 <h3>Purpose</h3>
 <p id="purpose"><img tal:attributes="/src static/images/info.gif">  Standard blood pressure recording</p>

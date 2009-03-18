@@ -23,3 +23,4 @@ src/oship/msw/__init__.pyc
 icd10/__init__.pyc
 oeterm/__init__.pyc
 oeterm/oeterm.pyc
+src/oship/bptrack_templates/index.pt~

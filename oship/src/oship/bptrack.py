@@ -11,16 +11,16 @@ import grok
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
 
-# Begin Height/Weight Demo
-class htwt(grok.Application, grok.Container ):
+# Begin Blood Pressure Tracker Demo
+class bptrack(grok.Application, grok.Container ):
     pass
 
 class Index(grok.View):
-    grok.context(htwt)
+    grok.context(bptrack)
 
 
 class Setup(grok.View):
-    grok.context(htwt)
+    grok.context(bptrack)
     
     def render(self):
         try:
@@ -30,5 +30,5 @@ class Setup(grok.View):
             pass
                  
         
-        self.redirect("http://localhost:8080/htwt") # now simply redirect to the main page
+        self.redirect("http://localhost:8080/bptrack") # now simply redirect to the main page
             

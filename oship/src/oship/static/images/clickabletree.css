@@ -1,0 +1,42 @@
+/***************************************************************
+* Styles for clickable openEHR template HTML display for NHS CfH *
+***************************************************************/
+
+body {
+	font-family:Arial, Helvetica, sans-serif; font-size:medium;
+	margin:6px; padding:6px;border:solid 1px #06c;
+}
+
+p {font-family: Arial, Helvetica, sans-serif; font-size:14px; margin-top:6px; padding:0px;}
+td {font-family: Arial, Helvetica, sans-serif; font-size:14px;}
+h1 {font-size: 150%; text-transform: uppercase; margin-bottom:2px; margin-top:0px;}
+h2 {font-size: 130%; margin-top:2px; margin-bottom:2px; margin-top:8px; }
+h3 {font-size: 110%; margin-top:2px; margin-bottom:2px; margin-top:8px; }
+th {border-top:solid 1px #06c;}
+
+
+a:link {color:#22a; text-decoration:none; }
+a:visited {color:#008; text-decoration:none; }
+a:hover {color:#d32;text-decoration:underline; }
+
+.errors {min-width:400px;max-width:400px;width:400px; font-size:8px; color:#f00;}  
+
+#top {
+	clear:left; padding-top:70px; color:#06c; min-width:400px;max-width:400px;width:400px; font-size:12px; border:0px;
+	background-image:url('images/nhscfh_combo.jpg'); background-repeat:no-repeat; float:left;
+}
+.bordered-title {border-top:solid 2px #06c; border-bottom:solid 2px #06c;}
+
+#information {}
+#purpose {color:#06c; padding-top:0px; padding-bottom:0px;}
+#use {color:#0a0; padding-top:0px; padding-bottom:0px;}
+#misuse {color:#f00; padding-top:0px; padding-bottom:0px;}
+
+.description{float:right;}
+.section {padding:2px; background-color:#9ce; border:solid 1px #06c; color:#049; }
+.sectionHead {font-size:small; border:0px; padding:2px; margin:0px; font-weight:bold;}
+.sectionBody {font-size:small; border:0px; padding:2px; margin:0px;}
+
+.treeRoot {line-height: 80%; clear:both; font-size:75%;}
+
+.annotation {color:blue; font-style: italic;  border-style: ridge; width:400px; line-height: 120%;}

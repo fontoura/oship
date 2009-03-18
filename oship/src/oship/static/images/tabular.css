@@ -1,0 +1,146 @@
+/***************************************************************
+* Styles for tabular openEHR template HTML display for NHS CfH *
+***************************************************************/
+
+body {
+	font-family:Arial, Helvetica, sans-serif; font-size:medium;
+	margin:6px; padding:6px;border:solid 1px #06c;
+}
+
+p {font-family: Arial, Helvetica, sans-serif; font-size:14px; margin-top:6px; padding:0px;}
+td {font-family: Arial, Helvetica, sans-serif; font-size:14px;}
+h1 {font-size: 150%; text-transform: uppercase; margin-bottom:2px; margin-top:0px;  border-style: solid none; border-color:#06c;} 
+h2 {font-size: 130%; margin-top:2px; margin-bottom:2px; margin-top:8px; }
+h3 {font-size: 110%; margin-top:2px; margin-bottom:2px; margin-top:8px; }
+th {border-top:solid 1px #06c;}
+
+.errors {min-width:400px;max-width:400px;width:400px; font-size:8px; color:#f00;}  
+
+a:link {color:#22a; text-decoration:none; }
+a:visited {color:#008; text-decoration:none; }
+a:hover {color:#d32;text-decoration:underline; }
+
+#top {
+	float:left; clear:left; padding-top:70px; color:#06c; min-width:400px;max-width:400px;width:400px; font-size:12px;
+	background-image:url('nhscfh_combo.jpg'); background-repeat:no-repeat;
+}
+
+#information {}
+#purpose {color:#06c; padding-top:0px; padding-bottom:0px;}
+#use {color:#0a0; padding-top:0px; padding-bottom:0px;}
+#misuse {color:#f00; padding-top:0px; padding-bottom:0px;}
+
+.section {padding:2px; float:right; background-color:#9ce; border:solid 1px #06c; color:#049; }
+.sectionHead {font-size:small; border:0px; padding:2px; margin:0px; font-weight:bold;}
+.sectionBody {font-size:small; border:0px; padding:2px; margin:0px;}
+
+.contentTable {border:0px; margin-top:10px; width:100%;clear:both; border-collapse:collapse;}
+.contentHeaderRow {font-weight:bold; font-size:xx-small; background-color:#9ce; color:#049; vertical-align:middle;}
+.col_even_0 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_0 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_1 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; width:10%;}
+.col_odd_1 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee; width:10%;}
+.col_even_2 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_2 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_3 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_3 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_4 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_4 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_5 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_5 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_6 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_6 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_7 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_7 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_8 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_8 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_9 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_9 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_10 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; width:10%;}
+.col_odd_10 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee; width:10%;}
+.col_even_11 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_11 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_12 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_12 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_13 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_13 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_14 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_14 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_15 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd;}
+.col_odd_15 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee;}
+.col_even_16 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; width:10%;}
+.col_odd_16 {border:0px; margin:0px; padding:2px; font-size:xx-small; border:solid 1px #ddd; background-color:#eee; width:10%;}
+
+/* History */
+.ehrclasses-openehr-data_structures-history {
+	background-color:#fff; margin:2px; padding:4px; display:inline; 
+}
+
+.historyHeading
+{
+	font-size:larger; font-weight:bold; text-transform:uppercase;
+}
+
+
+/* Event */
+.ehrclasses-openehr-data_structures-point_event {
+	background-color:#fff; font-size:small; margin-left:4px; padding:4px; 
+}
+.ehrclasses-openehr-data_structures-event  {
+    background-color:#fff; font-size:small; margin-left:4px; display:block; padding:4px; 
+}
+.ehrclasses-openehr-data_structures-interval_event {
+    background-color:#fff; font-size:small; margin-left:4px; display:block; padding:4px; 
+}
+
+/* Sector */
+.sectorNameLabel {font-weight:bold; font-size:x-small; color:#049; padding-left:2px;}
+.sectorName {font-weight:bold;font-size:x-small; padding-left:2px; color:#800}
+.sectorType {color:#000; font-size:xx-small; padding-left:2px;}
+.sectorDescriptionLabel {font-weight:bold; font-size:x-small; color:#049; padding-left:8px;}
+.sectorDescription {font-weight:bold; color:#800; font-size:x-small; padding-left:4px;}
+
+/* Cluser, element */
+.ehrclasses-cluster {
+    background-color:#fff; font-size:small; margin-left:8px; display:block; padding:4px; 
+}
+.ehrclasses-element {
+	background-color:#fff; font-size:small; margin-left:10px; display:block; padding:4px;
+}
+.elementHeading{ margin:0px; padding:0px; font-weight:bold;  font-size:x-small; background-color:#fec; color:#049; border-top:dotted 1px #ddd; border-left:dotted 1px #ddd;}
+.dataTable {}
+.dataTableHeader {}
+
+/* Data structure */
+.colComposite {font-size:xx-small; font-weight:bold;}
+.colDataType {font-size:xx-small; font-weight:bold;}
+.colCardinality {font-size:xx-small; font-weight:bold;}
+.colValidation {font-size:xx-small; font-weight:bold;}
+.colMulti {font-size:xx-small; font-weight:bold;}
+.colReadOnly {font-size:xx-small; font-weight:bold;}
+.colElementSnomed {font-size:xx-small; font-weight:bold;}
+.colLimitToList {font-size:xx-small; font-weight:bold;}
+.colSnomedCodes {font-size:xx-small; font-weight:bold;}
+.colArchetypeId {font-size:xx-small; font-weight:bold;}
+.colAtCodes {font-size:xx-small; font-weight:bold;}
+.colAnnotation {font-size:xx-small; font-weight:bold; width: 10%}
+
+/* Misc */
+.AllowMultipleSelection{font-weight:bold; color:#000; font-size:xx-small;padding-left:1px;}
+.AllowMultipleSelectionLabel{color:#000; font-size:xx-small;padding-left:6px;}
+.ArchetypePath {font-size:xx-small;font-weight:bold;}
+.ArchetypeValues {font-size:xx-small;font-weight:bold;}
+.Cardinality {font-weight:bold; font-size:xx-small; padding-left:4px;}
+.ConstraintExpression{font-weight:bold;color:#000; font-size:xx-small;padding-left:4px;}
+.DataType { font-weight:bold;font-size:xx-small; padding-left:2px;}
+.DefaultValueLabel{color:#000; font-size:xx-small;padding-left:6px;}
+.DefaultValue{font-weight:bold; color:#000; font-size:xx-small;padding-left:1px;}
+.LimitToList {font-size:xx-small;font-weight:bold;}
+.ReadOnlyLabel{color:#000; font-size:xx-small;padding-left:6px;}
+.ReadOnly{font-weight:bold; color:#000; font-size:xx-small;padding-left:1px;}
+.SnomedLabel{color:#000; font-size:xx-small;padding-left:6px;}
+.Snomed{font-weight:bold; color:#000; font-size:xx-small;padding-left:1px;}
+.SnomedValues {font-size:xx-small;font-weight:bold;}
+.ValueSet{font-weight:bold; color:#000; font-size:xx-small;padding-left:50px;}
+.Annotation {font-size:xx-small; font-style:italic; color:Blue;}
+

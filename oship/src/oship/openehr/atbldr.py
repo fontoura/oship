@@ -124,7 +124,7 @@ def bldOntology(ontlist):
     #cleanup the list
     ontlist=flatten(ontlist)
     key_list=[u'terminologies_available',u'term_definitions',u'constraint_definitions',u'term_binding',u'constraint_binding']
-    lang_list=[u'en',u'de',u'nl',u'fr'] # needs to access termserver
+    lang_list=[u'en',u'de',u'nl',u'fr'] # needs to access Zope language list
     itemlist=[]
     # now go through ontlist and map all the words.  
     

@@ -19,12 +19,12 @@ __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 __Contributors__ = u'Roberto Cunha <roliveiracunha@yahoo.com.br>'
 
-from zope.interface import Interface,implements
+from zope.interface import Interface,implements,alsoProvides
 from zope.schema import Set,List,TextLine,Field,Object
 from zope.i18nmessageid import MessageFactory
 import grok
 
-from common import Locatable
+from common import Locatable,ILocatable
 from support import IHierObjectId,IPartyRef
 from datatypes import IDvText,IDvCodedText,ICodePhrase,IDvInterval
 from datastructure import IItemStructure
@@ -206,30 +206,6 @@ class IParty(Interface):
         """
 
         
-class Party(Locatable):
-    """
-    Ancestor of all party types.
-    """
-    
-    implements(IParty)
-    
-    def __init__(self,uid,identities,contacts,category,language,relationships,details,archetypeNodeId,name,archetypeDetails,feederAudit,links):
-        Locatable.__init__(self,uid,archetypeNodeId,name,archetypeDetails,feederAudit,links)
-        
-        self.identities=identities
-        self.contacts=contacts
-        self.category=category
-        self.language=language
-        self.relationships=relationships
-        self.details=details
-        
-        
-        
-        
-    def type():
-        """
-        Return the type of party from the inherited 'name' attribute.
-        """
 
 class IActor(Interface):
     """
@@ -254,6 +230,29 @@ class IActor(Interface):
         Return True/False regarding a legal identiry of this Actor.
         """
 
+class Party(Locatable):
+    """
+    Ancestor of all party types.
+    """
+    
+    implements(IParty,IActor,ILocatable)
+    
+    def __init__(self,uid,identities,contacts,category,language,relationships,details,archetypeNodeId,name,archetypeDetails,feederAudit,links):
+        Locatable.__init__(self,uid,archetypeNodeId,name,archetypeDetails,feederAudit,links)
+        
+        self.identities=identities
+        self.contacts=contacts
+        self.category=category
+        self.language=language
+        self.relationships=relationships
+        self.details=details
+        
+        
+    def type():
+        """
+        Return the type of party from the inherited 'name' attribute.
+        """
+
   
 class Actor(Party):
     """
@@ -269,11 +268,11 @@ class Actor(Party):
         self.roles=roles
         self.languages=languages
     
-    def hasLegalIdentity():
+    def hasLegalIdentity(self):
         """
         Return True/False regarding a legal identiry of this Actor.
         """
-        
+        return self.identities != None
     
 
 class Address(Locatable):
@@ -451,8 +450,19 @@ class IPerson(Interface):
     """
     Generic description of of persons.  Provides a dedicated type to whicih Person archetypes can be targeted."),
     """
+    roles=Set(
+        title=_(u"Roles"),
+        description=_(u"Identifiers of the Version container for each Role played by this party."),
+        required=False,
+        value_type = Object(schema = IPartyRef)
+    )
     
-    pass
+    languages=List(
+        title=_(u"Languages"),
+        description=_(u"A list of languages to be used to communicate with this actor."),
+        required=False,
+        value_type = Object(schema = IDvText)
+    )
 
 class Person(Actor):
     """
@@ -460,6 +470,7 @@ class Person(Actor):
     """
     
     implements(IPerson)
+    
     def __init__(self,roles,languages,uid,identities,contacts,category,language,relationships,details,archetypeNodeId,name,archetypeDetails,feederAudit,links):
         Actor.__init__(self,roles,languages,uid,identities,contacts,category,language,relationships,details,archetypeNodeId,name,archetypeDetails,feederAudit,links)
 

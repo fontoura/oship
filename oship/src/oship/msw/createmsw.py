@@ -48,31 +48,6 @@ def CreatMSW():
     
     return vocab   
     
-    
-    # this commented section is the pre-grok (aka. dictionary based) version.
-    #linecnt=0
-    #mswdict={}
-    #keytest={}
-    #keylist=[]
-    #mammal={}
-    #for line in mswfile.readlines():
-        #line=line.replace('[','<')
-        #line=line.replace(']','>')
-        #mswlist= unicode(line,'latin1').split(';')
-        #if linecnt == 0:  # headers
-            #headlist=mswlist
-            #print headlist
-            #mswlist=[]
-            #linecnt+=1
-        #else:
-            #unikey=mswlist[5] # Mammal Code
-            #print linecnt, "Processing Mammal Code - ", unikey
-            #for x in headlist:
-                #mswdict[x]=mswlist[headlist.index(x)]
-                #mammal[unikey]=mswdict
-            #linecnt+=1
-                
-    #return mammal    
 
 
 class IMammal(Interface):

@@ -15,6 +15,7 @@ from zope.app.folder import Folder
 from oship.openehr.atbldr import CreateAT, getFileList
 from oship.msw.createmsw import CreatMSW
 from oship.oeterm.oeterm import importOETerms
+from oship.rxterms.createrxterms import CreateRxTerms
 
 
 # Begin OSHIP Demo
@@ -131,4 +132,38 @@ class ImportOE(grok.View):
 
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
 
+class ImportRxTerms(grok.View):
+    """Import the openEHR vocabulary into the term server."""
+    grok.context(oship)
+
+    def render(self):
         
+        
+        vocab=CreateRxTerms() # a list of tuples consisting of 
+        numterms=len(vocab)
+        n=len(vocab)
+        x=0
+        release=vocab[0][0]
+        try:
+            self.context['termserver'][release] = grok.Container()
+        except DuplicationError:
+            pass
+
+        while x<n:
+            try:
+                rxcui=vocab[x][1]
+                termobj=vocab[x][2]
+                
+                self.context['termserver'][release][rxcui]=termobj 
+                #print "Added: # ",x, " - ",concept, termobj
+            except DuplicationError:
+                print "Duplication of Concept: ", rxcui
+                pass
+            x+=1
+            print "Added: ",x," of ",numterms," RXCUI= ",rxcui
+            
+        print "/n/nRxTerms import is complete./n"
+
+        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+
+          

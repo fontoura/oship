@@ -512,9 +512,9 @@ class Locatable(Pathable):
     implements(ILocatable)
     
     def __init__(self,uid,atnodeid,name,atdetails,fdraudit,links):
-        
+        self.__name__=atnodeid #inherited from grok.Model
         self.uid=uid
-        self.archetypeNodeId=self.__name__=atnodeid
+        self.archetypeNodeId=atnodeid
         self.name=name
         self.archetypeDetails=atdetails
         self.feederAudit=fdraudit

@@ -133,19 +133,19 @@ class ImportOE(grok.View):
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
 
 class ImportRxTerms(grok.View):
-    """Import the openEHR vocabulary into the term server."""
+    """Import the RxTerms vocabulary into the term server."""
     grok.context(oship)
 
     def render(self):
         
         
-        vocab=CreateRxTerms() # a list of tuples consisting of 
+        vocab=CreateRxTerms() # a list of tuples consisting of Release, RXCUI,Term Object
         numterms=len(vocab)
         n=len(vocab)
         x=0
         release=vocab[0][0]
         try:
-            self.context['termserver'][release] = grok.Container()
+            self.context['termserver'][release] = grok.Container() # create the release container
         except DuplicationError:
             pass
 
@@ -154,7 +154,7 @@ class ImportRxTerms(grok.View):
                 rxcui=vocab[x][1]
                 termobj=vocab[x][2]
                 
-                self.context['termserver'][release][rxcui]=termobj 
+                self.context['termserver'][release][rxcui]=termobj # add the term objects using rxcui as the key
                 #print "Added: # ",x, " - ",concept, termobj
             except DuplicationError:
                 print "Duplication of Concept: ", rxcui

@@ -1,11 +1,12 @@
 <html>
 <head>
-<title>Blood Pressure Tracker</title>
 <link rel="stylesheet" type="text/css"  tal:attributes="href static/css/oship.css" />
+
+<title>Blood Pressure Tracker</title>
 
 
 </head>
-<body>
+<body bgcolor="#eaeae5">
 <h2 align="center">OSHIP Blood Pressure Tracking Demo</h2><br /><br />
 <form method="get" name="addperson" enctype="multipart/form-data" target="_top">
 <table border="2" width="100%" >
@@ -21,4 +22,17 @@
 <button name="Submit" value="submit" type="submit">Submit</button>
 </form><br />
 <h2 align="center">Current Patient Listing</h2><br />
+<p align="center"><i>These are currently just static entries</i></p>
+
+<table border="2" align="center">
+<th>Patient ID</th><th>Surname</th><th>Given Name</th><th>Date of Birth</th><th>Action</th>
+<tr>
+<td>abc123</td><td>Smith</td><td>John</td><td>1963-03-12<td><a href="bpentry">Blood Pressure Entry<a></td>
+</tr>
+<tr>
+<td>123abc</td><td>Jones</td><td>Ed</td><td>1955-09-21</td><td><a href="bpentry">Blood Pressure Entry</a></td>
+</tr>
+</table>
+
+
 </body></html>

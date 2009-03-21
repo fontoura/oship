@@ -61,4 +61,5 @@ class CreatePerson(grok.AddForm):
         return self.redirect(self.url(self.context['demographics'][name]))
 
     
-            
+class BPEntry(grok.View):
+    pass

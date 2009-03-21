@@ -50,7 +50,7 @@ function toggleAnnotations()
 </div>
 </div>
 
-<form  name="bpinput" method="get">
+<form  name="bpinput" method="get" target="_parent">
 <div class="treeRoot"><h3><img tal:attributes="/src static/images/observation.png" width="32" height="32" align="middle">Blood Pressure</h3><a id="ExpandAll" class="ExpandAllLink" href="javascript:toggleExpandAll()">Expand All</a>&nbsp &nbsp<a id="annotationCommand" class="annotationCommand" href="javascript:toggleAnnotations()">Show Annotations</a>
 
 <p STYLE="margin-left:  1.0cm"> <a href="javascript:toggleList('1.1')">[+/-]</a> <img tal:attributes="/src static/images/history.png" width="32" height="32" align="middle"><span title="">  data [1]  </span></p>

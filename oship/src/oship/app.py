@@ -166,4 +166,9 @@ class ImportRxTerms(grok.View):
 
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
 
-          
+        
+class Demos(grok.View):
+    pass
+
+class Termserver(grok.View):
+    pass

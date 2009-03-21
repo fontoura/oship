@@ -1,0 +1,47 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css">
+  <title>OSHIP Termserver Management Interface - OSHIP Release 1.0a2</title>
+</head>
+
+<body bgcolor="#eaeae5">
+<br /><br />
+<table border="5" align="center">
+  <tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+ 
+</table>
+
+<p>Return to the <a  href="http://localhost:8080/oship">OSHIP Management Interface</a></p>
+
+<ol>
+<li>
+<p>Add the <a href="http://localhost:8080/oship/importoe">openEHR Vocabulary</a> to the Terminology Server.</p>
+</li>
+
+<li>
+<p>Add the <a href="http://localhost:8080/oship/importrxterms">RxTerms Drug Listing</a> to the Terminology Server.<br />
+<i><span style="font-size: smaller;">This takes quite awhile!</span></i>
+</p>
+</li>
+
+<li>
+<p>Add the <a href="http://localhost:8080/oship/importmsw">Sample Mammal Vocabulary</a> to the Terminology Server.</p>
+</li>
+</ol>
+<hr align="center" size="3" width="100%" />
+<p>
+Enter the name of a terminology set to remove from the termserver:<br />
+<form method="get" enctype="multipart/form-data" target="_top">
+<input type="text" name="termdel" size="35" /><br />
+<button name="Submit" value="submit" type="submit"></button>
+</form>
+</p>
+</body>
+</html>

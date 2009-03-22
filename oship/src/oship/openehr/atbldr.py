@@ -122,7 +122,7 @@ def bldOntology(ontlist):
     parent=u''
     
     #cleanup the list
-    ontlist=flatten(ontlist)
+    ontlist=flatten(ontlist)    
     key_list=[u'terminologies_available',u'term_definitions',u'constraint_definitions',u'term_binding',u'constraint_binding']
     lang_list=[u'en',u'de',u'nl',u'fr'] # needs to access Zope language list
     itemlist=[]
@@ -144,6 +144,7 @@ def bldOntology(ontlist):
     keywords now contains tuples of all the possible section names and their index:
     i.e. [(0, u'terminologies_available'), (3, u'term_definitions'), (346, u'term_binding')]
     """
+    
     numkeys=len(keywords)
     ends=[]
     endsection=[]
@@ -183,6 +184,7 @@ def bldOntology(ontlist):
             try:
                 for x in ontlist:
                     n=x[0]
+                    
                     if n > y[2]: 
                         break # if we have reached the end of the section then leave.
                     else:
@@ -208,10 +210,13 @@ def bldOntology(ontlist):
                         itemlist.append(x[1]) 
                     if x[1].startswith(u'at0'): # check to see if this is an at code. 
                         n=x[0] # the index  number of this tuple
+                        
                         if n > y[2]: 
                             break # if we have reached the end of the section then leave.
                         else:
-                            itemlist.append({x[1]:{ontlist[n+1][1]:ontlist[n+2][1],ontlist[n+3][1]:ontlist[n+4][1],u"bind":None}})
+                            codeentry={x[1]:{ontlist[n+1][1]:ontlist[n+2][1],ontlist[n+3][1]:ontlist[n+4][1],u"bind":None}}
+                            print "Code Entry = ",codeentry
+                            itemlist.append(codeentry)
             except IndexError:
                 pass
         
@@ -274,10 +279,10 @@ def bldOntology(ontlist):
                         
                         for y in constCodes:
                             if isinstance(y,dict):
-                                print y
+                                #print y
                                 if y.has_key(ontlist[x][1]):
                                     #constCodes[y][u'bind']=ontlist[x+1]
-                                    print constCodes[x]
+                                    print "Constraint code: ",ontlist[x][1]
             except IndexError:
                 pass
     

@@ -28,7 +28,9 @@ This creates the archetype repository (ar) and the terminology server (termserve
 Then it parses all the ADL files in oship/src/oship/openehr/adl to create the archetype instance models in the ar.
 </p>
 </li>
-
+<li>
+Execute this  link to <a href="http://localhost:8080/oship/emptyar">remove</a> all archetypes from the repository.
+</li>
 <li>
 <ul>
 <h3>Terminology Server Management</h3>

@@ -33,6 +33,7 @@ class Setup(grok.View):
         try:
             self.context['ar'] = grok.Container() # archetype repository
             self.context['termserver'] = grok.Container() # terminology server
+            self.context['aql'] = grok.Container() # AQL repository
         except DuplicationError:
             pass
         
@@ -49,6 +50,7 @@ class Setup(grok.View):
         except DuplicationError:
             pass
          
+        print "Setup and ADL processing is complete."
         
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
             

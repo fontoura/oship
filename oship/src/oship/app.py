@@ -24,6 +24,15 @@ class oship(grok.Application, grok.Container ):
 
 class Index(grok.View):
     grok.context(oship)
+    
+class Terms(grok.View):   
+    grok.context(oship)
+        
+class Demos(grok.View):
+    grok.context(oship)
+
+class ATQL(grok.View):
+    grok.context(oship)
 
 # Create the containers and initial archetypes
 class Setup(grok.View):
@@ -131,7 +140,7 @@ class ImportOE(grok.View):
                 pass
             x+=1
                     
-
+        print "\n\nOpenEHR Terminology Import Complete"
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
 
 class ImportRxTerms(grok.View):
@@ -164,13 +173,11 @@ class ImportRxTerms(grok.View):
             x+=1
             print "Added: ",x," of ",numterms," RXCUI= ",rxcui
             
-        print "/n/nRxTerms import is complete./n"
+        print "\n\nRxTerms import is complete.\n"
 
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
 
+       
         
-class Demos(grok.View):
-    pass
 
-class Termserver(grok.View):
-    pass
+

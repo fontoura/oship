@@ -1,0 +1,11 @@
+2009-03-22 15:45:04,872 INFO Processing: ./adl/openEHR-EHR-CLUSTER.checklist_item-general.v1.adl
+2009-03-22 15:45:04,874 INFO The Python class name is: ChecklistItemGeneralV1 in file: checklist_item_general_v1.py
+
+2009-03-22 15:45:05,210 INFO Processing: ./adl/openEHR-EHR-EVALUATION.alert.v1.adl
+2009-03-22 15:45:05,211 INFO The Python class name is: AlertV1 in file: alert_v1.py
+
+2009-03-22 15:45:06,431 INFO Processing: ./adl/openEHR-EHR-OBSERVATION.blood_pressure.v5.adl
+2009-03-22 15:45:06,432 INFO The Python class name is: BloodPressureV5 in file: blood_pressure_v5.py
+
+2009-03-22 15:45:06,493 INFO There were 0 parse errors. 
+2009-03-22 15:45:06,493 INFO *******END OF LOG FILE FOR THIS RUN*******

@@ -13,14 +13,3 @@ oship/test/*
 etc/*
 oship/src/oship.egg-info/*
 oship/src/oship/startup.py
-
-src/oship/app.pyc
-src/oship/htwt.pyc
-src/oship/__init__.pyc
-src/oship/startup.pyc
-src/oship/msw/createmsw.pyc
-src/oship/msw/__init__.pyc
-icd10/__init__.pyc
-oeterm/__init__.pyc
-oeterm/oeterm.pyc
-src/oship/bptrack_templates/index.pt~

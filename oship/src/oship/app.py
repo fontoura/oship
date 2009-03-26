@@ -27,12 +27,16 @@ class Index(grok.View):
     
 class Terms(grok.View):   
     grok.context(oship)
+    def render(self):
+        pass
         
 class Demos(grok.View):
     grok.context(oship)
 
 class ATQL(grok.View):
     grok.context(oship)
+    def render(self):
+        pass
 
 # Create the containers and initial archetypes
 class Setup(grok.View):

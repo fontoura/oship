@@ -19,17 +19,21 @@ __contributors__ = u'<name> <email address>'
 import grok
 
 from zope.interface import Interface,implements
-from zope.schema import TextLine,List
+from zope.schema import TextLine,Object,Set,Field,Int,List,Bool,Date,Datetime,Float,Time,Field,Dict
 from zope.i18nmessageid import MessageFactory
+
+from support import IArchetypeId,Interval,IHierObjectId,IObjectRef
+
 
 _ = MessageFactory('oship')
 
 
-class IArchetypeTerm(grok.Model):
+class IArchetypeTerm(Interface):
     """ontology term codes schema"""
     
     language=TextLine(
-        title_(u"Lanaguage")
+        title=_(u"Language"),
+        description=_(u"The language of hte term.")
     )
    
     items=List(
@@ -48,13 +52,13 @@ class ArchetypeTerm(grok.Model):
     """build an archetype term"""
     
     implements(IArchetypeTerm)
+    def __init__(self):
+        # some defaults
+        self.language=u"en" 
+        self.code=u"at0000"
+        self.items={}
     
-    def __init__(self,language,code,items):
-        self.language=language
-        self.code=code
-        self.items=items
-    
-    def keys(set):
+    def keys(self):
         """
         List of all keys used in this term.
         """
@@ -1647,10 +1651,15 @@ class ArchetypeOntology(grok.Container):
     
     implements(IArchetypeOntology)
     
-    
     def __init__(self):
+        super(ArchetypeOntology,self).__init__()
+        
+        #some defaults
         self.specialisationDepth = 0
         self.parentArchetype = u''
+        self['termCodes']=grok.Container()
+        self['constraintCodes']=grok.Container()
+        self['termAttributeNames']=grok.Container()
     
     
     

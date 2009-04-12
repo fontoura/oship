@@ -39,7 +39,7 @@ import datetime
 """
 Yes, I realize that these imports are bad practice.  But in this alpha condition of the code it is expediate
 """
-from archetype import *
+from archetype import ArchetypeOntology
 from support import *
 from datastructure import *
 from datatypes import *
@@ -62,10 +62,10 @@ logging.basicConfig(level=logging.DEBUG,
 
 """
 edit the path below (no trailing '/') to point to your archetypes in ADL 1.4 format 
-if you choose not use use the standard import directory.
+if you choose not use use the standard import directory under oship/openehr/adl.
 """
 
-adlDir='./adl'
+adlDir='../adl'
 
 def CreateAT():
     """
@@ -140,7 +140,7 @@ def bldArchetype(fname,parsed_adl):
     f=open('./py_files/'+class_file,'w') # create the file for writing
     
     
-    f.write("#This file was created with create_pyfiles.py from the OSHIP project Release 1.0a2.\n")
+    f.write("#This file was created with adl2py module from the OSHIP project Release 1.0a2.\n")
     f.write("#Its quality is not guaranteed and will likely need hand editing before use.\n\n")
     f.write("#First write the parsed_adl out so it can be used as a Python structure.  A bit messy but it works.\n\n")
     f.write("def getAtId(parsed_adl):\n")
@@ -152,12 +152,8 @@ def bldArchetype(fname,parsed_adl):
     f.write("import datetime\n")  
     f.write("from zope.interface import implements\n")  
     f.write("from oship.openehr.archetype import *\n")  
-    f.write("from oship.openehr.support import *\n")  
-    
-    # first we build the ontology
-    bldOntology(f,parsed_adl.ontology)    
-    
-    
+    f.write("from oship.openehr.support import *\n\n")  
+   
     f.write("class "+ class_name+"(Archetype,grok.Container):\n\n")
     f.write("    implements(IArchetype)\n\n" )
     f.write("    def __init__(self):\n" )
@@ -171,40 +167,15 @@ def bldArchetype(fname,parsed_adl):
     else:
         f.write("        self.parentArchetypeId=ArchetypeId(ObjectId(u''))\n")
         
-    ## the ontology must be built first so it can be used in the definition section.
-    #ontology=bldOntology(parsed_adl)
-    #definition=bldDefinition(parsed_adl)
-    #invariants=bldInvariants(parsed_adl)
-    #rev=None #bldRevisionHistory(parsed_adl) 
-    #uid=None # The OID can be assigned in the application instances
-    ##terminology ID for original language
-    #termID=TerminologyId(u"ISO_639-1::en",None)
-    #olang=CodePhrase(termID,u'en')
-    #trans=None #translations
-    #descr=None #ResourceDescription(olang,'testing',[],'the use','mis-use','copyright',{},{})
-    #ctrld=False #is controlled
-    
-    
-    #atObj=Archetype(adlVersion,archetypeId,uid,concept,parentArchetypeId,definition,ontology,invariants,olang,trans,descr,rev,ctrld)            
-    ## now fillin the data attribute with the object attributes so the Zope machinery works
-    #atObj.__name__ = unicode(parsed_adl.archetype[1])
-    
-    
-    ## now we need to persist the archetype in the ZODB
-    #try:
-        #root['Application']['AR'].__setitem__(atObj.__name__,atObj)
-        #transaction.commit()
-    #except NameError:
-        #logging.warning("WARNING: Error Occured Storing Archetype: "+atObj.__name__)
-    #except DuplicationError:
-        #print "WARNING:**** Duplicate Archetype ID. This Archetype was not committed to the repository. ***"
-        #logging.warning("Duplicate Archetype ID: "+atObj.__name__+" was not commited to the repository.")
-        
+    # next we build the ontology
+    bldOntology(f,parsed_adl)    
+
+           
      
     f.close()    
 
 
-def bldOntology(f,ontlist):
+def bldOntology(f,parsed_adl):
     """Build an ontology."""
     
     # pre-assign all attributes
@@ -217,7 +188,7 @@ def bldOntology(f,ontlist):
     ontology=ArchetypeOntology()
     
     #cleanup the list
-    ontlist=flatten(ontlist)    
+    ontlist=flatten(parsed_adl.ontology)    
     key_list=[u'terminologies_available',u'term_definitions',u'constraint_definitions',u'term_binding',u'constraint_binding']
     lang_list=[u'en',u'de',u'nl',u'fr'] # needs to access Zope language list instead of this simple list
     itemlist=[]
@@ -239,6 +210,7 @@ def bldOntology(f,ontlist):
     keywords now contains tuples of all the possible section names and their index:
     i.e. [(0, u'terminologies_available'), (3, u'term_definitions'), (346, u'term_binding')]
     """
+    ontology.terminologiesAvailable=keywords
     
     numkeys=len(keywords)
     ends=[]
@@ -308,17 +280,30 @@ def bldOntology(f,ontlist):
                         if n > y[2]: 
                             break # if we have reached the end of the section then leave.
                         else:
-                            codeentry=[langCode[0],{x[1]:{ontlist[n+1][1]:ontlist[n+2][1],ontlist[n+3][1]:ontlist[n+4][1],u"bind":None}}]
-                            print "Code Entry = ",codeentry
+                            codeentry={ontlist[n+1][1]:ontlist[n+2][1],ontlist[n+3][1]:ontlist[n+4][1],u"bind":None}
+                            #print "Code Entry = ",codeentry
                             #itemlist.append(codeentry)
-                            f.write('\ntermCode=ArchetypeTerm(')
-                            #f.write(langCode[0])
-                            #f.write(',')
+                            f.write('\n        termCode=ArchetypeTerm([')
+                            f.write(langCode[0])
+                            f.write(',')
+                            f.write(x[1])
+                            f.write(',')
                             f.write(repr(codeentry))
-                            f.write(')')
+                            f.write('])')
+                            f.write("\n        ontology['termCodes'][x[1]]=")
+                            f.write(repr(codeentry))
+                            f.write("\n")
+
             except IndexError:
                 pass
-        
+            
+    f.write('\n\n')
+            
+    """
+    The completed list looks like this:
+     [u'en', u'at0000', {u'text': u'Body weight', u'description': u'Total body weight - a surrogate for naked body weight', u'bind': None}]
+     We can get the language attribute, the at code is then used in ontology['termCodes'][atcode]=the dictionary to create the items attribute.
+    """
     termCodes=itemlist  
     
     #process constraint codes

@@ -19,7 +19,7 @@ from oship.rxterms.createrxterms import CreateRxTerms
 
 
 # Begin OSHIP Demo
-class oship(grok.Application, grok.Container ):
+class oship(grok.Application, grok.Container):
     pass
 
 class Index(grok.View):

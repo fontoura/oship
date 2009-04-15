@@ -1,0 +1,23 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css">
+  <title>OSHIP AQL Repository Management Interface - OSHIP Release 1.0a2</title>
+</head>
+
+<body bgcolor="#eaeae5">
+<br /><br />
+
+<table border="5" align="center">
+<tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+</table>
+
+<p><b>This will be the Archetype Query Repository Management Page.</b></p>
+</body>
+</html>

@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 version = '1.0a2'
 
 setup(name='oship',
-      version=version,
-      description="",
-      long_description="""\
+    version=version,
+    description="",
+    long_description="""\
 """,
       # Get strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[], 
@@ -22,6 +22,7 @@ setup(name='oship',
                         'grok',
                         'grokui.admin',
                         'z3c.testsetup',
+                        'grokcore.startup',
                         # Add extra requirements here
                         'pyparsing',
                         'mglob'
@@ -31,6 +32,6 @@ setup(name='oship',
       oship-debug = oship.startup:interactive_debug_prompt
       oship-ctl = oship.startup:zdaemon_controller
       [paste.app_factory]
-      main = oship.startup:application_factory
+      main = grokcore.startup:application_factory
       """,
       )

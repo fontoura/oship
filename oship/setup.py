@@ -29,8 +29,8 @@ setup(name='oship',
                         ],
       entry_points = """
       [console_scripts]
-      oship-debug = oship.startup:interactive_debug_prompt
-      oship-ctl = oship.startup:zdaemon_controller
+      oship-debug = grokcore.startup:interactive_debug_prompt
+      oship-ctl = grokcore.startup:zdaemon_controller
       [paste.app_factory]
       main = grokcore.startup:application_factory
       """,

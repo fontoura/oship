@@ -37,7 +37,12 @@ Execute this  link to <a href="http://localhost:8080/oship/emptyar">remove</a> a
 <li> Visit the <a href="terms">termserver page</a></li>
 </ul>
 </li>
-
+<li>
+<ul>
+<h3>AQL Management</h3>
+<li> Visit the <a href="atql">AQL page</a></li>
+</ul>
+</li>
 <li>
 <ul>
 <h3>Demo Applications</h3>

@@ -10,8 +10,6 @@
 import grok
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
-from zope.app.container.btree import BTreeContainer
-from zope.app.folder import Folder
 from oship.openehr.atbldr import CreateAT, getFileList
 from oship.msw.createmsw import CreatMSW
 from oship.oeterm.oeterm import importOETerms

@@ -77,38 +77,7 @@ class Emptyar(grok.View):
 """
 Start the terminology import section
 """
-        
-class ImportMSW(grok.View):
-    """Import the mammal vocabulary into the term server."""
-    grok.context(oship)
-
-    def render(self):
-        
-        try:
-            self.context['termserver']['msw'] = grok.Container()
-        except DuplicationError:
-            pass
-        
-        vocab=CreatMSW() # a list of tuples consisting of an Id and a mammal model
-        print len(vocab), " = # of mammals to be added."
-        n=len(vocab)
-        x=0
-        while x<n:
-            try:
-                mammal=vocab[x]
-                mammalid=mammal[0]
-                mammalobj=mammal[1]
-                self.context['termserver']['msw'][mammalid]=mammalobj 
-                print "Added: # ",x, " - ",mammalid, mammalobj
-            except DuplicationError:
-                print "Duplication of Mammal ID: ", mammalid
-                pass
-            x+=1
-                    
-
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
-            
-        
+                
 class ImportOE(grok.View):
     """Import the openEHR vocabulary into the term server."""
     grok.context(oship)

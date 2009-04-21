@@ -115,11 +115,7 @@ def CreateAT():
 def bldArchetype(fname,parsed_adl):
     """
     Build the archetype source file.
-    """
-    
-    print parsed_adl.archetype
-
-    
+    """    
     
     #get the class name from the archetypeID
     class_name=(parsed_adl.archetype[1]).partition('.')[2]
@@ -177,7 +173,7 @@ def bldArchetype(fname,parsed_adl):
 
 def bldOntology(f,parsed_adl):
     """Build an ontology."""
-    
+    f.write('\n# Create the ontology.\n\n')
     # pre-assign all attributes
     termAvail=[]
     specDepth=0

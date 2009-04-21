@@ -10,7 +10,7 @@
 import grok
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
-from oship.openehr.atbldr import CreateAT, getFileList
+from openehr.adl2py.atbldr import CreateAT
 from oship.oeterm.oeterm import importOETerms
 from oship.rxterms.createrxterms import CreateRxTerms
 

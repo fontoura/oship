@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
-# Redistribution and use are governed by the MPL license.
+# Redistribution and use are governed by the Mozilla Public License Version 1.1 - see docs/OSHIP-LICENSE.txt
 #
 # Use and/or redistribution of this file assumes you have read and accepted the
 # terms of the license.
@@ -11,7 +11,6 @@ import grok
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
 from oship.openehr.atbldr import CreateAT, getFileList
-from oship.msw.createmsw import CreatMSW
 from oship.oeterm.oeterm import importOETerms
 from oship.rxterms.createrxterms import CreateRxTerms
 
@@ -77,38 +76,7 @@ class Emptyar(grok.View):
 """
 Start the terminology import section
 """
-        
-class ImportMSW(grok.View):
-    """Import the mammal vocabulary into the term server."""
-    grok.context(oship)
-
-    def render(self):
-        
-        try:
-            self.context['termserver']['msw'] = grok.Container()
-        except DuplicationError:
-            pass
-        
-        vocab=CreatMSW() # a list of tuples consisting of an Id and a mammal model
-        print len(vocab), " = # of mammals to be added."
-        n=len(vocab)
-        x=0
-        while x<n:
-            try:
-                mammal=vocab[x]
-                mammalid=mammal[0]
-                mammalobj=mammal[1]
-                self.context['termserver']['msw'][mammalid]=mammalobj 
-                print "Added: # ",x, " - ",mammalid, mammalobj
-            except DuplicationError:
-                print "Duplication of Mammal ID: ", mammalid
-                pass
-            x+=1
-                    
-
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
-            
-        
+                
 class ImportOE(grok.View):
     """Import the openEHR vocabulary into the term server."""
     grok.context(oship)

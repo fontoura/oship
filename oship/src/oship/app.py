@@ -10,7 +10,8 @@
 import grok
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
-from openehr.adl2py.atbldr import CreateAT
+from openehr.adl2py.atbldr import CreatePy
+from oship.openehr.atbldr import CreateAT, getFileList
 from oship.oeterm.oeterm import importOETerms
 from oship.rxterms.createrxterms import CreateRxTerms
 
@@ -56,7 +57,11 @@ class Setup(grok.View):
         except DuplicationError:
             pass
          
-        print "Setup and ADL processing is complete."
+        print "Setup and ar ADL processing is complete.\n"
+        print "Now we begin creating Python files.\n"
+        
+        CreatePy()
+        print "\n\n Finished creating Python source files.\n"
         
         self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
             

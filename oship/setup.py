@@ -25,7 +25,8 @@ setup(name='oship',
                         'grokcore.startup',
                         # Add extra requirements here
                         'pyparsing',
-                        'mglob'
+                        'mglob',
+                        'ore.workflow'
                         ],
       entry_points = """
       [console_scripts]

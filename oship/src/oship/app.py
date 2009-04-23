@@ -18,10 +18,17 @@ from oship.rxterms.createrxterms import CreateRxTerms
 
 # Begin OSHIP Demo
 class oship(grok.Application, grok.Container):
-    pass
+    pass    
+
 
 class Index(grok.View):
     grok.context(oship)
+    def render(self):
+        self.redirect(self.url('setup'))
+        
+class OshipManage(grok.View):
+    grok.context(oship)
+    
     
 class Terms(grok.View):   
     grok.context(oship)
@@ -34,6 +41,10 @@ class ATQL(grok.View):
 
 # Create the containers and initial archetypes
 class Setup(grok.View):
+    """
+    Create the OSHIP application core, setup the containers, load the ar and create the Python source from the esistiing ADL files.
+    """
+
     grok.context(oship)
     
     def render(self):
@@ -63,7 +74,7 @@ class Setup(grok.View):
         CreatePy()
         print "\n\n Finished creating Python source files.\n"
         
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+        self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
             
 class Emptyar(grok.View):
     """Remove all the archetypes in the repository"""

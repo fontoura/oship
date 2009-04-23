@@ -277,7 +277,7 @@ def bldArchetype(fname,parsed_adl):
         f.write("        # None Found\n")
 
     #process constraint codes
-    f.write('\n        # Constraint Code Section \n\n')
+    f.write('\n        # Constraint Code Section \n')
     if sections.has_key(u'constraint_definitions'):
         begin=sections[u'constraint_definitions'][0]+1 # first location past the keyword
         end=sections[u'constraint_definitions'][1]
@@ -332,7 +332,7 @@ def bldArchetype(fname,parsed_adl):
            
     #process constraint bindings
 
-    f.write('\n        # Constraint Binding Section \n\n')
+    f.write('\n        # Constraint Binding Section \n')
     if sections.has_key(u'constraint_binding'):
         begin=sections[u'constraint_binding'][0]+1 # first location past the keyword
         end=sections[u'constraint_binding'][1]+1
@@ -354,8 +354,14 @@ def bldArchetype(fname,parsed_adl):
         
         
     # Now build the definition section
-    print flatten(parsed_adl.definition)
-        
+    f.write("        # Definition Section Begins Here\n")
+    
+    definList=flatten(parsed_adl.definition)
+    n=0
+    for x in definList:
+        f.write(repr(x)+" at ")
+        f.write(repr(n)+"\n")
+        n+=1
          
     
     

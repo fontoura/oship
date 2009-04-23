@@ -22,7 +22,15 @@
 <td width="50%">
 <ol>
 <li>
-Execute this  link to <a href="http://localhost:8080/oship/emptyar">remove</a> all archetypes from the repository.
+<h3>Archetype Repository and Python Source File Management</h3>
+<ul>
+<li>
+    Execute this  link to <a href="http://localhost:8080/oship/emptyar">remove</a> all archetypes from the repository.<br />
+</li>
+<li>
+   When you need to add archetypes to the repository or create new Python source files.  Place your  (.adl not .adls) ADL files in the oship/src/oship/  openehr/adl directory.  Then <a href="setup">click here</a>.  This operation may take several minutes depending upon the number of ADL files you added.  You can watch the progress in the terminal window where you started your server. 
+</li>
+</ul>
 </li>
 <li>
 <ul>

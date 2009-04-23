@@ -357,6 +357,7 @@ def bldArchetype(fname,parsed_adl):
     f.write("        # Definition Section Begins Here\n")
     
     definList=flatten(parsed_adl.definition)
+    definList.reverse()
     n=0
     for x in definList:
         f.write(repr(x)+" at ")

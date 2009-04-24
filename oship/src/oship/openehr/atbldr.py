@@ -61,7 +61,11 @@ def CreateAT(fname):
     try:
         # parsed_adl is the returned ParseResults object
         parsed_adl = adl_1_4.archetypeDefinition.parseString(adlSource)
-       
+        print "\n\nPyparsing object: ", parsed_adl
+        print "\n\nDefinition: ",parsed_adl.definition
+        print "\n\nFlattened Definition: ", flatten(parsed_adl.definition)
+        
+        
         item_name = repr(parsed_adl.archetype[1])
     except ParseException: 
         print "Parsing Failed!\n"
@@ -215,7 +219,7 @@ def bldOntology(ontlist):
                             break # if we have reached the end of the section then leave.
                         else:
                             codeentry={x[1]:{ontlist[n+1][1]:ontlist[n+2][1],ontlist[n+3][1]:ontlist[n+4][1],u"bind":None}}
-                            print "Code Entry = ",codeentry
+                            #print "Code Entry = ",codeentry
                             itemlist.append(codeentry)
             except IndexError:
                 pass
@@ -282,7 +286,8 @@ def bldOntology(ontlist):
                                 #print y
                                 if y.has_key(ontlist[x][1]):
                                     #constCodes[y][u'bind']=ontlist[x+1]
-                                    print "Constraint code: ",ontlist[x][1]
+                                    #print "Constraint code: ",ontlist[x][1]
+                                    print "\n"
             except IndexError:
                 pass
     
@@ -386,8 +391,8 @@ def flatten(x):
     for x in result:
         if isinstance(x,str):
             # replace any brackets with underscores so Python doesn't thnk it's a list and we still havea seperator.
-            x=x.replace('[','_')
-            x=x.replace(']','_')
+            x=x.replace('[',' ')
+            x=x.replace(']',' ')
             try:
                 x=unicode(x, "utf-8")  # need more decode types here
             except UnicodeDecodeError:

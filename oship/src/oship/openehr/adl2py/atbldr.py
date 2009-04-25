@@ -34,6 +34,7 @@ from pyparsing import *
 # this section are required imports for (almost?) all archetypes
 import grok
 import datetime
+from classmap import getClassName
 
 """
 Yes, I realize that these imports are bad practice.  But in this alpha condition of the code it is expediante
@@ -152,7 +153,7 @@ def bldArchetype(fname,parsed_adl):
     f.write("    def __init__(self):\n" )
     f.write("        self.adlVersion =u'"+unicode(parsed_adl.archetype[0][1])+"'\n")
     f.write("        self.archetypeId = ArchetypeId(ObjectId(u'"+unicode(parsed_adl.archetype[1])+"'))\n")
-    f.write("        self.concept = u'"+unicode(parsed_adl.concept)+"'\n")
+    f.write("        self.concept = u'"+unicode(parsed_adl.concept.strip('[]')+"'\n"))
     
     if parsed_adl.specialize:
         f.write("        self.parentArchetypeId = ArchetypeId(ObjectId(u'"+unicode(parsed_adl.specialize)+"'))\n")
@@ -354,17 +355,30 @@ def bldArchetype(fname,parsed_adl):
         
         
     # Now build the definition section
-    f.write("        # Definition Section Begins Here\n")
+    f.write("\n\n        # Definition Section Begins Here. We build it from the leaf nodes up.\n\n")
+
     
     definList=flatten(parsed_adl.definition)
     definList.reverse()
-    n=0
+    
+    n=len(definList)
     for x in definList:
-        f.write(repr(x)+" at ")
-        f.write(repr(n)+"\n")
-        n+=1
+        nodeid=""
+        #strip off the nodeid if there is one
+        if isinstance(x,basestring) and x.find('_at')!=-1:
+            nodeid=x[x.find('_at'):]
+            f.write("        nodeid=u'"+nodeid.strip('_')+"'\n")
+            x = x[:x.find('_at')]
+            
+        className=getClassName(x)
+        if className == None:
+            f.write("        #"+repr(x)+'\n')
+        else:
+            
+            f.write("        "+className+'\n')
          
     
+    f.write("        self.definition=\n")
     
     
     
@@ -394,9 +408,9 @@ def flatten(x):
     rtnlist=[]
     for x in result:
         if isinstance(x,str):
-            # replace any brackets with underscores so Python doesn't thnk it's a list and we still havea seperator.
-            x=x.replace('[',' ')
-            x=x.replace(']',' ')
+            # replace any brackets so Python doesn't think it's a list and we still havea seperator.
+            x=x.replace('[','_')
+            x=x.replace(']','_')
             try:
                 x=unicode(x, "utf8")  # need more decode types here
             except UnicodeDecodeError:

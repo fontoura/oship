@@ -22,10 +22,11 @@ class oship(grok.Application, grok.Container):
 
 class Index(grok.View):
     grok.context(oship)
+    
     def render(self):
-        self.redirect(self.url('setupnotice'))
         self.redirect(self.url('setup'))
-        
+            
+    
 class OshipManage(grok.View):
     grok.context(oship)
     
@@ -73,9 +74,12 @@ class Setup(grok.View):
             #pass
          
         #print "Setup and ar ADL processing is complete.\n"
+        
+        
         print "\n\n\n********* Begin creating Python files. *********\n"
         
         CreatePy()
+        
         print "\n\n Finished creating Python source files.\n"
         
         self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page

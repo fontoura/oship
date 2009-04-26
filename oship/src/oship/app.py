@@ -68,7 +68,7 @@ class Setup(grok.View):
             #pass
          
         #print "Setup and ar ADL processing is complete.\n"
-        print "Begin creating Python files.\n"
+        print "\n\n\n********* Begin creating Python files. *********\n"
         
         CreatePy()
         print "\n\n Finished creating Python source files.\n"

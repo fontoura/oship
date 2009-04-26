@@ -46,17 +46,6 @@ from datatypes import *
 from demographic import *
 import adl_1_4
 
-logfile=os.getcwd()+'/src/oship/openehr/py_files/pyfile_build.log'
-
-#create the logfile if it doesn't exist
-f=open(logfile,'w')
-f.close()
-
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s %(levelname)s %(message)s',
-                    filename=logfile,
-                    filemode='w')
-
 
 
 """

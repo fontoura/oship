@@ -7,6 +7,8 @@
 # terms of the license.
 ##############################################################################
 
+import os
+import logging
 import grok
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
@@ -53,6 +55,19 @@ class Setup(grok.View):
     grok.context(oship)
     
     def render(self):
+        logfile=os.getcwd()+'/src/oship/openehr/py_files/pyfile_build.log'
+
+        #create the logfile if it doesn't exist
+        f=open(logfile,'w')
+        f.write("Python source file log.\n\n")
+        f.close()
+        
+        logging.basicConfig(level=logging.INFO,
+                            format='%(asctime)s %(levelname)s %(message)s',
+                            filename=logfile,
+                            filemode='w')
+
+
         try:
             #self.context['ar'] = grok.Container() # archetype repository
             self.context['termserver'] = grok.Container() # terminology server

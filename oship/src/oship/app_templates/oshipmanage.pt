@@ -21,8 +21,16 @@
 <tr>
 <td width="50%">
 <ol>
+
 <li>
-<h3>Python Source File Management</h3>
+<strong>Terminology Server Management</strong>
+<ul>
+<li> Visit the <a href="terms">termserver page</a> to import the terminologies you will need for your OSHIP based application(s).</li>
+</ul>
+</li>
+
+<li>
+<strong>Python Source File Management</strong>
 <ul>
  <li>  When you need to create new Python source files.  Place your  (.adl not .adls) ADL files in the oship/src/oship/  openehr/adl directory.  Then <a href="setup">click here</a> to run the setup procedure.  This operation may take several minutes depending upon the number of ADL files you added.  You can watch the progress in the terminal window where you started your server.
  </li>
@@ -30,21 +38,14 @@
 </li>
 
 <li>
-<h3>Terminology Server Management</h3>
-<ul>
-<li> Visit the <a href="terms">termserver page</a></li>
-</ul>
-</li>
-
-<li>
-<h3>AQL Management</h3>
+<strong>AQL Management</strong>
 <ul>
 <li> Visit the <a href="atql">AQL page</a></li>
 </ul>
 </li>
 
 <li>
-<h3>Demo Applications</h3>
+<strong>Demo Applications</strong>
 <ul>
 <li> Visit the <a href="demos">demos page</a></li>
 </ul>

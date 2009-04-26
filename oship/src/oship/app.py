@@ -41,8 +41,20 @@ class Demos(grok.View):
 
 class ATQL(grok.View):
     grok.context(oship)
+
+class ManageICD(grok.View):
+    grok.context(oship)
+
+class ManageLOINC(grok.View):
+    grok.context(oship)
     
 class SetupNotice(grok.View):
+    grok.context(oship)
+
+class ManageRxTerms(grok.View):
+    grok.context(oship)
+
+class ManageSMCT(grok.View):
     grok.context(oship)
 
 
@@ -56,7 +68,6 @@ class Setup(grok.View):
     
     def render(self):
         logfile=os.getcwd()+'/src/oship/openehr/py_files/pyfile_build.log'
-
         #create the logfile if it doesn't exist
         f=open(logfile,'w')
         f.write("Python source file log.\n\n")
@@ -180,7 +191,7 @@ class ImportRxTerms(grok.View):
             
         print "\n\nRxTerms import is complete.\n"
 
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+        self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
 
        
         

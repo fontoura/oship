@@ -1,0 +1,32 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css">
+  <title>RxTerms Management Interface</title>
+</head>
+
+<body bgcolor="#eaeae5">
+<br /><br />
+
+<table border="5" align="center">
+<tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+</table>
+
+<p><b>You must get the RxTerms files from the U.S. National Library of Medicine</b></p>
+<p>
+If you are outside of the U.S. you may need to use another drug reference.  The OSHIP team will be happy to assist you in importing the correct drug reference for your area.</p>
+<p>
+The files are updated weekly. The link is <a href="http://www.nlm.nih.gov/research/umls/licensedcontent/rxnormfiles.html">here</a>.<br />
+You must have a login at the UMLS site to get these files.</p>
+<p>
+Unzip the files and with the .RRF extension and place them in the oship/src/oship/rxterms directory.  <i>We will soon have full import functionality for these.</i>
+</p>
+
+</body>
+</html>

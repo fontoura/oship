@@ -1,0 +1,33 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css">
+  <title>SNOMED-CT Management Interface</title>
+</head>
+
+<body bgcolor="#eaeae5">
+<br /><br />
+
+<table border="5" align="center">
+<tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+</table>
+
+<p><b>This will be the Management Page for SNOMED-CT.</b></p>
+
+<p>
+For those participants in IHTSDO we will endeavour to help you manage the parts of SNOMED-CT that you need.<br />
+Ocean Infomatics is producing a tool to allow you to specify subsets of this monster. 
+</p>
+<p>
+Contact them at:
+<a href="http://www.oceaninformatics.com/ocean-informatics-contact-details/Contact-Us-Form.html">Contact Us</a> for more information.
+</p>
+
+</body>
+</html>

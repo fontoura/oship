@@ -251,7 +251,7 @@ def bldArchetype(fname,parsed_adl):
             termAvail.append(ontlist[v])
         f.write("]\n")
     else:
-        f.write("        # None Found\n")
+        f.write("        self.ontology[u'terminologies_avalable']=[]")
     
     # process termCodes - 
     #"""
@@ -286,7 +286,7 @@ def bldArchetype(fname,parsed_adl):
                     
         f.write("]}\n")
     else:
-        f.write("        # None Found\n")
+        f.write("        self.ontology[u'term_definitions']={}")
 
     #process constraint codes
     f.write('\n        # Constraint Code Section \n')
@@ -316,7 +316,7 @@ def bldArchetype(fname,parsed_adl):
                     
         f.write("]}\n")
     else:
-        f.write("        # None Found\n")
+        f.write("        self.ontology[u'constraint_definitions']={}")
 
     #process term bindings 
 
@@ -337,7 +337,7 @@ def bldArchetype(fname,parsed_adl):
 
         f.write("]}\n")
     else:
-        f.write("        # None Found\n")
+        f.write("        self.ontology[u'term_binding']={}")
    
                
         
@@ -361,7 +361,7 @@ def bldArchetype(fname,parsed_adl):
 
         f.write("]}\n")
     else:
-        f.write("        # None Found\n\n")
+        f.write("        self.ontology[u'constraint_binding']={}")
     
         
         

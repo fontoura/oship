@@ -17,6 +17,10 @@ __docformat__ = 'plaintext'
 
 
 def getClassName(keyword):
+    u"""
+    Map all of the ADL class workds to OSHIP classes and parameters.
+    """
+    
     definClassMap={'SECTION':'Section(items,uid,nodeid,name,atdetails,fdraudit,links)',\
                    'COMPOSITION':'Composition(content,context,composer,category,lang,terr,persistuid,atnodeid,name,atdetails,fdraudit,links)',\
                    'OBSERVATION':'Observation(data,state,nodeid,protocol,gid,lang,encod,subject,provider,opart,wfid,uid,atnodeid,name,atdetails,fdraudit,links)',\
@@ -31,14 +35,33 @@ def getClassName(keyword):
                    'CLUSTER':'Cluster(uid,nodeid,name,archetypeDetails,feederAudit,links,items)',\
                    'EVENT':'Event(time,data,state,parent,offset)',\
                    'ADDRESS':'Address()',\
-                   'DV_CODED_TEXT':'DvCodedText(definingCode,value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None)',\
-                   'DV_TEXT':'DvText( value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None)',\
+                   'DV_CODED_TEXT':'DvCodedText(definingCode,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None)',\
+                   'DV_TEXT':'DvText(value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None)',\
                    'INTERVAL_EVENT':'IntervalEvent(width,mfunc,scount)',\
-                   'DV_DURATION':'DvDuration()',\
+                   'DV_DURATION':'DvDuration(value)',\
                    'POINT_EVENT':'PointEvent(time,data,state,parent,offset)',\
                    'C_DV_QUANTITY':'CDvQuantity(list,property)',\
                    'HISTORY':'History(origin,events,period,duration,summary,uid,nodeid,name,atdetails,fdraudit,links)',\
-                   'DV_DATE_TIME':'DvDateTime(value)'}
+                   'DV_DATE_TIME':'DvDateTime(value)',\
+                   'DV_COUNT':'DvCount(magnitude,accuracy,accuracyIsPercent,magnitudeStatus,normalStatus,normalRange,otherReferenceRanges)',\
+                   'DV_MULTIMEDIA':'DvMultimedia(altTxt,mType,compAlg,intChk,intChkAlg,tnail,uri,data)',\
+                   'DV_BOOLEAN':'DvBoolean(value)',\
+                   'PARTY_RELATED':'PartyRelated(relationship)',\
+                   'DV_INTERVAL':'DvInterval(lower,upper,lower_included,upper_included)',\
+                   'DV_INTERVAL<DV_DATE_TIME>':'DvInterval(lower,upper,lower_included,upper_included)',\
+                   'DV_INTERVAL<DV_QUANTITY>':'DvInterval(lower,upper,lower_included,upper_included)',\
+                   'DV_INTERVAL<QUANTITY>':'DvInterval(lower,upper,lower_included,upper_included)',\
+                   'DV_INTERVAL<DV_COUNT>':'DvInterval(lower,upper,lower_included,upper_included)',\
+                   'DV_INTERVAL<COUNT>':'DvInterval(lower,upper,lower_included,upper_included)',\
+                   'DV_DATE':'DvDate(value)',\
+                   'DV_URI':'DvUri(value)',\
+                   'DV_PROPORTION':'DvProportion(numerator,denominator,type,precision)',\
+                   'ISM_TRANSITION':'IsmTransition(cstate,trans,cfs)',\
+                   'ACTIVITY':'Activity(descr,tim,atid,nodeid,uid,nodeid,name,atdetails,fdraudit,links)',\
+                   'EVENT_CONTEXT':'EventContext(hcf,start,end,part,loc,sett,other)',\
+                   'PARTICIPATION':'Participation(performer,function,mode,time)',\
+                   'ITEM_TABLE':'ItemTable(rows)',\
+                   }
     
     
     

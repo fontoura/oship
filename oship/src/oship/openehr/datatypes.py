@@ -923,7 +923,67 @@ class DvAmount(DvQuantified):
         
         return val>=0 and val<=100
     
+class IDvDuration(IDvAmount):
+    """
+    Represents a period of time with respect to a notional point in time, which is not
+    specified. A sign may be used to indicate the duration is "backwards" in time
+    rather than forwards.
+    
+    Note that a deviation from ISO8601 is supported, allowing the 'W' designator to
+    be mixed with other designators. See assumed types section in the Support IM.
+
+    Used for recording the duration of something in the real world, particularly when
+    there is a need a) to represent the duration in customary format, i.e. days, hours,
+    minutes etc, and b) if it will be used in computational operations with date/time
+    quantities, i.e. additions, subtractions etc.
+    """
+
+    value = TextLine(
+        title=_(u"Value"),
+        description=_(u"""ISO8601 duration"""),
+        required=True,
+        )     
+        
+    def magnitude():
+        """
+        Numeric value of the duration in seconds.
+        Result >= 0.0        
+        """
+
+
+    def valueValid(): 
+        """validIso8601Duration(value)"""
             
+class DvDuration(DvAmount):
+    u"""
+    Represents a period of time with respect to a notional point in time, which is not
+    specified. A sign may be used to indicate the duration is "backwards" in time
+    rather than forwards.
+    
+    Note that a deviation from ISO8601 is supported, allowing the 'W' designator to
+    be mixed with other designators. See assumed types section in the Support IM.
+
+    Used for recording the duration of something in the real world, particularly when
+    there is a need a) to represent the duration in customary format, i.e. days, hours,
+    minutes etc, and b) if it will be used in computational operations with date/time
+    quantities, i.e. additions, subtractions etc.
+    """
+
+    implements(IDvDuration)
+
+    def __init__(self,value):
+        self.value=value
+
+    def magnitude():
+        """
+        Numeric value of the duration in seconds.
+        Result >= 0.0        
+        """
+        
+        
+
+    def valueValid(): 
+        u"""validIso8601Duration(value)"""
         
 class IDvCount(Interface):
     """        

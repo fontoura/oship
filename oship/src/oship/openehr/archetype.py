@@ -1,35 +1,69 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-# Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
-# Redistribution and use are governed by the Mozilla Public License Version 1.1 - see docs/OSHIP-LICENSE.txt
+# Copyright (c) 2009, Timothy W. Cook and Contributors. All rights reserved.
+# Redistribution and use are governed by the MPL license.
 #
 # Use and/or redistribution of this file assumes you have read and accepted the
 # terms of the license.
 ##############################################################################
+# This is a version of archetype.py that uses Grok fully except where it would effect openEHR data interchange.
+# In other words everything to do with internal processing uses Grok
+# These classes are used by the Python source versions of OSHIP vs. the ones in the 'ar'
 
-"""
 
-From the Archetype specifications
-
-"""
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
-__contributors__ = u'Roger Erens <roger.erens@e-s-c.biz>'
+__contributors__ = u'<name> <email address>'
 
-
-from zope.interface import Interface,implements
-from zope.i18nmessageid import MessageFactory
-from zope.schema import TextLine,Object,Set,Field,Int,List,Bool,Date,Datetime,Float,Time,Field,Dict
-from zope.schema.fieldproperty import FieldProperty
 
 import grok
 
+from zope.interface import Interface,implements
+from zope.schema import TextLine,Object,Set,Field,Int,List,Bool,Date,Datetime,Float,Time,Field,Dict
+from zope.i18nmessageid import MessageFactory
+
 from support import IArchetypeId,Interval,IHierObjectId,IObjectRef
-from common import AuthoredResource
 
 
 _ = MessageFactory('oship')
 
+
+class IArchetypeTerm(Interface):
+    """ontology term codes schema"""
+    
+    language=TextLine(
+        title=_(u"Language"),
+        description=_(u"The language of hte term.")
+    )
+   
+    items=List(
+        title=_(u"Items"),
+        description=_(u"The list the code id, language, follwed by a dictionay of items for each at/ac node id."),
+    )
+    
+    
+    def keys(self):
+        """
+        List of all keys used in this term.
+        """
+        
+
+class ArchetypeTerm(grok.Model):
+    """build an archetype term"""
+    
+    implements(IArchetypeTerm)
+    def __init__(self):
+        # some defaults
+        self.language=u"en" 
+        self.code=u"at0000"
+        self.items={}
+    
+    def keys(self):
+        """
+        List of all keys used in this term.
+        """
+        
+        return self.items.keys()
 
 class ICAttribute(Interface):
     """
@@ -77,55 +111,18 @@ class ICComplexObject(Interface):
     def anyAllowed():
         """True if any value of the reference model is allowed.
         """
+        
 class IArchetypeOntology(Interface):
     """
     Local ontology of an archetype.
     """
     
-    terminologiesAvailable=List(
-        title=_(u"Terminologies"),
-        description=_(u"List of terminologies in this ontology."),
-        
-        value_type=TextLine(),
-    )
-
     specialisationDepth=Int(
         title=_(u"Specialisation Depth"),
         description=_(u"Specialisation depth of this archetype."),
         
     )
     
-    #termCodes=List(
-        #title=_(u"Term Codes"),
-        #description=_(u"List of all term codes in this archetype."),        
-        #value_type=TextLine(),
-    #)
-    # modified for OSHIP to also track languages.
-    termCodes=Dict(
-        title=_(u"Term Codes"),
-        description=_(u"List of all term codes in this archetype."),        
-    )
-
-    #constraintCodes=List(
-        #title=_(u"Constraint Codes"),
-        #description=_(u"List of all constraint codes in this archetype."),
-        
-        #value_type=TextLine(),
-    #)
-    
-    # modified for OSHIP to also track languages.    
-    constraintCodes=Dict(
-        title=_(u"Constraint Codes"),
-        description=_(u"List of all constraint codes in this archetype."),
-    )
-    
-    termAttributeNames=List(
-        title=_(u"Term Attribute Names"),
-        description=_(u"List of attribute names in this archetype ontology."),
-        
-        value_type=TextLine(),
-    )
-
     parentArchetype=Object(
         schema=IObjectRef,  
         title=_(u"Parent"),
@@ -1647,20 +1644,22 @@ class CTime(CPrimitive):
      
         
         
-class ArchetypeOntology(grok.Model):
+class ArchetypeOntology(grok.Container):
     """
     Local ontology of an archetype.
     """
     
     implements(IArchetypeOntology)
     
-    def __init__(self,termAvail,specDepth,termCodes,constCodes,termAN,parent):
-        self.terminologiesAvailable = termAvail
-        self.specialisationDepth = specDepth
-        self.termCodes = termCodes
-        self.constraintCodes = constCodes
-        self.termAttributeNames = termAN
-        self.parentArchetype = parent
+    def __init__(self):
+        super(ArchetypeOntology,self).__init__()
+        
+        #some defaults
+        self.specialisationDepth = 0
+        self.parentArchetype = u''
+        self['termCodes']=grok.Container()
+        self['constraintCodes']=grok.Container()
+        self['termAttributeNames']=grok.Container()
     
     
     
@@ -1699,29 +1698,6 @@ class ArchetypeOntology(grok.Model):
         Return a string that describes the constraint aCode in aTermId usually in the form of a query expression.
         """
         
-class IArchetypeTerm(Interface):
-    """
-    Representation of any coded entity in the archetype ontology.
-    """
-    
-    code=TextLine(
-        title=_(u"Code"),
-        description=_(u"Code of this term."),
-        
-    )
-
-    items=Dict(
-        title=_(u"Items"),
-        description=_(u"Hash of keys (text,description) and corresponding values."),
-        required=False,
-        key_type=TextLine(),
-        value_type=TextLine(),
-    )
-    
-    def keys(set):
-        """
-        List of all keys used in this term.
-        """
  
 class ArchetypeTerm(grok.Model):
     """

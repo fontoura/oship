@@ -22,34 +22,32 @@
 <td width="50%">
 <ol>
 <li>
-<h3>Archetype Repository and Python Source File Management</h3>
+<h3>Python Source File Management</h3>
 <ul>
-<li>
-    Execute this  link to <a href="http://localhost:8080/oship/emptyar">remove</a> all archetypes from the repository.<br />
+ <li>  When you need to create new Python source files.  Place your  (.adl not .adls) ADL files in the oship/src/oship/  openehr/adl directory.  Then <a href="setup">click here</a>.  This operation may take several minutes depending upon the number of ADL files you added.  You can watch the progress in the terminal window where you started your server.
+ </li>
+ </ul> 
 </li>
+
 <li>
-   When you need to add archetypes to the repository or create new Python source files.  Place your  (.adl not .adls) ADL files in the oship/src/oship/  openehr/adl directory.  Then <a href="setup">click here</a>.  This operation may take several minutes depending upon the number of ADL files you added.  You can watch the progress in the terminal window where you started your server. 
-</li>
-</ul>
-</li>
-<li>
-<ul>
 <h3>Terminology Server Management</h3>
+<ul>
 <li> Visit the <a href="terms">termserver page</a></li>
 </ul>
 </li>
+
 <li>
-<ul>
 <h3>AQL Management</h3>
+<ul>
 <li> Visit the <a href="atql">AQL page</a></li>
 </ul>
 </li>
+
 <li>
-<ul>
 <h3>Demo Applications</h3>
+<ul>
 <li> Visit the <a href="demos">demos page</a></li>
 </ul>
-
 </li>
 </ol>
 </td>

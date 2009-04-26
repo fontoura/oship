@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
-# Redistribution and use are governed by the Mozilla Public License Version 1.1 - see docs/OSHIP-LICENSE.txt
+# Redistribution and use are governed by the MPL license.
 #
 # Use and/or redistribution of this file assumes you have read and accepted the
 # terms of the license.
@@ -368,7 +368,7 @@ class Pathable(grok.Model):
     as a function or attribute.
     
     The two attributes required for locatable in ZCA is __parent__ and __name__.  
-    We inherit those from Location.
+    We inherit those from grok.Model
     
     The functionality to get paths and find children is contained in the traversal mechanism.
     """

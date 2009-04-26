@@ -10,8 +10,7 @@
 import grok
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
-from openehr.adl2py.atbldr import CreatePy
-from oship.openehr.atbldr import CreateAT, getFileList
+from openehr.atbldr import CreatePy
 from oship.oeterm.oeterm import importOETerms
 from oship.rxterms.createrxterms import CreateRxTerms
 
@@ -49,27 +48,27 @@ class Setup(grok.View):
     
     def render(self):
         try:
-            self.context['ar'] = grok.Container() # archetype repository
+            #self.context['ar'] = grok.Container() # archetype repository
             self.context['termserver'] = grok.Container() # terminology server
             self.context['aql'] = grok.Container() # AQL repository
         except DuplicationError:
             pass
         
-        fnames = getFileList()
-        try:        
-            for fname in fnames: # we have our list of ADL files
-                print "Processing: ",fname
+        #fnames = getFileList()
+        #try:        
+            #for fname in fnames: # we have our list of ADL files
+                #print "Processing: ",fname
                 
-                at=CreateAT(fname) # take one ADL file and process it into a mapping
+                #at=CreateAT(fname) # take one ADL file and process it into a mapping
 
-                atname=at[0]
+                #atname=at[0]
                 
-                self.context['ar'][atname]=at[1]
-        except DuplicationError:
-            pass
+                #self.context['ar'][atname]=at[1]
+        #except DuplicationError:
+            #pass
          
-        print "Setup and ar ADL processing is complete.\n"
-        print "Now we begin creating Python files.\n"
+        #print "Setup and ar ADL processing is complete.\n"
+        print "Begin creating Python files.\n"
         
         CreatePy()
         print "\n\n Finished creating Python source files.\n"

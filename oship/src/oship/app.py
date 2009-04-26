@@ -23,6 +23,7 @@ class oship(grok.Application, grok.Container):
 class Index(grok.View):
     grok.context(oship)
     def render(self):
+        self.redirect(self.url('setupnotice'))
         self.redirect(self.url('setup'))
         
 class OshipManage(grok.View):
@@ -37,11 +38,15 @@ class Demos(grok.View):
 
 class ATQL(grok.View):
     grok.context(oship)
+    
+class SetupNotice(grok.View):
+    grok.context(oship)
+
 
 # Create the containers and initial archetypes
 class Setup(grok.View):
     """
-    Create the OSHIP application core, setup the containers, load the ar and create the Python source from the esistiing ADL files.
+    Create the OSHIP application core, setup the containers, and create the Python source from the existing ADL files.
     """
 
     grok.context(oship)

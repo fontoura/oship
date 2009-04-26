@@ -109,7 +109,8 @@ def CreatePy():
         print "Please see: "+logfile+" file for errors & warnings."
         
         
-    logging.info("*******END OF LOG FILE FOR THIS RUN*******")         
+    logging.info("*******END OF LOG FILE FOR THIS RUN*******") 
+    
     return
         
         
@@ -137,12 +138,21 @@ def bldArchetype(fname,parsed_adl):
     f=open(py_filesDir+class_file,'w') # create the file for writing
     
     
-    f.write("#This file was created with adl2py module from the OSHIP project.\n")
-    f.write("#Its quality is not guaranteed and will likely need hand editing before use.\n\n")
+    f.write("#This file was created with atbldr module from the OSHIP project.\n")
+    f.write("#Its quality is not guaranteed and will need hand editing, especially the definition section before use.\n\n")
     f.write("import grok\n")  
     f.write("import datetime\n")  
     f.write("from zope.interface import implements\n")  
     f.write("from oship.openehr.archetype import *\n")  
+    f.write("from oship.openehr.common import *\n")  
+    f.write("from oship.openehr.datastructure import *\n")  
+    f.write("from oship.openehr.datatypes import *\n")  
+    f.write("from oship.openehr.demographic import *\n")  
+    f.write("from oship.openehr.ehr import *\n")  
+    f.write("from oship.openehr.extract import *\n")  
+    f.write("from oship.openehr.integration import *\n")  
+    f.write("from oship.openehr.openehrprofile import *\n")  
+    f.write("from oship.openehr.sm import *\n")  
     f.write("from oship.openehr.support import *\n\n")  
    
     f.write("class "+ class_name+"(Archetype,grok.Container):\n\n")
@@ -156,6 +166,10 @@ def bldArchetype(fname,parsed_adl):
         f.write("        self.parentArchetypeId = ArchetypeId(ObjectId(u'"+unicode(parsed_adl.specialize)+"'))\n")
     else:
         f.write("        self.parentArchetypeId=ArchetypeId(ObjectId(u''))\n")
+        
+        
+        
+    # do we need to build a description section even though there is no description attribute?        
         
     # next we build the ontology
 
@@ -359,6 +373,8 @@ def bldArchetype(fname,parsed_adl):
     definList.reverse()
     
     n=len(definList)
+    f.write("        #Length of DefinList= "+repr(n)+'\n')
+    m=0
     for x in definList:
         nodeid=""
         #strip off the nodeid if there is one
@@ -371,11 +387,13 @@ def bldArchetype(fname,parsed_adl):
         if className == None:
             f.write("        #"+repr(x)+'\n')
         else:
-            
-            f.write("        "+className+'\n')
+            if m == n-1: # If at the last class name then assign it to the archetype definition.
+                f.write("        self.definition="+className+'\n')
+            else:    
+                f.write("        "+className+'\n')
          
+        m+=1 # counting which item of the list we are at.
     
-    f.write("        self.definition=\n")
     
     
     

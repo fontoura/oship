@@ -24,7 +24,7 @@
 <li>
 <h3>Python Source File Management</h3>
 <ul>
- <li>  When you need to create new Python source files.  Place your  (.adl not .adls) ADL files in the oship/src/oship/  openehr/adl directory.  Then <a href="setup">click here</a>.  This operation may take several minutes depending upon the number of ADL files you added.  You can watch the progress in the terminal window where you started your server.
+ <li>  When you need to create new Python source files.  Place your  (.adl not .adls) ADL files in the oship/src/oship/  openehr/adl directory.  Then <a href="setup">click here</a> to run the setup procedure.  This operation may take several minutes depending upon the number of ADL files you added.  You can watch the progress in the terminal window where you started your server.
  </li>
  </ul> 
 </li>
@@ -61,7 +61,7 @@
 <li><a href="http://localhost:8080/docgrok/zope">Zope API</a></li><br />
 <li><a href="http://grok.zope.org/doc/current/tutorial.html">Grok Tutorials</a></li><br />
 <li><a href="http://localhost:8080/manage">Object Database (ZMI)</a></li><br />
-<li>Inspect the contents Archetype Repository (ar) and Terminology Server (termserver) 
+<li>Inspect the contents AQL Repository (ar) and Terminology Server (termserver) 
       <a href="http://localhost:8080/oship/@@inspect.html">here</a></li><br />
 </ul>
 </td>

@@ -511,8 +511,7 @@ class Locatable(Pathable):
 
     implements(ILocatable)
     
-    def __init__(self,uid,atnodeid,name,atdetails,fdraudit,links):
-        self.__name__=atnodeid #inherited from grok.Model
+    def __init__(self,uid,nodeid,name,atdetails,fdraudit,links):
         self.uid=uid
         self.archetypeNodeId=atnodeid
         self.name=name
@@ -1903,12 +1902,12 @@ class AuthoredResource(grok.Model):
     implements(IAuthoredResource)
     
     
-    def __init__(self, olang,trans,descr,revhist,ctrld):
-        self.originalLanguage=olang
-        self.translations=trans
-        self.description=descr
-        self.revisionHistory=revhist
-        self.isControlled=ctrld
+    def __init__(self):
+        self.originalLanguage=None
+        self.translations=None
+        self.description=None
+        self.revisionHistory=None
+        self.isControlled=None
 
     def currentRevision():
         u""" """

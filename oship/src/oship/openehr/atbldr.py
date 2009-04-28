@@ -36,9 +36,6 @@ import grok
 import datetime
 from classmap import getClassName
 
-"""
-Yes, I realize that these imports are bad practice.  But in this alpha condition of the code it is expediante
-"""
 from archetype import ArchetypeOntology
 from support import *
 from datastructure import *
@@ -144,7 +141,7 @@ def bldArchetype(fname,parsed_adl):
     f.write("from oship.openehr.sm import *\n")  
     f.write("from oship.openehr.support import *\n\n")  
    
-    f.write("class "+ class_name+"(Archetype,grok.Container):\n\n")
+    f.write("class "+ class_name+"(Archetype):\n\n")
     f.write("    implements(IArchetype)\n\n" )
     f.write("    def __init__(self):\n" )
     f.write("        self.adlVersion =u'"+unicode(parsed_adl.archetype[0][1])+"'\n")
@@ -158,7 +155,7 @@ def bldArchetype(fname,parsed_adl):
         
         
         
-    # do we need to build a description section even though there is no description attribute?        
+    # we need to build a description section         
         
     # next we build the ontology
 
@@ -169,7 +166,7 @@ def bldArchetype(fname,parsed_adl):
     termCodes={}
     constCodes={}
     termAN=[]
-    parent=u''
+    
     
     #cleanup the list
     ontlist=flatten(parsed_adl.ontology)  
@@ -221,7 +218,7 @@ def bldArchetype(fname,parsed_adl):
         n+=1
      
     """
-    Now the sections dictionary contains a tuples of the the starting word and the ending word.
+    Now the sections dictionary contains a tuple of the postions of the starting word and the ending word.
     i.e.  {u'term_binding': (203, 213), u'term_definitions': (3, 107), u'constraint_definitions': (108, 202), u'terminologies_available': (0, 2), u'constraint_binding': (214, 233)}
     
     We need to process the sections in the order that they are expected to appear so that they will work correctly.
@@ -234,13 +231,13 @@ def bldArchetype(fname,parsed_adl):
     if sections.has_key(u'terminologies_available'):
         begin=sections[u'terminologies_available'][0]+1 # first location past the keyword
         end=sections[u'terminologies_available'][1]+1
-        f.write("        self.ontology[u'terminologies_avalable']=[")
+        f.write("        termAvail=[")
         for v in range(begin,end):
             f.write("u'"+ontlist[v]+"',")
             termAvail.append(ontlist[v])
         f.write("]\n")
     else:
-        f.write("        self.ontology[u'terminologies_avalable']=[]")
+        f.write("        termAvail=[]")
     
     # process termCodes - 
     #"""
@@ -258,7 +255,7 @@ def bldArchetype(fname,parsed_adl):
             if ontlist[v] in lang_list:
                 lang_point.append(v)
         
-        f.write("        self.ontology[u'term_definitions']={")
+        f.write("        termCodes={")
         for v in range(begin,end):
             if v in lang_point:
                 f.write(repr(ontlist[v])+':[')
@@ -275,7 +272,7 @@ def bldArchetype(fname,parsed_adl):
                     
         f.write("]}\n")
     else:
-        f.write("        self.ontology[u'term_definitions']={}")
+        f.write("        termCodes={}")
 
     #process constraint codes
     f.write('\n        # Constraint Code Section \n')
@@ -288,7 +285,7 @@ def bldArchetype(fname,parsed_adl):
             if ontlist[v] in lang_list:
                 lang_point.append(v)
         
-        f.write("        self.ontology[u'constraint_definitions']={")
+        f.write("        constCodes={")
         for v in range(begin,end):
             if v in lang_point:
                 f.write(repr(ontlist[v])+':[')
@@ -305,7 +302,7 @@ def bldArchetype(fname,parsed_adl):
                     
         f.write("]}\n")
     else:
-        f.write("        self.ontology[u'constraint_definitions']={}")
+        f.write("        constCodes={}")
 
     #process term bindings 
 
@@ -313,7 +310,7 @@ def bldArchetype(fname,parsed_adl):
     if sections.has_key(u'term_binding'):
         begin=sections[u'term_binding'][0]+1 # first location past the keyword
         end=sections[u'term_binding'][1]+1
-        f.write("        self.ontology[u'term_binding']={")
+        f.write("        term_binding={")
         try:
             for v in range(begin,end,2):
                 if ontlist[v] in termAvail:
@@ -326,7 +323,7 @@ def bldArchetype(fname,parsed_adl):
 
         f.write("]}\n")
     else:
-        f.write("        self.ontology[u'term_binding']={}")
+        f.write("        term_binding={}")
    
                
         
@@ -337,7 +334,7 @@ def bldArchetype(fname,parsed_adl):
     if sections.has_key(u'constraint_binding'):
         begin=sections[u'constraint_binding'][0]+1 # first location past the keyword
         end=sections[u'constraint_binding'][1]+1
-        f.write("        self.ontology[u'constraint_binding']={")
+        f.write("        constraint_binding={")
         try:
             for v in range(begin,end,2):
                 if ontlist[v] in termAvail:
@@ -350,9 +347,10 @@ def bldArchetype(fname,parsed_adl):
 
         f.write("]}\n")
     else:
-        f.write("        self.ontology[u'constraint_binding']={}")
+        f.write("        constraint_binding={}")
     
-        
+     
+    f.write("\n        self.ontology=ArchetypeOntology(termAvail,specDepth,termCodes,constraintCodes,termAN,self.parentArchetypeId)")
         
     # Now build the definition section
     f.write("\n\n        # Definition Section Begins Here. We build it from the leaf nodes up.\n\n")

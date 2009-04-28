@@ -22,7 +22,7 @@ def getClassName(keyword):
     """
     
     definClassMap={'SECTION':'Section(items,uid,nodeid,name,atdetails,fdraudit,links)',\
-                   'COMPOSITION':'Composition(content,context,composer,category,lang,terr,persistuid,atnodeid,name,atdetails,fdraudit,links)',\
+                   'COMPOSITION':'Composition(content,context,composer,category,lang,terr,uid,nodeid,name,atdetails,fdraudit,links)',\
                    'OBSERVATION':'Observation(data,state,nodeid,protocol,gid,lang,encod,subject,provider,opart,wfid,uid,atnodeid,name,atdetails,fdraudit,links)',\
                    'ITEM_SINGLE':'ItemSingle(item)',\
                    'ITEM_LIST':'ItemList(items)',\

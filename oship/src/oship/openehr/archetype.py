@@ -359,7 +359,7 @@ class IArchetype(Interface):
         """
 
 
-class Archetype(grok.Container):
+class Archetype(grok.Model):
     _(u"""
     Archetype equivalent to ARCHETYPED class in Common reference model.
     Defines semantics of identfication, lifecycle, versioning, composition 
@@ -367,21 +367,22 @@ class Archetype(grok.Container):
     """)
     
     implements(IArchetype)
-    def __init__(self):
-        super(Archetype,self).__init__()
-        
     
-    #def __init__(self,adlver,atid,uid,concept,paid,defin,ont,inv,olang,trans,descr,revhist,ctrld):
-        #AuthoredResource.__init__(self,olang,trans,descr,revhist,ctrld)
-        
-        #self.adlVersion=adlver
-        #self.archetypeId=atid
-        #self.uid=uid
-        #self.concept=concept
-        #self.parentArchetypeId=paid
-        #self.definition=defin
-        #self.ontology=ont
-        #self.invariants=inv
+    def __init__(self,adlver,atid,uid,concept,paid,defin,ont,inv,olang,trans,descr,revhist,ctrld):        
+        self.adlVersion=adlver
+        self.archetypeId=atid
+        self.uid=uid
+        self.concept=concept
+        self.parentArchetypeId=paid
+        self.definition=defin
+        self.ontology=ont
+        self.invariants=inv
+        # from abstract class AuthoredResource
+        self.originalLanguage=olang
+        self.translations=trans
+        self.description=descr
+        self.revisionHistory=revhist
+        self.isControlled=ctrld
         
         
             
@@ -1644,22 +1645,20 @@ class CTime(CPrimitive):
      
         
         
-class ArchetypeOntology(grok.Container):
+class ArchetypeOntology(grok.Model):
     """
     Local ontology of an archetype.
     """
     
     implements(IArchetypeOntology)
     
-    def __init__(self):
-        super(ArchetypeOntology,self).__init__()
-        
-        #some defaults
-        self.specialisationDepth = 0
-        self.parentArchetype = u''
-        self['termCodes']=grok.Container()
-        self['constraintCodes']=grok.Container()
-        self['termAttributeNames']=grok.Container()
+    def __init__(self,termAvail,specDepth,termCodes,constraintCodes,termAN,pAT):
+        self.terminologiesAvailable=termAvail
+        self.specialisationDepth=specDepth
+        self.termCodes=termCodes
+        self.constraintCodes=constraintCodes
+        self.termAttributeNames=termAN
+        self.parentArchetype=pAT
     
     
     

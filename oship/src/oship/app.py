@@ -21,11 +21,11 @@ from oship.rxterms.createrxterms import CreateRxTerms
 class oship(grok.Application, grok.Container):
     pass    
 
-
 class Index(grok.View):
     grok.context(oship)
     
     def render(self):
+        grok.PageTemplate("<h1>Executing Setup.  Please Standby!</h1>")
         self.redirect(self.url('setup'))
             
     
@@ -67,6 +67,7 @@ class Setup(grok.View):
     grok.context(oship)
     
     def render(self):
+
         logfile=os.getcwd()+'/src/oship/openehr/py_files/pyfile_build.log'
         #create the logfile if it doesn't exist
         f=open(logfile,'w')

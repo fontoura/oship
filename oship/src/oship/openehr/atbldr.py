@@ -173,7 +173,7 @@ def bldArchetype(fname,parsed_adl):
     
     # build some reference lists
     key_list=[u'terminologies_available',u'term_definitions',u'constraint_definitions',u'term_binding',u'constraint_binding']
-    lang_list=[u'en',u'de',u'nl',u'fr'] # needs to access Zope language list/terminology look in zope.i18n.locaales.provider
+    lang_list=[u'en',u'de',u'nl',u'fr',u'ja',u"zh-cn"] # needs to access Zope language list/terminology look in zope.i18n.locaales.provider
     
     itemlist=[]
     # now go through ontlist and map all the words.  
@@ -245,7 +245,7 @@ def bldArchetype(fname,parsed_adl):
     #balanced structure for those that have term bindings and those that do not.  
     #I find the word 'provenance as used in the specifications to be less than intuitive.  
     #"""
-    f.write('\n        # Term Code Section \n')
+    f.write('\n        # Term Code Section (note that there is a bug in atbldr that always cutsoff the last description of termCodes)\n')
     if sections.has_key(u'term_definitions'):
         begin=sections[u'term_definitions'][0]+1 # first location past the keyword
         end=sections[u'term_definitions'][1]
@@ -255,22 +255,29 @@ def bldArchetype(fname,parsed_adl):
             if ontlist[v] in lang_list:
                 lang_point.append(v)
         
-        f.write("        termCodes={")
-        for v in range(begin,end):
+        f.write("        termCodes={") 
+        for v in range(begin,end): # the range of the termcode section in ontlist
             if v in lang_point:
-                f.write(repr(ontlist[v])+':[')
+                f.write(repr(ontlist[v])+':{')
             else:
                 try:
-                    if ontlist[v+1] in lang_list:
+                    if ontlist[v+1] in lang_list: #is the next entry a new language?
                         #print "lang code: ",ontlist[v+1]
                          
-                        f.write(repr(ontlist[v])+']},{')
+                        f.write(repr(ontlist[v])+']}},\\\n        {')
                     else:    
-                        f.write(repr(ontlist[v])+',')
+                        if ontlist[v] != u'items':
+                            if ontlist[v][0:2]=='at':
+                                f.write('        '+repr(ontlist[v])+':[')
+                            elif ontlist[v+1][0:2]=='at':
+                                f.write(repr(ontlist[v])+'],\\\n')
+                             
+                            else:
+                                f.write(repr(ontlist[v])+',')
                 except IndexError:
                     break # we're at the end
                     
-        f.write("]}\n")
+        f.write("]}}\n")
     else:
         f.write("        termCodes={}")
 
@@ -286,21 +293,28 @@ def bldArchetype(fname,parsed_adl):
                 lang_point.append(v)
         
         f.write("        constCodes={")
-        for v in range(begin,end):
+        for v in range(begin,end): # the range of the constraint code section in ontlist
             if v in lang_point:
-                f.write(repr(ontlist[v])+':[')
+                f.write(repr(ontlist[v])+':{')
             else:
                 try:
-                    if ontlist[v+1] in lang_list:
+                    if ontlist[v+1] in lang_list: #is the next entry a new language?
                         #print "lang code: ",ontlist[v+1]
                          
-                        f.write(repr(ontlist[v])+']},{')
+                        f.write(repr(ontlist[v])+']}},\\\n        {')
                     else:    
-                        f.write(repr(ontlist[v])+',')
+                        if ontlist[v] != u'items':
+                            if ontlist[v][0:2]=='at':
+                                f.write('        '+repr(ontlist[v])+':[')
+                            elif ontlist[v+1][0:2]=='ac':
+                                f.write(repr(ontlist[v])+'],\\\n')
+                             
+                            else:
+                                f.write(repr(ontlist[v])+',')
                 except IndexError:
                     break # we're at the end
                     
-        f.write("]}\n")
+        f.write("]}}\n")
     else:
         f.write("        constCodes={}")
 

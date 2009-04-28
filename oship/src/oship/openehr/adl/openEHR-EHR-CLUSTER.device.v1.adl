@@ -1,0 +1,156 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.device.v1
+
+concept
+	[at0000]	-- Device details
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"19/03/2008">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Record details of devices use in clinical care">
+			use = <"Use to record the details pertaining to the device that is used to record clinical details.  This is likely to be as a nested archetype as part of a Protocol.">
+			keywords = <"Device", "Machine", "Tool">
+			misuse = <"">
+			copyright = <"copyright (c) 2009 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Device details
+		items cardinality matches {0..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0004] occurrences matches {0..1} matches {	-- Manufacturer details
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Manufacturer
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Model
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Serial number
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0007] occurrences matches {0..1} matches {	-- Components
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0012] occurrences matches {0..*} matches {
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0008] occurrences matches {0..1} matches {	-- Servicing
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Date last serviced
+						value matches {
+							DV_DATE_TIME matches {
+								value matches {yyyy-??-??T??:??:??}
+							}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Date last calibration
+						value matches {
+							DV_DATE_TIME matches {
+								value matches {yyyy-??-??T??:??:??}
+							}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Serviced by
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Device details">
+					description = <"The details of the device used">
+				>
+				["at0001"] = <
+					text = <"Name">
+					description = <"The name of the device">
+				>
+				["at0002"] = <
+					text = <"Description">
+					description = <"Description of the device">
+				>
+				["at0003"] = <
+					text = <"Manufacturer">
+					description = <"The name of the manufacturer">
+				>
+				["at0004"] = <
+					text = <"Manufacturer details">
+					description = <"Information about the manufacture of the device">
+				>
+				["at0005"] = <
+					text = <"Model">
+					description = <"The model of the device">
+				>
+				["at0006"] = <
+					text = <"Serial number">
+					description = <"The serial number of the device">
+				>
+				["at0007"] = <
+					text = <"Components">
+					description = <"Information about the device components">
+				>
+				["at0008"] = <
+					text = <"Servicing">
+					description = <"Details of servicing">
+				>
+				["at0009"] = <
+					text = <"Date last serviced">
+					description = <"The date the device was last serviced">
+				>
+				["at0010"] = <
+					text = <"Date last calibration">
+					description = <"Date the device was last calibrated">
+				>
+				["at0011"] = <
+					text = <"Serviced by">
+					description = <"Agent performed the servicing">
+				>
+				["at0012"] = <
+					text = <"Components">
+					description = <"Information about the device components">
+				>
+			>
+		>
+	>

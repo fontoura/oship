@@ -87,22 +87,6 @@ class Setup(grok.View):
         except DuplicationError:
             pass
         
-        #fnames = getFileList()
-        #try:        
-            #for fname in fnames: # we have our list of ADL files
-                #print "Processing: ",fname
-                
-                #at=CreateAT(fname) # take one ADL file and process it into a mapping
-
-                #atname=at[0]
-                
-                #self.context['ar'][atname]=at[1]
-        #except DuplicationError:
-            #pass
-         
-        #print "Setup and ar ADL processing is complete.\n"
-        
-        
         print "\n\n\n********* Begin creating Python files. *********\n"
         
         CreatePy()

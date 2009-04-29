@@ -36,7 +36,7 @@ class Setup(grok.View):
             pass
                  
         
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+        self.redirect("http://localhost:8080/bptrack") # now simply redirect to the main page
         
        
     

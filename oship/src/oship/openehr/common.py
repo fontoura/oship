@@ -1806,7 +1806,7 @@ class ITranslationDetails(Interface):
 class IResourceDescription(Interface):
     u"""Defines the descriptive meta-data of a resource."""
     
-    originalAuthor=Dict(
+    originalAuthor=List(
         title=_(u'Original Author'),
         description=_(u""""""),
         required=True
@@ -1825,7 +1825,7 @@ class IResourceDescription(Interface):
         required=True
     )
     
-    details=Dict(
+    details=List(
         title=_(u'Details'),
         description=_(u""""""),
         required=True
@@ -1837,7 +1837,7 @@ class IResourceDescription(Interface):
         required=False
     )
     
-    otherDetails=Dict(
+    otherDetails=List(
         title=_(u'Other Details'),
         description=_(u""""""),
         required=False
@@ -1853,11 +1853,11 @@ class IResourceDescription(Interface):
 class IAuthoredResource(Interface):
     u"""Abstract idea of an online resource created by a human author. """
     
-    orignialLanguage=Object(
+    originalLanguage=Object(
         schema=ICodePhrase,
         title=_(u"Original Language"),
         description=_(u"""Original Language"""),
-        required=True
+        required=False
     )
        
     translations=Object(
@@ -1885,7 +1885,7 @@ class IAuthoredResource(Interface):
     isControlled=Bool(
         title=_(u"Is Controlled"),
         description=_(u""""""),
-        required=True
+        required=False
     )
     
     def currentRevision():
@@ -1901,13 +1901,12 @@ class AuthoredResource(grok.Model):
     
     implements(IAuthoredResource)
     
-    
-    def __init__(self):
-        self.originalLanguage=None
-        self.translations=None
-        self.description=None
-        self.revisionHistory=None
-        self.isControlled=None
+
+    originalLanguage=None
+    translations=None
+    description=None
+    revisionHistory=None
+    isControlled=None
 
     def currentRevision():
         u""" """

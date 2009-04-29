@@ -23,6 +23,7 @@ from zope.schema import TextLine,Object,Set,Field,Int,List,Bool,Date,Datetime,Fl
 from zope.i18nmessageid import MessageFactory
 
 from support import IArchetypeId,Interval,IHierObjectId,IObjectRef
+from common import AuthoredResource
 
 
 _ = MessageFactory('oship')
@@ -359,7 +360,7 @@ class IArchetype(Interface):
         """
 
 
-class Archetype(grok.Model):
+class Archetype(AuthoredResource,grok.Model):
     _(u"""
     Archetype equivalent to ARCHETYPED class in Common reference model.
     Defines semantics of identfication, lifecycle, versioning, composition 
@@ -384,8 +385,7 @@ class Archetype(grok.Model):
         self.revisionHistory=revhist
         self.isControlled=ctrld
         
-        
-            
+                   
     def version(self):
         """
         Version string extracted from id.

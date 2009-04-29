@@ -156,7 +156,30 @@ def bldArchetype(fname,parsed_adl):
         
         
     # we need to build a description section         
+    
+    original_author=flatten(parsed_adl.description[0])
+    details=flatten(parsed_adl.description[1])
+    lifecycle_state=flatten(parsed_adl.description[2])
+    other_contributors=flatten(parsed_adl.description[3])
+    if len(parsed_adl.description)>=5:
+        other_details=flatten(parsed_adl.description[4])
+    else:
+        other_details=None
         
+    #print "\nOriginal Author  = ",original_author
+    #print "\nDetails = ",details
+    #print "\nLifecycle State = ",lifecycle_state
+    #print "\nOther Contributors = ",other_contributors
+    #print "\nOther Details = ", other_details
+
+    f.write('\n        # Create the description components.\n')
+    ol=details[3].split("::")
+    f.write("        self.originalLanguage=CodePhrase(u'"+ol[0][1:]+"',u'"+ol[1].strip('_')+"')\n")
+    f.write("        self.translationDetails=None # needs to be completed in atbldr\n")
+    f.write("        self.description="+repr(flatten(parsed_adl.description))+" # needs to be completed in atbldr\n")
+    f.write("        self.revisionHistory=None # needs to be completed in atbldr\n")
+    f.write("        self.isControlled=False # needs to be completed in atbldr\n")
+    
     # next we build the ontology
 
     f.write('\n        # Create the ontology.\n')

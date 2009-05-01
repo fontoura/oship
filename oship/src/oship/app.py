@@ -25,7 +25,6 @@ class Index(grok.View):
     grok.context(oship)
     
     def render(self):
-        grok.PageTemplate("<h1>Executing Setup.  Please Standby!</h1>")
         self.redirect(self.url('setup'))
             
     

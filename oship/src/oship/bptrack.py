@@ -70,6 +70,40 @@ class PatientsList(grok.Viewlet):
     grok.context(bptrack)
     grok.viewletmanager(Patients)
     grok.order(2)
+    
+    def render(self):
+        """
+        Here we create the patient listing along with a URL to their record in the clinical folder that
+        points to the ehrview class so that we can list all of their previous entries as well as prepare
+        to create a new entry.  
+        """
+        names=[]
+        retstr='<ul>'
+        keylist=self.context['demographics'].keys()
+        for x in keylist:
+            # create a tuple to append to the names list that also includes the ehrurl.
+            sname=self.context['demographics'][x].surName
+            gname=self.context['demographics'][x].givenName
+            dob=self.context['demographics'][x].dob
+            fname=gname+" "+sname
+            # To get the url we have to use the parent view, then strip off that name and add the clinical container
+            # and each patient's record number (ehrid). Send the full name so we can display it in the ehrview.
+            ehrurl=self.view.url().strip('bpmain')+'clinical/'+self.context['demographics'][x].ehrid+'/ehrview'
+            
+            names.append((sname,gname,dob,ehrurl))
+            
+        # create the display string to return to the interface.    
+        for y in names:
+            retstr+= '<li><a href="'+y[3]+'">'+y[0]+','+y[1]+'</a> '+y[2]+'</li>'
+            
+        retstr+='</ul>'   
+        
+        if retstr == '<ul></ul>':
+            retstr = "You haven't added any patients to this system. Please use the Add patient Form."
+            
+        return retstr
+            
+            
                     
         
 class NewPatient(grok.Viewlet):
@@ -77,15 +111,11 @@ class NewPatient(grok.Viewlet):
     grok.viewletmanager(DataArea)
     grok.order(1)
     
-class EhrView(grok.Viewlet):
-    grok.context(bptrack)
-    grok.viewletmanager(DataArea)
-    grok.order(2)
     
 class BPData(grok.Viewlet):
     grok.context(bptrack)
     grok.viewletmanager(DataArea)
-    grok.order(3)
+    grok.order(2)
 
 # define a simple patient entry not using the openEHR demographics section
 
@@ -117,12 +147,12 @@ class Patient(grok.Model):
     grok.traversable('ehrid')
     
     def __init__(self,surName,givenName,dob):
+        self.patid=unicode(datetime.now().isoformat())
         self.surName=surName
         self.givenName=givenName
-        self.dob=datetime.fromtimestamp(dob)
-        self.patid=datetime.now().isoformat()
-        self.ehrid=datetime.now().isoformat()
+        self.dob=dob
         self.__name__=self.patid
+        self.ehrid=unicode(datetime.now().isoformat())
         
         
 
@@ -146,6 +176,15 @@ class Ehr(grok.Container):
         self.__name__=ehrid
         self.ehrid=ehrid
         
+class EhrView(grok.Viewlet):
+    grok.context(bptrack)
+    grok.viewletmanager(DataArea)
+    grok.order(3)
+    
+    def render(self):
+        print self.view.url()
+        return "<i>EHR Information Will be Displayed Here.</i>"
+    
             
         
 class Setup(grok.View):

@@ -1,9 +1,0 @@
-<ul>
-        <li tal:repeat="item context/demographics/values">
-          <a tal:attributes="href item/ehrid"
-          tal:content="item/surName">Surname</a>,
-           <span tal:content="item/givenName">Given Name</span>
-           <span tal:content="item/dob">DOB</span>
-           </li>
-</ul>
-

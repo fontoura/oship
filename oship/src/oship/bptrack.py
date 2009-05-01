@@ -71,6 +71,7 @@ class PatientsList(grok.Viewlet):
     grok.viewletmanager(Patients)
     grok.order(2)
     
+    
     def render(self):
         """
         Here we create the patient listing along with a URL to their record in the clinical folder that
@@ -88,7 +89,7 @@ class PatientsList(grok.Viewlet):
             fname=gname+" "+sname
             # To get the url we have to use the parent view, then strip off that name and add the clinical container
             # and each patient's record number (ehrid). Send the full name so we can display it in the ehrview.
-            ehrurl=self.view.url().strip('bpmain')+'clinical/'+self.context['demographics'][x].ehrid+'/ehrview'
+            ehrurl=self.view.url().strip('bpmain')+'clinical/'+self.context['demographics'][x].ehrid
             
             names.append((sname,gname,dob,ehrurl))
             
@@ -144,7 +145,7 @@ class IPatient(Interface):
 class Patient(grok.Model):
     grok.context(bptrack)
     implements(IPatient)
-    grok.traversable('ehrid')
+
     
     def __init__(self,surName,givenName,dob):
         self.patid=unicode(datetime.now().isoformat())
@@ -157,34 +158,26 @@ class Patient(grok.Model):
         
 
         
-# define a simple EHR container not using the openEHR specs
+# define a simple EHR container; not using the openEHR specs
 
-class IEhr(Interface):
-    
-    ehrid=TextLine(
-        title=u"EHR ID"
-    )
-    
 
 class Ehr(grok.Container):
-    grok.context(bptrack)
+    """
+    The container for each individual's clinical data.
+    """
     
-    implements(IEhr)
-    
-    def __init__(self,ehrid):
-        grok.Container.__init__(self)
-        self.__name__=ehrid
-        self.ehrid=ehrid
-        
-class EhrView(grok.Viewlet):
     grok.context(bptrack)
+            
+class EhrIndex(grok.Viewlet):
+    grok.context(Ehr)
+    grok.name('index')
     grok.viewletmanager(DataArea)
     grok.order(3)
     
     def render(self):
-        print self.view.url()
+        
         return "<i>EHR Information Will be Displayed Here.</i>"
-    
+        
             
         
 class Setup(grok.View):
@@ -214,7 +207,9 @@ class AddPatient(grok.View):
     def render(self):
         obj=Patient(self.request.form['surName'],self.request.form['givenName'],self.request.form['dob'])
         self.context['demographics'][obj.patid]=obj        
-        self.context['clinical'][obj.ehrid]=Ehr(obj.ehrid)        
+        self.context['clinical'][obj.ehrid]=Ehr() 
+        self.context['clinical'][obj.ehrid]['created']=datetime.now()
+        self.context['clinical'][obj.ehrid]['system']=u'OSHIP'
         
         self.redirect("http://localhost:8080/bptrack/bpmain") # now redirect to the main page
     

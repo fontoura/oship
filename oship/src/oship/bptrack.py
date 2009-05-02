@@ -7,6 +7,7 @@
 # terms of the license.
 ##############################################################################
 
+import uuid
 import grok
 from datetime import datetime
 from zope.exceptions import DuplicationError
@@ -89,13 +90,13 @@ class PatientsList(grok.Viewlet):
             fname=gname+" "+sname
             # To get the url we have to use the parent view, then strip off that name and add the clinical container
             # and each patient's record number (ehrid). Send the full name so we can display it in the ehrview.
-            ehrurl=self.view.url().strip('bpmain')+'clinical/'+self.context['demographics'][x].ehrid
+            ehrurl=self.view.url().strip('/bpmain')+'/ehrindex?ehrid='+self.context['demographics'][x].ehrid+'&fname='+fname+'&dob='+datetime.strftime(dob,"%Y/%m/%d")
             
-            names.append((sname,gname,dob,ehrurl))
+            names.append((sname,gname,ehrurl))
             
         # create the display string to return to the interface.    
         for y in names:
-            retstr+= '<li><a href="'+y[3]+'">'+y[0]+','+y[1]+'</a> '+y[2]+'</li>'
+            retstr+= '<li><a href="'+y[2]+'">'+y[0]+','+y[1]+'</a> '+'</li>'
             
         retstr+='</ul>'   
         
@@ -117,6 +118,7 @@ class BPData(grok.Viewlet):
     grok.context(bptrack)
     grok.viewletmanager(DataArea)
     grok.order(2)
+    
 
 # define a simple patient entry not using the openEHR demographics section
 
@@ -144,16 +146,16 @@ class IPatient(Interface):
     
 class Patient(grok.Model):
     grok.context(bptrack)
-    implements(IPatient)
+    grok.implements(IPatient)
 
     
     def __init__(self,surName,givenName,dob):
-        self.patid=unicode(datetime.now().isoformat())
+        self.patid=unicode(uuid.uuid4())
         self.surName=surName
         self.givenName=givenName
-        self.dob=dob
+        self.dob=datetime.strptime(dob, "%Y/%m/%d")
         self.__name__=self.patid
-        self.ehrid=unicode(datetime.now().isoformat())
+        self.ehrid=unicode(uuid.uuid4())
         
         
 
@@ -164,20 +166,29 @@ class Patient(grok.Model):
 class Ehr(grok.Container):
     """
     The container for each individual's clinical data.
-    """
-    
+    """    
     grok.context(bptrack)
             
-class EhrIndex(grok.Viewlet):
-    grok.context(Ehr)
-    grok.name('index')
-    grok.viewletmanager(DataArea)
-    grok.order(3)
+class EhrIndex(grok.View):
+    grok.context(Interface)
+        
+    #def render(self):
+        #ehr=None
+        #ehrid=u'EHR ID Unknown'
+        #fname=u'Unknown Patient Name'
+        
+        #if not self.request.has_key('ehrid'):
+            #return "<b>No EHR ID received.</b>"
+        #else:
+            #ehrid=self.request['ehrid']
+            #fname=self.request['fname']
+        
+        #ehr=self.context['clinical'].get(ehrid)
+        #if ehr == None:
+            #return "<i>EHR Information for record "+ehrid+" was not found.</i>"
+           
+        #return repr(ehr)
     
-    def render(self):
-        
-        return "<i>EHR Information Will be Displayed Here.</i>"
-        
             
         
 class Setup(grok.View):
@@ -191,8 +202,7 @@ class Setup(grok.View):
             pass
                  
         
-        self.redirect("http://localhost:8080/bptrack/bpmain") # now redirect to the main page
-        
+        self.redirect(self.application_url()+"/bpmain")
        
     
 class AddPatient(grok.View):
@@ -212,4 +222,21 @@ class AddPatient(grok.View):
         self.context['clinical'][obj.ehrid]['system']=u'OSHIP'
         
         self.redirect("http://localhost:8080/bptrack/bpmain") # now redirect to the main page
+    
+class AddBP(grok.View):
+    """
+    This view is called, as the action attribute, from the addbp form in the ehrindex.pt template.
+    
+    """
+    
+    grok.context(bptrack)
+
+    def render(self):
+        #obj=Patient(self.request.form['surName'],self.request.form['givenName'],self.request.form['dob'])
+        #self.context['clinical'][obj.ehrid]=Ehr() 
+        #self.context['clinical'][obj.ehrid]['created']=datetime.now()
+        #self.context['clinical'][obj.ehrid]['system']=u'OSHIP'
+        
+        #self.redirect("http://localhost:8080/bptrack/bpmain") # now redirect back to the main page
+        return "Nothing happening here yet."
     

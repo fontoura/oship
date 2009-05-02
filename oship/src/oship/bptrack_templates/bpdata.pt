@@ -1,5 +1,19 @@
-<p align="middle">
 <hr size="2" width="100%" color="black" />
-<strong>BP Data Entry Form Will be Here When you Click on an Existing Patient Name!</strong>
+<div align="center">This is a DEMO application for developers!</div>
 <hr size="2" width="100%" color="black" />
+<p>
+It is intended to demonstrate how to create applications using OSHIP based on openEHR fundamentals.<br />
+This application is not robust enough to actually use for real patient information and there are no security checks.
 </p>
+<p>
+To Use the demo:<br />
+Add a few patients and then click on a patient name.  It will open a new page for their BP tracking EHR.
+</p>
+<p>
+Note that the search function is not yet implemented nor are the archetypes ready for use.
+</p>
+<p>
+Though the source code is fairly well commented.  There will soon be a document describing how the archetypes are created and how the demo works.
+</p>
+Thanks for taking the time to take a look at OSHIP.  Please feel free to contact us on the mailing list with any questions.
+See the project page on <a href="http;//launchpad.net/oship">Launchpad</a> for more information. 

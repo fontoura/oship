@@ -4,6 +4,7 @@
 import grok
 import datetime
 from zope.interface import implements
+from zope.i18nmessageid import MessageFactory
 from oship.openehr.archetype import *
 from oship.openehr.common import *
 from oship.openehr.datastructure import *
@@ -15,6 +16,8 @@ from oship.openehr.integration import *
 from oship.openehr.openehrprofile import *
 from oship.openehr.sm import *
 from oship.openehr.support import *
+
+_ = MessageFactory('oship')
 
 class DeviceV1(Archetype):
 

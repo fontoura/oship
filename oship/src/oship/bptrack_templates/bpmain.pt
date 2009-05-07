@@ -9,8 +9,8 @@
     <tal:header content="structure provider:header" />
 </div>
 
-<div id="dataarea">
-   <tal:dataarea content="structure provider:dataarea" />
+<div id="infoarea">
+   <tal:infoarea content="structure provider:infoarea" />
 </div>
 
 <div id="patients">

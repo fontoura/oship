@@ -1,11 +1,10 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
   <title>OSHIP Management Interface - OSHIP Release 1.0a2</title>
 </head>
 
-<body bgcolor="#eaeae5">
-<br /><br />
+<body>
 <table border="5" align="center">
   <tbody>
 <tr>
@@ -17,33 +16,32 @@
  </tbody>
 </table>
 <table border="5">
-<th>Actions</th><th>Resources</th>
+<th>Developer Setup</th><th>Resources</th>
 <tr>
 <td width="50%">
 <ol>
-
+<br />
+<li>
+<strong>Initial Setup</strong>
+<ul>
+<li> Visit the <a href="setuppage">setup page</a> to prepare your OSHIP installation.</li>
+</ul>
+</li>
+<br />
 <li>
 <strong>Terminology Server Management</strong>
 <ul>
 <li> Visit the <a href="terms">termserver page</a> to import the terminologies you will need for your OSHIP based application(s).</li>
 </ul>
 </li>
-
-<li>
-<strong>Python Source File Management</strong>
-<ul>
- <li>  When you need to create new Python source files.  Place your  (.adl not .adls) ADL files in the oship/src/oship/  openehr/adl directory.  Then <a href="setup">click here</a> to run the setup procedure.  This operation may take several minutes depending upon the number of ADL files you added.  You can watch the progress in the terminal window where you started your server.
- </li>
- </ul> 
-</li>
-
+<br />
 <li>
 <strong>AQL Management</strong>
 <ul>
 <li> Visit the <a href="atql">AQL page</a></li>
 </ul>
 </li>
-
+<br />
 <li>
 <strong>Demo Applications</strong>
 <ul>
@@ -54,26 +52,24 @@
 </td>
 <td width="50%">
 <ul>
-<li><a href="http://www.openehr.org/releases/1.0.1/roadmap.html">openEHR Specifications</a></li><br />
+<li><a href="http://www.openehr.org/releases/1.0.2/roadmap.html">openEHR Specifications</a></li><br />
 <li><a href="http://localhost:8080/docgrok/oship">OSHIP API</a> where you can browse the objects in OSHIP</li><br />
-<li><a href="http://grok.zope.org/doc/current/grok_overview.html">Grok Developers Notes</a></li><br />
+<li><a href="http://grok.zope.org/doc/current/index.html">Grok Documentation</a></li><br />
 <li><a href="http://localhost:8080/docgrok/grok">Grok API</a></li><br />
-<li><a href="http://grok.zope.org/doc/current/reference/index.html">Grok Reference</a></li><br />
 <li><a href="http://localhost:8080/docgrok/zope">Zope API</a></li><br />
 <li><a href="http://grok.zope.org/doc/current/tutorial.html">Grok Tutorials</a></li><br />
 <li><a href="http://localhost:8080/manage">Object Database (ZMI)</a></li><br />
-<li>Inspect the contents AQL Repository (ar) and Terminology Server (termserver) 
+<li>Inspect the contents AQL Repository (aql) and Terminology Server (termserver) 
       <a href="http://localhost:8080/oship/@@inspect.html">here</a></li><br />
 </ul>
 </td>
 </tr>
-
 </table>
 
 <p>OSHIP is open source software based on an open specification. Both the
 specifications and the software are licensed under a business friendly
 license allowing for both open source and proprietary applications to be
-developed and still share semantically complete information. For more
+developed and share semantically complete information. For more
 information please join the OSHIP developer mailing list on <a
 href="https://launchpad.net/oship/">Launchpad</a> by joining the OSHIP Developers Group
  and/or contact the lead developer <a

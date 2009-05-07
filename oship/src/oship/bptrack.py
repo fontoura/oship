@@ -8,6 +8,7 @@
 ##############################################################################
 
 import uuid
+from grok import index  # why ??? w/o this I was getting a module has no attribute index
 import grok
 from datetime import datetime
 from zope.exceptions import DuplicationError
@@ -26,9 +27,16 @@ class bptrack(grok.Application, grok.Container ):
 
 class Index(grok.View):
     grok.context(bptrack)
-    
+            
     def render(self):
-        self.redirect(self.url('setup'))
+        try:
+            self.context['demographics'] = grok.Container() # demographics space
+            self.context['clinical'] = grok.Container() # clinical space
+        except DuplicationError:
+            pass
+                 
+        
+        self.redirect(self.application_url()+"/bpmain")
 
 # Main view  
 class BPMain(grok.View):
@@ -43,8 +51,8 @@ class Patients(grok.ViewletManager):
     grok.name('patients')
     grok.context(bptrack)
     
-class DataArea(grok.ViewletManager):
-    grok.name('dataarea')
+class InfoArea(grok.ViewletManager):
+    grok.name('infoarea')
     grok.context(bptrack)
     
 class Footer(grok.ViewletManager):
@@ -90,7 +98,7 @@ class PatientsList(grok.Viewlet):
             fname=gname+" "+sname
             # To get the url we have to use the parent view, then strip off that name and add the clinical container
             # and each patient's record number (ehrid). Send the full name so we can display it in the ehrview.
-            ehrurl=self.view.url().strip('/bpmain')+'/ehrindex?ehrid='+self.context['demographics'][x].ehrid+'&fname='+fname+'&dob='+datetime.strftime(dob,"%Y/%m/%d")
+            ehrurl=self.view.url().strip('/bpmain')+'/encounterview?ehrid='+self.context['demographics'][x].ehrid+'&fname='+fname+'&dob='+datetime.strftime(dob,"%Y/%m/%d")
             
             names.append((sname,gname,ehrurl))
             
@@ -110,13 +118,13 @@ class PatientsList(grok.Viewlet):
         
 class NewPatient(grok.Viewlet):
     grok.context(bptrack)
-    grok.viewletmanager(DataArea)
+    grok.viewletmanager(InfoArea)
     grok.order(1)
     
     
-class BPData(grok.Viewlet):
+class Info(grok.Viewlet):
     grok.context(bptrack)
-    grok.viewletmanager(DataArea)
+    grok.viewletmanager(InfoArea)
     grok.order(2)
     
 
@@ -158,52 +166,6 @@ class Patient(grok.Model):
         self.ehrid=unicode(uuid.uuid4())
         
         
-
-        
-# define a simple EHR container; not using the openEHR specs
-
-
-class Ehr(grok.Container):
-    """
-    The container for each individual's clinical data.
-    """    
-    grok.context(bptrack)
-            
-class EhrIndex(grok.View):
-    grok.context(Interface)
-        
-    #def render(self):
-        #ehr=None
-        #ehrid=u'EHR ID Unknown'
-        #fname=u'Unknown Patient Name'
-        
-        #if not self.request.has_key('ehrid'):
-            #return "<b>No EHR ID received.</b>"
-        #else:
-            #ehrid=self.request['ehrid']
-            #fname=self.request['fname']
-        
-        #ehr=self.context['clinical'].get(ehrid)
-        #if ehr == None:
-            #return "<i>EHR Information for record "+ehrid+" was not found.</i>"
-           
-        #return repr(ehr)
-    
-            
-        
-class Setup(grok.View):
-    grok.context(bptrack)
-    
-    def render(self):
-        try:
-            self.context['demographics'] = grok.Container() # demographics space
-            self.context['clinical'] = grok.Container() # clinical space
-        except DuplicationError:
-            pass
-                 
-        
-        self.redirect(self.application_url()+"/bpmain")
-       
     
 class AddPatient(grok.View):
     """
@@ -222,21 +184,107 @@ class AddPatient(grok.View):
         self.context['clinical'][obj.ehrid]['system']=u'OSHIP'
         
         self.redirect("http://localhost:8080/bptrack/bpmain") # now redirect to the main page
+
+#class PatientIndex(grok.Indexes):
+    #grok.site(bptrack)
+    #grok.context(Patient)
+    #grok.name('patients')
+    #surName = grok.index.Text()
+    
+    
+#class PatientSearchResults(grok.View):
+    #grok.context(bptrack)
+    
+    #def render(self):
+        #return "Indexes and Searches are yet to be implemented"
+    
+
+        
+# define a simple EHR container; not using the openEHR specs
+class Ehr(grok.Container):
+    """
+    The container for each individual's clinical data.
+    """    
+    grok.context(bptrack)
+            
+    
+    
+# here is where the BP Encounter begins    
+class EncounterView(grok.View):
+    grok.context(bptrack)
+            
+    
+class EncounterHeader(grok.ViewletManager):
+    grok.name('encounterheader')
+    grok.context(bptrack)
+        
+class BPForm(grok.ViewletManager):
+    grok.name('bpform')
+    grok.context(bptrack)
+    
+class EncounterFooter(grok.ViewletManager):
+    grok.name('encounterfooter')
+    grok.context(bptrack)
+    
+#Encounter header viewlets
+class EncounterPageTitle(grok.Viewlet):
+    grok.context(bptrack)
+    grok.viewletmanager(EncounterHeader)
+    grok.order(1)
+    
+class PatientInfo(grok.Viewlet):
+    grok.context(bptrack)
+    grok.viewletmanager(EncounterHeader)
+    grok.order(2)
+    
+#we begin the viewlets for the blood pressure archetype form here
+class DeviceInfo(grok.Viewlet):
+    grok.context(bptrack)
+    grok.viewletmanager(BPForm)
+    grok.order(1)
+
+class Korotkoffsound(grok.Viewlet):
+    grok.context(bptrack)
+    grok.viewletmanager(BPForm)
+    grok.order(2)
+                   
+class MethodofMeasuring(grok.Viewlet):
+    grok.context(bptrack)
+    grok.viewletmanager(BPForm)
+    grok.order(3)
+
+class LocationofMeasurement(grok.Viewlet):
+    grok.context(bptrack)
+    grok.viewletmanager(BPForm)
+    grok.order(4)
+    
+class CuffSize(grok.Viewlet):
+    grok.context(bptrack)
+    grok.viewletmanager(BPForm)
+    grok.order(5)
+    
+    
+    
+    
+    
+    
+    
+    
     
 class AddBP(grok.View):
     """
     This view is called, as the action attribute, from the addbp form in the ehrindex.pt template.
+    The first thiing we do is create an instance of EncounterV1, then add the instance of 
+    BloodPressureV1 to the content attribute:
+    encounter=EncounterV1()
+    Get the attributes from the blood pressure input form and create the bloodpressure instance (bp)
+    
+    encounter.content=bp
     
     """
     
     grok.context(bptrack)
 
     def render(self):
-        #obj=Patient(self.request.form['surName'],self.request.form['givenName'],self.request.form['dob'])
-        #self.context['clinical'][obj.ehrid]=Ehr() 
-        #self.context['clinical'][obj.ehrid]['created']=datetime.now()
-        #self.context['clinical'][obj.ehrid]['system']=u'OSHIP'
-        
-        #self.redirect("http://localhost:8080/bptrack/bpmain") # now redirect back to the main page
         return "Nothing happening here yet."
     

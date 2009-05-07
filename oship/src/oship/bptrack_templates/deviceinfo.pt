@@ -1,0 +1,13 @@
+Device Information:<br />
+Serviced By:<input type="text" name="at0011" length="30" value=""  />
+Date/Time Calibrated: <input type="text" name="at0010" length="19" value="'yyyy-??-??T??:??:??'" />
+Date/Time Serviced: <input type="text" name="at0009" length="19" value="'yyyy-??-??T??:??:??'" /><br />
+Manufacturer Details:<br />
+Serial Number: <input type="text" name="at0006" length="30" value=""  />
+Model: <input type="text" name="at0005" length="30" value=""  />
+Manufacturer: <input type="text" name="at0003" length="30" value=""  />
+<br />
+Description: <input type="text" name="at0002" length="30" value=""  />
+Name: <input type="text" name="at0001" length="30" value=""  />
+
+<hr />

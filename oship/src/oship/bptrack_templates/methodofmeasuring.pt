@@ -1,0 +1,7 @@
+<p />Method of measuring:<br>
+<select name="methodofmeasuring">
+<option value="at1040">Invasive</option>
+<option value="at1039">Machine</option>
+<option value="at1037">Palpation</option>
+<option value="at1036">Auscultation</option>
+</select>

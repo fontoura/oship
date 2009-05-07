@@ -42,7 +42,7 @@ from datastructure import *
 from datatypes import *
 from demographic import *
 import adl_1_4
-
+from utils import Languages
 
 
 """
@@ -129,6 +129,7 @@ def bldArchetype(fname,parsed_adl):
     f.write("import grok\n")  
     f.write("import datetime\n")  
     f.write("from zope.interface import implements\n")  
+    f.write("from zope.i18nmessageid import MessageFactory\n")
     f.write("from oship.openehr.archetype import *\n")  
     f.write("from oship.openehr.common import *\n")  
     f.write("from oship.openehr.datastructure import *\n")  
@@ -140,7 +141,8 @@ def bldArchetype(fname,parsed_adl):
     f.write("from oship.openehr.openehrprofile import *\n")  
     f.write("from oship.openehr.sm import *\n")  
     f.write("from oship.openehr.support import *\n\n")  
-   
+    f.write("_ = MessageFactory('oship')\n\n")
+    
     f.write("class "+ class_name+"(Archetype):\n\n")
     f.write("    implements(IArchetype)\n\n" )
     f.write("    def __init__(self):\n" )
@@ -196,7 +198,7 @@ def bldArchetype(fname,parsed_adl):
     
     # build some reference lists
     key_list=[u'terminologies_available',u'term_definitions',u'constraint_definitions',u'term_binding',u'constraint_binding']
-    lang_list=[u'en',u'de',u'nl',u'fr',u'ja',u"zh-cn"] # needs to access Zope language list/terminology look in zope.i18n.locaales.provider
+    lang_list=Languages() # see utils.py
     
     itemlist=[]
     # now go through ontlist and map all the words.  
@@ -456,6 +458,8 @@ def flatten(x):
                 x=unicode(x, "latin1")
             except UnicodeDecodeError:
                 x=unicode(x,"iso-8859-1")
+            except UnicodeDecodeError:
+                x=unicode(x,"eucJP")
         
         rtnlist.append(x)
 

@@ -24,47 +24,7 @@ class oship(grok.Application, grok.Container):
 class Index(grok.View):
     grok.context(oship)
     
-    def render(self):
-        self.redirect(self.url('setup'))
-            
-    
-class OshipManage(grok.View):
-    grok.context(oship)
-    
-    
-class Terms(grok.View):   
-    grok.context(oship)
-        
-class Demos(grok.View):
-    grok.context(oship)
-
-class ATQL(grok.View):
-    grok.context(oship)
-
-class ManageICD(grok.View):
-    grok.context(oship)
-
-class ManageLOINC(grok.View):
-    grok.context(oship)
-    
-class SetupNotice(grok.View):
-    grok.context(oship)
-
-class ManageRxTerms(grok.View):
-    grok.context(oship)
-
-class ManageSMCT(grok.View):
-    grok.context(oship)
-
-
-# Create the containers and initial archetypes
-class Setup(grok.View):
-    """
-    Create the OSHIP application core, setup the containers, and create the Python source from the existing ADL files.
-    """
-
-    grok.context(oship)
-    
+    # Create the containers and initial python sourcee templates for the archetypes   
     def render(self):
 
         logfile=os.getcwd()+'/src/oship/openehr/py_files/pyfile_build.log'
@@ -93,6 +53,42 @@ class Setup(grok.View):
         print "\n\n Finished creating Python source files.\n"
         
         self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
+            
+    
+class OshipManage(grok.View):
+    grok.context(oship)
+    
+    
+class SetupPage(grok.View):   
+    grok.context(oship)
+    
+class Terms(grok.View):   
+    grok.context(oship)
+        
+class Demos(grok.View):
+    grok.context(oship)
+
+class ATQL(grok.View):
+    grok.context(oship)
+
+class ManageICD(grok.View):
+    grok.context(oship)
+
+class ManageLOINC(grok.View):
+    grok.context(oship)
+    
+class SetupNotice(grok.View):
+    grok.context(oship)
+
+class ManageRxTerms(grok.View):
+    grok.context(oship)
+
+class ManageSMCT(grok.View):
+    grok.context(oship)
+
+class EditPySrc(grok.View):   
+    grok.context(oship)
+
             
 class Emptyar(grok.View):
     """Remove all the archetypes in the repository"""

@@ -1,11 +1,10 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
-  <title>OSHIP AQL Repository Management Interface - OSHIP Release 1.0a2</title>
+  <title>Editing Python Source Files</title>
 </head>
 
 <body>
-<br /><br />
 
 <table border="5" align="center">
 <tbody>
@@ -18,6 +17,6 @@
  </tbody>
 </table>
 
-<p><b>This will be the Archetype Query Repository Management Page.</b></p>
+<p><b>Instructions coming soon for Editing Python Source Files.</b></p>
 </body>
 </html>

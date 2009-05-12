@@ -1,18 +1,90 @@
-#, fuzzy
+# Albanian translation for oship
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the oship package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Development/Unknown\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: oship\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-03-26 13:09+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"PO-Revision-Date: 2009-03-11 23:33+0000\n"
+"Last-Translator: Gjergj Sheldija <gjergj.sheldija@gmail.com>\n"
+"Language-Team: Albanian <sq@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-05-12 12:40+0000\n"
+"X-Launchpad-Export-Date: 2009-05-12 12:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/oship/openehr/archetype.py:106
+msgid "List of all term codes in this archetype."
+msgstr "Listo te gjithe kodet e termave ne kete arketip."
+
+#: src/oship/openehr/archetype.py:1069
+msgid "Standard Equivalent"
+msgstr "Ekuivalenti standart"
+
+#: src/oship/openehr/archetype.py:1070
+msgid "Standard form of constraint."
+msgstr "Standart nga kushti."
+
+#: src/oship/openehr/archetype.py:1091
+msgid "Cardinality"
+msgstr "Kardinaliteti"
+
+#: src/oship/openehr/archetype.py:1092
+msgid "Cardinality of this attribute constraint."
+msgstr "Kardinaliteti i atributit te ketij kushti."
+
+#: src/oship/openehr/archetype.py:1136
+msgid "Reference"
+msgstr "Reference"
+
+#: src/oship/openehr/archetype.py:1137
+msgid "Reference to a constraint in the archetype ontology."
+msgstr "Reference ndah nje kushti ne ontologjike e arketipit."
+
+#: src/oship/openehr/archetype.py:1155
+msgid "Default Value"
+msgstr "Vlere standart"
+
+#: src/oship/openehr/archetype.py:1156
+msgid "A default value for this constraint object."
+msgstr "Vlere standart per kete objekt kusht."
+
+#: src/oship/openehr/archetype.py:1161
+msgid "Has Assumed Value"
+msgstr "Ka vlere"
+
+#: src/oship/openehr/archetype.py:1162
+msgid "True if there is an assumed value."
+msgstr "E vertete nqs ka nje vlere."
+
+#: src/oship/openehr/archetype.py:118
+msgid "Constraint Codes"
+msgstr "Kodet e kushteve."
+
+#: src/oship/openehr/archetype.py:119
+msgid "List of all constraint codes in this archetype."
+msgstr "Lista e te gjithe kodeve te kushteve ne kete arketip."
+
+#: src/oship/openehr/archetype.py:1190
+msgid "Object actually defining the constraint."
+msgstr "Objekti aktualisht i percaktuar ne kusht."
+
+#: src/oship/openehr/archetype.py:1211
+msgid "Alternatives"
+msgstr "Alternativat"
+
+#: src/oship/openehr/archetype.py:123
+msgid "Term Attribute Names"
+msgstr "Emri i atributit te termit"
+
+#: src/oship/openehr/archetype.py:131
+#: src/oship/openehr/archetype.py:795
+msgid "Parent"
+msgstr "Prind"
 
 #: src/oship/msw/createmsw.py:101
 msgid "Family"
@@ -187,77 +259,13 @@ msgstr ""
 msgid "Term Codes"
 msgstr ""
 
-#: src/oship/openehr/archetype.py:106
-msgid "List of all term codes in this archetype."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1069
-msgid "Standard Equivalent"
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1070
-msgid "Standard form of constraint."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1091
-msgid "Cardinality"
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1092
-msgid "Cardinality of this attribute constraint."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1136
-msgid "Reference"
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1137
-msgid "Reference to a constraint in the archetype ontology."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1155
-msgid "Default Value"
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1156
-msgid "A default value for this constraint object."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1161
-msgid "Has Assumed Value"
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1162
-msgid "True if there is an assumed value."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:118
-msgid "Constraint Codes"
-msgstr ""
-
 #: src/oship/openehr/archetype.py:1183
 msgid "True if any value of the type being constrained is allowed."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:119
-msgid "List of all constraint codes in this archetype."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1190
-msgid "Object actually defining the constraint."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1211
-msgid "Alternatives"
 msgstr ""
 
 #: src/oship/openehr/archetype.py:1212
 msgid ""
 "A list of alternative constraints for the single child of this attribute."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:123
-msgid "Term Attribute Names"
 msgstr ""
 
 #: src/oship/openehr/archetype.py:124
@@ -326,11 +334,6 @@ msgstr ""
 #: src/oship/openehr/archetype.py:1404
 #: src/oship/openehr/archetype.py:1610
 msgid "Timezone Validity"
-msgstr ""
-
-#: src/oship/openehr/archetype.py:131
-#: src/oship/openehr/archetype.py:795
-msgid "Parent"
 msgstr ""
 
 #: src/oship/openehr/archetype.py:132

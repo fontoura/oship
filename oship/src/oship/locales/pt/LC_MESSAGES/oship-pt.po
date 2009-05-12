@@ -1,18 +1,87 @@
-#, fuzzy
+# Portuguese translation for oship
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the oship package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Development/Unknown\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: oship\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-03-26 13:09+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"PO-Revision-Date: 2009-03-09 23:04+0000\n"
+"Last-Translator: Eduardo César <Unknown>\n"
+"Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-05-12 12:40+0000\n"
+"X-Launchpad-Export-Date: 2009-05-12 12:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/oship/openehr/archetype.py:1069
+msgid "Standard Equivalent"
+msgstr "Padrão Equivalente"
+
+#: src/oship/openehr/archetype.py:1091
+msgid "Cardinality"
+msgstr "Cardinalidade"
+
+#: src/oship/openehr/archetype.py:1136
+msgid "Reference"
+msgstr "Referência"
+
+#: src/oship/openehr/archetype.py:1155
+msgid "Default Value"
+msgstr "Valor padrão"
+
+#: src/oship/openehr/archetype.py:1161
+msgid "Has Assumed Value"
+msgstr "Possui o valor assumido"
+
+#: src/oship/openehr/archetype.py:1162
+msgid "True if there is an assumed value."
+msgstr "Verdadeiro se existe um valor assumido"
+
+#: src/oship/openehr/archetype.py:1211
+msgid "Alternatives"
+msgstr "Alternativas"
+
+#: src/oship/openehr/archetype.py:1259
+msgid "True Valid"
+msgstr "Verdadeiro Válido"
+
+#: src/oship/openehr/archetype.py:1260
+msgid "True if value True is allowed."
+msgstr "Verdadeiro se o valor Verdadeiro é permitido"
+
+#: src/oship/openehr/archetype.py:1265
+msgid "False Valid"
+msgstr "Falso Válido"
+
+#: src/oship/openehr/archetype.py:1266
+msgid "True if the value False is allowed."
+msgstr "Verdadeiro se o valor Falso é permitido"
+
+#: src/oship/openehr/archetype.py:1272
+msgid "The value to assume of this item is not included in the data."
+msgstr "O valor a assumir para este item não está incluído nos dados"
+
+#: src/oship/openehr/archetype.py:1294
+#: src/oship/openehr/archetype.py:1352
+msgid "Month Validity"
+msgstr "Validade Mensal"
+
+#: src/oship/openehr/archetype.py:1302
+#: src/oship/openehr/archetype.py:1360
+msgid "Day Validity"
+msgstr "Validade Diária"
+
+#: src/oship/openehr/archetype.py:1448
+msgid "Years Allowed"
+msgstr "Anos Permitidos"
+
+#: src/oship/openehr/archetype.py:1454
+msgid "Months Allowed"
+msgstr "Meses permitidos"
 
 #: src/oship/msw/createmsw.py:101
 msgid "Family"
@@ -191,44 +260,20 @@ msgstr ""
 msgid "List of all term codes in this archetype."
 msgstr ""
 
-#: src/oship/openehr/archetype.py:1069
-msgid "Standard Equivalent"
-msgstr ""
-
 #: src/oship/openehr/archetype.py:1070
 msgid "Standard form of constraint."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1091
-msgid "Cardinality"
 msgstr ""
 
 #: src/oship/openehr/archetype.py:1092
 msgid "Cardinality of this attribute constraint."
 msgstr ""
 
-#: src/oship/openehr/archetype.py:1136
-msgid "Reference"
-msgstr ""
-
 #: src/oship/openehr/archetype.py:1137
 msgid "Reference to a constraint in the archetype ontology."
 msgstr ""
 
-#: src/oship/openehr/archetype.py:1155
-msgid "Default Value"
-msgstr ""
-
 #: src/oship/openehr/archetype.py:1156
 msgid "A default value for this constraint object."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1161
-msgid "Has Assumed Value"
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1162
-msgid "True if there is an assumed value."
 msgstr ""
 
 #: src/oship/openehr/archetype.py:118
@@ -247,10 +292,6 @@ msgstr ""
 msgid "Object actually defining the constraint."
 msgstr ""
 
-#: src/oship/openehr/archetype.py:1211
-msgid "Alternatives"
-msgstr ""
-
 #: src/oship/openehr/archetype.py:1212
 msgid ""
 "A list of alternative constraints for the single child of this attribute."
@@ -262,31 +303,6 @@ msgstr ""
 
 #: src/oship/openehr/archetype.py:124
 msgid "List of attribute names in this archetype ontology."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1259
-msgid "True Valid"
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1260
-msgid "True if value True is allowed."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1265
-msgid "False Valid"
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1266
-msgid "True if the value False is allowed."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1272
-msgid "The value to assume of this item is not included in the data."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1294
-#: src/oship/openehr/archetype.py:1352
-msgid "Month Validity"
 msgstr ""
 
 #: src/oship/openehr/archetype.py:1295
@@ -314,11 +330,6 @@ msgstr ""
 #: src/oship/openehr/datatypes.py:554
 #: src/oship/openehr/openehrprofile.py:76
 msgid " "
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1302
-#: src/oship/openehr/archetype.py:1360
-msgid "Day Validity"
 msgstr ""
 
 #: src/oship/openehr/archetype.py:1309
@@ -356,16 +367,8 @@ msgstr ""
 msgid "Millisecond Validity"
 msgstr ""
 
-#: src/oship/openehr/archetype.py:1448
-msgid "Years Allowed"
-msgstr ""
-
 #: src/oship/openehr/archetype.py:1449
 msgid "True if years are allowed in the constrained duration."
-msgstr ""
-
-#: src/oship/openehr/archetype.py:1454
-msgid "Months Allowed"
 msgstr ""
 
 #: src/oship/openehr/archetype.py:1455

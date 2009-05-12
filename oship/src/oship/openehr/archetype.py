@@ -491,7 +491,7 @@ class IValidityKind(Interface):
 
 class ValidityKind(grok.Model):
     _(u"""
-    An enumeration of three values which may commonly occur in constrint models.
+    An enumeration of three values which may commonly occur in constraint models.
     Use to indicate the validity of date/Time fields etc.
     """)
     

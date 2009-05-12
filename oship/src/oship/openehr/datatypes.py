@@ -1993,7 +1993,7 @@ class ITermMapping(Interface):
     purpose = Object(
         schema=IDvCodedText,
         title = _(u"Purpose"),
-        description = _(u"""Purpose of the mapping e.g. "automated data mining", "billing", "interoperability"""),
+        description = _(u"""Purpose of the mapping e.g. "automated data mining", "billing", "interoperability" """),
         required = True
         )
     

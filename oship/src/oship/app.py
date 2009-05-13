@@ -57,11 +57,7 @@ class Index(grok.View):
     
 class OshipManage(grok.View):
     grok.context(oship)
-    
-    
-class SetupPage(grok.View):   
-    grok.context(oship)
-    
+        
 class Terms(grok.View):   
     grok.context(oship)
         
@@ -77,9 +73,6 @@ class ManageICD(grok.View):
 class ManageLOINC(grok.View):
     grok.context(oship)
     
-class SetupNotice(grok.View):
-    grok.context(oship)
-
 class ManageRxTerms(grok.View):
     grok.context(oship)
 
@@ -90,18 +83,6 @@ class EditPySrc(grok.View):
     grok.context(oship)
 
             
-class Emptyar(grok.View):
-    """Remove all the archetypes in the repository"""
-    
-    grok.context(oship)
-    
-    def render(self):
-        atnames=list(self.context['ar'].keys())
-
-        for x in atnames:
-            del self.context['ar'][x]
-            
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
 
 """
 Start the terminology import section

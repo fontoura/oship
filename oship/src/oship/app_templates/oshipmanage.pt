@@ -24,7 +24,10 @@
 <li>
 <strong>Initial Setup</strong>
 <ul>
-<li> Visit the <a href="setuppage">setup page</a> to prepare your OSHIP installation.</li>
+<li> The initial setup is performed when you first clicked on the oship link on the Grok applications page.<br />
+When you add ADL files for your application you will need to re-initialize OSHIP from the applications page.  Among other things, this
+creates your Python source code (in a kind of template style) for each of your archetypes.  Once you have edited these Python files they will need to be moved to their proper place in the Knowledge Module (km) directory tree.  Each time OSHIP is initialized it overwrites everything in the openehr/py_files subdirectory.  Please see the "OSHIP Application Developers Guide" for details.  
+</li>
 </ul>
 </li>
 <br />
@@ -51,17 +54,20 @@
 </ol>
 </td>
 <td width="50%">
+<ol>
+<li>Local Documentation</li><br />
+<ul>
+<li><a href="http://localhost:8080/docgrok/oship">OSHIP API</a> where you can browse the objects in OSHIP, including the bptrack demo.</li><br />
+<li><a href="http://localhost:8080/docgrok/">Grok & Zope APIs & the ZODB</a></li><br />
+</ul>
+<li>External Documentation</li><br />
 <ul>
 <li><a href="http://www.openehr.org/releases/1.0.2/roadmap.html">openEHR Specifications</a></li><br />
-<li><a href="http://localhost:8080/docgrok/oship">OSHIP API</a> where you can browse the objects in OSHIP</li><br />
 <li><a href="http://grok.zope.org/doc/current/index.html">Grok Documentation</a></li><br />
-<li><a href="http://localhost:8080/docgrok/grok">Grok API</a></li><br />
-<li><a href="http://localhost:8080/docgrok/zope">Zope API</a></li><br />
 <li><a href="http://grok.zope.org/doc/current/tutorial.html">Grok Tutorials</a></li><br />
-<li><a href="http://localhost:8080/manage">Object Database (ZMI)</a></li><br />
-<li>Inspect the contents AQL Repository (aql) and Terminology Server (termserver) 
-      <a href="http://localhost:8080/oship/@@inspect.html">here</a></li><br />
 </ul>
+
+</ol>
 </td>
 </tr>
 </table>

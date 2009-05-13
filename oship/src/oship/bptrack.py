@@ -226,7 +226,7 @@ class EncounterFooter(grok.ViewletManager):
     grok.name('encounterfooter')
     grok.context(bptrack)
     
-#Encounter header viewlets
+#Encounter viewlets
 class EncounterPageTitle(grok.Viewlet):
     grok.context(bptrack)
     grok.viewletmanager(EncounterHeader)

@@ -26,7 +26,7 @@ setup(name='oship',
                         # Add extra requirements here
                         'pyparsing',
                         'mglob',
-                        'ore.workflow'
+                        'hurry.workflow'
                         ],
       entry_points = """
       [console_scripts]

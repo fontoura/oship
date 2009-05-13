@@ -70,10 +70,32 @@ def CreatePy():
     print "ADL File count: ",count," in ",adlDir
     print "\n Placing Python source files in ", py_filesDir
 
+<<<<<<< TREE
     for fname in fnames:
         n+=1               
         print "\n\nProcessing # ",n,' of ',count,' --->',fname
         adlSource = file(fname).read()
+=======
+def CreateAT(fname):
+    """
+    Create parse results to send to the builder.
+    """
+    
+   
+    adlSource = file(fname).read()
+    file(fname).close()
+    try:
+        # parsed_adl is the returned ParseResults object
+        parsed_adl = adl_1_4.archetypeDefinition.parseString(adlSource)
+        print "\n\nPyparsing object: ", parsed_adl
+        print "\n\nDefinition: ",parsed_adl.definition
+        print "\n\nFlattened Definition: ", flatten(parsed_adl.definition)
+        
+        
+        item_name = repr(parsed_adl.archetype[1])
+    except ParseException: 
+        print "Parsing Failed!\n"
+>>>>>>> MERGE-SOURCE
         
         try:
             # parsed_adl is the returned ParseResults object
@@ -265,6 +287,7 @@ def bldArchetype(fname,parsed_adl):
         f.write("        termAvail=[]")
     
     # process termCodes - 
+<<<<<<< TREE
     #"""
     #In OSHIP we added the word 'bind' as a key to every entry in order to maintain a 
     #balanced structure for those that have term bindings and those that do not.  
@@ -279,6 +302,32 @@ def bldArchetype(fname,parsed_adl):
         for v in range(begin,end):
             if ontlist[v] in lang_list:
                 lang_point.append(v)
+=======
+    """
+    In OSHIP we added the word 'bind' as a key to every entry in order to maintain a 
+    balanced structure for those that have term bindings and those that do not.  
+    I find the word 'provenance as used in the specifications to be less than intuitive.  
+    """
+    itemlist=[]
+    for y in sections:    
+        if y[0]==u'term_definitions':      
+            ontlist=ontmap.items() 
+            try:
+                for x in ontlist:
+                    if x[1] in lang_list: # If it's a langugage change just enter it.
+                        itemlist.append(x[1]) 
+                    if x[1].startswith(u'at0'): # check to see if this is an at code. 
+                        n=x[0] # the index  number of this tuple
+                        
+                        if n > y[2]: 
+                            break # if we have reached the end of the section then leave.
+                        else:
+                            codeentry={x[1]:{ontlist[n+1][1]:ontlist[n+2][1],ontlist[n+3][1]:ontlist[n+4][1],u"bind":None}}
+                            #print "Code Entry = ",codeentry
+                            itemlist.append(codeentry)
+            except IndexError:
+                pass
+>>>>>>> MERGE-SOURCE
         
         f.write("        termCodes={") 
         for v in range(begin,end): # the range of the termcode section in ontlist
@@ -368,6 +417,7 @@ def bldArchetype(fname,parsed_adl):
         
            
     #process constraint bindings
+<<<<<<< TREE
 
     f.write('\n        # Constraint Binding Section \n')
     if sections.has_key(u'constraint_binding'):
@@ -428,6 +478,105 @@ def bldArchetype(fname,parsed_adl):
     return
 
  
+=======
+    itemlist=[]
+    binddict={}
+    for y in sections:    
+        if y[0]==u'constraint_binding':      
+            ontlist=ontmap.items() 
+            try:
+                for x in range(y[1],y[2]):
+                    if ontlist[x][1].startswith(u'ac0'): # check to see if this is an ac code.
+                        
+                        for y in constCodes:
+                            if isinstance(y,dict):
+                                #print y
+                                if y.has_key(ontlist[x][1]):
+                                    #constCodes[y][u'bind']=ontlist[x+1]
+                                    #print "Constraint code: ",ontlist[x][1]
+                                    print "\n"
+            except IndexError:
+                pass
+    
+    ontology=ArchetypeOntology(termAvail,specDepth,termCodes,constCodes,termAN,parent)    
+    return ontology
+
+   
+    
+    
+def bldDefinition(definlist,ontmap):
+    """Build a definition object using the ontmap to lookup the at & ac codes"""
+        
+    # flatten and unicode the nested input list.    
+    definlist=flatten(definlist)
+    defmap={}
+    
+    for index, item in enumerate(definlist):
+        defmap[index]=item
+        
+        
+    if "COMPOSITION" in defmap[0]:
+        bldComposition(defmap,ontmap)
+        
+    # add all the other possibilities here
+    
+        
+    #
+    #print "Ontology: ",ontmap   
+    #print "Definition: ",defmap  
+    
+    
+    return defmap
+    
+def bldSection(defmap,ontmap):
+    pass
+
+def bldComposition(defmap,ontmap):
+    pass
+
+def bldObservation(defmap,ontmap):
+    pass
+
+def bldItemTree(defmap,ontmap):
+    pass
+
+def bldAdminEntry(defmap,ontmap):
+    pass
+
+def bldAction(defmap,ontmap):
+    pass
+
+def bldEvaluation(defmap,ontmap):
+    pass
+
+def bldInstruction(defmap,ontmap):
+    pass
+
+def bldElement(defmap,ontmap):
+    pass
+
+def bldCluster(defmap,ontmap):
+    pass
+
+def bldEvent(defmap,ontmap):
+    pass
+
+def bldAddress(defmap,ontmap):
+    pass
+
+def bldDescription(desclist):
+    """Build a description object"""
+    
+    desclist=flatten(desclist)
+    descmap={}
+    for index, item in enumerate(desclist):
+        descmap[index]=item
+
+    return descmap
+    
+
+
+>>>>>>> MERGE-SOURCE
 def flatten(x):
     """flatten(sequence) -> list
 
@@ -449,9 +598,15 @@ def flatten(x):
     rtnlist=[]
     for x in result:
         if isinstance(x,str):
+<<<<<<< TREE
             # replace any brackets so Python doesn't think it's a list and we still havea seperator.
             x=x.replace('[','_')
             x=x.replace(']','_')
+=======
+            # replace any brackets with underscores so Python doesn't thnk it's a list and we still havea seperator.
+            x=x.replace('[',' ')
+            x=x.replace(']',' ')
+>>>>>>> MERGE-SOURCE
             try:
                 x=unicode(x, "utf8")  # need more decode types here
             except UnicodeDecodeError:

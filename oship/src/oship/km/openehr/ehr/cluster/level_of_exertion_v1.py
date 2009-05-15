@@ -41,19 +41,19 @@ class LevelOfExertionV1(Archetype):
         # Terminologies Available Section 
         termAvail=[]
         # Term Code Section (note that there is a bug in atbldr that always cutsoff the last description of termCodes)
-        termCodes={u'en':{        u'at0000':[u'text',u'Level of Exertion',u'description',u'Record information about level of exertion'],\
-        u'at0005':[u'text',u'Measured',u'description',u'The measured level of exertion'],\
-        u'at0006':[u'text',u'At rest',u'description',u'The person is at rest, prior to undertaking exercise'],\
-        u'at0007':[u'text',u'During exertion',u'description',u'The person is exerting themselves at the time'],\
-        u'at0008':[u'text',u'Post-exertion',u'description',u'Measurement is taken after exertion has ceased'],\
-        u'at0009':[u'text',u'Phase',u'description',u'The phase or context of exercise'],\
-        u'at0010':[u'text',u'Exercise intensity',u'description',u'Amount of work being done during exercise'],\
-        u'at0011':[u'text',u'Intensity',u'description',u'Semiquantitative description of the intensity of exercise undertaken'],\
-        u'at0012':[u'text',u'Low Intensity',u'description',u'Up to 80% Maximal Heart Rate'],\
-        u'at0013':[u'text',u'Medium Intensity ',u'description',u'80-85% of Maximal Heart Rate'],\
-        u'at0014':[u'text',u'High Intensity ',u'description',u'85-90% Maximal Heart Rate'],\
-        u'at0015':[u'text',u'Flat Out ',u'description',u'90-100% Maximal Heart Rate'],\
-        u'at0016':[u'text',u'Description',u'description',]}}
+        termCodes={u'en':{        u'at0000':[_(u'text'),_(u'Level of Exertion'),_(u'description'),_(u'Record information about level of exertion')],\
+        u'at0005':[_(u'text'),_(u'Measured'),_(u'description'),_(u'The measured level of exertion')],\
+        u'at0006':[_(u'text'),_(u'At rest'),_(u'description'),_(u'The person is at rest, prior to undertaking exercise')],\
+        u'at0007':[_(u'text'),_(u'During exertion'),_(u'description'),_(u'The person is exerting themselves at the time')],\
+        u'at0008':[_(u'text'),_(u'Post-exertion'),_(u'description'),_(u'Measurement is taken after exertion has ceased')],\
+        u'at0009':[_(u'text'),_(u'Phase'),_(u'description'),_(u'The phase or context of exercise')],\
+        u'at0010':[_(u'text'),_(u'Exercise intensity'),_(u'description'),_(u'Amount of work being done during exercise')],\
+        u'at0011':[_(u'text'),_(u'Intensity'),_(u'description'),_(u'Semiquantitative description of the intensity of exercise undertaken')],\
+        u'at0012':[_(u'text'),_(u'Low Intensity'),_(u'description'),_(u'Up to 80% Maximal Heart Rate')],\
+        u'at0013':[_(u'text'),_(u'Medium Intensity '),_(u'description'),_(u'80-85% of Maximal Heart Rate')],\
+        u'at0014':[_(u'text'),_(u'High Intensity '),_(u'description'),_(u'85-90% Maximal Heart Rate')],\
+        u'at0015':[_(u'text'),_(u'Flat Out '),_(u'description'),_(u'90-100% Maximal Heart Rate')],\
+        u'at0016':[_(u'text'),_(u'Description'),_(u'description'),_()]}}
 
         # Constraint Code Section 
         constCodes={}

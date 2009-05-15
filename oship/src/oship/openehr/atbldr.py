@@ -293,16 +293,16 @@ def bldArchetype(fname,parsed_adl):
                     else:    
                         if ontlist[v] != u'items':
                             if ontlist[v][0:2]=='at':
-                                f.write('        '+repr(ontlist[v])+':[')
+                                f.write('        '+repr(ontlist[v])+':[_(')
                             elif ontlist[v+1][0:2]=='at':
-                                f.write(repr(ontlist[v])+'],\\\n')
+                                f.write(repr(ontlist[v])+')],\\\n')
                              
                             else:
-                                f.write(repr(ontlist[v])+',')
+                                f.write(repr(ontlist[v])+'),_(')
                 except IndexError:
                     break # we're at the end
                     
-        f.write("]}}\n")
+        f.write(")]}}\n")
     else:
         f.write("        termCodes={}")
 

@@ -4,6 +4,7 @@
 import grok
 import datetime
 from zope.interface import implements
+from zope.i18nmessageid import MessageFactory
 from oship.openehr.archetype import *
 from oship.openehr.common import *
 from oship.openehr.datastructure import *
@@ -16,6 +17,8 @@ from oship.openehr.openehrprofile import *
 from oship.openehr.sm import *
 from oship.openehr.support import *
 
+_ = MessageFactory('oship')
+
 class EncounterV1(Archetype):
 
     implements(IArchetype)
@@ -25,7 +28,7 @@ class EncounterV1(Archetype):
         self.archetypeId = ArchetypeId(ObjectId(u'openEHR-EHR-COMPOSITION.encounter.v1'))
         self.concept = u'at0000'
         self.parentArchetypeId=ArchetypeId(ObjectId(u''))
-        
+
         # Create the description components.
         self.originalLanguage=CodePhrase(u'ISO_639-1',u'en')
         self.translationDetails=None # needs to be completed in atbldr
@@ -38,7 +41,7 @@ class EncounterV1(Archetype):
         # Terminologies Available Section 
         termAvail=[]
         # Term Code Section (note that there is a bug in atbldr that always cutsoff the last description of termCodes)
-        termCodes={u'en':{u'at0000':[u'text',u'Encounter',u'description',]}}
+        termCodes={u'en':{        u'at0000':[_(u'text'),_(u'Encounter'),_(u'description'),_()]}}
 
         # Constraint Code Section 
         constCodes={}
@@ -50,21 +53,17 @@ class EncounterV1(Archetype):
 
         # Definition Section Begins Here. We build it from the leaf nodes up.
 
-        defining_code=CodePhrase(u'openehr',u'433')
-        value=u'openehr::433'
-        category=DvCodedText(definingCode,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None)
-        content=[] # we will append our data here during runtime.
-        context=None #optional EventContext instance.
-        composer=PartySelf() # any PartyProxy descendent 
-        lang=CodePhrase(u'ISO_639-1',u'en')
-        terr=CodePhrase(u'ISO_639-1',u'en-us')
-        uid=None
+        #Length of DefinList= 12
+        #u'433'
+        #u'openehr::'
+        #u'defining_code'
+        #1
+        #u'..'
+        #1
+        DvCodedText(definingCode,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None)
+        #u'category'
+        #1
+        #u'..'
+        #1
         nodeid=u'at0000'
-        name=DvText(u"Encounter")
-        atdetails=None
-        fdraudit=None
-        links=None
-        
         self.definition=Composition(content,context,composer,category,lang,terr,uid,nodeid,name,atdetails,fdraudit,links)
-        
-        

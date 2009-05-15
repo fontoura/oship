@@ -41,19 +41,19 @@ class DeviceV1(Archetype):
         # Terminologies Available Section 
         termAvail=[]
         # Term Code Section (note that there is a bug in atbldr that always cutsoff the last description of termCodes)
-        termCodes={u'en':{        u'at0000':[u'text',u'Device details',u'description',u'The details of the device used'],\
-        u'at0001':[u'text',u'Name',u'description',u'The name of the device'],\
-        u'at0002':[u'text',u'Description',u'description',u'Description of the device'],\
-        u'at0003':[u'text',u'Manufacturer',u'description',u'The name of the manufacturer'],\
-        u'at0004':[u'text',u'Manufacturer details',u'description',u'Information about the manufacture of the device'],\
-        u'at0005':[u'text',u'Model',u'description',u'The model of the device'],\
-        u'at0006':[u'text',u'Serial number',u'description',u'The serial number of the device'],\
-        u'at0007':[u'text',u'Components',u'description',u'Information about the device components'],\
-        u'at0008':[u'text',u'Servicing',u'description',u'Details of servicing'],\
-        u'at0009':[u'text',u'Date last serviced',u'description',u'The date the device was last serviced'],\
-        u'at0010':[u'text',u'Date last calibration',u'description',u'Date the device was last calibrated'],\
-        u'at0011':[u'text',u'Serviced by',u'description',u'Agent performed the servicing'],\
-        u'at0012':[u'text',u'Components',u'description',]}}
+        termCodes={u'en':{        u'at0000':[_(u'text'),_(u'Device details'),_(u'description'),_(u'The details of the device used')],\
+        u'at0001':[_(u'text'),_(u'Name'),_(u'description'),_(u'The name of the device')],\
+        u'at0002':[_(u'text'),_(u'Description'),_(u'description'),_(u'Description of the device')],\
+        u'at0003':[_(u'text'),_(u'Manufacturer'),_(u'description'),_(u'The name of the manufacturer')],\
+        u'at0004':[_(u'text'),_(u'Manufacturer details'),_(u'description'),_(u'Information about the manufacture of the device')],\
+        u'at0005':[_(u'text'),_(u'Model'),_(u'description'),_(u'The model of the device')],\
+        u'at0006':[_(u'text'),_(u'Serial number'),_(u'description'),_(u'The serial number of the device')],\
+        u'at0007':[_(u'text'),_(u'Components'),_(u'description'),_(u'Information about the device components')],\
+        u'at0008':[_(u'text'),_(u'Servicing'),_(u'description'),_(u'Details of servicing')],\
+        u'at0009':[_(u'text'),_(u'Date last serviced'),_(u'description'),_(u'The date the device was last serviced')],\
+        u'at0010':[_(u'text'),_(u'Date last calibration'),_(u'description'),_(u'Date the device was last calibrated')],\
+        u'at0011':[_(u'text'),_(u'Serviced by'),_(u'description'),_(u'Agent performed the servicing')],\
+        u'at0012':[_(u'text'),_(u'Components'),_(u'description'),_()]}}
 
         # Constraint Code Section 
         constCodes={}

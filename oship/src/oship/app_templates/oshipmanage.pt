@@ -60,6 +60,10 @@ creates your Python source code (in a kind of template style) for each of your a
 <li><a href="http://localhost:8080/docgrok/oship">OSHIP API</a> where you can browse the objects in OSHIP, including the bptrack demo.</li><br />
 <li><a href="http://localhost:8080/docgrok/">Grok & Zope APIs & the ZODB</a></li><br />
 </ul>
+<ul>
+<li>Application Developer's Guide (PDF format) is in the oship/docs directory.</li><br />
+</ul>
+
 <li>External Documentation</li><br />
 <ul>
 <li><a href="http://www.openehr.org/releases/1.0.2/roadmap.html">openEHR Specifications</a></li><br />

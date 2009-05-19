@@ -270,7 +270,7 @@ def bldArchetype(fname,parsed_adl):
     #balanced structure for those that have term bindings and those that do not.  
     #I find the word 'provenance as used in the specifications to be less than intuitive.  
     #"""
-    f.write('\n        # Term Code Section (note that there is a bug in atbldr that always cutsoff the last description of termCodes)\n')
+    f.write('\n        # Term Code Section \n')
     if sections.has_key(u'term_definitions'):
         begin=sections[u'term_definitions'][0]+1 # first location past the keyword
         end=sections[u'term_definitions'][1]
@@ -287,9 +287,10 @@ def bldArchetype(fname,parsed_adl):
             else:
                 try:
                     if ontlist[v+1] in lang_list: #is the next entry a new language?
-                        #print "lang code: ",ontlist[v+1]
-                         
-                        f.write(repr(ontlist[v])+']}},\\\n        {')
+                        if ontlist[v+1] == u'en': 
+                            f.write(repr(ontlist[v])+')]}}\n\n')
+                        else:
+                            f.write(repr(ontlist[v])+')]}}\n\n #REMOVE THIS LANGUAGE - This is where the PO file utility needs to be called. \n        {')
                     else:    
                         if ontlist[v] != u'items':
                             if ontlist[v][0:2]=='at':

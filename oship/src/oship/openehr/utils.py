@@ -23,4 +23,4 @@ def Languages(): # enter the language codes into this list for your application(
     """
     
     
-    return [u"en"]
+    return [u"en",u"fr",u"de",u"ja",u"zh-cn"]

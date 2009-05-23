@@ -1,7 +1,7 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
-  <title>OSHIP Demo Applications Interface - OSHIP Release 1.0a2</title>
+  <title>OSHIP Demo Applications Interface</title>
 </head>
 
 <body>
@@ -17,7 +17,6 @@
  </tbody>
 </table>
 
-<p>Return to the <a  href="http://localhost:8080/oship">OSHIP Management Interface</a></p>
 <ul>
 <h3>Add Blood Pressure Tracking Demo</h3>
 <li> Go back to the <a href="http://localhost:8080/applications">applications page</a> and enter 'bptrack' in the oship.bptrack.bptrack box.<br />Then click theBACK button on your browser to return here.</li><br />
@@ -26,6 +25,7 @@
 </ul>
 
 
+<p>Return to the <a  href="http://localhost:8080/oship/oshipmanage">OSHIP Management Interface</a></p>
 
 </body>
 </html>

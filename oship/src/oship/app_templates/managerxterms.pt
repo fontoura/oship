@@ -27,6 +27,7 @@ You must have a login at the UMLS site to get these files.</p>
 <p>
 Unzip the files and with the .RRF extension and place them in the oship/src/oship/rxterms directory.  <i>We will soon have full import functionality for these.</i>
 </p>
+<p>Return to the <a  href="http://localhost:8080/oship/oshipmanage">OSHIP Management Interface</a></p>
 
 </body>
 </html>

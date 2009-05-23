@@ -5,9 +5,9 @@ Do a functional doctest test on the app.
 
 Let's first create an instance of Oship at the top level:
 
-   >>> from oship.app import Oship
+   >>> from oship.app import oship
    >>> root = getRootFolder()
-   >>> root['app'] = Oship()
+   >>> root['app'] = oship()
 
 
 Run tests in the testbrowser
@@ -22,11 +22,11 @@ Create a browser and visit the instance you just created:
 
    >>> from zope.testbrowser.testing import Browser
    >>> browser = Browser()
-   >>> browser.open('http://localhost/app')
+   >>> browser.open('http://localhost:8080/oship')
 
 Check some basic information about the page you visit:
 
    >>> browser.url
-   'http://localhost/app'
+   'http://localhost:8080/oship'
    >>> browser.headers.get('Status').upper()
    '200 OK'

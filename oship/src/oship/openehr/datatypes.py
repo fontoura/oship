@@ -65,14 +65,15 @@ class IDvText(Interface):
     value = TextLine(
         title = _(u"Value"),
         description = _(u"""Displayable rendition of the item, regardless of its underlying structure. For DV_CODED_TEXT, this is the rubric of the complete term as provided by the terminology service. No carriage returns, line feeds, or other non-printing characters permitted."""),
+        required=True
     )
     
     mappings=List(
-        value_type=Object(schema=IObjectRef),
+        value_type=Object(schema=ITermMapping),
         title = _(u"Mappings"),
         description = _(u"""A list of MappingTerm,terms from other terminologies most closely matching this term, typically used where the originator (e.g.   pathology lab) of information uses a local terminology but also supplies one or more equivalents from wellknown terminologies (e.g. LOINC). The list contents should be of the type TermMapping"""),
         required = False,
-        )
+    )
     
     formatting = Text(
         title = _(u"Formatting"),
@@ -189,10 +190,8 @@ class DataValue(grok.Model):
     """
     
     implements(IDataValue)
+    pass
 
-    #def __init_(self,**kw):
-        #Field.__init__(self,**kw)
-        
 
 class IDvBoolean(Interface):
     """
@@ -206,6 +205,7 @@ class IDvBoolean(Interface):
         description = _(u"The boolean value of this item."),
         required = True,
     )
+    
 class DvBoolean(DataValue):
     """ 
     Items which are truly boolean data, such as true/false or yes/no answers.
@@ -226,9 +226,7 @@ class DvBoolean(DataValue):
 
     implements(IDvBoolean)
 
-    def __init__(self, value,**kw):
-        Field.__init__(self,**kw)
-               
+    def __init__(self,value):
         self.value=Bool(value)
         
 class IDvIdentifier(Interface):
@@ -249,7 +247,7 @@ class IDvIdentifier(Interface):
         title = _(u"Issuer"),
         description = _(u"""Authority which issues the kind of id used in the id field  
                       of this object."""),
-        
+        required = True
         )
     
     assignor = Text(
@@ -340,8 +338,7 @@ class DvState(DataValue):
 
     implements(IDvState)
     
-    def __init__(self, value, isTerminal,**kw):
-        Field.__init__(self,**kw)
+    def __init__(self, value, isTerminal):
         self.value=value
         self.isTerminal=isTerminal
         
@@ -667,7 +664,7 @@ class IDvOrdered(Interface):
         """
     
  
-class DvOrdered(DataValue):
+class DvOrdered(DataValue,Orderable):
     """
     Purpose:           
     Abstract class defining the concept of ordered values, which includes ordinals as
@@ -686,8 +683,6 @@ class DvOrdered(DataValue):
     implements(IDvOrdered)
     
     def __init__(self, normalRange, otherReferenceRanges, normalStatus):
-
-        
         self.normalRange = normalRange
         self.otherReferenceRanges = otherReferenceRanges
         self.normalStatus = normalStatus
@@ -1172,62 +1167,6 @@ class IDvOrdinal(Interface):
         Result
         """
         
-    """
-    Models rankings and scores, e.g. pain, Apgar values, etc, where there is a)
-    implied ordering, b) no implication that the distance between each value is con-
-    stant, and c) the total number of values is finite.
-
-    Used for recording any clinical datum which is customarily recorded using sym-
-    bolic values. Example: the results on a urinalysis strip, e.g. {neg, trace, +,
-    ++, +++} are used for leucocytes, protein, nitrites etc; for non-haemolysed
-    blood {neg, trace, moderate}; for haemolysed blood {neg, trace,
-    small, moderate, large}.
-    """
-    
-    value = Int(
-        title=_(u"value"),
-        description=_(u""" Ordinal position in enumeration of values. """),
-        required=True
-    )
-    
-    symbol = Field(
-        #schema=IDvCodedText,
-        title=_(u"symbol"),
-        description=_(u"""Coded textual representation of this 
-                       value in the enumeration, which may be strings made from "+" symbols, 
-                       or other enumerations of terms such as "mild", "moderate", "severe",
-                       or even the same number series as the values,
-                       e.g. "1", "2", "3". Codes come from archetype."""),
-        required=True
-    )
-
-
-    def limits():
-        """
-        limits of the ordinal enumeration, to allow
-        comparison of an ordinal value to its limits.
-        Returns DvOrdinal.
-        """
-
-    def isStrictlyComparableTo(self, other):
-        """        
-        True if symbols come from same vocabulary,assuming the vocabulary is a 
-        subset or value range, e.g. urine:protein.
-        
-        (other: like Current): Boolean 
-        ensure
-        symbol.is_comparable (other.symbol) implies Result
-        """
-        
-        
-    def compareTo(self, dvOrdinal):
-        u"""True if types are the same and values compare
-        infix '<' (other: like Current):
-        Boolean
-        ensure
-        value<other.values implies
-        Result
-        """
         
 class DvOrdinal(DvOrdered):
     u"""
@@ -1245,7 +1184,6 @@ class DvOrdinal(DvOrdered):
     implements(IDvOrdinal)
     
     def __init__(self,value,symbol, normalRange, otherReferenceRanges, normalStatus):
-        
         self.value=value
         self.symbol=symbol
         self.normalRange = normalRange
@@ -1279,10 +1217,6 @@ class DvOrdinal(DvOrdered):
             return True
         else:
             return False
-        
-            
-                
-            
         
 
     def isStrictlyComparableTo(self, other):
@@ -1629,12 +1563,9 @@ class ReferenceRange(DvOrdered):
     
     implements(IReferenceRange)
     
-    def __init__(self, meaning, range):
-        
-
+    def __init__(self,meaning,range):
         self.meaning = meaning
         self.range = range
-
 
     def isInRange(val):
         """
@@ -1927,7 +1858,6 @@ class DvText(DataValue):
     implements(IDvText)
     
     def __init__(self, value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None):
-        
         self.value = value
         self.mappings = mappings
         self.formatting = formatting
@@ -1983,8 +1913,7 @@ class DvCodedText(DvText):
     implements(IDvCodedText)
     
     def __init__(self, definingCode,value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None):
-        DvText.__init__(self, value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None)
-
+        DvText.__init__(self,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None)
         self.definingCode=definingCode
 
 class IDvParagraph(Interface):
@@ -2018,7 +1947,6 @@ class DvParagraph(DataValue):
     implements(IDvParagraph)
     
     def __init__(self,items):
-        
         self.items=items                
     
                 
@@ -2041,7 +1969,7 @@ class ITermMapping(Interface):
         schema=ICodePhrase,
         title = _(u"Target"),
         description = _(u"""The target term of the mapping as a CodePhrase."""),
-        
+        required = True
         )
     
     match = TextLine(
@@ -2054,7 +1982,7 @@ class ITermMapping(Interface):
         schema=IDvCodedText,
         title = _(u"Purpose"),
         description = _(u"""Purpose of the mapping e.g. "automated data mining", "billing", "interoperability" """),
-        required = True
+        required=False
         )
     
     def narrower():
@@ -2089,8 +2017,6 @@ class TermMapping(DataValue):
     implements(ITermMapping)
     
     def __init__(self,target,match,purpose):
-        
-
         self.target = target       
         self.purpose = purpose
         if match in ['<','>','=','?']:
@@ -2112,7 +2038,7 @@ class TermMapping(DataValue):
         return self.match == '?'
     
     def isValidMatchCode(match):
-        " I see no purpose in this function. twc"
+        " I see no purpose in this method. twc"
         return match in ['<','>','=','?']
 
     

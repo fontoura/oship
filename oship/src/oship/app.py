@@ -26,21 +26,18 @@ class Index(grok.View):
     
     # Create the containers and initial python sourcee templates for the archetypes   
     def render(self):
-
         logfile=os.getcwd()+'/src/oship/openehr/py_files/pyfile_build.log'
         #create the logfile if it doesn't exist
         f=open(logfile,'w')
         f.write("Python source file log.\n\n")
-        f.close()
         
         logging.basicConfig(level=logging.INFO,
                             format='%(asctime)s %(levelname)s %(message)s',
-                            filename=logfile,
+                            filename=f,
                             filemode='w')
 
 
         try:
-            #self.context['ar'] = grok.Container() # archetype repository
             self.context['termserver'] = grok.Container() # terminology server
             self.context['aql'] = grok.Container() # AQL repository
         except DuplicationError:
@@ -118,7 +115,7 @@ class ImportOE(grok.View):
             x+=1
                     
         print "\n\nOpenEHR Terminology Import Complete"
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+        self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
 
 class ImportRxTerms(grok.View):
     """Import the RxTerms vocabulary into the term server."""

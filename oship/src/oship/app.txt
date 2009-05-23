@@ -23,10 +23,11 @@ Create a browser and visit the instance you just created:
    >>> from zope.testbrowser.testing import Browser
    >>> browser = Browser()
    >>> browser.open('http://localhost:8080/oship')
+   >>> browser.open('http://localhost:8080/oship/oshipmanage')
 
 Check some basic information about the page you visit:
 
    >>> browser.url
-   'http://localhost:8080/oship'
+   'http://localhost:8080/oship/oshipmanage'
    >>> browser.headers.get('Status').upper()
    '200 OK'

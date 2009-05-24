@@ -656,7 +656,7 @@ class IExprLeaf(Interface):
     
     item=Field(
         title=_(u"Item"),
-        description=_(u"The value refered to."),
+        description=_(u"The value refered to. Any type."),
         
     )
 
@@ -1000,7 +1000,7 @@ class ICDefinedObject(Interface):
     
     assumedValue=Field(
         title=_(u"Assumed Value"),
-        description=_(u"Value to be assumed if none sent in data."),
+        description=_(u"Value to be assumed if none sent in data. Any Type."),
         required=False,
     )
 
@@ -1151,7 +1151,7 @@ class ICPrimitive(Interface):
 
     defaultValue=Field(
         title=_(u"Default Value"),
-        description=_(u"A default value for this constraint object."),
+        description=_(u"A default value for this constraint object. Any Type"),
 
     )
 
@@ -1162,7 +1162,8 @@ class ICPrimitive(Interface):
     )
     
     assumedValue=Field(
-        title=_("Assumed Value"),
+        title=_(u"Assumed Value"),
+        description=_(u"Generate a default value. Any Type.")
     )
     
 

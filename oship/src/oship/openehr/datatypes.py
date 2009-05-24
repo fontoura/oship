@@ -16,7 +16,7 @@ The basic openEHR data types. From the data types specification Rev 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface,implements
+from zope.interface import Interface,implements,providedBy
 from zope.i18nmessageid.message import MessageFactory 
 from zope.schema import Text,Bool,TextLine,Int,Field,BytesLine,Float,List,URI,Orderable,Choice,Object
 from zope.app.file.image import Image
@@ -334,8 +334,6 @@ class DvIdentifier(DataValue):
     implements(IDvIdentifier)
     
     def __init__(self, issuer, assignor, id, type):
-        Field.__init__(self,**kw)
-        
         self.issuer=issuer
         self.assignor=assignor
         self.id=id
@@ -352,7 +350,8 @@ class IDvState(Interface):
     plex processes in simple data.
     """
     
-    value = TextLine(
+    value = Object(
+        schema=IDvCodedText,
         title = _(u"value"),
         description = _(u"""The state name. State names are determined by a state/event 
                       table defined in archetypes, and coded using openEHR Terminology 
@@ -363,8 +362,7 @@ class IDvState(Interface):
                       is DvStateParser() and it may be called anywhere in the application
                       that the developer needs to know the current available states.
                       It returns a DvCodedText type.
-                      """),
-        
+                      """)        
         )
     
     isTerminal = Bool(
@@ -376,8 +374,10 @@ class IDvState(Interface):
                       """),
         
         )
+            
     
-
+    
+    
 class DvState(DataValue):
     """
     For representing state values which obey a defined state machine, such as a vari-

@@ -843,7 +843,7 @@ class IVersion(Interface):
     
     data = Field(
         title=_(u'Data'),
-        description=_(u"""Original content of this Version."""),
+        description=_(u"""Original content of this Version. Any Type."""),
         required=False,
         )
     

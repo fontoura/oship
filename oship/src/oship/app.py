@@ -26,7 +26,7 @@ class Index(grok.View):
     
     # Create the containers and initial python sourcee templates for the archetypes   
     def render(self):
-        logfile=os.getcwd()+'/src/oship/openehr/py_files/pyfile_build.log'
+        logfile=os.getcwd()+'/parts/log/pyfile_build.log'
         #create the logfile if it doesn't exist
         f=open(logfile,'w')
         f.write("Python source file log.\n\n")

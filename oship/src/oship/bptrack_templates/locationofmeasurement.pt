@@ -1,0 +1,12 @@
+<p />Location of measurement:<br>
+<select name="locationofmeasurement">
+<option value="at0025">Right arm</option>
+<option value="at0026">Left arm</option>
+<option value="at0027">Right thigh</option>
+<option value="at0028">Left thigh</option>
+<option value="at1020">Right wrist</option>
+<option value="at1021">Left wrist</option>
+<option value="at1026">Finger</option>
+<option value="at1031">Right ankle</option>
+<option value="at1032">Left ankle</option>
+</select>

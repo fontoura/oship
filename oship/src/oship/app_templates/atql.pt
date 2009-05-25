@@ -1,10 +1,10 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css">
-  <title>OSHIP AQL Repository Management Interface - OSHIP Release 1.0a2</title>
+  <link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
+  <title>OSHIP AQL Repository Management Interface</title>
 </head>
 
-<body bgcolor="#eaeae5">
+<body>
 <br /><br />
 
 <table border="5" align="center">
@@ -19,5 +19,9 @@
 </table>
 
 <p><b>This will be the Archetype Query Repository Management Page.</b></p>
+
+
+<p>Return to the <a  href="http://localhost:8080/oship/oshipmanage">OSHIP Management Interface</a></p>
+
 </body>
 </html>

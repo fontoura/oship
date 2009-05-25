@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
-# Redistribution and use are governed by the Mozilla Public License Version 1.1 - see docs/OSHIP-LICENSE.txt
+# Redistribution and use are governed by the MPL license.
 #
 # Use and/or redistribution of this file assumes you have read and accepted the
 # terms of the license.
@@ -368,7 +368,7 @@ class Pathable(grok.Model):
     as a function or attribute.
     
     The two attributes required for locatable in ZCA is __parent__ and __name__.  
-    We inherit those from Location.
+    We inherit those from grok.Model
     
     The functionality to get paths and find children is contained in the traversal mechanism.
     """
@@ -511,8 +511,7 @@ class Locatable(Pathable):
 
     implements(ILocatable)
     
-    def __init__(self,uid,atnodeid,name,atdetails,fdraudit,links):
-        self.__name__=atnodeid #inherited from grok.Model
+    def __init__(self,uid,nodeid,name,atdetails,fdraudit,links):
         self.uid=uid
         self.archetypeNodeId=atnodeid
         self.name=name
@@ -844,7 +843,7 @@ class IVersion(Interface):
     
     data = Field(
         title=_(u'Data'),
-        description=_(u"""Original content of this Version."""),
+        description=_(u"""Original content of this Version. Any Type."""),
         required=False,
         )
     
@@ -1807,7 +1806,7 @@ class ITranslationDetails(Interface):
 class IResourceDescription(Interface):
     u"""Defines the descriptive meta-data of a resource."""
     
-    originalAuthor=Dict(
+    originalAuthor=List(
         title=_(u'Original Author'),
         description=_(u""""""),
         required=True
@@ -1826,7 +1825,7 @@ class IResourceDescription(Interface):
         required=True
     )
     
-    details=Dict(
+    details=List(
         title=_(u'Details'),
         description=_(u""""""),
         required=True
@@ -1838,7 +1837,7 @@ class IResourceDescription(Interface):
         required=False
     )
     
-    otherDetails=Dict(
+    otherDetails=List(
         title=_(u'Other Details'),
         description=_(u""""""),
         required=False
@@ -1854,11 +1853,11 @@ class IResourceDescription(Interface):
 class IAuthoredResource(Interface):
     u"""Abstract idea of an online resource created by a human author. """
     
-    orignialLanguage=Object(
+    originalLanguage=Object(
         schema=ICodePhrase,
         title=_(u"Original Language"),
         description=_(u"""Original Language"""),
-        required=True
+        required=False
     )
        
     translations=Object(
@@ -1886,7 +1885,7 @@ class IAuthoredResource(Interface):
     isControlled=Bool(
         title=_(u"Is Controlled"),
         description=_(u""""""),
-        required=True
+        required=False
     )
     
     def currentRevision():
@@ -1902,13 +1901,12 @@ class AuthoredResource(grok.Model):
     
     implements(IAuthoredResource)
     
-    
-    def __init__(self, olang,trans,descr,revhist,ctrld):
-        self.originalLanguage=olang
-        self.translations=trans
-        self.description=descr
-        self.revisionHistory=revhist
-        self.isControlled=ctrld
+
+    originalLanguage=None
+    translations=None
+    description=None
+    revisionHistory=None
+    isControlled=None
 
     def currentRevision():
         u""" """

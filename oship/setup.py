@@ -1,19 +1,19 @@
 from setuptools import setup, find_packages
 
-version = '1.0a2'
+version = '1.0-oshipdemo'
 
 setup(name='oship',
     version=version,
-    description="",
-    long_description="""\
+    description="Open Source Health Information Platform",
+    long_description=""" A Python implementation of the openEHR information model.\
 """,
       # Get strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[], 
-      keywords="",
-      author="",
-      author_email="",
-      url="",
-      license="",
+      keywords="health medical informatics Python healthcare",
+      author="Timothy W. Cook & contributors",
+      author_email="timothywayne.cook@gmail.com",
+      url="http://launchpad.net/oship",
+      license="MPL1.1 tri-license",
       package_dir={'': 'src'},
       packages=find_packages('src'),
       include_package_data=True,
@@ -25,7 +25,9 @@ setup(name='oship',
                         'grokcore.startup',
                         # Add extra requirements here
                         'pyparsing',
-                        'mglob'
+                        'mglob',
+                        'hurry.workflow',
+                        'megrok.kss' 
                         ],
       entry_points = """
       [console_scripts]

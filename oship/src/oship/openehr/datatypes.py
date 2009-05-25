@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
-# Redistribution and use are governed by the Mozilla Public License Version 1.1 - see docs/OSHIP-LICENSE.txt 
+# Redistribution and use are governed by the MPL license. 
 #
 # Use and/or redistribution of this file assumes you have read and accepted the
 # terms of the license.
@@ -16,7 +16,7 @@ The basic openEHR data types. From the data types specification Rev 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface,implements
+from zope.interface import Interface,implements,providedBy
 from zope.i18nmessageid.message import MessageFactory 
 from zope.schema import Text,Bool,TextLine,Int,Field,BytesLine,Float,List,URI,Orderable,Choice,Object
 from zope.app.file.image import Image
@@ -51,6 +51,79 @@ class ICodePhrase(Interface):
         required = True
         )
 
+  
+class IDvCodedText(Interface):
+    """
+    A text item whose value must be the rubric from a controlled terminology, the
+    key (i.e. the 'code') of which is the defining_code attribute. In other words: a
+    DV_CODED_TEXT is a combination of a CODE_PHRASE (effectively a code) and
+    the rubric of that term, from a terminology service, in the language in which the
+    data was authored.
+    
+    Since DV_CODED_TEXT is a subtype of DV_TEXT, it can be used in place of it,
+    effectively allowing the type DV_TEXT to mean "a text item, which may option-
+    ally be coded".
+
+    If the intention is to represent a term code attached in some way to a fragment of
+    plain text, DV_CODED_TEXT should not be used; instead use a DV_TEXT and a
+    TERM_MAPPING to a CODE_PHRASE.
+    """
+    
+    definingCode = Object(
+        schema=ICodePhrase,
+        title = _(u"DefiningCode"),
+        description = _(u"""The term which the 'value' attribute is the defining_code:CODE_PHRASE textual rendition (i.e. rubric) of."""),
+        required = True
+        )
+
+class ITermMapping(Interface):
+    """
+    Represents a coded term mapped to a DV_TEXT, and the relative match of the tar-
+    get term with respect to the mapped item. Plain or coded text items may appear in
+    the EHR for which one or mappings in alternative terminologies are required.
+    Mappings are only used to enable computer processing, so they can only be
+    instances of DV_CODED_TEXT.
+    
+    Used for adding classification terms (e.g. adding ICD classifiers to SNOMED
+    descriptive terms), or mapping into equivalents in other terminologies (e.g.
+    across nursing vocabularies).
+    """
+    
+    target = Object(
+        schema=ICodePhrase,
+        title = _(u"Target"),
+        description = _(u"""The target term of the mapping as a CodePhrase."""),
+        required = True
+        )
+    
+    match = TextLine(
+        title = _(u"Match"),
+        description = _(u"""The relative match of the target term with respect to the mapped text item. Result meanings:'>': the mapping is to a broader term e.g. orginal text = "arbovirus infection", target = "viral infection" '=': the mapping is to a (supposedly) equivalent to the original item '<': the mapping is to a narrower term. e.g. original text = "diabetes", mapping = "diabetes mellitus". '?': the kind of mapping is unknown. The first three values are taken from the ISO standards 2788 ("Guide to Establishment and development of monolingual thesauri") and 5964 ("Guide to Establishment and development of multilingual thesauri")."""),
+        required = True
+        )
+    
+    purpose = Object(
+        schema=IDvCodedText,
+        title = _(u"Purpose"),
+        description = _(u"""Purpose of the mapping e.g. "automated data mining", "billing", "interoperability" """),
+        required=False
+        )
+    
+    def narrower():
+        u"""The mapping is to a narrower term."""
+        
+    def equivalent():
+        u"""The mapping is to an equivalent term."""
+        
+    def broader():
+        u"""The mapping is to a broader term."""
+        
+    def unknown():
+        u"""The kind of mapping is unknown."""
+        
+    def isValidMatchCode():
+        u"""True if match valid."""
+
 class IDvText(Interface):
     """
     A text item, which may contain any amount of legal characters arranged as e.g.
@@ -65,14 +138,15 @@ class IDvText(Interface):
     value = TextLine(
         title = _(u"Value"),
         description = _(u"""Displayable rendition of the item, regardless of its underlying structure. For DV_CODED_TEXT, this is the rubric of the complete term as provided by the terminology service. No carriage returns, line feeds, or other non-printing characters permitted."""),
+        required=True
     )
     
     mappings=List(
-        value_type=Object(schema=IObjectRef),
+        value_type=Object(schema=ITermMapping),
         title = _(u"Mappings"),
         description = _(u"""A list of MappingTerm,terms from other terminologies most closely matching this term, typically used where the originator (e.g.   pathology lab) of information uses a local terminology but also supplies one or more equivalents from wellknown terminologies (e.g. LOINC). The list contents should be of the type TermMapping"""),
         required = False,
-        )
+    )
     
     formatting = Text(
         title = _(u"Formatting"),
@@ -99,31 +173,6 @@ class IDvText(Interface):
         description = _(u"""Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set "character sets". Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions."""),
         required = False
         )         
-  
-class IDvCodedText(Interface):
-    """
-    A text item whose value must be the rubric from a controlled terminology, the
-    key (i.e. the 'code') of which is the defining_code attribute. In other words: a
-    DV_CODED_TEXT is a combination of a CODE_PHRASE (effectively a code) and
-    the rubric of that term, from a terminology service, in the language in which the
-    data was authored.
-    
-    Since DV_CODED_TEXT is a subtype of DV_TEXT, it can be used in place of it,
-    effectively allowing the type DV_TEXT to mean "a text item, which may option-
-    ally be coded".
-
-    If the intention is to represent a term code attached in some way to a fragment of
-    plain text, DV_CODED_TEXT should not be used; instead use a DV_TEXT and a
-    TERM_MAPPING to a CODE_PHRASE.
-    """
-    
-    definingCode = Object(
-        schema=ICodePhrase,
-        title = _(u"DefiningCode"),
-        description = _(u"""The term which the 'value' attribute is the defining_code:CODE_PHRASE textual rendition (i.e. rubric) of."""),
-        required = True
-        )
-
     
 class IDvUri(Interface):
     """A reference to an object which conforms to the Universal Resource Identifier
@@ -189,10 +238,8 @@ class DataValue(grok.Model):
     """
     
     implements(IDataValue)
+    pass
 
-    #def __init_(self,**kw):
-        #Field.__init__(self,**kw)
-        
 
 class IDvBoolean(Interface):
     """
@@ -206,6 +253,7 @@ class IDvBoolean(Interface):
         description = _(u"The boolean value of this item."),
         required = True,
     )
+    
 class DvBoolean(DataValue):
     """ 
     Items which are truly boolean data, such as true/false or yes/no answers.
@@ -226,9 +274,7 @@ class DvBoolean(DataValue):
 
     implements(IDvBoolean)
 
-    def __init__(self, value,**kw):
-        Field.__init__(self,**kw)
-               
+    def __init__(self,value):
         self.value=Bool(value)
         
 class IDvIdentifier(Interface):
@@ -249,7 +295,7 @@ class IDvIdentifier(Interface):
         title = _(u"Issuer"),
         description = _(u"""Authority which issues the kind of id used in the id field  
                       of this object."""),
-        
+        required = True
         )
     
     assignor = Text(
@@ -288,8 +334,6 @@ class DvIdentifier(DataValue):
     implements(IDvIdentifier)
     
     def __init__(self, issuer, assignor, id, type):
-        Field.__init__(self,**kw)
-        
         self.issuer=issuer
         self.assignor=assignor
         self.id=id
@@ -306,7 +350,8 @@ class IDvState(Interface):
     plex processes in simple data.
     """
     
-    value = TextLine(
+    value = Object(
+        schema=IDvCodedText,
         title = _(u"value"),
         description = _(u"""The state name. State names are determined by a state/event 
                       table defined in archetypes, and coded using openEHR Terminology 
@@ -317,8 +362,7 @@ class IDvState(Interface):
                       is DvStateParser() and it may be called anywhere in the application
                       that the developer needs to know the current available states.
                       It returns a DvCodedText type.
-                      """),
-        
+                      """)        
         )
     
     isTerminal = Bool(
@@ -330,8 +374,10 @@ class IDvState(Interface):
                       """),
         
         )
+            
     
-
+    
+    
 class DvState(DataValue):
     """
     For representing state values which obey a defined state machine, such as a vari-
@@ -340,8 +386,7 @@ class DvState(DataValue):
 
     implements(IDvState)
     
-    def __init__(self, value, isTerminal,**kw):
-        Field.__init__(self,**kw)
+    def __init__(self, value, isTerminal):
         self.value=value
         self.isTerminal=isTerminal
         
@@ -392,8 +437,6 @@ class DvEncapsulated(DataValue):
     implements(IDvEncapsulated)
 
     def __init__(self,size,charset,language):
-
-        
         self.size=size
         self.charset=charset
         self.language=language
@@ -498,8 +541,6 @@ class DvMultimedia(DvEncapsulated):
     implements(IDvMultimedia)
 
     def __init__(self,altTxt,mType,compAlg,intChk,intChkAlg,tnail,uri,data):
-
-        
         self.alternateText=altTxt
         self.mediaType=mType
         self.integrityCheck=intChk
@@ -585,7 +626,6 @@ class DvParsable(DvEncapsulated):
     implements(IDvParsable)
 
     def __init__(self,size,value,formalism):
-       
         self.size=len(value)
         self.value=value
         self.formalism=formalism
@@ -667,7 +707,7 @@ class IDvOrdered(Interface):
         """
     
  
-class DvOrdered(DataValue):
+class DvOrdered(DataValue,Orderable):
     """
     Purpose:           
     Abstract class defining the concept of ordered values, which includes ordinals as
@@ -686,8 +726,6 @@ class DvOrdered(DataValue):
     implements(IDvOrdered)
     
     def __init__(self, normalRange, otherReferenceRanges, normalStatus):
-
-        
         self.normalRange = normalRange
         self.otherReferenceRanges = otherReferenceRanges
         self.normalStatus = normalStatus
@@ -923,7 +961,65 @@ class DvAmount(DvQuantified):
         
         return val>=0 and val<=100
     
+class IDvDuration(IDvAmount):
+    """
+    Represents a period of time with respect to a notional point in time, which is not
+    specified. A sign may be used to indicate the duration is "backwards" in time
+    rather than forwards.
+    
+    Note that a deviation from ISO8601 is supported, allowing the 'W' designator to
+    be mixed with other designators. See assumed types section in the Support IM.
+
+    Used for recording the duration of something in the real world, particularly when
+    there is a need a) to represent the duration in customary format, i.e. days, hours,
+    minutes etc, and b) if it will be used in computational operations with date/time
+    quantities, i.e. additions, subtractions etc.
+    """
+
+    value = TextLine(
+        title=_(u"Value"),
+        description=_(u"""ISO8601 duration"""),
+        required=True,
+        )     
+        
+    def magnitude():
+        """
+        Numeric value of the duration in seconds.
+        Result >= 0.0        
+        """
+
+
+    def valueValid(): 
+        """validIso8601Duration(value)"""
             
+class DvDuration(DvAmount):
+    u"""
+    Represents a period of time with respect to a notional point in time, which is not
+    specified. A sign may be used to indicate the duration is "backwards" in time
+    rather than forwards.
+    
+    Note that a deviation from ISO8601 is supported, allowing the 'W' designator to
+    be mixed with other designators. See assumed types section in the Support IM.
+
+    Used for recording the duration of something in the real world, particularly when
+    there is a need a) to represent the duration in customary format, i.e. days, hours,
+    minutes etc, and b) if it will be used in computational operations with date/time
+    quantities, i.e. additions, subtractions etc.
+    """
+
+    implements(IDvDuration)
+
+    def __init__(self,value):
+        self.value=value
+
+    def magnitude():
+        """
+        Numeric value of the duration in seconds.
+        Result >= 0.0        
+        """
+
+    def valueValid(): 
+        u"""validIso8601Duration(value)"""
         
 class IDvCount(Interface):
     """        
@@ -956,8 +1052,6 @@ class DvCount(DvAmount):
     
     def __init__(self, magnitude, accuracy, accuracyIsPercent, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges):
         DvAmount.__init__(accuracy, accuracyIsPercent, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges)
-
-        
         self.magnitude = magnitude
 
     def __add__(self, val):
@@ -1112,62 +1206,6 @@ class IDvOrdinal(Interface):
         Result
         """
         
-    """
-    Models rankings and scores, e.g. pain, Apgar values, etc, where there is a)
-    implied ordering, b) no implication that the distance between each value is con-
-    stant, and c) the total number of values is finite.
-
-    Used for recording any clinical datum which is customarily recorded using sym-
-    bolic values. Example: the results on a urinalysis strip, e.g. {neg, trace, +,
-    ++, +++} are used for leucocytes, protein, nitrites etc; for non-haemolysed
-    blood {neg, trace, moderate}; for haemolysed blood {neg, trace,
-    small, moderate, large}.
-    """
-    
-    value = Int(
-        title=_(u"value"),
-        description=_(u""" Ordinal position in enumeration of values. """),
-        required=True
-    )
-    
-    symbol = Field(
-        #schema=IDvCodedText,
-        title=_(u"symbol"),
-        description=_(u"""Coded textual representation of this 
-                       value in the enumeration, which may be strings made from "+" symbols, 
-                       or other enumerations of terms such as "mild", "moderate", "severe",
-                       or even the same number series as the values,
-                       e.g. "1", "2", "3". Codes come from archetype."""),
-        required=True
-    )
-
-
-    def limits():
-        """
-        limits of the ordinal enumeration, to allow
-        comparison of an ordinal value to its limits.
-        Returns DvOrdinal.
-        """
-
-    def isStrictlyComparableTo(self, other):
-        """        
-        True if symbols come from same vocabulary,assuming the vocabulary is a 
-        subset or value range, e.g. urine:protein.
-        
-        (other: like Current): Boolean 
-        ensure
-        symbol.is_comparable (other.symbol) implies Result
-        """
-        
-        
-    def compareTo(self, dvOrdinal):
-        u"""True if types are the same and values compare
-        infix '<' (other: like Current):
-        Boolean
-        ensure
-        value<other.values implies
-        Result
-        """
         
 class DvOrdinal(DvOrdered):
     u"""
@@ -1185,7 +1223,6 @@ class DvOrdinal(DvOrdered):
     implements(IDvOrdinal)
     
     def __init__(self,value,symbol, normalRange, otherReferenceRanges, normalStatus):
-        
         self.value=value
         self.symbol=symbol
         self.normalRange = normalRange
@@ -1220,10 +1257,6 @@ class DvOrdinal(DvOrdered):
         else:
             return False
         
-            
-                
-            
-        
 
     def isStrictlyComparableTo(self, other):
         u"""        
@@ -1249,6 +1282,7 @@ class IProportionKind(Interface):
         """
         True if n is one of the defined types.
         """
+        
 class ProportionKind(grok.Model):
     """
     Class of enumeration constants defining types of proportion for the
@@ -1480,8 +1514,8 @@ class IDvQuantity(Interface):
                     number of decimal places. The value 0 implies an integral quantity.
                     The value -1 implies no limit, i.e. any number of decimal places."""),        
         required=False,
-        #constraint = precisionValid
         )
+    
     def precisionValid():
         """Precision must be >= -1"""
             
@@ -1509,8 +1543,6 @@ class DvQuantity(DvAmount):
     implements(IDvQuantity)
    
     def __init__(self,magnitude,units,precision):
-        
-
         self.magnitude=magnitude
         self.units=units
         self.precision=precision
@@ -1569,12 +1601,9 @@ class ReferenceRange(DvOrdered):
     
     implements(IReferenceRange)
     
-    def __init__(self, meaning, range):
-        
-
+    def __init__(self,meaning,range):
         self.meaning = meaning
         self.range = range
-
 
     def isInRange(val):
         """
@@ -1592,14 +1621,14 @@ class IDvTemporal(Interface):
 
 class DvTemporal(DvAbsoluteQuantity):
     """
-    Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is
+    Abstract class. Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is
     DV_DURATION.
     """
     
     implements(IDvTemporal)
     
     
-    def diff(other):
+    def diff(self,other):
         return DvDuration(other,self.value)
 
 
@@ -1695,11 +1724,7 @@ class DvDateTime(DvTemporal):
     implements(IDvDateTime)
 
     def __init__(self,value):
-        # need to separate value into a Python tuple to submit to the datetime module.
-        #self.value=datetime(value)
-
         self.value=datetime.now()
-        self.__name__=''
         
 
     def diff(other):
@@ -1751,40 +1776,6 @@ class IDvDuration(Interface):
 
 
         
-class DvDateTime(DvTemporal):
-    u"""
-    Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601.
-    Used for recording a precise point in real world time, and for approximate time
-    stamps, e.g. the origin of a HISTORY in an OBSERVATION which is only partially known.
-    """
-
-    implements(IDvDateTime)
-
-    def __init__(self,value):
-        # need to separate value into a Python tuple to submit to the datetime module.
-        #self.value=datetime(value)
-
-        self.value=datetime.now()
-        self.__name__=''
-        
-
-    def diff(other):
-        u"""Difference of two date/times. Returns a DvDuration"""
-        return self.value-other
-        
-    def magnitude():
-        u"""
-        numeric value of the date/time as seconds since the calendar origin point.
-        Result >= 0.0        
-        """
-        return time.time()
-
-    def valueValid(): 
-        u"""validIso8601DateTime(value)"""
-
-        
-        
-
 class IDvTime(Interface):
     """
     Represents an absolute point in time from an origin usually interpreted as meaning the start 
@@ -1829,7 +1820,6 @@ class DvTime(DvTemporal):
     implements(IDvTime)
 
     def __init__(self,value):
-        
         self.value=time(value)
 
     def diff(other):
@@ -1867,7 +1857,6 @@ class DvText(DataValue):
     implements(IDvText)
     
     def __init__(self, value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None):
-        
         self.value = value
         self.mappings = mappings
         self.formatting = formatting
@@ -1923,10 +1912,10 @@ class DvCodedText(DvText):
     implements(IDvCodedText)
     
     def __init__(self, definingCode,value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None):
-        DvText.__init__(self, value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None)
-
+        DvText.__init__(self,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None)
         self.definingCode=definingCode
 
+        
 class IDvParagraph(Interface):
     """
     A logical composite text value consisting of a series of DV_TEXTs, i.e. plain text
@@ -1958,60 +1947,9 @@ class DvParagraph(DataValue):
     implements(IDvParagraph)
     
     def __init__(self,items):
-        
         self.items=items                
     
                 
- 
-    
-class ITermMapping(Interface):
-    """
-    Represents a coded term mapped to a DV_TEXT, and the relative match of the tar-
-    get term with respect to the mapped item. Plain or coded text items may appear in
-    the EHR for which one or mappings in alternative terminologies are required.
-    Mappings are only used to enable computer processing, so they can only be
-    instances of DV_CODED_TEXT.
-    
-    Used for adding classification terms (e.g. adding ICD classifiers to SNOMED
-    descriptive terms), or mapping into equivalents in other terminologies (e.g.
-    across nursing vocabularies).
-    """
-    
-    target = Object(
-        schema=ICodePhrase,
-        title = _(u"Target"),
-        description = _(u"""The target term of the mapping as a CodePhrase."""),
-        
-        )
-    
-    match = TextLine(
-        title = _(u"Match"),
-        description = _(u"""The relative match of the target term with respect to the mapped text item. Result meanings:'>': the mapping is to a broader term e.g. orginal text = "arbovirus infection", target = "viral infection" '=': the mapping is to a (supposedly) equivalent to the original item '<': the mapping is to a narrower term. e.g. original text = "diabetes", mapping = "diabetes mellitus". '?': the kind of mapping is unknown. The first three values are taken from the ISO standards 2788 ("Guide to Establishment and development of monolingual thesauri") and 5964 ("Guide to Establishment and development of multilingual thesauri")."""),
-        required = True
-        )
-    
-    purpose = Object(
-        schema=IDvCodedText,
-        title = _(u"Purpose"),
-        description = _(u"""Purpose of the mapping e.g. "automated data mining", "billing", "interoperability" """),
-        required = True
-        )
-    
-    def narrower():
-        u"""The mapping is to a narrower term."""
-        
-    def equivalent():
-        u"""The mapping is to an equivalent term."""
-        
-    def broader():
-        u"""The mapping is to a broader term."""
-        
-    def unknown():
-        u"""The kind of mapping is unknown."""
-        
-    def isValidMatchCode():
-        u"""True if match valid."""
-
 
 class TermMapping(DataValue):
     """
@@ -2029,8 +1967,6 @@ class TermMapping(DataValue):
     implements(ITermMapping)
     
     def __init__(self,target,match,purpose):
-        
-
         self.target = target       
         self.purpose = purpose
         if match in ['<','>','=','?']:
@@ -2052,7 +1988,7 @@ class TermMapping(DataValue):
         return self.match == '?'
     
     def isValidMatchCode(match):
-        " I see no purpose in this function. twc"
+        " I see no purpose in this method. twc"
         return match in ['<','>','=','?']
 
     
@@ -2100,7 +2036,6 @@ class DvTimeSpecification(DataValue):
     implements(IDvTimeSpecification)
     
     def __init__(self,value):
-        
         self.value=value
             
     def calendarAlignment():
@@ -2313,7 +2248,6 @@ class DvEhrUri(DvUri):
     """
     def __init__(self, value,path,fragmentId,query,scheme=u"ehr"):
         DvUri.__init__(self, value)
-        
         self.scheme=scheme 
         self.path=path
         self.fragmentId=fragmentId

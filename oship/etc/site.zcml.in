@@ -16,8 +16,9 @@
       <principal id="zope.manager"
                  title="Manager"
                  login="admin"
+                 password="17e15cddd033e22ae348aeb5660fc2140aec35850c4da997"
+                 description="OSHIP Developer"
                  password_manager="SHA1"
-                 password="acaaa36e6367c48dd193d56ea7b0baad25b19455e529f5ee"
                  />
 
       <!-- Replace the following directive if you do not want

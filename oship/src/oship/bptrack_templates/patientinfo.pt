@@ -1,0 +1,5 @@
+<div id="patientinfo" align="center">
+Name: <span tal:content="python:request['fname']">Full Name</span>
+&nbsp;&nbsp;&nbsp;DOB:  <span tal:content="python:request['dob']">Date of Birth</span>
+</div>
+

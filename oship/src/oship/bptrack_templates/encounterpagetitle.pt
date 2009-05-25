@@ -1,0 +1,4 @@
+<h1 align="center">OSHIP BP Tracker Demo - Encounter</h1>
+<div align="right" style="color: blue; font-family: courier, fixed, monospace; "><a tal:attributes="href python:view.url('bpmain')">Return to Main Page</a></div>
+
+

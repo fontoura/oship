@@ -1,0 +1,30 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
+  <title>ICD Management Interface</title>
+</head>
+
+<body>
+<br /><br />
+
+<table border="5" align="center">
+<tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+</table>
+
+<p><b>This will be the Management Page for the various ICD flavours.</b></p>
+<ol>
+<li>ICD-9CM</li>
+<li>ICD-10CM</li>
+<li>ICD-10 (wherever you are) let us know how to help  you get your files.</li>
+</ol>
+<p>Return to the <a  href="http://localhost:8080/oship/oshipmanage">OSHIP Management Interface</a></p>
+
+</body>
+</html>

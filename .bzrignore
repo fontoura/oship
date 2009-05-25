@@ -5,11 +5,11 @@
 oship/.installed.cfg
 oship/bin/*
 oship/develop-eggs/*
-oship/etc/*
 oship/parts/data/*
-oship/parts/i18n/*
+oship/parts/etc/*
 oship/parts/log/*
-oship/test/*
-etc/*
+oship/parts/i18n/*
+oship/parts/test/*
 oship/src/oship.egg-info/*
-oship/src/oship/startup.py
+oship/src/oship/openehr/adl2py/py_files/*
+

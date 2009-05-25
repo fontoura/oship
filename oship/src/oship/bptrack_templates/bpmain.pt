@@ -1,0 +1,25 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css"  tal:attributes="href static/css/bpmain.css" />
+<title>Blood Pressure Tracker -- OSHIP 1.0x Demo</title>
+</head>
+
+<body>
+<div id="header">
+    <tal:header content="structure provider:header" />
+</div>
+
+<div id="infoarea">
+   <tal:infoarea content="structure provider:infoarea" />
+</div>
+
+<div id="patients">
+   <tal:patients content="structure provider:patients" />
+</div>
+
+
+<div id="footer">
+    <tal:footer content="structure provider:footer" />
+</div>
+
+</body></html>

@@ -154,7 +154,8 @@ class IDvText(Interface):
         required = False
         )
     
-    hyperlink = URI(
+    hyperlink = Object(
+        schema=IDvUri,
         title = _(u"Hyperlink"),
         description = _(u"""Optional link sitting behind a section of plain text or coded term item as type DvUri."""),
         required = False

@@ -353,10 +353,22 @@ class DvIdentifier(DataValue):
     implements(IDvIdentifier)
     
     def __init__(self, issuer, assignor, id, type):
-        self.issuer=issuer
-        self.assignor=assignor
-        self.id=id
-        self.type=type
+        if isinstance(issuer,basestring) and issuer != '':
+            self.issuer=issuer
+        else:
+            raise AttributeError("Invalid DvIdentifier.issuer.")
+        if isinstance(assignor,basestring) and assignor != '':       
+            self.assignor=assignor
+        else:
+            raise AttributeError("Invalid DvIdentifier.assignor.")
+        if isinstance(id,basestring) and id != '':
+            self.id=id
+        else:
+            raise AttributeError("Invalid DvIdentifier.id.")
+        if isinstance(type,basestring) and type != '':
+            self.type=type
+        else:
+            raise AttributeError("Invalid DvIdentifier.type.")
         
    
 class IDvState(Interface):
@@ -1914,17 +1926,32 @@ class DvText(DataValue):
     implements(IDvText)
     
     def __init__(self,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None):
-        self.value = value
-        self.mappings = mappings
-        self.formatting = formatting
-        self.hyperlink = hyperlink
-        self.language = language
-        self.encoding = encoding
-     
-   
-       
-        
-       
+        if isinstance(value,TextLine) and value != '':
+            self.value = value
+        else:
+            raise AttributeError(_("DvText.value is invalid."))
+        if mappings != None and isinstance(mappings,List):        
+            self.mappings=mappings
+        else:
+            raise AttributeError(_("DvText.mappings is invalid."))
+        if formatting != None and isinstance(formatting,TextLine) and formatting != '':
+            self.formatting = formatting
+        else:
+            raise AttributeError(_("DvText.formatting is invalid."))
+        if hyperlink != None and isinstance(hyperlink,DvUri):
+            self.hyperlink = hyperlink
+        else:
+            raise AttributeError(_("DvText.hyperlink is invalid."))
+        if language != None and isinstance(language,CodePhrase):
+            self.language = language
+        else:
+            raise AttributeError(_("DvText.language is invalid."))
+        if encoding != None and isinstance(encoding,CodePhrase):
+            self.encoding = encoding
+        else:
+            raise AttributeError(_("DvText.encoding is invalid."))
+    
+          
 class CodePhrase(grok.Model):
     """
     A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
@@ -1946,8 +1973,7 @@ class CodePhrase(grok.Model):
     
     implements(ICodePhrase)
     
-    def __init__(self, terminologyId, codeString):
-        
+    def __init__(self, terminologyId, codeString):        
         self.terminologyId=terminologyId
         self.codeString=codeString
 
@@ -1994,14 +2020,12 @@ class DvCodedText(DvText):
 
     implements(IDvCodedText)
     
-    def __init__(self, definingCode,value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None):
-        self.definingCode=definingCode
-        self.value = value
-        self.mappings = mappings
-        self.formatting = formatting
-        self.hyperlink = hyperlink
-        self.language = language
-        self.encoding = encoding
+    def __init__(self,definingCode,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None):
+        if isinstance(definingCode,CodePhrase):
+            self.definingCode=definingCode
+        else:
+            raise AttributeError(_("Invalid DvCodedText.definingCode."))
+        DvText.__init__(self,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None)
 
         
 class IDvParagraph(Interface):
@@ -2340,6 +2364,4 @@ class DvEhrUri(DvUri):
     def schemeIsEhr(self):
         u""" Ensure scheme == 'ehr' """
         return self.scheme == 'ehr'
-
-        
-        
+    

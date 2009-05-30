@@ -235,23 +235,11 @@ class IDataValue(Interface):
 class DataValue(grok.Model):
     u""" 
     Abstract class. 
-    Serves as a common ancestor of all data value types in openEHR models.  but acts as a Zope3 Field ancestor.
-
-    >>> from oship.openehr.datatypes import DataValue
-    >>> dv=DataValue()
-    Traceback (most recent call last):
-      File "<console>", line 1, in <module>
-      File "/home/tim/oshipenv/oship/oship/src/oship/openehr/datatypes.py", line 243, in __init__
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))
-    NotImplementedError: Abstract class - must be implemented in subclass
-    
+    Serves as a common ancestor of all data value types in openEHR models. 
     """
     
     implements(IDataValue)
-    
-    def __init__(self):
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))
-
+    pass
 
 class IDvBoolean(Interface):
     """
@@ -461,24 +449,22 @@ class DvEncapsulated(DataValue):
 
     implements(IDvEncapsulated)
 
-    def __init__(self,size,charset,language):
-        self.size=size
+    def __init__(self,charset,language):
         self.charset=charset
         self.language=language
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))
-
-    
-    def asString():
+        self.size=0 # set to zero here but calculated in the subclasses
+        
+    def asString(self):
         u"""Result = alternate_text [(uri)]"""
         
-    def sizePositive():
+    def sizePositive(self):
         u"""size >= 0"""
-        return size>0
+        return self.size>0
         
-    def languageValid():
+    def languageValid(self):
         u"""language /= Void implies code_set(Code_set_id_languages).has_code(language)"""
         
-    def charsetValid():
+    def charsetValid(self):
         u"""charset /= Void implies code_set(Code_set_id_character_sets).has_code(charset)"""
  
 class IDvMultimedia(Interface):
@@ -567,7 +553,7 @@ class DvMultimedia(DvEncapsulated):
     
     implements(IDvMultimedia)
 
-    def __init__(self,altTxt,mType,compAlg,intChk,intChkAlg,tnail,uri,data):
+    def __init__(self,altTxt,mType,compAlg,intChk,intChkAlg,tnail,uri,data,charset,language):
         self.alternateText=altTxt
         self.mediaType=mType
         self.integrityCheck=intChk
@@ -575,34 +561,36 @@ class DvMultimedia(DvEncapsulated):
         self.thumbnail=tnail
         self.uri=uri
         self.data=data
-   
-    def isExternal():
+        self.size=len(data)
+        DvEncapsulated.__init__(self,charset,language)
+        
+    def isExternal(self):
         u"""Computed from the value of the uri attribute: True if the data is stored externally 
         to the record, as indicated by 'uri'. A copy may also be stored internally, in which case 
         'isExpanded' is also true.  Ensure uri !=None and uri != '' """
         
-    def isInline():
+    def isInline(self):
         u"""Computed from the value of the data attribute: True if the data is stored in expanded 
         form, ie within the EHR itself. Ensure data != None. """
         
-    def isCompressed():
+    def isCompressed(self):
         u"""Computed from the value of the compression_algorithm attribute: True if the data is 
         stored in compressed form. Ensure compressionAlgorithm != None. """
         
-    def hasIntegrityCheck():
+    def hasIntegrityCheck(self):
         u"""Computed from the value of the integrityCheckAlgorithm attribute: True if an 
         integrity check has been computed. Ensure integrityCheckAlgorithm != None."""
                  
-    def mediaTypeValidity(): 
+    def mediaTypeValidity(self): 
         u"""mediaType != None and mediaType in codeSetIdMediaTypes"""
         
-    def compressionAlgorithmValidity():
+    def compressionAlgorithmValidity(self):
         u"""compressionAlgorithm != None and compressionAlgorithm in codeSetIdCompressionAlgorithms."""
         
-    def integrityCheckValidity():
+    def integrityCheckValidity(self):
         u"""integrityCheck != None and integrityCheckAlgorithm != None"""
         
-    def integrityCheckAlgorithmValidity():
+    def integrityCheckAlgorithmValidity(self):
         u"""integrityCheckAlgorithm  != None and integrityCheckAlgorithm in codeSetIdIntegrityCheckAlgorithms"""
 
         
@@ -652,18 +640,19 @@ class DvParsable(DvEncapsulated):
     
     implements(IDvParsable)
 
-    def __init__(self,size,value,formalism):
+    def __init__(self,size,value,formalism,charset,language):
         self.size=len(value)
         self.value=value
         self.formalism=formalism
-
-    def valueValid():
+        DvEncapsulated.__init__(self,charset,language)
+        
+    def valueValid(self):
         u"""value != None."""
         return self.value!=None
 
-    def formalismValidity():
+    def formalismValidity(self):
         u"""formalism != None and formalism != '' """
-        return formalism!=None and formalism!=''
+        return self.formalism!=None and self.formalism!=''
     
         
 # Begin the Quantity package
@@ -752,13 +741,20 @@ class DvOrdered(DataValue,Orderable):
 
     implements(IDvOrdered)
     
-    def __init__(self, normalRange, otherReferenceRanges, normalStatus):
-        self.normalRange = normalRange
-        self.otherReferenceRanges = otherReferenceRanges
-        self.normalStatus = normalStatus
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))
-
+    def __init__(self,normalRange,otherReferenceRanges,normalStatus):
+        self.normalRange=normalRange
+        self.otherReferenceRanges=otherReferenceRanges
+        self.normalStatus=normalStatus
                 
+        index=False
+        for e in otherReferenceRanges:
+            if e.meaning.value=='limits':
+                index=True
+                limitsRange=e
+                break
+        
+        if index==False:
+            raise ValueError(_("No limits in otherReferenceRanges"))
 
     def isNormal(self):
         """ 
@@ -844,27 +840,32 @@ class DvQuantified(DvOrdered):
      
     implements(IDvQuantified)
     
-    def __init__(self,magnitude,magnitudeStatus, normalRange, otherReferenceRanges, normalStatus):
-        
-        implements(IDvQuantified)
-        
+    def __init__(self,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.magnitude=magnitude
         self.magnitudeStatus=magnitudeStatus
-        self.normalRange=normalRange
-        self.otherReferenceRanges=otherReferenceRanges
-        self.normalStatus=normalStatus
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))
+        DvOrdered.__init__(self,normalRange,otherReferenceRanges,normalStatus)
+        
+        
+    def validMagnitudeStatus(self,val):
+        """
+        Test whether a string 'val' is one of the valid values for the magnitude_status attribute.
+        """
 
-    
+    def magnitudeExists(self):
+        """
+        Does the magnitude exist?
+        """
+        return self.magnitude != None
+
 class IDvAbsoluteQuantity(Interface):
     """
     Abstract class defining the concept of quantified entities whose values are absolute with respect to an origin. Dates and Times are the main example.
     """
     
-    accuracy = Float(
+    accuracy = Field(
         title=_(u"Accuracy"),
         description=_(u"""Accuracy of measurement, expressed as a half-range value of the diff type for this quantity (i.e. an accuracy of x means +/- x)."""),
-        required=False,
+        default=None,
         )
     
     def __add__():
@@ -875,6 +876,9 @@ class IDvAbsoluteQuantity(Interface):
         
     def diff():
         """Difference two quantities"""
+        
+    def accuracyUnknown():
+        """ True if accuracy is None """
 
 class DvAbsoluteQuantity(DvQuantified):
     """
@@ -885,23 +889,25 @@ class DvAbsoluteQuantity(DvQuantified):
     implements(IDvAbsoluteQuantity)
     
     
-    def __init__(self,accuracy,magnitude,magnitudeStatus):
+    def __init__(self,accuracy,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.accuracy=accuracy
-        self.magnitude=magnitude
-        self.magnitudeStatus=magnitudeStatus
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))
-    
-    def add():
+        DvQuantified.__init__(self,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
+        
+    def add(self,a_diff):
         """(a_diff: like diff): like Current
         """
     
-    def subtract():
+    def subtract(self,a_diff):
         """(a_diff: like diff): like Current 
         """
         
-    def diff():
+    def diff(self,other):
         """(other: like Current): DV_AMOUNT
         """
+        
+    def accuracyUnknown(self):
+        """ True if accuracy is None """
+        return self.accuracy==None
             
         
         
@@ -963,15 +969,14 @@ class DvAmount(DvQuantified):
     
     implements(IDvAmount)
     
-    def __init__(self,accuracy,accuracyIsPercent,magnitudeStatus,normalStatus,normalRange,otherReferenceRanges):
-        self.accuracy=accuracy
+    def __init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
+        if accuracy==None:        
+            self.accuracy=-1
+        else:
+            self.accuracy=accuracy
         self.accuracyIsPercent=accuracyIsPercent
-        self.magnitudeStatus=magnitudeStatus
-        self.normalStatus=normalStatus
-        self.normalRange=normalRange
-        self.otherReferenceRanges
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))        
-    
+        DvQuantified.__init__(self,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
+        
     def validPercentage(val):
         u"""
         Test whether a number is a valid percentage,i.e. between 0 and 100.
@@ -981,19 +986,19 @@ class DvAmount(DvQuantified):
         
         return val>=0 and val<=100
     
-    def __add__(val):
+    def __add__(self,val):
         """
         Sum of this quantity and another whose formal type must be the 
         difference type of this quantity
         """
         
-    def __sub__(val):
+    def __sub__(self,val):
         """
         Difference of this quantity and another whose formal type must be the
         difference type of this quantity
         """
 
-    def negate():
+    def negate(self):
         """
         Negated version of current object, such as used for representing a
         difference type of this quantity
@@ -1050,9 +1055,10 @@ class DvDuration(DvAmount):
 
     implements(IDvDuration)
 
-    def __init__(self,value):
+    def __init__(self,value,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalStatus,normalRange,otherReferenceRanges):
         self.value=value
-
+        DvAmount.__init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
+       
     def magnitude(self):
         """
         Numeric value of the duration in seconds.
@@ -1093,14 +1099,9 @@ class DvCount(DvAmount):
     
     implements(IDvCount)
     
-    def __init__(self, magnitude, accuracy, accuracyIsPercent, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges):
+    def __init__(self,magnitude,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.magnitude=magnitude
-        self.accuracy=accuracy
-        self.accuracyIsPercent=accuracyIsPercent
-        self.magnitudeStatus=magnitudeStatus
-        self.normalStatus=normalStatus
-        self.normalRange=normalRange
-        self.otherReferenceRanges=otherReferenceRanges
+        DvAmount.__init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
     
     def __add__(self, val):
         if not isinstance(val,DvCount):
@@ -1270,31 +1271,20 @@ class DvOrdinal(DvOrdered):
 
     implements(IDvOrdinal)
     
-    def __init__(self,value,symbol, normalRange, otherReferenceRanges, normalStatus):
+    def __init__(self,value,symbol,normalRange,otherReferenceRanges,normalStatus):
         self.value=value
         self.symbol=symbol
-        self.normalRange = normalRange
-        self.otherReferenceRanges = otherReferenceRanges
-        self.normalStatus = normalStatus
-        
-        index=False
-        for e in otherReferenceRanges:
-            if e.meaning.value=='limits':
-                index=True
-                limitsRange=e
-                break
-        
-        if index==False:
-            raise ValueError(_("No limits in otherReferenceRanges"))
+        DvOrdered.__init__(self,normalRange,otherReferenceRanges,normalStatus)
 
-        if symbol is None:
+        if symbol == None:
             raise ValueError(_("No symbol"))
             
-    def limits():
-        u"""
-        
+    def limits(self):
         """
-        return limitsRange
+        limits of the ordinal enumeration, to allow
+        comparison of an ordinal value to its limits.
+        Returns DvOrdinal.
+        """
             
 
     def isStrictlyComparableTo(self, other):
@@ -1413,7 +1403,7 @@ class DvProportion(DvAmount,ProportionKind):
 
     implements(IDvProportion)
     
-    def __init__(self, numerator, denominator, type, precision):
+    def __init__(self,numerator,denominator,type,precision,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         if isinstance(numerator, float) or isinstance(numerator, int):
             self.numerator = numerator
         else:
@@ -1435,14 +1425,16 @@ class DvProportion(DvAmount,ProportionKind):
             else:
                 raise AttributeError(_("Invalid precision type."))
             
+        DvAmount.__init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
             
-    def isIntegral():
+            
+    def isIntegral(self):
         """
         True if the numerator and denominator values are integers, i.e. if the precision is 0.
         """
         return isinstance(self.numerator,int) and isinstance(self.denominator,int) 
 
-    def magnitude():
+    def magnitude(self):
         """
         Effective magnitude represented by ratio.
         Result = numerator / denominator
@@ -1463,6 +1455,7 @@ class IDvQuantified(Interface):
                           appropriate type in each implementation technology."""),
         required=True
     )
+    
       
     magnitudeStatus = List(
         #value_type=TextLine(),
@@ -1500,16 +1493,9 @@ class DvQuantified(DvOrdered):
     def __init__(self,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.magnitude=magnitude
         self.magnitudeStatus=magnitudeStatus
-        self.normalRange=normalRange
-        self.otherReferenceRanges=otherReferenceRanges
-        self.normalStatus=normalStatus
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))
-    
-        #magnitudeExists = self.magnitude!=None
+        DvOrdered.__init__(self,normalRange,otherReferenceRanges,normalStatus)
         
-        #magnitudeStatusValid = val in self.magnitudeStatus
-        
-    def magnitudeExists():
+    def magnitudeExists(self):
         return self.magnitude!=None
         
     def validMagnitudeStatus(val):
@@ -1517,7 +1503,7 @@ class DvQuantified(DvOrdered):
         Test whether a string 'val' is one of the valid values for the magnitude_status attribute.
         """
         if(magnitudeExists()):
-            if val == "=" or val == ">=" or val == "<=" or val == ">" or val == "<" or val == "~":
+            if val in ("=",">=","<=",">","<","~"):
                 return True
         else:
             return False
@@ -1584,26 +1570,21 @@ class DvQuantity(DvAmount):
     
     implements(IDvQuantity)
    
-    def __init__(self,magnitude,units,precision,accuracy,accuracyIsPercent,magnitudeStatus,normalStatus,normalRange,otherReferenceRanges):
+    def __init__(self,magnitude,units,precision,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.magnitude=magnitude
         self.units=units
         self.precision=precision
-        self.accuracy=accuracy
-        self.accuracyIsPercent=accuracyIsPercent
-        self.magnitudeStatus=magnitudeStatus
-        self.normalStatus=normalStatus
-        self.normalRange=normalRange
-        self.otherReferenceRanges
+        DvAmount.__init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
         
-    def precisionValid():
-        return precision >= -1
+    def precisionValid(self):
+        return self.precision >= -1
     
-    def isIntegral():
+    def isIntegral(self):
         """True if precision = 0; quantity represents an integral number."""
-        return precision==0
+        return self.precision==0
 
     
-    def isStrictlyComparableTo(other):
+    def isStrictlyComparableTo(self,other):
         """
         Test if two instances are strictly comparable by ensuring that the measured 
         property is the same, achieved using the Measurement service function units_equivalent.
@@ -1649,14 +1630,12 @@ class ReferenceRange(DvOrdered):
     
     implements(IReferenceRange)
     
-    def __init__(self,meaning,range, normalRange, otherReferenceRanges, normalStatus):
-        self.meaning = meaning
-        self.range = range
-        self.normalRange = normalRange
-        self.otherReferenceRanges = otherReferenceRanges
-        self.normalStatus = normalStatus
-
-    def isInRange(val):
+    def __init__(self,meaning,range,normalRange,otherReferenceRanges,normalStatus):
+        self.meaning=meaning
+        self.range=range
+        DvOrdered.__init__(self,normalRange,otherReferenceRanges,normalStatus)
+        
+    def isInRange(self,val):
         """
         Indicates if the value 'val' is inside the range
         """
@@ -1678,11 +1657,14 @@ class DvTemporal(DvAbsoluteQuantity):
     
     implements(IDvTemporal)
 
-    def __init__(self):
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))
-    
+    def __init__(self,accuracy,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
+        DvAbsoluteQuantity.__init__(self,accuracy,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
+        
     def diff(self,other):
-        return DvDuration(other,self.value)
+        """
+        Redefined to return a DvDuratio
+        """
+        return DvDuration(other,self.magnitude)
 
 
 class IDvDate(Interface):
@@ -1811,15 +1793,15 @@ class IDvDuration(Interface):
         
         )     
         
-    def magnitude():
+    def magnitude(self):
         """
         Numeric value of the duration in seconds.
         Result >= 0.0        
         """
 
 
-    def valueValid(): 
-        """validIso8601Duration(value)"""
+    def valueValid(self): 
+        """validIso8601 Duration(value)"""
 
 
         
@@ -2135,26 +2117,25 @@ class DvTimeSpecification(DataValue):
     
     def __init__(self,value):
         self.value=value
-        raise NotImplementedError(_('Abstract class - must be implemented in subclass'))    
     
-    def calendarAlignment():
+    def calendarAlignment(self):
         u"""Indicates what prototypical point in the calendar the specification is
         aligned to, e.g. "5th of the month". Empty if not aligned. Extracted from 
         the 'value' attribute.
         """
         
-    def eventAlignment():
+    def eventAlignment(self):
         u"""Indicates what real-world event the specification is aligned to if any.
         Extracted from the 'value' attribute.
         """
         
-    def institutionSpecified():
+    def institutionSpecified(self):
         u"""Indicates if the specification is aligned with institution schedules, 
         e.g. a hospital nursing changeover or meal serving times. Extracted from 
         the 'value' attribute.
         """
         
-    def valueValid():
+    def valueValid(self):
         u"""value != None"""
 
 class IDvGeneralTimeSpecification(Interface):
@@ -2180,18 +2161,18 @@ class DvGeneralTimeSpecification(DvTimeSpecification):
     implements(IDvGeneralTimeSpecification)
 
     def __init__(self,value):
-        self.value=value        
+        DvTimeSpecification.__init__(self,value)     
 
-    def calendarAlignment():
+    def calendarAlignment(self):
         u"""Calendar alignment extracted from value. """
 
-    def eventAlignment():
+    def eventAlignment(self):
         u"""Event alignment extracted from value."""
 
-    def institutionSpecified():
+    def institutionSpecified(self):
         u"""Extracted from value."""
 
-    def valueValid():
+    def valueValid(self):
         u"""value.formalism.is_equal("HL7:GTS")"""
         
         
@@ -2233,31 +2214,26 @@ class DvPeriodicTimeSpecification(DvTimeSpecification):
     implements(IDvPeriodicTimeSpecification)
 
     def __init__(self,value):
-        self.value=value        
-
+        DvTimeSpecification.__init__(self,value)
     
-    def period():
+    def period(self):
         u"""The period of the repetition, computationally derived from the syntax 
         representation. Extracted from the 'value' attribute.
         """
 
-    def calendarAlignment():
+    def calendarAlignment(self):
         u"""Calendar alignment extracted from value."""
 
 
-    def eventAlignment():
+    def eventAlignment(self):
         u"""Event alignment extracted from value."""
         
-    def institutionSpecified():
+    def institutionSpecified(self):
         u"""Extracted from value. """
         
-    def valueValid():
+    def valueValid(self):
         u"""value.formalism.is_equal("HL7:PIVL") or value.formalism.is_equal("HL7:EIVL")"""
         
-        
-        
-
-
         
 class DvUri(DataValue,URI):
     """A reference to an object which conforms to the Universal Resource Identifier
@@ -2273,13 +2249,13 @@ class DvUri(DataValue,URI):
     implements(IDvUri)
 
     def __init__(self, value):
-        if validate(value):
+        if URI._validate(value):
             self.value=value
         else:
             raise AttributeError(_("Invalid URI"))
  
     
-    def scheme():
+    def scheme(self):
         """A distributed information "space" in which information objects exist. The scheme 
         simultaneously specifies an information space and a mechanism for accessing objects 
         in that space. For example if scheme = "ftp", it identifies the information space in 
@@ -2289,26 +2265,26 @@ class DvUri(DataValue,URI):
         the URI specification."""
         
         
-    def path():
+    def path(self):
         u"""A string whose format is a function of the scheme. Identifies the location in 
         <scheme>-space of an information entity. Typical values include hierarchical directory 
         paths for any machine. For example, with scheme = "ftp", path might be /pub/images/image_01. 
         The strings "." and ".." are reserved for use in the path. Paths may include internet/intranet 
         location identifiers of the form: sub_domain...domain, e.g. "info.cern.ch" """
 
-    def fragmentId():
+    def fragmentId(self):
         u"""A part of, a fragment or a sub-function within an object. Allows references to sub-parts 
         of objects, such as a certain line and character position in a text object. The syntax and 
         semantics are defined by the application responsible for the object. """
 
 
-    def query():
+    def query(self):
         u"""Query string to send to application implied by scheme and path Enables queries to 
         applications, including databases to be included in the URI Any query meaningful to the 
         server, including SQL."""
         
 
-    def valueExists():
+    def valueExists(self):
         u"""value != None and value != '' """
         
  
@@ -2353,7 +2329,7 @@ class DvEhrUri(DvUri):
         self.fragmentId=fragmentId
         self.query=query
     
-    def schemeIsEhr():
+    def schemeIsEhr(self):
         u""" Ensure scheme == 'ehr' """
         return self.scheme == 'ehr'
 

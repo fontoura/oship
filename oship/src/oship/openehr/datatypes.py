@@ -27,6 +27,57 @@ from support import Interval,ITerminologyId,IObjectRef
 
 _ = MessageFactory('oship')
 
+
+class IDvUri(Interface):
+    """A reference to an object which conforms to the Universal Resource Identifier
+    (URI) standard, as defined by W3C RFC 2936. See "Universal Resource Identifiers in WWW"
+    by Tim Berners-Lee at http://www.ietf.org/rfc/rfc2396.txt. This is a World-Wide Web RFC 
+    for global identification of resources. See http://www.w3.org/Addressing for a starting 
+    point on URIs. See http://www.ietf.org/rfc/rfc2806.txt for new URI types like telephone, 
+    fax and modem numbers.
+    
+    Enables external resources to be referenced from within the content of the EHR. A number 
+    of functions return the logical subparts of the URI string."""
+    
+    value = URI(
+        title = _(u"Value"),
+        description = _(u"""The URI as a string."""),
+        
+        )
+    
+    
+    def scheme():
+        """A distributed information "space" in which information objects exist. The scheme 
+        simultaneously specifies an information space and a mechanism for accessing objects 
+        in that space. For example if scheme = "ftp", it identifies the information space in 
+        which all ftpable objects exist, and also the application - ftp - which can be used 
+        to access them. Values may include: "ftp", "telnet", "mailto", "gopher" and many others. 
+        Refer to WWW URI RFC for a full list. New information spaces can be accommodated within 
+        the URI specification."""
+        
+    def path():
+        """A string whose format is a function of the scheme. Identifies the location in 
+        <scheme>-space of an information entity. Typical values include hierarchical directory 
+        paths for any machine. For example, with scheme = "ftp", path might be /pub/images/image_01. 
+        The strings "." and ".." are reserved for use in the path. Paths may include internet/intranet 
+        location identifiers of the form: sub_domain...domain, e.g. "info.cern.ch" """
+
+    def fragmentId():
+        """A part of, a fragment or a sub-function within an object. Allows references to sub-parts 
+        of objects, such as a certain line and character position in a text object. The syntax and 
+        semantics are defined by the application responsible for the object. """
+
+
+    def query():
+        """Query string to send to application implied by scheme and path Enables queries to 
+        applications, including databases to be included in the URI Any query meaningful to the 
+        server, including SQL."""
+        
+
+    def valueExists():
+        """value != None and value != '' """
+ 
+
 class ICodePhrase(Interface):
     """
     A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
@@ -175,55 +226,7 @@ class IDvText(Interface):
         required = False
         )         
     
-class IDvUri(Interface):
-    """A reference to an object which conforms to the Universal Resource Identifier
-    (URI) standard, as defined by W3C RFC 2936. See "Universal Resource Identifiers in WWW"
-    by Tim Berners-Lee at http://www.ietf.org/rfc/rfc2396.txt. This is a World-Wide Web RFC 
-    for global identification of resources. See http://www.w3.org/Addressing for a starting 
-    point on URIs. See http://www.ietf.org/rfc/rfc2806.txt for new URI types like telephone, 
-    fax and modem numbers.
-    
-    Enables external resources to be referenced from within the content of the EHR. A number 
-    of functions return the logical subparts of the URI string."""
-    
-    value = URI(
-        title = _(u"Value"),
-        description = _(u"""The URI as a string."""),
-        
-        )
-    
-    
-    def scheme():
-        """A distributed information "space" in which information objects exist. The scheme 
-        simultaneously specifies an information space and a mechanism for accessing objects 
-        in that space. For example if scheme = "ftp", it identifies the information space in 
-        which all ftpable objects exist, and also the application - ftp - which can be used 
-        to access them. Values may include: "ftp", "telnet", "mailto", "gopher" and many others. 
-        Refer to WWW URI RFC for a full list. New information spaces can be accommodated within 
-        the URI specification."""
-        
-    def path():
-        """A string whose format is a function of the scheme. Identifies the location in 
-        <scheme>-space of an information entity. Typical values include hierarchical directory 
-        paths for any machine. For example, with scheme = "ftp", path might be /pub/images/image_01. 
-        The strings "." and ".." are reserved for use in the path. Paths may include internet/intranet 
-        location identifiers of the form: sub_domain...domain, e.g. "info.cern.ch" """
-
-    def fragmentId():
-        """A part of, a fragment or a sub-function within an object. Allows references to sub-parts 
-        of objects, such as a certain line and character position in a text object. The syntax and 
-        semantics are defined by the application responsible for the object. """
-
-
-    def query():
-        """Query string to send to application implied by scheme and path Enables queries to 
-        applications, including databases to be included in the URI Any query meaningful to the 
-        server, including SQL."""
-        
-
-    def valueExists():
-        """value != None and value != '' """
-        
+       
 
 class IDataValue(Interface):
     """
@@ -235,7 +238,10 @@ class IDataValue(Interface):
 class DataValue(grok.Model):
     u""" 
     Abstract class. 
-    Serves as a common ancestor of all data value types in openEHR models. 
+    Serves as a common ancestor of all data value types in openEHR models.
+    
+    In OSHIP we inherit from grok.Model instead of 'object' so that we 
+    can more easily operate in the Grok environment.
     """
     
     implements(IDataValue)
@@ -385,11 +391,7 @@ class IDvState(Interface):
                       from which no further transitions are possible.
                       It is required and the default is False.
                       """),
-        
         )
-            
-    
-    
     
 class DvState(DataValue):
     """
@@ -399,9 +401,15 @@ class DvState(DataValue):
 
     implements(IDvState)
     
-    def __init__(self, value, isTerminal):
-        self.value=value
-        self.isTerminal=isTerminal
+    def __init__(self,value,isTerminal):
+        if isinstance(value,basestring):
+            self.value=value
+        else:
+            raise TypeError(_("DvState.value must be a string or unicode type."))
+        if isinstance(isTerminal,Bool):    
+            self.isTerminal=isTerminal
+        else:
+            raise TypeError(_("DvState.isTerminal must be a boolean type."))
         
 
 class IDvEncapsulated(Interface):
@@ -1099,7 +1107,7 @@ class DvCount(DvAmount):
     
     implements(IDvCount)
     
-    def __init__(self,magnitude,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
+    def __init__(self,magnitude,accuracy,accuracyIsPercent,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.magnitude=magnitude
         DvAmount.__init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
     
@@ -1570,7 +1578,7 @@ class DvQuantity(DvAmount):
     
     implements(IDvQuantity)
    
-    def __init__(self,magnitude,units,precision,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
+    def __init__(self,magnitude,units,precision,accuracy,accuracyIsPercent,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.magnitude=magnitude
         self.units=units
         self.precision=precision

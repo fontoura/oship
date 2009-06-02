@@ -776,6 +776,7 @@ class DvOrdered(DataValue,Orderable):
         if index==False:
             raise ValueError(_("No limits in otherReferenceRanges"))
 
+        
     def isNormal(self):
         """ 
         Value is in the normal range, determined by comparison of the value to the normalRange 
@@ -1973,9 +1974,15 @@ class CodePhrase(grok.Model):
     
     implements(ICodePhrase)
     
-    def __init__(self, terminologyId, codeString):        
-        self.terminologyId=terminologyId
-        self.codeString=codeString
+    def __init__(self,terminologyId,codeString):
+        if isinstance(terminologyId,TerminologyId):
+            self.terminologyId=terminologyId
+        else:
+            raise AttributeError(_("Invalid CodePhrase.terminologyId."))
+        if isinstance(codeString,TextLine) and codeString != '':
+            self.codeString=codeString
+        else:
+            raise AttributeError(_("Invalid CodePhrase.codeString."))
 
         
     def __eq__(self, other):

@@ -27,7 +27,7 @@ import sys
 import mglob
 import logging
 
-from pyparsing import *
+from oship.utils.pyparsing import *
 
 
 

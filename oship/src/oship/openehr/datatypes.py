@@ -2061,6 +2061,13 @@ class DvParagraph(DataValue):
     prose, which may be interpreted for display purposes as a paragraph.
     DV_PARAGRAPH is the standard way for constructing longer text items in summa-
     ries, reports and so on.
+    
+    >>> from oship.openehr.datatypes import *
+    >>> p = [u"textline1",u"textline2",u"textline3"]
+    >>> paragraph = DvParagraph(p)
+    >>> paragraph.items
+    [u'textline1', u'textline2', u'textline3']
+            
     """
 
     implements(IDvParagraph)
@@ -2081,6 +2088,7 @@ class TermMapping(DataValue):
     Used for adding classification terms (e.g. adding ICD classifiers to SNOMED
     descriptive terms), or mapping into equivalents in other terminologies (e.g.
     across nursing vocabularies).
+    
     """
 
     implements(ITermMapping)

@@ -8,9 +8,11 @@
 ##############################################################################
 
 import uuid
-from grok import index  # why ??? w/o this I was getting a module has no attribute index
 import grok
+from grok import index  # why ??? w/o this I was getting a module has no attribute index
+
 from datetime import datetime
+
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
 from zope.schema import TextLine,Date,Field

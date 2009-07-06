@@ -13,7 +13,7 @@ __docformat__ = 'plaintext'
 __version__ = '1.1'
 __contributors__ = 'Timothy Cook <timothywayne.cook@gmail.com>'
 
-from pyparsing import *
+from oship.utils.pyparsing import *
 ParserElement.enablePackrat()
 
 __all__ = "archetypeDefinition"

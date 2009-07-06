@@ -24,7 +24,6 @@ setup(name='oship',
                         'z3c.testsetup',
                         'grokcore.startup',
                         # Add extra requirements here
-                        'pyparsing',
                         'mglob',
                         'hurry.workflow',
                         'megrok.kss' 

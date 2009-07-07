@@ -1,0 +1,8 @@
+<b align="center">Patient List</b><br />
+Search:
+<form action="." tal:attributes="action request/URL" method="post"
+      class="edit-form" enctype="multipart/form-data">
+      <input type="text" name="search" value="Enter a Surname" size="15">
+      <input type="submit" name="search-submit" value=">>">
+</form>
+

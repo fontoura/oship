@@ -111,7 +111,7 @@ class IPartyIdentified(Interface):
     identifiers = List(
         value_type=Object(schema=IDvIdentifier),
         title=_(u'Identifiers'),
-        description=_(u"""One or more formal identifiers (possiblycomputable).
+        description=_(u"""One or more formal identifiers (possibly computable).
                     List<DvIdentifier>"""),
         required=False,
         )
@@ -305,6 +305,46 @@ class IFeederAudit(Interface):
     
     def originatingSystemAuditValid():
         """ originatingSystemAudit != None """
+class IArchetyped(Interface):
+    """
+    Archetypes act as the configuration basis for the particular structures of instances
+    defined by the reference model. To enable archetypes to be used to create valid
+    data, key classes in the reference model act as "root" points for archetyping;
+    accordingly, these classes have the archetype_details attribute set. An instance of
+    the class ARCHETYPED contains the relevant archetype identification information,
+    allowing generating archetypes to be matched up with data instances
+    """
+
+    archetypeId = Object(
+        schema=IArchetypeId,
+        title=_(u"Archetype ID"),
+        description=_(u"Globally unique archetype identifier."),
+        
+        )
+    
+    templateId = Object(
+        schema=ITemplateId,
+        title=_(u"Template ID"),
+        description=_(u"""Globally unique template identifier, if a template was active at 
+                    this point in the structure. Normally, a template would only be used 
+                    at the top of a top-level structure, but the possibility exists for 
+                    templates at lower levels."""),
+        required=False,
+        )
+    
+    rmVersion = TextLine(
+        title=_(u"RM Version"),
+        description=_(u"""Version of the openEHR reference model used to create this object.
+                    Expressed in terms of the release version string, e.g. "1.0", "1.2.4". """),
+        
+        )
+        
+
+    def archetypeIdValid():
+        """ archetypeId != None """
+        
+    def rmVersionValid():
+        """ rmVersion != None and rmVersion != '' """
 
         
 class IPathable(Interface):
@@ -313,8 +353,8 @@ class IPathable(Interface):
     know how to locate child object by paths. The parent feature may be implemented 
     as a function or attribute.
     
-    The two attributes required for locatable in ZCA is __parent__ and __name__.  
-    We inherit those from IContained.
+    The two attributes required for locatable in Grok is __parent__ and __name__.  
+    We inherit those from grok.Model.
     
     The functionality to get paths and find children is contained in the traversal mechanism.
     """
@@ -367,8 +407,8 @@ class Pathable(grok.Model):
     know how to locate child object by paths. The parent feature may be implemented 
     as a function or attribute.
     
-    The two attributes required for locatable in ZCA is __parent__ and __name__.  
-    We inherit those from Location.
+    The two attributes required for locatable in Grok is __parent__ and __name__.  
+    We inherit those from grok.Model.
     
     The functionality to get paths and find children is contained in the traversal mechanism.
     """
@@ -441,6 +481,7 @@ class ILocatable(Interface):
                      
                      At an archetype root point, the value of this attribute is always the stringified
                      form of the archetype_id found in the archetype_details object."""),
+        required=True
         
         )
     
@@ -457,7 +498,7 @@ class ILocatable(Interface):
 
     
     archetypeDetails = Object(
-        schema=IObjectRef,
+        schema=IArchetyped,
         title=_(u"Archetype Details"),
         description=_(u"Details of archetyping used on this node."),
         required=False,
@@ -473,7 +514,7 @@ class ILocatable(Interface):
         )
     
     
-    links = List(
+    links = Set(
         value_type=Object(schema=ILink),
         title=_(u"Links"),
         description=_(u"""Audit trail from non-openEHR system of original commit of information 
@@ -511,8 +552,7 @@ class Locatable(Pathable):
 
     implements(ILocatable)
     
-    def __init__(self,uid,atnodeid,name,atdetails,fdraudit,links):
-        self.__name__=atnodeid #inherited from grok.Model
+    def __init__(self,uid,nodeid,name,atdetails,fdraudit,links):
         self.uid=uid
         self.archetypeNodeId=atnodeid
         self.name=name
@@ -554,48 +594,6 @@ class Locatable(Pathable):
             return self.archetypeNodeId != ''
         return self.archetypeNodeId == None
         
-
-
-class IArchetyped(Interface):
-    """
-    Archetypes act as the configuration basis for the particular structures of instances
-    defined by the reference model. To enable archetypes to be used to create valid
-    data, key classes in the reference model act as "root" points for archetyping;
-    accordingly, these classes have the archetype_details attribute set. An instance of
-    the class ARCHETYPED contains the relevant archetype identification information,
-    allowing generating archetypes to be matched up with data instances
-    """
-
-    archetypeId = Object(
-        schema=IArchetypeId,
-        title=_(u"Archetype ID"),
-        description=_(u"Globally unique archetype identifier."),
-        
-        )
-    
-    templateId = Object(
-        schema=ITemplateId,
-        title=_(u"Template ID"),
-        description=_(u"""Globally unique template identifier, if a template was active at 
-                    this point in the structure. Normally, a template would only be used 
-                    at the top of a top-level structure, but the possibility exists for 
-                    templates at lower levels."""),
-        required=False,
-        )
-    
-    rmVersion = TextLine(
-        title=_(u"RM Version"),
-        description=_(u"""Version of the openEHR reference model used to create this object.
-                    Expressed in terms of the release version string, e.g. "1.0", "1.2.4". """),
-        
-        )
-        
-
-    def archetypeIdValid():
-        """ archetypeId != None """
-        
-    def rmVersionValid():
-        """ rmVersion != None and rmVersion != '' """
 
 
 class Archetyped(Locatable):
@@ -844,7 +842,7 @@ class IVersion(Interface):
     
     data = Field(
         title=_(u'Data'),
-        description=_(u"""Original content of this Version."""),
+        description=_(u"""Original content of this Version. Any Type."""),
         required=False,
         )
     
@@ -1807,7 +1805,7 @@ class ITranslationDetails(Interface):
 class IResourceDescription(Interface):
     u"""Defines the descriptive meta-data of a resource."""
     
-    originalAuthor=Dict(
+    originalAuthor=List(
         title=_(u'Original Author'),
         description=_(u""""""),
         required=True
@@ -1826,7 +1824,7 @@ class IResourceDescription(Interface):
         required=True
     )
     
-    details=Dict(
+    details=List(
         title=_(u'Details'),
         description=_(u""""""),
         required=True
@@ -1838,7 +1836,7 @@ class IResourceDescription(Interface):
         required=False
     )
     
-    otherDetails=Dict(
+    otherDetails=List(
         title=_(u'Other Details'),
         description=_(u""""""),
         required=False
@@ -1854,11 +1852,11 @@ class IResourceDescription(Interface):
 class IAuthoredResource(Interface):
     u"""Abstract idea of an online resource created by a human author. """
     
-    orignialLanguage=Object(
+    originalLanguage=Object(
         schema=ICodePhrase,
         title=_(u"Original Language"),
         description=_(u"""Original Language"""),
-        required=True
+        required=False
     )
        
     translations=Object(
@@ -1886,7 +1884,7 @@ class IAuthoredResource(Interface):
     isControlled=Bool(
         title=_(u"Is Controlled"),
         description=_(u""""""),
-        required=True
+        required=False
     )
     
     def currentRevision():
@@ -1902,13 +1900,12 @@ class AuthoredResource(grok.Model):
     
     implements(IAuthoredResource)
     
-    
-    def __init__(self, olang,trans,descr,revhist,ctrld):
-        self.originalLanguage=olang
-        self.translations=trans
-        self.description=descr
-        self.revisionHistory=revhist
-        self.isControlled=ctrld
+
+    originalLanguage=None
+    translations=None
+    description=None
+    revisionHistory=None
+    isControlled=None
 
     def currentRevision():
         u""" """

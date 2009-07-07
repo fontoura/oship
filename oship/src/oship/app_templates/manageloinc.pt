@@ -1,0 +1,39 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
+  <title>LOINC Management Interface</title>
+</head>
+
+<body>
+<br /><br />
+
+<table border="5" align="center">
+<tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+</table>
+
+<p>
+You need to first Join the site at <a href="http://loinc.org/">LOINC.org</a><br />
+See the join link near the top right.
+</p>
+<p>
+Click on the downloads menu selection and then scroll down to get the  "LOINC Table File - ASCII Text Format".  Read and accept the terms of service agreement and you will be taken to a download link.  Unzip the file LOINCTAB.txt to the oship/src/oship/loinc directory. </p>
+<p>
+Around line 320 it says: <----Clip Here for Data----->  Including that line, delete everything above it so that the first line you have in your file is the one with the headers: "LOINC_NUM"	"COMPONENT"	"PROPERTY"	"TIME_ASPCT"	"SYSTEM", etc.</p>
+<p>
+ <i>We will soon have full import functionality for these codes.</i>  
+</p>
+<p>
+If you are outside of the U.S. please be sure to check the International menu item for information about translations, etc.
+</p>
+
+<p>Return to the <a  href="http://localhost:8080/oship/oshipmanage">OSHIP Management Interface</a></p>
+
+</body>
+</html>

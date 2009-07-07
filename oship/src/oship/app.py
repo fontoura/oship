@@ -1,30 +1,60 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 # Copyright (c) 2007, Timothy W. Cook and Contributors. All rights reserved.
-# Redistribution and use are governed by the MPL license.
+# Redistribution and use are governed by the Mozilla Public License Version 1.1 - see docs/OSHIP-LICENSE.txt
 #
 # Use and/or redistribution of this file assumes you have read and accepted the
 # terms of the license.
 ##############################################################################
 
+import os
+import logging
 import grok
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
-from zope.app.container.btree import BTreeContainer
-from zope.app.folder import Folder
-from oship.openehr.atbldr import CreateAT, getFileList
-from oship.msw.createmsw import CreatMSW
+from openehr.atbldr import CreatePy
 from oship.oeterm.oeterm import importOETerms
 from oship.rxterms.createrxterms import CreateRxTerms
 
 
 # Begin OSHIP Demo
-class oship(grok.Application, grok.Container ):
-    pass
+class oship(grok.Application, grok.Container):
+    pass    
 
 class Index(grok.View):
     grok.context(oship)
     
+    # Create the containers and initial python sourcee templates for the archetypes   
+    def render(self):
+        logfile=os.getcwd()+'/parts/log/pyfile_build.log'
+        #create the logfile if it doesn't exist
+        f=open(logfile,'w')
+        f.write("Python source file log.\n\n")
+        
+        logging.basicConfig(level=logging.INFO,
+                            format='%(asctime)s %(levelname)s %(message)s',
+                            filename=f,
+                            filemode='w')
+
+
+        try:
+            self.context['termserver'] = grok.Container() # terminology server
+            self.context['aql'] = grok.Container() # AQL repository
+        except DuplicationError:
+            pass
+        
+        print "\n\n\n********* Begin creating Python files. *********\n"
+        
+        CreatePy()
+        
+        print "\n\n Finished creating Python source files.\n"
+        
+        self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
+            
+    
+class OshipManage(grok.View):
+    grok.context(oship)
+        
 class Terms(grok.View):   
     grok.context(oship)
         
@@ -34,83 +64,27 @@ class Demos(grok.View):
 class ATQL(grok.View):
     grok.context(oship)
 
-# Create the containers and initial archetypes
-class Setup(grok.View):
+class ManageICD(grok.View):
+    grok.context(oship)
+
+class ManageLOINC(grok.View):
     grok.context(oship)
     
-    def render(self):
-        try:
-            self.context['ar'] = grok.Container() # archetype repository
-            self.context['termserver'] = grok.Container() # terminology server
-            self.context['aql'] = grok.Container() # AQL repository
-        except DuplicationError:
-            pass
-        
-        fnames = getFileList()
-        try:        
-            for fname in fnames: # we have our list of ADL files
-                print "Processing: ",fname
-                
-                at=CreateAT(fname) # take one ADL file and process it into a mapping
-
-                atname=at[0]
-                
-                self.context['ar'][atname]=at[1]
-        except DuplicationError:
-            pass
-         
-        print "Setup and ADL processing is complete."
-        
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
-            
-class Emptyar(grok.View):
-    """Remove all the archetypes in the repository"""
-    
+class ManageRxTerms(grok.View):
     grok.context(oship)
-    
-    def render(self):
-        atnames=list(self.context['ar'].keys())
 
-        for x in atnames:
-            del self.context['ar'][x]
+class ManageSMCT(grok.View):
+    grok.context(oship)
+
+class EditPySrc(grok.View):   
+    grok.context(oship)
+
             
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
 
 """
 Start the terminology import section
 """
-        
-class ImportMSW(grok.View):
-    """Import the mammal vocabulary into the term server."""
-    grok.context(oship)
-
-    def render(self):
-        
-        try:
-            self.context['termserver']['msw'] = grok.Container()
-        except DuplicationError:
-            pass
-        
-        vocab=CreatMSW() # a list of tuples consisting of an Id and a mammal model
-        print len(vocab), " = # of mammals to be added."
-        n=len(vocab)
-        x=0
-        while x<n:
-            try:
-                mammal=vocab[x]
-                mammalid=mammal[0]
-                mammalobj=mammal[1]
-                self.context['termserver']['msw'][mammalid]=mammalobj 
-                print "Added: # ",x, " - ",mammalid, mammalobj
-            except DuplicationError:
-                print "Duplication of Mammal ID: ", mammalid
-                pass
-            x+=1
-                    
-
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
-            
-        
+                
 class ImportOE(grok.View):
     """Import the openEHR vocabulary into the term server."""
     grok.context(oship)
@@ -141,7 +115,7 @@ class ImportOE(grok.View):
             x+=1
                     
         print "\n\nOpenEHR Terminology Import Complete"
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+        self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
 
 class ImportRxTerms(grok.View):
     """Import the RxTerms vocabulary into the term server."""
@@ -175,7 +149,7 @@ class ImportRxTerms(grok.View):
             
         print "\n\nRxTerms import is complete.\n"
 
-        self.redirect("http://localhost:8080/oship") # now simply redirect to the main page
+        self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
 
        
         

@@ -16,7 +16,7 @@ The basic openEHR data types. From the data types specification Rev 2.1.0
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
 
-from zope.interface import Interface,implements
+from zope.interface import Interface,implements,providedBy
 from zope.i18nmessageid.message import MessageFactory 
 from zope.schema import Text,Bool,TextLine,Int,Field,BytesLine,Float,List,URI,Orderable,Choice,Object
 from zope.app.file.image import Image
@@ -27,104 +27,7 @@ from support import Interval,ITerminologyId,IObjectRef
 
 _ = MessageFactory('oship')
 
-class ICodePhrase(Interface):
-    """
-    A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
-    minology service (as distinct from a particular terminology).
-    """
-    
-    terminologyId = Object(
-        schema = ITerminologyId,
-        title = _(u"TerminologyId"),
-        description = _(u"""Identifier of the distinct terminology from
-                      which the code_string (or its elements) was extracted."""),
-        required = True
-        )
-    
-    codeString = TextLine(
-        title = _(u"CodeString"),
-        description = _(u"""The key used by the terminology service to
-                      identify a concept or coordination of concepts.
-                      This string is most likely parsable inside the ter-
-                      minology service, but nothing can be assumed
-                      about its syntax outside that context."""),
-        required = True
-        )
 
-class IDvText(Interface):
-    """
-    A text item, which may contain any amount of legal characters arranged as e.g.
-    words, sentences etc (i.e. one DV_TEXT may be more than one word). Visual for-
-    matting and hyperlinks may be included.
-    A DV_TEXT can be "coded" by adding mappings to it.
-    Fragments of text, whether coded or not are used on their own as values, or to
-    make up larger tracts of text which may be marked up in some way, eventually
-    going to make up paragraphs.
-    """
-    
-    value = TextLine(
-        title = _(u"Value"),
-        description = _(u"""Displayable rendition of the item, regardless of its underlying structure. For DV_CODED_TEXT, this is the rubric of the complete term as provided by the terminology service. No carriage returns, line feeds, or other non-printing characters permitted."""),
-    )
-    
-    mappings=List(
-        value_type=Object(schema=IObjectRef),
-        title = _(u"Mappings"),
-        description = _(u"""A list of MappingTerm,terms from other terminologies most closely matching this term, typically used where the originator (e.g.   pathology lab) of information uses a local terminology but also supplies one or more equivalents from wellknown terminologies (e.g. LOINC). The list contents should be of the type TermMapping"""),
-        required = False,
-        )
-    
-    formatting = Text(
-        title = _(u"Formatting"),
-        description = _(u"""A format string of the form "name:value; name:value...", e.g. "font-weight : bold; font-family : Arial; font-size : 12pt;". Values taken from W3C CSS2 properties lists "background" and "font"."""),
-        required = False
-        )
-    
-    hyperlink = URI(
-        title = _(u"Hyperlink"),
-        description = _(u"""Optional link sitting behind a section of plain text or coded term item as type DvUri."""),
-        required = False
-        )
-    
-    language = Object(
-        schema = ICodePhrase,
-        title = _(u"Language"),
-        description = _(u"""Optional indicator of the localised language in which the value is written. Coded from openEHR Code Set "languages". Only used when either the text object is in a different language from the enclosing ENTRY, or else the text object is being used outside of an ENTRY or other enclosing structure which indicates the language."""),
-        required = False
-        )
-    
-    encoding = Object(
-        schema = ICodePhrase,
-        title = _(u"Encoding"),
-        description = _(u"""Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set "character sets". Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions."""),
-        required = False
-        )         
-  
-class IDvCodedText(Interface):
-    """
-    A text item whose value must be the rubric from a controlled terminology, the
-    key (i.e. the 'code') of which is the defining_code attribute. In other words: a
-    DV_CODED_TEXT is a combination of a CODE_PHRASE (effectively a code) and
-    the rubric of that term, from a terminology service, in the language in which the
-    data was authored.
-    
-    Since DV_CODED_TEXT is a subtype of DV_TEXT, it can be used in place of it,
-    effectively allowing the type DV_TEXT to mean "a text item, which may option-
-    ally be coded".
-
-    If the intention is to represent a term code attached in some way to a fragment of
-    plain text, DV_CODED_TEXT should not be used; instead use a DV_TEXT and a
-    TERM_MAPPING to a CODE_PHRASE.
-    """
-    
-    definingCode = Object(
-        schema=ICodePhrase,
-        title = _(u"DefiningCode"),
-        description = _(u"""The term which the 'value' attribute is the defining_code:CODE_PHRASE textual rendition (i.e. rubric) of."""),
-        required = True
-        )
-
-    
 class IDvUri(Interface):
     """A reference to an object which conforms to the Universal Resource Identifier
     (URI) standard, as defined by W3C RFC 2936. See "Universal Resource Identifiers in WWW"
@@ -173,7 +76,157 @@ class IDvUri(Interface):
 
     def valueExists():
         """value != None and value != '' """
+ 
+
+class ICodePhrase(Interface):
+    """
+    A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
+    minology service (as distinct from a particular terminology).
+    """
+    
+    terminologyId = Object(
+        schema = ITerminologyId,
+        title = _(u"TerminologyId"),
+        description = _(u"""Identifier of the distinct terminology from
+                      which the code_string (or its elements) was extracted."""),
+        required = True
+        )
+    
+    codeString = TextLine(
+        title = _(u"CodeString"),
+        description = _(u"""The key used by the terminology service to
+                      identify a concept or coordination of concepts.
+                      This string is most likely parsable inside the ter-
+                      minology service, but nothing can be assumed
+                      about its syntax outside that context."""),
+        required = True
+        )
+
+  
+class IDvCodedText(Interface):
+    """
+    A text item whose value must be the rubric from a controlled terminology, the
+    key (i.e. the 'code') of which is the defining_code attribute. In other words: a
+    DV_CODED_TEXT is a combination of a CODE_PHRASE (effectively a code) and
+    the rubric of that term, from a terminology service, in the language in which the
+    data was authored.
+    
+    Since DV_CODED_TEXT is a subtype of DV_TEXT, it can be used in place of it,
+    effectively allowing the type DV_TEXT to mean "a text item, which may option-
+    ally be coded".
+
+    If the intention is to represent a term code attached in some way to a fragment of
+    plain text, DV_CODED_TEXT should not be used; instead use a DV_TEXT and a
+    TERM_MAPPING to a CODE_PHRASE.
+    """
+    
+    definingCode = Object(
+        schema=ICodePhrase,
+        title = _(u"DefiningCode"),
+        description = _(u"""The term which the 'value' attribute is the defining_code:CODE_PHRASE textual rendition (i.e. rubric) of."""),
+        required = True
+        )
+
+class ITermMapping(Interface):
+    """
+    Represents a coded term mapped to a DV_TEXT, and the relative match of the tar-
+    get term with respect to the mapped item. Plain or coded text items may appear in
+    the EHR for which one or mappings in alternative terminologies are required.
+    Mappings are only used to enable computer processing, so they can only be
+    instances of DV_CODED_TEXT.
+    
+    Used for adding classification terms (e.g. adding ICD classifiers to SNOMED
+    descriptive terms), or mapping into equivalents in other terminologies (e.g.
+    across nursing vocabularies).
+    """
+    
+    target = Object(
+        schema=ICodePhrase,
+        title = _(u"Target"),
+        description = _(u"""The target term of the mapping as a CodePhrase."""),
+        required = True
+        )
+    
+    match = TextLine(
+        title = _(u"Match"),
+        description = _(u"""The relative match of the target term with respect to the mapped text item. Result meanings:'>': the mapping is to a broader term e.g. orginal text = "arbovirus infection", target = "viral infection" '=': the mapping is to a (supposedly) equivalent to the original item '<': the mapping is to a narrower term. e.g. original text = "diabetes", mapping = "diabetes mellitus". '?': the kind of mapping is unknown. The first three values are taken from the ISO standards 2788 ("Guide to Establishment and development of monolingual thesauri") and 5964 ("Guide to Establishment and development of multilingual thesauri")."""),
+        required = True
+        )
+    
+    purpose = Object(
+        schema=IDvCodedText,
+        title = _(u"Purpose"),
+        description = _(u"""Purpose of the mapping e.g. "automated data mining", "billing", "interoperability" """),
+        required=False
+        )
+    
+    def narrower():
+        u"""The mapping is to a narrower term."""
         
+    def equivalent():
+        u"""The mapping is to an equivalent term."""
+        
+    def broader():
+        u"""The mapping is to a broader term."""
+        
+    def unknown():
+        u"""The kind of mapping is unknown."""
+        
+    def isValidMatchCode():
+        u"""True if match valid."""
+
+class IDvText(Interface):
+    """
+    A text item, which may contain any amount of legal characters arranged as e.g.
+    words, sentences etc (i.e. one DV_TEXT may be more than one word). Visual for-
+    matting and hyperlinks may be included.
+    A DV_TEXT can be "coded" by adding mappings to it.
+    Fragments of text, whether coded or not are used on their own as values, or to
+    make up larger tracts of text which may be marked up in some way, eventually
+    going to make up paragraphs.
+    """
+    
+    value = TextLine(
+        title = _(u"Value"),
+        description = _(u"""Displayable rendition of the item, regardless of its underlying structure. For DV_CODED_TEXT, this is the rubric of the complete term as provided by the terminology service. No carriage returns, line feeds, or other non-printing characters permitted."""),
+        required=True
+    )
+    
+    mappings=List(
+        value_type=Object(schema=ITermMapping),
+        title = _(u"Mappings"),
+        description = _(u"""A list of MappingTerm,terms from other terminologies most closely matching this term, typically used where the originator (e.g.   pathology lab) of information uses a local terminology but also supplies one or more equivalents from wellknown terminologies (e.g. LOINC). The list contents should be of the type TermMapping"""),
+        required = False,
+    )
+    
+    formatting = Text(
+        title = _(u"Formatting"),
+        description = _(u"""A format string of the form "name:value; name:value...", e.g. "font-weight : bold; font-family : Arial; font-size : 12pt;". Values taken from W3C CSS2 properties lists "background" and "font"."""),
+        required = False
+        )
+    
+    hyperlink = Object(
+        schema=IDvUri,
+        title = _(u"Hyperlink"),
+        description = _(u"""Optional link sitting behind a section of plain text or coded term item as type DvUri."""),
+        required = False
+        )
+    
+    language = Object(
+        schema = ICodePhrase,
+        title = _(u"Language"),
+        description = _(u"""Optional indicator of the localised language in which the value is written. Coded from openEHR Code Set "languages". Only used when either the text object is in a different language from the enclosing ENTRY, or else the text object is being used outside of an ENTRY or other enclosing structure which indicates the language."""),
+        required = False
+        )
+    
+    encoding = Object(
+        schema = ICodePhrase,
+        title = _(u"Encoding"),
+        description = _(u"""Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set "character sets". Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions."""),
+        required = False
+        )         
+    
+       
 
 class IDataValue(Interface):
     """
@@ -185,14 +238,14 @@ class IDataValue(Interface):
 class DataValue(grok.Model):
     u""" 
     Abstract class. 
-    Serves as a common ancestor of all data value types in openEHR models.  but acts as a Zope3 Field ancestor.
+    Serves as a common ancestor of all data value types in openEHR models.
+    
+    In OSHIP we inherit from grok.Model instead of 'object' so that we 
+    can more easily operate in the Grok environment.
     """
     
     implements(IDataValue)
-
-    #def __init_(self,**kw):
-        #Field.__init__(self,**kw)
-        
+    pass
 
 class IDvBoolean(Interface):
     """
@@ -206,6 +259,7 @@ class IDvBoolean(Interface):
         description = _(u"The boolean value of this item."),
         required = True,
     )
+    
 class DvBoolean(DataValue):
     """ 
     Items which are truly boolean data, such as true/false or yes/no answers.
@@ -215,21 +269,32 @@ class DvBoolean(DataValue):
     enumerated types such as male/female etc. Such values should be coded, and in
     any case the enumeration often has more than two values.  
 
-    
-    Example:
-    
-    >>>obj = DvBoolean(0)
-    >>>obj.value
-    >>>False
+    >>> from oship.openehr.datatypes import DvBoolean
+    >>> b = DvBoolean(0)
+    >>> b.value
+    False
+    >>> b = DvBoolean(1)
+    >>> b.value
+    True
+    >>> b = DvBoolean(True)
+    >>> b.value
+    True
+    >>> b = DvBoolean(False)
+    >>> b.value
+    False
+    >>> b = DvBoolean(-1)
+    >>> b.value
+    True
     
     """
 
     implements(IDvBoolean)
 
-    def __init__(self, value,**kw):
-        Field.__init__(self,**kw)
-               
-        self.value=Bool(value)
+    def __init__(self,value):
+        self.value=bool(value)
+        if self.value != True and self.value != False:
+            raise AttributeError(_("DvBoolean.value True or False."))
+        
         
 class IDvIdentifier(Interface):
     """
@@ -249,7 +314,7 @@ class IDvIdentifier(Interface):
         title = _(u"Issuer"),
         description = _(u"""Authority which issues the kind of id used in the id field  
                       of this object."""),
-        
+        required = True
         )
     
     assignor = Text(
@@ -288,12 +353,22 @@ class DvIdentifier(DataValue):
     implements(IDvIdentifier)
     
     def __init__(self, issuer, assignor, id, type):
-        Field.__init__(self,**kw)
-        
-        self.issuer=issuer
-        self.assignor=assignor
-        self.id=id
-        self.type=type
+        if isinstance(issuer,basestring) and issuer != '':
+            self.issuer=issuer
+        else:
+            raise AttributeError("Invalid DvIdentifier.issuer.")
+        if isinstance(assignor,basestring) and assignor != '':       
+            self.assignor=assignor
+        else:
+            raise AttributeError("Invalid DvIdentifier.assignor.")
+        if isinstance(id,basestring) and id != '':
+            self.id=id
+        else:
+            raise AttributeError("Invalid DvIdentifier.id.")
+        if isinstance(type,basestring) and type != '':
+            self.type=type
+        else:
+            raise AttributeError("Invalid DvIdentifier.type.")
         
    
 class IDvState(Interface):
@@ -306,7 +381,8 @@ class IDvState(Interface):
     plex processes in simple data.
     """
     
-    value = TextLine(
+    value = Object(
+        schema=IDvCodedText,
         title = _(u"value"),
         description = _(u"""The state name. State names are determined by a state/event 
                       table defined in archetypes, and coded using openEHR Terminology 
@@ -317,8 +393,7 @@ class IDvState(Interface):
                       is DvStateParser() and it may be called anywhere in the application
                       that the developer needs to know the current available states.
                       It returns a DvCodedText type.
-                      """),
-        
+                      """)        
         )
     
     isTerminal = Bool(
@@ -328,10 +403,8 @@ class IDvState(Interface):
                       from which no further transitions are possible.
                       It is required and the default is False.
                       """),
-        
         )
     
-
 class DvState(DataValue):
     """
     For representing state values which obey a defined state machine, such as a vari-
@@ -340,10 +413,15 @@ class DvState(DataValue):
 
     implements(IDvState)
     
-    def __init__(self, value, isTerminal,**kw):
-        Field.__init__(self,**kw)
-        self.value=value
-        self.isTerminal=isTerminal
+    def __init__(self,value,isTerminal):
+        if isinstance(value,basestring):
+            self.value=value
+        else:
+            raise TypeError(_("DvState.value must be a string or unicode type."))
+        if isinstance(isTerminal,Bool):    
+            self.isTerminal=isTerminal
+        else:
+            raise TypeError(_("DvState.isTerminal must be a boolean type."))
         
 
 class IDvEncapsulated(Interface):
@@ -391,24 +469,22 @@ class DvEncapsulated(DataValue):
 
     implements(IDvEncapsulated)
 
-    def __init__(self,size,charset,language):
-
-        
-        self.size=size
+    def __init__(self,charset,language):
         self.charset=charset
         self.language=language
-    
-    def asString():
+        self.size=0 # set to zero here but calculated in the subclasses
+        
+    def asString(self):
         u"""Result = alternate_text [(uri)]"""
         
-    def sizePositive():
+    def sizePositive(self):
         u"""size >= 0"""
-        return size>0
+        return self.size>0
         
-    def languageValid():
+    def languageValid(self):
         u"""language /= Void implies code_set(Code_set_id_languages).has_code(language)"""
         
-    def charsetValid():
+    def charsetValid(self):
         u"""charset /= Void implies code_set(Code_set_id_character_sets).has_code(charset)"""
  
 class IDvMultimedia(Interface):
@@ -497,9 +573,7 @@ class DvMultimedia(DvEncapsulated):
     
     implements(IDvMultimedia)
 
-    def __init__(self,altTxt,mType,compAlg,intChk,intChkAlg,tnail,uri,data):
-
-        
+    def __init__(self,altTxt,mType,compAlg,intChk,intChkAlg,tnail,uri,data,charset,language):
         self.alternateText=altTxt
         self.mediaType=mType
         self.integrityCheck=intChk
@@ -507,34 +581,36 @@ class DvMultimedia(DvEncapsulated):
         self.thumbnail=tnail
         self.uri=uri
         self.data=data
-   
-    def isExternal():
+        self.size=len(data)
+        DvEncapsulated.__init__(self,charset,language)
+        
+    def isExternal(self):
         u"""Computed from the value of the uri attribute: True if the data is stored externally 
         to the record, as indicated by 'uri'. A copy may also be stored internally, in which case 
         'isExpanded' is also true.  Ensure uri !=None and uri != '' """
         
-    def isInline():
+    def isInline(self):
         u"""Computed from the value of the data attribute: True if the data is stored in expanded 
         form, ie within the EHR itself. Ensure data != None. """
         
-    def isCompressed():
+    def isCompressed(self):
         u"""Computed from the value of the compression_algorithm attribute: True if the data is 
         stored in compressed form. Ensure compressionAlgorithm != None. """
         
-    def hasIntegrityCheck():
+    def hasIntegrityCheck(self):
         u"""Computed from the value of the integrityCheckAlgorithm attribute: True if an 
         integrity check has been computed. Ensure integrityCheckAlgorithm != None."""
                  
-    def mediaTypeValidity(): 
+    def mediaTypeValidity(self): 
         u"""mediaType != None and mediaType in codeSetIdMediaTypes"""
         
-    def compressionAlgorithmValidity():
+    def compressionAlgorithmValidity(self):
         u"""compressionAlgorithm != None and compressionAlgorithm in codeSetIdCompressionAlgorithms."""
         
-    def integrityCheckValidity():
+    def integrityCheckValidity(self):
         u"""integrityCheck != None and integrityCheckAlgorithm != None"""
         
-    def integrityCheckAlgorithmValidity():
+    def integrityCheckAlgorithmValidity(self):
         u"""integrityCheckAlgorithm  != None and integrityCheckAlgorithm in codeSetIdIntegrityCheckAlgorithms"""
 
         
@@ -584,19 +660,19 @@ class DvParsable(DvEncapsulated):
     
     implements(IDvParsable)
 
-    def __init__(self,size,value,formalism):
-       
+    def __init__(self,size,value,formalism,charset,language):
         self.size=len(value)
         self.value=value
         self.formalism=formalism
-
-    def valueValid():
+        DvEncapsulated.__init__(self,charset,language)
+        
+    def valueValid(self):
         u"""value != None."""
         return self.value!=None
 
-    def formalismValidity():
+    def formalismValidity(self):
         u"""formalism != None and formalism != '' """
-        return formalism!=None and formalism!=''
+        return self.formalism!=None and self.formalism!=''
     
         
 # Begin the Quantity package
@@ -667,7 +743,7 @@ class IDvOrdered(Interface):
         """
     
  
-class DvOrdered(DataValue):
+class DvOrdered(DataValue,Orderable):
     """
     Purpose:           
     Abstract class defining the concept of ordered values, which includes ordinals as
@@ -685,30 +761,22 @@ class DvOrdered(DataValue):
 
     implements(IDvOrdered)
     
-    def __init__(self, normalRange, otherReferenceRanges, normalStatus):
+    def __init__(self,normalRange,otherReferenceRanges,normalStatus):
+        self.normalRange=normalRange
+        self.otherReferenceRanges=otherReferenceRanges
+        self.normalStatus=normalStatus
+                
+        index=False
+        for e in otherReferenceRanges:
+            if e.meaning.value=='limits':
+                index=True
+                limitsRange=e
+                break
+        
+        if index==False:
+            raise ValueError(_("No limits in otherReferenceRanges"))
 
         
-        self.normalRange = normalRange
-        self.otherReferenceRanges = otherReferenceRanges
-        self.normalStatus = normalStatus
-                
-    def __cmp__(self,other):
-        isStrictlyComparableTo(other)
-        
-                
-    def __lt__(self, other):
-        if isinstance(other,self.__class__):
-            return self.__dict__ < other.__dict__
-        else:
-            return False
-        
-    def isStrictlyComparableTo(self, other):
-        if isinstance(other, self.__class__):
-            return self.__dict__ == other.__dict__
-        else:
-            return False
-        
-
     def isNormal(self):
         """ 
         Value is in the normal range, determined by comparison of the value to the normalRange 
@@ -725,7 +793,7 @@ class DvOrdered(DataValue):
         if self.normalStatus.codeString == "N":
             return True
         else:
-            return self.value in self.normalRange # but we don't have a value in this abstract class in the specs
+            return self.value in self.normalRange 
         
         
     def isSimple(self):
@@ -787,29 +855,38 @@ class DvQuantified(DvOrdered):
     """
     Abstract class defining the concept of true quantified values, i.e. values which are
     not only ordered, but which have a precise magnitude.
+    
+    
     """
      
     implements(IDvQuantified)
     
-    def __init__(self,magnitude,magnitudeStatus, normalRange, otherReferenceRanges, normalStatus):
-        DvOrdered.__init__(self, normalRange, otherReferenceRanges, normalStatus)
+    def __init__(self,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
+        self.magnitude=magnitude
+        self.magnitudeStatus=magnitudeStatus
+        DvOrdered.__init__(self,normalRange,otherReferenceRanges,normalStatus)
         
-        implements(IDvQuantified)
         
-        def __init__(self,magnitude,magnitudeStatus):
-            self.magnitude=magnitude
-            self.magnitudeStatus=magnitudeStatus
- 
-    
+    def validMagnitudeStatus(self,val):
+        """
+        Test whether a string 'val' is one of the valid values for the magnitude_status attribute.
+        """
+
+    def magnitudeExists(self):
+        """
+        Does the magnitude exist?
+        """
+        return self.magnitude != None
+
 class IDvAbsoluteQuantity(Interface):
     """
     Abstract class defining the concept of quantified entities whose values are absolute with respect to an origin. Dates and Times are the main example.
     """
     
-    accuracy = Float(
+    accuracy = Field(
         title=_(u"Accuracy"),
         description=_(u"""Accuracy of measurement, expressed as a half-range value of the diff type for this quantity (i.e. an accuracy of x means +/- x)."""),
-        required=False,
+        default=None,
         )
     
     def __add__():
@@ -820,6 +897,9 @@ class IDvAbsoluteQuantity(Interface):
         
     def diff():
         """Difference two quantities"""
+        
+    def accuracyUnknown():
+        """ True if accuracy is None """
 
 class DvAbsoluteQuantity(DvQuantified):
     """
@@ -830,22 +910,25 @@ class DvAbsoluteQuantity(DvQuantified):
     implements(IDvAbsoluteQuantity)
     
     
-    def __init__(self,accuracy):
-        DvQuantified.__init__(magnitude,magnitudeStatus)
-
+    def __init__(self,accuracy,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.accuracy=accuracy
+        DvQuantified.__init__(self,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
         
-    def add():
+    def add(self,a_diff):
         """(a_diff: like diff): like Current
         """
     
-    def subtract():
+    def subtract(self,a_diff):
         """(a_diff: like diff): like Current 
         """
         
-    def diff():
+    def diff(self,other):
         """(other: like Current): DV_AMOUNT
         """
+        
+    def accuracyUnknown(self):
+        """ True if accuracy is None """
+        return self.accuracy==None
             
         
         
@@ -907,13 +990,14 @@ class DvAmount(DvQuantified):
     
     implements(IDvAmount)
     
-    def __init__(self,accuracy,accuracyIsPercent,magnitudeStatus, normalStatus, normalRange, otherReferenceRanges):
-        DvQuantified.__init__(magnitudeStatus, normalStatus, normalRange, otherReferenceRanges)
-        
-
-        self.accuracy=accuracy
+    def __init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
+        if accuracy==None:        
+            self.accuracy=-1
+        else:
+            self.accuracy=accuracy
         self.accuracyIsPercent=accuracyIsPercent
-    
+        DvQuantified.__init__(self,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
+        
     def validPercentage(val):
         u"""
         Test whether a number is a valid percentage,i.e. between 0 and 100.
@@ -923,7 +1007,87 @@ class DvAmount(DvQuantified):
         
         return val>=0 and val<=100
     
+    def __add__(self,val):
+        """
+        Sum of this quantity and another whose formal type must be the 
+        difference type of this quantity
+        """
+        
+    def __sub__(self,val):
+        """
+        Difference of this quantity and another whose formal type must be the
+        difference type of this quantity
+        """
+
+    def negate(self):
+        """
+        Negated version of current object, such as used for representing a
+        difference type of this quantity
+        """
+    
+    
+    
+    
+class IDvDuration(IDvAmount):
+    """
+    Represents a period of time with respect to a notional point in time, which is not
+    specified. A sign may be used to indicate the duration is "backwards" in time
+    rather than forwards.
+    
+    Note that a deviation from ISO8601 is supported, allowing the 'W' designator to
+    be mixed with other designators. See assumed types section in the Support IM.
+
+    Used for recording the duration of something in the real world, particularly when
+    there is a need a) to represent the duration in customary format, i.e. days, hours,
+    minutes etc, and b) if it will be used in computational operations with date/time
+    quantities, i.e. additions, subtractions etc.
+    """
+
+    value = TextLine(
+        title=_(u"Value"),
+        description=_(u"""ISO8601 duration"""),
+        required=True,
+        )     
+        
+    def magnitude():
+        """
+        Numeric value of the duration in seconds.
+        Result >= 0.0        
+        """
+
+
+    def valueValid(): 
+        """validIso8601Duration(value)"""
             
+class DvDuration(DvAmount):
+    u"""
+    Represents a period of time with respect to a notional point in time, which is not
+    specified. A sign may be used to indicate the duration is "backwards" in time
+    rather than forwards.
+    
+    Note that a deviation from ISO8601 is supported, allowing the 'W' designator to
+    be mixed with other designators. See assumed types section in the Support IM.
+
+    Used for recording the duration of something in the real world, particularly when
+    there is a need a) to represent the duration in customary format, i.e. days, hours,
+    minutes etc, and b) if it will be used in computational operations with date/time
+    quantities, i.e. additions, subtractions etc.
+    """
+
+    implements(IDvDuration)
+
+    def __init__(self,value,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalStatus,normalRange,otherReferenceRanges):
+        self.value=value
+        DvAmount.__init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
+       
+    def magnitude(self):
+        """
+        Numeric value of the duration in seconds.
+        Result >= 0.0        
+        """
+
+    def valueValid(self): 
+        u"""validIso8601Duration(value)"""
         
 class IDvCount(Interface):
     """        
@@ -950,25 +1114,25 @@ class DvCount(DvAmount):
     Use:     patient), number of cigarettes smoked in a day.
 
     Misuse:  Not used for amounts of physical entities (which all have units)
+    
+    
     """
     
     implements(IDvCount)
     
-    def __init__(self, magnitude, accuracy, accuracyIsPercent, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges):
-        DvAmount.__init__(accuracy, accuracyIsPercent, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges)
-
-        
-        self.magnitude = magnitude
-
+    def __init__(self,magnitude,accuracy,accuracyIsPercent,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
+        self.magnitude=magnitude
+        DvAmount.__init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
+    
     def __add__(self, val):
-        if type(val) != DvCount:
+        if not isinstance(val,DvCount):
             raise TypeError("Argument type must be DvCount")
         else:
             return DvCount(self.magnitude + val.magnitude, self.accuracy, self.accuracyIsPercent, self.magnitudeStatus, self.normalStatus, self.normalRange, self.otherReferenceRanges)
         
         
     def __sub__(self, val):
-        if type(val) != DvCount:
+        if not isinstance(val,DvCount):
             raise TypeError("Argument type must be DvCount")
         else:
             return DvCount(self.magnitude - val.magnitude, self.accuracy, self.accuracyIsPercent, self.magnitudeStatus, self.normalStatus, self.normalRange, self.otherReferenceRanges)
@@ -1112,62 +1276,6 @@ class IDvOrdinal(Interface):
         Result
         """
         
-    """
-    Models rankings and scores, e.g. pain, Apgar values, etc, where there is a)
-    implied ordering, b) no implication that the distance between each value is con-
-    stant, and c) the total number of values is finite.
-
-    Used for recording any clinical datum which is customarily recorded using sym-
-    bolic values. Example: the results on a urinalysis strip, e.g. {neg, trace, +,
-    ++, +++} are used for leucocytes, protein, nitrites etc; for non-haemolysed
-    blood {neg, trace, moderate}; for haemolysed blood {neg, trace,
-    small, moderate, large}.
-    """
-    
-    value = Int(
-        title=_(u"value"),
-        description=_(u""" Ordinal position in enumeration of values. """),
-        required=True
-    )
-    
-    symbol = Field(
-        #schema=IDvCodedText,
-        title=_(u"symbol"),
-        description=_(u"""Coded textual representation of this 
-                       value in the enumeration, which may be strings made from "+" symbols, 
-                       or other enumerations of terms such as "mild", "moderate", "severe",
-                       or even the same number series as the values,
-                       e.g. "1", "2", "3". Codes come from archetype."""),
-        required=True
-    )
-
-
-    def limits():
-        """
-        limits of the ordinal enumeration, to allow
-        comparison of an ordinal value to its limits.
-        Returns DvOrdinal.
-        """
-
-    def isStrictlyComparableTo(self, other):
-        """        
-        True if symbols come from same vocabulary,assuming the vocabulary is a 
-        subset or value range, e.g. urine:protein.
-        
-        (other: like Current): Boolean 
-        ensure
-        symbol.is_comparable (other.symbol) implies Result
-        """
-        
-        
-    def compareTo(self, dvOrdinal):
-        u"""True if types are the same and values compare
-        infix '<' (other: like Current):
-        Boolean
-        ensure
-        value<other.values implies
-        Result
-        """
         
 class DvOrdinal(DvOrdered):
     u"""
@@ -1184,46 +1292,21 @@ class DvOrdinal(DvOrdered):
 
     implements(IDvOrdinal)
     
-    def __init__(self,value,symbol, normalRange, otherReferenceRanges, normalStatus):
-        
+    def __init__(self,value,symbol,normalRange,otherReferenceRanges,normalStatus):
         self.value=value
         self.symbol=symbol
-        self.normalRange = normalRange
-        self.otherReferenceRanges = otherReferenceRanges
-        self.normalStatus = normalStatus
-        
-        index=False
-        for e in otherReferenceRanges:
-            if e.meaning.value=='limits':
-                index=True
-                limitsRange=e
-                break
-        
-        if index==False:
-            raise ValueError("No limits in otherReferenceRanges")
+        DvOrdered.__init__(self,normalRange,otherReferenceRanges,normalStatus)
 
-        if symbol is None:
-            raise ValueError("No symbol")
+        if symbol == None:
+            raise ValueError(_("No symbol"))
             
-    def limits():
-        u"""
-        
+    def limits(self):
         """
-        return limitsRange
-    
-    def compareTo(self, dvOrdinal):
-
-        if type (dvOrdinal) != type(self):
-            raise TypeError ("Not possible to compare")
-        if self.value < dvOrdinal.value:
-            return True
-        else:
-            return False
-        
+        limits of the ordinal enumeration, to allow
+        comparison of an ordinal value to its limits.
+        Returns DvOrdinal.
+        """
             
-                
-            
-        
 
     def isStrictlyComparableTo(self, other):
         u"""        
@@ -1249,6 +1332,7 @@ class IProportionKind(Interface):
         """
         True if n is one of the defined types.
         """
+        
 class ProportionKind(grok.Model):
     """
     Class of enumeration constants defining types of proportion for the
@@ -1340,36 +1424,38 @@ class DvProportion(DvAmount,ProportionKind):
 
     implements(IDvProportion)
     
-    def __init__(self, numerator, denominator, type, precision):
+    def __init__(self,numerator,denominator,type,precision,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         if isinstance(numerator, float) or isinstance(numerator, int):
             self.numerator = numerator
         else:
-            raise AttributeError, "Invalid numerator value."
+            raise AttributeError(_("Invalid numerator type."))
         
         if isinstance(denominator, float) or isinstance(denominator,int):
             self.denominator = denominator
         else:
-            raise AttributeError, "Invalid denominator value."
+            raise AttributeError(_("Invalid denominator type."))
         
         if isinstance(type, ProportionKind):
             self.type = type
         else:
-            raise AttributeError, "Invalid type value."
+            raise AttributeError(_("Invalid type type."))
         
         if precision != None:
             if isinstance(precision,int):
                 self.precision = precision
             else:
-                raise AttributeError, "Invalid precision value."
+                raise AttributeError(_("Invalid precision type."))
+            
+        DvAmount.__init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
             
             
-    def isIntegral():
+    def isIntegral(self):
         """
         True if the numerator and denominator values are integers, i.e. if the precision is 0.
         """
         return isinstance(self.numerator,int) and isinstance(self.denominator,int) 
 
-    def magnitude():
+    def magnitude(self):
         """
         Effective magnitude represented by ratio.
         Result = numerator / denominator
@@ -1390,6 +1476,7 @@ class IDvQuantified(Interface):
                           appropriate type in each implementation technology."""),
         required=True
     )
+    
       
     magnitudeStatus = List(
         #value_type=TextLine(),
@@ -1424,18 +1511,12 @@ class DvQuantified(DvOrdered):
     not only ordered, but which have a precise magnitude.
     """
 
-    def __init__(self,magnitude,magnitudeStatus):
-        DvOrdered.__init__(normalRange,otherReferenceRanges,normalStatus)
-        
-
+    def __init__(self,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.magnitude=magnitude
         self.magnitudeStatus=magnitudeStatus
-           
-        magnitudeExists = self.magnitude!=None
+        DvOrdered.__init__(self,normalRange,otherReferenceRanges,normalStatus)
         
-        magnitudeStatusValid = val in self.magnitudeStatus
-        
-    def magnitudeExists():
+    def magnitudeExists(self):
         return self.magnitude!=None
         
     def validMagnitudeStatus(val):
@@ -1443,7 +1524,7 @@ class DvQuantified(DvOrdered):
         Test whether a string 'val' is one of the valid values for the magnitude_status attribute.
         """
         if(magnitudeExists()):
-            if val == "=" or val == ">=" or val == "<=" or val == ">" or val == "<" or val == "~":
+            if val in ("=",">=","<=",">","<","~"):
                 return True
         else:
             return False
@@ -1480,8 +1561,8 @@ class IDvQuantity(Interface):
                     number of decimal places. The value 0 implies an integral quantity.
                     The value -1 implies no limit, i.e. any number of decimal places."""),        
         required=False,
-        #constraint = precisionValid
         )
+    
     def precisionValid():
         """Precision must be >= -1"""
             
@@ -1495,6 +1576,8 @@ class IDvQuantity(Interface):
         
         Return selfunits == other.units
         """
+        
+        
 class DvQuantity(DvAmount):
     """
     Quantitified type representing "scientific" quantities, i.e. quantities expressed as a
@@ -1508,27 +1591,26 @@ class DvQuantity(DvAmount):
     
     implements(IDvQuantity)
    
-    def __init__(self,magnitude,units,precision):
-        
-
+    def __init__(self,magnitude,units,precision,accuracy,accuracyIsPercent,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
         self.magnitude=magnitude
         self.units=units
         self.precision=precision
+        DvAmount.__init__(self,accuracy,accuracyIsPercent,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
         
-    def precisionValid():
-        return precision >= -1
+    def precisionValid(self):
+        return self.precision >= -1
     
-    def isIntegral():
+    def isIntegral(self):
         """True if precision = 0; quantity represents an integral number."""
-        return precision==0
+        return self.precision==0
 
     
-    def isStrictlyComparableTo(other):
+    def isStrictlyComparableTo(self,other):
         """
         Test if two instances are strictly comparable by ensuring that the measured 
         property is the same, achieved using the Measurement service function units_equivalent.
         """
-        if(isinstance(other, self.__class__)): #
+        if(isinstance(other, self.__class__)): 
             return self.units==other.units and self.magnitude==other.magnitude
               
     
@@ -1569,14 +1651,12 @@ class ReferenceRange(DvOrdered):
     
     implements(IReferenceRange)
     
-    def __init__(self, meaning, range):
+    def __init__(self,meaning,range,normalRange,otherReferenceRanges,normalStatus):
+        self.meaning=meaning
+        self.range=range
+        DvOrdered.__init__(self,normalRange,otherReferenceRanges,normalStatus)
         
-
-        self.meaning = meaning
-        self.range = range
-
-
-    def isInRange(val):
+    def isInRange(self,val):
         """
         Indicates if the value 'val' is inside the range
         """
@@ -1592,15 +1672,20 @@ class IDvTemporal(Interface):
 
 class DvTemporal(DvAbsoluteQuantity):
     """
-    Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is
+    Abstract class. Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is
     DV_DURATION.
     """
     
     implements(IDvTemporal)
-    
-    
-    def diff(other):
-        return DvDuration(other,self.value)
+
+    def __init__(self,accuracy,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus):
+        DvAbsoluteQuantity.__init__(self,accuracy,magnitude,magnitudeStatus,normalRange,otherReferenceRanges,normalStatus)
+        
+    def diff(self,other):
+        """
+        Redefined to return a DvDuratio
+        """
+        return DvDuration(other,self.magnitude)
 
 
 class IDvDate(Interface):
@@ -1617,11 +1702,11 @@ class IDvDate(Interface):
         
         )
 
-    def diff(other):
-        """Difference of two dates. Returns a Dv_Duration"""
+    def diff(self,other):
+        """Difference of two dates. Returns a DvDuration"""
         
         
-    def magnitude():
+    def magnitude(self):
         """ Returns the numeric value of the date as days since the calendar origin point 1/1/0000"""
 
 
@@ -1636,17 +1721,11 @@ class DvDate(DvTemporal):
     implements(IDvDate)
 
     def __init__(self,value):
-        #try:
-            #value = string.replace(value, ' ', '-')
-            #value = string.replace(value, '/', '-')
-            #self.value = time.strptime(value, '%Y-%m-%d')
-        #except Exception:
-            #raise ValueError('Incorrect date format. Date must be YYYY-MM-DD')            
         try:
             d=value.split('-')
             self.value = date(int(d[0]),int(d[1]),int(d[2]))
         except Exception:
-            raise ValueError('Incorrect date format. Date must be YYYY-MM-DD')
+            raise ValueError(_('Incorrect date format. Date must be YYYY-MM-DD'))
     
 
     def diff(other):
@@ -1695,18 +1774,14 @@ class DvDateTime(DvTemporal):
     implements(IDvDateTime)
 
     def __init__(self,value):
-        # need to separate value into a Python tuple to submit to the datetime module.
-        #self.value=datetime(value)
-
         self.value=datetime.now()
-        self.__name__=''
         
 
-    def diff(other):
+    def diff(self,other):
         u"""Difference of two date/times. Returns a DvDuration"""
         return self.value-other
         
-    def magnitude():
+    def magnitude(self):
         u"""
         numeric value of the date/time as seconds since the calendar origin point.
         Result >= 0.0        
@@ -1739,52 +1814,18 @@ class IDvDuration(Interface):
         
         )     
         
-    def magnitude():
+    def magnitude(self):
         """
         Numeric value of the duration in seconds.
         Result >= 0.0        
         """
 
 
-    def valueValid(): 
-        """validIso8601Duration(value)"""
+    def valueValid(self): 
+        """validIso8601 Duration(value)"""
 
 
         
-class DvDateTime(DvTemporal):
-    u"""
-    Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601.
-    Used for recording a precise point in real world time, and for approximate time
-    stamps, e.g. the origin of a HISTORY in an OBSERVATION which is only partially known.
-    """
-
-    implements(IDvDateTime)
-
-    def __init__(self,value):
-        # need to separate value into a Python tuple to submit to the datetime module.
-        #self.value=datetime(value)
-
-        self.value=datetime.now()
-        self.__name__=''
-        
-
-    def diff(other):
-        u"""Difference of two date/times. Returns a DvDuration"""
-        return self.value-other
-        
-    def magnitude():
-        u"""
-        numeric value of the date/time as seconds since the calendar origin point.
-        Result >= 0.0        
-        """
-        return time.time()
-
-    def valueValid(): 
-        u"""validIso8601DateTime(value)"""
-
-        
-        
-
 class IDvTime(Interface):
     """
     Represents an absolute point in time from an origin usually interpreted as meaning the start 
@@ -1829,15 +1870,14 @@ class DvTime(DvTemporal):
     implements(IDvTime)
 
     def __init__(self,value):
-        
         self.value=time(value)
 
-    def diff(other):
+    def diff(self,other):
         u"""Difference of two times. Returns a DvDuration"""
         return other-self.value
         
         
-    def magnitude():
+    def magnitude(self):
         u"""
         Returns the numeric value of the seconds since midnight.
         Result >= 0.0        
@@ -1847,7 +1887,7 @@ class DvTime(DvTemporal):
         return time.mktime(n)-time.mktime((y,m,d,0,0,0,0,z))
 
 
-    def valueValid(): 
+    def valueValid(self): 
         u"""validIso8601Time(value)"""
         return True
     
@@ -1862,35 +1902,87 @@ class DvText(DataValue):
     Fragments of text, whether coded or not are used on their own as values, or to
     make up larger tracts of text which may be marked up in some way, eventually
     going to make up paragraphs.
+
+    >>> from oship.openehr.datatypes import DvText
+    >>> t=DvText("Text")
+    >>> t.value
+    'Text'
+    >>> t.mappings
+    >>> t.formatting
+    >>> t.hyperlink
+    >>> t.language
+    >>> t.encoding
+    >>> t=DvText("Different Text",None,None,None,"en-us",None)
+    >>> t.value
+    'Different Text'
+    >>> t.mappings
+    >>> t.formatting
+    >>> t.hyperlink
+    >>> t.language
+    'en-us'
+    >>> t.encoding
+    
     """
 
     implements(IDvText)
     
-    def __init__(self, value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None):
-        
-        self.value = value
-        self.mappings = mappings
-        self.formatting = formatting
-        self.hyperlink = hyperlink
-        self.language = language
-        self.encoding = encoding
-     
-   
-       
-        
-       
+    def __init__(self,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None):
+        if isinstance(value,TextLine) and value != '':
+            self.value = value
+        else:
+            raise AttributeError(_("DvText.value is invalid."))
+        if mappings != None and isinstance(mappings,List):        
+            self.mappings=mappings
+        else:
+            raise AttributeError(_("DvText.mappings is invalid."))
+        if formatting != None and isinstance(formatting,TextLine) and formatting != '':
+            self.formatting = formatting
+        else:
+            raise AttributeError(_("DvText.formatting is invalid."))
+        if hyperlink != None and isinstance(hyperlink,DvUri):
+            self.hyperlink = hyperlink
+        else:
+            raise AttributeError(_("DvText.hyperlink is invalid."))
+        if language != None and isinstance(language,CodePhrase):
+            self.language = language
+        else:
+            raise AttributeError(_("DvText.language is invalid."))
+        if encoding != None and isinstance(encoding,CodePhrase):
+            self.encoding = encoding
+        else:
+            raise AttributeError(_("DvText.encoding is invalid."))
+    
+          
 class CodePhrase(grok.Model):
     """
     A fully coordinated (i.e. all "coordination" has been performed) term from a ter-
     minology service (as distinct from a particular terminology).
+    
+    Simple doctest:
+    
+    >>> from oship.openehr.datatypes import CodePhrase
+    >>> from oship.openehr.support import TerminologyId
+    >>> tid = TerminologyId(u"SNOMED-CT(2003)")
+    >>> cp = CodePhrase(tid,u"abc123")
+    >>> cp.terminologyId.name()
+    u'SNOMED-CT'
+    >>> cp.terminologyId.versionId()
+    u'2003'
+    >>> tid = TerminologyId(1234)
+    AttributeError: 'int' object has no attribute 'partition'    
     """
     
     implements(ICodePhrase)
     
-    def __init__(self, terminologyId, codeString):
-        
-        self.terminologyId=terminologyId
-        self.codeString=codeString
+    def __init__(self,terminologyId,codeString):
+        if isinstance(terminologyId,TerminologyId):
+            self.terminologyId=terminologyId
+        else:
+            raise AttributeError(_("Invalid CodePhrase.terminologyId."))
+        if isinstance(codeString,TextLine) and codeString != '':
+            self.codeString=codeString
+        else:
+            raise AttributeError(_("Invalid CodePhrase.codeString."))
 
         
     def __eq__(self, other):
@@ -1918,15 +2010,31 @@ class DvCodedText(DvText):
     If the intention is to represent a term code attached in some way to a fragment of
     plain text, DV_CODED_TEXT should not be used; instead use a DV_TEXT and a
     TERM_MAPPING to a CODE_PHRASE.
+    
+    
+    >>> from oship.openehr.datatypes import *
+    >>> from oship.openehr.support import *
+    >>> tid = TerminologyId(u"SNOMED-CT(2003)")
+    >>> cp = CodePhrase(tid,u"abc123")
+    >>> dct=DvCodedText(cp,cp.codeString)
+    >>> dct.value==cp.codeString
+    True
+    >>> dct.definingCode==cp
+    True
+    
+    
     """
 
     implements(IDvCodedText)
     
-    def __init__(self, definingCode,value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None):
-        DvText.__init__(self, value, mappings=None, formatting=None, hyperlink=None, language=None, encoding=None)
+    def __init__(self,definingCode,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None):
+        if isinstance(definingCode,CodePhrase):
+            self.definingCode=definingCode
+        else:
+            raise AttributeError(_("Invalid DvCodedText.definingCode."))
+        DvText.__init__(self,value,mappings=None,formatting=None,hyperlink=None,language=None,encoding=None)
 
-        self.definingCode=definingCode
-
+        
 class IDvParagraph(Interface):
     """
     A logical composite text value consisting of a series of DV_TEXTs, i.e. plain text
@@ -1953,65 +2061,21 @@ class DvParagraph(DataValue):
     prose, which may be interpreted for display purposes as a paragraph.
     DV_PARAGRAPH is the standard way for constructing longer text items in summa-
     ries, reports and so on.
+    
+    >>> from oship.openehr.datatypes import *
+    >>> p = [u"textline1",u"textline2",u"textline3"]
+    >>> paragraph = DvParagraph(p)
+    >>> paragraph.items
+    [u'textline1', u'textline2', u'textline3']
+            
     """
 
     implements(IDvParagraph)
     
     def __init__(self,items):
-        
         self.items=items                
     
                 
- 
-    
-class ITermMapping(Interface):
-    """
-    Represents a coded term mapped to a DV_TEXT, and the relative match of the tar-
-    get term with respect to the mapped item. Plain or coded text items may appear in
-    the EHR for which one or mappings in alternative terminologies are required.
-    Mappings are only used to enable computer processing, so they can only be
-    instances of DV_CODED_TEXT.
-    
-    Used for adding classification terms (e.g. adding ICD classifiers to SNOMED
-    descriptive terms), or mapping into equivalents in other terminologies (e.g.
-    across nursing vocabularies).
-    """
-    
-    target = Object(
-        schema=ICodePhrase,
-        title = _(u"Target"),
-        description = _(u"""The target term of the mapping as a CodePhrase."""),
-        
-        )
-    
-    match = TextLine(
-        title = _(u"Match"),
-        description = _(u"""The relative match of the target term with respect to the mapped text item. Result meanings:'>': the mapping is to a broader term e.g. orginal text = "arbovirus infection", target = "viral infection" '=': the mapping is to a (supposedly) equivalent to the original item '<': the mapping is to a narrower term. e.g. original text = "diabetes", mapping = "diabetes mellitus". '?': the kind of mapping is unknown. The first three values are taken from the ISO standards 2788 ("Guide to Establishment and development of monolingual thesauri") and 5964 ("Guide to Establishment and development of multilingual thesauri")."""),
-        required = True
-        )
-    
-    purpose = Object(
-        schema=IDvCodedText,
-        title = _(u"Purpose"),
-        description = _(u"""Purpose of the mapping e.g. "automated data mining", "billing", "interoperability"""),
-        required = True
-        )
-    
-    def narrower():
-        u"""The mapping is to a narrower term."""
-        
-    def equivalent():
-        u"""The mapping is to an equivalent term."""
-        
-    def broader():
-        u"""The mapping is to a broader term."""
-        
-    def unknown():
-        u"""The kind of mapping is unknown."""
-        
-    def isValidMatchCode():
-        u"""True if match valid."""
-
 
 class TermMapping(DataValue):
     """
@@ -2024,19 +2088,18 @@ class TermMapping(DataValue):
     Used for adding classification terms (e.g. adding ICD classifiers to SNOMED
     descriptive terms), or mapping into equivalents in other terminologies (e.g.
     across nursing vocabularies).
+    
     """
 
     implements(ITermMapping)
     
     def __init__(self,target,match,purpose):
-        
-
         self.target = target       
         self.purpose = purpose
         if match in ['<','>','=','?']:
             self.match = match
         else:
-            raise AttributeError('Invalid match parameter')
+            raise AttributeError(_('Invalid match parameter'))
         
         
     def narrower():
@@ -2052,7 +2115,7 @@ class TermMapping(DataValue):
         return self.match == '?'
     
     def isValidMatchCode(match):
-        " I see no purpose in this function. twc"
+        " I see no purpose in this method. twc"
         return match in ['<','>','=','?']
 
     
@@ -2100,27 +2163,26 @@ class DvTimeSpecification(DataValue):
     implements(IDvTimeSpecification)
     
     def __init__(self,value):
-        
         self.value=value
-            
-    def calendarAlignment():
+    
+    def calendarAlignment(self):
         u"""Indicates what prototypical point in the calendar the specification is
         aligned to, e.g. "5th of the month". Empty if not aligned. Extracted from 
         the 'value' attribute.
         """
         
-    def eventAlignment():
+    def eventAlignment(self):
         u"""Indicates what real-world event the specification is aligned to if any.
         Extracted from the 'value' attribute.
         """
         
-    def institutionSpecified():
+    def institutionSpecified(self):
         u"""Indicates if the specification is aligned with institution schedules, 
         e.g. a hospital nursing changeover or meal serving times. Extracted from 
         the 'value' attribute.
         """
         
-    def valueValid():
+    def valueValid(self):
         u"""value != None"""
 
 class IDvGeneralTimeSpecification(Interface):
@@ -2146,18 +2208,18 @@ class DvGeneralTimeSpecification(DvTimeSpecification):
     implements(IDvGeneralTimeSpecification)
 
     def __init__(self,value):
-        DvTimeSpecification.__init__(self,value)        
+        DvTimeSpecification.__init__(self,value)     
 
-    def calendarAlignment():
+    def calendarAlignment(self):
         u"""Calendar alignment extracted from value. """
 
-    def eventAlignment():
+    def eventAlignment(self):
         u"""Event alignment extracted from value."""
 
-    def institutionSpecified():
+    def institutionSpecified(self):
         u"""Extracted from value."""
 
-    def valueValid():
+    def valueValid(self):
         u"""value.formalism.is_equal("HL7:GTS")"""
         
         
@@ -2199,31 +2261,26 @@ class DvPeriodicTimeSpecification(DvTimeSpecification):
     implements(IDvPeriodicTimeSpecification)
 
     def __init__(self,value):
-        DvTimeSpecification.__init__(self,value)        
-
+        DvTimeSpecification.__init__(self,value)
     
-    def period():
+    def period(self):
         u"""The period of the repetition, computationally derived from the syntax 
         representation. Extracted from the 'value' attribute.
         """
 
-    def calendarAlignment():
+    def calendarAlignment(self):
         u"""Calendar alignment extracted from value."""
 
 
-    def eventAlignment():
+    def eventAlignment(self):
         u"""Event alignment extracted from value."""
         
-    def institutionSpecified():
+    def institutionSpecified(self):
         u"""Extracted from value. """
         
-    def valueValid():
+    def valueValid(self):
         u"""value.formalism.is_equal("HL7:PIVL") or value.formalism.is_equal("HL7:EIVL")"""
         
-        
-        
-
-
         
 class DvUri(DataValue,URI):
     """A reference to an object which conforms to the Universal Resource Identifier
@@ -2239,12 +2296,13 @@ class DvUri(DataValue,URI):
     implements(IDvUri)
 
     def __init__(self, value):
-        
-       
-        self.value = value
+        if URI._validate(value):
+            self.value=value
+        else:
+            raise AttributeError(_("Invalid URI"))
  
     
-    def scheme():
+    def scheme(self):
         """A distributed information "space" in which information objects exist. The scheme 
         simultaneously specifies an information space and a mechanism for accessing objects 
         in that space. For example if scheme = "ftp", it identifies the information space in 
@@ -2254,26 +2312,26 @@ class DvUri(DataValue,URI):
         the URI specification."""
         
         
-    def path():
+    def path(self):
         u"""A string whose format is a function of the scheme. Identifies the location in 
         <scheme>-space of an information entity. Typical values include hierarchical directory 
         paths for any machine. For example, with scheme = "ftp", path might be /pub/images/image_01. 
         The strings "." and ".." are reserved for use in the path. Paths may include internet/intranet 
         location identifiers of the form: sub_domain...domain, e.g. "info.cern.ch" """
 
-    def fragmentId():
+    def fragmentId(self):
         u"""A part of, a fragment or a sub-function within an object. Allows references to sub-parts 
         of objects, such as a certain line and character position in a text object. The syntax and 
         semantics are defined by the application responsible for the object. """
 
 
-    def query():
+    def query(self):
         u"""Query string to send to application implied by scheme and path Enables queries to 
         applications, including databases to be included in the URI Any query meaningful to the 
         server, including SQL."""
         
 
-    def valueExists():
+    def valueExists(self):
         u"""value != None and value != '' """
         
  
@@ -2311,17 +2369,14 @@ class DvEhrUri(DvUri):
     humans, as well as validity when extracts are transmitted elsewhere: even if the target of a path 
     is not present, the path can be used to locate the missing item on demand.
     """
-    def __init__(self, value,path,fragmentId,query,scheme=u"ehr"):
-        DvUri.__init__(self, value)
-        
+    def __init__(self,value,path,fragmentId,query,scheme=u"ehr"):
+        self.value=value
         self.scheme=scheme 
         self.path=path
         self.fragmentId=fragmentId
         self.query=query
     
-    def schemeIsEhr():
+    def schemeIsEhr(self):
         u""" Ensure scheme == 'ehr' """
         return self.scheme == 'ehr'
-
-        
-        
+    

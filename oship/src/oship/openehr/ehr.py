@@ -250,7 +250,7 @@ class IComposition(Interface):
         
     )
 
-class Composition(grok.Container):
+class Composition(Locatable,grok.Container):
     """
     One version in a VersionedComposition.  A composition is considered the unit of modification in an EHR.
     """

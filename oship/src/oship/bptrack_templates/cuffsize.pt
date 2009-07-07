@@ -1,0 +1,10 @@
+<p />Cuff Size:<br>
+<select name="cuffsize">
+<option value="at0015">Adult</option>
+<option value="at0016">Large Adult</option>
+<option value="at0017">Paediatric/Child</option>
+<option value="at1008">Adult Thigh</option>
+<option value="at1009">Neonatal</option>
+<option value="at1018">Infant</option>
+<option value="at1019">Small Adult</option>
+</select>

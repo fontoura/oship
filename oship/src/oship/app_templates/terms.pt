@@ -1,0 +1,58 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
+  <title>OSHIP Termserver Management Interface</title>
+</head>
+
+<body>
+<br /><br />
+<table border="5" align="center">
+  <tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+ 
+</table>
+
+
+<ol>
+<li>
+<p>You must add the <a href="http://localhost:8080/oship/importoe">openEHR Vocabulary</a> to the Terminology Server.</p>
+</li>
+
+<li>
+<p>You may need to add the <a href="http://localhost:8080/oship/managerxterms">RxTerms Drug Listing</a> to the Terminology Server.<br />
+<i><span style="font-size: smaller;">This takes quite awhile!</span></i>
+</p>
+</li>
+
+<li>
+<p>You will <i>very</i> likely need to add the <a href="http://localhost:8080/oship/manageloinc">LOINC codes</a> to the Terminology Server.
+<br />
+<i><span style="font-size: smaller;">This takes quite awhile!</span></i>
+</p>
+</li>
+
+<li>
+<p>You will <i>very</i> likely need to add one or more of the <a href="http://localhost:8080/oship/manageicd">ICD code sets</a> to the Terminology Server.
+<br />
+<i><span style="font-size: smaller;">This takes quite awhile!</span></i>
+</p>
+</li>
+
+<li>
+<p>You will <i>very</i> likely need to add one or more portions of  <a href="http://localhost:8080/oship/managesmct">SNOMED-CT</a> to the Terminology Server.
+</p>
+</li>
+
+</ol>
+
+<hr align="center" size="3" width="100%" />
+<p>Return to the <a  href="http://localhost:8080/oship/oshipmanage">OSHIP Management Interface</a></p>
+
+</body>
+</html>

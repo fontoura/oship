@@ -1,0 +1,91 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
+  <title>OSHIP Management Interface - OSHIP Release 1.0a2</title>
+</head>
+
+<body>
+<table border="5" align="center">
+  <tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+</table>
+<table border="5">
+<th>Developer Setup</th><th>Resources</th>
+<tr>
+<td width="50%">
+<ol>
+<br />
+<li>
+<strong>Initial Setup</strong>
+<ul>
+<li> The initial setup is performed when you first clicked on the oship link on the Grok applications page.<br />
+When you add ADL files for your application you will need to re-initialize OSHIP from the applications page.  Among other things, this
+creates your Python source code (in a kind of template style) for each of your archetypes.  Once you have edited these Python files they will need to be moved to their proper place in the Knowledge Module (km) directory tree.  Each time OSHIP is initialized it overwrites everything in the openehr/py_files subdirectory.  Please see the "OSHIP Application Developers Guide" for details.  
+</li>
+</ul>
+</li>
+<br />
+<li>
+<strong>Terminology Server Management</strong>
+<ul>
+<li> Visit the <a href="terms">termserver page</a> to import the terminologies you will need for your OSHIP based application(s).</li>
+</ul>
+</li>
+<br />
+<li>
+<strong>AQL Management</strong>
+<ul>
+<li> Visit the <a href="atql">AQL page</a></li>
+</ul>
+</li>
+<br />
+<li>
+<strong>Demo Applications</strong>
+<ul>
+<li> Visit the <a href="demos">demos page</a></li>
+</ul>
+</li>
+</ol>
+</td>
+<td width="50%">
+<ol>
+<li>Local Documentation</li><br />
+<ul>
+<li><a href="http://localhost:8080/docgrok/oship">OSHIP API</a> where you can browse the objects in OSHIP, including the bptrack demo.</li><br />
+<li><a href="http://localhost:8080/docgrok/">Grok & Zope APIs & the ZODB</a></li><br />
+</ul>
+<ul>
+<li>Application Developer's Guide (PDF format) is in the oship/docs directory.</li><br />
+</ul>
+
+<li>External Documentation</li><br />
+<ul>
+<li><a href="http://www.openehr.org/releases/1.0.2/roadmap.html">openEHR Specifications</a></li><br />
+<li><a href="http://grok.zope.org/doc/current/index.html">Grok Documentation</a></li><br />
+<li><a href="http://grok.zope.org/doc/current/tutorial.html">Grok Tutorials</a></li><br />
+</ul>
+
+</ol>
+</td>
+</tr>
+</table>
+
+<p>OSHIP is open source software based on an open specification. Both the
+specifications and the software are licensed under a business friendly
+license allowing for both open source and proprietary applications to be
+developed and share semantically complete information. For more
+information please join the OSHIP developer mailing list on <a
+href="https://launchpad.net/oship/">Launchpad</a> by joining the OSHIP Developers Group
+ and/or contact the lead developer <a
+href="mailto:timothywayne.cook@gmail.com">Tim Cook</a>. </p>
+
+<p align="center">OSHIP is based on <a href="http://grok.zope.org">Grok
+1.0a4</a></p>
+</body>
+</html>

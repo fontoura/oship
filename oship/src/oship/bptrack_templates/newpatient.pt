@@ -1,0 +1,14 @@
+<form tal:attributes="action python:view.url('addpatient')" method="POST">
+<table border="2" width="100%" >
+<caption><strong><span style="font-size: larger;">Add a New Patient</span></strong></caption>
+<th>Surname</th><th>Given Name</th><th>Date of Birth</th>
+
+<tr>
+<td><input type="text" name="surName" size="35"  /></td>
+<td><input type="text" name="givenName" size="35" /></td>
+<td><input type="text" name="dob" size="10" value="yyyy/mm/dd" /></td>
+</tr>
+
+</table>
+<input  type="submit" name="add-patient" value="Add Patient" />
+</form>

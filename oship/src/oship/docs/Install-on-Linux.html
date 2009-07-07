@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>Installation of the OSHIP framework and the demo-application</TITLE>
+	<meta name="author" content="Tim Cook">
+	<META NAME="CHANGEDBY" CONTENT="Timothy Cook">
+	<META NAME="CHANGEDBY" CONTENT="Roger Erens">
+	<META NAME="CHANGEDBY" CONTENT="Timothy Cook">
+    <STYLE TYPE="text/css">
+            pre {background-color: #ffc0cb;}
+            tt {background-color: red;}
+            blockquote {background-color: #add8e6;}
+            h1, h2 {background-color: #d3d3d3;}
+    </STYLE>
+</HEAD>
+<BODY> 
+        <h1>Create Future Proof Healthcare Applications!</h1>
+        <h2>Installing the OSHIP framework on GNU Linux</h2>
+        <p>
+        In the following lines with instructions (in pink), the leading <b>$</b> represents the tail of your
+        system prompt. It may be necessary to prefix the commands with 'sudo' when you, using a non-administrator account,
+        try to install into system-wide Python directories.
+        </p>
+
+        <h3>Prerequisites</h3>
+        <dl>
+                <dt>Python2.5</dt>
+                <dd>OSHIP requires at least Python 2.5; if it is not already installed
+                on your system, you can download it from <a href="http://www.python.org/">http://www.python.org</a>.
+                We also need Python header files. They can be obtained by something like:
+                <pre>
+$sudo apt-get install python-dev</pre>
+                </dd>
+                <dt>g++</dt>
+                <dd>In order to create Python C extensions a compiler is needed. On Ubuntu, this means installing
+                the package build-essential:
+                <pre>
+$sudo apt-get install build-essential</pre>
+                </dd>
+                <dt>setuptools</dt>
+                <dd>This package contains the easy_setup command, to make installing the next item real easy.
+                <pre>
+$wget http://peak.telecommunity.com/dist/ez_setup.py
+$sudo python ez_setup.py</pre>
+                </dd>
+                <dt>virtualenv</dt>
+                <dd>In order to prevent your OSHIP project interfering with your other never-ending projects,
+                we advice you to work in separate environments. Virtualenv can be used to create isolated
+                environments.<br>
+                <pre>
+$sudo easy_install virtualenv</pre>
+                </dd>
+                <dt>bazaar</dt>
+                <dd>We currently use bazaar (bzr) as a version control system in our project. You can probably
+                install it by means of something like
+                <pre>
+$sudo apt-get install bzr</pre>
+                </dd>
+        </dl>
+
+        <h3>Installation steps (tested on Ubuntu 8.04 and 8.10)</h3>
+        <ol>
+                <li>Let's prepare for the use of buildout; we use it now, and in the future. Buildout makes the process of 
+                creating projects repeatable. For example, it can pinpoint the versions of the software
+                components used in the project. In order to be able to repeat the building of a specific project 
+                in the distant future, it is vital to have a local copy of the used components. We tuck them away
+                in the hidden directory <b>.buildout</b> (note the leading dot):
+                <pre>
+$mkdir ~/.buildout
+$cd ~/.buildout</pre>
+                Now use your favorite text editor to create the file <b>default.cfg</b> containing the following:
+                <pre>
+[buildout]
+eggs-directory = /home/&lt;username&gt;/.buildout/eggs
+download-directory = /home/&lt;username&gt;/.buildout/downloads</pre>
+                Of course, you have to substitute &lt;username &gt; with your own username.
+                </li>
+                <li>
+                Now create the isolated OSHIP environment and activate it:
+                <pre>
+$virtualenv ~/oshipenv
+$cd ~/oshipenv
+$source bin/activate</pre>
+                Check that your system prompt is now prefixed with <b>(oshipenv)</b>
+                e.g.<pre>
+(oshipenv)&lt;username&gt;@&lt;machinename&gt;:~/oshipenv$</pre>
+                </li>
+                <pre>
+$cd oship/oship
+$python bootstrap.py
+$bin/buildout</pre>
+                Required directories and files will be created as well as all of the required Python eggs will be downloaded and installed.<br>
+                </li>
+                <li>
+                Finally, you have a working OSHIP installation. You can start the server with
+                <pre>
+$bin/oship-ctl fg</pre> 
+<p>Note that you need to enter this command from the oship directory.<br>
+Verify that the server is up and running by visiting <a href="http://localhost:8080/">http://localhost:8080</a> in your browser.<br>
+The HTTP login box will appear. <em>login=admin password=admin</em>. Your browser should look something
+like this:</p>
+<img src="AddApplication.png" alt="Add Applications">
+<p>Now enter "oship" (without the quotes) into the oship.app.oship input box to create the OSHIP application. </p> 
+<img src="oship_added.png" alt="OSHIP Added">
+<p>
+Then click the link that says "oship (oship)"  under the Installed applications header.</p>
+Now you should have a browser that looks like this:<br>
+
+<img src="oship_main.png" alt="OSHIP Main Page">
+                </li>
+        </ol>
+        
+<p>
+Click on the setup link in step one.  Then you may go on to explore the other pages.<br />
+If you install any of the terminologies then take a look at your terminnal window for feedback on what was loaded.   
+</p>
+<p>Next, take a browse through some of  the API and ZODB links to learn a lot more about the ZCA, Grok and OSHIP.</p>
+<p>You can add the Blood Pressure registry demo by going back to the add applications page at <a href="http://localhost:8080/">http://localhost:8080</a> </p>
+
+<i><b>.....more demo functionality coming soon.</b></i>
+
+</BODY>
+</HTML>

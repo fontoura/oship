@@ -1,0 +1,25 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css"  tal:attributes="href static/css/bpencounter.css" />
+<title>Blood Pressure Tracker EHR -- OSHIP 1.0x Demo</title>
+</head>
+
+<body>
+
+<div id="encounterheader">
+    <tal:encounterheader content="structure provider:encounterheader" />
+</div>
+
+<div id="bpform">
+    <form name="addbp" tal:attributes="action python:view.url('addbp')" method="POST">
+    <tal:bpform content="structure provider:bpform" />
+    <p />
+    <input  type="submit" name="add-bp" value="Add BP Entry" />
+</form>
+</div>
+
+<div id="encounterfooter">
+    <tal:encounterfooter content="structure provider:encounterfooter" />
+</div>
+
+</body></html>

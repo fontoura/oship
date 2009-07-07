@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>OSHIP Childhood Immunization Demo</title>
+</head>
+
+<body>
+<p>
+Vaccination schedule from birth to 6 months (180 days) old [A](1),(2),(3)
+1) Calculation of age:
+Age in days [B] = Date of admission [C] – Date of birth [D]
+
+2) Vaccination types:
+Hepatitis B [a]
+tetravalent (DTP+Hib) [b]
+Polio [c]
+Rotavirus [d]
+
+3) Decision Rules
+If [B] < 30 then [a] (1st dose)
+If 30 ≤ [B] < 60 then [a] (2nd dose)
+If 60 ≤ [B] < 90 then [b] (1st dose), [c] (1st dose) and [d] (1st dose)
+If 90 ≤ [B] < 120 then [b] (2nd dose), [c] (2nd dose) and [d] (2nd dose)
+If 120 ≤ [B] < 180 then [a] (3rd dose), [b] (3rd dose) and [c] (3rd dose)
+
+Footnotes:
+(1) Those decision rules are based on WHO recommendations and may vary from country to country and within regions of the same country depending on national and local vaccination policies. 
+(2) Based on WHO recommendations found on WHO and other related websites on July 7th, 2009 and subjected to change at any time.
+(3) This demo is supposed to act as a technical example of the implementation of decision support systems using OSHIP and should never be used as a decision-making tool for the vaccination recommendation of real cases.
+
+</p>
+</body></html>

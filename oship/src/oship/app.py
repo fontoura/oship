@@ -79,6 +79,8 @@ class ManageSMCT(grok.View):
 class EditPySrc(grok.View):   
     grok.context(oship)
 
+class DSSDemo(grok.View):   
+    grok.context(oship)
             
 
 """

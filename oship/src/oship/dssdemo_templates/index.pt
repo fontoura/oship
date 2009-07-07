@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>OSHIP Decision Support Engine</title>
+</head>
+
+<body>
+<p>
+OSHIP comes with the "gold-standard" forward chaining decision support engine CLIPS.<br />
+CLIPS is a productive development and delivery expert system tool which provides a complete environment for the construction of rule and/or object based expert systems. Created in 1985, CLIPS is now widely used throughout the government, industry, and academia.
+</p>
+<p>
+Since there is a significant amount of C code involved there are some extra steps to activate the engine on each platform.<br />
+These instructions have only been tested on Ubuntu Linux.  There is documentation in the pyclips directory for other platforms so you may need to refer to those and adapt as required.
+</p>
+<p>
+<ol>
+<li>Open a terminal window and enter the oship-pyclips directory and activate your virtual environment for Python 2.5</li>
+<li>Navigate to the oship/src/oship/pyclips directory.</li>
+<li>execute the command line: python setup.py install</li>
+<li>When PyClips/CLIPS is complete; delete the two files setup.py and setup.pyc</li>
+<li>Now create (or copy from another directory) the empty file __init__.py in the oship/src/oship/pyclips directory.</li>
+<li>Return to your top level oship directory and execute the command bin/oship-debug; you should see a Python interpreter prompt</li>
+<li>At the Python prompt, enter "import clips" (without the quotes). If you do not get any errors, just a new Python prompt then all is well.  You can continue testing if you wish with the example in the PyClips documentation section 1.1.2 if you wish. </li>
+</ol>
+</p>
+<p>
+The CLIPS and PyClips documentation is included in the oship/docs directory for your convenience.<br />
+There is a small demo that can be used from your running OSHIP server.  You can access it here.
+</p>
+
+</body></html>

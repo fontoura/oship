@@ -9,13 +9,17 @@
 
 import os
 import logging
+import datetime
 import grok
+from zope.interface import Interface,implements
+from zope.schema import Date,Int
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
 from openehr.atbldr import CreatePy
 from oship.oeterm.oeterm import importOETerms
 from oship.rxterms.createrxterms import CreateRxTerms
 
+_ = MessageFactory('oship')
 
 # Begin OSHIP Demo
 class oship(grok.Application, grok.Container):
@@ -79,10 +83,9 @@ class ManageSMCT(grok.View):
 class EditPySrc(grok.View):   
     grok.context(oship)
 
-class DSSDemo(grok.View):   
-    grok.context(oship)
-            
 
+
+    
 """
 Start the terminology import section
 """
@@ -153,7 +156,107 @@ class ImportRxTerms(grok.View):
 
         self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
 
-       
+"""
+Begin the DSS Demo Code
+"""
+
+def validNums(value):
+    return value in [0,1,2,3]
+
+
+class DSSDemo(grok.View):   
+    grok.context(oship)
+
+class IImmunizationList(Interface):
+    
+    dob=Date(
+        title=_(u"DOB"),
+        description=_(u"Date of Birth"),
+        required=True
+    )
+    
+    examDate=Date(
+        title=_(u"Exam Date"),
+        description=_(u"Date of the examination."),
+        default=datetime.date.today()
+    )
+    
+    hepatitisB=Int(
+        title=_(u"Hepatitis B"),
+        description=_(u"Hepatitis B vaccination"),
+        constraint=validNums
+    )
+    
+    tetravalent=Int(
+        title=_(u"tetravalent (DTP+Hib)"),
+        description=_(u"tetravalent (DTP+Hib) vaccination"),
+        constraint=validNums
+    )
+    
+    polio=Int(
+        title=_(u"Polio"),
+        description=_(u"Polio vaccination"),
+        constraint=validNums
+    )
+    
+    rotavirus=Int(
+        title=_(u"Rotavirus"),
+        description=_("Rotavirus vaccination"),
+        constraint=validNums
+    )
+    
+    
+class ImmunizationList(grok.Model):
+    """A class for one examination for current immunization status."""
+    
+    implements(IImmunizationList)
+    
+class Immunizations2(grok.View):   
+    grok.context(oship)
+                
+        
+class ImmunizationsForm(grok.AddForm):   
+    grok.context(oship)
+    grok.name('immunizations')
+    form_fields = grok.AutoFields(ImmunizationList)
+    
+    @grok.action('Add Immunization List')
+    def add(self, **data):
+        immlist = ImmunizationList()
+        self.applyData(immlist, **data)
+        immCalc(immlist)    
+    
+def immCalc(immlist):
+    age = (immlist.examDate - immlist.dob).days
+    print immlist.dob
+    print immlist.examDate
+    print immlist.hepatitisB
+    print immlist.tetravalent
+    print immlist.polio
+    print immlist.rotavirus
+    print u"Age = ", age
+    
+    """
+    1) Calculation of age:<br />
+    Age in days [B] = Date of admission [C] – Date of birth [D]<br />
+    
+    
+    
+    Hepatitis B [a]<br />
+    tetravalent (DTP+Hib) [b]<br />
+    Polio [c]<br />
+    Rotavirus [d]<br /><br />
+    
+    3) Decision Rules<br />
+    If [B] < 30 then [a] (1st dose)<br />
+    If 30 ≤ [B] < 60 then [a] (2nd dose)<br />
+    If 60 ≤ [B] < 90 then [b] (1st dose), [c] (1st dose) and [d] (1st dose)<br />
+    If 90 ≤ [B] < 120 then [b] (2nd dose), [c] (2nd dose) and [d] (2nd dose)<br />
+    If 120 ≤ [B] < 180 then [a] (3rd dose), [b] (3rd dose) and [c] (3rd dose)<br />
+
+    """
+    
+
         
 
 

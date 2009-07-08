@@ -1,31 +1,46 @@
 <html>
 <head>
+ <link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
 <title>OSHIP Decision Support Engine</title>
 </head>
 
 <body>
+<table border="5" align="center">
+  <tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+</table>
+
 <p>
 OSHIP comes with the "gold-standard" forward chaining decision support engine CLIPS.<br />
 CLIPS is a productive development and delivery expert system tool which provides a complete environment for the construction of rule and/or object based expert systems. Created in 1985, CLIPS is now widely used throughout the government, industry, and academia.
 </p>
 <p>
 Since there is a significant amount of C code involved there are some extra steps to activate the engine on each platform.<br />
-These instructions have only been tested on Ubuntu Linux.  There is documentation in the pyclips directory for other platforms so you may need to refer to those and adapt as required.
+These instructions have only been tested on Ubuntu Linux.  There is documentation in the pyclips directory for other platforms so you may need to refer to those and adapt as required. <em>Feedback is appreciated.</em> Bug reports can be entered on the <a href="https://bugs.launchpad.net/oship">Launchpad site</a>.
 </p>
-<p>
+
 <ol>
 <li>Open a terminal window and enter the oship-pyclips directory and activate your virtual environment for Python 2.5</li>
 <li>Navigate to the oship/src/oship/pyclips directory.</li>
-<li>execute the command line: python setup.py install</li>
-<li>When PyClips/CLIPS is complete; delete the two files setup.py and setup.pyc</li>
+<li>Execute the command line: python setup.py install</li>
+<li>When PyClips/CLIPS is complete; <b>DELETE</b> the two files setup.py and setup.pyc; from the oship/src/oship/pyclips directory.</li>
 <li>Now create (or copy from another directory) the empty file __init__.py in the oship/src/oship/pyclips directory.</li>
 <li>Return to your top level oship directory and execute the command bin/oship-debug; you should see a Python interpreter prompt</li>
 <li>At the Python prompt, enter "import clips" (without the quotes). If you do not get any errors, just a new Python prompt then all is well.  You can continue testing if you wish with the example in the PyClips documentation section 1.1.2 if you wish. </li>
+<li>You can exit the command prompt using CTRL-D.</li>
+<li>Normal OSHIP server operations can be started using "bin/oship-ctl fg" from the top level oship directory.</li>
+<li>You can stop the server by using CTRL-C at the command line.</li>
 </ol>
-</p>
+
 <p>
-The CLIPS and PyClips documentation is included in the oship/docs directory for your convenience.<br />
-There is a small demo that can be used from your running OSHIP server.  You can access it here.
+The CLIPS and PyClips documentation is included in the oship/src/oship/docs directory for your convenience.<br />
+There is a small demo that can be used from your running OSHIP server.  You can access it <a href="immunizations">here</a>.
 </p>
 
 </body></html>

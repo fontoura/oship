@@ -276,7 +276,7 @@ class CuffSize(grok.Viewlet):
 class AddBP(grok.View):
     """
     This view is called, as the action attribute, from the addbp form in the ehrindex.pt template.
-    The first thiing we do is create an instance of EncounterV1, then add the instance of 
+    The first thing we do is create an instance of EncounterV1, then add the instance of 
     BloodPressureV1 to the content attribute:
     encounter=EncounterV1()
     Get the attributes from the blood pressure input form and create the bloodpressure instance (bp)

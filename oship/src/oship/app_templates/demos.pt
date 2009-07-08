@@ -5,7 +5,7 @@
 </head>
 
 <body>
-<br /><br />
+
 <table border="5" align="center">
   <tbody>
 <tr>
@@ -16,7 +16,10 @@
 </tr>
  </tbody>
 </table>
-
+<p>
+Install and run the decision support demo <a href="dssdemo">here<a/>.
+</p>
+<hr />
 <ul>
 <h3>Add Blood Pressure Tracking Demo</h3>
 <li> Go back to the <a href="http://localhost:8080/applications">applications page</a> and enter 'bptrack' in the oship.bptrack.bptrack box.<br />Then click theBACK button on your browser to return here.</li><br />

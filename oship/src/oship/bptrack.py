@@ -24,7 +24,7 @@ _ = MessageFactory('oship')
 
 
 # Begin Blood Pressure Tracker Demo
-class bptrack(grok.Application, grok.Container ):
+class bptrack(grok.Application, grok.Container):
     pass
 
 class Index(grok.View):
@@ -173,7 +173,7 @@ class AddPatient(grok.View):
     """
     This view is called, as the action attribute, from the patient add form in newpatient.pt
     It creates a Patient obj where the patient id and ehr id are created from the current time stamp.
-    These are use as the unique identifiers for the records in both the demographics and clinical containers.
+    These are used as the unique identifiers for the records in both the demographics and clinical containers.
     """
     
     grok.context(bptrack)

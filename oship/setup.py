@@ -22,6 +22,7 @@ setup(name='oship',
                         'grok',
                         'grokui.admin',
                         'z3c.testsetup',
+                        'z3c.form',
                         'grokcore.startup',
                         # Add extra requirements here
                         'mglob',

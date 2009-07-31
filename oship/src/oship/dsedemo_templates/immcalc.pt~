@@ -1,0 +1,43 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
+<title>OSHIP Childhood Immunizations Demo</title>
+</head>
+
+<body>
+<table border="5" align="center">
+  <tbody>
+<tr>
+<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
+</td>
+<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
+<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
+</tr>
+ </tbody>
+</table>
+
+<div>
+<p align="center">Vaccination schedule from birth to 6 months (180 days) old.<sup>(1),(2),(3)</sup><br />
+<b><font size="0" color="#E81717">DEMO ONLY!</font></b></p>
+</div>
+<div><b><font size="2" color="#E81717">Results</font>:</b><br /></div>
+<div>
+Exam Date: <span tal:content="python:request['form.examDate']">examDate</span><br />
+DOB: <span tal:content="python:request['form.dob']">dob</span><br />
+Age: <span tal:content="python:view.age">age</span> Days.<br />
+<hr>
+Hepatitis B:&nbsp;&nbsp;<span tal:content="python:view.hepatitisB">hepatitisB</span><br />
+Tetravalent:&nbsp;&nbsp;<span tal:content="python:view.tetravalent">tetravalent</span><br />
+Polio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span tal:content="python:view.polio">polio</span><br />
+Rotavirus:&nbsp;&nbsp;&nbsp;&nbsp;<span tal:content="python:view.rotavirus">rotavirus</span><br />
+ </div> 
+
+<hr />
+<p>
+<i>Footnotes:</i><br />
+<span style="font-size: smaller;">(1) The decision rules are based on WHO recommendations and may vary from country to country and within regions of the same country depending on national and local vaccination policies.<br /> 
+(2) Based on WHO recommendations found on WHO and other related websites on July 7th, 2009 and subjected to change at any time.<br />
+(3) This demo is supposed to act as a technical example of the implementation of decision support systems using OSHIP and should never be used as a decision-making tool for the vaccination recommendation of real cases.</span>
+</p>
+</body>
+</html>

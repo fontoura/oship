@@ -21,7 +21,7 @@
 <b><font size="0" color="#E81717">DEMO ONLY!</font></b></p>
 </div>
 
-<form  tal:attributes="action python:view.url(context, 'immunizationsform')"
+<form  tal:attributes="action python:view.url('immcalc')"
       method="post" class="edit-form"
       enctype="multipart/form-data">
 

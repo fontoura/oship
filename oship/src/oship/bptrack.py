@@ -130,9 +130,12 @@ class Info(grok.Viewlet):
     grok.order(2)
     
 
-# define a simple patient entry not using the openEHR demographics section
 
 class IPatient(Interface):
+    """
+    Define a simple patient entry not using the openEHR demographics section
+    """
+    
     surName=TextLine(
         title=u"Surname"
     )
@@ -172,7 +175,7 @@ class Patient(grok.Model):
 class AddPatient(grok.View):
     """
     This view is called, as the action attribute, from the patient add form in newpatient.pt
-    It creates a Patient obj where the patient id and ehr id are created from the current time stamp.
+    It creates a Patient obj where the patient id and ehr id are created from a UUID.
     These are used as the unique identifiers for the records in both the demographics and clinical containers.
     """
     

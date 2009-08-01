@@ -1,0 +1,25 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" tal:attributes="href static/css/dsemain.css">
+<title>OSHIP Childhood Immunizations Demo</title>
+</head>
+
+<body>
+<div id="header">
+    <tal:header content="structure provider:header" />
+</div>
+
+<div id="inputarea">
+   <tal:infoarea content="structure provider:inputarea" />
+</div>
+
+<div id="results">
+   <tal:results content="structure provider:results" />
+</div>
+
+
+<div id="footer">
+    <tal:footer content="structure provider:footer" />
+</div>
+
+</body></html>

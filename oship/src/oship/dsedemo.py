@@ -155,20 +155,22 @@ class InputForm(grok.Viewlet):
     grok.viewletmanager(InputArea)
     grok.order(1)
     
-    
-class CheckResults(grok.Viewlet):
+class ResultsList(grok.Viewlet):
     grok.context(dsedemo)
     grok.viewletmanager(Results)
     grok.order(1)
-    
-    def render(self):
-        return "Results are here."
     
     
 class WarningText(grok.Viewlet):
     grok.context(dsedemo)
     grok.viewletmanager(Results)
     grok.order(2)
+    
+class CheckResults(grok.View):
+    grok.context(dsedemo)
+    
+    def render(self):
+        return "Results are here."
     
         
 #class ImmunizationsForm(grok.AddForm):   

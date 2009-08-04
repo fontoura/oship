@@ -9,7 +9,7 @@
 
 import uuid
 import grok
-from datetime import date
+from datetime import date, datetime
 import time
 
 from zope.exceptions import DuplicationError
@@ -97,7 +97,7 @@ class ImmunizationList(grok.Model):
     #setup an __init__ with defaults
     def __init__(self):        
         keyId=unicode(uuid.uuid4())
-        resultsText=u''
+        resultsText=u'No Results'
         dob=date.today()
         examDate=date.today()
         hepatitisB=0
@@ -121,144 +121,122 @@ class Index(grok.View):
 class DseMain(grok.View):
     grok.context(dsedemo)
 
-# Setup Viewletmanagers
-class Header(grok.ViewletManager):
-    grok.name('header')
-    grok.context(dsedemo)
-    
-class Footer(grok.ViewletManager):
-    grok.name('footer')
-    grok.context(dsedemo)
-    
-class Results(grok.ViewletManager):
-    grok.name('results')
-    grok.context(dsedemo)
 
-class InputArea(grok.ViewletManager):
-    grok.name('inputarea')
+       
+class ImmunizationsForm1(grok.AddForm):   
+    """The IF/THEN Add Form"""
     grok.context(dsedemo)
-
-# Define the viewlets
-class PageTitle(grok.Viewlet):
-    grok.context(dsedemo)
-    grok.viewletmanager(Header)
-    grok.order(1)
+    form_fields = grok.AutoFields(ImmunizationList)
     
-class FooterText(grok.Viewlet):
-    grok.context(dsedemo)
-    grok.viewletmanager(Footer)
-    grok.order(1)
-    
-    
-class InputForm(grok.Viewlet):
-    grok.context(dsedemo)
-    grok.viewletmanager(InputArea)
-    grok.order(1)
-    
-class ResultsList(grok.Viewlet):
-    grok.context(dsedemo)
-    grok.viewletmanager(Results)
-    grok.order(1)
-    
-    
-class WarningText(grok.Viewlet):
-    grok.context(dsedemo)
-    grok.viewletmanager(Results)
-    grok.order(2)
-    
-class CheckResults(grok.View):
-    grok.context(dsedemo)
-    
-    def render(self):
-        return "Results are here."
-    
+    #here we setup an alternate display form that has been customized from the original generic add form.
+    #the URL though is still to /immunizationsform1 NOT to inputform1
+    template = grok.PageTemplateFile('dsedemo_templates/inputform1.pt') 
         
-#class ImmunizationsForm(grok.AddForm):   
-    #grok.context(dsedemo)
-    #form_fields = grok.AutoFields(ImmunizationList)
-    
-    ##here we setup an alternate display form that has been customized from the original generic add form.
-    ##the URL though is still to /immunizationsform NOT to immadd.
-    #template = grok.PageTemplateFile('dsedemo_templates/immadd.pt') 
-    
-    #def setUpWidgets(self):
-        #super(ImmunizationsForm, self).setUpWidgets()
-        #self.widgets['hepatitisB'].displayWidth = 1
-        #self.widgets['tetravalent'].displayWidth = 1
-        #self.widgets['polio'].displayWidth = 1
-        #self.widgets['rotavirus'].displayWidth = 1
+    @grok.action('Process')
+    def add(self, **data):
+        immlist = ImmunizationList()
+        self.applyData(immlist, **data)
+        self.context[name] = immlist.keyId
         
-    
-    
-    #@grok.action('Process')
-    #def add(self, **data):
-        #immlist = ImmunizationList()
-        #self.applyData(immlist, **data)
-        ##self.context[name] = immlist
-        ##return self.redirect(self.url(self.context[name]))
 
-                
-#class Edit(grok.EditForm):   
-    #grok.context(dsedemo)
-    #form_fields = grok.AutoFields(ImmunizationList)
-    #label = "Childhood Immunizations Checkup Demo"
-    
-    
-            
-    
-#class immCalc(grok.View):
-    #""" This view demonstrates the typical if/elif construct for making these decisions."""
-    
-    #grok.context(dsedemo)
-
-    #def update(self):
-        #""" Note that everything in self.request is a string so conversions are required."""
         
-        #examDate = datetime(*(time.strptime(self.request['form.examDate'], '%Y-%m-%d')[0:6]))
-        #dob = datetime(*(time.strptime(self.request['form.dob'], '%Y-%m-%d')[0:6]))
-        #self.age = ( examDate - dob ).days
-        #self.hepatitisB = int(self.request['form.hepatitisB'])
-        #self.tetravalent = int(self.request['form.tetravalent'])
-        #self.polio = int(self.request['form.polio'])
-        #self.rotavirus = int(self.request['form.rotavirus'])
-        #self.resultstxt = "" # info for physcian
+class ResultsList1(grok.View):
+    """The IF/THEN Process Results"""
+    
+    grok.context(dsedemo)
+       
+    def update(self):
+        # convert the form values to their proper types
+        self.examDate = datetime(*(time.strptime(self.request['form.examDate'], '%Y-%m-%d')[0:6]))
+        self.dob = datetime(*(time.strptime(self.request['form.dob'], '%Y-%m-%d')[0:6]))
+        self.age = ( self.examDate - self.dob ).days
+        self.hepatitisB = int(self.request['form.hepatitisB'])
+        self.tetravalent = int(self.request['form.tetravalent'])
+        self.polio = int(self.request['form.polio'])
+        self.rotavirus = int(self.request['form.rotavirus'])
+        self.resultstxt = u"" 
+        
+        
             
-        ## Hep B
-        #if self.hepatitisB == 0: # any age
-            #self.resultstxt += "Needs Hepatitis B #1; "
+        # Hep B
+        if self.hepatitisB == 0: # any age
+            self.resultstxt += "<li>Needs Hepatitis B #1</li> "
             
-        #elif self.age >= 30 and self.age < 60 and self.hepatitisB == 1:
-            #self.resultstxt += "Needs Hepatitis B #2; "
+        elif self.age >= 30 and self.age < 120 and self.hepatitisB == 1:
+            self.resultstxt += "<li>Needs Hepatitis B #2</li> "
                                     
-        #elif self.age >= 120 and self.age < 180 and self.hepatitisB == 2:
-            #self.resultstxt += "Needs Hepatitis B #3; "
+        elif self.age >= 120 and self.age < 180 and self.hepatitisB == 2:
+            self.resultstxt += "<li>Needs Hepatitis B #3</li> "
             
+        # tetravalent (DTP+Hib)
+        if self.age >= 60:
+            if self.age < 90 and self.tetravalent == 0:
+                self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #1</li> "
+            elif self.age < 120 and self.tetravalent < 2:
+                self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
+            elif self.age < 180 and self.tetravalent < 3:
+                self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
             
-        ## No Immunizations Needed at this time.
-        #if self.resultstxt == "":
-            #self.resultstxt = "No Immunizations Needed at this time."
-        ## age check
-        #if self.age > 180:
-            #self.resultstxt = "Sorry this child is too old to assess with this application."
-
-    
-    """
-    1) Calculation of age:<br />
-    Age in days [B] = Date of admission [C] – Date of birth [D]<br />
-    
-    Hepatitis B [a]<br />
-    tetravalent (DTP+Hib) [b]<br />
-    Polio [c]<br />
-    Rotavirus [d]<br /><br />
+        # polio
+        if self.age >= 60:
+            if self.age < 90 and self.polio == 0:
+                self.resultstxt += "<li>Needs Polio Dose #1</li> "
+            elif self.age < 120 and self.polio < 2:
+                self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
+            elif self.age < 180 and self.polio < 3:
+                self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
+                
+        #  rotavirus
+        if self.age >= 60:
+            if self.age < 90 and self.rotavirus == 0:
+                self.resultstxt += "<li>Needs Rotavirus Dose #1</li> "
+            elif self.age < 180 and self.rotavirus < 2:
+                self.resultstxt += "<li>Needs Rotavirus Dose #"+str(self.rotavirus+1)+"</li> "
         
-    3) Decision Rules<br />
-    If [B] < 30 then [a] (1st dose)<br />
-    If 30 ≤ [B] < 60 then [a] (2nd dose)<br />
-    If 60 ≤ [B] < 90 then [b] (1st dose), [c] (1st dose) and [d] (1st dose)<br />
-    If 90 ≤ [B] < 120 then [b] (2nd dose), [c] (2nd dose) and [d] (2nd dose)<br />
-    If 120 ≤ [B] < 180 then [a] (3rd dose), [b] (3rd dose) and [c] (3rd dose)<br />
+        
+        # No Immunizations Needed at this time.
+        if self.resultstxt == "":
+            self.resultstxt = "<li>No Immunizations Needed at this time.</li>"
+        # age check
+        if self.age > 180:
+            self.resultstxt = "Sorry; this child is too old to assess with this application."
+        
+    def render(self):
+        return u"<html><body><ul>This child is " +unicode(self.age)+ " days old and has these immunization needs: " + self.resultstxt+"</ul></body></html>"
+    
+        
 
     """
-            
-
-
+    Vaccination schedule from birth to 6 months (180 days) old [A](1),(2),(3)
+   
+   Calculation of age:
+   Age in days [B] = Date of admission [C] – Date of birth [D]
+   
+   Evaluation:
+   [E] = dose order of the vaccination already given (values = 0, 1, 2 or 3)
+   
+   Actions:
+   [F] = dose order of the vaccination that is needed (values = 1, 2 or 3)
+   [G] = when the action is “no need for this specific vaccination”
+   
+   Vaccination type: Hepatitis B
+   IF (([B] < 30) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
+   IF ((30 ≤ [B] < 120) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   IF ((120 ≤ [B] < 180) AND ([E] < 3)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   
+   Vaccination types: tetravalent (DTP+Hib) and Polio
+   If ([B] < 60) THEN [G]
+   IF ((60 ≤ [B] < 90) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
+   IF ((90 ≤ [B] < 120) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   IF ((120 ≤ [B] < 180) AND ([E] < 3)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   
+   Vaccination type: Rotavirus
+   If ([B] < 60) THEN [G]
+   IF ((60 ≤ [B] < 90) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
+   IF ((90 ≤ [B] < 180) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   
+   Footnotes:
+   (1) Those decision rules are based on WHO recommendations and may vary from country to country and within regions of the same country depending on national and local vaccination policies. 
+   (2) Based on WHO recommendations found on WHO and other related websites on July 7th, 2009 and subjected to change at any time.
+   (3) This demo is supposed to act as a technical example of the implementation of decision support systems using OSHIP and should never be used as a decision-making tool for the vaccination recommendation of real cases.
+    """

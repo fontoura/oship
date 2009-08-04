@@ -1,25 +1,13 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" tal:attributes="href static/css/dsemain.css">
+<link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
 <title>OSHIP Childhood Immunizations Demo</title>
 </head>
 
 <body>
-<div id="header">
-    <tal:header content="structure provider:header" />
-</div>
-
-<div id="inputarea">
-   <tal:infoarea content="structure provider:inputarea" />
-</div>
-
-<div id="results">
-   <tal:results content="structure provider:results" />
-</div>
-
-
-<div id="footer">
-    <tal:footer content="structure provider:footer" />
-</div>
-
+put some text here.
+<p>
+<a tal:attributes="href python:view.url('immunizationsform1')">Input Form #1</a>(IF/ELIF Process)<br />
+<a tal:attributes="href python:view.url('immunizationsform2')">Input Form #2</a>(Inference Engine Process)<br />
+</p>
 </body></html>

@@ -136,7 +136,7 @@ class ImmunizationsForm1(grok.AddForm):
     def add(self, **data):
         immlist = ImmunizationList()
         self.applyData(immlist, **data)
-        self.context[name] = immlist.keyId
+        self.context['dsedemo'][immlist.keyId] = immlist
         
 
         
@@ -205,6 +205,88 @@ class ResultsList1(grok.View):
         return u"<html><body><ul>This child is " +unicode(self.age)+ " days old and has these immunization needs: " + self.resultstxt+"</ul></body></html>"
     
         
+class ImmunizationsForm2(grok.AddForm):   
+    """The Inference Engine Add Form"""
+    import clips
+    grok.context(dsedemo)
+    form_fields = grok.AutoFields(ImmunizationList)
+    
+    #here we setup an alternate display form that has been customized from the original generic add form.
+    #the URL though is still to /immunizationsform2 NOT to inputform2
+    template = grok.PageTemplateFile('dsedemo_templates/inputform2.pt') 
+        
+    @grok.action('Process')
+    def add(self, **data):
+        immlist = ImmunizationList()
+        self.applyData(immlist, **data)
+        self.context['dsedemo'][immlist.keyId] = immlist
+        
+
+        
+class ResultsList2(grok.View):
+    """The Inference Engine Process Results"""
+    
+    grok.context(dsedemo)
+       
+    def update(self):
+        # convert the form values to their proper types
+        self.examDate = datetime(*(time.strptime(self.request['form.examDate'], '%Y-%m-%d')[0:6]))
+        self.dob = datetime(*(time.strptime(self.request['form.dob'], '%Y-%m-%d')[0:6]))
+        self.age = ( self.examDate - self.dob ).days
+        self.hepatitisB = int(self.request['form.hepatitisB'])
+        self.tetravalent = int(self.request['form.tetravalent'])
+        self.polio = int(self.request['form.polio'])
+        self.rotavirus = int(self.request['form.rotavirus'])
+        self.resultstxt = u"" 
+        
+        
+            
+        ## Hep B
+        #if self.hepatitisB == 0: # any age
+            #self.resultstxt += "<li>Needs Hepatitis B #1</li> "
+            
+        #elif self.age >= 30 and self.age < 120 and self.hepatitisB == 1:
+            #self.resultstxt += "<li>Needs Hepatitis B #2</li> "
+                                    
+        #elif self.age >= 120 and self.age < 180 and self.hepatitisB == 2:
+            #self.resultstxt += "<li>Needs Hepatitis B #3</li> "
+            
+        ## tetravalent (DTP+Hib)
+        #if self.age >= 60:
+            #if self.age < 90 and self.tetravalent == 0:
+                #self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #1</li> "
+            #elif self.age < 120 and self.tetravalent < 2:
+                #self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
+            #elif self.age < 180 and self.tetravalent < 3:
+                #self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
+            
+        ## polio
+        #if self.age >= 60:
+            #if self.age < 90 and self.polio == 0:
+                #self.resultstxt += "<li>Needs Polio Dose #1</li> "
+            #elif self.age < 120 and self.polio < 2:
+                #self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
+            #elif self.age < 180 and self.polio < 3:
+                #self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
+                
+        ##  rotavirus
+        #if self.age >= 60:
+            #if self.age < 90 and self.rotavirus == 0:
+                #self.resultstxt += "<li>Needs Rotavirus Dose #1</li> "
+            #elif self.age < 180 and self.rotavirus < 2:
+                #self.resultstxt += "<li>Needs Rotavirus Dose #"+str(self.rotavirus+1)+"</li> "
+        
+        
+        ## No Immunizations Needed at this time.
+        #if self.resultstxt == "":
+            #self.resultstxt = "<li>No Immunizations Needed at this time.</li>"
+        ## age check
+        #if self.age > 180:
+            #self.resultstxt = "Sorry; this child is too old to assess with this application."
+        
+    def render(self):
+        return u"<html><body><ul>This child is " +unicode(self.age)+ " days old and has these immunization needs: " + self.resultstxt+"</ul></body></html>"
+    
 
     """
     Vaccination schedule from birth to 6 months (180 days) old [A](1),(2),(3)

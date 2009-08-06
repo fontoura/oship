@@ -5,9 +5,42 @@
 </head>
 
 <body>
-put some text here.
 <p>
-<a tal:attributes="href python:view.url('immunizationsform1')">Input Form #1</a>(IF/ELIF Process)<br />
+The two input forms are virtually identical.  They simply call different action methods to process the same data.<br />
+
+
+</p>
+<p>
+This form requires the proper installation of the CLIPS inference engine along with the PyCLIPS wrapper.  The steps are detailedd here as well as in dse.txt in the docs directory.<br />
+To activate the decision support engine (dse) you must have a C compiler and you must do the following steps:<br />
+<ol>
+<li> Go into the oship/src/oship/dse directory and execute 'python setup.py install'</li> 
+
+<li>  When this is complete you will have a build subdirectory, in that subdirectory will be a 
+   platform specific subdirectory lib.xxxxx with a subdirectory named clips with a file named 
+   _clips.so Copy this file into the oship/src/oship/dse/clips directory</li> 
+
+<li>  Now place an empty __init__.py file in the oship/src/oship/dse directory. 
+   You can simply copy it from one of the other direcoties if you wish but be sure it only 
+   contains a comment or nothing at all.</li> 
+
+<li> . Now rename the setup.py file in the dse directory to setup.__</li> 
+
+<li>  Back at the top level oship directory; issue the command bin/oship-debug
+   you should get a normal Python prompt >>> at this prompt, type import clips if you get 
+   no errors and only a new prompt then all is well.  </li> 
+   
+<li> . I suggest going through the examples in the PyCLIPS documentation (included in the oship/docs directory). 
+   You can then review the files in the dse/Examples directory.</li> 
+   
+<li>  The dsedemo is an OSHIP application that demonstrates how simple decisions are made regarding childhood 
+   immunizations using the normal if/then approach as well as the dse.</li> 
+</ol>
+
+<a tal:attributes="href python:view.url('immunizationsform1')">Input Form #1</a>(If/Then Process)
+</p>
+
+<p>
 <a tal:attributes="href python:view.url('immunizationsform2')">Input Form #2</a>(Inference Engine Process)<br />
 </p>
 </body></html>

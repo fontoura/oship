@@ -14,7 +14,7 @@ The two input forms are virtually identical.  They simply call different action 
 This form requires the proper installation of the CLIPS inference engine along with the PyCLIPS wrapper.  The steps are detailedd here as well as in dse.txt in the docs directory.<br />
 To activate the decision support engine (dse) you must have a C compiler and you must do the following steps:<br />
 <ol>
-<li> Go into the oship/src/oship/dse directory and execute 'python setup.py install'</li> 
+<li> Go into the oship/src/oship/dse directory; rename setup.__ to setup.py and execute 'python setup.py install'</li> 
 
 <li>  When this is complete you will have a build subdirectory, in that subdirectory will be a 
    platform specific subdirectory lib.xxxxx with a subdirectory named clips with a file named 

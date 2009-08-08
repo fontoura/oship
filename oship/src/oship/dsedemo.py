@@ -12,6 +12,8 @@ import grok
 from datetime import date, datetime
 import time
 
+import clips
+
 from zope.exceptions import DuplicationError
 from zope.interface import Interface,implements
 from zope.schema import Date,Int,TextLine
@@ -207,7 +209,7 @@ class ResultsList1(grok.View):
         
 class ImmunizationsForm2(grok.AddForm):   
     """The Inference Engine Add Form"""
-    import clips
+   
     grok.context(dsedemo)
     form_fields = grok.AutoFields(ImmunizationList)
     
@@ -228,6 +230,8 @@ class ResultsList2(grok.View):
     
     grok.context(dsedemo)
        
+        
+    
     def update(self):
         # convert the form values to their proper types
         self.examDate = datetime(*(time.strptime(self.request['form.examDate'], '%Y-%m-%d')[0:6]))
@@ -239,8 +243,18 @@ class ResultsList2(grok.View):
         self.rotavirus = int(self.request['form.rotavirus'])
         self.resultstxt = u"" 
         
+        # we need to reset the fact list on each pass.
+        clips.Reset()
         
-            
+        #build and fill the data template
+        immlist=clips.BuildTemplate("immunizations", """ 
+                                    (slot age) (type INTEGER)) 
+                                    (slot HepB) (type INTEGER)) 
+                                    (slot tetra) (type INTEGER)) 
+                                    (slot polio) (type INTEGER)) 
+                                    (slot rota) (type INTEGER)) 
+        """, "template for child immunizations")
+        
         ## Hep B
         #if self.hepatitisB == 0: # any age
             #self.resultstxt += "<li>Needs Hepatitis B #1</li> "
@@ -251,6 +265,8 @@ class ResultsList2(grok.View):
         #elif self.age >= 120 and self.age < 180 and self.hepatitisB == 2:
             #self.resultstxt += "<li>Needs Hepatitis B #3</li> "
             
+            
+        
         ## tetravalent (DTP+Hib)
         #if self.age >= 60:
             #if self.age < 90 and self.tetravalent == 0:

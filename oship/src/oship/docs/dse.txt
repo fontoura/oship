@@ -1,6 +1,6 @@
 To activate the decision support engine (dse) you must have a C compiler and you must do the following steps:
 
-1. Go into the oship/src/oship/dse directory and execute 'python setup.py install'
+1. Go into the oship/src/oship/dse directory; rename setup.__ to setup.py and execute 'python setup.py install'
 
 2. When this is complete you will have a build subdirectory, in that subdirectory will be a 
    platform specific subdirectory lib.xxxxx with a subdirectory named clips with a file named 
@@ -10,7 +10,7 @@ To activate the decision support engine (dse) you must have a C compiler and you
    You can simply copy it from one of the other direcoties if you wish but be sure it only 
    contains a comment or nothing at all.
 
-4. Now rename the setup.py file in the dse directory to setup.__
+4. Now rename the setup.py file in the dse directory back to setup.__
 
 5. Back at the top level oship directory; issue the command bin/oship-debug
    you should get a normal Python prompt >>> at this prompt, type import clips if you get 

@@ -38,7 +38,7 @@ To activate the decision support engine (dse) you must have a C compiler and you
 </ol>
 
 <a tal:attributes="href python:view.url('immunizationsform1')">Input Form #1</a>(If/Then Process)
-</p>
+
 
 <p>
 <a tal:attributes="href python:view.url('immunizationsform2')">Input Form #2</a>(Inference Engine Process)<br />

@@ -243,17 +243,50 @@ class ResultsList2(grok.View):
         self.rotavirus = int(self.request['form.rotavirus'])
         self.resultstxt = u"" 
         
-        # we need to reset the fact list on each pass.
+        clips.DebugConfig.WatchAll()
+        """
+        Since this demo is for developers we are going to print everything out to the console
+        """
+        # we need to reset the fact list on each pass. This also Asserts the first fact and insures the program will begin execution.
         clips.Reset()
         
+        # Build the rules
+        r1 = clips.BuildRule("age-rule", "(< 180 age)", "(assert (too_old))", "The age Limit Rule") 
+        
+        print "The Age Rule is:  ", r1.PPForm()
+        
+       
         #build and fill the data template
-        immlist=clips.BuildTemplate("immunizations", """ 
-                                    (slot age) (type INTEGER)) 
-                                    (slot HepB) (type INTEGER)) 
-                                    (slot tetra) (type INTEGER)) 
-                                    (slot polio) (type INTEGER)) 
-                                    (slot rota) (type INTEGER)) 
+        tmplt=clips.BuildTemplate("immunizations", """ 
+                                    (slot age (type INTEGER)) 
+                                    (slot HepB (type INTEGER)) 
+                                    (slot tetra (type INTEGER)) 
+                                    (slot polio (type INTEGER)) 
+                                    (slot rota (type INTEGER)) 
         """, "template for child immunizations")
+        
+                
+        immlist = clips.Fact(tmplt)  # tell Python that this is a CLIPS Fact template
+        
+        # assign the form data to the template
+        immlist.Slots['age'] = self.age
+        immlist.Slots['HepB'] = self.hepatitisB
+        immlist.Slots['tetra'] = self.tetravalent
+        immlist.Slots['polio'] = self.polio
+        immlist.Slots['rota'] = self.rotavirus
+        
+        immlist.Assert() # assert the facts in the template
+
+        
+        print "Run Now: "
+        clips.Run()
+
+        print "The Agenda is: "
+        clips.PrintAgenda()
+        
+        print "The Facts are: "
+        clips.PrintFacts()
+        
         
         ## Hep B
         #if self.hepatitisB == 0: # any age

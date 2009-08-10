@@ -153,5 +153,15 @@ class ImportRxTerms(grok.View):
 
        
         
+class ImportSCT(grok.View):
+    """Import the SNOMED-CT Essential vocabulary into the term server."""
+    grok.context(oship)
+
+    def render(self):
+        
+        
+
+        self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
+
 
 

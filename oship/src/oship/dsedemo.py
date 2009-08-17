@@ -171,21 +171,21 @@ class ResultsList1(grok.View):
             self.resultstxt += "<li>Needs Hepatitis B #3</li> "
             
         # tetravalent (DTP+Hib)
-        if self.age >= 60:
-            if self.age < 90 and self.tetravalent == 0:
+        if self.age > 60:
+            if self.age <= 60 and self.age < 120 and self.tetravalent == 0:
                 self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #1</li> "
-            elif self.age < 120 and self.tetravalent < 2:
+            elif self.age <= 120 and self.age < 180 and self.tetravalent < 2:
                 self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
-            elif self.age < 180 and self.tetravalent < 3:
+            elif self.age == 180 and self.tetravalent < 3:
                 self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
-            
+                
         # polio
         if self.age >= 60:
-            if self.age < 90 and self.polio == 0:
+            if self.age <= 60 and self.age < 120 and self.polio == 0:
                 self.resultstxt += "<li>Needs Polio Dose #1</li> "
-            elif self.age < 120 and self.polio < 2:
+            elif self.age <= 120 and self.age < 180 and self.polio < 2:
                 self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
-            elif self.age < 180 and self.polio < 3:
+            elif self.age == 180 and self.polio < 3:
                 self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
                 
         #  rotavirus
@@ -243,17 +243,12 @@ class ResultsList2(grok.View):
         self.rotavirus = int(self.request['form.rotavirus'])
         self.resultstxt = u"" 
         
-        clips.DebugConfig.WatchAll()
+        clips.Clear() # MUST issue a clear before any setup begins.
+        
+        clips.DebugConfig.ActivationsWatched = True
         """
         Since this demo is for developers we are going to print everything out to the console
         """
-        # we need to reset the fact list on each pass. This also Asserts the first fact and insures the program will begin execution.
-        clips.Reset()
-        
-        # Build the rules
-        r1 = clips.BuildRule("age-rule", "(< 180 age)", "(assert (too_old))", "The age Limit Rule") 
-        
-        print "The Age Rule is:  ", r1.PPForm()
         
        
         #build and fill the data template
@@ -274,18 +269,24 @@ class ResultsList2(grok.View):
         immlist.Slots['tetra'] = self.tetravalent
         immlist.Slots['polio'] = self.polio
         immlist.Slots['rota'] = self.rotavirus
+
+        # we need to reset the fact list on each pass. This also Asserts the first fact and insures the program will begin execution.
+        clips.Reset()
         
         immlist.Assert() # assert the facts in the template
 
+        # Build the rules
+        ageRule = clips.BuildRule("age-rule", "(immunizations (age ?x&:(< 180 ?x)))", "(assert (too_old))", "The age Limit Rule.")
+        hepatitisB1Rule = clips.BuildRule("hepatitisB1-rule", "(immunizations (HepB ?x&:(= 0 ?x)))", "(assert (hepatitisB1))", "The HepatitisB Dose #1 Rule")
+        polio1Rule = clips.BuildRule("polio1-rule", "(immunizations (polio ?x&:(= 0 ?x)) (age ?age&:(>= ?age 60)))", "(assert (polio1))","The polio Dose #1 Rule")
         
-        print "Run Now: "
-        clips.Run()
-
         print "The Agenda is: "
         clips.PrintAgenda()
         
-        print "The Facts are: "
-        clips.PrintFacts()
+        clips.Run()
+        clips.SaveFacts("immlist.txt")
+        
+        
         
         
         ## Hep B
@@ -301,21 +302,20 @@ class ResultsList2(grok.View):
             
         
         ## tetravalent (DTP+Hib)
-        #if self.age >= 60:
-            #if self.age < 90 and self.tetravalent == 0:
+        #if self.age > 60:
+            #if self.age <= 60 and self.age < 120 and self.tetravalent == 0:
                 #self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #1</li> "
-            #elif self.age < 120 and self.tetravalent < 2:
+            #elif self.age <= 120 and self.age < 180 and self.tetravalent < 2:
                 #self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
-            #elif self.age < 180 and self.tetravalent < 3:
+            #elif self.age = 180 and self.tetravalent < 3:
                 #self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
-            
-        ## polio
+       ## polio
         #if self.age >= 60:
-            #if self.age < 90 and self.polio == 0:
+            #if self.age <= 60 and self.age < 120 and self.polio == 0:
                 #self.resultstxt += "<li>Needs Polio Dose #1</li> "
-            #elif self.age < 120 and self.polio < 2:
+            #elif self.age <= 120 and self.age < 180 and self.polio < 2:
                 #self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
-            #elif self.age < 180 and self.polio < 3:
+            #elif self.age = 180 and self.polio < 3:
                 #self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
                 
         ##  rotavirus
@@ -334,40 +334,50 @@ class ResultsList2(grok.View):
             #self.resultstxt = "Sorry; this child is too old to assess with this application."
         
     def render(self):
-        return u"<html><body><ul>This child is " +unicode(self.age)+ " days old and has these immunization needs: " + self.resultstxt+"</ul></body></html>"
+        f=open("immlist.txt",'r')
+        for line in f.readlines():
+            if "(initial-fact)" not in line and "(immunizations" not in line:
+                if "(too_old)" in line:
+                    return u"<html><body>This patient is " +unicode(self.age)+ " days old and cannot be evaluated with this application.</body></html>"
+                else:
+                    self.resultstxt += "<li>"+ line +"</li>"
+        
+        return u"<html><body><ul>This patient is " +unicode(self.age)+ " days old and has these immunization needs: " + self.resultstxt+"</ul></body></html>"
     
 
     """
     Vaccination schedule from birth to 6 months (180 days) old [A](1),(2),(3)
-   
-   Calculation of age:
-   Age in days [B] = Date of admission [C] – Date of birth [D]
-   
-   Evaluation:
-   [E] = dose order of the vaccination already given (values = 0, 1, 2 or 3)
-   
-   Actions:
-   [F] = dose order of the vaccination that is needed (values = 1, 2 or 3)
-   [G] = when the action is “no need for this specific vaccination”
-   
-   Vaccination type: Hepatitis B
-   IF (([B] < 30) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
-   IF ((30 ≤ [B] < 120) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
-   IF ((120 ≤ [B] < 180) AND ([E] < 3)) THEN ([F] = ([E] + 1)), ELSE = [G]
-   
-   Vaccination types: tetravalent (DTP+Hib) and Polio
-   If ([B] < 60) THEN [G]
-   IF ((60 ≤ [B] < 90) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
-   IF ((90 ≤ [B] < 120) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
-   IF ((120 ≤ [B] < 180) AND ([E] < 3)) THEN ([F] = ([E] + 1)), ELSE = [G]
-   
-   Vaccination type: Rotavirus
-   If ([B] < 60) THEN [G]
-   IF ((60 ≤ [B] < 90) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
-   IF ((90 ≤ [B] < 180) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
-   
-   Footnotes:
-   (1) Those decision rules are based on WHO recommendations and may vary from country to country and within regions of the same country depending on national and local vaccination policies. 
-   (2) Based on WHO recommendations found on WHO and other related websites on July 7th, 2009 and subjected to change at any time.
-   (3) This demo is supposed to act as a technical example of the implementation of decision support systems using OSHIP and should never be used as a decision-making tool for the vaccination recommendation of real cases.
+
+    Calculation of age:
+    Age in days [B] = Date of admission [C] – Date of birth [D]
+    
+    Evaluation:
+    [E] = dose order of the vaccination already given (values = 0, 1, 2 or 3)
+    
+    Actions:
+    [F] = dose order of the vaccination that is needed (values = 1, 2 or 3)
+    [G] = when the action is “no need for this specific vaccination”
+    
+    Vaccination type: Hepatitis B
+    IF (([B] < 30) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
+    IF ((30 ≤ [B] < 120) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
+    IF ((120 ≤ [B] < 180) AND ([E] < 3)) THEN ([F] = ([E] + 1)), ELSE = [G]
+    
+    Vaccination types: tetravalent (DTP+Hib) and Polio
+    If ([B] < 60) THEN [G]
+    IF ((60 ≤ [B] < 120) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
+    IF ((120 ≤ [B] < 180) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
+    IF (([B] = 180) AND ([E] < 3)) THEN ([F] = ([E] + 1)), ELSE = [G]
+    
+    Vaccination type: Rotavirus
+    If ([B] < 60) THEN [G]
+    IF ((60 ≤ [B] < 90) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
+    IF ((90 ≤ [B] < 180) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
+    
+    Footnotes:
+    (1) Those decision rules are based on WHO recommendations and may vary from country to country and within regions of the same country depending on national and local vaccination policies. 
+    (2) Based on WHO recommendations found on WHO and other related websites on July 7th, 2009 and subjected to change at any time.
+    (3) This demo is supposed to act as a technical example of the implementation of decision support systems using OSHIP and should never be used as a decision-making tool for the vaccination recommendation of real cases.    
+    
     """
+    

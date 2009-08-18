@@ -280,7 +280,7 @@ class ResultsList2(grok.View):
         hepatitisB1Rule = clips.BuildRule("hepatitisB1-rule", "(immunizations (HepB ?x&:(= 0 ?x)))", "(assert (hepatitisB1))", "The HepatitisB Dose #1 Rule")
         polio1Rule = clips.BuildRule("polio1-rule", "(immunizations (polio ?x&:(= 0 ?x)) (age ?age&:(>= ?age 60)))", "(assert (polio1))","The polio Dose #1 Rule")
         
-        print "The Agenda is: "
+        print "\nThe Agenda is: "
         clips.PrintAgenda()
         
         clips.Run()

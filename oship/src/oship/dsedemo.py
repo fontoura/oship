@@ -11,9 +11,11 @@ import uuid
 import grok
 from datetime import date, datetime
 import time
-
-import clips
-
+try:
+    import clips
+except ImportError:
+    print "\n\nYour Decision Support Engine  has not been installed.  Please see oship/src/oship/odcs/des/des.txt\n\n"
+    
 from zope.exceptions import DuplicationError
 from zope.interface import Interface,implements
 from zope.schema import Date,Int,TextLine

@@ -12,10 +12,9 @@ import grok
 from datetime import date, datetime
 import time
 try:
-    import clips
+    from oship.dse import clips
 except ImportError:
-    print "\n\n\nNOTICE!!!!!!:    Your Decision Support Engine  has not been installed.  Please see oship/src/oship/docs/dse/dse.txt\n\n\n"
-
+    print "\n\n\nNOTICE!!!!!!:    Your Decision Support Engine  has not been installed.  Please  see oship/src/oship/docs/dse/dse.txt\n\n\n"
 from zope.exceptions import DuplicationError
 from zope.interface import Interface,implements
 from zope.schema import Date,Int,TextLine

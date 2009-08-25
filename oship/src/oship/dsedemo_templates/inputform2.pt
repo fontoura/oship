@@ -1,143 +1,115 @@
-<html>
-<head>
-<link rel="stylesheet" type="text/css" tal:attributes="href static/css/oship.css">
-<title>OSHIP Childhood Immunizations Demo</title>
-</head>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>OSHIP Childhood Immunizations Demo</TITLE>
+	<meta name="generator" content="Bluefish 1.0.7">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGEDBY" CONTENT="Instituto de Sa&uacute;de da Comunidade Universidade Federal Fluminense">
+	<META NAME="CHANGED" CONTENT="20090824;11150300">
+</HEAD>
 
-<body>
+<BODY LANG="pt-BR" DIR="LTR">
+<P STYLE="background: #198a8a"><FONT SIZE=1 STYLE="font-size: 2pt"><FONT COLOR="#ffffff"><FONT FACE="Verdana, sans-serif"><FONT SIZE=7><B>The
+</B></FONT></FONT></FONT><STRONG><FONT COLOR="#ffffff"><FONT FACE="Verdana, sans-serif"><FONT SIZE=7><B>Open
+Source Health Information Platform	</B></FONT></FONT></FONT></STRONG></FONT></P>
+<P ALIGN=CENTER STYLE="background: transparent"><FONT FACE="Verdana, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><B>Vaccination
+schedule from birth to 6 months (180 days) old.<SUP>(1),(2),(3)</SUP><BR><FONT COLOR="#e81717">DEMO
+ONLY!</FONT></B></FONT></FONT></P>
 
-<table border="5" align="center">
-  <tbody>
-<tr>
-<td align="left"><img tal:attributes="src static/images/oship-logo.png" width="200" height="100" alt="oshiplogo"  />
-</td>
-<td><p>The <strong>Open Source Health Information Platform</strong></p></td>
-<td aligh="right"><img tal:attributes="src static/images/oship-logo_star.png" width="200" height="100" alt="another oship logo" /></td>
-</tr>
- </tbody>
-</table>
+<FORM  tal:attributes="action python:view.url('resultslist2')" METHOD="POST" ENCTYPE="multipart/form-data">
+	<TABLE WIDTH=566 BORDER=0 CELLPADDING=2 CELLSPACING=0>
+		<COL WIDTH=222>
+		<COL WIDTH=336>
+		<TR>
+			<TD WIDTH=222>
+				<P STYLE="background: transparent"><FONT FACE="Verdana, sans-serif">*Date
+				of Birth </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=336>
+				<P STYLE="background: transparent"><A NAME="form.dob"></A><INPUT TYPE=TEXT NAME="form.dob" SIZE=11 STYLE="width: 2.6cm; height: 0.64cm" />
+				<FONT FACE="Verdana, sans-serif">Format=yyyy-mm-dd</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=222>
+				<P STYLE="background: transparent"><FONT FACE="Verdana, sans-serif">*Examination
+				Date </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=336>
+				<P STYLE="background: transparent"><A NAME="form.examDate"></A><INPUT TYPE=TEXT NAME="form.examDate" SIZE=11 STYLE="width: 2.6cm; height: 0.64cm" />
+				<FONT FACE="Verdana, sans-serif">Format=yyyy-mm-dd</FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=222>
+				<P STYLE="background: transparent"><FONT FACE="Verdana, sans-serif">*Hepatitis
+				B </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=336>
+				<P STYLE="background: transparent"><A NAME="form.hepatitisB"></A><INPUT TYPE=TEXT NAME="form.hepatitisB" SIZE=2 STYLE="width: 0.59cm; height: 0.64cm" />
+				<FONT FACE="Verdana, sans-serif">(0-3) </FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=222>
+				<P STYLE="background: transparent"><FONT FACE="Verdana, sans-serif">*Tetravalent
+				(DTP+Hib) </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=336>
+				<P STYLE="background: transparent"><A NAME="form.tetravalent"></A>
+				<INPUT TYPE=TEXT NAME="form.tetravalent" SIZE=2 STYLE="width: 0.59cm; height: 0.64cm" />
+				<FONT FACE="Verdana, sans-serif">(0-3) </FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=222>
+				<P STYLE="background: transparent"><FONT FACE="Verdana, sans-serif">*Polio
+				</FONT>
+				</P>
+			</TD>
+			<TD WIDTH=336>
+				<P STYLE="background: transparent"><A NAME="form.polio"></A><INPUT TYPE=TEXT NAME="form.polio" SIZE=2 STYLE="width: 0.59cm; height: 0.64cm" />
+				<FONT FACE="Verdana, sans-serif">(0-3) </FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=222>
+				<P STYLE="background: transparent"><FONT FACE="Verdana, sans-serif">*Rotavirus
+				</FONT>
+				</P>
+			</TD>
+			<TD WIDTH=336>
+				<P STYLE="background: transparent"><A NAME="form.rotavirus"></A><INPUT TYPE=TEXT NAME="form.rotavirus" SIZE=2 STYLE="width: 0.59cm; height: 0.64cm" />
+				<FONT FACE="Verdana, sans-serif">(0-3) </FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+	<DIV ID="actionsView" DIR="LTR">
+		<P STYLE="background: transparent"><A NAME="form.actions.41646420496d6d756e697a6174696f6e204c697374"></A>
+		<INPUT TYPE=SUBMIT NAME="form.actions.41646420496d6d756e697a6174696f6e204c697374" VALUE="Process" STYLE="width: 1.88cm; height: 0.93cm" />
+				</P>
+	</FORM>
 
-<div>
-<p align="left">Vaccination schedule from birth to 6 months (180 days) old.<sup>(1),(2),(3)</sup><br />
-<b><font size="0" color="#E81717">DEMO ONLY!</font></b></p>
-</div>
-
-<form  tal:attributes="action python:view.url('resultslist2')"
-      method="post" class="edit-form"
-      enctype="multipart/form-data">
-      
- 
-  <table class="form-fields">
-    <tbody>
-      
-        <tr>
-
-          <td class="label">
-            <label for="form.dob">
-              <span class="required">*</span><span>DOB</span>
-            </label>
-            
-          </td>
-          <td class="field">
-            <div class="widget"><input class="textType" id="form.dob" name="form.dob" size="10" type="text"  /><span style="font-size: smaller;"> Format=yyyy-mm-dd</span></div>
-            
-          </td>
-
-        </tr>
-      
-      
-        <tr>
-          <td class="label">
-            <label for="form.examDate">
-              <span class="required">*</span><span>Exam Date</span>
-            </label>
-            
-          </td>
-          <td class="field">
-
-            <div class="widget"><input class="textType" id="form.examDate" name="form.examDate" size="10" type="text"  /><span style="font-size: smaller;"> Format=yyyy-mm-dd</span></div>
-            
-          </td>
-        </tr>
-      
-      
-        <tr>
-          <td class="label">
-            <label for="form.hepatitisB">
-              <span class="required">*</span><span>Hepatitis B</span>
-            </label>
-
-            
-          </td>
-          <td class="field">
-            <div class="widget"><input class="textType" id="form.hepatitisB" name="form.hepatitisB" size="1" type="text"  /><span> (0-3) </span></div>
-            
-          </td>
-        </tr>
-      
-      
-        <tr>
-          <td class="label">
-            <label for="form.tetravalent">
-              <span class="required">*</span><span>tetravalent (DTP+Hib)</span>
-
-            </label>
-            
-          </td>
-          <td class="field">
-            <div class="widget"><input class="textType" id="form.tetravalent" name="form.tetravalent" size="1" type="text"  /><span> (0-3) </span></div>
-            
-          </td>
-        </tr>
-      
-      
-        <tr>
-          <td class="label">
-            <label for="form.polio">
-
-              <span class="required">*</span><span>Polio</span>
-            </label>
-            
-          </td>
-          <td class="field">
-            <div class="widget"><input class="textType" id="form.polio" name="form.polio" size="1" type="text"  /><span> (0-3) </span></div>
-            
-          </td>
-        </tr>
-      
-      
-        <tr>
-
-          <td class="label">
-            <label for="form.rotavirus">
-              <span class="required">*</span><span>Rotavirus</span>
-            </label>
-            
-          </td>
-          <td class="field">
-            <div class="widget"><input class="textType" id="form.rotavirus" name="form.rotavirus" size="1" type="text"  /><span> (0-3) </span></div>
-            
-          </td>
-
-        </tr>
-      
-    </tbody>
-  </table>
-
-  <div id="actionsView">
-    <span class="actionButtons">
-      <input type="submit" id="form.actions.41646420496d6d756e697a6174696f6e204c697374" name="form.actions.41646420496d6d756e697a6174696f6e204c697374" value="Process" class="button" />
-    </span>
-  </div>
-
-</form>
-<hr />
-<p>
-<i>Footnotes:</i><br />
-<span style="font-size: smaller;">(1) The decision rules are based on WHO recommendations and may vary from country to country and within regions of the same country depending on national and local vaccination policies.<br /> 
-(2) Based on WHO recommendations found on WHO and other related websites on July 7th, 2009 and subjected to change at any time.<br />
-(3) This demo is supposed to act as a technical example of the implementation of decision support systems using OSHIP and should never be used as a decision-making tool for the vaccination recommendation of real cases.</span>
-</p>
-</body>
-</html>
-
+<HR>
+<P><FONT FACE="Verdana, sans-serif"><I><B>Footnotes:</B></I><B><BR></B>(1)
+The decision rules are based on WHO recommendations and may vary from
+country to country and within regions of the same country depending
+on national and local vaccination policies.<BR>(2) Based on WHO
+recommendations found on WHO and other related websites on July 7th,
+2009 and subjected to change at any time.<BR>(3) This demo is
+supposed to act as a technical example of the implementation of
+decision support systems using OSHIP and should never be used as a
+decision-making tool for the vaccination recommendation of real
+cases. </FONT>
+</P>
+</BODY>
+</HTML>

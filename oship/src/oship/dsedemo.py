@@ -14,7 +14,8 @@ import time
 try:
     from oship.dse import clips
 except ImportError:
-    print "\n\n\nNOTICE!!!!!!:    Your Decision Support Engine  has not been installed.  Please  see oship/src/oship/docs/dse/dse.txt\n\n\n"
+    print "\n\nYour Decision Support Engine  has not been installed.  Please see oship/src/oship/odcs/des/des.txt\n\n"
+
 from zope.exceptions import DuplicationError
 from zope.interface import Interface,implements
 from zope.schema import Date,Int,TextLine
@@ -150,51 +151,49 @@ class ResultsList1(grok.View):
 
     def update(self):
         # convert the form values to their proper types
-        self.examDate = datetime(*(time.strptime(self.request['form.examDate'], '%Y-%m-%d')[0:6]))
-        self.dob = datetime(*(time.strptime(self.request['form.dob'], '%Y-%m-%d')[0:6]))
-        self.age = ( self.examDate - self.dob ).days
         self.hepatitisB = int(self.request['form.hepatitisB'])
         self.tetravalent = int(self.request['form.tetravalent'])
         self.polio = int(self.request['form.polio'])
         self.rotavirus = int(self.request['form.rotavirus'])
         self.resultstxt = u""
+        self.examDate = datetime(*(time.strptime(self.request['form.examDate'], '%Y-%m-%d')[0:6]))
+        self.dob = datetime(*(time.strptime(self.request['form.dob'], '%Y-%m-%d')[0:6]))
+        self.age = ( self.examDate - self.dob ).days
 
 
 
         # Hep B
         if self.hepatitisB == 0: # any age
             self.resultstxt += "<li>Needs Hepatitis B #1</li> "
-
-        elif self.age >= 30 and self.age < 120 and self.hepatitisB == 1:
+        elif self.hepatitisB == 1 and self.age >= 30:
             self.resultstxt += "<li>Needs Hepatitis B #2</li> "
-
-        elif self.age >= 120 and self.age < 180 and self.hepatitisB == 2:
+        elif self.hepatitisB == 2 and self.age >= 120:
             self.resultstxt += "<li>Needs Hepatitis B #3</li> "
 
         # tetravalent (DTP+Hib)
-        if self.age > 60:
-            if self.age <= 60 and self.age < 120 and self.tetravalent == 0:
+        if self.age >= 60:
+            if self.tetravalent == 0:
                 self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #1</li> "
-            elif self.age <= 120 and self.age < 180 and self.tetravalent < 2:
-                self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
-            elif self.age == 180 and self.tetravalent < 3:
-                self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
+            elif self.tetravalent == 1 and self.age >= 120:
+                self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #2</li> "
+            elif self.tetravalent == 2 and self.age == 180:
+                self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #3</li> "
 
         # polio
         if self.age >= 60:
-            if self.age <= 60 and self.age < 120 and self.polio == 0:
+            if self.polio == 0:
                 self.resultstxt += "<li>Needs Polio Dose #1</li> "
-            elif self.age <= 120 and self.age < 180 and self.polio < 2:
-                self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
-            elif self.age == 180 and self.polio < 3:
-                self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
+            elif self.polio == 1 and self.age >= 120:
+                self.resultstxt += "<li>Needs Polio Dose #2</li> "
+            elif self.polio == 2 and self.age == 180:
+                self.resultstxt += "<li>Needs Polio Dose #3</li> "
 
         #  rotavirus
         if self.age >= 60:
-            if self.age < 90 and self.rotavirus == 0:
+            if self.rotavirus == 0:
                 self.resultstxt += "<li>Needs Rotavirus Dose #1</li> "
-            elif self.age < 180 and self.rotavirus < 2:
-                self.resultstxt += "<li>Needs Rotavirus Dose #"+str(self.rotavirus+1)+"</li> "
+            elif self.rotavirus == 1 and self.age >= 90:
+                self.resultstxt += "<li>Needs Rotavirus Dose #2</li> "
 
 
         # No Immunizations Needed at this time.
@@ -235,14 +234,14 @@ class ResultsList2(grok.View):
 
     def update(self):
         # convert the form values to their proper types
-        self.examDate = datetime(*(time.strptime(self.request['form.examDate'], '%Y-%m-%d')[0:6]))
-        self.dob = datetime(*(time.strptime(self.request['form.dob'], '%Y-%m-%d')[0:6]))
-        self.age = ( self.examDate - self.dob ).days
         self.hepatitisB = int(self.request['form.hepatitisB'])
         self.tetravalent = int(self.request['form.tetravalent'])
         self.polio = int(self.request['form.polio'])
         self.rotavirus = int(self.request['form.rotavirus'])
         self.resultstxt = u""
+        self.examDate = datetime(*(time.strptime(self.request['form.examDate'], '%Y-%m-%d')[0:6]))
+        self.dob = datetime(*(time.strptime(self.request['form.dob'], '%Y-%m-%d')[0:6]))
+        self.age = ( self.examDate - self.dob ).days
 
         clips.Clear() # MUST issue a clear before any setup begins.
 
@@ -279,7 +278,17 @@ class ResultsList2(grok.View):
         # Build the rules
         ageRule = clips.BuildRule("age-rule", "(immunizations (age ?x&:(< 180 ?x)))", "(assert (too_old))", "The age Limit Rule.")
         hepatitisB1Rule = clips.BuildRule("hepatitisB1-rule", "(immunizations (HepB ?x&:(= 0 ?x)))", "(assert (hepatitisB1))", "The HepatitisB Dose #1 Rule")
-        polio1Rule = clips.BuildRule("polio1-rule", "(immunizations (polio ?x&:(= 0 ?x)) (age ?age&:(>= ?age 60)))", "(assert (polio1))","The polio Dose #1 Rule")
+        hepatitisB2Rule = clips.BuildRule("hepatitisB2-rule", "(immunizations (HepB ?x&:(= 1 ?x)) (age ?y&:(<= 30 ?y)))", "(assert (hepatitisB2))","The HepatitisB Dose #2 Rule")
+        hepatitisB3Rule = clips.BuildRule("hepatitisB3-rule", "(immunizations (HepB ?x&:(= 2 ?x)) (age ?y&:(<= 120 ?y)))", "(assert (hepatitisB3))","The HepatitisB Dose #3 Rule")
+        tetra1Rule = clips.BuildRule("tetra1-rule", "(immunizations (tetra ?x&:(= 0 ?x)) (age ?y&:(<= 60 ?y)))", "(assert (tetra1))","The tetra Dose #1 Rule")
+        tetra2Rule = clips.BuildRule("tetra2-rule", "(immunizations (tetra ?x&:(= 1 ?x)) (age ?y&:(<= 120 ?y)))", "(assert (tetra2))","The tetra Dose #2 Rule")
+        tetra3Rule = clips.BuildRule("tetra3-rule", "(immunizations (tetra ?x&:(= 2 ?x)) (age ?y&:(= 180 ?y)))", "(assert (tetra3))","The tetra Dose #3 Rule")
+        polio1Rule = clips.BuildRule("polio1-rule", "(immunizations (polio ?x&:(= 0 ?x)) (age ?y&:(<= 60 ?y)))", "(assert (polio1))","The polio Dose #1 Rule")
+        polio2Rule = clips.BuildRule("polio2-rule", "(immunizations (polio ?x&:(= 1 ?x)) (age ?y&:(<= 120 ?y)))", "(assert (polio2))","The polio Dose #2 Rule")
+        polio3Rule = clips.BuildRule("polio3-rule", "(immunizations (polio ?x&:(= 2 ?x)) (age ?y&:(= 180 ?y)))", "(assert (polio3))","The polio Dose #3 Rule")
+        rota1Rule = clips.BuildRule("rota1-rule", "(immunizations (rota ?x&:(= 0 ?x)) (age ?y&:(<= 60 ?y)))", "(assert (rota1))","The rotavirus Dose #1 Rule")
+        rota2Rule = clips.BuildRule("rota2-rule", "(immunizations (rota ?x&:(= 1 ?x)) (age ?y&:(<= 90 ?y)))", "(assert (rota2))","The rotavirus Dose #2 Rule")
+
 
         print "\nThe Agenda is: "
         clips.PrintAgenda()
@@ -287,52 +296,6 @@ class ResultsList2(grok.View):
         clips.Run()
         clips.SaveFacts("immlist.txt")
 
-
-
-
-        ## Hep B
-        #if self.hepatitisB == 0: # any age
-            #self.resultstxt += "<li>Needs Hepatitis B #1</li> "
-
-        #elif self.age >= 30 and self.age < 120 and self.hepatitisB == 1:
-            #self.resultstxt += "<li>Needs Hepatitis B #2</li> "
-
-        #elif self.age >= 120 and self.age < 180 and self.hepatitisB == 2:
-            #self.resultstxt += "<li>Needs Hepatitis B #3</li> "
-
-
-
-        ## tetravalent (DTP+Hib)
-        #if self.age > 60:
-            #if self.age <= 60 and self.age < 120 and self.tetravalent == 0:
-                #self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #1</li> "
-            #elif self.age <= 120 and self.age < 180 and self.tetravalent < 2:
-                #self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
-            #elif self.age = 180 and self.tetravalent < 3:
-                #self.resultstxt += "<li>Needs Tetravalent (DTP+Hib) Dose #"+str(self.tetravalent+1)+"</li> "
-       ## polio
-        #if self.age >= 60:
-            #if self.age <= 60 and self.age < 120 and self.polio == 0:
-                #self.resultstxt += "<li>Needs Polio Dose #1</li> "
-            #elif self.age <= 120 and self.age < 180 and self.polio < 2:
-                #self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
-            #elif self.age = 180 and self.polio < 3:
-                #self.resultstxt += "<li>Needs Polio Dose #"+str(self.polio+1)+"</li> "
-
-        ##  rotavirus
-        #if self.age >= 60:
-            #if self.age < 90 and self.rotavirus == 0:
-                #self.resultstxt += "<li>Needs Rotavirus Dose #1</li> "
-            #elif self.age < 180 and self.rotavirus < 2:
-                #self.resultstxt += "<li>Needs Rotavirus Dose #"+str(self.rotavirus+1)+"</li> "
-
-
-        ## No Immunizations Needed at this time.
-        #if self.resultstxt == "":
-            #self.resultstxt = "<li>No Immunizations Needed at this time.</li>"
-        ## age check
-        #if self.age > 180:
-            #self.resultstxt = "Sorry; this child is too old to assess with this application."
 
     def render(self):
         f=open("immlist.txt",'r')

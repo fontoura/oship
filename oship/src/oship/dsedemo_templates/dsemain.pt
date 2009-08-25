@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>OSHIP Childhood Immunizations Demo</TITLE>
+	<meta name="generator" content="Bluefish 1.0.7">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGEDBY" CONTENT="Instituto de Sa&uacute;de da Comunidade Universidade Federal Fluminense">
+	<META NAME="CHANGED" CONTENT="20090824;11282600">
+</HEAD>
+<BODY LANG="pt-BR" DIR="LTR">
+<P STYLE="background: #33a3a3"><FONT SIZE=1 STYLE="font-size: 2pt"><FONT COLOR="#ffffff"><FONT FACE="Verdana, sans-serif"><FONT SIZE=7><B>The
+</B></FONT></FONT></FONT><STRONG><FONT COLOR="#ffffff"><FONT FACE="Verdana, sans-serif"><FONT SIZE=7><B>Open
+Source Health Information Platform	</B></FONT></FONT></FONT></STRONG></FONT></P>
+<P ALIGN=CENTER><FONT FACE="Verdana, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><B>Vaccination
+schedule from birth to 6 months (180 days) old</B></FONT><FONT SIZE=4 STYLE="font-size: 16pt"><B><BR></B></FONT><FONT COLOR="#e81717"><FONT SIZE=4 STYLE="font-size: 16pt"><B>DEMO
+ONLY!</B></FONT></FONT></FONT></P>
+<P ALIGN=LEFT><FONT FACE="Verdana, sans-serif">This demo was intended
+to show developers the capabilities of the Decision Support Engine
+(DSE) already setup on OSHIP.</FONT></P>
+<P ALIGN=LEFT><FONT FACE="Verdana, sans-serif">The main idea is to
+make a comparison between the IF/THEN and the DSE languages and
+processes.</FONT></P>
+<P ALIGN=LEFT><FONT FACE="Verdana, sans-serif">It is important to
+notice that this demo is not using archetypes to persist the data; at
+this point, this is done for the blood pressure demo.</FONT></P>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT><FONT FACE="Verdana, sans-serif"><B>Instructions:</B></FONT></P>
+<P ALIGN=LEFT><FONT FACE="Verdana, sans-serif">The two input forms
+are virtually identical. They simply call different action methods to
+process the same data.</FONT></P>
+<P><FONT FACE="Verdana, sans-serif">This form requires the proper
+installation of the CLIPS inference engine along with the PyCLIPS
+wrapper. The steps are detailedd here as well as in dse.txt in the
+docs directory.</FONT></P>
+<P><FONT FACE="Verdana, sans-serif"><BR>To activate the DSE you must
+have a C compiler and you must do the following steps:</FONT></P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">Go
+	into the oship/src/oship/dse directory; rename setup.__ to setup.py
+	and execute 'python setup.py install' </FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">When
+	this is complete you will have a build subdirectory, in that
+	subdirectory will be a platform specific subdirectory lib.xxxxx with
+	a subdirectory named clips with a file named _clips.so Copy this
+	file into the oship/src/oship/dse/clips directory </FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">Now
+	place an empty __init__.py file in the oship/src/oship/dse
+	directory. You can simply copy it from one of the other direcoties
+	if you wish but be sure it only contains a comment or nothing at
+	all. </FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">Now
+	rename the setup.py file in the dse directory to setup.__ </FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">Back
+	at the top level oship directory; issue the command bin/oship-debug
+	you should get a normal Python prompt &gt;&gt;&gt; at this prompt,
+	type import clips if you get no errors and only a new prompt then
+	all is well. </FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">We
+	suggest going through the examples in the PyCLIPS documentation
+	(included in the oship/docs directory). You can then review the
+	files in the dse/Examples directory. </FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">The
+	DSE demo is an OSHIP application that demonstrates how simple
+	decisions are made regarding childhood immunizations using the
+	normal if/then approach as well as the dse. </FONT>
+	</P>
+</OL>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Verdana, sans-serif"><a tal:attributes="href python:view.url('immunizationsform1')">Input Form #1</a>(If/Then Process) </FONT>
+</P>
+<P><FONT FACE="Verdana, sans-serif"><a tal:attributes="href python:view.url('immunizationsform2')">Input Form #2</a>(Inference Engine
+Process)</FONT></P>
+</BODY>
+</HTML>

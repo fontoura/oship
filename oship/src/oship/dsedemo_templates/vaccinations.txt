@@ -1,0 +1,34 @@
+    """
+    Vaccination schedule from birth to 6 months (180 days) old [A](1),(2),(3)
+   
+   Calculation of age:
+   Age in days [B] = Date of admission [C] – Date of birth [D]
+   
+   Evaluation:
+   [E] = dose order of the vaccination already given (values = 0, 1, 2 or 3)
+   
+   Actions:
+   [F] = dose order of the vaccination that is needed (values = 1, 2 or 3)
+   [G] = when the action is “no need for this specific vaccination”
+   
+   Vaccination type: Hepatitis B
+   IF (([B] < 30) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
+   IF ((30 ≤ [B] < 120) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   IF ((120 ≤ [B] < 180) AND ([E] < 3)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   
+   Vaccination types: tetravalent (DTP+Hib) and Polio
+   If ([B] < 60) THEN [G]
+   IF ((60 ≤ [B] < 90) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
+   IF ((90 ≤ [B] < 120) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   IF ((120 ≤ [B] < 180) AND ([E] < 3)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   
+   Vaccination type: Rotavirus
+   If ([B] < 60) THEN [G]
+   IF ((60 ≤ [B] < 90) AND ([E] = 0)) THEN ([F] = 1), ELSE = [G]
+   IF ((90 ≤ [B] < 180) AND ([E] < 2)) THEN ([F] = ([E] + 1)), ELSE = [G]
+   
+   Footnotes:
+   (1) Those decision rules are based on WHO recommendations and may vary from country to country and within regions of the same country depending on national and local vaccination policies. 
+   (2) Based on WHO recommendations found on WHO and other related websites on July 7th, 2009 and subjected to change at any time.
+   (3) This demo is supposed to act as a technical example of the implementation of decision support systems using OSHIP and should never be used as a decision-making tool for the vaccination recommendation of real cases.
+    """

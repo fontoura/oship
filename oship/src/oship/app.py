@@ -9,13 +9,17 @@
 
 import os
 import logging
+import datetime
 import grok
+from zope.interface import Interface,implements
+from zope.schema import Date,Int
 from zope.exceptions import DuplicationError
 from zope.i18nmessageid import MessageFactory
 from openehr.atbldr import CreatePy
 from oship.oeterm.oeterm import importOETerms
 from oship.rxterms.createrxterms import CreateRxTerms
 
+_ = MessageFactory('oship')
 
 # Begin OSHIP Demo
 class oship(grok.Application, grok.Container):
@@ -24,7 +28,7 @@ class oship(grok.Application, grok.Container):
 class Index(grok.View):
     grok.context(oship)
     
-    # Create the containers and initial python sourcee templates for the archetypes   
+    # Create the containers and initial python source templates for the archetypes   
     def render(self):
         logfile=os.getcwd()+'/parts/log/pyfile_build.log'
         #create the logfile if it doesn't exist
@@ -79,8 +83,9 @@ class ManageSMCT(grok.View):
 class EditPySrc(grok.View):   
     grok.context(oship)
 
-            
 
+
+    
 """
 Start the terminology import section
 """
@@ -150,8 +155,4 @@ class ImportRxTerms(grok.View):
         print "\n\nRxTerms import is complete.\n"
 
         self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
-
-       
-        
-
 

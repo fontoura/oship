@@ -24,7 +24,7 @@ _ = MessageFactory('oship')
 
 
 # Begin Blood Pressure Tracker Demo
-class bptrack(grok.Application, grok.Container ):
+class bptrack(grok.Application, grok.Container):
     pass
 
 class Index(grok.View):
@@ -130,9 +130,12 @@ class Info(grok.Viewlet):
     grok.order(2)
     
 
-# define a simple patient entry not using the openEHR demographics section
 
 class IPatient(Interface):
+    """
+    Define a simple patient entry not using the openEHR demographics section
+    """
+    
     surName=TextLine(
         title=u"Surname"
     )
@@ -172,8 +175,8 @@ class Patient(grok.Model):
 class AddPatient(grok.View):
     """
     This view is called, as the action attribute, from the patient add form in newpatient.pt
-    It creates a Patient obj where the patient id and ehr id are created from the current time stamp.
-    These are use as the unique identifiers for the records in both the demographics and clinical containers.
+    It creates a Patient obj where the patient id and ehr id are created from a UUID.
+    These are used as the unique identifiers for the records in both the demographics and clinical containers.
     """
     
     grok.context(bptrack)
@@ -276,7 +279,7 @@ class CuffSize(grok.Viewlet):
 class AddBP(grok.View):
     """
     This view is called, as the action attribute, from the addbp form in the ehrindex.pt template.
-    The first thiing we do is create an instance of EncounterV1, then add the instance of 
+    The first thing we do is create an instance of EncounterV1, then add the instance of 
     BloodPressureV1 to the content attribute:
     encounter=EncounterV1()
     Get the attributes from the blood pressure input form and create the bloodpressure instance (bp)

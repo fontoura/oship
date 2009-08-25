@@ -1,0 +1,25 @@
+To activate the decision support engine (dse) you must have a C compiler and you must do the following steps:
+
+1. Go into the oship/src/oship/dse directory; rename setup.__ to setup.py and execute 'python setup.py install'
+
+2. When this is complete you will have a build subdirectory, in that subdirectory will be a 
+   platform specific subdirectory lib.xxxxx with a subdirectory named clips with a file named 
+   _clips.so Copy this file into the oship/src/oship/dse/clips directory
+
+3. Now place an empty __init__.py file in the oship/src/oship/dse directory. 
+   You can simply copy it from one of the other direcoties if you wish but be sure it only 
+   contains a comment or nothing at all.
+
+4. Now rename the setup.py file in the dse directory back to setup.__
+
+5. Back at the top level oship directory; issue the command bin/oship-debug
+   you should get a normal Python prompt >>> at this prompt, type import clips if you get 
+   no errors and only a new prompt then all is well.  
+   
+6. I suggest going through the examples in the PyCLIPS documentation (included in the oship/docs directory). 
+   You can then review the files in the dse/Examples directory.
+   
+7. The dsedemo is an OSHIP application that demonstrates how simple decisions are made regarding childhood 
+   immunizations using the normal if/then approach as well as the dse. 
+
+

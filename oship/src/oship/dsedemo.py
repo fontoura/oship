@@ -14,7 +14,7 @@ import time
 try:
     from oship.dse import clips
 except ImportError:
-    print "\n\nYour Decision Support Engine  has not been installed.  Please see oship/src/oship/odcs/des/des.txt\n\n"
+    print "\n\nYour Decision Support Engine  has not been installed.  Please see oship/src/oship/docs/dse/dse.txt\n\n"
 
 from zope.exceptions import DuplicationError
 from zope.interface import Interface,implements

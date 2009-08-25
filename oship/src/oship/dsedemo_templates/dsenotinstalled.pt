@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>OSHIP Childhood Immunizations Demo</TITLE>
+	<meta name="generator" content="Bluefish 1.0.7">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGED" CONTENT="20090825;10223900">
+	<META NAME="CHANGEDBY" CONTENT="Instituto de Saúde da Comunidade Universidade Federal Fluminense">
+</HEAD>
+<BODY>
+<P align="center"><B><FONT COLOR="#33a3a3"  FACE="Verdana, sans-serif" SIZE=5>The Open
+Source Health Information Platform </FONT></B>
+</P>
+
+<P ALIGN=CENTER><FONT FACE="Verdana, sans-serif"><FONT SIZE=4><B><BR></B></FONT><FONT COLOR="#ff0000"><FONT SIZE=4><B>Your
+CLIPS Inference Engine has not been installed!</B></FONT></FONT></FONT></P>
+<P ALIGN=LEFT><FONT FACE="Verdana, sans-serif"><B>Instructions:</B></FONT></P>
+<P><FONT FACE="Verdana, sans-serif">This form requires the proper
+installation of the CLIPS inference engine along with the PyCLIPS
+wrapper. The steps are detailed here as well as in dse.txt in the
+oship/src/oship/docs/dse directory.</FONT></P>
+<P><FONT FACE="Verdana, sans-serif"><BR>To activate the DSE you must
+have a C compiler that is compatible with the one used to compile
+your Python interpreter and you must do the following steps:</FONT></P>
+<OL>
+	<LI><P><FONT FACE="Verdana, sans-serif">Go into the
+	oship/src/oship/dse directory; rename </FONT><FONT FACE="Verdana, sans-serif"><B>setup.__</B></FONT><FONT FACE="Verdana, sans-serif">
+	to </FONT><FONT FACE="Verdana, sans-serif"><B>setup.py</B></FONT><FONT FACE="Verdana, sans-serif">
+	and execute '</FONT><FONT FACE="Verdana, sans-serif"><B>python
+	setup.py build</B></FONT><FONT FACE="Verdana, sans-serif">' then
+	execute '</FONT><FONT FACE="Verdana, sans-serif"><B>python setup.py
+	install</B></FONT><FONT FACE="Verdana, sans-serif">'</FONT> 
+	</P>
+	<LI><P><FONT FACE="Verdana, sans-serif">When this is complete you
+	will have a build subdirectory, in that subdirectory will be a
+	platform specific subdirectory lib.xxxxx with a subdirectory named
+	clips with a file named <B>_clips.so</B> Copy this file into the
+	oship/src/oship/dse/clips directory </FONT>
+	</P>
+	<LI><P><FONT FACE="Verdana, sans-serif">Now place an empty<B>
+	__init__.py</B> file in the oship/src/oship/dse directory. You can
+	simply copy it from one of the other directories if you wish but be
+	sure it only contains a comment or nothing at all. </FONT>
+	</P>
+	<LI><P><FONT FACE="Verdana, sans-serif">Now rename the <B>setup.py</B>
+	file in the dse directory to <B>setup.__</B> </FONT>
+	</P>
+	<LI><P><FONT FACE="Verdana, sans-serif">Back at the top level oship
+	directory; issue the command bin/oship-debug you should get a normal
+	Python prompt &gt;&gt;&gt; at this prompt, type import clips if you
+	get no errors and only a new prompt then all is well. </FONT>
+	</P>
+	<LI><P><FONT FACE="Verdana, sans-serif">We suggest going through the
+	examples in the PyCLIPS documentation (included in the
+	oship/docs/dse directory). You can then review the files in the
+	dse/Examples directory. </FONT>
+	</P>
+	<LI><P><FONT FACE="Verdana, sans-serif">The DSE demo is an OSHIP
+	application that demonstrates how simple decisions are made
+	regarding childhood immunizations using the normal if/then approach
+	as well as the DSE (CLIPS Inference Engine). This example does not
+	use archetype data nor does it persist the data. </FONT>
+	</P>
+</OL>
+
+</BODY>
+</HTML>

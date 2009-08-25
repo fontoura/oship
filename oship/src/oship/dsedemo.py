@@ -242,60 +242,61 @@ class ResultsList2(grok.View):
         self.examDate = datetime(*(time.strptime(self.request['form.examDate'], '%Y-%m-%d')[0:6]))
         self.dob = datetime(*(time.strptime(self.request['form.dob'], '%Y-%m-%d')[0:6]))
         self.age = ( self.examDate - self.dob ).days
+        try:
+            clips.Clear() # MUST issue a clear before any setup begins.
 
-        clips.Clear() # MUST issue a clear before any setup begins.
-
-        clips.DebugConfig.ActivationsWatched = True
-        """
-        Since this demo is for developers we are going to print everything out to the console
-        """
-
-
-        #build and fill the data template
-        tmplt=clips.BuildTemplate("immunizations", """
-                                    (slot age (type INTEGER))
-                                    (slot HepB (type INTEGER))
-                                    (slot tetra (type INTEGER))
-                                    (slot polio (type INTEGER))
-                                    (slot rota (type INTEGER))
-        """, "template for child immunizations")
+            clips.DebugConfig.ActivationsWatched = True
+            """
+            Since this demo is for developers we are going to print everything out to the console
+            """
 
 
-        immlist = clips.Fact(tmplt)  # tell Python that this is a CLIPS Fact template
-
-        # assign the form data to the template
-        immlist.Slots['age'] = self.age
-        immlist.Slots['HepB'] = self.hepatitisB
-        immlist.Slots['tetra'] = self.tetravalent
-        immlist.Slots['polio'] = self.polio
-        immlist.Slots['rota'] = self.rotavirus
-
-        # we need to reset the fact list on each pass. This also Asserts the first fact and insures the program will begin execution.
-        clips.Reset()
-
-        immlist.Assert() # assert the facts in the template
-
-        # Build the rules
-        ageRule = clips.BuildRule("age-rule", "(immunizations (age ?x&:(< 180 ?x)))", "(assert (too_old))", "The age Limit Rule.")
-        hepatitisB1Rule = clips.BuildRule("hepatitisB1-rule", "(immunizations (HepB ?x&:(= 0 ?x)))", "(assert (hepatitisB1))", "The HepatitisB Dose #1 Rule")
-        hepatitisB2Rule = clips.BuildRule("hepatitisB2-rule", "(immunizations (HepB ?x&:(= 1 ?x)) (age ?y&:(<= 30 ?y)))", "(assert (hepatitisB2))","The HepatitisB Dose #2 Rule")
-        hepatitisB3Rule = clips.BuildRule("hepatitisB3-rule", "(immunizations (HepB ?x&:(= 2 ?x)) (age ?y&:(<= 120 ?y)))", "(assert (hepatitisB3))","The HepatitisB Dose #3 Rule")
-        tetra1Rule = clips.BuildRule("tetra1-rule", "(immunizations (tetra ?x&:(= 0 ?x)) (age ?y&:(<= 60 ?y)))", "(assert (tetra1))","The tetra Dose #1 Rule")
-        tetra2Rule = clips.BuildRule("tetra2-rule", "(immunizations (tetra ?x&:(= 1 ?x)) (age ?y&:(<= 120 ?y)))", "(assert (tetra2))","The tetra Dose #2 Rule")
-        tetra3Rule = clips.BuildRule("tetra3-rule", "(immunizations (tetra ?x&:(= 2 ?x)) (age ?y&:(= 180 ?y)))", "(assert (tetra3))","The tetra Dose #3 Rule")
-        polio1Rule = clips.BuildRule("polio1-rule", "(immunizations (polio ?x&:(= 0 ?x)) (age ?y&:(<= 60 ?y)))", "(assert (polio1))","The polio Dose #1 Rule")
-        polio2Rule = clips.BuildRule("polio2-rule", "(immunizations (polio ?x&:(= 1 ?x)) (age ?y&:(<= 120 ?y)))", "(assert (polio2))","The polio Dose #2 Rule")
-        polio3Rule = clips.BuildRule("polio3-rule", "(immunizations (polio ?x&:(= 2 ?x)) (age ?y&:(= 180 ?y)))", "(assert (polio3))","The polio Dose #3 Rule")
-        rota1Rule = clips.BuildRule("rota1-rule", "(immunizations (rota ?x&:(= 0 ?x)) (age ?y&:(<= 60 ?y)))", "(assert (rota1))","The rotavirus Dose #1 Rule")
-        rota2Rule = clips.BuildRule("rota2-rule", "(immunizations (rota ?x&:(= 1 ?x)) (age ?y&:(<= 90 ?y)))", "(assert (rota2))","The rotavirus Dose #2 Rule")
+            #build and fill the data template
+            tmplt=clips.BuildTemplate("immunizations", """
+                                        (slot age (type INTEGER))
+                                        (slot HepB (type INTEGER))
+                                        (slot tetra (type INTEGER))
+                                        (slot polio (type INTEGER))
+                                        (slot rota (type INTEGER))
+            """, "template for child immunizations")
 
 
-        print "\nThe Agenda is: "
-        clips.PrintAgenda()
+            immlist = clips.Fact(tmplt)  # tell Python that this is a CLIPS Fact template
 
-        clips.Run()
-        clips.SaveFacts("immlist.txt")
+            # assign the form data to the template
+            immlist.Slots['age'] = self.age
+            immlist.Slots['HepB'] = self.hepatitisB
+            immlist.Slots['tetra'] = self.tetravalent
+            immlist.Slots['polio'] = self.polio
+            immlist.Slots['rota'] = self.rotavirus
 
+            # we need to reset the fact list on each pass. This also Asserts the first fact and insures the program will begin execution.
+            clips.Reset()
+
+            immlist.Assert() # assert the facts in the template
+
+            # Build the rules
+            ageRule = clips.BuildRule("age-rule", "(immunizations (age ?x&:(< 180 ?x)))", "(assert (too_old))", "The age Limit Rule.")
+            hepatitisB1Rule = clips.BuildRule("hepatitisB1-rule", "(immunizations (HepB ?x&:(= 0 ?x)))", "(assert (hepatitisB1))", "The HepatitisB Dose #1 Rule")
+            hepatitisB2Rule = clips.BuildRule("hepatitisB2-rule", "(immunizations (HepB ?x&:(= 1 ?x)) (age ?y&:(<= 30 ?y)))", "(assert (hepatitisB2))","The HepatitisB Dose #2 Rule")
+            hepatitisB3Rule = clips.BuildRule("hepatitisB3-rule", "(immunizations (HepB ?x&:(= 2 ?x)) (age ?y&:(<= 120 ?y)))", "(assert (hepatitisB3))","The HepatitisB Dose #3 Rule")
+            tetra1Rule = clips.BuildRule("tetra1-rule", "(immunizations (tetra ?x&:(= 0 ?x)) (age ?y&:(<= 60 ?y)))", "(assert (tetra1))","The tetra Dose #1 Rule")
+            tetra2Rule = clips.BuildRule("tetra2-rule", "(immunizations (tetra ?x&:(= 1 ?x)) (age ?y&:(<= 120 ?y)))", "(assert (tetra2))","The tetra Dose #2 Rule")
+            tetra3Rule = clips.BuildRule("tetra3-rule", "(immunizations (tetra ?x&:(= 2 ?x)) (age ?y&:(= 180 ?y)))", "(assert (tetra3))","The tetra Dose #3 Rule")
+            polio1Rule = clips.BuildRule("polio1-rule", "(immunizations (polio ?x&:(= 0 ?x)) (age ?y&:(<= 60 ?y)))", "(assert (polio1))","The polio Dose #1 Rule")
+            polio2Rule = clips.BuildRule("polio2-rule", "(immunizations (polio ?x&:(= 1 ?x)) (age ?y&:(<= 120 ?y)))", "(assert (polio2))","The polio Dose #2 Rule")
+            polio3Rule = clips.BuildRule("polio3-rule", "(immunizations (polio ?x&:(= 2 ?x)) (age ?y&:(= 180 ?y)))", "(assert (polio3))","The polio Dose #3 Rule")
+            rota1Rule = clips.BuildRule("rota1-rule", "(immunizations (rota ?x&:(= 0 ?x)) (age ?y&:(<= 60 ?y)))", "(assert (rota1))","The rotavirus Dose #1 Rule")
+            rota2Rule = clips.BuildRule("rota2-rule", "(immunizations (rota ?x&:(= 1 ?x)) (age ?y&:(<= 90 ?y)))", "(assert (rota2))","The rotavirus Dose #2 Rule")
+
+
+            print "\nThe Agenda is: "
+            clips.PrintAgenda()
+
+            clips.Run()
+            clips.SaveFacts("immlist.txt")
+        except NameError:
+            self.redirect(self.application_url()+"/dsenotinstalled")
 
     def render(self):
         f=open("immlist.txt",'r')
@@ -307,6 +308,9 @@ class ResultsList2(grok.View):
                     self.resultstxt += "<li>"+ line +"</li>"
 
         return u"<html><body><ul>This patient is " +unicode(self.age)+ " days old and has these immunization needs: " + self.resultstxt+"</ul></body></html>"
+
+class DseNotInstalled(grok.View):
+    grok.context(dsedemo)
 
 
     """

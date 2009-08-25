@@ -8,9 +8,9 @@
 	<META NAME="CHANGEDBY" CONTENT="Instituto de Sa&uacute;de da Comunidade Universidade Federal Fluminense">
 	<META NAME="CHANGED" CONTENT="20090824;11282600">
 </HEAD>
-<BODY LANG="pt-BR" DIR="LTR">
-<P STYLE="background: #33a3a3"><FONT SIZE=1 STYLE="font-size: 2pt"><FONT COLOR="#ffffff"><FONT FACE="Verdana, sans-serif"><FONT SIZE=7><B>The
-</B></FONT></FONT></FONT><STRONG><FONT COLOR="#ffffff"><FONT FACE="Verdana, sans-serif"><FONT SIZE=7><B>Open
+<BODY>
+<P STYLE="background: #33a3a3" align="center"><FONT SIZE=1 STYLE="font-size: 2pt"><FONT COLOR="#ffffff"><FONT FACE="Verdana, sans-serif"><FONT SIZE=6><B>The
+</B></FONT></FONT></FONT><STRONG><FONT COLOR="#ffffff"><FONT FACE="Verdana, sans-serif"><FONT SIZE=6><B>Open
 Source Health Information Platform	</B></FONT></FONT></FONT></STRONG></FONT></P>
 <P ALIGN=CENTER><FONT FACE="Verdana, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><B>Vaccination
 schedule from birth to 6 months (180 days) old</B></FONT><FONT SIZE=4 STYLE="font-size: 16pt"><B><BR></B></FONT><FONT COLOR="#e81717"><FONT SIZE=4 STYLE="font-size: 16pt"><B>DEMO
@@ -32,14 +32,14 @@ are virtually identical. They simply call different action methods to
 process the same data.</FONT></P>
 <P><FONT FACE="Verdana, sans-serif">This form requires the proper
 installation of the CLIPS inference engine along with the PyCLIPS
-wrapper. The steps are detailedd here as well as in dse.txt in the
+wrapper. The steps are detailed here as well as in dse.txt in the
 docs directory.</FONT></P>
 <P><FONT FACE="Verdana, sans-serif"><BR>To activate the DSE you must
-have a C compiler and you must do the following steps:</FONT></P>
+have a C compiler that is compatible with the one used to compile your Python interpreter and you must do the following steps:</FONT></P>
 <OL>
 	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">Go
 	into the oship/src/oship/dse directory; rename setup.__ to setup.py
-	and execute 'python setup.py install' </FONT>
+	and execute 'python setup.py build' then execute 'python setup.py install'</FONT>
 	</P>
 	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">When
 	this is complete you will have a build subdirectory, in that
@@ -70,7 +70,7 @@ have a C compiler and you must do the following steps:</FONT></P>
 	<LI><P STYLE="margin-bottom: 0.1cm"><FONT FACE="Verdana, sans-serif">The
 	DSE demo is an OSHIP application that demonstrates how simple
 	decisions are made regarding childhood immunizations using the
-	normal if/then approach as well as the dse. </FONT>
+	normal if/then approach as well as the DSE (CLIPS Inference Engine). </FONT>
 	</P>
 </OL>
 <P><BR><BR>

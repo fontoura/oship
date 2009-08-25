@@ -16,15 +16,18 @@
 </tr>
  </tbody>
 </table>
-<p>
-Install and run the decision support demo <a href="dssdemo">here<a/>.
-</p>
+
 <hr />
 <ul>
 <h3>Add Blood Pressure Tracking Demo</h3>
-<li> Go back to the <a href="http://localhost:8080/applications">applications page</a> and enter 'bptrack' in the oship.bptrack.bptrack box.<br />Then click theBACK button on your browser to return here.</li><br />
+<li> Go back to the <a href="http://localhost:8080/applications">applications page</a> and enter 'bptrack' in the oship.bptrack.bptrack box.<br />Then click the BACK button on your browser to return here.</li><br />
 
 <li>Visit the <a href="http://localhost:8080/bptrack">Blood Pressure Tracking Demo</a> application.</li>
+
+<h3>Decision Support Engine Demo</h3>
+<li> Go back to the <a href="http://localhost:8080/applications">applications page</a> and enter 'dsedemo' in the oship.dsedemo.dsedemo box.<br />Then click the BACK button on your browser to return here.</li><br />
+
+<li>Visit the <a href="http://localhost:8080/dsedemo">Decision Support Engine Demo</a> application.</li>
 </ul>
 
 

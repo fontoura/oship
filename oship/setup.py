@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.0-oshipdemo'
+version = '1.0a4'
 
 setup(name='oship',
     version=version,
@@ -8,7 +8,7 @@ setup(name='oship',
     long_description=""" A Python implementation of the openEHR information model.\
 """,
       # Get strings from http://www.python.org/pypi?%3Aaction=list_classifiers
-      classifiers=[], 
+      classifiers=[],
       keywords="health medical informatics Python healthcare",
       author="Timothy W. Cook & contributors",
       author_email="timothywayne.cook@gmail.com",
@@ -26,7 +26,7 @@ setup(name='oship',
                         # Add extra requirements here
                         'mglob',
                         'hurry.workflow',
-                        'megrok.kss' 
+                        'megrok.kss'
                         ],
       entry_points = """
       [console_scripts]

@@ -7,6 +7,12 @@
 # terms of the license.
 ##############################################################################
 
+
+__author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
+__docformat__ = u'plaintext'
+__contributors__ = u'<name> <email address>'
+
+
 import uuid
 import grok
 from datetime import date, datetime

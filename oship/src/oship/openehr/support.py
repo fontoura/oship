@@ -10,16 +10,18 @@
 
 """
 
-Support Information Model Rev. 
+Support Information Model Rev.
 
 """
 
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
+__contributors__ = u'<name> <email address>'
+
 import copy
 
 from zope.interface import Interface, implements
-from zope.schema import TextLine,Object,Field,URI 
+from zope.schema import TextLine,Object,Field,URI
 from zope.schema.interfaces import IContainer
 from zope.i18nmessageid import MessageFactory
 
@@ -142,10 +144,10 @@ class IObjectRef(Interface):
 
     refType = TextLine(
         title = _(u"Type"),
-        description = _(u"""Name of the class (concrete or abstract) of object to which this 
+        description = _(u"""Name of the class (concrete or abstract) of object to which this
                         identifier type refers, e.g."PARTY", "PERSON", "GUIDELINE" etc.
-                        These class names are from the relevant reference model. 
-                        The type name "ANY" can be used to indicate that any type is accepted 
+                        These class names are from the relevant reference model.
+                        The type name "ANY" can be used to indicate that any type is accepted
                         (e.g. if the type is unknown). """),
         required = False,
     )
@@ -161,7 +163,7 @@ class ObjectRef(grok.Model):
 
     implements(IObjectRef)
 
-    def __init__(self,refId,refNameSpace,refType):        
+    def __init__(self,refId,refNameSpace,refType):
         self.refId=refId
         self.refNameSpace=refNameSpace
         self.refType=refType
@@ -177,14 +179,14 @@ class ObjectRef(grok.Model):
 
 
 class IAccessGroupRef(Interface):
-    u""" Reference to access group in an access control service. """  
+    u""" Reference to access group in an access control service. """
 
     type = TextLine(
         title = _(u"Type"),
-        description = _(u"""Name of the class (concrete or abstract) of object to which this 
+        description = _(u"""Name of the class (concrete or abstract) of object to which this
                         identifier type refers, e.g."PARTY", "PERSON", "GUIDELINE" etc.
-                        These class names are from the relevant reference model. 
-                        The type name "ANY" can be used to indicate that any type is accepted 
+                        These class names are from the relevant reference model.
+                        The type name "ANY" can be used to indicate that any type is accepted
                         (e.g. if the type is unknown). """),
 
     )
@@ -201,7 +203,7 @@ class AccessGroupRef(ObjectRef):
     def __init__(self,id,nameSpace,type):
         self.id=id
         self.nameSpace=nameSpace
-        self.type=type     
+        self.type=type
 
     def validateType(self):
         u"""
@@ -219,8 +221,8 @@ class IArchetypeId(Interface):
     Identifier for archetypes. Lexical form:
     rm_originator '-' rm_name '-' rm_entity '.' concept_name { '-' specialisation }* '.v' number
 
-    Archetype identifiers are "multi-axial", meaning that each identifier instance denotes a single 
-    archetype within a multi-dimensional space. In this case, the space is essentially a 
+    Archetype identifiers are "multi-axial", meaning that each identifier instance denotes a single
+    archetype within a multi-dimensional space. In this case, the space is essentially a
     versioned 3-dimensional space, with the dimensions being:
 
         reference model entity, i.e. target of archetype
@@ -258,7 +260,7 @@ class IArchetypeId(Interface):
         openehr-composition-OBSERVATION.progress_note-naturopathy.v2
 
     Archetypes can also be identified by other means, such as ISO oids.
-    """ 
+    """
 
     def qualifiedRmEntity():
         u"""
@@ -267,13 +269,13 @@ class IArchetypeId(Interface):
 
     def domainConcept():
         u"""
-        Name of the concept represented by this archetype, including specialisation, 
+        Name of the concept represented by this archetype, including specialisation,
         e.g. "biochemistry_result-cholesterol".
         """
 
     def rmOriginator():
         u"""
-        Organisation originating the reference model on which this archetype is based, 
+        Organisation originating the reference model on which this archetype is based,
         e.g. "openehr", "cen", "hl7".
         """
 
@@ -284,13 +286,13 @@ class IArchetypeId(Interface):
 
     def rmEntity():
         u"""
-        Name of the ontological level within the reference model to which this archetype is 
+        Name of the ontological level within the reference model to which this archetype is
         targeted, e.g. for openEHR, "folder","composition", "section", "entry".
         """
 
     def specialization():
         u"""
-        Name of specialisation of concept, if this archetype is a specialisation of another 
+        Name of specialisation of concept, if this archetype is a specialisation of another
         archetype, e.g. "cholesterol".
         """
 
@@ -305,8 +307,8 @@ class ArchetypeId(ObjectId):
     Identifier for archetypes. Lexical form:
     rm_originator '-' rm_name '-' rm_entity '.' concept_name { '-' specialisation }* '.v' number
 
-    Archetype identifiers are "multi-axial", meaning that each identifier instance denotes a single 
-    archetype within a multi-dimensional space. In this case, the space is essentially a 
+    Archetype identifiers are "multi-axial", meaning that each identifier instance denotes a single
+    archetype within a multi-dimensional space. In this case, the space is essentially a
     versioned 3-dimensional space, with the dimensions being:
 
         reference model entity, i.e. target of archetype
@@ -354,11 +356,11 @@ class ArchetypeId(ObjectId):
         ObjectId.__init__(self, value)
 
         #AXIS_SEPARATOR = u'.'
-        #SECTION_SEPARATOR = u'-'   
+        #SECTION_SEPARATOR = u'-'
         #NAME_PATTERN = r"[a-zA-Z][a-zA-Z0-9()_/%$#&]*"
         #VERSION_PATTERN = r"[a-zA-Z0-9]+"
         #"""
-        #value is a unicode str of the full archetype ID from the ADL       
+        #value is a unicode str of the full archetype ID from the ADL
         #"""
         #self.value = value
         #tokens = value.split(self.AXIS_SEPARATOR)
@@ -383,7 +385,7 @@ class ArchetypeId(ObjectId):
         #tokens = self.__domainConcept.split(self.SECTION_SEPARATOR)
         #if len(tokens) < 1:
                 #raise ValueError, 'bad format, too few sections for domainConcept in ' + self.value
-        #self.__conceptName = tokens[0]    
+        #self.__conceptName = tokens[0]
         #self.__validateName(self.__conceptName, 'concept_name')
         #if len(tokens) > 1:
                 #self.__specialisation = tokens[-1]
@@ -409,14 +411,14 @@ class ArchetypeId(ObjectId):
 
     def domainConcept(self):
         u"""
-        Name of the concept represented by this archetype, including specialisation, 
+        Name of the concept represented by this archetype, including specialisation,
         e.g. "biochemistry_result-cholesterol".
         """
         return self.__domainConcept
 
     def rmOriginator(self):
         u"""
-        Organisation originating the reference model on which this archetype is based, 
+        Organisation originating the reference model on which this archetype is based,
         e.g. "openehr", "cen", "hl7".
         """
         return self.__rmOriginator
@@ -429,14 +431,14 @@ class ArchetypeId(ObjectId):
 
     def rmEntity(self):
         u"""
-        Name of the ontological level within the reference model to which this archetype is 
+        Name of the ontological level within the reference model to which this archetype is
         targeted, e.g. for openEHR, "folder","composition", "section", "entry".
         """
         return self.__rmEntity
 
-    def specialisation(self): 
+    def specialisation(self):
         u"""
-        Name of specialisation of concept, if this archetype is a specialisation of another 
+        Name of specialisation of concept, if this archetype is a specialisation of another
         archetype, e.g. "cholesterol".
         """
         return self.__specialisation;
@@ -453,7 +455,7 @@ class ArchetypeId(ObjectId):
 
 class IGenericId(Interface):
     u"""
-    Generic identifier type for identifiers whose format is othterwise unknown to openEHR. 
+    Generic identifier type for identifiers whose format is othterwise unknown to openEHR.
     Includes an attribute for naming the identification scheme (which may well be local).
     """
 
@@ -465,7 +467,7 @@ class IGenericId(Interface):
 
 class GenericId(ObjectId):
     u"""
-    Generic identifier type for identifiers whose format is othterwise unknown to openEHR. 
+    Generic identifier type for identifiers whose format is othterwise unknown to openEHR.
     Includes an attribute for naming the identification scheme (which may well be local).
     """
 
@@ -479,7 +481,7 @@ class GenericId(ObjectId):
             return False
         if self.value != other.value:
             return False
-        return self.scheme == other.scheme    
+        return self.scheme == other.scheme
 
 class IUidBasedId(Interface):
     u"""
@@ -494,7 +496,7 @@ class IUidBasedId(Interface):
 
     def root():
         u"""
-        The identifier of the conceptual namespace in which the object exists, within 
+        The identifier of the conceptual namespace in which the object exists, within
         the identification scheme.
         Returns the part to the left of the first '::' separator, if any, or else the whole string.
         """
@@ -526,7 +528,7 @@ class UidBasedId(ObjectId,Field):
 
     def root(self):
         u"""
-        The identifier of the conceptual namespace in which the object exists, within 
+        The identifier of the conceptual namespace in which the object exists, within
         the identification scheme.
         Returns the part to the left of the first '::' separator, if any, or else the whole string.
         """
@@ -688,7 +690,7 @@ class ILocatableRef(Interface):
 
     path = TextLine(
         title = _(u"Path"),
-        description=_(u"""The path to an instance in question, as an absolute path 
+        description=_(u"""The path to an instance in question, as an absolute path
                       with respect to the object found at VERSION.data. An empty path means that
                       the object referred to by id being specified."""),
         required = False
@@ -696,7 +698,7 @@ class ILocatableRef(Interface):
 
 
     def asUri():
-        u""" 
+        u"""
         A URI form of the reference, created by concatenating the following:
         "ehr://" + id.value + "/" + path
         """
@@ -735,9 +737,9 @@ class IObjectVersionId(Interface):
     u"""
     Globally unique identifier for one version of a versioned object; lexical form:
     object_id '::' creating_system_id '::' version_tree_id
-    
+
     An example ObjectVersionId is as follows:
-    F7C5C7B7-75DB-4b39-9A1E-C0BA9BFDBDEC::87284370-2D4B-4e3d-A3F3-F303D2F4F34B::2  
+    F7C5C7B7-75DB-4b39-9A1E-C0BA9BFDBDEC::87284370-2D4B-4e3d-A3F3-F303D2F4F34B::2
     """
 
     def objectId():
@@ -746,24 +748,24 @@ class IObjectVersionId(Interface):
         normally the object_id will be the unique identifier of the version container containing
         the version referred to by this OBJECT_VERSION_ID instance.
         """
-	
+
     def versionTreeId():
         u"""
         Tree identifier of this version with respect to other versions in the same version tree,
-        as either 1 or 3 part dot-separated numbers, e.g. '1', '2.1.4'.  
+        as either 1 or 3 part dot-separated numbers, e.g. '1', '2.1.4'.
         """
-	
+
     def creatingSystemId():
         u"""
         Identifier of the system that created the Version corresponding to this Object version id.
         """
-        
+
     def isBranch():
         u"""
-        True if this version identifier represents a branch. 
+        True if this version identifier represents a branch.
         """
-	
-    
+
+
 
 
 class ObjectVersionId(UidBasedId):
@@ -771,7 +773,7 @@ class ObjectVersionId(UidBasedId):
     Globally unique identifier for one version of a versioned object; lexical form:
     object_id '::' creating_system_id '::' version_tree_id
 
-    The string form of an OBJECT_VERSION_ID stored in its value attribute consists of 
+    The string form of an OBJECT_VERSION_ID stored in its value attribute consists of
     three segments separated by double colons ("::"), i.e. (EBNF):
 
     value:      object_id '::' creating_system_id '::' version_tree_id
@@ -779,7 +781,7 @@ class ObjectVersionId(UidBasedId):
     creating_system_id:
 
     An example ObjectVersionId is as follows:
-    F7C5C7B7-75DB-4b39-9A1E-C0BA9BFDBDEC::87284370-2D4B-4e3d-A3F3-F303D2F4F34B::2  
+    F7C5C7B7-75DB-4b39-9A1E-C0BA9BFDBDEC::87284370-2D4B-4e3d-A3F3-F303D2F4F34B::2
     """
 
     implements(IObjectVersionId)
@@ -829,7 +831,7 @@ class ObjectVersionId(UidBasedId):
             self.__versionTreeId = VersionTreeId(splits[2])
 
         self.rootPart = self.objectId
-        self.extensionPart = self.__creatingSystemId.value + '::' + self.__versionTreeId.value   
+        self.extensionPart = self.__creatingSystemId.value + '::' + self.__versionTreeId.value
 
 
     def  objectId(self):
@@ -843,7 +845,7 @@ class ObjectVersionId(UidBasedId):
     def versionTreeId(self):
         u"""
         Tree identifier of this version with respect to other versions in the same version tree,
-        as either 1 or 3 part dot-separated numbers, e.g. '1', '2.1.4'.  
+        as either 1 or 3 part dot-separated numbers, e.g. '1', '2.1.4'.
         """
         return self.__versionTreeId
 
@@ -855,7 +857,7 @@ class ObjectVersionId(UidBasedId):
 
     def isBranch():
         u"""
-        True if this version identifier represents a branch. 
+        True if this version identifier represents a branch.
         """
         return self.__versionTreeId.isBranch()
 
@@ -873,15 +875,15 @@ class IPartyRef(Interface):
 
     type = TextLine(
         title = _(u"Type"),
-        description = _(u"""Name of the class (concrete or abstract) of object to which this 
+        description = _(u"""Name of the class (concrete or abstract) of object to which this
                         identifier type refers, e.g."PARTY", "PERSON", "GUIDELINE" etc.
-                        These class names are from the relevant reference model. 
-                        The type name "ANY" can be used to indicate that any type is accepted 
+                        These class names are from the relevant reference model.
+                        The type name "ANY" can be used to indicate that any type is accepted
                         (e.g. if the type is unknown). """),
-        
+
         #constraint = validateType
         )
-    
+
 
 class PartyRef(ObjectRef):
     u"""
@@ -899,7 +901,7 @@ class PartyRef(ObjectRef):
     def __init__(self,id,nameSpace,type):
         self.id=id
         self.nameSpace=nameSpace
-        self.type=type     
+        self.type=type
 
     def validateType(self):
         u"""
@@ -911,12 +913,12 @@ class PartyRef(ObjectRef):
 
 class ITemplateId(Interface):
     u""" Identifier for templates. Lexical form to be determined. """
-    
+
     value = TextLine(
         title=_(u"Value"),
         description=_(u"A single unicode string containing a valid ID"),
-        
-    )    
+
+    )
 
 
 class TemplateId(ObjectId):
@@ -934,7 +936,7 @@ class ITerminologyId(Interface):
     class, the value attribute identifies the Terminology in the terminology service,
     e.g. "SNOMED-CT". A terminology is assumed to be in a particular language,
     which must be explicitly specified.
-    
+
     The value if the id attribute is the precise terminology id identifier, including
     actual release (i.e. actual "version"), local modifications etc; e.g. "ICPC2".
     Lexical form: name [ '(' version ')' ]
@@ -942,11 +944,11 @@ class ITerminologyId(Interface):
 
     def name():
         u"""
-        Return the terminology id (which includes the "version" in some cases). 
+        Return the terminology id (which includes the "version" in some cases).
         Distinct names correspond to distinct (i.e. non-compatible) terminologies.
         Thus the names "ICD10AM" and "ICD10" refer to distinct terminologies.
         """
-        
+
     def versionId():
         u""" Version of this terminology, if versioning supported, else the empty string."""
 
@@ -972,7 +974,7 @@ class TerminologyId(ObjectId):
 
     def name(self):
         u"""
-        Return the terminology id (which includes the "version" in some cases). 
+        Return the terminology id (which includes the "version" in some cases).
         Distinct names correspond to distinct (i.e. non-compatible) terminologies.
         Thus the names "ICD10AM" and "ICD10" refer to distinct terminologies.
         """
@@ -1023,7 +1025,7 @@ class IVersionTreeId(Interface):
 
     def trunkVersion():
         u"""
-        Returns a string of the trunk version number; numbering starts at 1.     
+        Returns a string of the trunk version number; numbering starts at 1.
         """
 
     def branchNumber():
@@ -1056,7 +1058,7 @@ class VersionTreeId(grok.Model):
 
     implements(IVersionTreeId)
 
-    PATTERN = r"[1-9](\d)*(\.(\d)+\.(\d)+)?"    
+    PATTERN = r"[1-9](\d)*(\.(\d)+\.(\d)+)?"
 
     def __init__(self, value):
         self.__branchNumber = None
@@ -1089,12 +1091,12 @@ class VersionTreeId(grok.Model):
         # where both must be 0 to indicate no branch
         if (branchNo == 0) or (branchV == 0):
             if branchV != branchNo:
-                raise(ValueError, 'breach of branch_validity') 
+                raise(ValueError, 'breach of branch_validity')
 
 
     def trunkVersion(self):
         u"""
-        Returns a string of the trunk version number; numbering starts at 1.     
+        Returns a string of the trunk version number; numbering starts at 1.
         """
         return self.__trunkVersion
 
@@ -1154,7 +1156,7 @@ class VersionTreeId(grok.Model):
         # where both must be 0 to indicate no branch
         if (branchNo == 0) or (branchV == 0):
             if branchV != branchNo:
-                raise(ValueError, 'breach of branch_validity') 
+                raise(ValueError, 'breach of branch_validity')
 
     def branchNumber(self):
         return self.__branchNumber
@@ -1173,7 +1175,7 @@ class IMeasurementService(Interface):
     def isValidUnitsString(units):
         u"""
         True if the units string 'units' is a valid string according to the HL7 UCUM specification.
-        units != None                   
+        units != None
         """
 
     def unitsEquivalent(units1, units2):
@@ -1191,7 +1193,7 @@ class MeasurementService(grok.Model):
     def isValidUnitsString(units):
         u"""
         True if the units string 'units' is a valid string according to the HL7 UCUM specification.
-        units != None                   
+        units != None
         """
 
     def unitsEquivalent(units1, units2):
@@ -1221,11 +1223,11 @@ class CodeSetAccess(grok.Model):
 
     def idValid(idStr):
         u""" True if id != None and id != ''  """
-        
-        
+
+
 class OpenehrCodeSetIdentifiers():
-    u""" 
-    List of identifiers for code sets in the openEHR terminology. 
+    u"""
+    List of identifiers for code sets in the openEHR terminology.
     """
 
     CodeSetIdCharacterSets='character sets'
@@ -1239,7 +1241,7 @@ class OpenehrCodeSetIdentifiers():
 
 def validCodeSetId(anId):
     u"""
-    Boolean Validity function to test if an identifier is in 
+    Boolean Validity function to test if an identifier is in
     the tuple defined by class OpenehrCodeSetIdentifiers.
     """
     return anId in OpenehrCodeSetIdentifiers.values
@@ -1261,8 +1263,8 @@ class OpenehrTerminologyGroupIdentifiers():
     groupIdParticipationMode='participation mode'
     groupIdRelatedPartyRelationship='related party relationship'
     groupIdSetting='setting'
-    groupIdTermMappingPurpose='term mapping purpose'	
-    groupIdVersionLifecycleState='version lifecycle state'	
+    groupIdTermMappingPurpose='term mapping purpose'
+    groupIdVersionLifecycleState='version lifecycle state'
 
     values=(terminologyId, groupIdAuditChangeType, groupIdAttestationReason,\
             groupIdCompositionCategory, groupIdEventMathFunction, groupIdIsmStates, \
@@ -1285,7 +1287,7 @@ class TerminologyAccess(grok.Model):
 
     def id(idStr):
         u"""ID of this code set"""
-        
+
     def allCodes(codeSet):
         u""" Return all codes known in this terminology """
 
@@ -1311,8 +1313,8 @@ class TerminologyAccess(grok.Model):
 
     def idExists():
         u""" True if id != None and id != '' """
-        
-        
+
+
 class TerminologyService(grok.Model):
     u"""
     Defines an object providing proxy access to a terminology service.
@@ -1321,10 +1323,10 @@ class TerminologyService(grok.Model):
     def terminology(name):
         u"""
         Return an interface to the terminology named name. Allowable names include
-        "openehr","centc251",any name from are taken from the US NLM UMLS meta-data 
+        "openehr","centc251",any name from are taken from the US NLM UMLS meta-data
         list at http://www.nlm.nih.gov/research/umls/metaa1.html
 
-        name != None and name is a valid TerminologyAccess.        
+        name != None and name is a valid TerminologyAccess.
         """
     def codeSet(name):
         u"""
@@ -1334,7 +1336,7 @@ class TerminologyService(grok.Model):
         """
 
     def codeSetForId(id):
-        u""" 
+        u"""
         Return an interface to the code_set identified internally in openEHR by id.
 
         id != None and validCodeSetId(id) == True
@@ -1349,7 +1351,7 @@ class TerminologyService(grok.Model):
         name != None and name != ''
         """
 
-    def hasCodeSet(name): 
+    def hasCodeSet(name):
         u"""
         True if codeSet linked to internal name (e.g. "languages") is available.
 
@@ -1408,7 +1410,7 @@ class Smallest:
     def __cmp__(self, other):
         """Compares this with another object
 
-    Always indicates that self is less than other, unless both are of 
+    Always indicates that self is less than other, unless both are of
     type Smallest, in which case they are equal.
 
     >>> 0 < Smallest()
@@ -1441,7 +1443,7 @@ class Smallest:
     def __repr__(self):
         """Returns an evaluable representation of the object
 
-    The representation of the smallest number is -Inf, which means 
+    The representation of the smallest number is -Inf, which means
     negative infinity.
 
     >>> Smallest()
@@ -1604,7 +1606,7 @@ class Interval(Field):
         if(upper_included and isinstance(upper, Largest)):
             raise ValueError('upper_included implies upper greater than Inf')
 
-        self.lower = lower 
+        self.lower = lower
         if (isinstance(lower, Smallest)):
             self.lower_unbounded = True
         else:
@@ -1679,5 +1681,5 @@ class Interval(Field):
                     return True
                 elif (self.upper_included and value == self.upper):
                     return True
-                else:       
-                    return False 
+                else:
+                    return False

@@ -16,6 +16,7 @@ openEHR Terminology models
 
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
+__contributors__ = u'<name> <email address>'
 
 import os
 from xml.etree.ElementTree import ElementTree,Element
@@ -30,34 +31,34 @@ _ = MessageFactory('oship')
 
 class IopenEHRTerminology(Interface):
     """openEHR terminology codes"""
-    
+
     groupName=TextLine(
         title=_("Group Name")
     )
-    
+
     conceptId=TextLine(
         title=_(u"Concept ID")
     )
-    
+
     rubric=TextLine(
         title=_(u"Rubric")
     )
-        
-    
+
+
 class openEHRTerminology(grok.Model):
     """openEHR Terminology codes"""
-    
+
     implements(IopenEHRTerminology)
-    
+
     def __init__(self,groupName,conceptId,rubric):
         self.groupName=groupName
         self.conceptId=conceptId
         self.rubric=rubric
-        
-        
+
+
 def importOETerms():
     """Create a list of openEHR Terms to add to the term server."""
-    
+
     termslist=[]
     #create an ElementTree instance from an XML file
     doc = ElementTree(file=os.getcwd()+"/src/oship/oeterm/openehr_terminology_en.xml")
@@ -73,14 +74,14 @@ def importOETerms():
                 for y in conceptlist:
                     concepts=y.items()
                     conceptId=unicode(concepts[0][1],'utf-8')
-                    conceptRubric=unicode(concepts[1][1],'utf-8')                    
+                    conceptRubric=unicode(concepts[1][1],'utf-8')
                     #print grpname, conceptId, conceptRubric
                     "grpname + concepId is required as a key because some concepIds are repeated in different groups."
                     termslist.append((grpname+' '+conceptId,openEHRTerminology(grpname,conceptId,conceptRubric)))
-                    
-                    
+
+
     #print termslist
-    
+
     return termslist
 
 

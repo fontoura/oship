@@ -11,12 +11,14 @@
 u"""
 
 From the Extract Information Model
- 
+
 """
 
 
 __author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = u'plaintext'
+__contributors__ = u'<name> <email address>'
+
 
 from zope.i18nmessageid import MessageFactory
 from zope.interface import Interface

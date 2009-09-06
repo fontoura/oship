@@ -7,6 +7,10 @@
 # terms of the license.
 ##############################################################################
 
+__author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
+__docformat__ = u'plaintext'
+__contributors__ = u'<name> <email address>'
+
 import os
 import logging
 import datetime
@@ -23,18 +27,18 @@ _ = MessageFactory('oship')
 
 # Begin OSHIP Demo
 class oship(grok.Application, grok.Container):
-    pass    
+    pass
 
 class Index(grok.View):
     grok.context(oship)
-    
-    # Create the containers and initial python source templates for the archetypes   
+
+    # Create the containers and initial python source templates for the archetypes
     def render(self):
         logfile=os.getcwd()+'/parts/log/pyfile_build.log'
         #create the logfile if it doesn't exist
         f=open(logfile,'w')
         f.write("Python source file log.\n\n")
-        
+
         logging.basicConfig(level=logging.INFO,
                             format='%(asctime)s %(levelname)s %(message)s',
                             filename=f,
@@ -46,22 +50,22 @@ class Index(grok.View):
             self.context['aql'] = grok.Container() # AQL repository
         except DuplicationError:
             pass
-        
+
         print "\n\n\n********* Begin creating Python files. *********\n"
-        
+
         CreatePy()
-        
+
         print "\n\n Finished creating Python source files.\n"
-        
+
         self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
-            
-    
+
+
 class OshipManage(grok.View):
     grok.context(oship)
-        
-class Terms(grok.View):   
+
+class Terms(grok.View):
     grok.context(oship)
-        
+
 class Demos(grok.View):
     grok.context(oship)
 
@@ -73,35 +77,35 @@ class ManageICD(grok.View):
 
 class ManageLOINC(grok.View):
     grok.context(oship)
-    
+
 class ManageRxTerms(grok.View):
     grok.context(oship)
 
 class ManageSMCT(grok.View):
     grok.context(oship)
 
-class EditPySrc(grok.View):   
+class EditPySrc(grok.View):
     grok.context(oship)
 
 
 
-    
+
 """
 Start the terminology import section
 """
-                
+
 class ImportOE(grok.View):
     """Import the openEHR vocabulary into the term server."""
     grok.context(oship)
 
     def render(self):
-        
+
         try:
             self.context['termserver']['oeterms'] = grok.Container()
         except DuplicationError:
             pass
-        
-        vocab=importOETerms() # a list of tuples consisting of 
+
+        vocab=importOETerms() # a list of tuples consisting of
         print len(vocab), " = # of terms to be added."
         n=len(vocab)
         x=0
@@ -111,14 +115,14 @@ class ImportOE(grok.View):
                 grpconcept=term[0]
                 termobj=term[1]
                 print grpconcept,termobj
-                
-                self.context['termserver']['oeterms'][grpconcept]=termobj 
+
+                self.context['termserver']['oeterms'][grpconcept]=termobj
                 #print "Added: # ",x, " - ",concept, termobj
             except DuplicationError:
                 print "Duplication of Concept: ", grpconcept
                 pass
             x+=1
-                    
+
         print "\n\nOpenEHR Terminology Import Complete"
         self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page
 
@@ -127,8 +131,8 @@ class ImportRxTerms(grok.View):
     grok.context(oship)
 
     def render(self):
-        
-        
+
+
         vocab=CreateRxTerms() # a list of tuples consisting of Release, RXCUI,Term Object
         numterms=len(vocab)
         n=len(vocab)
@@ -143,7 +147,7 @@ class ImportRxTerms(grok.View):
             try:
                 rxcui=vocab[x][1]
                 termobj=vocab[x][2]
-                
+
                 self.context['termserver'][release][rxcui]=termobj # add the term objects using rxcui as the key
                 #print "Added: # ",x, " - ",concept, termobj
             except DuplicationError:
@@ -151,7 +155,7 @@ class ImportRxTerms(grok.View):
                 pass
             x+=1
             print "Added: ",x," of ",numterms," RXCUI= ",rxcui
-            
+
         print "\n\nRxTerms import is complete.\n"
 
         self.redirect("http://localhost:8080/oship/oshipmanage") # now simply redirect to the main page

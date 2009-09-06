@@ -9,18 +9,20 @@
 
 
 """
-Returns a string to atbldr for the Python classnames and parameters in the definition section.        
+Returns a string to atbldr for the Python classnames and parameters in the definition section.
 """
 
-__author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
-__docformat__ = 'plaintext'
+
+__author__  = u'Timothy Cook <timothywayne.cook@gmail.com>'
+__docformat__ = u'plaintext'
+__contributors__ = u'<name> <email address>'
 
 
 def getClassName(keyword):
     u"""
     Map all of the ADL class workds to OSHIP classes and parameters.
     """
-    
+
     definClassMap={'SECTION':'Section(items,uid,nodeid,name,atdetails,fdraudit,links)',\
                    'COMPOSITION':'Composition(content,context,composer,category,lang,terr,uid,nodeid,name,atdetails,fdraudit,links)',\
                    'OBSERVATION':'Observation(data,state,nodeid,protocol,gid,lang,encod,subject,provider,opart,wfid,uid,atnodeid,name,atdetails,fdraudit,links)',\
@@ -62,12 +64,11 @@ def getClassName(keyword):
                    'PARTICIPATION':'Participation(performer,function,mode,time)',\
                    'ITEM_TABLE':'ItemTable(rows)',\
                    }
-    
-    
-    
+
+
+
     if definClassMap.has_key(keyword):
         return definClassMap[keyword]
     else:
         return None
-    
-    
+

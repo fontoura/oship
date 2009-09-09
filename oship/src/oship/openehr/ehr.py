@@ -15,7 +15,7 @@ openEHR EHR Information Model package Rev. 5.1.0
 
 __author__  = 'Timothy Cook <timothywayne.cook@gmail.com>'
 __docformat__ = 'plaintext'
-__contributors__ = u'Renato Pesca <rpesca@gmail.com>'
+__contributors__ = u'Higor dos Santos Pinto <higorpinto@yahoo.com.br>'
 
 
 import grok

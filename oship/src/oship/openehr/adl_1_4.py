@@ -85,7 +85,7 @@ if inline_validating:
     assert '1.2..3.4' == (number + '..' + number)
 
 uri = Combine(Word(alphas) + '://' + CharsNotIn(" >"))
-val = real | integer | attr_identifier
+val = Regex(r"[^;\)\r\n]+")
 valueDef = Forward()
 valueDef << Group( key + EQ + LT +
         Optional( Dict(OneOrMore( valueDef )) |
@@ -240,7 +240,7 @@ SPECIALIZE = CaselessKeyword("specialize") | CaselessKeyword("specialise")
 # ADL file sections:
 versionNum = delimitedList(Word(nums),'.',combine=True)
 archetypeSection = ARCHETYPE + LPAR + \
-                    Dict(delimitedList(Group(key + EQ + (versionNum | val) |
+                    Dict(delimitedList(Group(key + EQ + val |
                                              "controlled" | "uncontrolled"),";")) + \
                     RPAR + fileref("name_version")
 specializeSection = SPECIALIZE + fileref("name_version")
